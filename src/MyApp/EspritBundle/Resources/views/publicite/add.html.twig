@@ -1,0 +1,49 @@
+{# empty Twig template #}
+
+ {% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+ {% block ajout_publicite %}  
+<div id="divadd">
+  <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
+<table>
+<thead>
+
+    <tr>
+        <td> {{form_widget(form.position)}}  </td><td>position</td>
+        <td>{{ form_widget(form.image, { 'attr': {'placeholder': '  lien de la pub ','class':'inp-form'} }) }} </td>
+        <td>image</td>
+        <td> {{form_widget(form.user)}}  </td><td>nom user</td>
+      {{form_widget(form._token)}}  	
+        <td> <input type="submit"  value="submit"/>
+            <input type="reset" value="annuler"/>    </td>        
+		 
+      </tr>   
+</thead>
+ </table>
+</form>
+</div>
+{% endblock  %}
+	 
+	 
+	 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+

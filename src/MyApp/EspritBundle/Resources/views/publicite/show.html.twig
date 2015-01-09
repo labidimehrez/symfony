@@ -1,0 +1,54 @@
+{# empty Twig template #}
+{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+ {% block publicite %} 
+ 
+  
+{% for publicite in publicite %} 
+{% if publicite |length > 0 %}
+{% if publicite.position == 1 %}
+ <div id="position1">
+     <table class="bordered" >        
+     <tr>
+        <td><img src="{{ publicite.image }}" alt="" width="161" height="600" class="img-border"></td>        
+     </tr>     
+    </table>
+</div>  
+{% elseif publicite.position == 2 %}
+ 
+ <div id="position2">
+     <table class="bordered" >         
+     <tr>
+        <td><img src="{{ publicite.image }}" alt="" width="161" height="600" class="img-border"></td>         
+     </tr>   
+    </table>
+</div> 
+{% elseif publicite.position == 3 %}
+ 
+ <div id="position3">
+     <table class="bordered" >         
+     <tr>
+        <td><img src="{{ publicite.image }}" alt="" width="161" height="600" class="img-border"></td>         
+     </tr>   
+    </table>
+</div> 
+{% elseif publicite.position == 4 %}
+ 
+ <div id="position4">
+     <table class="bordered" >         
+     <tr>
+        <td><img src="{{ publicite.image }}" alt="" width="161" height="600" class="img-border"></td>         
+     </tr>   
+    </table>
+</div> 
+{% endif%}
+
+
+
+
+
+
+
+
+{% endif%}
+ {% endfor %} 
+{% endblock  %}

@@ -1,0 +1,16 @@
+my_app_article:
+    resource: "@MyAppArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_forum:
+    resource: "@MyAppForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_user:
+    resource: "@MyAppUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_esprit:
+    resource: "@MyAppEspritBundle/Resources/config/routing.yml"
+    prefix:   /
+

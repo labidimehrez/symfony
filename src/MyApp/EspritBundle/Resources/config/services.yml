@@ -1,0 +1,7 @@
+parameters:
+#    my_app_esprit.example.class: MyApp\EspritBundle\Example
+
+services:
+#    my_app_esprit.example:
+#        class: %my_app_esprit.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
