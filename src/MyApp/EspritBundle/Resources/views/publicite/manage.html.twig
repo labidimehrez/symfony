@@ -10,13 +10,20 @@
 <thead>
 
     <tr>
-        <td> {{form_widget(form.position)}}  </td><td>position</td>
-        <td>{{ form_widget(form.image, { 'attr': {'placeholder': '  lien de la pub ','class':'inp-form'} }) }} </td>
-        <td>image</td>
+        <td> {{   form_widget(form.position, { 'attr': { 'placeholder': '  position ','class': 'form-control'} } )   }}   </td> 
+        <td>{{    form_widget(form.image, { 'attr': { 'placeholder': ' image ','class': 'form-control'} }    )   }}  </td>
+     </tr>   
 
-      {{form_widget(form._token)}}  	
-        <td> <input type="submit"  value="submit"/>
-            <input type="reset" value="annuler"/>    </td>        
+      {{form_widget(form._token)}} 
+     <tr>
+         <td></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit"  value="submit" class="btn btn-warning btn-lg"/></td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="annuler"  class="btn btn-warning btn-lg"/>    </td>    
 		 
       </tr>   
 </thead>

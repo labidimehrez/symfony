@@ -2881,7 +2881,7 @@ background-color:#FFFFFF;
   left: 350px;
   top: 500px;
   width: 550px;
-  height: 50px;
+  height: 500px;
    z-index: 6000;
 }
 
@@ -2889,7 +2889,7 @@ background-color:#FFFFFF;
 background-color:#FFFFFF;
   position: absolute;
   left: 350px;
-  top: 570px;
+  top: 650px;
   width: 550px;
   height: 600px;
    z-index: 6000;
