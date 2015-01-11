@@ -1,38 +1,56 @@
 {# empty Twig template #}
-{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{% extends 'MyAppEspritBundle:publicite:show.html.twig' %}
  {% block publicitemanage %} 
  
-  
+ 
 
-
- 
- 
- 
-<div id="divadd">
-     {% if publicite |length > 0 %}
-<table class="bordered" >
+<div id="div_publicite_add">
+  <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
+<table>
 <thead>
 
     <tr>
-       <th>#</th>              
+        <td> {{form_widget(form.position)}}  </td><td>position</td>
+        <td>{{ form_widget(form.image, { 'attr': {'placeholder': '  lien de la pub ','class':'inp-form'} }) }} </td>
+        <td>image</td>
+
+      {{form_widget(form._token)}}  	
+        <td> <input type="submit"  value="submit"/>
+            <input type="reset" value="annuler"/>    </td>        
+		 
+      </tr>   
+</thead>
+ </table>
+</form>
+</div>
+ 
+ 
+ 
+<div id="div_showdetails">
+     {% if publicite2 |length > 0 %}
+<table  style="height:175px;width:450px;border:0px solid #000000;font:20px/17px Georgia, Garamond, Serif;overflow:auto;" >
+<thead>
+
+    <tr>
+                
         <th>Position</th>
         <th>Image</th>
-        <th>Title</th>
-        <th>User associé</th>
+   
        
    
     </tr>   
 </thead>
 </table>  
      {% endif %} 
-</div> 
-         {% if  publicite|length > 0  %} 
-    
-   <div>
  
-       <center ><div id="divadd"></br></br></br></br>
+         {% if  publicite2|length > 0  %} 
     
-<table class="bordered" >
+ 
+ 
+    
+    
+<table  style="height:175px;width:650px;border:0px solid #000000;font:20px/17px Georgia, Garamond, Serif;overflow:auto;" >
+
 <thead>
 
     <tr>
@@ -41,22 +59,19 @@
     
 </thead>  
      
-      {% for publicite in publicite %} 
+      {% for publicite2 in publicite2 %} 
      <tr>  
       
       
-        <td><b>position  </b>{{ publicite.position}}</td>
+        <td><b>No  </b>{{ publicite2.position}}</td>
         
-           <td>{{ publicite.image}}</td>
+        <td><img src="{{ publicite2.image }}" alt="" width="100" height="100"></td>
    
-        <td><a href="{{ path('my_app_esprit_publicite_add')}}"><img src="{{ asset('bundles/myappesprit/images/ajout.png') }}" alt="" /></a></td> 
-        <td><a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite.id}) }}">  <img src="{{ asset('bundles/myappesprit/images/delete.png') }}" alt="" />  </a></td>
-        <td><a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite.id}) }}">  <img src="{{ asset('bundles/myappesprit/images/update.png') }}" alt="" />  </a></td>
+        <td><a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">  <img src="{{ asset('bundles/myappesprit/images/delete.png') }}" alt="" />  </a></td>
+     <!--  <td><a href="{#{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }#}">  <img src="{#{ asset('bundles/myappesprit/images/update.png') }#}" alt="" />  </a></td>-->
      
         {% endfor %}
-         {% else %}
-          <div style="font:38px/15px Georgia, Garamond, Serif;"> 
-              <h2><p> (  rien  &agrave;   afficher )</p></h2> </div>
+ 
 
          {% endif %} 
     </tr>        
@@ -65,9 +80,9 @@
 
 </table>
     
-</div></center>
-    </div>
+</div> 
+    
 
  
  
-{% endblock  %}{# empty Twig template #}
+{% endblock  %} 

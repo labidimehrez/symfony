@@ -2858,13 +2858,39 @@ z-index: 545;
   height: 600px;
   z-index: 600;
 }
+#position0 {
+  position: absolute;
+  left: 0px;
+  top: 380px;
+  width: 160px;
+  height: 600px;
+  z-index: 600;
+}
+#position5{
+  position: absolute;
+  left: 1119px;
+  top: 380px;
+  width: 161px;
+  height: 600px;
+  z-index: 5;
+}
 
-
-
-#divadd{
+#div_publicite_add{
+background-color:#FFFFFF;
   position: absolute;
   left: 350px;
   top: 500px;
- 
-  z-index: 600;
+  width: 550px;
+  height: 50px;
+   z-index: 6000;
+}
+
+#div_showdetails{
+background-color:#FFFFFF;
+  position: absolute;
+  left: 350px;
+  top: 570px;
+  width: 550px;
+  height: 600px;
+   z-index: 6000;
 }

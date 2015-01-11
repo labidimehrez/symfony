@@ -17,12 +17,7 @@ class publiciteType extends AbstractType
         $builder
             ->add('position')
             ->add('image')
-           ->add('user', 'entity', array('class' => 'MyApp\UserBundle\Entity\User',     
-          'property' => 'nom',
-          'expanded' => false,
-          'multiple' => false,
-          'required' => true 
-        ));
+     ;
     }
     
     /**

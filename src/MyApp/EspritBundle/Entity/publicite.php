@@ -21,12 +21,6 @@ class publicite
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
-     */
- 
-    protected $user;
-    /**
      * @var integer
      *
      * @ORM\Column(name="position", type="integer",unique=true,nullable=false)
@@ -36,7 +30,7 @@ class publicite
    /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255,unique=true)
+     * @ORM\Column(name="image", type="string", length=255,nullable=false)
      */
     private $image;
 
@@ -96,15 +90,5 @@ class publicite
     {
         return $this->image;
     }
-    public function getUser() {
-        return $this->user;
-    }
 
-    public function setUser($user) {
-        $this->user = $user;
-    }
-
-   public function __toString() {
-        return $this->nom.''.$this->nom;
-    }
 }

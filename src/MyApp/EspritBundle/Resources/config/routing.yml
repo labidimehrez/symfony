@@ -1,6 +1,6 @@
 my_app_esprit_homepage:
-    pattern:  /
-    defaults: { _controller: MyAppEspritBundle:Default:index }
+    pattern:  /index.php
+    defaults: { _controller: MyAppEspritBundle:publicite:show }
     
     
     #      routing     publicité          #

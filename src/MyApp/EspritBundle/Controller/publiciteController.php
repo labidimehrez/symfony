@@ -28,11 +28,11 @@ class publiciteController extends Controller
                
                
                
-               return $this->redirect($this->generateUrl('my_app_esprit_publicite_show'));
+               return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
                }
         }
         
-       return $this->render('MyAppEspritBundle:publicite:add.html.twig',array('form'=>$form->createView())); 
+       return $this->render('MyAppEspritBundle:publicite:manage.html.twig',array('form'=>$form->createView())); 
     }
     
     
@@ -46,20 +46,11 @@ class publiciteController extends Controller
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
 
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-            'publicite' => $publicite,
+            'publicite2' => $publicite,
         ));
     }
     
-        public function manageAction()
-    {
-         $em = $this->getDoctrine()->getManager();
-
-        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
-
-        return $this->render('MyAppEspritBundle:publicite:manage.html.twig', array(
-            'publicite' => $publicite,
-        ));
-    }
+ 
     
     public function deleteAction($id)
     {
@@ -73,7 +64,7 @@ class publiciteController extends Controller
         $em->remove($publicite);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('my_app_esprit_publicite_show'));
+        return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
     }
     
     
@@ -97,21 +88,53 @@ class publiciteController extends Controller
         ->add('position', 'text')
        
         ->add('image', 'text')
-           
-            
-        ->add('utilisateur','entity',array('class'=>'MyApp\UserBundle\Entity\User','property'=>'nom'))
-        
+                            
         ->getForm();
 
     $form->handleRequest();
  
     if ($form->isValid()) {
         $em->flush();
-       return $this->redirect($this->generateUrl('my_app_esprit_publicite_show'));
+       return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
     }
                             
-       return $this->render('MyAppEspritBundle:publicite:edit.html.twig',array('form'=>$form->createView())); 
+       return $this->render('MyAppEspritBundle:publicite:manage.html.twig',array('form'=>$form->createView())); 
     }
-     
- 
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+ public function manageAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $publicite2 = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
+
+      
+   
+        
+        $publicite = new \MyApp\EspritBundle\Entity\publicite();
+        $form = $this->createForm(new \MyApp\EspritBundle\Form\publiciteType ,$publicite);
+        $request = $this->getRequest();
+        if( $request->isMethod('Post')  ){
+            
+           $form->bind($request);
+           
+           if($form->isValid())
+               
+               {
+               $publicite = $form->getData();
+               $em = $this->getDoctrine()->getManager();
+               $em->persist($publicite);
+               $em->flush();
+               
+               
+               
+               return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
+               }
+        }
+        
+       return $this->render('MyAppEspritBundle:publicite:manage.html.twig',array('form'=>$form->createView(),'publicite2' => $publicite2)); 
+    }
+   /////////////////////////////////////////////////////////////////////////////////////////
+    
+    
 }

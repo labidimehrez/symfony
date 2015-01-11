@@ -79,16 +79,11 @@ NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDER&n
  
 <!--les banners  -->
 <div id="SKYBANNERS" >
-<div id="Skyright"><img src="{{ asset('bundles/myappesprit/images/Skyright.png') }}" alt="" /></div>
-
-
-
-{% block publicite %}{% endblock  %}
- {% block ajout_publicite %}   {% endblock  %}
- 
- {% block publicitemanage %}   {% endblock  %}
-<div id="Skyleft"><img src="{{ asset('bundles/myappesprit/images/Skyleft.png') }}" alt="" /></div>
-</div>
+  
+ {% block publicitemanage %} {% endblock  %}
+ {% block publicite_show %}  {% endblock  %}
+    
+ </div>
 
 
 </body>

@@ -21,7 +21,7 @@ class User
      */
     private $id;   
     protected $notifications;
-    protected $publicites;
+   
     protected $sujets;
     protected $articles;
     protected $signes;
@@ -284,17 +284,12 @@ class User
     public function setNotifications($notifications) {
         $this->notifications = $notifications;
     }   
-    public function getPublicites() {
-        return $this->publicites;
-    }
 
     public function getSujets() {
         return $this->sujets;
     }
 
-    public function setPublicites($publicites) {
-        $this->publicites = $publicites;
-    }
+  
 
     public function setSujets($sujets) {
         $this->sujets = $sujets;
