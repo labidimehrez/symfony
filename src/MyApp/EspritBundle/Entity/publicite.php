@@ -1,13 +1,14 @@
 <?php
 
 namespace MyApp\EspritBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert; 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * publicite
  *
  * @ORM\Table(name="publicite")
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
 class publicite
@@ -27,10 +28,9 @@ class publicite
      */
     private $position;
 
-   /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255,nullable=false)
+    /**
+     * @var string $image
+     * @ORM\Column(name="image", type="text", length=255)
      */
     private $image;
 
@@ -90,5 +90,4 @@ class publicite
     {
         return $this->image;
     }
-
 }

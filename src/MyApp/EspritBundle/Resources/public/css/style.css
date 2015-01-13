@@ -2878,9 +2878,9 @@ z-index: 545;
 #div_publicite_add{
 background-color:#FFFFFF;
   position: absolute;
-  left: 350px;
+  left: 200px;
   top: 500px;
-  width: 550px;
+  width: 1000px;
   height: 500px;
    z-index: 6000;
 }

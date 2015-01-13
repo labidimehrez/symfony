@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new MyApp\UserBundle\MyAppUserBundle(),
             new MyApp\ForumBundle\MyAppForumBundle(),
             new MyApp\ArticleBundle\MyAppArticleBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

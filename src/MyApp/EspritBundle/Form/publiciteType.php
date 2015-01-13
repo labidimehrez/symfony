@@ -16,8 +16,8 @@ class publiciteType extends AbstractType
     {
         $builder
             ->add('position')
-            ->add('image')
-     ;
+           ->add('image', 'ckeditor', array('required' => false))
+     ;   
     }
     
     /**

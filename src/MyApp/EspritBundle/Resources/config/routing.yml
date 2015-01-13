@@ -27,3 +27,6 @@ my_app_esprit_publicite_edit:
     pattern:  /publicite/{id}/edit
     defaults: { _controller: MyAppEspritBundle:publicite:edit}    
 #  ########################################################################################
+
+
+ 
