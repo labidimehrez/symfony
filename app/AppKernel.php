@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new MyApp\ArticleBundle\MyAppArticleBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

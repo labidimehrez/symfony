@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% block head %}
+
+	<!-- Basics -->
+	
+	<meta charset="utf-8">
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title></title>
+
+	<!-- CSS -->
+ 	
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/stylesheet.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/reset.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/animate.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/styles.css') }}"/>  
+     
+	
+ {%endblock%}
+<body>
+	<div id="container">
+		  {% block fos_user_content %}
+                  {% endblock fos_user_content %}
+	</div>
+	
+</body>
+</html>	

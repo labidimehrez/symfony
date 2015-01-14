@@ -1,0 +1,41 @@
+ 
+
+
+<!--
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p> 
+    <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+</div>
+-->
+
+
+{% block fos_user_content %}
+
+    
+<div id="container">
+<form action="{{ path("fos_user_security_check") }}" method="post">
+
+                 
+<label for="name">Username:</label>
+		
+ <input type="name" id="username" name="_username" value="{{ user.username }}" required="required" />
+		
+<label for="username">Email:</label>
+		
+<!--<p><a href="#">Forgot your password?</a> -->
+		
+<input type="name" id="username" name="_username" value="{{ user.email }}" required="required" />
+		
+<div id="lower">
+		
+ 
+		
+ <!-- <input type="submit" id="_submit" name="_submit" value="{#{ 'security.login.submit'|trans({}, 'FOSUserBundle') }#}" /> -->
+		
+</div>
+		
+</form>
+    
+</div>  
+ 
+{% endblock fos_user_content %}
