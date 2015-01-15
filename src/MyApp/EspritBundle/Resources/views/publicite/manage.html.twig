@@ -4,7 +4,7 @@
  {% block publicitemanage %} 
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
  
-
+{#% if is_granted('ROLE_ADMIN') %#}
 <div id="div_publicite_add">
   <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
 <table>
@@ -39,5 +39,5 @@
 </form>
 </div>
  
-
+{#% endif %#}
 {% endblock  %} 

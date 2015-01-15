@@ -3,7 +3,10 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_USER:        ROLE_USER
+        ROLE_EDITOR:      [ROLE_EDITOR, ROLE_USER]     
+        ROLE_SUPERSOL:    [ROLE_SUPERSOL, ROLE_EDITOR, ROLE_USER]
+        ROLE_ADMIN:       [ROLE_ADMIN ,ROLE_SUPERSOL, ROLE_EDITOR, ROLE_USER]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
@@ -48,8 +51,11 @@ security:
         FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_USER:        ROLE_USER
+        ROLE_EDITOR:      [ROLE_EDITOR, ROLE_USER]     
+        ROLE_SUPERSOL:    [ROLE_SUPERSOL, ROLE_EDITOR, ROLE_USER]
+        ROLE_ADMIN:       [ROLE_ADMIN ,ROLE_SUPERSOL, ROLE_EDITOR, ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         fos_userbundle:
