@@ -55,7 +55,7 @@ protected $id;
     /**
      * @var string
      *
-     * @ORM\Column(name="numeroportable", type="integer", length=255,nullable=false)
+     * @ORM\Column(name="numeroportable", type="integer", length=255,nullable=true)
      */
     private $numeroportable;
     /**
@@ -71,11 +71,26 @@ protected $id;
      * @ORM\Column(name="date_naissance", type="date",nullable=true)
      */
     private $datenaissance;
-    
+    public function getDatedeCreationUser() {
+        return $this->datedeCreationUser;
+    }
+
+    public function setDatedeCreationUser(\DateTime $datedeCreationUser) {
+        $this->datedeCreationUser = $datedeCreationUser;
+        return $this;
+    }
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_cre_user", type="datetime",nullable=true)
+     */
+    private $datedeCreationUser;
        public function __construct()
     {
            parent::__construct();
         $this->datenaissance = new \DateTime();
+        $this->datedeCreationUser = new \DateTime();
     }
     
     public function setDatenaissance(\DateTime $datenaissance) {
@@ -93,7 +108,7 @@ protected $id;
     /**
      * @var string
      *
-     * @ORM\Column(name="addresse", type="string", length=255,nullable=false)
+     * @ORM\Column(name="addresse", type="string", length=255,nullable=true)
      */
     private $addresse;
     /**
@@ -197,8 +212,5 @@ protected $id;
         return $this;
     }
 
-
-    
-  
 
 }

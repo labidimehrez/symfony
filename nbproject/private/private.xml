@@ -3,17 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Resources/config/services.yml</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/registration.xml</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Captcha.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Registration/register_content.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Validator/Constraints/CaptchaValidator.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Validator/Constraints/Captcha.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Resources/views/captcha.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/innocead/captcha-bundle/Innocead/CaptchaBundle/Controller/CaptchaController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Entity/User.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Profile/edit_content.html.twig</file>
         </group>
     </open-files>
 </project-private>

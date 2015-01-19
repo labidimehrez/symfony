@@ -2937,10 +2937,54 @@ font-family: "HelveticaNeueLTStd";
 }
 #buttonsregistrerEditprofil{
   position: absolute;
-  left: 70px;
-  top: 600px;
+  left: 230px;
+  top: 730px;
   /*width: 1000px;
   height: 500px;*/
    z-index: 6;
 
+}
+
+#buttonannuler{
+color: #b41d23;
+float: left;
+font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
+font-size: 14px;
+font-weight: normal;
+left: 20px;
+position: relative;
+top: 20px;
+text-decoration: none;
+}
+
+#detailsduprofil{
+position: absolute;
+border-bottom: 1px solid rgb(160, 151, 151); 
+left: 230px;
+top: 400px;
+width: 560px;
+height: 150px;  
+z-index: 6000;
+}
+.username{
+float: left;
+font-size: 32px;
+margin-left: 225px;
+margin-top: -100px;
+}
+
+#pnguser{
+  left: 230px;
+  top: 400px;
+ /* width: 616px;
+  height: 150px;*/ 
+   z-index: 6000;
+}
+#detailsdesession{
+position: absolute;
+  left: 375px;
+  top: 50px;
+ /* width: 616px;
+  height: 150px;*/ 
+   z-index: 6000;
 }

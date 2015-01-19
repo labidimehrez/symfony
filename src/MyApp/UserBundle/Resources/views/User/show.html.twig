@@ -1,0 +1,14 @@
+
+
+
+{# empty Twig template #}
+{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+ {% block showUser %}  
+<div id="div_publicite_add">
+{% for user in user %}
+<td>{{user.username}}</td></br>
+ 
+ <td><a href="{{ path('my_app_user_edit',{'id':user.id}) }}">update</a></td>
+{%endfor%}
+</div>
+ {% endblock  %}

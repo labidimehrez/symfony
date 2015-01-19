@@ -1,0 +1,50 @@
+ 
+
+{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{% block editUser %}     
+<div id="div_publicite_add"> 
+ 
+ <form role="form" method="post" {{ form_enctype(form) }} >
+   <table>
+                 
+                        {{form_widget(form)}} 
+        
+                <tr>
+			<th valign="top"></th>
+			<td>{#{#form_widget(form)}#} </td>  
+                        <td> {{form_widget(form._token)}} </td>	                       
+		</tr>
+                
+               
+		<td valign="top">
+			<input type="submit"  value="submit"/>
+			<input type="reset" value="reset"/>
+                        
+		</td>
+  </table>
+</form>
+</div>
+ 
+{% endblock  %}
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 

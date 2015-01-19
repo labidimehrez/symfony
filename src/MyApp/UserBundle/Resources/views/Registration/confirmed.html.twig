@@ -1,7 +1,26 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+
+
+<div id="login">
+       </br></br>
+    <b><h2>Opret profil</h2></b></br>
+    <p>Kan ikke sende e-mail. Kontakt sitets administrator hvis problemet fortsætter.</p>
+    <p>Yderligere instruktioner er sendt til din e-mail-adresse.</p>
+    
+    <p>Velkommen  {{user.username}} til SOL.dk.Din konto er oprettet 
+        Du har nu følgende vægmuligheder:</p>
+    
+    <p> Se nyheder
+        Fædiggøre din profil
+         Se din mail</p>
+</div> 
+    
+    
+    
+    
+    
     {% if app.session is not empty %}
         {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
         {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
