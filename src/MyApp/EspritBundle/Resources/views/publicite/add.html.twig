@@ -1,7 +1,7 @@
 {# empty Twig template #}
 
  {% extends 'MyAppEspritBundle:Default:index.html.twig' %}
- {% block ajout_publicite %}  
+ {% block ajout_publicite %}   
 <div id="divadd">
   <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
 <table>

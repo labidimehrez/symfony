@@ -1,3 +1,12 @@
-my_app_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MyAppUserBundle:Default:index }
+my_app_user_show:
+    pattern:  /user/show
+    defaults: { _controller: MyAppUserBundle:User:show }
+    
+my_app_user_delete:
+    pattern:  /user/{id}/delete
+    defaults: { _controller: MyAppUserBundle:User:delete}
+    
+    
+my_app_user_edit:
+    pattern:  /user/{id}/edit
+    defaults: { _controller: MyAppUserBundle:User:edit}

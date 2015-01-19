@@ -2894,3 +2894,53 @@ background-color:#FFFFFF;
   height: 600px;
    z-index: 6000;
 }
+
+
+
+#login{
+background-color:#FFFFFF;
+  position: absolute;
+  left: 200px;
+  top: 400px;
+  width: 1000px;
+  height: 500px;
+   z-index: 6;
+}
+
+#login-input{
+   /*background-color:#FFFFFF;*/
+  position: absolute;
+  left: 70px;
+  top: 165px;
+  /*width: 1000px;
+  height: 500px;*/
+   z-index: 6;
+}
+
+
+.rouge{
+ color: #c52821 ;
+ background-color:transparent;
+}
+.stylepolice{
+font-family: "HelveticaNeueLTStd";
+}
+
+#buttonsregistrer{
+  position: absolute;
+  left: 70px;
+  top: 400px;
+  /*width: 1000px;
+  height: 500px;*/
+   z-index: 6;
+
+}
+#buttonsregistrerEditprofil{
+  position: absolute;
+  left: 70px;
+  top: 600px;
+  /*width: 1000px;
+  height: 500px;*/
+   z-index: 6;
+
+}

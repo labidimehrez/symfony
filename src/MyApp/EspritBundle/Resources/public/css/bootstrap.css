@@ -303,7 +303,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -7129,7 +7129,7 @@ td.visible-print {
 body {
   background-color: #f2f2f2;
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    /*font-weight: 300;*/
     font-size: 16px;
     color: #555;
 

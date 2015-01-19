@@ -1,15 +1,52 @@
+ 
 
+ 
+{% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<div id="login">
+  
+    </br></br>
+    <b><h2>Opret profil</h2></b></br>
+    <p> Vekommen til SOL.dk ......</p> 
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+    {#     formulaire complet #}
+        
+       {#{ form_widget(form) }#}
+        
+  
+   <div id="login-input"> 
+       <table>
+           <tr>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Name &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td><td> {{form_widget(form.username)}}   </td></tr>
+        
+           <tr>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td>  {{form_widget(form.nomprenom)}}      </td></tr>
+         <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Password &nbsp;&nbsp;  <b  class="rouge">*</b> &nbsp;&nbsp;</td><td>  {{form_widget(form.plainPassword.first)}} </td></tr>
+             <tr><td>Confirm Password &nbsp;&nbsp;  <b  class="rouge">*</b> &nbsp;&nbsp;</td><td>  {{form_widget(form.plainPassword.second)}} </td></tr>
 
+    
+        </table> 
+       
+       
+                </br></br> 
+                <tr><td>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" value="" class="btn btn-warning btn-lg" required="true" />  
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;Jaccepte les <b  class="rouge"> termes </b></td></tr>
+        
+            
+     
+       
+           
+                {{form_widget(form._token)}} 
+       
+                <div id="buttonsregistrer">
+               <input type="submit" value="{{ 'opret profil'|trans({}, 'FOSUserBundle') }}"class="btn btn-warning btn-lg"  />
+                <input type="reset" value="annuler" class="btn btn-warning btn-lg"  />               
+                </div>
+      
+    </div>     
+    </form>
+</div>
+ 
 
-
-
-
-
-
-
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
+ 

@@ -1,6 +1,44 @@
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
+
+{% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+
+<div id="login">
+
+   
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+        {#{ form_widget(form) }#}
+        
+         <div id="login-input"> 
+       <table>
+           
+         <tr><td>Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr>
+         <tr><td>Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr>
+          <tr><td>Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.datenaissance) }}   </td></tr>
+         <tr><td>Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first) }}  </td></tr>
+         <tr><td>Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.second) }}  </td></tr>
+         <tr><td>Addresse &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
+          <tr><td>Code Postal</td><td> {{form_widget(form.codepostal)}}   </td></tr>
+          <tr><td>Ville</td><td> {{form_widget(form.ville)}}   </td></tr>
+         <tr><td>Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
+           
+        <tr><td>Email</td><td> {{form_widget(form.email) }}  </td></tr>
+       <tr><td>About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
+        </table> 
+       
+           
+               <td> {{form_widget(form._token)}} </td> 
+        
+      
     </div>
-</form>
+        
+    
+        <div id="buttonsregistrerEditprofil">
+            <input type="submit" value="save" class="btn btn-warning btn-lg"  />
+            <input type="reset" value="annuler" class="btn btn-warning btn-lg"  />
+        </div>
+    </form>
+    
+    
+    
+    
+    
+</div>

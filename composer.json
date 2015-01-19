@@ -20,8 +20,11 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "egeloen/ckeditor-bundle": "~2.0",
-	"twitter/bootstrap-bundle": "*" ,
+        "twitter/bootstrap-bundle": "*" ,
         "friendsofsymfony/user-bundle": "*"
+    
+        
+        
     },
     "scripts": {
         "post-install-cmd": [

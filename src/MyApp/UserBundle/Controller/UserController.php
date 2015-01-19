@@ -1,13 +1,74 @@
 <?php
 
 namespace MyApp\UserBundle\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
-{
-    public function indexAction($name)
-    {
-        return $this->render('MyAppUserBundle:Default:index.html.twig', array('name' => $name));
+class UserController extends Controller {
+
+    public function showAction() {
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em->getRepository('MyAppUserBundle:user')->findAll();
+
+        return $this->render('MyAppUserBundle:user:show.html.twig', array(
+                    'user' => $user,
+        ));
     }
+
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('MyAppUserBundle:user')->find($id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('No user found for id ' . $id);
+        }
+        $em->remove($user);
+        $em->flush();
+        $this->get('session')->getFlashBag()->set('message', 'Ce user disparait !!');
+
+        return $this->redirect($this->generateUrl('my_app_user_show'));
+    }
+
+   public function editAction($id, Request $request) {
+
+    $em = $this->getDoctrine()->getManager();
+    $user = $em->getRepository('MyAppUserBundle:user')->find($id);
+    if (!$user) {
+      throw $this->createNotFoundException(
+              'no Utilisateur found for id ' . $id
+      );
+    }
+    
+    $form = $this->createFormBuilder($user)
+        
+        
+//            ->add('username', 'text')
+            ->add('roles', 'collection', array(
+                      
+                   'type' => 'choice',
+                   'options' => array(
+                    
+                       'label' => false, /* Ajoutez cette ligne */                    
+                       'choices' => array(
+                           'ROLE_ADMIN' => 'Admin',
+                           'ROLE_SUPER_ADMIN' => 'Superadmin',
+                           'ROLE_SUPERSOL' => 'Supersol',
+                           'ROLE_EDITOR' => 'Editor',
+                           'ROLE_USER' => 'User',
+                       ) ) ) )
+        
+        ->getForm();
+
+    $form->handleRequest($request);
+ 
+
+    if ($form->isValid()) {
+        $em->flush();
+       return $this->redirect($this->generateUrl('my_app_user_show'));
+    }
+                            
+       return $this->render('MyAppUserBundle:user:edit.html.twig',array('form'=>$form->createView())); 
+    }
+ 
 }
