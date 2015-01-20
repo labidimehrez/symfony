@@ -21,8 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "egeloen/ckeditor-bundle": "~2.0",
         "twitter/bootstrap-bundle": "*" ,
-        "friendsofsymfony/user-bundle": "*"
-    
+        "friendsofsymfony/user-bundle": "*",
+        "genemu/form-bundle": "2.1.*"
         
         
     },

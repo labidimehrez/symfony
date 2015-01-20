@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
         
            
            

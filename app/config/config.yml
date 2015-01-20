@@ -71,6 +71,12 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MyApp\UserBundle\Entity\User
+  ## config de la captcha  
+genemu_form:
+       recaptcha:
+             public_key:  "6LdpuwATAAAAAB_znGVRVH_WQIOQbkQQCYKHjbCC"
+             private_key: "6LdpuwATAAAAAJrXx_WTwQHx4O8X-gNqoMAT3AHL"
   
-  
+  ##clé secrete 6LdpuwATAAAAAJrXx_WTwQHx4O8X-gNqoMAT3AHL
+  ##clé public  6LdpuwATAAAAAB_znGVRVH_WQIOQbkQQCYKHjbCC
      
