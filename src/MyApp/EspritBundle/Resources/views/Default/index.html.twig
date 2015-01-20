@@ -64,9 +64,25 @@ NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDER&n
 
 <div id="EMAIL">EMAIL</div>
 
-<div id="Mail_copy"><img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" /> </div>
 
-<div id="OPRET_PROFIL_LOGIN">OPRET PROFIL </br>LOGIN</div>
+
+<div id="Mail_copy"><img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" /> </div>
+{% if is_granted( 'ROLE_USER' ) %}
+<div id="OPRET_PROFIL_LOGIN">
+    <a href="{{path('fos_user_profile_edit') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+         MIN PROFIL  </a>
+     </br>
+     <a href="{{path('fos_user_security_logout') }}"style="text-decoration:none;color: white;">LOG UID</a>
+</div>
+{% else %}
+<div id="OPRET_PROFIL_LOGIN">
+    <a href="{{path('fos_user_registration_register') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+         OPRET PROFIL  </a>
+     </br>
+     <a href="{{path('fos_user_security_login') }}"style="text-decoration:none;color: white;">LOG IND</a>
+</div>
+{% endif %}
+
 
 <div id="MESSAGE4">4</div>
 
