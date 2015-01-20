@@ -2,11 +2,11 @@
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <div id="detailsduprofil">
    <b><h2>Min profil</h2></b>   
-   <div class="pnguser">    <img src="{{ asset('bundles/myappesprit/images/user.png') }}" alt="" /> </div>
+    <div style="padding: 10px 50px 0 10px;position:relative; top:-25px;left:20px; ">  <img src="{{ asset('bundles/myappesprit/images/user.png') }}" alt="" /> </div>
    <b class="username"><h1> {{app.user.username }}</h1></b>
    <div id="detailsdesession"> 
-       <h6>Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-m-d H:i:s')  }} </h6>  
-    <h6> Sidst online:{{app.user.lastLogin|date('Y-m-d H:i:s')}}</h6></div>
+   <h6>Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-m-d H:i:s')  }} </h6>  
+   <h6> Sidst online:{{app.user.lastLogin|date('Y-m-d H:i:s')}}</h6></div>
         
 </div>
 <div id="login">

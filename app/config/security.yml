@@ -74,7 +74,12 @@ security:
             remember_me:
                 key:         %secret%      
                 # On définit la clé pour le remember_me (%secret% est un parametre de parameters.ini)
-            logout:       true
+            logout:
+                path:   fos_user_security_logout
+                target: /index.php
             anonymous:    true
+            
+            # logout:       true    par defaut
+            #anonymous:    true
 
    
