@@ -1,4 +1,7 @@
  
+<script type="text/javascript">
+    var RecaptchaOptions = { theme : 'clean' };
+</script>
 
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <div id="login">
@@ -45,6 +48,7 @@
   </tr>
   <tr>
     <td height="122">Skriv bogstaverne</td>
+    
     <td>{{form_widget(form.captcha)}}</td>
     <td><b  class="rouge">skift bogstaverne</b></td>
   </tr>
