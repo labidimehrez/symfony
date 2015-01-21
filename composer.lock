@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e1b7a3da4376b2cbee2153a505fcce3a",
+    "hash": "6201abdf4e03c2b1828995c081636b90",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -911,6 +911,49 @@
             "time": "2013-12-07 10:10:39"
         },
         {
+            "name": "jbafford/password-strength-bundle",
+            "version": "dev-master",
+            "target-dir": "Bafford/PasswordStrengthBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jbafford/PasswordStrengthBundle.git",
+                "reference": "503a483f20036c13184b07e2512e40f115b72a0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jbafford/PasswordStrengthBundle/zipball/503a483f20036c13184b07e2512e40f115b72a0b",
+                "reference": "503a483f20036c13184b07e2512e40f115b72a0b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/symfony": ">=2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bafford\\PasswordStrengthBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Bafford"
+                }
+            ],
+            "description": "Provides a password strength validator",
+            "homepage": "https://github.com/jbafford/PasswordStrengthBundle",
+            "keywords": [
+                "bafford",
+                "password",
+                "strength"
+            ],
+            "time": "2014-10-22 15:05:21"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -1780,7 +1823,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jbafford/password-strength-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

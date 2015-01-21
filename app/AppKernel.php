@@ -24,7 +24,7 @@ class AppKernel extends Kernel
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-        
+          
            
            
         );

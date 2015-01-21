@@ -48,13 +48,13 @@ protected $id;
     private $sexe;
     /**
      * @var string
-     *
+     * 
      * @ORM\Column(name="ville", type="string", length=255,nullable=true)
      */
     private $ville;
     /**
      * @var string
-     *
+     *  
      * @ORM\Column(name="numeroportable", type="integer", length=255,nullable=true)
      */
     private $numeroportable;
@@ -113,7 +113,7 @@ protected $id;
     private $addresse;
     /**
      * @var string
-     *
+     * 
      * @ORM\Column(name="nomprenom", type="string", length=255,nullable=true)
      */
     private $nomprenom;

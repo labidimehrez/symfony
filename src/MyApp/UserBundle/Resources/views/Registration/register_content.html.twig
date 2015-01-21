@@ -14,7 +14,7 @@
       {% block javascripts %}{{ form_javascript(form) }}{% endblock %}
             
       
-    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"  > 
     {#     formulaire complet #}
        
    <div id="login-input"> 
@@ -70,7 +70,11 @@
                <input type="submit" value="{{ 'opret profil'|trans({}, 'FOSUserBundle') }}"class="btn btn-warning btn-lg"  />
                 <input type="reset" value="annuler" class="btn btn-warning btn-lg"  />               
                 </div>
-      
+       
+ 
+
+ 
+
     </div>     
     </form>
 </div>

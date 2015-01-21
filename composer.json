@@ -22,7 +22,8 @@
         "egeloen/ckeditor-bundle": "~2.0",
         "twitter/bootstrap-bundle": "*" ,
         "friendsofsymfony/user-bundle": "*",
-        "genemu/form-bundle": "2.1.*"
+        "genemu/form-bundle": "2.1.*" 
+        
         
         
     },

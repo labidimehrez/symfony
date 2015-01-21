@@ -1,24 +1,46 @@
 
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
-<div id="detailsduprofil">
-   <b class="Minprofil"> Min profil</h2></b>   
-    <div style="padding: 10px 50px 0 10px;position:relative; top:-15px;left:20px; "> 
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}" alt="" /> 
-        </br> <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">changer password</a></br>
-        <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">&nbsp;&nbsp;changer photo</a>
+<div class="entetedeprofil">
+    
+    <div class="image">
+            <h2>Min profil</h2> 
+            
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}" alt="" /> 
+            
+            {% set uri = app.request.uri %}
+            {% if not  uri=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
+              <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">changer password</a></br>
+             {%endif%}
+             <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">&nbsp;&nbsp;&nbsp;changer photo</a>
     </div>
-   <b class="username"><h1> {{app.user.username }}</h1></b>
-   <div id="detailsdesession"> 
-   <h6>Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-m-d H:i:s')  }} </h6>  
-   <h6> Sidst online:{{app.user.lastLogin|date('Y-m-d H:i:s')}}</h6></div>
+    
+    <div class="nomuser"> 
+        </br></br></br></br> 
+      <b class="username"><h1> {{app.user.username }}</h1></b>
+    
+    </div>
+    <div class="donneeconnexion"> 
+        </br></br></br></br>
+          <h6>Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d H:i:s')  }} </h6>  
+          <h6> Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d H:i:s')}}</h6>
+    </div>
+    <div class="senestredebatt">
+        <b><p class="rouge">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Seneste debatter</p></b>
         
+    </div>
 </div>
+
+
+
+
 <div id="login">
 
    
-    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit"  > 
         {#{ form_widget(form) }#}
-        
+       
          <div id="login-input"> 
        <table  height="550">
            
@@ -49,10 +71,11 @@
         
     
         <div id="buttonsregistrerEditprofil">
-            <input type="submit" value="&nbsp;&nbsp;save&nbsp;&nbsp;" class="btn btn-warning btn-lg"  />
+            <input type="submit" value="&nbsp;&nbsp;&nbsp;&nbsp;Gim profil&nbsp;&nbsp;&nbsp;&nbsp;" class="btn btn-warning btn-lg"  />
            <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color: red;">                                                                                                                                                      
            &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
         </div>
+        
     </form>
     
     

@@ -2909,8 +2909,8 @@ background-color:#FFFFFF;
 #login{
 background-color:#FFFFFF;
   position: absolute;
-  left: 200px;
-  top: 400px;
+  left: 240px;
+  top: 450px;
   width: 1000px;
   height: 500px;
    z-index: 6;
@@ -2925,7 +2925,15 @@ background-color:#FFFFFF;
   height: 500px;*/
    z-index: 6;
 }
-
+#login-inputpassword{
+   /*background-color:#FFFFFF;*/
+  position: absolute;
+  /*left: 70px;*/
+  top: 165px;
+  /*width: 1000px;
+  height: 500px;*/
+   z-index: 6;
+}
 
 .rouge{
  color: #c52821 ;
@@ -2953,7 +2961,15 @@ font-family: "HelveticaNeueLTStd";
    z-index: 6;
 
 }
+#buttonsregistrerpasswordprofil{
+  position: absolute;
+  left: 270px;
+  top: 330px;
+  /*width: 1000px;
+  height: 500px;*/
+   z-index: 6;
 
+}
 #buttonannuler{
 color: #b41d23;
 float: left;
@@ -2965,46 +2981,58 @@ position: relative;
 top: 20px;
 text-decoration: none;
 }
-
-#detailsduprofil{
+.entetedeprofil{
+ /*background-color:#000;*/
 position: absolute;
-border-bottom: 1px solid rgb(160, 151, 151); 
-left: 230px;
-top: 400px;
-width: 560px;
-height: 150px;  
-z-index: 6000;
+  left: 175px;
+  top: 380px;
+  width: 651px;
+  height: 210px; 
+   z-index: 6000;
+border-bottom:1px solid black;
 }
-.username{
-float: left;
-font-size: 32px;
-margin-left: 225px;
-margin-top: -140px;
+ 
+.image{
+ /* background-color:#DF0174;*/
+ position: absolute;
+ /* left: 175px;
+  top: 380px;*/
+ 
+  width: 152px; 
+  height: 180px;
+   z-index: 6000;
+ 
 }
-.Minprofil{
-float: left;
-font-size: 32px;
-margin-left: 25px;
-margin-top: -10px;
-font-weight:bold;
-}
-#pnguser{
-  left: 230px;
-  top: 400px;
- /* width: 616px;
-  height: 150px;*/ 
+.donneeconnexion{
+ /*background-color:#08088A;*/
+ position: absolute;
+  left: 450px;
+  top: 1px;
+  width: 200px;
+  height: 180px; 
+   z-index: 6001;
+ 
+} 
+
+ .nomuser{
+ /*background-color:#8258FA;*/
+ position: absolute;
+  left: 155px;
+  /*top: 380px;*/
+  width: 292px;
+  height: 180px; 
    z-index: 6000;
 }
-#detailsdesession{
-position: absolute;
-  left: 375px;
+.senestredebatt{
+  position: absolute;
+  left: 655px;
   top: 50px;
- /* width: 616px;
-  height: 150px;*/ 
-   z-index: 6000;
+  background-color: #e0e0e0;
+  width: 300px;
+  height: 250px; 
+
+z-index: 6001;
 }
-
-
  .recaptchatable .recaptcha_image_cell, #recaptcha_table {
     background-color:#FFF;
   }
