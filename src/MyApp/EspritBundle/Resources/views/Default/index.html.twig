@@ -2,129 +2,142 @@
 <html lang="fr">
 {% block head %}
     <head>    
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Sol.Dk</title>
-   <script type="text/javascript">   
-        var RecaptchaOptions={
-        lang: 'fr',
-        theme: 'clean'};
-</script>  
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/bootstrap.css') }}"/> 
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
-  </head>
-
-    
- 
- <div id="HEADER"><img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt="" /></div>
-            
- <div id="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
-      
-
-<div id="BG"><img src="{{ asset('bundles/myappesprit/images/BG.png') }}" alt="" /></div> 
-     
- <!-- Menu -->
-<div id="MENU" ><img src="{{ asset('bundles/myappesprit/images/Navigation Bar copy.png') }}" alt="" /></div>
-
- <div id="Star_Tour"><img src="{{ asset('bundles/myappesprit/images/Star Tour.png') }}" alt="" /></div>
-          
-<div id="MenuTexte">
-NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOLDNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REJSER
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUNDHED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRITID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EROTIK
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOROSKOPER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TV-GUIDE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEBAT      
-</div>
-<div id="tiretMenu"> </div>
-<!-- -->
-<div id="Forside___Debat___Politik___Samfund___Indenrigs">
-<B>Forside > Debat > Politik & Samfund > Indenrigspolitik > 
-<U>Kvindelige tjenere fyret og erstattet af smukkere</U>
-</B>
-</div>
-<!-- -->
-<div id="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
-        
-<div id="Debat"><img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" /></div>
-       
-<div id="DEBATMot">DEBAT</div>
-
-<div id="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
-        
-<div id="ButtonCopy"><img src="{{ asset('bundles/myappesprit/images/Button.png') }}" alt="" /></div>
-        
-<div id="Button"><img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" /></div>
-    
-<div id="Button_copy"><img src="{{ asset('bundles/myappesprit/images/Button copy.png') }}" alt="" /> </div>
-       
-<div id="Button_copy_2"><img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" /> </div>
-     
-<div id="text_field"><img src="{{ asset('bundles/myappesprit/images/text field.png') }}" alt="" /></div>
-       
-
-<div id="EMAIL2">2</div>
-
-<div id="EMAIL">EMAIL</div>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Sol.Dk</title>
+        <script type="text/javascript">
+            var RecaptchaOptions = {
+                lang: 'fr',
+                theme: 'clean'};
+        </script>  
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/bootstrap.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
+    </head>
 
 
 
-<div id="Mail_copy"><img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" /> </div>
+    <div id="HEADER"><img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt="" /></div>
+
+    <div id="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
+
+
+    <div id="BG"><img src="{{ asset('bundles/myappesprit/images/BG.png') }}" alt="" /></div> 
+
+    <!-- Menu -->
+    <div id="MENU" ><img src="{{ asset('bundles/myappesprit/images/Navigation Bar copy.png') }}" alt="" /></div>
+
+    <div id="Star_Tour"><img src="{{ asset('bundles/myappesprit/images/Star Tour.png') }}" alt="" /></div>
+
+    <div id="MenuTexte">
+        NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOLDNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REJSER
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUNDHED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRITID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EROTIK
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOROSKOPER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TV-GUIDE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEBAT      
+    </div>
+    <div id="tiretMenu"> </div>
+    <!-- -->
+    <div id="Forside___Debat___Politik___Samfund___Indenrigs">
+        <B>Forside >  
+
+   {% set uriapresForside = app.request.uri %}
+            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/edit" %}
+            Min profil
+             {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
+            Skift adgangskode
+                        {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
+            Opret profil
+             {%endif%} 
+
+
+
+
+
+        </B>
+    </div>
+    <!-- -->
+    <div id="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
+
+    <div id="Debat"><img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" /></div>
+
+    <div id="DEBATMot">DEBAT</div>
+
+    <div id="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
+
+    <div id="ButtonCopy"><img src="{{ asset('bundles/myappesprit/images/Button.png') }}" alt="" /></div>
+
+    <div id="Button"><img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" /></div>
+
+    <div id="Button_copy"><img src="{{ asset('bundles/myappesprit/images/Button copy.png') }}" alt="" /> </div>
+
+    <div id="Button_copy_2"><img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" /> </div>
+
+    <div id="text_field"><img src="{{ asset('bundles/myappesprit/images/text field.png') }}" alt="" /></div>
+
+
+    <div id="EMAIL2">2</div>
+
+    <div id="EMAIL">EMAIL</div>
+
+
+
+    <div id="Mail_copy"><img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" /> </div>
 {% if is_granted( 'ROLE_USER' ) %}
-<div id="OPRET_PROFIL_LOGIN">
-    <a href="{{path('fos_user_profile_edit') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
-         MIN PROFIL  </a>
-     </br>
-     <a href="{{path('fos_user_security_logout') }}"style="text-decoration:none;color: white;">LOG UID</a>
-</div>
+    <div id="OPRET_PROFIL_LOGIN">
+        <a href="{{path('fos_user_profile_edit') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+            MIN PROFIL  </a>
+        </br>
+        <a href="{{path('fos_user_security_logout') }}"style="text-decoration:none;color: white;">LOG UID</a>
+    </div>
 {% else %}
-<div id="OPRET_PROFIL_LOGIN">
-    <a href="{{path('fos_user_registration_register') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
-         OPRET PROFIL  </a>
-     </br>
-     <a href="{{path('fos_user_security_login') }}"style="text-decoration:none;color: white;">LOG IND</a>
-</div>
+    <div id="OPRET_PROFIL_LOGIN">
+        <a href="{{path('fos_user_registration_register') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+            OPRET PROFIL  </a>
+        </br>
+        <a href="{{path('fos_user_security_login') }}"style="text-decoration:none;color: white;">LOG IND</a>
+    </div>
 {% endif %}
 
 
-<div id="MESSAGE4">4</div>
+    <div id="MESSAGE4">4</div>
 
-<div id="Hvad">Hvad søger du?</div>
-<div id="SOL">SOL</div>
-<div id="GOOGLE">GOOGLE</div>
+    <div id="Hvad">Hvad søger du?</div>
+    <div id="SOL">SOL</div>
+    <div id="GOOGLE">GOOGLE</div>
 
 
 {%endblock%}
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------->
-<body>
- 
-<!--les banners  -->
-<div id="SKYBANNERS" >
-  
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <body>
+
+        <!--les banners  -->
+        <div id="SKYBANNERS" >
+
  {% block publicitemanage %} {% endblock  %}
  {% block publicite_show %}  {% endblock  %}
   {% block editUser %}  {% endblock  %} {% block showUser %}  {% endblock  %} 
       {% block fos_user_content %} {% endblock fos_user_content %}
-                 
- </div>
+
+        </div>
 
 
-</body>
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------->
+    </body>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
  {% block footer %}
-<footer>
- <div id="Footer"><img src="{{ asset('bundles/myappesprit/images/Footer 2.png') }}" alt="" /></div>
-  
- <div id="SOL_dk_erFOOTER">SOL.dk er ejet og drevet af CM-Consulting ApS </br>
-</br>Adressen er:</br> CM-Consulting ApS</br>Sankt Ann&aelig; Gade 10</br>1416 K&oslash;benhavn k</br>CVR: 27 70 45 14
-</br></br>Telefon: 89 88 38 00</br>Kontakt e-mail: solsupport@cm-consult.com</br>Brug ogs&auml; vores support-side http://support.sol.dk</br></br>
-Copyright &copy; 2014 <FONT color="#848484"> sol.dk</FONT> All Rights Reserved.
-</div>
-      <div id="NYHEDERKENDTE">NYHEDER </br>KENDTE</br> UNDERHOLDNING</br> REJSER</br> SUNDHED</br> FRITID </br>EROTIK </div>
-<div id="HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE">HOROSKOPER TV-GUIDE BACKUP </br> SHOP KONKURRENCER VEJRET</br> DEBAT</div>
-<div id="Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_">Om SOL</br> Annoncering</br> Kontakt os</br> HJ&AElig;LP og Support</br> Driftstatus Cookies</br>Brugsvilkar</div>
+    <footer>
+        <div id="Footer"><img src="{{ asset('bundles/myappesprit/images/Footer 2.png') }}" alt="" /></div>
+
+        <div id="SOL_dk_erFOOTER">SOL.dk er ejet og drevet af CM-Consulting ApS </br>
+            </br>Adressen er:</br> CM-Consulting ApS</br>Sankt Ann&aelig; Gade 10</br>1416 K&oslash;benhavn k</br>CVR: 27 70 45 14
+            </br></br>Telefon: 89 88 38 00</br>Kontakt e-mail: solsupport@cm-consult.com</br>Brug ogs&auml; vores support-side http://support.sol.dk</br></br>
+            Copyright &copy; 2014 <FONT color="#848484"> sol.dk</FONT> All Rights Reserved.
+        </div>
+        <div id="NYHEDERKENDTE">NYHEDER </br>KENDTE</br> UNDERHOLDNING</br> REJSER</br> SUNDHED</br> FRITID </br>EROTIK </div>
+        <div id="HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE">HOROSKOPER TV-GUIDE BACKUP </br> SHOP KONKURRENCER VEJRET</br> DEBAT</div>
+        <div id="Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_">Om SOL</br> Annoncering</br> Kontakt os</br> HJ&AElig;LP og Support</br> Driftstatus Cookies</br>Brugsvilkar</div>
   {% endblock %}  
-</footer>
+    </footer>
 </html>
 {% block container %}{% endblock %}

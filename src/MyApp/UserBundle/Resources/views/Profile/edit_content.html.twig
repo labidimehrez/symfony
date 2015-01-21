@@ -7,10 +7,9 @@
             
             <img src="{{ asset('bundles/myappesprit/images/user.png') }}" alt="" /> 
             
-            {% set uri = app.request.uri %}
-            {% if not  uri=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
+          
               <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">changer password</a></br>
-             {%endif%}
+            
              <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">&nbsp;&nbsp;&nbsp;changer photo</a>
     </div>
     

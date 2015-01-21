@@ -3013,6 +3013,45 @@ border-bottom:1px solid black;
    z-index: 6001;
  
 } 
+.profilcreeconfirm{
+ position: absolute;
+  left: 175px;
+  top: 370px;
+  width: 931px;
+  height: 342px; 
+   z-index: 6000;
+ /*background-color:#8258FA;*/
+}
+.profilcreeconfirmdiv1{
+ position: absolute;
+  /*left: 175px;*/
+  top: 80px;
+  width: 931px;
+  height: 50px; 
+   z-index: 6001;
+ background-color:#f8fef0;
+border:1px solid #8A0808;
+}
+.profilcreeconfirmdiv2{
+ position: absolute;
+ /* left: 175px;*/
+  top: 150px;
+  width: 603px;
+  height: 50px; 
+   z-index: 6001;
+ background-color:#f8fef0;
+border:1px solid #2EFE2E;
+}
+.profilcreeconfirmdiv3{
+ position: absolute;
+  /*left: 175px;*/
+  top: 220px;
+  width: 603px;
+  height: 190px; 
+   z-index: 6001;
+ background-color:#f8fef0;
+border:1px solid #2EFE2E;
+}
 
  .nomuser{
  /*background-color:#8258FA;*/
