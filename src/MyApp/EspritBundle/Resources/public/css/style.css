@@ -2858,7 +2858,7 @@ z-index: 545;
 #div_publicite_add{
   /*background-color:#FFFFFF;*/
   position: absolute;
-  left: 200px;
+  left: 165px;
   top: 500px;
   width: 1000px;
   height: 500px; 
@@ -3043,16 +3043,6 @@ border:1px solid #2EFE2E;
 
 z-index: 6001;
 }
- .recaptchatable .recaptcha_image_cell, #recaptcha_table {
-    background-color:#FFF;
-  }
-  
-  #recaptcha_table {
-    border-color: #FFF;
-  }
-  
-  #recaptcha_response_field {
-    border-color: #FFF;
-    background-color: #FFF;
-  }
+ 
+ 
  
