@@ -1,68 +1,78 @@
 {# empty Twig template #}
 {% extends 'MyAppEspritBundle:Default:index.html.twig' %}
  {% block publicite_show %} 
- 
-  
+
+
 {% for publicite2 in publicite2 %} 
 {% if publicite2 |length > 0 %}
 
+
 {% if publicite2.position == 0 %}
- <div id="position0">
-     <table class="bordered" >        
-     <tr>
-<td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>        
-     </tr>     
+
+<div id="position-1">
+    <table class="bordered" >        
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="929" height="180" class="img-border"></td>        
+        </tr>     
     </table>
 </div>  
-
-
-
 
 
 {% elseif publicite2.position == 1 %}
- <div id="position1">
-     <table class="bordered" >        
-     <tr>
- <td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>                
-     </tr>     
+<div id="position0">
+    <table class="bordered" >        
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>                
+        </tr>     
     </table>
 </div>  
+
+
+
 {% elseif publicite2.position == 2 %}
- 
- <div id="position2">
-     <table class="bordered" >         
-     <tr>
- <td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>                
-     </tr>   
+<div id="position1">
+    <table class="bordered" >        
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>                
+        </tr>     
     </table>
-</div> 
+</div>  
 {% elseif publicite2.position == 3 %}
- 
- <div id="position3">
-     <table class="bordered" >         
-     <tr>
- <td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>                 
-     </tr>   
+
+<div id="position2">
+    <table class="bordered" >         
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>                
+        </tr>   
     </table>
 </div> 
 {% elseif publicite2.position == 4 %}
- 
- <div id="position4">
-     <table class="bordered" >         
-     <tr>
- <td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>                
-     </tr>   
+
+<div id="position3">
+    <table class="bordered" >         
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>                  
+        </tr>   
+    </table>
+</div> 
+{% elseif publicite2.position == 5 %}
+
+<div id="position4">
+    <table class="bordered" >         
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>                
+        </tr>   
     </table>
 </div> 
 
 
-{% elseif publicite2.position == 5 %}
- 
- <div id="position5">
-     <table class="bordered" >         
-     <tr>
- <td><img src="{{ asset('upload/' ~ publicite2.id ~'/' ~ publicite2.image)}}" alt="" width="161" height="600" class="img-border"></td>                 
-     </tr>   
+{% elseif publicite2.position == 6 %}
+
+<div id="position5">
+    <table class="bordered" >         
+        <tr>
+            <td><img src="{{publicite2.image}}" alt="" width="161" height="600" class="img-border"></td>    
+        </tr>   
     </table>
 </div> 
 

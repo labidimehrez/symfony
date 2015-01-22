@@ -6,6 +6,10 @@ my_app_user_delete:
     pattern:  /user/{id}/delete
     defaults: { _controller: MyAppUserBundle:User:delete}
     
+my_app_user_deleteall:
+    pattern:  /user/delete
+    defaults: { _controller: MyAppUserBundle:User:deleteall}    
+    
     
 my_app_user_edit:
     pattern:  /user/{id}/edit
