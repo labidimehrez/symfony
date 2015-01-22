@@ -1,7 +1,20 @@
-{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{#% extends 'MyAppEspritBundle:publicite:show.html.twig' %#}
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
 
 {% block fos_user_content %}
+    <div id="Forside___Debat___Politik___Samfund___Indenrigs">
+        <B>Forside >  
 
+            {% set uriapresForside = app.request.uri %}
+            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/edit" %}
+            Min profil
+             {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
+            Skift adgangskode
+                        {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
+            Opret profil
+             {%endif%} 
+        </B>
+    </div>
 
 <div class="profilcreeconfirm">
 

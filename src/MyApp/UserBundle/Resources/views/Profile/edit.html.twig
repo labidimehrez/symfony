@@ -1,4 +1,5 @@
-{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{#% extends 'MyAppEspritBundle:publicite:show.html.twig' %#}
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
 
 {% block fos_user_content %}
 {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
