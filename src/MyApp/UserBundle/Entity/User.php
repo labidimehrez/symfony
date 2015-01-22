@@ -108,7 +108,7 @@ protected $id;
     /**
      * @var string
      *
-     * @ORM\Column(name="addresse", type="string", length=255,nullable=true)
+     * @ORM\Column(name="addresse", type="string", length=500,nullable=true)
      */
     private $addresse;
     /**
@@ -123,6 +123,12 @@ protected $id;
      * @ORM\Column(name="codepostal", type="string", length=255,nullable=true)
      */
     private $codepostal;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=500,nullable=true)
+     */
+    private $image;
 
     protected $notifications;
     protected $sujets;
@@ -209,6 +215,15 @@ protected $id;
 
     public function setSurmoi($surmoi) {
         $this->surmoi = $surmoi;
+        return $this;
+    }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function setImage($image) {
+        $this->image = $image;
         return $this;
     }
 
