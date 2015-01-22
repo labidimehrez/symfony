@@ -23,6 +23,10 @@ my_app_esprit_publicite_delete:
     pattern:  /publicite/{id}/delete
     defaults: { _controller: MyAppEspritBundle:publicite:delete}
     
+my_app_esprit_publicite_deleteall:
+    pattern:  /publicite/delete/all
+    defaults: { _controller: MyAppEspritBundle:publicite:deleteall}
+    
 my_app_esprit_publicite_edit:
     pattern:  /publicite/{id}/edit
     defaults: { _controller: MyAppEspritBundle:publicite:edit}    

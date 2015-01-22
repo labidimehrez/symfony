@@ -16,6 +16,14 @@
         </script>  
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/bootstrap.css') }}"/> 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
+
+
+        <!-- css et js pour bundle JQuery  -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerjqueryui/css/smoothness/jquery-ui.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerjqueryui/css/smoothness/jquery.ui.theme.css') }}" />
+        <script type="text/javascript" src="{{ asset('bundles/bmatznerjquery/js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/bmatznerjqueryui/js/minified/jquery-ui.min.js') }}"></script>
+        <!-- css et js pour bundle JQuery  -->
     </head>
 
 
@@ -39,9 +47,9 @@
     </div>
     <div id="tiretMenu"> </div>
     <!-- -->
-  <!--  <div id="Forside___Debat___Politik___Samfund___Indenrigs">
-        <B>Forside >  
-
+    <!--  <div id="Forside___Debat___Politik___Samfund___Indenrigs">
+          <B>Forside >  
+  
             {#% set uriapresForside = app.request.uri %#}
             {#% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/edit" %}
             Min profil
@@ -50,13 +58,13 @@
                         {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
             Opret profil
              {#%endif%#} 
-
-
-
-
-
-        </B>
-    </div> -->
+  
+  
+  
+  
+  
+          </B>
+      </div> -->
     <!-- -->
     <div id="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
 
@@ -121,8 +129,7 @@
       {% block fos_user_content %} {% endblock fos_user_content %}
 
         </div>
-
-
+ 
     </body>
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
  {% block footer %}

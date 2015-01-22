@@ -136,5 +136,15 @@ class publiciteController extends Controller
     }
    /////////////////////////////////////////////////////////////////////////////////////////
     
-    
+   public function deleteallAction()
+    {      
+        $em = $this->getDoctrine()->getManager();
+        $sql = 'TRUNCATE TABLE publicite;';
+        $connection = $em->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        $stmt->closeCursor(); 
+       
+       return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
+   }
 }
