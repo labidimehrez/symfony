@@ -1,28 +1,45 @@
  
 
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
+{% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 {% block editUser %}     
-<div id="div_publicite_add"> 
+<div id="usereditdetails"> 
  
  <form role="form" method="post" {{ form_enctype(form) }} >
    <table>
                  
-                        {{form_widget(form)}} 
-        
+       <tr><td>User Name</td><td>{{form_widget(form.username)}}</td></tr> </br></br>
+      <tr><td>Enable</td><td>{{form_widget(form.enabled)}}</td></tr> </br></br>
+   {#% if is_granted( 'ROLE_SUPER_ADMIN' ) %#}
+      <tr><td>Role</td><td>{{form_widget(form.roles)}}</td> </tr>
+    {#% endif%#}  
+      
+      </br></br>
                 <tr>
 			<th valign="top"></th>
 			<td>{#{#form_widget(form)}#} </td>  
                         <td> {{form_widget(form._token)}} </td>	                       
 		</tr>
                 
-               
+                
 		<td valign="top">
-			<input type="submit"  value="submit"/>
-			<input type="reset" value="reset"/>
-                        
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
+                    </br></br>
+            
+			<input type="submit"  value="change" class="btn btn-warning btn-lg"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+			<input type="reset" value="reset" class="btn btn-warning btn-lg"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></br> </br>    
+               <td><a href="{{ path('my_app_user_delete',{'id':user.id}) }}" class="btn btn-warning btn-lg" >Supprimer</a></td> 
+ 
 		</td>
   </table>
 </form>
+    
+    
 </div>
  
 {% endblock  %}

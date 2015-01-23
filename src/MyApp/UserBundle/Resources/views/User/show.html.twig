@@ -1,31 +1,26 @@
 
 
-
-{# empty Twig template #}
-{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+{% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
  {% block showUser %}  
- 
-<div id="div_publicite_add"> 
- 
- <form role="form" method="post" {{ form_enctype(form) }} >
-   <table>
-                 
-                        {{form_widget(form)}} 
-        
-                <tr>
-			<th valign="top"></th>
-			<td>{#{#form_widget(form)}#} </td>  
-                        <td> {{form_widget(form._token)}} </td>	                       
-		</tr>
-                
-               
-		<td valign="top">
-			<input type="submit"  value="submit"/>
-			<input type="reset" value="reset"/>
-                        
-		</td>
-  </table>
-</form>
+
+<div id="showuserlist"> 
+
+
+
+    {% for user in user %}
+      
+       <td>User Name
+           &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;
+        {{user.username}}
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       </td>
+     <td><a href="{{ path('my_app_user_edit',{'id':user.id}) }}" class="btn btn-warning btn-lg">update</a></td>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <td><a href="{{ path('my_app_user_delete',{'id':user.id}) }}" class="btn btn-warning btn-lg">delete</a></td>
+     </br> </br>
+
+    {%endfor%}
 </div>
- 
+
  {% endblock  %}

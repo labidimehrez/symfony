@@ -12,32 +12,9 @@ class UserController extends Controller {
 
         $user = $em->getRepository('MyAppUserBundle:user')->findAll();
 
-        $form = $this->createFormBuilder($user)
-
-
-//            ->add('username', 'text')
-                ->add('roles', 'collection', array(
-                    'type' => 'choice',
-                    'options' => array(
-                        'label' => false, /* Ajoutez cette ligne */
-                        'choices' => array(
-                            'ROLE_ADMIN' => 'Admin',
-                            'ROLE_SUPER_ADMIN' => 'Superadmin',
-                            'ROLE_SUPERSOL' => 'Supersol',
-                            'ROLE_EDITOR' => 'Editor',
-                            'ROLE_USER' => 'User',
-                ))))
-                ->getForm();
-
-        $form->handleRequest($request);
-
-
-        if ($form->isValid()) {
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_app_user_show'));
-        }
-
-        return $this->render('MyAppUserBundle:user:show.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppUserBundle:User:show.html.twig', array(
+                    'user' => $user,
+        ));
     }
 
     public function deleteAction($id) {
@@ -67,7 +44,11 @@ class UserController extends Controller {
         $form = $this->createFormBuilder($user)
 
 
-//            ->add('username', 'text')
+                ->add('username', 'text')
+                
+                ->add('enabled','checkbox', array('required' => false))
+                
+                
                 ->add('roles', 'collection', array(
                     'type' => 'choice',
                     'options' => array(
@@ -89,7 +70,10 @@ class UserController extends Controller {
             return $this->redirect($this->generateUrl('my_app_user_show'));
         }
 
-        return $this->render('MyAppUserBundle:user:edit.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppUserBundle:user:edit.html.twig', array(
+            'form' => $form->createView(),
+             'user' => $user,    
+                ));
     }
 
 }
