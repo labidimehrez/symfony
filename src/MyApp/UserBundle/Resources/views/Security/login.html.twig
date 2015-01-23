@@ -3,9 +3,9 @@
 {% block fos_user_content %}
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
  
-{% if error %}
-    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-{% endif %}
+
+    
+
     
     <div id="login"></br></br>
         <b><h2>Log p&aring; SOL.DK</h2></b> </br>
@@ -23,14 +23,26 @@
 <td> <input type="password" id="password" name="_password" class="btn btn-warning btn-lg" required="required" /></td>
 </tr>		
 <div id="lower">
-		
- </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</br>		
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  
 		
  <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"   value="&nbsp;&nbsp;&nbsp;&nbsp;{{'Log pa'|trans({}, 'FOSUserBundle') }}&nbsp;&nbsp;&nbsp;&nbsp;"  />
-		
+ </br></br>
+ 
+
+ 
+{% if error %}<div>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b  class="rouge">( {{ error|trans({}, 'FOSUserBundle') }} )</b></div>{% endif %}	
+
 </div>
 </div>		
 </form>

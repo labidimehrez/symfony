@@ -30,7 +30,7 @@ class publicite
 
     /**
      * @var string $image
-     * @ORM\Column(name="image", type="text", length=255)
+     * @ORM\Column(name="image", type="text", length=3000)
      */
     private $image;
 
