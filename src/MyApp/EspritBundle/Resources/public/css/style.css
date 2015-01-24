@@ -3060,5 +3060,16 @@ z-index: 6001;
   top: 450px;
   width: 1000px;
   height: 500px;
-   z-index: 6;}
- 
+   z-index: 6;
+}
+.idfacebook{
+
+ position: absolute;
+  left: 15px;
+  top: 290px;
+  width: 170px;
+  height: 50px; 
+   z-index: 6001;
+ /*background-color:#f8fef0;
+border:1px solid #8A0808;*/
+}

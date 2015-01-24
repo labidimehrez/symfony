@@ -26,6 +26,7 @@
         <!-- css et js pour bundle JQuery  -->
     </head>
 
+    
 
 
     <div id="HEADER"><img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt="" /></div>
@@ -122,14 +123,29 @@
 
         <!--les banners  -->
         <div id="SKYBANNERS" >
-
+                    
+         <div class="idfacebook">
+             <a href="https://www.facebook.com/Sol.dk?fref=ts" >
+                 <img src="{{ asset('bundles/myappesprit/images/minilogo.png') }}" alt="" />
+             </a>
+         
+         <iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSol.dk%3Ffref%3Dts;width;
+send=false;layout=box_count&amp;;action=like; scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:95px; height:19px;" allowtransparency="true"></iframe> 
+ 
+         
+         </div>
+            
  {% block publicitemanage %} {% endblock  %}
  {% block publicite_show %}  {% endblock  %}
  {% block editUser %}  {% endblock  %} {% block showUser %}  {% endblock  %} 
  {% block fos_user_content %} {% endblock fos_user_content %}
-
+            
         </div>
- 
+        
+        
+
+
+
     </body>
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
  {% block footer %}
