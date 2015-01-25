@@ -2,11 +2,12 @@
  
 
 namespace MyApp\UserBundle\Entity;
- 
+use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
+* @ORM\HasLifecycleCallbacks
 * @ORM\Table(name="user")
 * @ORM\AttributeOverrides({
 *      @ORM\AttributeOverride(name="email",
@@ -124,9 +125,9 @@ protected $id;
      */
     private $codepostal;
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=500,nullable=true)
+     * @var string $image
+     * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
+     * @ORM\Column(name="image", type="string", length=2500, nullable=true)
      */
     private $image;
 
@@ -227,5 +228,60 @@ protected $id;
         return $this;
     }
 
+    
+    
+    public function getFullImagePath() {
+        return null === $this->image ? null : $this->getUploadRootDir() . $this->image;
+    }
 
+    protected function getUploadRootDir() {
+        // the absolute directory path where uploaded documents should be saved
+        return $this->getTmpUploadRootDir() . $this->getId() . "/";
+    }
+
+    protected function getTmpUploadRootDir() {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__ . '/../../../../web/upload/';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function uploadImage() {
+        // the file property can be empty if the field is not required
+        if (null === $this->image) {
+            return;
+        }
+        if (!$this->id) {
+            $this->image->move($this->getTmpUploadRootDir(), $this->image->getClientOriginalName());
+        } else {
+            $this->image->move($this->getUploadRootDir(), $this->image->getClientOriginalName());
+        }
+        $this->setImage($this->image->getClientOriginalName());
+    }
+
+    /**
+     * @ORM\PostPersist()
+     */
+    public function moveImage() {
+        if (null === $this->image) {
+            return;
+        }
+        if (!is_dir($this->getUploadRootDir())) {
+            mkdir($this->getUploadRootDir());
+        }
+        copy($this->getTmpUploadRootDir() . $this->image, $this->getFullImagePath());
+        unlink($this->getTmpUploadRootDir() . $this->image);
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function removeImage() {
+        unlink($this->getFullImagePath());
+        rmdir($this->getUploadRootDir());
+    }
+
+   
 }

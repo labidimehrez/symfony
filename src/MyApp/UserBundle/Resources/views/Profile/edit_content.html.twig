@@ -30,9 +30,11 @@
              
              
              
-             <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">changer password</a></br>
 
-        <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;">&nbsp;&nbsp;&nbsp;changer photo</a>
+
+ <a href="#" id="dialog-link" style="text-decoration:none;color: #000;">changer photo</a></br>      
+  <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;"> change password</a> 
+        
     </div>
 
     <div class="nomuser"> 
@@ -75,16 +77,17 @@
                 <tr><td>Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.second) }}  </td></tr>
                 <tr><td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        Addresse &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
+                        Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
                 <tr><td>Code Postal</td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
                 <tr><td>Ville</td><td> {{form_widget(form.ville)}}   </td></tr>
                 <tr><td>Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
 
                 <tr><td>Email</td><td> {{form_widget(form.email) }}  </td></tr>
                 <tr><td>About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
+               <tr><td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td></tr> 
             </table> 
-
-
+ 
+      
             <td> {{form_widget(form._token)}} </td> 
 
 
@@ -97,10 +100,143 @@
                 &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
         </div>
 
-    </form>
 
+	
 
-
-
-
+ </form>
 </div>
+
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-- css et js pour bundle JQuery  -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappesprit/js/jquery-ui.css') }}" />
+         <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery-ui.js') }}"></script>
+        <!-- css et js pour bundle JQuery  -->
+ 
+ 
+<h2 class="demoHeaders"> <em></em></h2>
+
+<!-- ui-dialog -->
+
+
+
+<h2 class="demoHeaders"><br>
+
+<script>
+
+$( "#accordion" ).accordion();
+
+
+
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "#autocomplete" ).autocomplete({
+	source: availableTags
+});
+
+
+
+$( "#button" ).button();
+$( "#radioset" ).buttonset();
+
+
+
+$( "#tabs" ).tabs();
+
+
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 400,
+	buttons: [
+		{
+			text: "Ok",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+
+
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
+});
+
+
+
+$( "#progressbar" ).progressbar({
+	value: 20
+});
+
+
+
+$( "#spinner" ).spinner();
+
+
+
+$( "#menu" ).menu();
+
+
+
+$( "#tooltip" ).tooltip();
+
+
+
+$( "#selectmenu" ).selectmenu();
+
+
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+  </script> 
+</h2> 
