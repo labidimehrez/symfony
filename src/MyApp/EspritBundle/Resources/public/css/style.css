@@ -3076,12 +3076,23 @@ border:1px solid #8A0808;*/
 .arstyle{
  position: absolute;
   left: 470px;
-  top: 500px;
- /* width: 170px;
-  height: 50px; */
+  top: 370px;
+ /* width: 170px;*/
+  height: 700px; 
    z-index: 6001;
  /*background-color:#f8fef0;
 border:1px solid #8A0808;*/
 
+}
+
+.cadreblanc{
+ position: absolute;
+  left: 130px;
+  top: 313px;
+  width: 40px;
+  height: 20px;
+   z-index: 7001;
+ background-color:#FFFFFF;
+/*border:1px solid #8A0808;*/
 
 }

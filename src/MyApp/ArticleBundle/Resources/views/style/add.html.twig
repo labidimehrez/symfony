@@ -2,47 +2,57 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 
-  
+ 
 
  {% block ajout_arstyle%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 </br></br></br> 
 <div class="arstyle">
-      <form  action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} > 
-    
-    <table height="350" width="300" border="0">
-  <tr>
-    <td>Title&nbsp;<b  class="rouge">*</b> &nbsp;</td>
-  </tr>
-  <tr>
-      <td> {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}</td>
-  </tr>
-  <tr>
-    <td>Name</td>
-  </tr>
-  <tr>
-    <td>{{ form_widget(form.name, { 'attr': {'placeholder': '  Name ','class':'inp-form'} }) }}</td>
-  </tr>
-  <tr>
-    <td>Color For Font</td>
-  </tr>
-  <tr>
-    <td>{{form_widget(form.codecouleurfront)}}</td>
-  </tr>
-   <tr>
-    <td>Color For Back</td>
-  </tr>
-  <tr>
-    <td>{{form_widget(form.codecouleurback)}}</td>
-  </tr>
-  <tr>   {{form_widget(form._token)}}  
-     <td> <input type="submit"  value="submit" class="btn btn-warning btn-lg"/>
-         <input type="reset" value="annuler" class="btn btn-warning btn-lg"/>    </td>  
-  </tr>
-  
-</table>
-    
-      </form>
+    <form  action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} > 
+
+        <table height="350" width="300" border="0">
+            <tr>
+                <td>Title&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+            </tr>
+            <tr>
+                <td> {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+            </tr>
+            <tr>
+                <td>{{ form_widget(form.name, { 'attr': {'placeholder': '  Name ','class':'inp-form'} }) }}</td>
+            </tr>
+            <tr>
+                <td>Color For Font</td>
+            </tr>
+            <tr>
+                <td>{{form_widget(form.codecouleurfront)}}</td>
+            </tr>
+            <tr>
+                <td>Color For Back</td>
+            </tr>
+            <tr>
+                <td>{{form_widget(form.codecouleurback)}}</td>
+            </tr>
+            <tr>   {{form_widget(form._token)}}  
+                <td> <input type="submit"  value="submit" class="btn btn-warning btn-lg"/>
+                    <input type="reset" value="annuler" class="btn btn-warning btn-lg"/>    </td>  
+            </tr>
+
+        </table>
+ 
+
+
+    </form>
+
+
+
+
 </div>
+
+
+
+
 {% endblock %}
 
