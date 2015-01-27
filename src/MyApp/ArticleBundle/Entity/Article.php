@@ -29,7 +29,7 @@ class Article
     protected $user;
     
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\ArticleBundle\Entity\ARstyle")
+     * @ORM\ManyToOne(targetEntity="MyApp\ArticleBundle\Entity\style")
      * @ORM\JoinColumn(name="style_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
  

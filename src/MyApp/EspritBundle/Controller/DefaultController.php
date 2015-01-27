@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function administrationAction()
     {
-        return $this->render('MyAppEspritBundle:Default:index.html.twig');
+        return $this->render('MyAppEspritBundle:Default:administration.html.twig');
     }
 }

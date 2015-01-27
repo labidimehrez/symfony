@@ -80,4 +80,14 @@ genemu_form:
   ##clé secrete 6LdpuwATAAAAAJrXx_WTwQHx4O8X-gNqoMAT3AHL
   ##clé public  6LdpuwATAAAAAB_znGVRVH_WQIOQbkQQCYKHjbCC
   
- 
+# app/config/config.yml
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: MyApp\ForumBundle\Entity\Comment
+            thread: MyApp\ForumBundle\Entity\Thread
+
+assetic:
+    bundles: [ "FOSCommentBundle" ]   

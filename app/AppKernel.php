@@ -24,7 +24,9 @@ class AppKernel extends Kernel
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-          
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
            
            
         );

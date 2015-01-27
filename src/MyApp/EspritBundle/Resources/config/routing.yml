@@ -3,6 +3,10 @@ my_app_esprit_homepage:
     defaults: { _controller: MyAppEspritBundle:publicite:show }
     
     
+my_app_esprit_administration:
+    pattern:  /administration
+    defaults: { _controller: MyAppEspritBundle:Default:administration }    
+    
     #      routing     publicité          #
 my_app_esprit_publicite_add:
     pattern:  /publicite/add

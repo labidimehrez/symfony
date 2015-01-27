@@ -1,3 +1,14 @@
 my_app_article_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: MyAppArticleBundle:Default:index }
+
+
+my_app_article_style_add:
+    pattern:  /style/add
+    defaults: { _controller: MyAppArticleBundle:style:add }
+my_app_article_style_show:
+    pattern:  /style/show
+    defaults: { _controller: MyAppArticleBundle:style:show }
+    requirements:
+        _method:  GET
+        id: \d+  
