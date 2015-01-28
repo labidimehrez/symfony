@@ -2,33 +2,59 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 
- 
+
 
  {% block ajout_arstyle%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<!-- -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/j avascript" src="{{ asset( 'bundles/myappesprit/js/colorpicker/farbtastic.js' ) }} "></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/farbtastic.css') }}"/>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#demo').hide();
+        $('#picker').farbtastic('#color');
+    });
+</script>
+<!-- -->
 </br></br></br> 
 <div class="arstyle">
     <form  action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} > 
-
+        </br></br></br></br></br></br>
         <table height="350" width="300" border="0">
             <tr>
                 <td>Title&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}</td>
+                <td> {{form_widget(form.title, { 'attr': {'placeholder': '  Yellow & Red ','class':'inp-form'} }) }}</td>
             </tr>
             <tr>
                 <td>Name</td>
             </tr>
             <tr>
-                <td>{{ form_widget(form.name, { 'attr': {'placeholder': '  Name ','class':'inp-form'} }) }}</td>
+                <td>{{ form_widget(form.name, { 'attr': { 'class':'inp-form'} }) }}</td>
             </tr>
+            <!-- -->
+           <!-- <div id="demo" style="color: red; font-size: 1.4em">jQuery.js is not present. You must install jQuery in this folder for the demo to work.</div>-->
+
+           <!-- <form action="" style="width: 400px;">
+                <div class="form-item"><label for="color">Color:</label>
+                    <input type="text" id="color" name="color" value="#123456" />
+                </div>              
+                <div id="picker"><div class="farbtastic"><div class="color" style="background-color: rgb(255, 0, 30);"></div><div class="wheel"></div><div class="overlay"></div><div class="h-marker marker" style="left: 86px; top: 14px;"></div><div class="sl-marker marker" style="left: 111px; top: 115px;"></div></div></div>
+            </form>-->
+            <!-- -->
             <tr>
                 <td>Color For Font</td>
             </tr>
             <tr>
                 <td>{{form_widget(form.codecouleurfront)}}</td>
             </tr>
+
+
+
+
+
             <tr>
                 <td>Color For Back</td>
             </tr>
@@ -41,15 +67,16 @@
             </tr>
 
         </table>
- 
-
-
     </form>
 
 
 
 
+
+
 </div>
+
+
 
 
 

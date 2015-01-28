@@ -75,7 +75,7 @@
 
 
     <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit"  > 
-        {#{ form_widget(form) }#}
+       
 
          <div id="login-input"> 
             <table  height="550">  
@@ -95,12 +95,20 @@
                 <tr><td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
-                <tr><td>Code Postal</td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
-                <tr><td>Ville</td><td> {{form_widget(form.ville)}}   </td></tr>
+                <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Code Postal</td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
+                <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Ville</td><td> {{form_widget(form.ville)}}   </td></tr>
                 <tr><td>Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
 
-                <tr><td>Email</td><td> {{form_widget(form.email) }}  </td></tr>
-                <tr><td>About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
+                <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Email</td><td> {{form_widget(form.email) }}  </td></tr>
+                <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
                <tr><td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td></tr> 
             </table> 
  
@@ -192,7 +200,8 @@ $( "#dialog" ).dialog({
 		{
 			text: "Ok",
 			click: function() {
-				$( this ).dialog( "close" );
+                                $(this).submit();
+
 			}
 		},
 		{
@@ -217,11 +226,6 @@ $( "#datepicker" ).datepicker({
 });
 
 
-
-$( "#slider" ).slider({
-	range: true,
-	values: [ 17, 67 ]
-});
 
 
 
