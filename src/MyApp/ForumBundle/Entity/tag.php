@@ -10,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tag")
  * @ORM\Entity
  */
-class tag
-{
-   /**
+class tag {
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -21,37 +21,34 @@ class tag
      */
     private $id;
 
-   /**
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255,unique=true)
      */
     private $title;
-    
-   /**
-    * @ORM\ManyToMany(targetEntity="MyApp\ArticleBundle\Entity\Article", mappedBy="tags")
-    */
+
+    /**
+     * @ORM\ManyToMany(targetEntity="MyApp\ArticleBundle\Entity\Article", mappedBy="tags")
+     */
     private $articles;
 
-        public function __construct() {
+    public function __construct() {
         $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sujets = new \Doctrine\Common\Collections\ArrayCollection();
-      }
-      
-     /**
-      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\sujet", mappedBy="tags")
-      */
-       private $sujets;
+    }
 
- 
+    /**
+     * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\sujet", mappedBy="tags")
+     */
+    private $sujets;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -61,10 +58,9 @@ class tag
      * @param string $title
      * @return tag
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
-    
+
         return $this;
     }
 
@@ -73,12 +69,10 @@ class tag
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
-    
-    
+
     public function getArticles() {
         return $this->articles;
     }
@@ -97,5 +91,8 @@ class tag
         return $this;
     }
 
+    public function __toString() {
+        return $this->title . '';
+    }
 
 }

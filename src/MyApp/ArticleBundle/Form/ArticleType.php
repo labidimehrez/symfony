@@ -17,6 +17,7 @@ class ArticleType extends AbstractType {
                 ->add('headline')
                 ->add('urlimg')
                 ->add('copyrights')
+                
                 ->add('fixedposition', 'checkbox', array('required' => false, 'data' => true))
                 
                 ->add('style', 'entity', array(
@@ -24,7 +25,7 @@ class ArticleType extends AbstractType {
                     'property' => 'style',
                     'expanded' => false,
                     'multiple' => false,
-                    'required' => false))
+                    'required' => true))
                 
                 ->add('position', 'entity', array(
                     'class' => 'MyApp\ArticleBundle\Entity\Article',

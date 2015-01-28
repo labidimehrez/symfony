@@ -3094,5 +3094,19 @@ border:1px solid #8A0808;*/
    z-index: 7001;
  background-color:#FFFFFF;
 /*border:1px solid #8A0808;*/
-
+}
+.SOLDK{
+ position: absolute;
+  left: 69px;
+  top: 278px;
+  width: 67px;
+  height: 20px;
+   z-index: 7001;
+ background-color:#FFFFFF;
+ /*border:1px solid #8A0808;*/
+font-weight : bold;
+/*text-color:#8A0808;*/
+}
+.stylegras{
+font-weight : bold;
 }

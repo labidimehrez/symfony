@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="style")
  * @ORM\Entity
  */
-class Style
-{
+class Style {
+
     /**
      * @var integer
      *
@@ -20,28 +20,30 @@ class Style
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-  
-   protected $articles;
-   /**
+    protected $articles;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255,unique=true)
      */
     private $title;
-   /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255,unique=true)
      */
     private $name;
 
-   /**
+    /**
      * @var string
      *
      * @ORM\Column(name="codecouleurfront", type="string", length=255,unique=true)
      */
     private $codecouleurfront;
-   /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="codecouleurback", type="string", length=255,unique=true)
@@ -53,8 +55,7 @@ class Style
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -64,10 +65,9 @@ class Style
      * @param string $title
      * @return ARstyle
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
-    
+
         return $this;
     }
 
@@ -76,8 +76,7 @@ class Style
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -87,10 +86,9 @@ class Style
      * @param string $name
      * @return ARstyle
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -99,8 +97,7 @@ class Style
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -128,9 +125,6 @@ class Style
         return $this;
     }
 
-        
- 
-
     public function getArticles() {
         return $this->articles;
     }
@@ -140,8 +134,8 @@ class Style
         return $this;
     }
 
-  public function __toString()
-    {
-          return $this->title.'' ;
+    public function __toString() {
+        return $this->title . '';
     }
+
 }
