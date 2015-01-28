@@ -33,7 +33,7 @@ class Article
      * @ORM\JoinColumn(name="style_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
  
-    protected $arstyle;
+    protected $style;
     
     /**
      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\tag", inversedBy="articles")
@@ -73,12 +73,7 @@ class Article
      */
     private $fixedposition;
 
-   /**
-     * @var string
-     *
-     * @ORM\Column(name="style", type="string", length=255,unique=true)
-     */
-    private $style;
+ 
 
     /**
      * @var integer
@@ -196,29 +191,7 @@ class Article
     {
         return $this->fixedposition;
     }
-
-    /**
-     * Set stle
-     *
-     * @param string $stle
-     * @return Article
-     */
-    public function setStyle($style)
-    {
-        $this->style = $style;
-    
-        return $this;
-    }
-
-    /**
-     * Get stle
-     *
-     * @return string 
-     */
-    public function getStyle()
-    {
-        return $this->style;
-    }
+ 
 
     /**
      * Set position
@@ -274,12 +247,12 @@ class Article
         $this->user = $user;
     }
 
-    public function getArstyle() {
-        return $this->arstyle;
+    public function getStyle() {
+        return $this->style;
     }
 
-    public function setArstyle($arstyle) {
-        $this->arstyle = $arstyle;
+    public function setStyle($style) {
+        $this->style = $style;
         return $this;
     }
 
@@ -292,10 +265,7 @@ class Article
         return $this;
     }
 
-    public function __toString()
-    {
-          return $this->title.'' ;
-    }
+
     
     
       
@@ -352,5 +322,9 @@ class Article
         unlink($this->getFullImagePath());
         rmdir($this->getUploadRootDir());
     }
-
+    
+    public function __toString()
+    {
+          return $this->title.'' ;
+    }
 }

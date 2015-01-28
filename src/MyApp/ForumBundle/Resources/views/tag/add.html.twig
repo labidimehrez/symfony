@@ -1,1 +1,35 @@
 {# empty Twig template #}
+
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+
+
+
+ {% block ajout_tag%} 
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+
+<div class="arstyle">
+    <form  action='{{path('my_app_forum_tag_add')}}' method="post" {{ form_enctype(form) }} > 
+</br></br></br> </br></br></br>  
+        <table height="200" width="300" border="0">
+            <tr>
+                <td>Title&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+            </tr>
+            <tr>
+                <td> {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}</td>
+            </tr>
+
+
+
+            <tr>   {{form_widget(form._token)}}  
+                <td> <input type="submit"  value="submit" class="btn btn-warning btn-lg"/>
+                    <input type="reset" value="annuler" class="btn btn-warning btn-lg"/>    </td>  
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
+

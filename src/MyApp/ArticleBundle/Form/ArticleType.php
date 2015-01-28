@@ -21,8 +21,8 @@ class ArticleType extends AbstractType {
                 ->add('fixedposition', 'checkbox', array('required' => false, 'data' => true))
                 
                 ->add('style', 'entity', array(
-                    'class' => 'MyApp\ArticleBundle\Entity\Article',
-                    'property' => 'style',
+                    'class' => 'MyApp\ArticleBundle\Entity\Style',
+                    'property' => 'title',
                     'expanded' => false,
                     'multiple' => false,
                     'required' => true))
@@ -36,7 +36,7 @@ class ArticleType extends AbstractType {
                 
                 ->add('lien')
                 
-                ->add('arstyle')
+               ## ->add('arstyle')
                 ->add('tags')
         ;
     }
