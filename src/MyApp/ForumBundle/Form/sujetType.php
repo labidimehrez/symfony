@@ -14,19 +14,18 @@ class sujetType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-        ->add('sujet')
-        ->add('contenu', 'textarea')
-        ## ->add('datecreation')
-        ## ->add('datelus')
-        ->add('notification', 'checkbox', array('required' => false, 'data' => true))
-        ->add('user')
-                
-        ->add('tags', 'entity', array('class' => 'MyApp\ForumBundle\Entity\tag',
-        'property' => 'title',
-        'expanded' => true,
-        'multiple' => true,
-        'required' => false ))
-                
+                ->add('sujet')
+                ->add('contenu', 'textarea')
+                ## ->add('datecreation')
+                ## ->add('datelus')
+                ->add('notification', 'checkbox', array('required' => false, 'data' => true))
+                ## ->add('user')
+                ->add('tags', 'entity', array('class' => 'MyApp\ForumBundle\Entity\tag',
+                    'property' => 'title',
+                    'expanded' => true,
+                    'multiple' => true,
+                    'required' => false))
+
         ;
     }
 

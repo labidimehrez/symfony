@@ -8,12 +8,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class UserController extends Controller {
 
     public function showAction( Request $request) {
-        $em = $this->getDoctrine()->getManager();
-
+        
+        $em = $this->getDoctrine()->getManager();         
+        /*
+        $sql = 'TRUNCATE TABLE user;';
+        $connection = $em->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        $stmt->closeCursor();  
+         */
+ 
         $user = $em->getRepository('MyAppUserBundle:user')->findAll();
 
         return $this->render('MyAppUserBundle:User:show.html.twig', array(
-                    'user' => $user,
+                    'user' => $user                     
         ));
     }
 

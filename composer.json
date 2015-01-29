@@ -23,7 +23,8 @@
         "twitter/bootstrap-bundle": "*" ,
         "friendsofsymfony/user-bundle": "*",
         "genemu/form-bundle": "2.1.*",
-        "friendsofsymfony/comment-bundle": "~2.0" 
+        "friendsofsymfony/comment-bundle": "~2.0",
+        "Trsteel/ckeditor-bundle": "~1.6" 
       
         
         
