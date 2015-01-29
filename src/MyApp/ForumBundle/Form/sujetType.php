@@ -16,11 +16,11 @@ class sujetType extends AbstractType
     {
         $builder
             ->add('sujet')
-            ->add('contenu')
-            ->add('datecreation')
-            ->add('datelus')
-            ->add('notification')
-            ->add('user')
+            ->add('contenu','textarea')
+           ## ->add('datecreation')
+           ## ->add('datelus')
+             ->add('notification', 'checkbox', array('required' => false, 'data' => true))
+             ->add('user')
             ->add('tags')
         ;
     }

@@ -10,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sujet")
  * @ORM\Entity
  */
-class sujet
-{
-   /**
+class sujet {
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -21,29 +21,27 @@ class sujet
      */
     private $id;
     protected $commentaires;
+
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
- 
     protected $user;
+
     /**
      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\tag", inversedBy="sujets")
      * @ORM\JoinTable(name="sujet_tags")
      */
- 
-     private $tags;
-     public function __construct() {
-     $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
-     }
-   /**
+    private $tags;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="sujet", type="string", length=255,unique=true)
      */
     private $sujet;
 
-   /**
+    /**
      * @var string
      *
      * @ORM\Column(name="contenu", type="string", length=255,unique=true)
@@ -53,32 +51,30 @@ class sujet
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="date_creation")
+     * @ORM\Column(name="date_creation",type="datetime",nullable=true)
      */
     private $datecreation;
 
-     /**
+    /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="date_lus")
+     * @ORM\Column(name="date_lus", type="datetime",nullable=true)
      */
     private $datelus;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="notification")
+     * @ORM\Column(name="notification",nullable=true)
      */
     private $notification;
-
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -88,10 +84,9 @@ class sujet
      * @param string $sujet
      * @return sujet
      */
-    public function setSujet($sujet)
-    {
+    public function setSujet($sujet) {
         $this->sujet = $sujet;
-    
+
         return $this;
     }
 
@@ -100,8 +95,7 @@ class sujet
      *
      * @return string 
      */
-    public function getSujet()
-    {
+    public function getSujet() {
         return $this->sujet;
     }
 
@@ -111,10 +105,9 @@ class sujet
      * @param string $contenu
      * @return sujet
      */
-    public function setContenu($contenu)
-    {
+    public function setContenu($contenu) {
         $this->contenu = $contenu;
-    
+
         return $this;
     }
 
@@ -123,8 +116,7 @@ class sujet
      *
      * @return string 
      */
-    public function getContenu()
-    {
+    public function getContenu() {
         return $this->contenu;
     }
 
@@ -134,10 +126,9 @@ class sujet
      * @param \DateTime $datecreation
      * @return sujet
      */
-    public function setDatecreation($datecreation)
-    {
+    public function setDatecreation(\DateTime $datecreation) {
         $this->datecreation = $datecreation;
-    
+
         return $this;
     }
 
@@ -146,8 +137,7 @@ class sujet
      *
      * @return \DateTime 
      */
-    public function getDatecreation()
-    {
+    public function getDatecreation() {
         return $this->datecreation;
     }
 
@@ -157,10 +147,9 @@ class sujet
      * @param \DateTime $datelus
      * @return sujet
      */
-    public function setDatelus($datelus)
-    {
+    public function setDatelus($datelus) {
         $this->datelus = $datelus;
-    
+
         return $this;
     }
 
@@ -169,8 +158,7 @@ class sujet
      *
      * @return \DateTime 
      */
-    public function getDatelus()
-    {
+    public function getDatelus() {
         return $this->datelus;
     }
 
@@ -180,10 +168,9 @@ class sujet
      * @param boolean $notification
      * @return sujet
      */
-    public function setNotification($notification)
-    {
+    public function setNotification($notification) {
         $this->notification = $notification;
-    
+
         return $this;
     }
 
@@ -192,10 +179,10 @@ class sujet
      *
      * @return boolean 
      */
-    public function getNotification()
-    {
+    public function getNotification() {
         return $this->notification;
     }
+
     public function getUser() {
         return $this->user;
     }
@@ -211,6 +198,7 @@ class sujet
     public function setCommentaires($commentaires) {
         $this->commentaires = $commentaires;
     }
+
     public function getTags() {
         return $this->tags;
     }
@@ -220,6 +208,9 @@ class sujet
         return $this;
     }
 
-
+    public function __construct() {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->datecreation = new \DateTime();
+    }
 
 }

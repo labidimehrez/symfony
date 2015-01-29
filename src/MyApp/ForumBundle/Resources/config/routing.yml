@@ -11,3 +11,14 @@ my_app_forum_tag_show:
     requirements:
         _method:  GET
         id: \d+  
+        
+my_app_forum_sujet_add:
+    pattern:  /sujet/add
+    defaults: { _controller: MyAppForumBundle:sujet:add }
+my_app_forum_sujet_show:
+    pattern:  /sujet/show
+    defaults: { _controller: MyAppForumBundle:sujet:show }
+    requirements:
+        _method:  GET
+        id: \d+  
+

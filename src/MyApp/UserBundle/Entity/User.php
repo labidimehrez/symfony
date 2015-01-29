@@ -1,77 +1,89 @@
 <?php
- 
 
 namespace MyApp\UserBundle\Entity;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-/**
-* @ORM\Entity
-* @ORM\HasLifecycleCallbacks
-* @ORM\Table(name="user")
-* @ORM\AttributeOverrides({
-*      @ORM\AttributeOverride(name="email",
-*          column=@ORM\Column(
-*              name     = "email",
-*              type     = "string",
-*              length   = 255,
-*              nullable = true,
-*              unique=false
-*          )
-*      ),
-*      @ORM\AttributeOverride(name="emailCanonical",
-*          column=@ORM\Column(
-*              name     = "emailCanonical",
-*              type     = "string",
-*              length   = 255,
-*              nullable = true,
-*              unique=false
-*          )
-*      ),
-* })
-*/
- 
-class User extends BaseUser
-{
-/**
-* @ORM\Id
-* @ORM\Column(type="integer")
-* @ORM\GeneratedValue(strategy="AUTO")
-*/
-protected $id;
 
+/**
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(name="user")
+ * @ORM\AttributeOverrides({
+ *      @ORM\AttributeOverride(name="email",
+ *          column=@ORM\Column(
+ *              name     = "email",
+ *              type     = "string",
+ *              length   = 255,
+ *              nullable = true,
+ *              unique=false
+ *          )
+ *      ),
+ *      @ORM\AttributeOverride(name="emailCanonical",
+ *          column=@ORM\Column(
+ *              name     = "emailCanonical",
+ *              type     = "string",
+ *              length   = 255,
+ *              nullable = true,
+ *              unique=false
+ *          )
+ *      ),
+ * })
+ */
+class User extends BaseUser {
 
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    public function getId() {
+        return $this->id;
+    }
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+     
+
+        /**
      * @var boolean
      *
      * @ORM\Column(name="sexe",nullable=true)
      */
     private $sexe;
+
     /**
      * @var string
      * 
      * @ORM\Column(name="ville", type="string", length=255,nullable=true)
      */
     private $ville;
+
     /**
      * @var string
      *  
      * @ORM\Column(name="numeroportable", type="integer", length=255,nullable=true)
      */
     private $numeroportable;
+
     /**
      * @var string
      *
      * @ORM\Column(name="surmoi", type="text", length=500,nullable=true)
      */
     private $surmoi;
-    
-   /**
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_naissance", type="date",nullable=true)
      */
     private $datenaissance;
+
     public function getDatedeCreationUser() {
         return $this->datedeCreationUser;
     }
@@ -87,17 +99,18 @@ protected $id;
      * @ORM\Column(name="date_cre_user", type="datetime",nullable=true)
      */
     private $datedeCreationUser;
-       public function __construct()
-    {
-           parent::__construct();
+
+    public function __construct() {
+        parent::__construct();
         $this->datenaissance = new \DateTime();
         $this->datedeCreationUser = new \DateTime();
     }
-    
+
     public function setDatenaissance(\DateTime $datenaissance) {
         $this->datenaissance = $datenaissance;
         return $this;
     }
+
     /**
      * Gets the datenaissance time.
      *
@@ -106,38 +119,40 @@ protected $id;
     public function getDatenaissance() {
         return $this->datenaissance;
     }
+
     /**
      * @var string
      *
      * @ORM\Column(name="addresse", type="string", length=500,nullable=true)
      */
     private $addresse;
+
     /**
      * @var string
      * 
      * @ORM\Column(name="nomprenom", type="string", length=255,nullable=true)
      */
     private $nomprenom;
+
     /**
      * @var string
      *
      * @ORM\Column(name="codepostal", type="string", length=255,nullable=true)
      */
     private $codepostal;
+
     /**
      * @var string $image
      * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
      * @ORM\Column(name="image", type="string", length=2500, nullable=true)
      */
     private $image;
-
     protected $notifications;
     protected $sujets;
-    
+
     public function getSexe() {
         return $this->sexe;
     }
-
 
     public function getAddresse() {
         return $this->addresse;
@@ -159,8 +174,6 @@ protected $id;
         $this->sexe = $sexe;
         return $this;
     }
-
-
 
     public function setAddresse($addresse) {
         $this->addresse = $addresse;
@@ -190,7 +203,6 @@ protected $id;
         $this->nomprenom = $nomprenom;
         return $this;
     }
-
 
     public function getVille() {
         return $this->ville;
@@ -228,8 +240,6 @@ protected $id;
         return $this;
     }
 
-    
-    
     public function getFullImagePath() {
         return null === $this->image ? null : $this->getUploadRootDir() . $this->image;
     }
@@ -283,5 +293,4 @@ protected $id;
         rmdir($this->getUploadRootDir());
     }
 
-   
 }

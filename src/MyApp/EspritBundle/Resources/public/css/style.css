@@ -3110,3 +3110,14 @@ font-weight : bold;
 .stylegras{
 font-weight : bold;
 }
+.ajoutsujet{
+ position: absolute;
+  left: 220px;
+  top: 380px;
+  width: 880px;
+  height: 590px; 
+   z-index: 6001;
+/*background-color:#f8fef0;*/
+/*border:1px solid #8A0808;*/
+
+}

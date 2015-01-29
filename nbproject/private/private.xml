@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/screen.css</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/Article/add.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/index.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Form/ArticleType.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Form/sujetType.php</file>
         </group>
     </open-files>
 </project-private>
