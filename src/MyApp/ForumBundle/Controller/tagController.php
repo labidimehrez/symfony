@@ -7,6 +7,33 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class TagController extends Controller {
 
     public function addAction() {
+        
+                     
+        $em = $this->getDoctrine()->getManager();
+        
+     /**********************************************************************/
+        $tag = $em->getRepository('MyAppForumBundle:tag')->findAll(); 
+     if (!$tag) {   
+         
+         
+        $tag1 = new \MyApp\ForumBundle\Entity\tag();      
+        $tag1->setTitle("tag1");    
+        $tag2 = new \MyApp\ForumBundle\Entity\tag();      
+        $tag2->setTitle("tag2");
+ 
+        $em1 = $this->getDoctrine()->getManager();
+        
+        
+        $em1->persist($tag1);
+        $em1->persist($tag2);
+        
+        
+        
+        $em1->flush(); 
+         }
+        
+          /**********************************************************************/ 
+        
 
         $tag = new \MyApp\ForumBundle\Entity\tag();
         $form = $this->createForm(new \MyApp\ForumBundle\Form\TagType, $tag);

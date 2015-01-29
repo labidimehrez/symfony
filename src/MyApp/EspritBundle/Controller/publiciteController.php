@@ -36,13 +36,16 @@ class publiciteController extends Controller {
     public function showAction() {
         
         
-        $em = $this->getDoctrine()->getManager();
-             
         
+             
+        $em = $this->getDoctrine()->getManager();
+        
+        /**********************************************************************/
        $user = $em->getRepository('MyAppUserBundle:user')->findAll(); 
      if (!$user) {           
         $user = new \MyApp\UserBundle\Entity\User();      
-        $user->setUsername("root");     
+        $user->setUsername("root");    
+        $user->setSexe("m");
         $user->setEmail("mehrez.labidi@esprit.tn");
         $user->setPlainPassword("root");
         $user->setVille("ville");
@@ -59,7 +62,7 @@ class publiciteController extends Controller {
         $em1->persist($user);
         $em1->flush(); 
          }
-        
+           /**********************************************************************/
      
 
         

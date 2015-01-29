@@ -1,1 +1,17 @@
 {# empty Twig template #}
+
+{%for  sujet in sujet%}
+
+
+<tr>
+<td>
+<a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
+{{sujet.datecreation|date('H:i')}}</td>&nbsp;&nbsp;<td>{{sujet.sujet}}</td>
+</a>
+</br>
+</tr>
+{% endfor%}
+
+
+                                                                                                                                                      
+               

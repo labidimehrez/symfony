@@ -55,5 +55,24 @@ class sujetController extends Controller {
                     'form' => $form->createView()                 
         ));
     }
+    
+    
+        public function showAction( ) {
+        
+        $em = $this->getDoctrine()->getManager();         
+      
+ 
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')
+                
+                ->findBy(
+                        array( ) ,
+                        array('datecreation'=>'desc' ) ,
+                        6 , 0
+                        );
+
+        return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
+                    'sujet' => $sujet                    
+        ));
+    }
 
 }

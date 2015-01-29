@@ -15,9 +15,9 @@
         {{user.username}}
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        </td>
-     <td><a href="{{ path('my_app_user_edit',{'id':user.id}) }}" class="btn btn-warning btn-lg">update</a></td>
+     <td><a href="{{ path('my_app_user_edit',{'id':user.id}) }}" class="btn btn-warning btn-lg"  style="width: 150px;">update</a></td>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <td><a href="{{ path('my_app_user_delete',{'id':user.id}) }}" class="btn btn-warning btn-lg">delete</a></td>
+     <td><a href="{{ path('my_app_user_delete',{'id':user.id}) }}" class="btn btn-warning btn-lg"  style="width: 150px;">delete</a></td>
      </br> </br>
 
     {%endfor%}
