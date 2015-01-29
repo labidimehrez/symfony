@@ -19,21 +19,21 @@
                 <td> {{form_widget(form.sujet, { 'attr': {'placeholder': '  Emne ','class':'inp-form'} }) }}</td> 
             </tr>
            
-         
+           
            <tr>
-               <td class="stylegras">Contenu&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+               <td class="stylegras"> </br>Contenu&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.contenu) }} </td>
+                <td> {{form_widget(form.contenu, { 'attr': {'placeholder': '  tag ','class':'textfiledgrand'} }) }} </td>
             </tr>
             
                             
             
             <tr>
-                  <td class="stylegras">Tag&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+                  <td class="stylegras"></br>Tag&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td>{{ form_widget(form.tags, { 'attr': {'placeholder': '  tag ','class':'inp-form'} }) }}</td>
+                <td>{{ form_widget(form.tags, { 'attr': {'placeholder': '  Emne ','class':'inp-form'} }) }}</td>
             </tr>
             
   
@@ -41,17 +41,30 @@
             
             
             
-            </br></br></br> </br> 
+            
            
             <tr>   {{form_widget(form._token)}}   
-                <td> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit"  value="Save" class="btn btn-warning btn-lg"/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
-                    <input type="reset" value="Annuler" class="btn btn-warning btn-lg"/>  
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                <td class="stylegras">Notification {{form_widget(form.notification) }}
+                <td> </br></br> 
+          
+                    <input type="submit"  value="    Save    "  class="btn btn-warning btn-lg"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+            
+                    <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color: #c52821;">                                                                                                                                                      
+                &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a> 
+            
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            
+                Notification {{form_widget(form.notification) }}
                     
                 </td>  
             </tr>

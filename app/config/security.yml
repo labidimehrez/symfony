@@ -46,7 +46,9 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
- 
-          ## les crud sont protegés
+        
+          ## ajout de sujet permis au user connecté #
         - { path: ^/sujet, role: ROLE_USER }
+          ## les crud sont protegés
+       
        # - { path: ^/user, role: ROLE_ADMIN }

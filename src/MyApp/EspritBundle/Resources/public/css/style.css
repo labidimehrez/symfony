@@ -3119,5 +3119,10 @@ font-weight : bold;
    z-index: 6001;
 /*background-color:#f8fef0;*/
 /*border:1px solid #8A0808;*/
+}
+.textfiledgrand{
+
+  width: 820px;
+  height: 150px; 
 
 }
