@@ -19,57 +19,61 @@
 
     <div class="image">
         <h2>Min profil</h2> 
-
+        </br></br>
         {% if app.user.image is not null  %}
-             <img src="{{app.user.image }}"  
+        <img src="{{app.user.image }}"  
              style=" border-radius:50%;width:100px;height:100px;/*border:2px solid #679403;*/" alt="" /> 
         {% else %}
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
              style=" border-radius:50%;width:100px;height:100px;/*border:2px solid #679403;*/" alt="" />             
         {% endif%}
-             
-             
-             
 
 
- <a href="#" id="dialog-link" style="text-decoration:none;color: #000;">changer photo</a></br>      
-  <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;"> change password</a> 
-        
+
+
+
+        <a href="#" id="dialog-link" style="text-decoration:none;color: #000;">changer photo</a></br>      
+        <a href="{{ path('fos_user_change_password') }}" style="text-decoration:none;color: #000;"> change password</a> 
+
     </div>
 
     <div class="nomuser"> 
         </br></br></br></br> 
-        <b class="username"><h1> {{app.user.username }}</h1></b>
+        <b class="username">
+            <h1> {{app.user.username }}</h1>
+
+
+        </b>
 
     </div>
     <div class="donneeconnexion"> 
         </br></br></br></br>
-        <h6>Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d H:i:s')  }} </h6>  
-        <h6> Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d H:i:s')}}</h6>
+        <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
+        <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
     </div>
     <div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Seneste debatter</p></b>
-           
-        
-
-
- 
-                
-
     </div>
     
+{% for flashMessage in app.session.flashbag.get('fos_user_success') %}
+    <div class="messagealerteeditprofile">     
+        &nbsp;&nbsp; <img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
+             {{ flashMessage }}
+    </div>
+{% endfor %}
  
-    </br> </br> </br> </br></br> </br> </br> </br></br></br></br> 
- <div style="background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;">
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#" style="width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Profile</a></li>
-  <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Messages</a></li>
-  <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Débats</a></li>
-  <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Amis</a></li>
-  <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Notifications</a></li>
-</ul>
-</div> 
-    
+
+    </br> </br> </br> </br></br> </br> </br> </br></br></br></br> </br></br> 
+    <div style="background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#" style="width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Profile</a></li>
+            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Messages</a></li>
+            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Débats</a></li>
+            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Amis</a></li>
+            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Notifications</a></li>
+        </ul>
+    </div> 
+
 </div>
 
 
@@ -78,16 +82,16 @@
 <div id="login">
 
 
-    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit"  > 
-       
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit"> 
 
-         <div id="login-input"> 
+
+        <div id="login-input"> 
             <table  height="550">  
 
-                
 
-                
-       
+
+</br></br> 
+
                 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr> 
                 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
@@ -113,37 +117,37 @@
                 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
-               <tr><td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td></tr> 
+                <tr><td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td></tr> 
             </table> 
- 
-      
+
+
             <td> {{form_widget(form._token)}} </td> 
 
 
         </div>
 
 
-        <div id="buttonsregistrerEditprofil">
+        <div id="buttonsregistrerEditprofil"></br></br>
             <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />
             <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
         </div>
 
 
-	
 
- </form>
+
+    </form>
 </div>
 
 
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
-        <!-- css et js pour bundle JQuery  -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappesprit/js/jquery-ui.css') }}" />
-         <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery-ui.js') }}"></script>
-        <!-- css et js pour bundle JQuery  -->
- 
- 
+<!-- css et js pour bundle JQuery  -->
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappesprit/js/jquery-ui.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery-ui.js') }}"></script>
+<!-- css et js pour bundle JQuery  -->
+
+
 <h2 class="demoHeaders"> <em></em></h2>
 
 <!-- ui-dialog -->
@@ -152,116 +156,116 @@
 
 <h2 class="demoHeaders"><br>
 
-<script>
+    <script>
 
-$( "#accordion" ).accordion();
-
-
-
-var availableTags = [
-	"ActionScript",
-	"AppleScript",
-	"Asp",
-	"BASIC",
-	"C",
-	"C++",
-	"Clojure",
-	"COBOL",
-	"ColdFusion",
-	"Erlang",
-	"Fortran",
-	"Groovy",
-	"Haskell",
-	"Java",
-	"JavaScript",
-	"Lisp",
-	"Perl",
-	"PHP",
-	"Python",
-	"Ruby",
-	"Scala",
-	"Scheme"
-];
-$( "#autocomplete" ).autocomplete({
-	source: availableTags
-});
+        $("#accordion").accordion();
 
 
 
-$( "#button" ).button();
-$( "#radioset" ).buttonset();
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#autocomplete").autocomplete({
+            source: availableTags
+        });
 
 
 
-$( "#tabs" ).tabs();
+        $("#button").button();
+        $("#radioset").buttonset();
 
 
 
-$( "#dialog" ).dialog({
-	autoOpen: false,
-	width: 400,
-	buttons: [
-		{
-			text: "Ok",
-			click: function() {
-                                $(this).submit();
-
-			}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-
-// Link to open the dialog
-$( "#dialog-link" ).click(function( event ) {
-	$( "#dialog" ).dialog( "open" );
-	event.preventDefault();
-});
+        $("#tabs").tabs();
 
 
 
-$( "#datepicker" ).datepicker({
-	inline: true
-});
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function() {
+                        $(this).submit();
+
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        // Link to open the dialog
+        $("#dialog-link").click(function(event) {
+            $("#dialog").dialog("open");
+            event.preventDefault();
+        });
+
+
+
+        $("#datepicker").datepicker({
+            inline: true
+        });
 
 
 
 
 
-$( "#progressbar" ).progressbar({
-	value: 20
-});
+        $("#progressbar").progressbar({
+            value: 20
+        });
 
 
 
-$( "#spinner" ).spinner();
+        $("#spinner").spinner();
 
 
 
-$( "#menu" ).menu();
+        $("#menu").menu();
 
 
 
-$( "#tooltip" ).tooltip();
+        $("#tooltip").tooltip();
 
 
 
-$( "#selectmenu" ).selectmenu();
+        $("#selectmenu").selectmenu();
 
 
-// Hover states on the static widgets
-$( "#dialog-link, #icons li" ).hover(
-	function() {
-		$( this ).addClass( "ui-state-hover" );
-	},
-	function() {
-		$( this ).removeClass( "ui-state-hover" );
-	}
-);
-  </script> 
+        // Hover states on the static widgets
+        $("#dialog-link, #icons li").hover(
+                function() {
+                    $(this).addClass("ui-state-hover");
+                },
+                function() {
+                    $(this).removeClass("ui-state-hover");
+                }
+        );
+    </script> 
 </h2> 

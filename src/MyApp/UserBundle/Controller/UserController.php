@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller {
 
-    public function showAction( Request $request) {
-        
-        $em = $this->getDoctrine()->getManager();         
+    public function showAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
         /*
-        $sql = 'TRUNCATE TABLE user;';
-        $connection = $em->getConnection();
-        $stmt = $connection->prepare($sql);
-        $stmt->execute();
-        $stmt->closeCursor();  
+          $sql = 'TRUNCATE TABLE user;';
+          $connection = $em->getConnection();
+          $stmt = $connection->prepare($sql);
+          $stmt->execute();
+          $stmt->closeCursor();
          */
- 
+
         $user = $em->getRepository('MyAppUserBundle:user')->findAll();
 
         return $this->render('MyAppUserBundle:User:show.html.twig', array(
-                    'user' => $user                     
+                    'user' => $user
         ));
     }
 
@@ -50,13 +50,8 @@ class UserController extends Controller {
         }
 
         $form = $this->createFormBuilder($user)
-
-
                 ->add('username', 'text')
-                
-                ->add('enabled','checkbox', array('required' => false))
-                
-                
+                ->add('enabled', 'checkbox', array('required' => false))
                 ->add('roles', 'collection', array(
                     'type' => 'choice',
                     'options' => array(
@@ -79,9 +74,9 @@ class UserController extends Controller {
         }
 
         return $this->render('MyAppUserBundle:user:edit.html.twig', array(
-            'form' => $form->createView(),
-             'user' => $user,     
-                ));
+                    'form' => $form->createView(),
+                    'user' => $user,
+        ));
     }
 
 }

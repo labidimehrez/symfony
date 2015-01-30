@@ -19,15 +19,6 @@ class sujetController extends Controller {
          /**** je recuperer l id de user connecté **/
         $sujet = new \MyApp\ForumBundle\Entity\sujet();
        
-
-
-
-        
-
-
-
-
-
         $form = $this->createForm(new \MyApp\ForumBundle\Form\sujetType, $sujet);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {

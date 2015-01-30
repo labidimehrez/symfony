@@ -2970,7 +2970,7 @@ position: absolute;
  position: absolute;
  /* left: 175px;
   top: 380px;*/
- 
+ top: 0px;
   width: 152px; 
   height: 180px;
    z-index: 6000;
@@ -2979,9 +2979,9 @@ position: absolute;
 .donneeconnexion{
  /*background-color:#08088A;*/
  position: absolute;
-  left: 450px;
-  top: 1px;
-  width: 200px;
+  left: /*450*/500px;
+  top: 41px;
+  width: 150/*200*/px;
   height: 180px; 
    z-index: 6001;
  
@@ -3031,6 +3031,7 @@ border:1px solid #2EFE2E;
  position: absolute;
   left: 155px;
   /*top: 380px;*/
+ top:40px;
   width: 292px;
   height: 180px; 
    z-index: 6000;
@@ -3128,4 +3129,15 @@ font-weight : bold;
   height: 336px; 
 
 }
+ .messagealerteeditprofile{
+
+ background-color:#f8fef0;
+border:1px solid #2EFE2E;
+ position: absolute;
+  left: /*155px;*/0px;
+  top: /*380*/55px;
+  width: /*292*/650px;
+  height: /*180*/40px; 
+   z-index: 6000;
  
+}
