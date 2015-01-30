@@ -53,15 +53,26 @@
     </div>
     <div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Seneste debatter</p></b>
+
+     {#%for  sujet in sujet%}
+        <tr>
+            <td>
+                <a href="{#{path('my_app_esprit_homepage') }#}<!-- "style="text-decoration:none;color:black;"> 
+                            {#{sujet.datecreation|date('H:i')}#}</td>&nbsp;&nbsp;<td>{#{sujet.sujet}#}</td>
+            </a>
+            </br>
+        </tr> -->
+    {#% endfor%#}
+
     </div>
-    
+
 {% for flashMessage in app.session.flashbag.get('fos_user_success') %}
     <div class="messagealerteeditprofile">     
         &nbsp;&nbsp; <img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
              {{ flashMessage }}
     </div>
 {% endfor %}
- 
+
 
     </br> </br> </br> </br></br> </br> </br> </br></br></br></br> </br></br> 
     <div style="background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;">
@@ -90,7 +101,7 @@
 
 
 
-</br></br> 
+                </br></br> 
 
                 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr> 
                 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 

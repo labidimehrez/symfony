@@ -50,9 +50,7 @@ class sujetController extends Controller {
     
         public function showAction( ) {
         
-        $em = $this->getDoctrine()->getManager();         
-      
- 
+        $em = $this->getDoctrine()->getManager();              
         $sujet = $em->getRepository('MyAppForumBundle:sujet')
                 
                 ->findBy(
