@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+ {{ render(controller('MyAppForumBundle:tag:show')) }} 
+ 
+
+<div id="Forside___Debat___Politik___Samfund___Indenrigs">
+    <B>Forside >  
+            {% set uriapresForside = app.request.uri %}
+            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/sujet/sujetrecent" %}
+        Seneste debatter
+             {%endif%} 
+    </B>
+</div>
+<div class="conteneursenestedebat">
+    <div class="senestredebatt">
+        <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
+
+          {# c est deja decrit dans tag show ##}
+         
+
+
+    </div>
+    <h2>Seneste debatter</h2>
+    <div>
+{% for sujet in sujet %}
+
+{% if sujet.user.image is not null  %}
+        <img src="{{sujet.user.image }}"  
+             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />  
+{% else %}
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />             
+{% endif%}
+
+        &nbsp;&nbsp;&nbsp;
+        <b style="color: black">{{sujet.user.username}}</b></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{sujet.contenu}}</br></br>
+
+    </div>
+{%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

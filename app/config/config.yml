@@ -92,5 +92,9 @@ fos_comment:
 assetic:
     bundles: [ "FOSCommentBundle" ]   
     
- 
- 
+ #pour truncate lors dee l affichage d un texte assez long#
+services:
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }   

@@ -57,4 +57,18 @@ class TagController extends Controller {
         return $this->render('MyAppForumBundle:tag:add.html.twig', array('form' => $form->createView()));
     }
 
+    
+        
+        public function showAction( ) {
+        
+        $em = $this->getDoctrine()->getManager();              
+        $tag = $em->getRepository('MyAppForumBundle:tag')
+                
+                ->findAll();
+
+        return $this->render('MyAppForumBundle:tag:show.html.twig', array(
+                    'tag' => $tag                    
+        ));
+    }
+    
 }

@@ -44,7 +44,7 @@ class sujet {
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=255,unique=true)
+     * @ORM\Column(name="contenu", type="string", length=20000)
      */
     private $contenu;
 
