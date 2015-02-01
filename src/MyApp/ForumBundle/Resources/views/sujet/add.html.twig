@@ -2,7 +2,8 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 
- 
+<script src="{{ asset('bundles/myappforum/ckeditor/ckeditor.js')}}"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/ckeditor/contents.css') }}"/> 
 
  {% block ajout_sujet%} 
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
@@ -24,7 +25,7 @@
                <td class="stylegras"> </br>Contenu&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.contenu, { 'attr': {'placeholder': '  tag ','class':'textfiledgrand'} }) }} </td>
+                <td> {{form_widget(form.contenu ) }} </td>
             </tr>
             
                             

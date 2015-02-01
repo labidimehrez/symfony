@@ -15,7 +15,7 @@ class sujetType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('sujet')
-                ->add('contenu', 'textarea')
+                ->add('contenu', 'textarea',array('attr'=>  array('class'=>'ckeditor')))
                 ## ->add('datecreation')
                 ## ->add('datelus')
                 ->add('notification', 'checkbox', array('required' => false, 'data' => true))
