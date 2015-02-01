@@ -40,9 +40,16 @@ class publiciteController extends Controller {
              
         $em = $this->getDoctrine()->getManager();
         
-        /**********************************************************************/
+        /**********************************************************************/        
        $user = $em->getRepository('MyAppUserBundle:user')->findAll(); 
-     if (!$user) {           
+     if (!$user) {     
+         
+         $sql = 'TRUNCATE TABLE user;';
+          $connection = $em->getConnection();
+          $stmt = $connection->prepare($sql);
+          $stmt->execute();
+          $stmt->closeCursor();
+          
         $user = new \MyApp\UserBundle\Entity\User();      
         $user->setUsername("root");    
         $user->setSexe("m");
