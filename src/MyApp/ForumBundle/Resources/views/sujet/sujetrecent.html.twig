@@ -21,7 +21,7 @@
 
     </div>
     <h2>Seneste debatter</h2>
-    <div>
+   
 {% for sujet in sujet %}
 
 {% if sujet.user.image is not null  %}
@@ -39,8 +39,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {{sujet.contenu}}</br></br>
 
-    </div>
-{%endfor%}
+    
+{%endfor%} </div>
+    
+ 
 
 
 
