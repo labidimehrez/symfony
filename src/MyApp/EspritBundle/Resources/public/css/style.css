@@ -350,7 +350,7 @@
 }
 .MENU {
     position: absolute;
-    left: 176px;
+    left: 196px;
     top: 310px;
     /*width: 1280px;
     height: 2799px;*/
@@ -609,7 +609,7 @@
     height: 2799px;*/
     z-index: 170;
 }
-#mx_dk___19_debat_indl�g {
+.mx_dk___19_debat_indl�g {
     font-size: 12.512px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -649,7 +649,7 @@
     height: 215px;
     z-index: 167;
 }
-#_170x215 {
+._170x215 {
     background-image: url("170x215.png");
     position: absolute;
     left: 629px;
@@ -666,7 +666,7 @@
     height: 2799px;*/
     z-index: 164;
 }
-#mx_dk___41_debat_indl�g {
+.mx_dk___41_debat_indl�g {
     font-size: 12.512px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -707,7 +707,7 @@
     height: 215px;
     z-index: 161;
 }
-#_170x215 {
+._170x215 {
     background-image: url("170x215.png");
     position: absolute;
     left: 319px;
@@ -724,7 +724,7 @@
     height: 2799px;*/
     z-index: 158;
 }
-#mx_dk___41_debat_indl�g {
+.mx_dk___41_debat_indl�g {
     font-size: 9px;
     font-family: "Helvetica";
     color: rgb(255, 255, 255);
@@ -761,7 +761,7 @@
     height: 138px;
     z-index: 155;
 }
-#Layer_28c {
+.Layer_28c {
     background-image: url("Layer 28 copy.png");
     position: absolute;
     left: 175px;
@@ -778,7 +778,7 @@
      height: 2799px;*/
     z-index: 153;
 }
-#_8 {
+._8 {
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -812,7 +812,7 @@
     height: 2799px;*/
     z-index: 148;
 }
-#_8 {
+._8 {
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -846,7 +846,7 @@
     height: 200px;
     z-index: 145;
 }
-#_220x200 {
+._220x200 {
     background-image: url("220x200.png");
     position: absolute;
     left: 346px;
@@ -863,7 +863,7 @@
     height: 2799px;*/
     z-index: 142;
 }
-#_8 {
+._8 {
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -914,7 +914,7 @@
     height: 2799px;*/
     z-index: 136;
 }
-#mx_dk___36_debat_indl�g {
+.mx_dk___36_debat_indl�g {
     font-size: 11px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -1096,7 +1096,7 @@
     top: 2335.589px;*/
     z-index: 116;
 }
-#_2 {
+._2 {
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -1249,7 +1249,7 @@
     height: 250px;
     z-index: 101;
 }
-#REKLAME_1 {
+.REKLAME_1 {
     position: absolute;
     left: 805px;
     top: 650px;
@@ -1647,7 +1647,7 @@
     z-index: 37;
 }
 
-#How_I_Met_Your_Mother {
+.How_I_Met_Your_Mother {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1662,7 +1662,7 @@
     top: 2313.499px;
     z-index: 35;
 }
-#TV3 {
+.TV3 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -1671,7 +1671,7 @@
     height: 44px;
     z-index: 34;
 }
-#_1 {
+._1 {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -1680,7 +1680,7 @@
     z-index: 32;
 }
 
-#How_I_Met_Your_Mother {
+.How_I_Met_Your_Mother {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1695,7 +1695,7 @@
     top: 2264.499px;
     z-index: 30;
 }
-#TV3 {
+.TV3 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -1704,7 +1704,7 @@
     height: 44px;
     z-index: 29;
 }
-#TV_GUIDE {
+.TV_GUIDE {
     font-size: 18px;
     font-family: "HelveticaNeue";
     color: rgb(255, 255, 255);
@@ -1720,7 +1720,7 @@
     top: 2211.2px;
     z-index: 27;
 }
-#Shape_37 {
+.Shape_37 {
     background-color: rgb(197, 40, 33);
     position: absolute;
     left: 805px;
@@ -1729,7 +1729,7 @@
     height: 252px;
     z-index: 26;
 }
-#_300x250_copy {
+._300x250_copy {
     background-image: url("300x250 copy.png");
     position: absolute;
     left: 807px;
@@ -1746,7 +1746,7 @@
     height: 2799px;*/
     z-index: 23;
 }
-#LEFT {
+.LEFT {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -1754,7 +1754,7 @@
     height: 2799px;*/
     z-index: 22;
 }
-#Om_SOL_Annoncering_Kontakt_os_Hj�lp_og_Support_ {
+.Om_SOL_Annoncering_Kontakt_os_Hj�lp_og_Support_ {
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1769,7 +1769,7 @@
     height: 227px;
     z-index: 21;
 }
-#_______________________________________________ {
+._______________________________________________ {
     font-size: 11px;
     font-family: "Georgia";
     color: rgb(143, 143, 143);
@@ -1781,7 +1781,7 @@
     top: 2552.188px;
     z-index: 20;
 }
-#MID {
+.MID {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -1789,7 +1789,7 @@
     height: 2799px;*/
     z-index: 18;
 }
-#NYHEDER_KENDTE_UNDERHOLDNING_REJSER_SUNDHED_FRI {
+.NYHEDER_KENDTE_UNDERHOLDNING_REJSER_SUNDHED_FRI {
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1803,7 +1803,7 @@
     height: 227px;
     z-index: 17;
 }
-#_______________________________________________ {
+._______________________________________________ {
     font-size: 11px;
     font-family: "Georgia";
     color: rgb(143, 143, 143);
@@ -1815,7 +1815,7 @@
     top: 2552.188px;
     z-index: 16;
 }
-#RIGHT {
+.RIGHT {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -1823,7 +1823,7 @@
     height: 2799px;*/
     z-index: 14;
 }
-#HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
+.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1837,7 +1837,7 @@
     height: 226px;
     z-index: 13;
 }
-#_______________________________________________ {
+._______________________________________________ {
     font-size: 11px;
     font-family: "Georgia";
     color: rgb(143, 143, 143);
@@ -1867,7 +1867,7 @@
     height: 2799px;*/
     z-index: 7;
 }
-#Skyleft {
+.Skyleft {
     background-image: url("Skyleft.png");
     position: absolute;
     left: 0px;
@@ -1878,7 +1878,7 @@
 }
 
 
-#Skyright {
+.Skyright {
     background-image: url("Skyright.png");
     position: absolute;
     left: 1119px;
@@ -1887,7 +1887,7 @@
     height: 600px;
     z-index: 5;
 }
-#Derforsko{
+.Derforsko{
     font-size: 24.711px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -1904,7 +1904,7 @@
     z-index: 156;
 }
 
-#Herfar{
+.Herfar{
     font-size: 18px;
     font-family: "Helvetica";
     color: rgb(0, 0, 0);
@@ -1920,7 +1920,7 @@
     z-index: 104;
 }
 
-#Rygte{
+.Rygte{
     font-size: 18px;
     font-family: "Helvetica";
     color: rgb(0, 0, 0);
@@ -1949,7 +1949,7 @@
     -webkit-transform: matrix( 1.16555689978784,0,0,1.16555689978784,0,0);
     -ms-transform: matrix( 1.16555689978784,0,0,1.16555689978784,0,0);
     position: absolute;
-    left: 280.367px;
+    left: 299.367px;
     top: 325px;
     z-index: 2000;
 }
@@ -1967,7 +1967,7 @@
     z-index: 801;
 }
 
-#SENESTE_DEBATTER {
+.SENESTE_DEBATTER {
     font-size: 38.882px;
     font-family: "HelveticaNeue";
     color: rgb(197, 40, 33);
@@ -1983,7 +1983,7 @@
     top: 381.999px;
     z-index: 305;
 }
-#Danmark_skal{
+.Danmark_skal{
     font-size: 13px;
     font-family: "Helvetica";
     color: rgb(94, 94, 94);
@@ -2000,7 +2000,7 @@
 }
 
 
-#TV_GUIDE{
+.TV_GUIDE{
     font-size: 18px;
     font-family: "HelveticaNeue";
     color: rgb(255, 255, 255);
@@ -2017,7 +2017,7 @@
     z-index: 527;
 }
 
-#Shape_37{
+.Shape_37{
     background-color: rgb(197, 40, 33);
     position: absolute;
     left: 805px;
@@ -2026,7 +2026,7 @@
     height: 252px;
     z-index: 526;
 }
-#TV3 {
+.TV3 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -2035,7 +2035,7 @@
     height: 44px;
     z-index: 529;
 }
-#How_I_Met_Your_Mother {
+.How_I_Met_Your_Mother {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2066,7 +2066,7 @@
 }
 
 
-#MESTL�STEDEBATTER{
+.MESTL�STEDEBATTER{
     font-size: 38.882px;
     font-family: "HelveticaNeue";
     color: rgb(197, 40, 33);
@@ -2082,7 +2082,7 @@
     top: 1949.999px;
     z-index: 553;
 }
-#Overgrebmuslime{
+.Overgrebmuslime{
     font-size: 13px;
     font-family: "Helvetica";
     color: rgb(0, 0, 0);
@@ -2131,7 +2131,7 @@
 }
 
 
-#Layer_50 {
+.Layer_50 {
     background-image: url("Layer 50.png");
     position: absolute;
     left: 805px;
@@ -2142,7 +2142,7 @@
 }
 
 
-#Shop {
+.Shop {
     background-image: url("Shop.png");
     position: absolute;
     left: 1038px;
@@ -2152,7 +2152,7 @@
     z-index: 592;
 }
 
-#Backup {
+.Backup {
     background-image: url("Backup.png");
     position: absolute;
     left: 836px;
@@ -2161,7 +2161,7 @@
     height: 26px;
     z-index: 591;
 }
-#Mail {
+.Mail {
     background-image: url("Mail.png");
     position: absolute;
     left: 933px;
@@ -2171,7 +2171,7 @@
     z-index: 590;position: fixed;
 }
 
-#SOL_SERVICES {
+.SOL_SERVICES {
     font-size: 38.882px;
     font-family: "HelveticaNeue";
     color: rgb(255, 255, 255);
@@ -2187,7 +2187,7 @@
     top: 911.999px;
     z-index: 594;
 }
-#BACKUPMAIL{
+.BACKUPMAIL{
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2577,7 +2577,7 @@
 }
 
 
-#danske{
+.danske{
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -2591,7 +2591,7 @@
     z-index: 517;
 }
 
-#mxdkdanske{
+.mxdkdanske{
     font-size: 11px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -2603,7 +2603,7 @@
     top: 2335.589px;
     z-index: 116;
 }
-#Chokskifte {
+.Chokskifte {
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -2616,7 +2616,7 @@
     height: 44px;
     z-index: 115;
 }
-#mxdkChokskifte{
+.mxdkChokskifte{
     font-size: 11px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -2628,7 +2628,7 @@
     top: 2335.589px;
     z-index: 112;
 }
-#Massiv{
+.Massiv{
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -2641,7 +2641,7 @@
     height: 48px;
     z-index: 113;
 }
-#mxdkMassiv{
+.mxdkMassiv{
     font-size: 11px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -2655,7 +2655,7 @@
 }
 
 
-#Herer{
+.Herer{
     font-size: 24px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(0, 0, 0);
@@ -2668,7 +2668,7 @@
     height: 43px;
     z-index: 111;
 }
-#mxdkHerer{
+.mxdkHerer{
     font-size: 11px;
     font-family: "Helvetica";
     color: rgb(44, 44, 44);
@@ -2682,7 +2682,7 @@
 }
 
 /*div No 1 de TV Guide */
-#TV3 {
+.TV3 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -2692,7 +2692,7 @@
     z-index: 744;
 }
 
-#Marts_9__2014{
+.Marts_9__2014{
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2708,7 +2708,7 @@
 }
 
 
-#How_I_Met_Your_Mother {
+.How_I_Met_Your_Mother {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2727,7 +2727,7 @@
 
 
 /*div No 2 de TV Guide */
-#TV32 {
+.TV32 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -2737,7 +2737,7 @@
     z-index: 744;
 }
 
-#Marts_9__20142{
+.Marts_9__20142{
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2753,7 +2753,7 @@
 }
 
 
-#How_I_Met_Your_Mother2 {
+.How_I_Met_Your_Mother2 {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2770,7 +2770,7 @@
 }
 
 /*div No 3 de TV Guide */
-#TV33 {
+.TV33 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -2780,7 +2780,7 @@
     z-index: 744;
 }
 
-#Marts_9__20143{
+.Marts_9__20143{
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2796,7 +2796,7 @@
 }
 
 
-#How_I_Met_Your_Mother3 {
+.How_I_Met_Your_Mother3 {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2813,7 +2813,7 @@
 }
 
 /*div No 4 de TV Guide */
-#TV34 {
+.TV34 {
     background-image: url("TV3.png");
     position: absolute;
     left: 841px;
@@ -2823,7 +2823,7 @@
     z-index: 744;
 }
 
-#Marts_9__20144{
+.Marts_9__20144{
     font-size: 12px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2839,7 +2839,7 @@
 }
 
 
-#How_I_Met_Your_Mother4 {
+.How_I_Met_Your_Mother4 {
     font-size: 17px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -2855,19 +2855,19 @@
     z-index: 545;
 }
 
-#position-1{ position: absolute;left: 175px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
-#position0{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-#position1{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
+.position-1{ position: absolute;left: 195px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
+.position0{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+.position1{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
 
-#position2{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
+.position2{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
 
-#position3{ position: absolute;left: 540px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+.position3{ position: absolute;left: 540px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
-#position4{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+.position4{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
-#position5{ position: absolute;left: 1119px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+.position5{ position: absolute;left: 1179px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
-#position6{ position: relative;left: 175px;top: 2290px;width: 929px;height: 180px; z-index: 8000;}
+.position6{ position: absolute;left: 175px;top: 2290px;width: 929px;height: 180px; z-index: 8000;}
 
 
 

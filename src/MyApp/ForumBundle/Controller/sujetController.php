@@ -50,17 +50,24 @@ class sujetController extends Controller {
 
     public function showAction() {
 
-        $em = $this->getDoctrine()->getManager();
+     $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                ->findBy(
-                array(), array('datecreation' => 'desc'), 6, 0
-        );
-
+                ->findAll();
+ 
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
-        ));
+        )); 
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public function sujetrecentAction() {
         $em = $this->getDoctrine()->getManager();
 

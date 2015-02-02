@@ -1,7 +1,7 @@
 my_app_forum_homepage:
     pattern:  /api/threads/{id}
     defaults: { _controller: MyAppForumBundle:Default:index }
-    
+##############################################################################################    
 my_app_forum_tag_add:
     pattern:  /tag/add
     defaults: { _controller: MyAppForumBundle:tag:add }
@@ -11,7 +11,13 @@ my_app_forum_tag_show:
     requirements:
         _method:  GET
         id: \d+  
-        
+my_app_forum_tag_mostusedtag:
+    pattern:  /tag/mostusedtag
+    defaults: { _controller: MyAppForumBundle:tag:mostused }
+    requirements:
+        _method:  GET
+        id: \d+ 
+        ##############################################################################################        
 my_app_forum_sujet_add:
     pattern:  /sujet/add
     defaults: { _controller: MyAppForumBundle:sujet:add }
@@ -27,10 +33,7 @@ my_app_forum_sujet_sujetrecent:
     requirements:
         _method:  GET
         id: \d+ 
-        
-        
-        
-        
+##############################################################################################
 my_app_forum_commentaire_add:
     pattern:  /commentaire/add
     defaults: { _controller: MyAppForumBundle:commentaire:add }

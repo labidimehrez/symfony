@@ -71,4 +71,19 @@ class TagController extends Controller {
         ));
     }
     
+    public function mostusedAction() {
+        
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('
+                        
+         SELECT t , s  FROM MyAppForumBundle:Tag t JOIN t.sujets s
+      
+                ');
+
+        $tag = $query->getResult();
+        return $this->render('MyAppForumBundle:tag:mostused.html.twig', array(
+                    'tag' => $tag
+        ));
+    }
+    
 }
