@@ -1,7 +1,9 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
- {{ render(controller('MyAppForumBundle:tag:mostused')) }} 
+{{ render(controller('MyAppForumBundle:tag:mostused')) }} 
  
+
+  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
 <div class="Forside___Debat___Politik___Samfund___Indenrigs">
     <B>Forside >  
@@ -10,6 +12,10 @@
         Seneste debatter
              {%endif%} 
     </B>
+</div>
+<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
+    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
+               Start a New Topic</a>
 </div>
 <div class="conteneursenestedebat">
     <div class="senestredebatt">
@@ -22,7 +28,7 @@
     </div>
     <h2>Seneste debatter</h2>
    
-{% for sujet in sujet %}
+{% for   sujet in sujet  %}
 
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
@@ -34,11 +40,13 @@
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">{{sujet.user.username}}</b></br>
+        
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {{sujet.contenu}}</br></br>
-
+         
+       
     
 {%endfor%} </div>
     

@@ -48,7 +48,7 @@ security:
         - { path: ^/admin/, role: ROLE_ADMIN }
         
           ## ajout de sujet permis au user connecté #
-        - { path: ^/sujet, role: ROLE_USER }
+        - { path: ^/sujet/add, role: ROLE_USER }
           ## les crud sont protegés
        
        # - { path: ^/user, role: ROLE_ADMIN }

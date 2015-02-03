@@ -2,57 +2,57 @@
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 {% block fos_user_content %}
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
- 
 
-    
 
-    
-    <div id="login"></br></br>
-        <b><h2>Log p&aring; SOL.DK</h2></b> </br>
-        <p> Vekommen til SOL.dk ......</p> 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-<div id="login-input">
-<tr>             
-<td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>		
-<td> <input type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
-</tr>	
-</br></br> 
-<tr> 
-<td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-<td> <input type="password" id="password" name="_password" class="btn btn-warning btn-lg" required="required" /></td>
-</tr>		
-<div id="lower">
-</br>		
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 
-		
- <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"   style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
- </br></br>
- 
 
- 
-{% if error %}<div>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <b  class="rouge">( {{ error|trans({}, 'FOSUserBundle') }} )</b></div>{% endif %}	
 
-</div>
-</div>		
-</form>
-        </br></br></br></br></br></br></br></br></br>
-        <p>Er du ny bruger .....</p>
-        
-            <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
-                <b  class="rouge">Registrer</b></a>
-       
-        
+
+<div id="login"></br></br>
+    <b><h2>Log p&aring; SOL.DK</h2></b> </br>
+    <p> Vekommen til SOL.dk ......</p> 
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <div id="login-input">
+            <tr>             
+                <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>		
+                <td> <input type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
+            </tr>	
+            </br></br> 
+            <tr> 
+                <td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                <td> <input type="password" id="password" name="_password" class="btn btn-warning btn-lg" required="required" /></td>
+            </tr>		
+            <div id="lower">
+                </br>		
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"   style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
+                </br></br>
+
+
+
+                {% if error %}<div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b  class="rouge">( {{ error|trans({}, 'FOSUserBundle') }} )</b></div>{% endif %}	
+
+            </div>
+        </div>		
+    </form>
+    </br></br></br></br></br></br></br></br></br>
+    <p>Er du ny bruger .....</p>
+
+    <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
+        <b  class="rouge">Registrer</b></a>
+
+
 </div>  
- 
+
 {% endblock fos_user_content %}

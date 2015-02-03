@@ -1,0 +1,25 @@
+ 
+     
+my_app_forum_tag_add:
+    pattern:  /add
+    defaults: { _controller: MyAppForumBundle:tag:add }
+my_app_forum_tag_show:
+    pattern:  /show
+    defaults: { _controller: MyAppForumBundle:tag:show }
+    requirements:
+        _method:  GET
+        id: \d+  
+my_app_forum_tag_mostusedtag:
+    pattern:  /mostusedtag
+    defaults: { _controller: MyAppForumBundle:tag:mostused }
+    requirements:
+        _method:  GET
+        id: \d+ 
+        
+my_app_forum_tag_usedtag:
+    pattern:  /usedtag
+    defaults: { _controller: MyAppForumBundle:tag:usedtag}
+    requirements:
+        _method:  GET
+        id: \d+ 
+ 

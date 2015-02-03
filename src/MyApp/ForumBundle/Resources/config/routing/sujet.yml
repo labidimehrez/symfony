@@ -1,0 +1,18 @@
+ 
+                 
+my_app_forum_sujet_add:
+    pattern:  /add
+    defaults: { _controller: MyAppForumBundle:sujet:add }
+my_app_forum_sujet_show:
+    pattern:  /show
+    defaults: { _controller: MyAppForumBundle:sujet:show }
+    requirements:
+        _method:  GET
+        id: \d+  
+my_app_forum_sujet_sujetrecent:
+    pattern:  /sujetrecent
+    defaults: { _controller: MyAppForumBundle:sujet:sujetrecent }
+    requirements:
+        _method:  GET
+        id: \d+ 
+ 

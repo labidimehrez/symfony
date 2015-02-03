@@ -1,0 +1,13 @@
+ 
+ 
+my_app_forum_commentaire_add:
+    pattern:  /commentaire/add
+    defaults: { _controller: MyAppForumBundle:commentaire:add }
+my_app_forum_commentaire_show:
+    pattern:  /commentaire/show
+    defaults: { _controller: MyAppForumBundle:commentaire:show }
+    requirements:
+        _method:  GET
+        id: \d+  
+
+

@@ -7,34 +7,9 @@ my_app_esprit_administration:
     pattern:  /administration
     defaults: { _controller: MyAppEspritBundle:Default:administration }    
     
-    #      routing     publicité          #
-my_app_esprit_publicite_add:
-    pattern:  /publicite/add
-    defaults: { _controller: MyAppEspritBundle:publicite:add }
-my_app_esprit_publicite_show:
-    pattern:  /publicite/show
-    defaults: { _controller: MyAppEspritBundle:publicite:show }
-    requirements:
-        _method:  GET
-        id: \d+  
-my_app_esprit_publicite_manage:
-    pattern:  /publicite/manage
-    defaults: { _controller: MyAppEspritBundle:publicite:manage }
-    requirements:
-        _method:  GET
-        id: \d+  
-my_app_esprit_publicite_delete:
-    pattern:  /publicite/{id}/delete
-    defaults: { _controller: MyAppEspritBundle:publicite:delete}
-    
-my_app_esprit_publicite_deleteall:
-    pattern:  /publicite/delete/all
-    defaults: { _controller: MyAppEspritBundle:publicite:deleteall}
-    
-my_app_esprit_publicite_edit:
-    pattern:  /publicite/{id}/edit
-    defaults: { _controller: MyAppEspritBundle:publicite:edit}    
-#  ########################################################################################
+publicite:
+    resource: "@MyAppEspritBundle/Resources/config/routing/publicite.yml"
+    prefix: /publicite 
 
 
  
