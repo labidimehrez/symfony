@@ -39,12 +39,14 @@
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
-        <b style="color: black">{{sujet.user.username}}</b></br>
+        <b style="color: black">{{sujet.user.username}}</b>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <b style="color: silver">{{sujet.datecreation|date('') |Difftime}} : minutes ago </b></br>
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        {{sujet.contenu|Contenu}}</br></br>
+        {{sujet.contenu|Contenu}} 
          
        
     

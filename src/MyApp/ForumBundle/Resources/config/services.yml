@@ -6,3 +6,7 @@ services:
          class: MyApp\ForumBundle\Twig\Extension\ContenuExtension
          tags:
            - {name:twig.extension }
+     difftime:
+         class: MyApp\ForumBundle\Twig\Extension\DifftimeExtension
+         tags:
+           - {name:twig.extension }
