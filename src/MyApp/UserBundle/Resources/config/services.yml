@@ -5,3 +5,11 @@ services:
 #    my_app_user.example:
 #        class: %my_app_user.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+     security.authentication.success_handler.class: MyApp\UserBundle\Redirection\LoginSuccessHandler
+
+services:
+    security.authentication.customized_success_handler:
+        class: %security.authentication.success_handler.class%
+        public: false
+        arguments:  [@router, @security.context]

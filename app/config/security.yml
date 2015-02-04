@@ -28,7 +28,8 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                default_target_path:  my_app_esprit_homepage                
+#                default_target_path:  my_app_esprit_homepage
+                success_handler: security.authentication.customized_success_handler
                # default_target_path: fos_user_security_login  /*la page a redirect to*/
                 remember_me: true          
                # On active la possibilité du "Se souvenir de moi" (désactivé par défaut)#
@@ -49,6 +50,4 @@ security:
         
           ## ajout de sujet permis au user connecté #
         - { path: ^/sujet/add, role: ROLE_USER }
-          ## les crud sont protegés
-       
-       # - { path: ^/user, role: ROLE_ADMIN }
+    
