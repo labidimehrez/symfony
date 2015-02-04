@@ -2,6 +2,7 @@ parameters:
 #    my_app_forum.example.class: MyApp\ForumBundle\Example
 
 services:
-#    my_app_forum.example:
-#        class: %my_app_forum.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+     contenu:
+         class: MyApp\ForumBundle\Twig\Extension\ContenuExtension
+         tags:
+           - {name:twig.extension }
