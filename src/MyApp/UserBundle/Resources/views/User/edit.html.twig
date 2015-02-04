@@ -10,7 +10,7 @@
                  
        <tr><td>User Name</td><td>{{form_widget(form.username)}}</td></tr> </br></br>
       <tr><td>Enable</td><td>{{form_widget(form.enabled)}}</td></tr> </br></br>
-   {#% if is_granted( 'ROLE_SUPER_ADMIN' ) %#}
+   {#% if is_granted( 'ROLE_SUPER_ADMIN' ) %#}      
       <tr><td>Role</td><td>{{form_widget(form.roles)}}</td> </tr>
     {#% endif%#}  
       

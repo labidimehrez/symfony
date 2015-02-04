@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
+ 
+    
+   
+  
 {% block head %}
     <head>    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -70,7 +74,7 @@
     </div>
 
     <div class="DEBATMot"><a href="{{path('my_app_forum_sujet_sujetrecent') }}" style="text-decoration:none;color: white;"> DEBATFORUM</a> 
-        
+
     </div>
 
     <div class="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
@@ -136,16 +140,16 @@
             </div>
             <div class="cadreblanc"></div> 
             <div class="SOLDK"><a href="https://www.facebook.com/Sol.dk?fref=ts" style="text-decoration:none;color:#3B5998;">SOL.DK</a></div> 
- {% block publicitemanage %} {% endblock  %}
- {% block publicite_show %}  {% endblock  %}
- {% block editUser %}  {% endblock  %} {% block showUser %}  {% endblock  %} 
- {% block fos_user_content %} {% endblock fos_user_content %}
+             {% block publicitemanage %} {% endblock  %}
+            {% block publicite_show %}  {% endblock  %}
+            {% block editUser %}  {% endblock  %} {% block showUser %}  {% endblock  %} 
+            {% block fos_user_content %} {% endblock fos_user_content %}
             {% block ajout_arstyle%}   {% endblock  %}
             {% block ajout_article%}{% endblock %}
              {% block ajout_tag%}{% endblock %}
              {% block ajout_sujet%} {% endblock %}
         </div>
-
+        
 
         <!-- ---------------------------------------------------------------------------------------------------------------->
 
@@ -168,3 +172,6 @@
     </footer>
 </html>
 {% block container %}{% endblock %}
+
+
+ 

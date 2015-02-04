@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function administrationAction()
     {
-        return $this->render('MyAppEspritBundle:Default:administration.html.twig');
+        return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
 }
