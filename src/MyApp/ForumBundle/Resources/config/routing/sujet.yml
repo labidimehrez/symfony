@@ -1,5 +1,3 @@
- 
-                 
 my_app_forum_sujet_add:
     pattern:  /add
     defaults: { _controller: MyAppForumBundle:sujet:add }
@@ -15,4 +13,9 @@ my_app_forum_sujet_sujetrecent:
     requirements:
         _method:  GET
         id: \d+ 
- 
+my_app_forum_sujet_manage:
+    pattern:  /manage
+    defaults: { _controller: MyAppForumBundle:sujet:manage }
+    requirements:
+        _method:  GET
+        id: \d+   

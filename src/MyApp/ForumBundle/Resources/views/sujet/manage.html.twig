@@ -1,44 +1,47 @@
+
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showUser %}   
-                <header><h3 class="tabs_involved">Content User Manager</h3>
+ {% block showsujet %}  
+                <header><h3 class="tabs_involved">Content Sujet Manager</h3>
                     <ul class="tabs">
                         <li><a href="#tab1">Posts</a></li>
-                        <li><a href="#">Comments</a></li>
+                        <li><a href="#tab2">Comments</a></li>
                     </ul>
                 </header>  
+
 
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
             <tr> 
-                <th></th> 
-                <th>User Name</th> 
-                <th>Role</th> 
-                <th>Created On</th> 
+                <th> </th> 
+                <th>No</th> 
+                
+                <th>Sujet Title</th> 
+                 <th>Post at</th> 
                 <th>Actions</th> 
             </tr> 
         </thead> 
         <tbody> 
-            {% for user in user %} 
+            {% for sujet in sujet %}
             <tr> 
                 <td><input type="checkbox"></td> 
-                <td>{{user.username}}</td> 
-                <td>{#{app.user.roles|join }#}</td> 
-                <td>{{user.datedeCreationUser|date('Y-M-d')}}</td> 
+                <td>{{sujet.id}}</td> 
+                <td>{{sujet.datecreation }}</td> 
+                <td>{{sujet.sujet}}</td> 
 
 
                 <td>
-                    <a href="{{ path('my_app_user_edit',{'id':user.id}) }}">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                    <a href="#">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" /><img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a>   &nbsp;&nbsp;
-                    <a href="{{ path('my_app_user_delete',{'id':user.id}) }}">
+                    <a href="#">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a> 
                 </td>
             </tr> 
-            {%endfor%}
 
+            {%endfor%}
 
 
         </tbody> 

@@ -10,3 +10,5 @@ services:
          class: MyApp\ForumBundle\Twig\Extension\DifftimeExtension
          tags:
            - {name:twig.extension }
+           ################################################
+  

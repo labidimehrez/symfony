@@ -72,10 +72,10 @@ class publiciteController extends Controller {
            /**********************************************************************/
      
 
-        
+           
 
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
-
+        //var_dump($publicite);die();
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
                     'publicite2' => $publicite,
         ));

@@ -1,79 +1,50 @@
-{# empty Twig template #}
-{% extends 'MyAppEspritBundle:publicite:show.html.twig' %}
 
- {% block publicitemanage %} 
- {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+{% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
-{#% if is_granted('ROLE_ADMIN') %#}
-<div id="div_publicite_add">
-    <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
-        <table>
-            <thead>
-
-            <div class="ckeditorperso"> <tr>      
-                    <td> {{form_widget(form.image)}}  </td>
-                </tr>   
-            </div>
-      {{form_widget(form._token)}} 
-            <tr>
-                <td> </br></br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit"  value="submit" class="btn btn-warning btn-lg"/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ {% block showpub %}  
+                <header><h3 class="tabs_involved">Content Banners Manager</h3>
+                    <ul class="tabs">
+                        <li><a href="#tab1">Posts</a></li>
+                        <li><a href="#tab2">Comments</a></li>
+                    </ul>
+                </header>  
 
 
-                    <input type="reset" value="annuler"  class="btn btn-warning btn-lg"/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-           {{form_widget(form.position, { 'attr': { 'placeholder': '  position ','class': 'form-control'} }   )   }}       
-                </td> 
-            </tr>   
-            </thead>
-        </table>
-    </form>
-    </br></br></br>
-      {% for publicite2 in publicite2 %} 
-
-    <table>
-        <tr> <td><b>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    Publicite a la position No  </b>{{ publicite2.position}}
-
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
+<div id="tab1" class="tab_content">
+    <table class="tablesorter" cellspacing="0"> 
+        <thead> 
+            <tr> 
+                <th> </th> 
+                <th>No</th> 
+                  <th> </th> 
+                <th>Position</th> 
+                <th>Actions</th> 
+            </tr> 
+        </thead> 
+        <tbody> 
+            {% for publicite2 in publicite2 %}
+            <tr> 
+                <td><input type="checkbox"></td> 
+                <td>{{publicite2.id}}</td> 
+                <td>{#{app.user.roles|join }#}</td> 
+                <td>{{publicite2.position}}</td> 
 
 
-            <td><a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id} ) }}" style="text-decoration:none" class="form-control">supprimer</a></td></tr></br>
+                <td>
+                    <a href="#">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                    </a>   &nbsp;&nbsp;
+                    <a href="#">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                    </a> 
+                </td>
+            </tr>
+             {%endfor%}
+        </tbody> 
     </table>
-    {% endfor %}
-    </br></br>
+</div> 
 
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    
-  {%if publicite2|length != 0 %}  
-    <a href="{{ path('my_app_esprit_publicite_deleteall' ) }}" style="text-decoration:none" class="form-control">supprimer tout</a> 
-  {% endif %}  
-</div>
+ {% endblock  %}
 
-{#% endif %#}
-{% endblock  %} 
+

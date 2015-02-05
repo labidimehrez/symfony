@@ -65,7 +65,16 @@ class sujetController extends Controller {
 
     
     
-    
+       public function manageAction() {
+
+         $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')
+                  ->findAll();
+ 
+        return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
+                    'sujet' => $sujet
+        )); 
+    } 
     
     
     
