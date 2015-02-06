@@ -34,10 +34,7 @@ class publiciteController extends Controller {
      * Show a Actualite entry
      */
     public function showAction() {
-        
-        
-        
-             
+           
         $em = $this->getDoctrine()->getManager();
         
         /**********************************************************************/        

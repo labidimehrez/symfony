@@ -5,11 +5,9 @@
                 <header><h3 class="tabs_involved">Content Tag Manager</h3>
                     <ul class="tabs">
                         <li><a href="#tab1">Posts</a></li>
-                        <li><a href="#">Comments</a></li>
+                         
                     </ul>
                 </header>  
-
-
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
@@ -55,20 +53,58 @@
                                     <label>Tag Title</label>
                                     {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
                                    
-                                </fieldset>
-                               
-                                
-                                
+                                </fieldset>  
                                 <div class="clear"></div>
                             </div>
                             <footer>
                                 <div class="submit_link">
                                   {{form_widget(form._token)}}
-                                    <input type="submit" value="Publish" class="alt_btn">
+                                    <input type="submit"   value="Publish" class="alt_btn">
                                     <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
                                 </div>
                             </footer>
-                        </article> </form>
+                        </article> 
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  <p class="container">
+      <button id="loadToSuccess" class="btn">Loading Then Success</button>
+  </p>  -->
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/bootstrap.min.css') }}"/> 
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/custom.css') }}"/>  
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.css') }}"/> 
+   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/prettify.css') }}"/>  
+   
+ <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/modernizr-2.0.6.min.js' )}} "></script>
+  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/jquery.min.js' )}} "></script>
+ <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.js' )}} "></script>
+  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/spin.min.js' )}} "></script>
+ <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/prettify.js' )}} "></script>
+  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/custom.js' )}} "></script>
+   
+ 
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37502505-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
  {% endblock  %}
 
 

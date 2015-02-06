@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\ForumBundle\Entity;
-
+use MyApp\ForumBundle\Validator\Constraints as CustomAssert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,7 +43,7 @@ class sujet {
 
     /**
      * @var string
-     *
+     * @CustomAssert\constraintsCheck()
      * @ORM\Column(name="contenu", type="string", length=20000)
      */
     private $contenu;

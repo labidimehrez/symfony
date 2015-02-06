@@ -27,6 +27,7 @@ class sujetController extends Controller {
             $form->bind($request);
 
             if ($form->isValid()) {
+
                 $sujet = $form->getData();
 
                 /*                 * ** je recuperer l id de user connecté * */
@@ -41,7 +42,12 @@ class sujetController extends Controller {
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
             }
+             /*if (!$form->isValid()) {
+                var_dump($form);
+                die(); }*/
+           
         }
+
 
         return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
                     'form' => $form->createView()
@@ -50,37 +56,28 @@ class sujetController extends Controller {
 
     public function showAction() {
 
-         $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                  ->findBy(
-                        array( ) ,
-                         array('datecreation'=>'desc' ) ,
-                         6 , 0
-                      );
- 
+                ->findBy(
+                array(), array('datecreation' => 'desc'), 6, 0
+        );
+
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
-        )); 
+        ));
     }
 
-    
-    
-       public function manageAction() {
+    public function manageAction() {
 
-         $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                  ->findAll();
- 
+                ->findAll();
+
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet
-        )); 
-    } 
-    
-    
-    
-    
-    
-    
+        ));
+    }
+
     public function sujetrecentAction() {
         $em = $this->getDoctrine()->getManager();
 
@@ -92,6 +89,46 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet
         ));
+    }
+
+    public function deleteAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+
+        if (!$sujet) {
+            throw $this->createNotFoundException('No  sujet found for id ' . $id);
+        }
+
+        $em->remove($sujet);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('my_app_forum_sujet_manage'));
+    }
+
+    public function editAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+        if (!$sujet) {
+            throw $this->createNotFoundException(
+                    'No  sujet found for id ' . $id
+            );
+        }
+
+        $form = $this->createFormBuilder($sujet)
+                ->add('contenu', 'text')
+                ->add('sujet', 'text')
+                ->getForm();
+
+        $form->handleRequest();
+
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->redirect($this->generateUrl('my_app_forum_sujet_manage'));
+        }
+
+        return $this->render('MyAppForumBundle:sujet:manage.html.twig', array('form' => $form->createView()));
     }
 
 }

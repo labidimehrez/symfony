@@ -68,7 +68,7 @@
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
             </div>
             <div class="breadcrumbs_container">
-                <article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+                <article class="breadcrumbs"><a href="#">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
             </div>
         </section><!-- end of secondary bar -->
 
@@ -83,8 +83,7 @@
             <hr/>
             <h3>Content</h3>
             <ul class="toggle">
-                <li class="icn_new_article"><a href="{{path('my_app_forum_sujet_manage') }}">Debats</a></li>
-              
+                <li class="icn_new_article"><a href="{{path('my_app_forum_sujet_manage') }}">Debats</a></li>            
                 <li class="icn_new_article"><a href="{{path('my_app_forum_tag_show') }}">Tags</a></li>
                 <li class="icn_new_article"><a href="#">New Banners</a></li>
                 <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_manage')}}">Banners</a></li>
@@ -165,61 +164,7 @@
                             {% block showpub %}  {% endblock  %}
                             {% block showsujet %}  {% endblock  %} 
 
-                    <div id="tab2" class="tab_content">
-                        <table class="tablesorter" cellspacing="0"> 
-                            <thead> 
-                                <tr> 
-                                    <th></th> 
-                                    <th>Comment</th> 
-                                    <th>Posted by</th> 
-                                    <th>Posted On</th> 
-                                    <th>Actions</th> 
-                                </tr> 
-                            </thead> 
-                            <tbody> 
-                                <tr> 
-                                    <td><input type="checkbox"></td> 
-                                    <td>Lorem Ipsum Dolor Sit Amet</td> 
-                                    <td>Mark Corrigan</td> 
-                                    <td>5th April 2011</td> 
-                                    <td><img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" /><img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" /></td> 
-                                </tr> 
-                                <tr> 
-                                    <td><input type="checkbox"></td> 
-                                    <td>Ipsum Lorem Dolor Sit Amet</td> 
-                                    <td>Jeremy Usbourne</td> 
-                                    <td>6th April 2011</td> 
-                                    <td><img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" /></td> 
-                                </tr>
-                                <tr> 
-                                    <td><input type="checkbox"></td> 
-                                    <td>Sit Amet Dolor Ipsum</td> 
-                                    <td>Super Hans</td> 
-                                    <td>10th April 2011</td> 
-                                    <td><img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" /></td> 
-                                </tr> 
-                                <tr> 
-                                    <td><input type="checkbox"></td> 
-                                    <td>Dolor Lorem Amet</td> 
-                                    <td>Alan Johnson</td> 
-                                    <td>16th April 2011</td> 
-                                    <td><img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" /></td> 
-                                </tr> 
-                                <tr> 
-                                    <td><input type="checkbox"></td> 
-                                    <td>Dolor Lorem Amet</td> 
-                                    <td>Dobby</td> 
-                                    <td>16th April 2011</td> 
-                                    <td><img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" /></td> 
-                                </tr> 
-                            </tbody> 
-                        </table>
-
-                    </div><!-- end of #tab2 -->
+                  
 
                 </div><!-- end of .tab_container -->
 
@@ -294,5 +239,4 @@
 
 
     </body>
-
 </html>

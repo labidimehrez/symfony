@@ -24,12 +24,6 @@ my_app_forum_tag_usedtag:
         id: \d+ 
         
         
-my_app_forum_tag_manage:
-    pattern:  /manage
-    defaults: { _controller: MyAppForumBundle:tag:manage }
-    requirements:
-        _method:  GET
-        id: \d+  
 my_app_forum_tag_delete:
     pattern:  /{id}/delete
     defaults: { _controller: MyAppForumBundle:tag:delete}

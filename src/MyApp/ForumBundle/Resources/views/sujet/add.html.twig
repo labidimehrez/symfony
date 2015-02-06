@@ -4,10 +4,10 @@
 
 <script src="{{ asset('bundles/myappforum/ckeditor/ckeditor.js')}}"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/ckeditor/contents.css') }}"/> 
-
+ 
  {% block ajout_sujet%} 
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
- 
+  
 <div class="ajoutsujet">
     <form  action='{{path('my_app_forum_sujet_add')}}' method="post" {{ form_enctype(form) }} > 
 
@@ -63,9 +63,9 @@
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           
-                            
+                           
                 Notification {{form_widget(form.notification) }}
-                    
+                  
                 </td>  
             </tr>
 
@@ -79,9 +79,6 @@
 
 
 </div>
-
-
-
 
 {% endblock %}
 

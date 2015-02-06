@@ -19,3 +19,16 @@ my_app_forum_sujet_manage:
     requirements:
         _method:  GET
         id: \d+   
+        
+        
+my_app_forum_sujet_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: MyAppForumBundle:sujet:delete}
+    
+my_app_forum_sujet_deleteall:
+    pattern:  /delete/all
+    defaults: { _controller: MyAppForumBundle:sujet:deleteall}
+    
+my_app_forum_sujet_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: MyAppForumBundle:sujet:edit}  

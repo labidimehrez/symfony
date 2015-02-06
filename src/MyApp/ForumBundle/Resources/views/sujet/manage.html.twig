@@ -27,15 +27,16 @@
             <tr> 
                 <td><input type="checkbox"></td> 
                 <td>{{sujet.id}}</td> 
-                <td>{{sujet.datecreation }}</td> 
                 <td>{{sujet.sujet}}</td> 
+                <td>{{sujet.datecreation|date('Y-M-d')}}  </td> 
+                
 
 
                 <td>
-                    <a href="#">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" /><img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                    </a>   &nbsp;&nbsp;
-                    <a href="#">
+                        <a href="{{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }}">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                    </a>    
+                    <a href="{{ path('my_app_forum_sujet_delete',{'id':sujet.id}) }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a> 
                 </td>

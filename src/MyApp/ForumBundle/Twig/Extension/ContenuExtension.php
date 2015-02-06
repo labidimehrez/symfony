@@ -16,7 +16,7 @@
      $contenu = str_replace("&eacute;", 'é', $contenu);
      $contenu = str_replace("&#39;", "'", $contenu);     
      $contenu = str_replace("&agrave;", 'à', $contenu);  
-      
+      $contenu = str_replace("&egrave;", 'è', $contenu);
      $contenu = str_replace("&ccedil;", 'ç', $contenu);
      $contenu = str_replace("&Agrave;", 'À', $contenu);
      
