@@ -71,7 +71,9 @@ class publiciteController extends Controller {
 
            
 
-        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
+        $publicite = $em->getRepository('MyAppEspritBundle:publicite')      
+               ->findBy(array(), array('position' => 'asc'),100, 0);           
+       
         //var_dump($publicite);die();
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
                     'publicite2' => $publicite,
@@ -122,7 +124,10 @@ class publiciteController extends Controller {
     public function manageAction() {
         $em = $this->getDoctrine()->getManager();
 
-        $publicite2 = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
+        $publicite2 = $em->getRepository('MyAppEspritBundle:publicite')
+                      
+                ->findBy(array(), array('position' => 'asc'),100, 0);
+                               
 
 
 

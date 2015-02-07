@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * publicite
- *
+ 
  * @ORM\Table(name="publicite")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Entity

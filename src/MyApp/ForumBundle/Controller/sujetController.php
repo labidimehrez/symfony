@@ -42,6 +42,15 @@ class sujetController extends Controller {
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
             }
+               if (!$form->isValid()) {   
+                   $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides!! )'); 
+
+              return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
+                    'form' => $form->createView()));
+               }
+            
+            
+            
              /*if (!$form->isValid()) {
                 var_dump($form);
                 die(); }*/
@@ -71,7 +80,7 @@ class sujetController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                ->findAll();
+                ->findBy(array(), array('datecreation' => 'desc'),1000, 0);
 
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet

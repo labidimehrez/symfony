@@ -64,7 +64,10 @@
 
         <section id="secondary_bar">
             <div class="user">
-                <p>{#{app.user.username }#}root (<a href="#">3 Messages</a>)</p>
+                <p>
+    {%if  app.user.username is not null %} {{app.user.username }}{%else%} root {%endif%}       
+                
+                    (<a href="#">3 Messages</a>)</p>
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
             </div>
             <div class="breadcrumbs_container">
