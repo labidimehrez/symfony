@@ -18,7 +18,8 @@ class UserController extends Controller {
           $stmt->closeCursor();
          */
 
-        $user = $em->getRepository('MyAppUserBundle:user')->findAll();
+        $user = $em->getRepository('MyAppUserBundle:user') 
+                ->findBy(array(), array('id' => 'asc'),100, 0);   
 
         return $this->render('MyAppUserBundle:User:show.html.twig', array(
                     'user' => $user

@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\ForumBundle\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class TagController extends Controller {
@@ -12,25 +12,7 @@ class TagController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         /*         * ******************************************************************* */
-        $tag = $em->getRepository('MyAppForumBundle:tag')->findAll();
-        if (!$tag) {
-
-
-            $tag1 = new \MyApp\ForumBundle\Entity\tag();
-            $tag1->setTitle("tag1");
-            $tag2 = new \MyApp\ForumBundle\Entity\tag();
-            $tag2->setTitle("tag2");
-
-            $em1 = $this->getDoctrine()->getManager();
-
-
-            $em1->persist($tag1);
-            $em1->persist($tag2);
-
-
-
-            $em1->flush();
-        }
+   
 
         /*         * ******************************************************************* */
 
@@ -78,11 +60,11 @@ class TagController extends Controller {
         }
         /*************************************/
         $em = $this->getDoctrine()->getManager();
-        $tag2 = $em->getRepository('MyAppForumBundle:tag')
-                ->findAll();
-
+        $tag = $em->getRepository('MyAppForumBundle:tag')
+                   ->findBy(array(), array('id' => 'asc'),100, 0);   
+        //var_dump($tag);die();
         return $this->render('MyAppForumBundle:tag:show.html.twig', array(
-                    'tag' => $tag2,'form' => $form->createView()
+                    'tag' => $tag  ,'form' => $form->createView(),
         ));
     }
 
@@ -115,10 +97,11 @@ class TagController extends Controller {
         return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
     }
 
-    public function editAction($id) {
+    public function editAction($id, Request $request) {
 
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
+          $tag2 = $em->getRepository('MyAppForumBundle:tag')->findAll();
         if (!$tag) {
             throw $this->createNotFoundException(
                     'No tag found for id ' . $id
@@ -130,14 +113,18 @@ class TagController extends Controller {
                 ->add('title', 'text')
                 ->getForm();
 
-        $form->handleRequest();
+            $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em->flush();
             return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
         }
 
-        return $this->render('MyAppForumBundle:tag:manage.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppForumBundle:tag:edit.html.twig',
+                array(
+                'form' => $form->createView(),
+                'tag'=>$tag,'tag2'=>$tag2
+                ));
     }
 
 }

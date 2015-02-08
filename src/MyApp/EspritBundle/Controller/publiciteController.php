@@ -2,8 +2,8 @@
 
 namespace MyApp\EspritBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 class publiciteController extends Controller {
 
     public function addAction() {
@@ -76,7 +76,7 @@ class publiciteController extends Controller {
        
         //var_dump($publicite);die();
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-                    'publicite2' => $publicite,
+                    'publicite' => $publicite,
         ));
     }
 
@@ -94,7 +94,7 @@ class publiciteController extends Controller {
         return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
     }
 
-    public function editAction($id) {
+    public function editAction($id, Request $request) {
 
         $em = $this->getDoctrine()->getManager();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find($id);
@@ -105,18 +105,19 @@ class publiciteController extends Controller {
         }
 
         $form = $this->createFormBuilder($publicite)
-                ->add('position', 'text')
-                ->add('image', 'text')
+                ->add('position')
+                ->add('image')
                 ->getForm();
 
-        $form->handleRequest();
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em->flush();
             return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
         }
 
-        return $this->render('MyAppEspritBundle:publicite:manage.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppEspritBundle:publicite:manage.html.twig', 
+                array('form' => $form->createView(), 'publicite2' => $publicite));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////

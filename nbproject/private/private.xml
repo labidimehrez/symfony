@@ -3,10 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/BackOffice/administration.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Repository/publiciteRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/GroupQuery.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Handler/ChangePasswordFormHandler.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserGroup.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserGroupPeer.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/GroupManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/GroupPeer.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserPeer.php</file>
             <file>file:/C:/wamp/www/SolDK/app/config/security.yml</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/Group.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Handler/GroupFormHandler.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/DataTransformer/UserToUsernameTransformer.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserQuery.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/UserGroupQuery.php</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/routing_dev.yml</file>
         </group>
     </open-files>
 </project-private>
