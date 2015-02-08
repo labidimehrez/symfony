@@ -1,8 +1,7 @@
 <?php
 
 namespace MyApp\EspritBundle\Entity;
-use Symfony\Component\Validator\Constraints as Assert; 
-use Doctrine\ORM\Mapping as ORM;
+ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * publicite
