@@ -65,12 +65,14 @@ class sujetController extends Controller {
 
     public function showAction() {
 
-        $em = $this->getDoctrine()->getManager();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                ->findBy(
-                array(), array('datecreation' => 'desc'), 6, 0
-        );
-
+//        $em = $this->getDoctrine()->getManager();
+//        $sujet = $em->getRepository('MyAppForumBundle:sujet')
+//                ->findBy(
+//                array(), array('datecreation' => 'desc'), 6, 0
+//        );
+         $em = $this->getDoctrine()->getEntityManager();
+         $sujet = $em->getRepository('MyAppForumBundle:sujet')  ->getAllsujet(); 
+//             var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
         ));

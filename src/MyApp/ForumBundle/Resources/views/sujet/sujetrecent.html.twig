@@ -43,14 +43,16 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         {{sujet.contenu|Contenu}} </br></br>
-         
-       
-    
-{%endfor%} </div>
+        
+      
+        
+      </br></br>  
+{%endfor%}
+</div>
     
  
 

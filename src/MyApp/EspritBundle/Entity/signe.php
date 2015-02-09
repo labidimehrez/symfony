@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="signe")
  * 
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MyApp\EspritBundle\Repository\signeRepository")
  */
 class signe
 {

@@ -10,13 +10,6 @@ class TagController extends Controller {
 
 
         $em = $this->getDoctrine()->getManager();
-
-        /*         * ******************************************************************* */
-   
-
-        /*         * ******************************************************************* */
-
-
         $tag = new \MyApp\ForumBundle\Entity\tag();
         $form = $this->createForm(new \MyApp\ForumBundle\Form\TagType, $tag);
         $request = $this->getRequest();

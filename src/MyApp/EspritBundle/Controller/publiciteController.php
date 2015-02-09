@@ -4,6 +4,8 @@ namespace MyApp\EspritBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+
 class publiciteController extends Controller {
 
     public function addAction() {
@@ -68,13 +70,15 @@ class publiciteController extends Controller {
          }
            /**********************************************************************/
      
-
+//   $em = $this->getDoctrine()->getEntityManager();
+         $publicite = $em->getRepository('MyAppEspritBundle:publicite')
+            ->getAllPub();  
            
 
-        $publicite = $em->getRepository('MyAppEspritBundle:publicite')      
-               ->findBy(array(), array('position' => 'asc'),100, 0);           
+//        $publicite = $em->getRepository('MyAppEspritBundle:publicite')      
+//               ->findBy(array(), array('position' => 'asc'),100, 0);           
        
-        //var_dump($publicite);die();
+        var_dump($publicite);die();
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
                     'publicite' => $publicite,
         ));

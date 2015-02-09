@@ -5,10 +5,10 @@ namespace MyApp\EspritBundle\Entity;
 
 /**
  * publicite
- 
  * @ORM\Table(name="publicite")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MyApp\EspritBundle\Repository\publiciteRepository")
  */
 class publicite
 {
