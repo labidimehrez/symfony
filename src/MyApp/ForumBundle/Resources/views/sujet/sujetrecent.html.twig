@@ -41,7 +41,7 @@
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">{{sujet.user.username}}</b>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <b style="color: silver">{{sujet.datecreation|date('') |Difftime}} : minutes ago </b></br>
+           <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         </br>

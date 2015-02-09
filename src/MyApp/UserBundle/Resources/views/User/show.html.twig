@@ -1,12 +1,12 @@
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
  {% block showUser %}   
-                <header><h3 class="tabs_involved">Content User Manager</h3>
-                    <ul class="tabs">
-                        <li><a href="#tab1">Posts</a></li>
-                        <li><a href="#">Comments</a></li>
-                    </ul>
-                </header>  
+<header><h3 class="tabs_involved">Content User Manager</h3>
+    <ul class="tabs">
+        <li><a href="#tab1">Posts</a></li>
+        <li><a href="#">Comments</a></li>
+    </ul>
+</header>  
 
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
@@ -24,7 +24,9 @@
             <tr> 
                 <td><input type="checkbox"></td> 
                 <td>{{user.username}}</td> 
-                <td>{#{app.user.roles|join }#}</td> 
+                <td> {% for role in user.roles %}{{ role }}{% endfor %}</td> 
+      
+     
                 <td>{{user.datedeCreationUser|date('Y-M-d')}}</td> 
 
 
