@@ -99,4 +99,5 @@ services:
        tags:
            - { name: twig.extension }   
            
-  
+# in app/config/config.yml
+craue_twig_extensions: ~

@@ -25,7 +25,8 @@
         "genemu/form-bundle": "2.1.*",
         "friendsofsymfony/comment-bundle": "~2.0",
         "knplabs/knp-time-bundle": "dev-master",
-        "Trsteel/ckeditor-bundle": "~1.6" 
+        "Trsteel/ckeditor-bundle": "~1.6",
+        "craue/twigextensions-bundle": "~2.0" 
       
         
         
