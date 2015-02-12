@@ -21,8 +21,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'styles' },
 		{ name: 'colors' },
 		{ name: 'tools' },
-		{ name: 'others' },
-		{ name: 'about' }
+		{ name: 'others' }//,
+		//{ name: 'about' }
 	];
 
 	// The default plugins included in the basic setup define some buttons that
@@ -34,7 +34,7 @@ CKEDITOR.editorConfig = function( config ) {
         
            // Define changes to default configuration here. For example:
  //   config.language = 'fr';
-    // config.uiColor = '#AADC6E';
+   config.uiColor = '#FFFFFF';
    config.enterMode = CKEDITOR.ENTER_BR;
    config.shiftEnterMode = CKEDITOR.ENTER_P;
    config.allowedContent = true;

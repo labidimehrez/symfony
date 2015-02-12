@@ -1,5 +1,5 @@
 {# empty Twig template #}
-{% extends 'MyAppEspritBundle:Default:index.html.twig' %}
+{% extends 'MyAppEspritBundle::layout.html.twig' %}
  {% block publicite_show %} 
 
 
@@ -85,11 +85,15 @@
           <td><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border"></td>    
         </tr>   
     </table>
+</div>
+{% elseif publicite.position == 8 %}
+ <div class="position7">
+           <img src="{{publicite.image}}" alt=""> 
 </div> 
 
 
-
-
+   
+        
 
 {% endif%}
 {% endif%}

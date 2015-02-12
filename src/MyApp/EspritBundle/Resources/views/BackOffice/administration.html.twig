@@ -65,13 +65,15 @@
         <section id="secondary_bar">
             <div class="user">
                 <p>
-   {% if is_granted("ROLE") %} {{app.user.username }}{%else%} root {%endif%}       
+   {% if is_granted("ROLE_SUPER_ADMIN") %} {{app.user.username }}{%else%} root {%endif%}       
                 
                     (<a href="#">3 Messages</a>)</p>
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
             </div>
             <div class="breadcrumbs_container">
-                <article class="breadcrumbs"><a href="#">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+                <article class="breadcrumbs"><a href="#">Website Admin</a> 
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current">Dashboard</a></article>
             </div>
         </section><!-- end of secondary bar -->
 
@@ -88,7 +90,7 @@
             <ul class="toggle">
                 <li class="icn_new_article"><a href="{{path('my_app_forum_sujet_manage') }}">Debats</a></li>            
                 <li class="icn_new_article"><a href="{{path('my_app_forum_tag_show') }}">Tags</a></li>
-                <li class="icn_new_article"><a href="#">New Banners</a></li>
+                <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_add') }}">New Banners</a></li>
                 <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_manage')}}">Banners</a></li>
                 <li class="icn_edit_article"><a href="#">Edit Articles</a></li>
                 <li class="icn_categories"><a href="#">Categories</a></li>
@@ -98,7 +100,7 @@
             <ul class="toggle">
                 <li class="icn_add_user"><a href="{{path('fos_user_registration_register') }}">Add New User</a></li>
                 <li class="icn_view_users"><a href="{{path('my_app_user_show') }}">View Users</a></li>
-                {% if is_granted("ROLE") %} <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Your Profile</a></li> {%endif%}
+                {% if is_granted("ROLE_SUPER_ADMIN") %} <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Your Profile</a></li> {%endif%}
             </ul>
             <h3>Media</h3>
             <ul class="toggle">
@@ -111,7 +113,7 @@
             <ul class="toggle">
                 <li class="icn_settings"><a href="#">Options</a></li>
                 <li class="icn_security"><a href="#">Security</a></li>
-               {% if is_granted("ROLE") %} <li class="icn_jump_back"><a href="{{path('fos_user_security_logout') }}">Logout</a></li>{%endif%}
+               {% if is_granted("ROLE_SUPER_ADMIN") %} <li class="icn_jump_back"><a href="{{path('fos_user_security_logout') }}">Logout</a></li>{%endif%}
             </ul>
 
             <footer>
@@ -163,9 +165,9 @@
                 <div class="tab_container">
 
                             {% block showUser %}   {% endblock  %}
-                            {% block showtag %}    {% endblock  %} {% block edittag %}    {% endblock  %}
-                            {% block showpub %}  {% endblock  %}
-                            {% block showsujet %}  {% endblock  %} 
+     {% block showtag %}{% endblock  %}          {% block edittag %}{% endblock  %}                         
+     {% block showpub %}{% endblock  %}          {% block ajout_publicite %}{% endblock  %}  
+     {% block showsujet %}{% endblock %}         {% block editsujet %}{% endblock  %}
 
                   
 

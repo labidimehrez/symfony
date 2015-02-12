@@ -1,7 +1,8 @@
 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showsujet %}  
+ {% block showsujet %}   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+
                 <header><h3 class="tabs_involved">Content Sujet Manager</h3>
                     <ul class="tabs">
                         <li><a href="#tab1">Posts</a></li>

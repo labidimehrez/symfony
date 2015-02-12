@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($id)
+      public function indexAction()
     {
-        return $this->render('MyAppForumBundle:Default:index.html.twig');
+        return $this->render('MyAppEspritBundle::layout.html.twig');
     }
+    
+    
 }

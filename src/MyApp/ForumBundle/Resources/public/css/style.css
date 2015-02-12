@@ -2834,7 +2834,7 @@ z-index: 545;
 }
 
 #position-1{ position: absolute;left: 175px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
- #position0{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+#position0{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 #position1{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
   
  #position2{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
@@ -2843,9 +2843,11 @@ z-index: 545;
   
 #position4{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
- #position5{ position: absolute;left: 1119px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+#position5{ position: absolute;left: 1119px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
 #position6{ position: relative;left: 175px;top: 2290px;width: 929px;height: 180px; z-index: 8000;}
+
+#position7{position: relative;left: 655px;top: 300px;  width: 280px;height: 250px;  z-index: 8000;}
 
  
   

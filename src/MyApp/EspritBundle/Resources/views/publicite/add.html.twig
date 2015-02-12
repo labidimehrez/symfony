@@ -1,31 +1,30 @@
 {# empty Twig template #}
+{% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
+ {% block ajout_publicite %}    
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
- {% extends 'MyAppEspritBundle:Default:index.html.twig' %}
- {% block ajout_publicite %}   
-<div id="divadd">
-  <form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
-<table>
-<thead>
+<form  action='{{path('my_app_esprit_publicite_add')}}' method="post" {{ form_enctype(form) }} >
+    <table>
+       
+            <tr>
 
-    <tr>
-        <td> {{form_widget(form.position)}}  </td><td>position</td>
-        <td>{{ form_widget(form.image, { 'attr': {'placeholder': '  lien de la pub ','class':'inp-form'} }) }} </td>
-        <td>image</td>
-        <td> {{form_widget(form.user)}}  </td><td>nom user</td>
-      {{form_widget(form._token)}}  	
-        <td> <input type="submit"  value="submit"/>
-            <input type="reset" value="annuler"/>    </td>        
-		 
-      </tr>   
-</thead>
- </table>
+               {{ form_widget(form.image ) }}  
+            </tr>
+            <tr>
+                 {{form_widget(form._token)}}  	
+                <td>  
+                <td> {{form_widget(form.position)}}  </td><td>position</td>
+                <td>  <input type="submit"   value="Publish"    ></td>
+                <td>  <input type="reset"  value="Reset"    </td>
+
+
+            </tr>   
+       
+    </table>
 </form>
-</div>
+
+
 {% endblock  %}
-	 
-	 
-	 
-	
 
 
 
@@ -38,7 +37,11 @@
 
 
 
- 
+
+
+
+
+
 
 
 

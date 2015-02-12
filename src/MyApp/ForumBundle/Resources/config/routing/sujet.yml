@@ -8,7 +8,7 @@ my_app_forum_sujet_show:
         _method:  GET
         id: \d+  
 my_app_forum_sujet_sujetrecent:
-    pattern:  /sujetrecent
+    pattern:  /sujetrecent 
     defaults: { _controller: MyAppForumBundle:sujet:sujetrecent }
     requirements:
         _method:  GET
@@ -31,4 +31,12 @@ my_app_forum_sujet_deleteall:
     
 my_app_forum_sujet_edit:
     pattern:  /{id}/edit
-    defaults: { _controller: MyAppForumBundle:sujet:edit}  
+    defaults: { _controller: MyAppForumBundle:sujet:edit}
+    
+    
+my_app_forum_sujet_voir:
+    pattern:  /{id}/voir
+    defaults: { _controller: MyAppForumBundle:sujet:voir }
+    
+ 
+ 

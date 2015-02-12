@@ -23,12 +23,12 @@
 
           {# c est deja decrit dans tag show ##}
          
-
+ 
 
     </div>
     <h2>Seneste debatter</h2>
    
-{% for   sujet in sujet  %}
+{% for   sujet in  sujet %}
 
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
@@ -43,34 +43,22 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
-        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black">
+            <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;color: black;"> 
+                                        {{sujet.sujet}}</a></FONT></b>
+              </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         {{sujet.contenu|Contenu}} </br></br>
         
-      
+          {%if sujet.id ==1%}   {% for   tag1 in tag1  %} <b>&nbsp;&nbsp;&nbsp;{{tag1.title}}&nbsp;&nbsp;&nbsp;</b>{%endfor%} {%endif%}
+             
+          {%if sujet.id == 2%}   {% for   tag2 in tag2  %} <b>&nbsp;&nbsp;&nbsp;{{tag2.title}}&nbsp;&nbsp;&nbsp;</b>{%endfor%} {%endif%}
+
+   
         
       </br></br>  
 {%endfor%}
 </div>
     
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>

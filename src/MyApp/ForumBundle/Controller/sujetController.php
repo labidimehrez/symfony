@@ -2,25 +2,25 @@
 
 namespace MyApp\ForumBundle\Controller;
 
-use Doctrine\ORM\Query\ResultSetMapping;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Form;
+ 
+use MyApp\ForumBundle\Form\sujetType;
+use MyApp\ForumBundle\Entity\sujet;
 
 class sujetController extends Controller {
 
     public function addAction() {
 
-//      if(!$this->get('security.context' )->isGranted('ROLE_USER'))
-//          {
-//           return $this->redirect($this->generateUrl('fos_user_security_login'));
-//          }
 
         /*         * ** je recuperer l id de user connecté * */
         $user = $this->container->get('security.context')->getToken()->getUser();
         $user->getId();
         /*         * ** je recuperer l id de user connecté * */
-        $sujet = new \MyApp\ForumBundle\Entity\sujet();
+        $sujet = new sujet();
 
-        $form = $this->createForm(new \MyApp\ForumBundle\Form\sujetType, $sujet);
+        $form = $this->createForm(new sujetType, $sujet);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
 
@@ -38,25 +38,15 @@ class sujetController extends Controller {
                 $em->persist($sujet);
                 $em->flush();
 
-
-
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
             }
-               if (!$form->isValid()) {   
-                   $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides!! )'); 
+            if (!$form->isValid()) {
+                $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides ou existe deja !! )');
 
-              return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
-                    'form' => $form->createView()));
-               }
-            
-            
-            
-             /*if (!$form->isValid()) {
-                var_dump($form);
-                die(); }*/
-           
+                return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
+                            'form' => $form->createView()));
+            }
         }
-
 
         return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
                     'form' => $form->createView()
@@ -65,14 +55,10 @@ class sujetController extends Controller {
 
     public function showAction() {
 
-//        $em = $this->getDoctrine()->getManager();
-//        $sujet = $em->getRepository('MyAppForumBundle:sujet')
-//                ->findBy(
-//                array(), array('datecreation' => 'desc'), 6, 0
-//        );
-         $em = $this->getDoctrine()->getEntityManager();
-         $sujet = $em->getRepository('MyAppForumBundle:sujet')  ->getAllsujet(); 
-//             var_dump($sujet);die();
+        $em = $this->getDoctrine()->getEntityManager();
+        /*         * *******************    recuperation de tout les sujets    ************ */
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
+        //var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -81,29 +67,40 @@ class sujetController extends Controller {
     public function manageAction() {
 
         $em = $this->getDoctrine()->getManager();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                ->findBy(array(), array('datecreation' => 'desc'),1000, 0);
-
+        /*         * ****************  recuperation de tout les sujets  *********** */
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
+        //var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet
         ));
     }
 
+    
     public function sujetrecentAction() {
+
         $em = $this->getDoctrine()->getManager();
+        /*         * *****  select all sujet from table ** */
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
+        /*         * *****  select all tag from table association  ** */
 
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')
-                ->findBy(
-                array(), array('datecreation' => 'desc'), 6, 0
-        );
-
+        $tag1 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
+        $tag2 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(2);
+//        var_dump($tag5);
+//        die();
+  
+        
+       
+   
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
-                    'sujet' => $sujet
-        ));
+                    'sujet' => $sujet,
+                    'tag2' => $tag2 ,  'tag1' => $tag1
+                
+                        )
+        );
     }
 
     public function deleteAction($id) {
-
+        /*         * ************ simple delete action *************** */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
 
@@ -118,28 +115,44 @@ class sujetController extends Controller {
     }
 
     public function editAction($id) {
-
+        /*         * ************ simple edit action *************** */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
-            throw $this->createNotFoundException(
-                    'No  sujet found for id ' . $id
-            );
+            throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
 
-        $form = $this->createFormBuilder($sujet)
-                ->add('contenu', 'text')
-                ->add('sujet', 'text')
-                ->getForm();
+        $form = $this->createForm(new sujetType(), $sujet);
+        $request = $this->getRequest();
 
-        $form->handleRequest();
-
-        if ($form->isValid()) {
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_app_forum_sujet_manage'));
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('my_app_forum_sujet_manage'));
+            }
         }
+        /*         * ********* **    recuperation de tout les sujets  *********** */
+        $sujet2 = $em->getRepository('MyAppForumBundle:sujet')->findAll();
+        return $this->render('MyAppForumBundle:sujet:edit.html.twig', array(
+                    'form' => $form->createView(),
+                    'sujet' => $sujet, 'sujet2' => $sujet2
+        ));
+    }
 
-        return $this->render('MyAppForumBundle:sujet:manage.html.twig', array('form' => $form->createView()));
+    public function voirAction($id) {
+        
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+        if (!$sujet) {
+            throw $this->createNotFoundException('No  sujet found for id ' . $id);
+        }
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
+        //var_dump($sujet);die();
+        return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
+                    'sujet' => $sujet
+                    ,'tag'=>$tag
+        ));
     }
 
 }
