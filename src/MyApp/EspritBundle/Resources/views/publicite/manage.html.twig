@@ -32,10 +32,10 @@
 
 
                 <td>
-                    <a href="#">
+                    <a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                     </a>   &nbsp;&nbsp;
-                    <a href="#">
+                   <a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a> 
                 </td>

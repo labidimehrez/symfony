@@ -2,6 +2,7 @@
 
 namespace MyApp\EspritBundle\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,9 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="menu")
  * @ORM\Entity(repositoryClass="MyApp\EspritBundle\Repository\menuRepository")
+ * @UniqueEntity(fields="position", message="")
  */
-class Menu
-{
+class menu {
+
     /**
      * @var integer
      *
@@ -20,14 +22,8 @@ class Menu
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=true)
-     */
- 
-   protected $user;
 
-     /**
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255,unique=true)
@@ -41,21 +37,12 @@ class Menu
      */
     private $position;
 
-   /**
-     * @var string
-     *
-     * @ORM\Column(name="tag", type="string", length=255,unique=true)
-     */
-    private $tag;
-
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -65,10 +52,9 @@ class Menu
      * @param string $name
      * @return Menu
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -77,8 +63,7 @@ class Menu
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -88,10 +73,9 @@ class Menu
      * @param integer $position
      * @return Menu
      */
-    public function setPosition($position)
-    {
+    public function setPosition($position) {
         $this->position = $position;
-    
+
         return $this;
     }
 
@@ -100,31 +84,8 @@ class Menu
      *
      * @return integer 
      */
-    public function getPosition()
-    {
+    public function getPosition() {
         return $this->position;
     }
 
-    /**
-     * Set tag
-     *
-     * @param string $tag
-     * @return Menu
-     */
-    public function setTag($tag)
-    {
-        $this->tag = $tag;
-    
-        return $this;
-    }
-
-    /**
-     * Get tag
-     *
-     * @return string 
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
 }

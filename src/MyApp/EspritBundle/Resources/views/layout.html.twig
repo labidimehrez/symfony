@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-{% block head %} 
+{% block head %}  
     <head>    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
@@ -33,10 +33,8 @@
 
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp UNDER&nbsp;&nbsp; HOLDNING&nbsp;&nbsp; REJSER
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUNDHED&nbsp;&nbsp; FRITID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EROTIK
-        &nbsp;&nbsp; HOROSKOPER&nbsp;&nbsp; TV-GUIDE&nbsp;&nbsp; DEBAT      
+         {#% for menu in menu %}&nbsp;&nbsp;-{{menu.name}}{%endfor%#}     
+         {% block listemenu %} {% endblock  %}
     </div>
 
     <!-- -->
@@ -143,6 +141,7 @@
             {% block ajout_article%}{% endblock %}
              {% block ajout_tag%}{% endblock %}
              {% block ajout_sujet%} {% endblock %}
+            
         </div>
     </body>
 
@@ -181,6 +180,7 @@
         padding: 10px;
         margin: 10px;
         border: 1px solid #c00;
+        z-index: 50000;
         //  width: 200px;
     }
 </style>

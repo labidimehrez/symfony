@@ -92,7 +92,7 @@
                 <li class="icn_new_article"><a href="{{path('my_app_forum_tag_show') }}">Tags</a></li>
                 <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_add') }}">New Banners</a></li>
                 <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_manage')}}">Banners</a></li>
-                <li class="icn_edit_article"><a href="#">Edit Articles</a></li>
+                <li class="icn_edit_article"><a href="{{path('my_app_esprit_menu_show')}}">Menus</a></li>
                 <li class="icn_categories"><a href="#">Categories</a></li>
 
             </ul>
@@ -170,8 +170,8 @@
      {% block showpub %}{% endblock  %}          {% block ajout_publicite %}{% endblock  %}  
      {% block showsujet %}{% endblock %}         {% block editsujet %}{% endblock  %}
 
-                  
-
+                   {% block showmenu %}   {% endblock  %} 
+                     {% block editmenu %}   {% endblock  %}
                 </div><!-- end of .tab_container -->
 
             </article><!-- end of content manager article -->

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MenuType extends AbstractType
+class menuType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -17,8 +17,7 @@ class MenuType extends AbstractType
         $builder
             ->add('name')
             ->add('position')
-            ->add('tag')
-            ->add('user')
+          
         ;
     }
     

@@ -38,8 +38,10 @@ class publiciteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * ****  recuperer les pub les plus importants *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getMinPub();
+          /*         * ****  tous les menu de la base *************************** */
+         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();  
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-                    'publicite' => $publicite,
+                    'publicite' => $publicite,'menu' => $menu
         ));
     }
 
@@ -79,8 +81,10 @@ class publiciteController extends Controller {
 
         /*         * ****  tous les pub de la base *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getAllPub();
+        /*         * ****  tous les menu de la base *************************** */
+         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();   
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-                    'publicite' => $publicite,
+                    'publicite' => $publicite,'menu' => $menu
         ));
     }
 
