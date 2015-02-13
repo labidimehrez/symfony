@@ -1,7 +1,11 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 {{ render(controller('MyAppForumBundle:tag:mostused')) }} 
- 
+ <!-- css et js pour bundle JQuery  -->
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.js') }}"></script>
+<!-- css et js pour bundle JQuery  -->
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
@@ -31,11 +35,14 @@
 {% for   sujet in  sujet %}
 
 {% if sujet.user.image is not null  %}
-        <img src="{{sujet.user.image }}"  
-             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />  
+         <a href="#" id="dialog-link"> 
+        <img src="{{sujet.user.image }}"  style="border-radius:50%;width:50px;height:50px;" alt="" /> 
+        </a> 
+              
 {% else %}
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />             
+        <a href="#" id="dialog-link"> 
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  style="border-radius:50%;width:50px;height:50px;" alt="" />  
+        </a> 
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
@@ -58,7 +65,36 @@
    
         
       </br></br>  
+
+</div>
+<!-- ui-dialog -->
+<div id="dialog"> 
+        <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
+        <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
+        <h1> <b>{{ sujet.user.username}}</b></h1>   
+</div>
+
+
 {%endfor%}
-</div>
-    
-</div>
+
+<script>
+$("#dialog").dialog({
+            autoOpen: false,
+            width: 400 ,
+            buttons: [       
+                {
+                    text: "Luk",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+</script>
+   
+ 
