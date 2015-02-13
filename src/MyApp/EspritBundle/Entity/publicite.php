@@ -1,14 +1,17 @@
 <?php
 
 namespace MyApp\EspritBundle\Entity;
- use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * publicite
  * @ORM\Table(name="publicite")
- * @ORM\HasLifecycleCallbacks
+ *
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="MyApp\EspritBundle\Repository\publiciteRepository")
+ * @UniqueEntity(fields="position", message=" ")
+ * 
  */
 class publicite
 {

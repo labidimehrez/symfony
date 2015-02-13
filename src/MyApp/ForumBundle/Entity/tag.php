@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\ForumBundle\Entity;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tag")
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="MyApp\ForumBundle\Repository\tagRepository")
+ * @UniqueEntity(fields="title", message=" ")
  */
 class tag {
 
@@ -25,7 +26,7 @@ class tag {
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255,unique=true)
+     * @ORM\Column(name="title", type="string", length=255,unique=true,nullable=false)
      */
     private $title;
 

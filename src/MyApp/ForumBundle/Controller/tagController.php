@@ -23,6 +23,10 @@ class TagController extends Controller {
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
             }
+                if(!$form->isValid()){
+                
+                 $this->get('session')->getFlashBag()->set('message', 'This title is used before !!'); 
+            }
         }
                  /*************  recuperation de tout les tags  *********/
         $tag1 = $em->getRepository('MyAppForumBundle:tag')->getAlltag();

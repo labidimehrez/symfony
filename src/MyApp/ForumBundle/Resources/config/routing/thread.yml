@@ -1,4 +1,0 @@
-my_app_forum_homepage:
-    pattern:  /threads/{id}
-    defaults: { _controller: MyAppForumBundle:Default:index }
- 

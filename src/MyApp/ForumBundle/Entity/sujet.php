@@ -1,5 +1,5 @@
 <?php
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 namespace MyApp\ForumBundle\Entity;
 use MyApp\ForumBundle\Validator\Constraints as CustomAssert;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sujet")
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="MyApp\ForumBundle\Repository\sujetRepository")
+ *  
  */
 class sujet {
 
@@ -38,7 +39,7 @@ class sujet {
     /**
      * @var string
      *
-     * @ORM\Column(name="sujet", type="string", length=255)
+     * @ORM\Column(name="sujet", type="string", length=255,unique=true,nullable=false)
      */
     private $sujet;
 

@@ -1,1 +1,6 @@
- 
+my_app_esprit_menu_add:
+    pattern:  /add
+    defaults: { _controller: MyAppEspritBundle:menu:add }
+my_app_esprit_menu_show:
+    pattern:  /show
+    defaults: { _controller: MyAppEspritBundle:menu:show } 

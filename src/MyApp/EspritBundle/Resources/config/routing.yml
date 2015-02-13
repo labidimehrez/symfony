@@ -10,6 +10,12 @@ my_app_esprit_administration:
 publicite:
     resource: "@MyAppEspritBundle/Resources/config/routing/publicite.yml"
     prefix: /publicite 
+    
+    
+   
+menu:
+    resource: "@MyAppEspritBundle/Resources/config/routing/menu.yml"
+    prefix: /menu 
 
 
  

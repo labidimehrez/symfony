@@ -7,17 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller {
 
-    public function showAction(Request $request) {
+    public function showAction() {
 
         $em = $this->getDoctrine()->getManager();
-        /*
-          $sql = 'TRUNCATE TABLE user;';
-          $connection = $em->getConnection();
-          $stmt = $connection->prepare($sql);
-          $stmt->execute();
-          $stmt->closeCursor();
-         */
-
         $user = $em->getRepository('MyAppUserBundle:user') 
                 ->findBy(array(), array('id' => 'asc'),100, 0);   
 

@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
- 
-    
-   
-  
-{% block head %}
+{% block head %} 
     <head>    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
@@ -36,35 +32,17 @@
    <!-- <div class="BG"><img src="{#{ asset('bundles/myappesprit/images/BG.png') }#}" alt="" /></div> -->
 
     <!-- Menu -->
-    <div class="MENU" ><img src="{{ asset('bundles/myappesprit/images/Navigation Bar copy.png') }}" alt="" /></div>
-
-    <!--<div id="Star_Tour"><img src="{#{ asset('bundles/myappesprit/images/Star Tour.png') }#}" alt="" /></div>-->
-
-    <div class="MenuTexte">
-        NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOLDNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REJSER
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUNDHED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRITID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EROTIK
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOROSKOPER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TV-GUIDE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEBAT      
+    <div class="MENU"  id="getFixed">                                         
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        NYHEDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KENDTE&nbsp;&nbsp UNDER&nbsp;&nbsp; HOLDNING&nbsp;&nbsp; REJSER
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUNDHED&nbsp;&nbsp; FRITID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EROTIK
+        &nbsp;&nbsp; HOROSKOPER&nbsp;&nbsp; TV-GUIDE&nbsp;&nbsp; DEBAT      
     </div>
-    <div class="tiretMenu"> </div>
+
     <!-- -->
     <!--  <div id="Forside___Debat___Politik___Samfund___Indenrigs">
           <B>Forside >  
-  
-            {#% set uriapresForside = app.request.uri %#}
-            {#% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/edit" %}
-            Min profil
-             {#% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
-            Skift adgangskode
-                        {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
-            Opret profil
-             {#%endif%#} 
-  
-  
-  
-  
-  
-          </B>
-      </div> -->
+   
     <!-- -->
     <div class="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
 
@@ -87,9 +65,25 @@
 
     <div class="Button_copy_2"><img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" /> </div>
 
-    <div class="text_field"><img src="{{ asset('bundles/myappesprit/images/text field.png') }}" alt="" /></div>
+    <div class="text_field"> 
+        <!--  recherche google
+        <script>
+      (function() {
+        var cx = '016704472298602707163:_y2ygwymyuc';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <gcse:search></gcse:search>
+        -->
+    </div> 
 
-
+                              {#% render(controller('MyAppForumBundle:sujet:recherche')) %#}
     <div class="EMAIL2">2</div>
 
     <div class="EMAIL">EMAIL</div>
@@ -123,9 +117,10 @@
 
 {%endblock%}
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
+ {% block container %}
     <body>
 
-        <!--les banners  -->
+
         <div class="SKYBANNERS" >
 
             <div class="idfacebook">
@@ -149,12 +144,12 @@
              {% block ajout_tag%}{% endblock %}
              {% block ajout_sujet%} {% endblock %}
         </div>
-        
-
-        <!-- ---------------------------------------------------------------------------------------------------------------->
-
-
     </body>
+
+    <!-- ---------------------------------------------------------------------------------------------------------------->
+
+
+    {% endblock %}
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
  {% block footer %}
     <footer>
@@ -171,7 +166,42 @@
   {% endblock %}  
     </footer>
 </html>
-{% block container %}{% endblock %}
 
+{###########                          pour que le menu rouge bouge et se colle en haut                        #######}
+ {% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<style>
+    body {
+        height: 2000px;
+        padding-top: 300px;
+    }
+    #getFixed {
+        // color: #c00;
+      //  font: bold 15px arial;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #c00;
+        //  width: 200px;
+    }
+</style>
+<script>
+            jQuery(function($) {
+                function fixDiv() {
+                    var $cache = $('#getFixed');
+                    if ($(window).scrollTop() > 200)
+                        $cache.css({
+                            'position': 'fixed',
+                            'top': '80px'
+                        });
+                    else
+                        $cache.css({
+                            'position': 'relative',
+                            'top': 'auto'
+                        });
+                }
+                $(window).scroll(fixDiv);
+                fixDiv();
+            });
+</script>
 
- 
+{% endblock %}

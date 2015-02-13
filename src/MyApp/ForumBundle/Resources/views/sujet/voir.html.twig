@@ -1,0 +1,61 @@
+{# empty Twig template #}
+{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+{{ render(controller('MyAppForumBundle:tag:mostused')) }} 
+ 
+
+  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+
+<div class="Forside___Debat___Politik___Samfund___Indenrigs">
+    <B>Forside >  
+            {% set uriapresForside = app.request.uri %}
+            {%if  uriapresForside|slice(47, 54) == 'voir'%}
+            Debats
+             {%endif%}
+           
+    </B>
+</div>
+<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
+    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
+               Start a New Topic</a>
+</div>
+<div class="conteneursenestedebat">
+    <div class="senestredebatt">
+        <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
+
+          {# c est deja decrit dans tag show ##}
+
+    </div>
+    
+   
+ 
+
+{% if sujet.user.image is not null  %}
+        <img src="{{sujet.user.image }}"  
+             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />  
+{% else %}
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />             
+{% endif%}
+
+        &nbsp;&nbsp;&nbsp;
+        <b style="color: black">{{sujet.user.username}}</b>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
+        {{sujet.contenu|Contenu}} </br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {% for tag in tag %}
+                   &nbsp;&nbsp;&nbsp;&nbsp; <b> {{tag.title}} </b>
+      {% endfor%}
+      </br></br>  
+      
+      <div class="commentaire">
+          
+          
+      </div>
+ 
+</div>
+    
+</div>

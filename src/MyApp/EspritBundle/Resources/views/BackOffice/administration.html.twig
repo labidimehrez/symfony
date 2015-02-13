@@ -125,8 +125,9 @@
 
         <section id="main" class="column">
 
-            <h4 class="alert_info">Welcome to the   admin panel , this could be an informative message.</h4>
-
+ 
+ {% for flashMessage in app.session.flashbag.get('message') %} <h4 class="alert_info">{{ flashMessage }}</h4>{% endfor %}
+ 
             <article class="module width_full">
                 <header><h3>Stats</h3></header>
                 <div class="module_content">

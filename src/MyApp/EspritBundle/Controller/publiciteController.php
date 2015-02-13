@@ -26,6 +26,10 @@ class publiciteController extends Controller {
 
                 return $this->redirect($this->generateUrl('my_app_esprit_publicite_add'));
             }
+            if(!$form->isValid()){
+                
+                 $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!'); 
+            }
         }
         return $this->render('MyAppEspritBundle:publicite:add.html.twig', array('form' => $form->createView()));
     }
