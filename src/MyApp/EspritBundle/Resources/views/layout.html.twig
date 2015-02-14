@@ -33,8 +33,8 @@
 
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
-         {#% for menu in menu %}&nbsp;&nbsp;-{{menu.name}}{%endfor%#}     
-         {% block listemenu %} {% endblock  %}
+       
+      {% for menu in menu %}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;{{menu.name}}{% endfor%}
     </div>
 
     <!-- -->

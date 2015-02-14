@@ -8,7 +8,7 @@ class menuRepository extends EntityRepository
    public function getAllMenu()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT p FROM MyAppEspritBundle:menu p  ')
+            ->createQuery('SELECT DISTINCT p FROM MyAppEspritBundle:menu p  ORDER by p.position ASC ')
             ->getResult();
             
     }

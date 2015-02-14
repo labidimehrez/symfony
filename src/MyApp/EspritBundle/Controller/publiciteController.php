@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\EspritBundle\Form\publiciteType;
 use MyApp\EspritBundle\Entity\publicite;
 use MyApp\UserBundle\Entity\User;
+use MyApp\EspritBundle\Entity\menu;
 
 class publiciteController extends Controller {
 
@@ -26,9 +27,9 @@ class publiciteController extends Controller {
 
                 return $this->redirect($this->generateUrl('my_app_esprit_publicite_add'));
             }
-            if(!$form->isValid()){
-                
-                 $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!'); 
+            if (!$form->isValid()) {
+
+                $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!');
             }
         }
         return $this->render('MyAppEspritBundle:publicite:add.html.twig', array('form' => $form->createView()));
@@ -38,10 +39,10 @@ class publiciteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * ****  recuperer les pub les plus importants *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getMinPub();
-          /*         * ****  tous les menu de la base *************************** */
-         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();  
+        /*         * ****  tous les menu de la base *************************** */
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-                    'publicite' => $publicite,'menu' => $menu
+                    'publicite' => $publicite, 'menu' => $menu
         ));
     }
 
@@ -52,13 +53,13 @@ class publiciteController extends Controller {
         /*  si aucun user dans la base on crée un par defaut  * */
         $user = $em->getRepository('MyAppUserBundle:user')->findAll();
         if (!$user) {
-            /*             * * clear de la table pour revenir à id=1 *** */
+            /*             * ******************** clear de la table pour revenir à id=1 *** */
             $sql = 'TRUNCATE TABLE user;';
             $connection = $em->getConnection();
             $stmt = $connection->prepare($sql);
             $stmt->execute();
             $stmt->closeCursor();
-            /*             * * default new user ** */
+            /*             * ******************** default new user ** */
             $user = new User();
             $user->setUsername("root");
             $user->setSexe("m");
@@ -78,18 +79,30 @@ class publiciteController extends Controller {
             $em1->persist($user);
             $em1->flush();
         }
-
-        /*         * ****  tous les pub de la base *************************** */
+        /*         * ********************  tous les menus de la base *************************** */
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+        if (!$menu) {
+            /*             * *********  requete native pour inserer plusieurs menus **** */
+            $sql = 'INSERT INTO menu(position,name) values(1,"NYHEDER"),(2,"KENDTE") ,
+                    (3,"UNDER"),(4,"HOLDNING"),
+                    (5,"REJSER"),(6,"SUNDHED"),
+                    (7,"FRITID"),(8,"EROTIK"),
+                    (9,"HOROSKOPER"),(10,"TV-GUIDE"),(11,"DEBAT")';
+            $connection = $em->getConnection();
+            $stmt = $connection->prepare($sql);
+            $stmt->execute();
+            $stmt->closeCursor();
+        }
+        /*         * ********************  tous les pub de la base *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getAllPub();
-        /*         * ****  tous les menu de la base *************************** */
-         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();   
+
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
-                    'publicite' => $publicite,'menu' => $menu
+                    'publicite' => $publicite, 'menu' => $menu
         ));
     }
 
     public function deleteAction($id) {
-        /*         * **** delete d'une pub si il existe deja *** */
+        /*         * ******************** delete d'une pub si il existe deja *** */
         $em = $this->getDoctrine()->getManager();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find($id);
         if (!$publicite) {
@@ -102,7 +115,7 @@ class publiciteController extends Controller {
     }
 
     public function manageAction() {
-        /*         * ****  ajout de nouveau pub  **** */
+        /*         * ********************  ajout de nouveau pub  **** */
         $em = $this->getDoctrine()->getManager();
         $publicite = new publicite();
         $form = $this->createForm(new publiciteType, $publicite);
@@ -118,7 +131,7 @@ class publiciteController extends Controller {
                 return $this->redirect($this->generateUrl('my_app_esprit_publicite_manage'));
             }
         }
-        /*         * ********  recuperation des pub ordonnés  ******************* */
+        /*         * ******************** recuperation des pub ordonnés  ******************* */
         $publicite2 = $em->getRepository('MyAppEspritBundle:publicite')->findBy(array(), array('position' => 'asc'), 100, 0);
 
         return $this->render('MyAppEspritBundle:publicite:manage.html.twig', array('form' => $form->createView(),
@@ -126,7 +139,7 @@ class publiciteController extends Controller {
     }
 
     public function deleteallAction() {
-        /*         * *******  delete all Pubs **** */
+        /*         * ********************  delete all Pubs **** */
         $em = $this->getDoctrine()->getManager();
         $sql = 'TRUNCATE TABLE publicite;';
         $connection = $em->getConnection();

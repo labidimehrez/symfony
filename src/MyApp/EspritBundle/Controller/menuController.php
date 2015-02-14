@@ -44,7 +44,7 @@ class menuController extends Controller
         if ($request->isMethod('Post')) {
 
             $form->bind($request);
-
+            /***********  validation form **********************/
             if ($form->isValid()) {
                 $publicite = $form->getData();
                 $em = $this->getDoctrine()->getManager();
@@ -58,7 +58,7 @@ class menuController extends Controller
                  $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!'); 
             }
         }
-        return $this->render('MyAppEspritBundle:menu:add.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppEspritBundle:menu:show.html.twig', array('form' => $form->createView()));
     }
         public function deleteAction($id) {
         /*         * **** delete d'une menu si il existe deja *** */
@@ -84,12 +84,15 @@ class menuController extends Controller
 
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
-
+           /***********  validation form **********************/
             if ($form->isValid()) {
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
             }
-
+            if(!$form->isValid()){
+                
+                 $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!'); 
+            }
         }
             /*********** **    recuperation de tout les menus  *********** */
             $menu2 = $em->getRepository('MyAppEspritBundle:menu')->findAll();
@@ -98,19 +101,5 @@ class menuController extends Controller
                         'menu' => $menu, 'menu2' => $menu2
             ));
     }
-    
-    
-    
-    
-    
-         public function listeAction() {
-            /**** simple show action ****/
-        $em = $this->getDoctrine()->getManager();
-         /*********** **    recuperation de tout les menus  *********** */
-        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
-  
-            return $this->render('MyAppEspritBundle:menu:liste.html.twig', array(                   
-                        'menu' => $menu,
-            ));
-    }
+ 
 }
