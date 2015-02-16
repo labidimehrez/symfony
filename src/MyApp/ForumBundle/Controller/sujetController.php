@@ -3,9 +3,8 @@
 namespace MyApp\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
- 
 use MyApp\ForumBundle\Form\sujetType;
 use MyApp\ForumBundle\Entity\sujet;
 
@@ -75,7 +74,6 @@ class sujetController extends Controller {
         ));
     }
 
-    
     public function sujetrecentAction() {
 
         $em = $this->getDoctrine()->getManager();
@@ -83,18 +81,17 @@ class sujetController extends Controller {
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
         /*         * *****  select all tag from table association  ** */
 
-        $tag1 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
-        $tag2 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(2);
+        $tag1 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(2);
+        $tag2 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(6);
 //        var_dump($tag5);
 //        die();
-  
-        
-       
-   
+
+
+
+
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet,
-                    'tag2' => $tag2 ,  'tag1' => $tag1
-                
+                    'tag2' => $tag2, 'tag1' => $tag1
                         )
         );
     }
@@ -140,18 +137,60 @@ class sujetController extends Controller {
         ));
     }
 
-    public function voirAction($id) {
-        
+    public function voirAction($id,Request $request) {
+
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
-        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
-        //var_dump($sujet);die();
+        /***** le debat que je lis a la date_lus updated => new date() ******/
+         $sujet->setDatelus(new \DateTime());
+         $em->persist($sujet);
+         $em->flush();     
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id); 
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet
-                    ,'tag'=>$tag
+                    , 'tag' => $tag
+        ));
+    }
+
+    public function selectsujetAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->findAll();
+        /*$currentRoute = $request->attributes->get('_route');
+         var_dump($currentRoute);die();*/
+        $ids = $this->getRequest()->get('mesIds');
+        // var_dump($ids);die();
+        $form = $this->createFormBuilder($sujet)
+                ->add('sujet')
+                ->getForm();
+        return $this->render('MyAppForumBundle:sujet:selectsujet.html.twig', array(
+                    'sujet' => $sujet,
+                    'ids' => $ids, 'form' => $form->createView()
+        ));
+    }
+
+    public function selectsujet2Action() {
+
+        $em = $this->getDoctrine()->getManager();
+       /***** recuperation des id choisis avant ***/
+        $ids = $this->getRequest()->get('mesIds');
+        /****  mise a jour des objets selectionné ***/
+        foreach ($ids as $id) {
+             $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+                 $sujet->setSujet('b');    
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($sujet);
+                $em->flush();
+        }
+         /****  mise a jour des objets selectionné ***/
+     $form = $this->createFormBuilder($sujet)
+                ->add('sujet')
+                ->getForm();
+        return $this->render('MyAppForumBundle:sujet:selectsujet.html.twig', array(
+                     'sujet' => $sujet,
+                    'ids' => $ids, 'form' => $form->createView()
         ));
     }
 

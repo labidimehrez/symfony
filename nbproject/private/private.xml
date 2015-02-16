@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Form/UserType.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/config/routing/sujet.yml</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/tagController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/User/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/User/edit.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/selectsujet2.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/selectsujet.html.twig</file>
         </group>
     </open-files>
 </project-private>

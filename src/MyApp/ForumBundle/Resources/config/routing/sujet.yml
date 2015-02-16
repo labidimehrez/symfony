@@ -38,5 +38,11 @@ my_app_forum_sujet_voir:
     pattern:  /{id}/voir
     defaults: { _controller: MyAppForumBundle:sujet:voir }
     
+my_app_forum_sujet_selectsujet:
+    pattern:  /selectsujet
+    defaults: { _controller: MyAppForumBundle:sujet:selectsujet }
  
  
+my_app_forum_sujet_selectsujet2:
+    pattern:  /selectsujet2
+    defaults: { _controller: MyAppForumBundle:sujet:selectsujet }
