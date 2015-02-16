@@ -102,4 +102,22 @@ class menuController extends Controller
             ));
     }
  
+    
+    
+          public function listAction() {
+    $em    = $this->get('doctrine.orm.entity_manager');
+    $dql   = "SELECT a FROM MyAppEspritBundle:menu a";
+    $query = $em->createQuery($dql);
+
+    $paginator  = $this->get('knp_paginator');
+    $pagination = $paginator->paginate(
+        $query,
+        $this->get('request')->query->get('page', 1)/*page number*/,5/*limit per page*/
+        
+    );
+
+    // parameters to template
+    return $this->render('MyAppEspritBundle:menu:list.html.twig', array('pagination' => $pagination));
+        }
+    
 }

@@ -12,3 +12,7 @@ my_app_esprit_menu_edit:
 my_app_esprit_menu_delete:
     pattern:  /{id}/delete
     defaults: { _controller: MyAppEspritBundle:menu:delete}  
+    
+my_app_esprit_menu_list:
+    pattern:  /list
+    defaults: { _controller: MyAppEspritBundle:menu:list}  

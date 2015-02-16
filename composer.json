@@ -26,7 +26,8 @@
         "friendsofsymfony/comment-bundle": "~2.0",
         "knplabs/knp-time-bundle": "dev-master",
         "Trsteel/ckeditor-bundle": "~1.6",
-        "craue/twigextensions-bundle": "~2.0" 
+        "craue/twigextensions-bundle": "~2.0",
+        "knplabs/knp-paginator-bundle": "~2.4"
       
         
         

@@ -4,7 +4,8 @@ namespace MyApp\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use MyApp\UserBundle\Form\userType;
+use MyApp\UserBundle\Entity\user;
 class UserController extends Controller {
 
     public function showAction() {
@@ -12,7 +13,6 @@ class UserController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('MyAppUserBundle:user') 
                 ->findBy(array(), array('id' => 'asc'),100, 0);   
-
         return $this->render('MyAppUserBundle:User:show.html.twig', array(
                     'user' => $user
         ));
@@ -28,11 +28,10 @@ class UserController extends Controller {
         $em->remove($user);
         $em->flush();
         $this->get('session')->getFlashBag()->set('message', 'Ce user disparait !!');
-
         return $this->redirect($this->generateUrl('my_app_user_show'));
     }
 
-    public function editAction($id, Request $request) {
+    public function editAction($id) {
 
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('MyAppUserBundle:user')->find($id);
@@ -41,35 +40,21 @@ class UserController extends Controller {
                     'no Utilisateur found for id ' . $id
             );
         }
+              $form = $this->createForm(new userType(), $user);
+        $request = $this->getRequest();
 
-        $form = $this->createFormBuilder($user)
-                ->add('username', 'text')
-                ->add('enabled', 'checkbox', array('required' => false))
-                ->add('roles', 'collection', array(
-                    'type' => 'choice',
-                    'options' => array(
-                        'label' => false, /* Ajoutez cette ligne */
-                        'choices' => array(
-                            'ROLE_ADMIN' => 'Admin',
-                            'ROLE_SUPER_ADMIN' => 'Superadmin',
-                            'ROLE_SUPERSOL' => 'Supersol',
-                            'ROLE_EDITOR' => 'Editor',
-                            'ROLE_USER' => 'User',
-                ))))
-                ->getForm();
-
-        $form->handleRequest($request);
-
-
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
         if ($form->isValid()) {
             $em->flush();
             return $this->redirect($this->generateUrl('my_app_user_show'));
         }
-
+  }
         return $this->render('MyAppUserBundle:user:edit.html.twig', array(
                     'form' => $form->createView(),
                     'user' => $user,
         ));
-    }
+  
 
+}
 }

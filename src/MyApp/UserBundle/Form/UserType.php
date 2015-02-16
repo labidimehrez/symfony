@@ -15,18 +15,19 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('user','entity',array(
-            'class'=>'MyAppUserBundleBundle:User',      
-            'expanded'=> true,
-            'multiple'=> true,
-            'property'=>'name',/*
-            'query_builder' => function(EntityRepository $er) use($options) {
-                return $er->createQueryBuilder('ac')
-                ->leftJoin('ac.company','c')
-                ->where('c = :id')
-                ->orderBy('ac.name', 'ASC')
-                ->setParameter('id', $options['company_id']);}*/
-            ))
+        ->add('username', 'text')
+                ->add('enabled', 'checkbox', array('required' => false))
+                ->add('roles', 'collection', array(
+                    'type' => 'choice',
+                    'options' => array(
+                        'label' => false, /* Ajoutez cette ligne */
+                        'choices' => array(
+                            'ROLE_ADMIN' => 'Admin',
+                            'ROLE_SUPER_ADMIN' => 'Superadmin',
+                            'ROLE_SUPERSOL' => 'Supersol',
+                            'ROLE_EDITOR' => 'Editor',
+                            'ROLE_USER' => 'User',
+                ))))
      
         ;
     }
