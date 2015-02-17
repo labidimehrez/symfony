@@ -14,3 +14,13 @@ my_app_user_deleteall:
 my_app_user_edit:
     pattern:  /user/{id}/edit
     defaults: { _controller: MyAppUserBundle:User:edit}
+    
+    
+my_app_forum_sujet_updateuser:
+    pattern:  /updateuser
+    defaults: { _controller: MyAppUserBundle:User:updateuser }
+ 
+ 
+my_app_forum_sujet_updateuser2:
+    pattern:  /updateuser2
+    defaults: { _controller: MyAppUserBundle:User:updateuser2 }

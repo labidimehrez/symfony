@@ -22,8 +22,8 @@ class UserType extends AbstractType
                     'options' => array(
                         'label' => false, /* Ajoutez cette ligne */
                         'choices' => array(
+                           'ROLE_SUPER_ADMIN' => 'Superadmin',
                             'ROLE_ADMIN' => 'Admin',
-                            'ROLE_SUPER_ADMIN' => 'Superadmin',
                             'ROLE_SUPERSOL' => 'Supersol',
                             'ROLE_EDITOR' => 'Editor',
                             'ROLE_USER' => 'User',
