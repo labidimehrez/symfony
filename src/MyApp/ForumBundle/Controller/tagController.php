@@ -46,19 +46,19 @@ class TagController extends Controller {
         ));
     }
 
-    public function deleteAction($id) {
+    public function deleteAction() {
         /************  simple delete action  ***********/
-        $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
-
-        if (!$tag) {
-            throw $this->createNotFoundException('no  tag found for id ' . $id);
+           $em = $this->getDoctrine()->getManager();
+       /***** recuperation des id choisis avant ***/
+          $ids = $this->getRequest()->get('mesIds');
+       foreach ($ids as $id) {
+             $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
+              $em->remove($tag);
+              $em->flush();
         }
+       
 
-        $em->remove($tag);
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
+        return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
     }
 
     public function editAction($id) {
@@ -88,7 +88,7 @@ class TagController extends Controller {
 
         
 
-         public function addAction() {
+         public function manageAction() {
             /*******         simple add action  ********* */
             $em = $this->getDoctrine()->getManager();
             $tag = new tag();
@@ -101,10 +101,11 @@ class TagController extends Controller {
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($tag);
                     $em->flush();
-                    return $this->redirect($this->generateUrl('my_app_forum_tag_add'));
+                    return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
                 }
             }
-            return $this->render('MyAppForumBundle:tag:add.html.twig', array('form' => $form->createView()));
+               $tag1 = $em->getRepository('MyAppForumBundle:tag')->getAlltag();
+            return $this->render('MyAppForumBundle:tag:manage.html.twig', array('form' => $form->createView(),  'tag' => $tag1));
         }
 
     }

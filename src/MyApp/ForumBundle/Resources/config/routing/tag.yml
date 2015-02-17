@@ -1,8 +1,8 @@
  
      
-my_app_forum_tag_add:
-    pattern:  /add
-    defaults: { _controller: MyAppForumBundle:tag:add }
+my_app_forum_tag_manage:
+    pattern:  /manage
+    defaults: { _controller: MyAppForumBundle:tag:manage }
 my_app_forum_tag_show:
     pattern:  /show
     defaults: { _controller: MyAppForumBundle:tag:show }
@@ -25,7 +25,7 @@ my_app_forum_tag_usedtag:
         
         
 my_app_forum_tag_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete
     defaults: { _controller: MyAppForumBundle:tag:delete}
     
 my_app_forum_tag_deleteall:

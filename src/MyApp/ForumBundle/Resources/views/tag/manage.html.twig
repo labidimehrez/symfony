@@ -1,8 +1,16 @@
+{# empty Twig template #}
 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showtag %}    {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
-   <form  action='{{path('my_app_forum_tag_delete')}}' method="post" {{ form_enctype(form) }} > 
+ 
+
+ {% block ajout_tag%} 
+ 
+
+
+
+
+<form  action='{{path('my_app_forum_tag_delete')}}' method="post" {{ form_enctype(form) }} > 
                 <header><h3 class="tabs_involved">Content Tag Manager</h3>
                     <ul class="tabs">
                        
@@ -50,10 +58,29 @@
 </div>  
        
        <center>   <input type="submit"  value="Delete" />  </center>
-  </form>
+</form>
  
+<form  action='{{path('my_app_forum_tag_manage')}}' method="post" {{ form_enctype(form) }} > 
+                        <article class="module width_full">
+                            <header><h3>Post New Tag</h3></header>
+                            <div class="module_content">
+                                <fieldset>
+                                    <label>Tag Title</label>
+                                    {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
+                                   
+                                </fieldset>  
+                                <div class="clear"></div>
+                            </div>
+                            <footer>
+                                <div class="submit_link">
+                                  {{form_widget(form._token)}}
+                                    <input type="submit"   value="Publish" class="alt_btn">
+                                    <input type="reset"   value="Reset" >
+                                </div>
+                            </footer>
+                        </article> 
+</form>
 
-  {%endblock %}
 
+{% endblock %}
 
- 
