@@ -33,8 +33,11 @@
     <h2>Seneste debatter</h2>
    
 {% for   sujet in  sujet %}
-
-{% if sujet.user.image is not null  %}
+   
+    
+    
+ {% if sujet.user is not null %}
+  {% if sujet.user.image is not null  %}
          <a href="#" id="dialog-link"> 
         <img src="{{sujet.user.image }}"  style="border-radius:50%;width:50px;height:50px;" alt="" /> 
         </a> 
@@ -47,6 +50,32 @@
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">{{sujet.user.username}}</b>
+ {% else %}
+  
+ 
+        <a href="#" id="dialog-link"> 
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  style="border-radius:50%;width:50px;height:50px;" alt="" />  
+        </a> 
+ 
+
+        &nbsp;&nbsp;&nbsp;
+        <b style="color: black">Anonymous</b>
+ {% endif %}       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
         
@@ -67,13 +96,14 @@
       </br></br>  
 
 </div>
+ {% if sujet.user is not null %}
 <!-- ui-dialog -->
 <div id="dialog"> 
         <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
         <h1> <b>{{ sujet.user.username}}</b></h1>   
 </div>
-
+{% endif%}
 
 {%endfor%}
 
