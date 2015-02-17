@@ -84,10 +84,10 @@ class publiciteController extends Controller {
         if (!$menu) {
             /*             * *********  requete native pour inserer plusieurs menus **** */
             $sql = 'INSERT INTO menu(position,name) values(1,"NYHEDER"),(2,"KENDTE") ,
-                    (3,"UNDER"),(4,"HOLDNING"),
-                    (5,"REJSER"),(6,"SUNDHED"),
-                    (7,"FRITID"),(8,"EROTIK"),
-                    (9,"HOROSKOPER"),(10,"TV-GUIDE"),(11,"DEBAT")';
+               (3,"UNDER"),(4,"HOLDNING"),(5,"REJSER"),(6,"SUNDHED"),(7,"FRITID"),(8,"EROTIK"),          
+               (9,"HOROSKOPER"),(10,"TV-GUIDE"),(11,"DEBAT")';     
+                    
+                    
             $connection = $em->getConnection();
             $stmt = $connection->prepare($sql);
             $stmt->execute();

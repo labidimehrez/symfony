@@ -1,7 +1,7 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:show')) }}
 {{ render(controller('MyAppForumBundle:tag:mostused')) }} 
- 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
@@ -53,7 +53,7 @@
       
       <div class="commentaire">
           
-          
+            {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
       </div>
  
 </div>

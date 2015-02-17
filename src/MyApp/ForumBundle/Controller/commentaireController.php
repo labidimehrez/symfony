@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class commentaireController extends Controller
 {
-//    public function indexAction($name)
-//    {
-//        return $this->render('MyAppForumBundle:Default:index.html.twig', array('name' => $name));
-//    }
+     public function showAction()
+    {           
+        return $this->render('MyAppForumBundle:commentaire:show.html.twig' );                
+    }
 }
