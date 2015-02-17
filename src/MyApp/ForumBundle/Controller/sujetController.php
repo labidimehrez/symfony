@@ -137,34 +137,56 @@ class sujetController extends Controller {
         ));
     }
 
-    public function voirAction($id,Request $request) {
+    public function voirAction($id, Request $request) {
 
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
-        /***** le debat que je lis aura la date_lus updated => new date() ******/
-         $sujet->setDatelus(new \DateTime());
-         /****** le nombre de lecture s'incremente de plus un   *****/
-         $nblect=$sujet->getNblect();
-         $nblect=$nblect+1;
-         $sujet->setNblect($nblect);
-     
-         $em->persist($sujet);
-         $em->flush();     
-        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id); 
+        /*         * *** le debat que je lis aura la date_lus updated => new date() ***** */
+        $sujet->setDatelus(new \DateTime());
+        /*         * **** le nombre de lecture s'incremente de plus un   **** */
+        $nblect = $sujet->getNblect();
+        $nblect = $nblect + 1;
+        $sujet->setNblect($nblect);
+
+        $em->persist($sujet);
+        $em->flush();
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
-                    'sujet' => $sujet  , 
-                  'tag' => $tag
+                    'sujet' => $sujet,
+                    'tag' => $tag
         ));
     }
 
+    public function mostreadsujetAction() {
+        /*         * * ***********    recuperer les sujets les plus lus dans les 12h passés *************** */
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getmostreadsujet();
+        $now = new \Datetime();
+        $mostreadsujet=0;
+        foreach ($sujet as $sujet) {
+            $datelusdesujet = $sujet->getDatelus();
+            $interval = $datelusdesujet->diff($now);
+            $seconds = $interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
+            /// 12h = 43200 s
+            if ($seconds < 43200) {
+                $mostreadsujet=$sujet;
+            }
+           // var_dump($mostreadsujet);die();
+        }
+       return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');             
+    }
+
+    
+    
+    
     public function selectsujetAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->findAll();
-        /*$currentRoute = $request->attributes->get('_route');
-         var_dump($currentRoute);die();*/
+        /* $currentRoute = $request->attributes->get('_route');
+          var_dump($currentRoute);die(); */
         $ids = $this->getRequest()->get('mesIds');
         // var_dump($ids);die();
         $form = $this->createFormBuilder($sujet)
@@ -179,22 +201,22 @@ class sujetController extends Controller {
     public function selectsujet2Action() {
 
         $em = $this->getDoctrine()->getManager();
-       /***** recuperation des id choisis avant ***/
+        /*         * *** recuperation des id choisis avant ** */
         $ids = $this->getRequest()->get('mesIds');
-        /****  mise a jour des objets selectionné ***/
+        /*         * **  mise a jour des objets selectionné ** */
         foreach ($ids as $id) {
-             $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
-                 $sujet->setSujet('b');    
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($sujet);
-                $em->flush();
+            $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+            $sujet->setSujet('b');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($sujet);
+            $em->flush();
         }
-         /****  mise a jour des objets selectionné ***/
-     $form = $this->createFormBuilder($sujet)
+        /*         * **  mise a jour des objets selectionné ** */
+        $form = $this->createFormBuilder($sujet)
                 ->add('sujet')
                 ->getForm();
         return $this->render('MyAppForumBundle:sujet:selectsujet.html.twig', array(
-                     'sujet' => $sujet,
+                    'sujet' => $sujet,
                     'ids' => $ids, 'form' => $form->createView()
         ));
     }
