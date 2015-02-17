@@ -70,7 +70,16 @@ class sujet {
      * @ORM\Column(name="notification",nullable=true)
      */
     private $notification;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nblect", type="integer",nullable=true)
+     */
+    private $nblect;
 
+    
+    
     /**
      * Get id
      *
@@ -209,8 +218,16 @@ class sujet {
         $this->tags = $tags;
         return $this;
     }
+    public function getNblect() {
+        return $this->nblect;
+    }
 
-    public function __construct() {
+    public function setNblect($nblect) {
+        $this->nblect = $nblect;
+        return $this;
+    }
+
+        public function __construct() {
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datecreation = new \DateTime();
     }

@@ -144,14 +144,19 @@ class sujetController extends Controller {
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
-        /***** le debat que je lis a la date_lus updated => new date() ******/
+        /***** le debat que je lis aura la date_lus updated => new date() ******/
          $sujet->setDatelus(new \DateTime());
+         /****** le nombre de lecture s'incremente de plus un   *****/
+         $nblect=$sujet->getNblect();
+         $nblect=$nblect+1;
+         $sujet->setNblect($nblect);
+     
          $em->persist($sujet);
          $em->flush();     
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id); 
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
-                    'sujet' => $sujet
-                    , 'tag' => $tag
+                    'sujet' => $sujet  , 
+                  'tag' => $tag
         ));
     }
 
