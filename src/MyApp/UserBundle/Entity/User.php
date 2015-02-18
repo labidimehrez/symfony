@@ -241,5 +241,4 @@ class User extends BaseUser {
     }
  
  
-
 }

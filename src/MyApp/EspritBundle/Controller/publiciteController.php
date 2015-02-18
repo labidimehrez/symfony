@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\EspritBundle\Form\publiciteType;
 use MyApp\EspritBundle\Entity\publicite;
@@ -46,7 +46,7 @@ class publiciteController extends Controller {
         ));
     }
 
-    public function showAction() {
+    public function showAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
 
@@ -83,11 +83,19 @@ class publiciteController extends Controller {
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
         if (!$menu) {
             /*             * *********  requete native pour inserer plusieurs menus **** */
-            $sql = 'INSERT INTO menu(position,name) values(1,"NYHEDER"),(2,"KENDTE") ,
-               (3,"UNDER"),(4,"HOLDNING"),(5,"REJSER"),(6,"SUNDHED"),(7,"FRITID"),(8,"EROTIK"),          
-               (9,"HOROSKOPER"),(10,"TV-GUIDE"),(11,"DEBAT")';     
-                    
-                    
+            $sql = 'INSERT INTO menu(position,name,lien) values(1,"NYHEDER","my_app_forum_sujet_sujetrecent"),
+                                                               (2,"KENDTE","my_app_forum_sujet_sujetrecent") ,
+                                                               (3,"UNDER","my_app_forum_sujet_sujetrecent"),
+                                                               (4,"HOLDNING","my_app_forum_sujet_sujetrecent"),
+                                                               (5,"REJSER","my_app_forum_sujet_sujetrecent"),
+                                                               (6,"SUNDHED","my_app_forum_sujet_sujetrecent"),
+                                                               (7,"FRITID","my_app_forum_sujet_sujetrecent"),
+                                                               (8,"EROTIK","my_app_forum_sujet_sujetrecent"),          
+                                                               (9,"HOROSKOPER","my_app_forum_sujet_sujetrecent"),
+                                                               (10,"TV-GUIDE","my_app_forum_sujet_sujetrecent"),
+                                                               (11,"DEBAT","my_app_forum_sujet_sujetrecent")';
+
+
             $connection = $em->getConnection();
             $stmt = $connection->prepare($sql);
             $stmt->execute();
@@ -95,9 +103,14 @@ class publiciteController extends Controller {
         }
         /*         * ********************  tous les pub de la base *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getAllPub();
-
+   
+         /****************          la route coourante           ***************/
+         //$currentRoute = $request->attributes->get('_route');
         return $this->render('MyAppEspritBundle:publicite:show.html.twig', array(
                     'publicite' => $publicite, 'menu' => $menu
+                
+                // ,'currentRoute'=>$currentRoute // la route coourante
+                   
         ));
     }
 

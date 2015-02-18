@@ -33,8 +33,14 @@
 
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
-       
-      {% for menu in menu %}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;{{menu.name}}{% endfor%}
+         {#{currentRoute}#}
+      {% for menu in menu %}
+        {## la variable route contient le lien de la rubrique de menu ##}
+        {% set route = menu.lien %}  
+        
+       <a href="{{path(route) }}" style="text-decoration:none;color: white;"> &nbsp;&nbsp;-&nbsp;&nbsp; {{menu.name}}{#{menu.lien}#}  </a>                                                                                                                                                     
+ 
+      {% endfor%}
     </div>
 
     <!-- -->
@@ -118,7 +124,7 @@
  {% block container %}
     <body>
         
-          <!--  # KnpMenuBundle  <div> {#{ knp_menu_render('main') }#} </div> -->
+         
         
         
         <div class="SKYBANNERS" >

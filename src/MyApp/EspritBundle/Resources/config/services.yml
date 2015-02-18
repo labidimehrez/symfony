@@ -8,17 +8,4 @@ services:
 
 
 
-# KnpMenuBundle
-services:
-    myapp_esprit.menu.menu_builder:
-        class: MyApp\EspritBundle\Menu\MenuBuilder
-        arguments: ["@knp_menu.factory"]
-
-    myapp_main.menu.main:
-        class: KnpMenuMenuItem
-        factory_service: myapp_esprit.menu.menu_builder
-        factory_method: createMainMenu
-        arguments: ["@request"]
-        scope: request
-        tags:
-            - { name: knp_menu.menu, alias: main } # L'alias est très important, c'est avec lui que vous appellerez votre menu dans la vue
+ 

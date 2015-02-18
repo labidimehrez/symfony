@@ -1,9 +1,10 @@
 <?php
 
 namespace MyApp\UserBundle\Controller;
-
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+ 
 use MyApp\UserBundle\Form\userType;
 use MyApp\UserBundle\Entity\user;
 
@@ -21,8 +22,7 @@ class UserController extends Controller {
 
     public function deleteAction($id) {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('MyAppUserBundle:user')->find($id);
-
+        $user = $em->getRepository('MyAppUserBundle:user')->find($id); 
         if (!$user) {
             throw $this->createNotFoundException('No user found for id ' . $id);
         }
@@ -30,6 +30,8 @@ class UserController extends Controller {
         $em->flush();
         $this->get('session')->getFlashBag()->set('message', 'Ce user disparait !!');
         return $this->redirect($this->generateUrl('my_app_user_show'));
+ 
+ 
     }
 
     public function editAction($id) {
@@ -119,12 +121,6 @@ class UserController extends Controller {
             $em->persist($user);
             $em->flush();
         }
-
-
-
-
-
-
         return $this->render('MyAppUserBundle:user:updateuser2.html.twig', array('ids' => $ids));
     }
 

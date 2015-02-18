@@ -36,6 +36,13 @@ class menu {
      * @ORM\Column(name="position", type="integer",unique=true)
      */
     private $position;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lien", type="string", length=20000)
+     */
+    private $lien;
 
     /**
      * Get id
@@ -87,5 +94,14 @@ class menu {
     public function getPosition() {
         return $this->position;
     }
+    public function getLien() {
+        return $this->lien;
+    }
+
+    public function setLien($lien) {
+        $this->lien = $lien;
+        return $this;
+    }
+
 
 }

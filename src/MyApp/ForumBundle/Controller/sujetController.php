@@ -66,7 +66,7 @@ class sujetController extends Controller {
     public function manageAction() {
 
         $em = $this->getDoctrine()->getManager();
-        /*         * ****************  recuperation de tout les sujets  *********** */
+        /****************  recuperation de tout les sujets  *********** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
         //var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
@@ -91,7 +91,8 @@ class sujetController extends Controller {
 
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet,
-                    'tag2' => $tag2, 'tag1' => $tag1
+                    'tag2' => $tag2,
+                    'tag1' => $tag1
                         )
         );
     }
@@ -107,7 +108,6 @@ class sujetController extends Controller {
 
         $em->remove($sujet);
         $em->flush();
-
         return $this->redirect($this->generateUrl('my_app_forum_sujet_manage'));
     }
 

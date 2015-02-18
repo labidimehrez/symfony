@@ -23,8 +23,6 @@ class sujetRepository extends EntityRepository {
                         ->createQuery('SELECT p    FROM MyAppForumBundle:sujet p  ORDER BY  p.nblect DESC   ')
                         ->getResult();
     }
-    
-    
 }
 
 ?>
