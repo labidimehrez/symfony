@@ -113,10 +113,10 @@ class publiciteController extends Controller {
         public function showintpubAction() {
                 
         $em = $this->getDoctrine()->getManager();    
-        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+       /* $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();*/
         /*         * ********************   les pub interne *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         return $this->render('MyAppEspritBundle:publicite:showintpub.html.twig', array(
-            'publicite' => $publicite, 'menu' => $menu));
+            'publicite' => $publicite/*, 'menu' => $menu*/));
         }
 }

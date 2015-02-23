@@ -111,7 +111,8 @@ class menuController extends Controller {
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-                $query, $this->get('request')->query->get('page', 1)/* page number */, 5/* limit per page */
+                $query, $this->get('request')->query->get('page', 1)/* page number */, 
+                                                                5/* limit per page */
         );
         // parameters to template
         return $this->render('MyAppEspritBundle:menu:list.html.twig', array('pagination' => $pagination));

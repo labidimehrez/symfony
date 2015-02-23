@@ -1,5 +1,7 @@
 {# empty Twig template #}
-{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+{{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
+ 
+
 {{ render(controller('MyAppForumBundle:tag:mostused')) }} 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 
@@ -8,7 +10,7 @@
 <div class="Forside___Debat___Politik___Samfund___Indenrigs">
     <B>Forside >  
             {% set uriapresForside = app.request.uri %}
-            {%if  uriapresForside|slice(47, 54) == 'voir'%}
+            {%if 'voir' in  uriapresForside%}
             Debats
              {%endif%}
            

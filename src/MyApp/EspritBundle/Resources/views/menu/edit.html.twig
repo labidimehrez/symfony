@@ -3,19 +3,19 @@
 
  {% block editmenu %}      {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-                <header><h3 class="tabs_involved">Content Menu Manager</h3>
-                    <ul class="tabs">
-                        <li><a href="#tab1">Posts</a></li>
-                         
-                    </ul>
-                </header>  
+<header><h3 class="tabs_involved">Content Menu Manager</h3>
+    <ul class="tabs">
+        <li><a href="#tab1">Posts</a></li>
+
+    </ul>
+</header>  
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
             <tr> 
                 <th></th> 
                 <th>No</th> 
-           <th> </th> 
+                <th> </th> 
                 <th>menu Title</th> 
                 <th> </th> 
             </tr> 
@@ -46,28 +46,35 @@
     </table>
 </div> 
 
-   <form role="form" method="post" {{ form_enctype(form) }} >
-                        <article class="module width_full">
-                            <header><h3>Post New Menu</h3></header>
-                            <div class="module_content">
-                                <fieldset>
-                                    <label>Position</label>
-                                    {{form_widget(form.position) }}
-                                    
-                                    <label>Menu Title</label>
-                                    {{form_widget(form.name, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
-                                   
-                                </fieldset>  
-                                <div class="clear"></div>
-                            </div>
-                            <footer>
-                                <div class="submit_link">
+<form role="form" method="post" {{ form_enctype(form) }} >
+    <article class="module width_full">
+        <header><h3>Update This Menu</h3></header>
+        <div class="module_content">
+
+          <fieldset>
+            <table width="200" >
+               <tr>
+                   <td> <label>Menu Position</label></td>
+                   <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 50px' } }) }}</td>
+                   <td> <label>Menu Title</label></td>
+                   <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
+               </tr>
+           </table>  
+ 
+                <label>Menu Link</label>
+        {{form_widget(form.lien, { 'attr': {'placeholder': 'Link','class':'inp-form'} }) }}
+
+            </fieldset>                      
+            <div class="clear"></div>
+        </div>
+        <footer>
+            <div class="submit_link">
                                   {{form_widget(form._token)}}
-                                    <input type="submit"   value="Publish" class="alt_btn">
-                                    <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
-                                </div>
-                            </footer>
-                        </article> 
+                <input type="submit"   value="Publish" class="alt_btn">
+                <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
+            </div>
+        </footer>
+    </article> 
 </form>
 
 
@@ -84,30 +91,33 @@
   <p class="container">
       <button id="loadToSuccess" class="btn">Loading Then Success</button>
   </p>  -->
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/bootstrap.min.css') }}"/> 
-   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/custom.css') }}"/>  
-   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.css') }}"/> 
-   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/prettify.css') }}"/>  
-   
- <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/modernizr-2.0.6.min.js' )}} "></script>
-  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/jquery.min.js' )}} "></script>
- <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.js' )}} "></script>
-  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/spin.min.js' )}} "></script>
- <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/prettify.js' )}} "></script>
-  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/custom.js' )}} "></script>
-   
- 
-  <script>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/bootstrap.min.css') }}"/> 
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/custom.css') }}"/>  
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.css') }}"/> 
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/prettify.css') }}"/>  
+
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/modernizr-2.0.6.min.js' )}} "></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/jquery.min.js' )}} "></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.js' )}} "></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/spin.min.js' )}} "></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/prettify.js' )}} "></script>
+<script type="text/javascript" src="{{ asset('bundles/myappesprit/css/dialog/custom.js' )}} "></script>
+
+
+<script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-37502505-1']);
     _gaq.push(['_trackPageview']);
 
     (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
     })();
-  </script>
+</script>
 
  {% endblock  %}
 

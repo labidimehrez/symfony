@@ -12,8 +12,8 @@
 <div class="Forside___Debat___Politik___Samfund___Indenrigs">
     <B>Forside >  
             {% set uriapresForside = app.request.uri %}
-            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/sujet/sujetrecent" %}
-        Seneste debatter
+            {% if   "sujetrecent" in  uriapresForside %}
+                   Seneste debatter
              {%endif%} 
     </B>
 </div>
@@ -30,81 +30,46 @@
  
 
     </div>
-    <h2>Seneste debatter</h2>
+    <h2>Seneste Debatter</h2>
    
 {% for   sujet in  sujet %}
-   
+    
+          
     
     
- {% if sujet.user is not null %}
-  {% if sujet.user.image is not null  %}
-         <a href="#" id="dialog-link"> 
-        <img src="{{sujet.user.image }}"  style="border-radius:50%;width:50px;height:50px;" alt="" /> 
-        </a> 
-              
-{% else %}
-        <a href="#" id="dialog-link"> 
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  style="border-radius:50%;width:50px;height:50px;" alt="" />  
-        </a> 
-{% endif%}
-
-        &nbsp;&nbsp;&nbsp;
-        <b style="color: black">{{sujet.user.username}}</b>
- {% else %}
-  
+    {%if  sujet.user.id != 1%}
+    <a href="#" id="dialog-link">   <img src="{{sujet.user.image }}"   class="imageuser" alt="" /> </a>
+         <b>{{sujet.user.username}}</b>
+     {% else %}    
+     <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
+         <b>{{sujet.user.nomprenom}}</b>
+    {% endif %}
+        
+          
+         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
+       
+     </br>
+         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;"class="lienstyledebat" >{{sujet.sujet}}</a> 
  
-        <a href="#" id="dialog-link"> 
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  style="border-radius:50%;width:50px;height:50px;" alt="" />  
-        </a> 
- 
-
-        &nbsp;&nbsp;&nbsp;
-        <b style="color: black">Anonymous</b>
- {% endif %}       
+                                        
+           </br>
+        <div class="contenudebat">  {{sujet.contenu|Contenu|truncate(188, true, '...')}}</div>  
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black">
-            <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;color: black;"> 
-                                        {{sujet.sujet}}</a></FONT></b>
-              </br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-        {{sujet.contenu|Contenu}} </br></br>
-        
-          {%if sujet.id ==1%}   {% for   tag1 in tag1  %} <b>&nbsp;&nbsp;&nbsp;{{tag1.title}}&nbsp;&nbsp;&nbsp;</b>{%endfor%} {%endif%}
-             
-          {%if sujet.id == 2%}   {% for   tag2 in tag2  %} <b>&nbsp;&nbsp;&nbsp;{{tag2.title}}&nbsp;&nbsp;&nbsp;</b>{%endfor%} {%endif%}
-
+   </br>
+       &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
    
-        
-      </br></br>  
-
-</div>
- {% if sujet.user is not null %}
-<!-- ui-dialog -->
+   </br></br>
+   
+   {%if  sujet.user.id != 1%}
 <div id="dialog"> 
         <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
         <h1> <b>{{ sujet.user.username}}</b></h1>   
 </div>
-{% endif%}
-
+  {% endif %}
+ 
 {%endfor%}
 
 <script>

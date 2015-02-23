@@ -17,7 +17,7 @@ class menuType extends AbstractType
         $builder
             ->add('name')
             ->add('position')
-          
+            ->add('lien')
         ;
     }
     

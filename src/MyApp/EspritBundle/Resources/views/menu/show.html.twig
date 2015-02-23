@@ -2,13 +2,13 @@
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
  {% block showmenu %}  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
-  
-                <header><h3 class="tabs_involved">Content Menu Manager</h3>
-                    <ul class="tabs">
-                        <li><a href="#tab1">Posts</a></li>
-                         
-                    </ul>
-                </header>  
+
+<header><h3 class="tabs_involved">Content Menu Manager</h3>
+    <ul class="tabs">
+        <li><a href="#tab1">Posts</a></li>
+
+    </ul>
+</header>  
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
@@ -47,28 +47,35 @@
 </div> 
 
 <form  action='{{path('my_app_esprit_menu_add')}}' method="post" {{ form_enctype(form) }} > 
-                        <article class="module width_full">
-                            <header><h3>Post New Menu</h3></header>
-                            <div class="module_content">
-                                <fieldset>
-                                    <label>Menu Position</label>
-                                    {{form_widget(form.position) }}
-                                    <label>Menu Title</label>
-                                    {{form_widget(form.name, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
-                                   
-                                </fieldset>  
-                                <div class="clear"></div>
-                            </div>
-                            <footer>
-                                <div class="submit_link">
+    <article class="module width_full">
+        <header><h3>Post New Menu</h3></header>
+        <div class="module_content">
+           <fieldset>
+            <table width="200" >
+               <tr>
+                   <td> <label>Menu Position</label></td>
+                   <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 50px' } }) }}</td>
+                   <td> <label>Menu Title</label></td>
+                   <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
+               </tr>
+           </table>  
+ 
+                <label>Menu Link</label>
+              {{form_widget(form.lien, { 'attr': {'placeholder': 'Link','class':'inp-form'} }) }}
+
+            </fieldset>  
+            <div class="clear"></div>
+        </div>
+        <footer>
+            <div class="submit_link">
                                   {{form_widget(form._token)}}
-                                    <input type="submit"   value="Publish" class="alt_btn">
-                                    <input type="reset"   value="Reset" >
-                                </div>
-                            </footer>
-                        </article> 
+                <input type="submit"   value="Publish" class="alt_btn">
+                <input type="reset"   value="Reset" >
+            </div>
+        </footer>
+    </article> 
 </form>
  {% endblock  %}
 
- 
+
 

@@ -57,7 +57,7 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getEntityManager();
         /*         * *******************    recuperation de tout les sujets    ************ */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-        //var_dump($sujet);die();
+//var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -66,9 +66,9 @@ class sujetController extends Controller {
     public function manageAction() {
 
         $em = $this->getDoctrine()->getManager();
-        /****************  recuperation de tout les sujets  *********** */
+        /*         * **************  recuperation de tout les sujets  *********** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-        //var_dump($sujet);die();
+//var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -80,19 +80,22 @@ class sujetController extends Controller {
         /*         * *****  select all sujet from table ** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
         /*         * *****  select all tag from table association  ** */
+ 
+        foreach ($sujet as $s) {
+          
+            $ids = $s->getId();
+            $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);
+            
+        }
 
-        $tag1 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(2);
-        $tag2 = $em->getRepository('MyAppForumBundle:tag')->getBySujet(6);
-//        var_dump($tag5);
-//        die();
 
 
+        // var_dump($array); die();
 
 
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet,
-                    'tag2' => $tag2,
-                    'tag1' => $tag1
+                    'tag' => $tag
                         )
         );
     }
@@ -170,15 +173,13 @@ class sujetController extends Controller {
             $datelusdesujet = $sujet->getDatelus();
             $interval = $datelusdesujet->diff($now);
             $seconds = $interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
-            /// 12h = 43200 s
+/// 12h = 43200 s
             if ($seconds < 43200) {
                 $mostreadsujet = $sujet;
             }
-            // var_dump($mostreadsujet);die();
+// var_dump($mostreadsujet);die();
         }
         return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');
     }
-
-   
 
 }
