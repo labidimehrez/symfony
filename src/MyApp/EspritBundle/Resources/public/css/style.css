@@ -354,9 +354,9 @@
     top: 310px;
     width: 800px;
     height: 42px;
-    
+
     background-color: #c52821;
-    
+
     font-size: 11px;
     font-family: "HelveticaNeueLTStd";
     color: rgb(255, 255, 255);
@@ -366,7 +366,7 @@
     -moz-transform: matrix( 1.16555689978784,0,0,1.16555689978784,0,0);
     -webkit-transform: matrix( 1.16555689978784,0,0,1.16555689978784,0,0);
     -ms-transform: matrix( 1.16555689978784,0,0,1.16555689978784,0,0);
-    
+
     z-index: 2000;
 }
 ._______________________________________________ {
@@ -1830,20 +1830,7 @@
     height: 2799px;*/
     z-index: 14;
 }
-.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
-    color: rgb(255, 255, 255);
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 913.384px;
-    top: 2552.992px;
-    width: 104px;
-    height: 226px;
-    z-index: 13;
-}
+ 
 ._______________________________________________ {
     font-size: 11px;
     font-family: "Georgia";
@@ -1857,20 +1844,7 @@
     z-index: 12;
 }
 
-.Footer {
-    padding-top: 40px;
-    padding-bottom: 43px;
-    margin-right: 0px;
-    margin-top: 17px;
-    width: 930px;
-    cursor: default;
-    left: 195px;
-    /*z-index: 8000;*/
-    position: absolute; 
-    top: 2473px; 
-    height: 326px;
-    background-color: #c52821;
-}
+
 
 .SKYBANNERS {
     position: absolute;
@@ -2513,64 +2487,11 @@
     z-index: 703;
 }
 
-.SOL_dk_erFOOTER{
-    font-size: 13px;
-    font-family: "HelveticaNeueLTStd";
-    color: rgb(255, 255, 255);
-    line-height: 1.385;
-    text-align: left;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 223.924px;
-    top: 2531.619px;
-    z-index: 600;
-}
-.NYHEDERKENDTE{
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
-    color: rgb(255, 255, 255);
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 744.105px;
-    top: 2531.619px;
-    width: 108px;
-    height: 227px;
-    z-index: 717;
-}
-.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
-    color: rgb(255, 255, 255);
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 933.384px;
-    top: 2531.619px;
-    width: 104px;
-    height: 226px;
-    z-index: 613;
-}
+ 
+ 
+ 
 
-
-.Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_ {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 554.937px;
-    top: 2531.619px;
-    width: 126px;
-    height: 227px;
-    z-index: 621;
-}
-
+ 
 
 .danske{
     font-size: 24px;
@@ -2849,33 +2770,33 @@
     top: 2413.499px;
     z-index: 545;
 }
-                                    /*** la pub de header ***/
+/*** la pub de header ***/
 .position0{ position: absolute;left: 195px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
-                                    /*** la pub de 1ere a gauche ***/
+/*** la pub de 1ere a gauche ***/
 .position1{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-                                    /*** la pub de 2ere a gauche ***/
+/*** la pub de 2ere a gauche ***/
 .position2{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
-                                    /*** la pub de 3ere a gauche ***/
+/*** la pub de 3ere a gauche ***/
 .position3{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
-                                    /*** la pub de 4ere a gauche ***/
+/*** la pub de 4ere a gauche ***/
 .position4{ position: absolute;left: 540px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-                                    /*** la pub de 5ere a gauche ***/
+/*** la pub de 5ere a gauche ***/
 .position5{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-                                    /*** la pub de a droite ***/
+/*** la pub de a droite ***/
 .position6{ position: absolute;left: 1179px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
 
 
-                                    /*** la pub en bas  ***/
+/*** la pub en bas  ***/
 .position7{position: relative;left: 195px;top: 2290px; z-index: 8000;  
- /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/}
-                                    /*** la pub de 1ere a gauche ***/
+           /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/}
+/*** la pub de 1ere a gauche ***/
 .position8{position: relative;left: 835px;top: 530px;width: 280px;height: 250px; z-index: 8000;}
-           
-           
-           
-           
-          
+
+
+
+
+
 
 
 
@@ -2909,9 +2830,9 @@
 
 #login{
     background-color:#FFFFFF;
-    position: absolute;
-    left: 240px;
-    top: 450px;
+    /* position: absolute;
+     left: 240px;
+     top: 450px;*/
     width: 1000px;
     height: 500px;
     z-index: 6;
@@ -2919,20 +2840,20 @@
 
 #login-input{
     /*background-color:#FFFFFF;*/
-    position: absolute;
-    left: 70px;
-    top: /*165px;*/215px;
-    /*width: 1000px;
-    height: 500px;*/
+    /*  position: absolute;
+      left: 70px;
+      top: /*165px; 215px;*/
+    /* width: 1000px;
+     height: 500px; */
     z-index: 6;
 }
 #login-inputpassword{
     /*background-color:#FFFFFF;*/
-    position: absolute;
-    /*left: 70px;*/
-    top: 165px;
-    /*width: 1000px;
-    height: 500px;*/
+    /*  position: absolute;
+      /*left: 70px;*/
+    /* top: 165px;
+     /*width: 1000px;
+     height: 500px;*/
     z-index: 6;
 }
 
@@ -2945,22 +2866,19 @@
 }
 
 #buttonsregistrer{
-    position: absolute;
-    left: 150px;
-    top: 450px;
-    /*width: 1000px;
-    height: 500px;*/
+
     z-index: 6;
+    margin-left: 150px;
 
 }
 #buttonsregistrerEditprofil{
-    position: absolute;
-    left: 320px;
-    top: /*730px;*/770px;
+    /* position: absolute;
+     left: 320px;
+     top:770px;*/
     /*width: 1000px;
     height: 500px;*/
     z-index: 6;
-
+    margin-left: 180px;
 }
 #buttonsregistrerpasswordprofil{
     position: absolute;
@@ -3182,30 +3100,143 @@
 }
 
 .commentaire{
-    
-/*background-color: #f8fef0;*/
-/*border: 1px solid #2EFE2E;*/
-position: relative;
-left: /*155px;*/50px;
-//top: /*380*/55px;
-width: /*292*/600px;
-height: /*180*/1000px;
-z-index: 6000;
+
+    /*background-color: #f8fef0;*/
+    /*border: 1px solid #2EFE2E;*/
+    position: relative;
+    left: /*155px;*/50px;
+    //top: /*380*/55px;
+    width: /*292*/600px;
+    height: /*180*/1000px;
+    z-index: 6000;
 
 }
-.imageuser{
-    
-   border-radius:50%;
-   width:50px;
-   height:50px; 
-    
+.imageuser{ 
+    border-radius:50%;
+    width:50px;
+    height:50px;    
 }
-.timestyle{
-    
-    color: silver;
-}
+.timestyle{color: silver;}
+
 .lienstyledebat{
     text-decoration:none; 
     font-weight:bold;
     color: black;
+}
+.contenudetemplate{
+
+    /*background-color: #f8fef0;
+    border: 1px solid #2EFE2E;*/
+    position: relative;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /* margin-bottom: 20px; */
+    margin-right: 220px;
+    /* margin-top: 10px; */
+    margin-left: 190px;
+}
+.contenudebat{
+    /*background-color: #f8fef0;
+ border: 1px solid #2EFE2E; */
+    width: 650px;
+}
+/*******  Foooter ***************/
+.SOL_dk_erFOOTER{
+    font-size: 13px;
+    font-family: "HelveticaNeueLTStd";
+    color: rgb(255, 255, 255);
+    line-height: 1.385;
+    text-align: left;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-left: 70px;
+    z-index: 600;
+}
+.NYHEDERKENDTE{
+    font-size: 12px;
+    font-family: "HelveticaNeueLTStd";
+    color: rgb(255, 255, 255);
+    line-height: 3;
+    text-align: left;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    /* padding-top: 40px; */
+    padding-bottom: 0px;
+    padding-left: 580px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: /*800*/-250px;
+    /* margin-left: 195px; */
+    z-index: 717;
+}
+.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE{
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    font-family: "HelveticaNeueLTStd";
+    line-height: 3;
+    text-align: left;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 0px;
+    padding-left: 560px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: -295px;
+    margin-left: 195px;
+    height: 226px;
+    z-index: 13;
+}
+.Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_ {
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    font-family: "HelveticaNeueLTStd";
+    text-transform: uppercase;
+    line-height: 3;
+    text-align: left;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-top: -300px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: -180px;
+    margin-left: 400px;
+    z-index: 621;
+}
+/*******  Foooter ***************/
+.Footer {
+    padding-top: 20px;
+    padding-bottom: 43px;
+    margin-right: 0px;
+    margin-top: 17px;
+    width: 930px;
+    cursor: default;
+    left: 195px;
+    /*z-index: 8000;*/
+    position: absolute; 
+    top: 2473px; 
+    height: 326px;
+    background-color: #c52821;
+}
+.StartaNewTopic{
+    position:relative;
+    z-index: 9000;
+    padding-left:750px;
+    padding-top:10px;
+    
+    
 }

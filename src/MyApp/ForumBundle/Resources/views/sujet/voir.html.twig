@@ -16,18 +16,18 @@
            
     </B>
 </div>
-<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
-    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
-               Start a New Topic</a>
-</div>
-<div class="conteneursenestedebat">
+
+<div class="contenudetemplate">
     <div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
 
           {# c est deja decrit dans tag show ##}
 
     </div>
-    
+    <div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
+    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
+               Start a New Topic</a>
+    </div>
    
  
 {% if sujet.user is not null %}
@@ -58,7 +58,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-        {{sujet.contenu|Contenu}} </br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="contenudebat">  {{sujet.contenu|Contenu}}  </div></br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       {% for tag in tag %}
                    &nbsp;&nbsp;&nbsp;&nbsp; <b> {{tag.title}} </b>
       {% endfor%}
@@ -71,4 +71,4 @@
  
 </div>
     
-</div>
+ 

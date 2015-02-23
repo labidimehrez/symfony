@@ -57,7 +57,7 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getEntityManager();
         /*         * *******************    recuperation de tout les sujets    ************ */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-//var_dump($sujet);die();
+        //var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -81,23 +81,23 @@ class sujetController extends Controller {
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
         /*         * *****  select all tag from table association  ** */
  
-        foreach ($sujet as $s) {
-          
-            $ids = $s->getId();
-            $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);
+//        foreach ($sujet as $s) {
+//          
+//            $ids = $s->getId();
+            $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
             
-        }
+//        }
 
 
 
         // var_dump($array); die();
 
-
+        $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet,
-                    'tag' => $tag
-                        )
-        );
+                    'tag' => $tag,'mostusedtag'=>$mostusedtag
+                        ));
+        
     }
 
     public function deleteAction($id) {

@@ -5,17 +5,17 @@
     <B>Forside >  
 
             {% set uriapresForside = app.request.uri %}
-            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/edit" %}
+            {% if  "profile/edit" in uriapresForside %}
         Min profil
-             {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
+             {% elseif  "profile/change-password" in  uriapresForside %}
         Skift adgangskode
-                        {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
+                        {% elseif  "register/confirmed"  in uriapresForside%}
         Opret profil
              {%endif%} 
     </B>
 </div>
 
-<div class="entetedeprofil">
+<div class="contenudetemplate">
 
     <div class="image">
         <h2>Min profil</h2> 
@@ -86,7 +86,7 @@
         </ul>
     </div> 
 
-</div>
+
 
 
 
@@ -141,6 +141,7 @@
 
         <div id="buttonsregistrerEditprofil"></br></br>
             <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
         </div>
@@ -151,7 +152,7 @@
     </form>
 </div>
 
-
+</div>
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- css et js pour bundle JQuery  -->
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappesprit/js/jquery-ui.css') }}" />

@@ -8,17 +8,17 @@
     <B>Forside >  
 
             {% set uriapresForside = app.request.uri %}
-            {% if  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/" %}
-        Opret profil
-             {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/profile/change-password" %}
-        Skift adgangskode
-                        {% elseif  uriapresForside=="http://localhost/SolDK/web/app_dev.php/register/confirmed" %}
-        Opret profil
+            {% if  "register/"  in uriapresForside%}
+                                            Opret profil
+             {% elseif   "profile/change-password" in uriapresForside %}
+                                            Skift adgangskode
+                        {% elseif  "egister/confirmed" in uriapresForside%}
+                                             Opret profil
              {%endif%} 
     </B>
 </div>
-<div id="login">
-
+<div class="contenudetemplate">
+ <div style="margin-left: 100px;margin-top: 100px;">
 
 
 
@@ -80,7 +80,7 @@
             </table>
 
                 {{form_widget(form._token)}} 
-
+            </br></br>
             <div id="buttonsregistrer">
                 <input type="submit" style="width: 150px;" value="{{ 'opret profil'|trans({}, 'FOSUserBundle') }}"class="btn btn-warning btn-lg"  />
                 <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
@@ -93,6 +93,6 @@
 
         </div>     
     </form>
-</div>
+</div></div>
 
 

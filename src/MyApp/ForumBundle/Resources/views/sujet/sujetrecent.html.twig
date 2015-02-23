@@ -1,6 +1,6 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
-{{ render(controller('MyAppForumBundle:tag:mostused')) }} 
+{#{ render(controller('MyAppForumBundle:tag:mostused')) }#} 
  <!-- css et js pour bundle JQuery  -->
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.css') }}" />
 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery.js') }}"></script>
@@ -17,19 +17,29 @@
              {%endif%} 
     </B>
 </div>
-<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
-    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
-               Start a New Topic</a>
-</div>
-<div class="conteneursenestedebat">
+
+<div class="contenudetemplate">
     <div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
 
-          {# c est deja decrit dans tag show ##}
-         
- 
+           {% for mostusedtag in mostusedtag %}
+      <tr>
+        <td>
+            <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
+                <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
+                <b style="color: black"> &nbsp;&nbsp;{{mostusedtag.title}}</b></td></br>
+               <b style="color: silver">-------------------------------------------</b></br>
+        </a>
+        
+      </tr>
+{% endfor%}    
 
     </div>
+        <div  class="StartaNewTopic">
+             <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
+        </div>
+    
+    </br>
     <h2>Seneste Debatter</h2>
    
 {% for   sujet in  sujet %}
@@ -71,7 +81,7 @@
   {% endif %}
  
 {%endfor%}
-
+</div>
 <script>
 $("#dialog").dialog({
             autoOpen: false,

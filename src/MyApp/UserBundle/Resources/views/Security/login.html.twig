@@ -7,7 +7,8 @@
 
 
 
-<div id="login"></br></br>
+  <div class="contenudetemplate">
+      <div style="margin-left: 100px;margin-top: 100px;">
     <b><h2>Log p&aring; SOL.DK</h2></b> </br>
     <p> Vekommen til SOL.dk ......</p> 
     <form action="{{ path("fos_user_security_check") }}" method="post">
@@ -46,13 +47,13 @@
             </div>
         </div>		
     </form>
-    </br></br></br></br></br></br></br></br></br>
+    </br></br> 
     <p>Er du ny bruger .....</p>
 
     <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
         <b  class="rouge">Registrer</b></a>
 
 
-</div>  
+</div>  </div>
 
 {% endblock fos_user_content %}
