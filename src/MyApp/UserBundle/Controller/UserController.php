@@ -20,16 +20,19 @@ class UserController extends Controller {
         ));
     }
 
-    public function deleteAction($id) {
+    public function deleteAction(user $user) {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('MyAppUserBundle:user')->find($id); 
-        if (!$user) {
-            throw $this->createNotFoundException('No user found for id ' . $id);
-        }
-        $em->remove($user);
-        $em->flush();
+         $selectuser = $em->getRepository('MyAppForumBundle:sujet')->findBySujet($user->getId());
+   
+      $ids = $user->getId();   
+       $sujet = $em->getRepository('MyAppForumBundle:sujet')->getSujetByUser($ids);
+      var_dump($sujet);die();
+ //       $em->remove($user);
+//       $em->flush();
         $this->get('session')->getFlashBag()->set('message', 'Ce user disparait !!');
-        return $this->redirect($this->generateUrl('my_app_user_show'));
+        return $this->redirect($this->generateUrl('my_app_user_show', array(
+                            'selectuser' => $selectuser
+        )));
  
  
     }

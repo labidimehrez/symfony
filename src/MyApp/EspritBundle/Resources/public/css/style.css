@@ -2849,23 +2849,28 @@
     top: 2413.499px;
     z-index: 545;
 }
+                                    /*** la pub de header ***/
+.position0{ position: absolute;left: 195px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
+                                    /*** la pub de 1ere a gauche ***/
+.position1{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+                                    /*** la pub de 2ere a gauche ***/
+.position2{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
+                                    /*** la pub de 3ere a gauche ***/
+.position3{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
+                                    /*** la pub de 4ere a gauche ***/
+.position4{ position: absolute;left: 540px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+                                    /*** la pub de 5ere a gauche ***/
+.position5{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
+                                    /*** la pub de a droite ***/
+.position6{ position: absolute;left: 1179px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
 
-.position-1{ position: absolute;left: 195px;top: 118px;width: 929px;height: 180px; z-index: 8000;}
-.position0{ position: absolute;left: 0px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-.position1{ position: absolute;left: 200px;top: 380px;width: 160px;height: 600px;z-index: 8000;}
 
-.position2{ position: absolute;left: 370px;top: 380px; width: 160px;height: 600px;z-index: 8000;}
 
-.position3{ position: absolute;left: 540px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-
-.position4{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-
-.position5{ position: absolute;left: 1179px;top: 380px; width: 160px; height: 600px; z-index: 8000;}
-
-.position6{position: relative;left: 195px;top: 2290px; z-index: 8000;  
+                                    /*** la pub en bas  ***/
+.position7{position: relative;left: 195px;top: 2290px; z-index: 8000;  
  /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/}
-
-.position7{position: relative;left: 835px;top: 530px;width: 280px;height: 250px; z-index: 8000;}
+                                    /*** la pub de 1ere a gauche ***/
+.position8{position: relative;left: 835px;top: 530px;width: 280px;height: 250px; z-index: 8000;}
            
            
            

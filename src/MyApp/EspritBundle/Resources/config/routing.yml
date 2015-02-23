@@ -1,6 +1,6 @@
 my_app_esprit_homepage:
     pattern:  /index.php
-    defaults: { _controller: MyAppEspritBundle:publicite:show }
+    defaults: { _controller: MyAppEspritBundle:publicite:showextpub }
     
     
 my_app_esprit_administration:

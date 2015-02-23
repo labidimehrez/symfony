@@ -27,8 +27,8 @@
         "knplabs/knp-time-bundle": "dev-master",
         "Trsteel/ckeditor-bundle": "~1.6",
         "craue/twigextensions-bundle": "~2.0",
-        "knplabs/knp-paginator-bundle": "~2.4"  
-        
+        "knplabs/knp-paginator-bundle": "~2.4" , 
+        "doctrine/doctrine-fixtures-bundle": "dev-master"
         
         
     },

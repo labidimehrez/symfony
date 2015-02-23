@@ -18,11 +18,17 @@ class sujetRepository extends EntityRepository {
                         ->getResult();
     }
 
-     public function getmostreadsujet() {
+    public function getmostreadsujet() {
         return $this->getEntityManager()
                         ->createQuery('SELECT p    FROM MyAppForumBundle:sujet p  ORDER BY  p.nblect DESC   ')
                         ->getResult();
     }
-}
 
+    public function getSujetByUser($id) {
+        return $this->getEntityManager()
+                        ->createQuery('  SELECT t   FROM MyAppForumBundle:sujet t   WHERE t.user=:id ')
+                        ->setParameter('id', $id)
+                        ->getResult();
+    }
+}
 ?>

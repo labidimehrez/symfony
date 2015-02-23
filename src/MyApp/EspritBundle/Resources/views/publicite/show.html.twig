@@ -9,7 +9,7 @@
 
 {% if publicite.position == 0 %}
 
-<div class="position-1">
+<div class="position0">
     <table class="bordered" >        
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border"></td>        
@@ -18,8 +18,8 @@
 </div>  
 
 
-{% elseif publicite.position == 1 %}
-<div class="position0">
+{% elseif publicite.position ==1%}
+<div class="position1">
     <table class="bordered" >        
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                
@@ -30,25 +30,25 @@
 
 
 {% elseif publicite.position == 2 %}
-<div class="position1">
+<div class="position2">
     <table class="bordered" >        
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                
         </tr>     
     </table>
 </div>  
-{% elseif publicite.position == 3 %}
+{% elseif publicite.position ==3 %}
 
-<div class="position2">
+<div class="position3">
     <table class="bordered" >         
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                
         </tr>   
     </table>
 </div> 
-{% elseif publicite.position == 4 %}
+{% elseif publicite.position == 4%}
 
-<div class="position3">
+<div class="position4">
     <table class="bordered" >         
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                  
@@ -57,7 +57,7 @@
 </div> 
 {% elseif publicite.position == 5 %}
 
-<div class="position4">
+<div class="position5">
     <table class="bordered" >         
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                
@@ -68,7 +68,7 @@
 
 {% elseif publicite.position == 6 %}
 
-<div class="position5">
+<div class="position6">
     <table class="bordered" >         
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>    
@@ -79,15 +79,15 @@
 
 {% elseif publicite.position == 7 %}
 
-<div class="position6">
+<div class="position7">
     <table class="bordered" >         
         <tr>
           <td><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border"></td>    
         </tr>   
     </table>
 </div>
-{% elseif publicite.position == 8 %}
- <div class="position7">
+{% elseif publicite.position == 8%}
+ <div class="position8">
            <img src="{{publicite.image}}" alt=""> 
 </div> 
 
