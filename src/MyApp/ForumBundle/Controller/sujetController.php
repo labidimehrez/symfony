@@ -82,7 +82,8 @@ class sujetController extends Controller {
  
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
     
-         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find(7);
+         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find(9);
+  
 
  
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();

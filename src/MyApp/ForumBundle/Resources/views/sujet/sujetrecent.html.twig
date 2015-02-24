@@ -12,9 +12,9 @@
 <div class="Forside___Debat___Politik___Samfund___Indenrigs">
     <B>Forside >  
             {% set uriapresForside = app.request.uri %}
-            {% if   "sujetrecent" in  uriapresForside %}
-        Seneste debatter
-             {%endif%} 
+            {% if   "sujetrecent" in  uriapresForside %} Seneste debatter {%endif%} 
+       
+             
     </B>
 </div>
 
@@ -70,7 +70,12 @@
     </br>
     &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
 
-    </br></br>
+    </br>
+    {% if loop.index  == 5 %} 
+        </br><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" ></br>
+    {% endif%}
+    
+    </br>
     
     
 
