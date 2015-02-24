@@ -163,9 +163,11 @@ class sujetController extends Controller {
 
         $em->persist($sujet);
         $em->flush();
+        
+        $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
-                    'sujet' => $sujet,
+                    'sujet' => $sujet,'mostusedtag' => $mostusedtag,
                     'tag' => $tag
         ));
     }

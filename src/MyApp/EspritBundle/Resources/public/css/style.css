@@ -405,7 +405,7 @@
     text-align: left;
     position: absolute;
     left: 193.937px;
-    top: 356.756px;
+    top: 366.756px;
     z-index: 399;
 }
 .Navigation_Bar {
@@ -3225,5 +3225,14 @@
     padding-left:750px;
     padding-top:10px;
     
+    
+}
+.tagtitlevoirun{
+    
+    position: relative;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 400px;
+    padding-right: 0px; 
     
 }

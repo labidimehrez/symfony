@@ -2,7 +2,7 @@
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
  
 
-{{ render(controller('MyAppForumBundle:tag:mostused')) }} 
+ 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
@@ -11,25 +11,36 @@
     <B>Forside >  
             {% set uriapresForside = app.request.uri %}
             {%if 'voir' in  uriapresForside%}
-            Debats
+        <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" style="text-decoration:none;color:black;">
+                                            <u>Debats</u></a> > 
+             {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
              {%endif%}
            
     </B>
 </div>
 
 <div class="contenudetemplate">
-    <div class="senestredebatt">
+     <!--<div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
 
-          {# c est deja decrit dans tag show ##}
+           {#% for mostusedtag in mostusedtag %}
+        <tr>
+            <td>
+                <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
+                    <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
+                <b style="color: black"> &nbsp;&nbsp;{#{mostusedtag.title}#}</b></td></br>
+        <b style="color: silver">-------------------------------------------</b></br>
+        </a>
 
-    </div>
-    <div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
-    <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">                                                                                                                                                      
+        </tr>
+        {#% endfor%#}    
+
+    </div>-->
+    <!--<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
+    <a href="{#{path('my_app_forum_sujet_add') }#}" class="btn btn-warning btn-lg">                                                                                                                                                      
                Start a New Topic</a>
-    </div>
-   
- 
+    </div>-->
+     </br>  
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
@@ -58,11 +69,11 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-        <div class="contenudebat">  {{sujet.contenu|Contenu}}  </div></br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      {% for tag in tag %}
-                   &nbsp;&nbsp;&nbsp;&nbsp; <b> {{tag.title}} </b>
-      {% endfor%}
-      </br></br>  
+        <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div></br></br>  
+        <div  class="tagtitlevoirun">{% for tag in tag %}
+        <b> {{tag.title}} &nbsp;&nbsp;</b>
+      {% endfor%}</div>
+  
       
       <div class="commentaire">
           
