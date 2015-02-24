@@ -5,11 +5,10 @@
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/tag/mostused.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/publicite/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/tagController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/DataFixtures/ORM/LoadingFixturespub.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Repository/publiciteRepository.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
         </group>
