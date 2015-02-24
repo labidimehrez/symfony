@@ -3236,3 +3236,18 @@
     padding-right: 0px; 
     
 }
+.Addnewcomment{ 
+text-decoration: none;
+font-weight: bold;
+color: red;
+/* font-size: 12px; */
+position: relative;
+margin-bottom: -30px;
+margin-right: 0px;
+margin-top: 0px;
+margin-left: 70px;
+padding-left: 20px;
+padding-top: 0px;
+padding-bottom: 0px;
+padding-right: 0px;   
+}

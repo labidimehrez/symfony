@@ -69,17 +69,55 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-        <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div></br></br>  
-        <div  class="tagtitlevoirun">{% for tag in tag %}
-        <b> {{tag.title}} &nbsp;&nbsp;</b>
-      {% endfor%}</div>
-  
+        <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
+        <div  class="Addnewcomment"><p class="flip">Add new comment</p></div>
+        <div  class="tagtitlevoirun">{% for tag in tag %}<b> {{tag.title}} &nbsp;&nbsp;</b>{% endfor%}</div>
+        
       
-      <div class="commentaire">
+  
+
+ 
+
+<div class="panel">
+     <div class="commentaire">
           
             {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
       </div>
+</div>
+
+<br>
+
+
+
+
+ 
  
 </div>
     
  
+    {################################################################################################################################}
+    
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$(".flip").click(function() {
+$(".panel").slideToggle("slow");
+});
+});
+</script>
+
+<style type="text/css">
+div.panel,p.flip {
+//margin: 0px;
+//padding: 5px;
+//text-align: center;
+//background: #ddd;
+//border: solid 1px #fff;
+}
+
+div.panel {
+widht: 50%;
+height: 100px;
+display: none;
+}
+</style>
