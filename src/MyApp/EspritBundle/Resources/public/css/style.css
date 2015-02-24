@@ -2791,7 +2791,8 @@
 .position7{position: relative;left: 195px;top: 2290px; z-index: 8000;  
            /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/}
 /*** la pub de 1ere a gauche ***/
-.position8{position: relative;left: 835px;top: 530px;width: 280px;height: 250px; z-index: 8000;}
+  // pub de separation //
+.position8{width: 929px;height: 180px; z-index: 8000;}
 
 
 

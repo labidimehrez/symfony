@@ -1,7 +1,7 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 {#{ render(controller('MyAppForumBundle:tag:mostused')) }#} 
- <!-- css et js pour bundle JQuery  -->
+<!-- css et js pour bundle JQuery  -->
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.css') }}" />
 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.js') }}"></script>
@@ -13,7 +13,7 @@
     <B>Forside >  
             {% set uriapresForside = app.request.uri %}
             {% if   "sujetrecent" in  uriapresForside %}
-                   Seneste debatter
+        Seneste debatter
              {%endif%} 
     </B>
 </div>
@@ -23,83 +23,84 @@
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
 
            {% for mostusedtag in mostusedtag %}
-      <tr>
-        <td>
-            <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
-                <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
+        <tr>
+            <td>
+                <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
+                    <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
                 <b style="color: black"> &nbsp;&nbsp;{{mostusedtag.title}}</b></td></br>
-               <b style="color: silver">-------------------------------------------</b></br>
+        <b style="color: silver">-------------------------------------------</b></br>
         </a>
-        
-      </tr>
+
+        </tr>
 {% endfor%}    
 
     </div>
-        <div  class="StartaNewTopic">
-             <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
-        </div>
-    
+    <div  class="StartaNewTopic">
+        <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
+    </div>
+
     </br>
     <h2>Seneste Debatter</h2>
-   
+
 {% for   sujet in  sujet %}
-    
-          
-    
-    
+
+
+
+
     {%if  sujet.user.id != 1%}
     <a href="#" id="dialog-link">   <img src="{{sujet.user.image }}"   class="imageuser" alt="" /> </a>
-         <b>{{sujet.user.username}}</b>
+    <b>{{sujet.user.username}}</b>
      {% else %}    
-     <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
-         <b>{{sujet.user.nomprenom}}</b>
+    <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
+    <b>{{sujet.user.nomprenom}}</b>
     {% endif %}
-        
-          
-         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
-       
-     </br>
-         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;"class="lienstyledebat" >{{sujet.sujet}}</a> 
- 
-                                        
-           </br>
-        <div class="contenudebat">  {{sujet.contenu|Contenu|truncate(188, true, '...')}}</div>  
-        
-   </br>
-       &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
-   
-   </br></br>
-   
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
+
+    </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;"class="lienstyledebat" >{{sujet.sujet}}</a> 
+
+
+    </br>
+    <div class="contenudebat">  {{sujet.contenu|Contenu|truncate(188, true, '...')}}</div>  
+
+    </br>
+    &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
+
+    </br></br>
+    
+    
+
    {%if  sujet.user.id != 1%}
-<div id="dialog"> 
+    <div id="dialog"> 
         <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
         <h1> <b>{{ sujet.user.username}}</b></h1>   
-</div>
+    </div>
   {% endif %}
- 
+
 {%endfor%}
 </div>
 <script>
-$("#dialog").dialog({
-            autoOpen: false,
-            width: 400 ,
-            buttons: [       
-                {
-                    text: "Luk",
-                    click: function() {
-                        $(this).dialog("close");
-                    }
+    $("#dialog").dialog({
+        autoOpen: false,
+        width: 400,
+        buttons: [
+            {
+                text: "Luk",
+                click: function() {
+                    $(this).dialog("close");
                 }
-            ]
-        });
+            }
+        ]
+    });
 // Link to open the dialog
-$( "#dialog-link" ).click(function( event ) {
-	$( "#dialog" ).dialog( "open" );
-	event.preventDefault();
-});
+    $("#dialog-link").click(function(event) {
+        $("#dialog").dialog("open");
+        event.preventDefault();
+    });
 </script>
-   
- 
+

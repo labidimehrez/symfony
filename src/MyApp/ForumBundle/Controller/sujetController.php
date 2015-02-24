@@ -79,24 +79,17 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * *****  select all sujet from table ** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-        /*         * *****  select all tag from table association  ** */
  
-//        foreach ($sujet as $s) {
-//          
-//            $ids = $s->getId();
-            $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
-            
-//        }
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
+    
+         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find(7);
 
-
-
-        // var_dump($array); die();
-
+ 
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
-                    'sujet' => $sujet,
-                    'tag' => $tag,'mostusedtag'=>$mostusedtag
-                        ));
+                    'sujet' => $sujet,'publicite'=>$publicite, 'tag' => $tag,'mostusedtag'=>$mostusedtag));
+                   
+                        
         
     }
 
