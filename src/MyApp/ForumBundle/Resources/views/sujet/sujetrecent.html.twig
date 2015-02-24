@@ -1,5 +1,6 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
+{#{ render(controller('MyAppEspritBundle:publicite:showintpub')) }#}
 {#{ render(controller('MyAppForumBundle:tag:mostused')) }#} 
 <!-- css et js pour bundle JQuery  -->
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.css') }}" />
@@ -35,10 +36,27 @@
 {% endfor%}    
 
     </div>
+    
+   
+{% for publicite in publicite %} 
+{#% if publicite.position  ==10%} <div class="position10"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
+{% if publicite.position  ==11%} <div class="position11"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==12%} <div class="position12"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==13%} <div class="position13"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==14%} <div class="position14"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% endfor%} 
+    
+    
+    
+    
+    
+    
+    
     <div  class="StartaNewTopic">
         <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
     </div>
-
+    
     </br>
     <h2>Seneste Debatter</h2>
 
@@ -48,7 +66,13 @@
 
 
     {%if  sujet.user.id != 1%}
-    <a href="#" id="dialog-link">   <img src="{{sujet.user.image }}"   class="imageuser" alt="" /> </a>
+    <a href="#" id="dialog-link"> 
+        
+        
+           {%if  sujet.user.image is not null %}   <img src="{{sujet.user.image }}"   class="imageuser" alt="" /> {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  {%endif%}
+    
+    
+    </a>
     <b>{{sujet.user.username}}</b>
      {% else %}    
     <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
@@ -72,7 +96,11 @@
 
     </br>
     {% if loop.index  == 5 %} 
-        </br><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" ></br>
+        </br>
+        {% for publicite in publicite %} 
+              {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
+        {% endfor%} 
+        </br>
     {% endif%}
     
     </br>

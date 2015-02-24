@@ -82,8 +82,9 @@ class publiciteController extends Controller {
         /*         * ******************** recuperation des pub ordonnés  ******************* */
         $publicite2 = $em->getRepository('MyAppEspritBundle:publicite')->findBy(array(), array('position' => 'asc'), 100, 0);
 
-        return $this->render('MyAppEspritBundle:publicite:manage.html.twig', array('form' => $form->createView(),
-                    'publicite2' => $publicite2, 'publicite' => $publicite));
+        return $this->render('MyAppEspritBundle:publicite:manage.html.twig',
+                array('form' => $form->createView(),'publicite2' => $publicite2, 'publicite' => $publicite));
+                    
     }
 
     public function deleteallAction() {
@@ -109,14 +110,4 @@ class publiciteController extends Controller {
         
         }
    
-    
-        public function showintpubAction() {
-                
-        $em = $this->getDoctrine()->getManager();    
-       /* $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();*/
-        /*         * ********************   les pub interne *************************** */
-        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
-        return $this->render('MyAppEspritBundle:publicite:showintpub.html.twig', array(
-            'publicite' => $publicite/*, 'menu' => $menu*/));
-        }
 }

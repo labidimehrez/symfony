@@ -79,19 +79,20 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * *****  select all sujet from table ** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
- 
-        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
-    
-         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find(9);
-  
 
- 
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
+
+    //   $publicite = $em->getRepository('MyAppEspritBundle:publicite')->find(9);
+
+       
+        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
+       // var_dump($publicite);die();
+                          
+         
+
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
-                    'sujet' => $sujet,'publicite'=>$publicite, 'tag' => $tag,'mostusedtag'=>$mostusedtag));
-                   
-                        
-        
+                    'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag, 'mostusedtag' => $mostusedtag));
     }
 
     public function deleteAction($id) {

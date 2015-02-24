@@ -20,7 +20,7 @@ class publiciteRepository extends EntityRepository {
 
     public function getintPub() {
         return $this->getEntityManager()
-                        ->createQuery('SELECT  p FROM MyAppEspritBundle:publicite p WHERE  p.position not in ( 2,3,4,5)  ')
+                        ->createQuery('SELECT  p FROM MyAppEspritBundle:publicite p WHERE  p.position  in (8,9,10,11,12,13)  ')
                         ->getResult();
     }
 
