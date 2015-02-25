@@ -88,7 +88,7 @@ fos_comment:
         model:
             comment: MyApp\ForumBundle\Entity\Comment
             thread: MyApp\ForumBundle\Entity\Thread
-
+            vote: MyApp\ForumBundle\Entity\Vote
 assetic:
     bundles: [ "FOSCommentBundle" ]   
     

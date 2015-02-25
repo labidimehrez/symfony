@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/vote_new.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/comment.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/comments.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/errors.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/new.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Thread.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Thread.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/VoteManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/ThreadManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Vote.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/CommentManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/config.yml</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Vote.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/async.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/comment_content.html.twig</file>
         </group>
     </open-files>
 </project-private>

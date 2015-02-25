@@ -49,7 +49,7 @@ class User extends BaseUser {
 
      
 
-        /**
+    /**
      * @var boolean
      *
      * @ORM\Column(name="sexe",nullable=true)
