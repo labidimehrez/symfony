@@ -19,7 +19,8 @@
     </B>
 </div>
 
-<div class="contenudetemplate">
+    <div class="contenudetemplate">
+        <div class="paddingdebataveccomment">
      <!--<div class="senestredebatt">
         <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
 
@@ -44,10 +45,10 @@
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
-             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />  
+             class="imageuserdebataveccomment" alt="" />  
 {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />             
+            class="imageuserdebataveccomment" alt="" />             
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
@@ -55,7 +56,7 @@
 {% else%}
         
          <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             style=" border-radius:50%;width:50px;height:50px;/*border:2px solid #679403;*/" alt="" />  
+         class="imageuserdebataveccomment"alt="" />  
           &nbsp;&nbsp;&nbsp;
         <b style="color: black">Anonymous</b>
  {% endif%}       
@@ -91,7 +92,7 @@
 
 
  
- 
+</div> 
 </div>
     
  
@@ -111,12 +112,18 @@ div.panel,p.flip {
 //margin: 0px;
 //padding: 5px;
 //text-align: center;
-//background: #ddd;
-//border: solid 1px #fff;
+// background: #ddd;
+width: 200px;
+height: 70px;
+//border: solid 1px #ddd;
+padding-left: 20px;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-bottom: 0px;
 }
 
 div.panel {
-widht: 50%;
+width: 50%;
 height: 100px;
 display: none;
 }
