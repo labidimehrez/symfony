@@ -1830,7 +1830,7 @@
     height: 2799px;*/
     z-index: 14;
 }
- 
+
 ._______________________________________________ {
     font-size: 11px;
     font-family: "Georgia";
@@ -2487,11 +2487,11 @@
     z-index: 703;
 }
 
- 
- 
- 
 
- 
+
+
+
+
 
 .danske{
     font-size: 24px;
@@ -2779,7 +2779,7 @@
 .position5{ position: absolute;left: 710px;top: 380px; width: 160px; height: 600px; z-index: 8000;}/*** la pub de 5ere a gauche ***/
 .position6{ position: absolute;left: 1179px;top: 380px; width: 160px; height: 600px; z-index: 8000;}/*** la pub de a droite ***/
 .position7{position: relative;left: 195px;top: 2390px; z-index: 8000;}  /*** la pub en bas  ***/
-           /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/
+/*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/
 .position8{width: 929px;height: 180px; z-index: 8000;}// pub de separation //
 
 .position10{ position: absolute;left: 655px;top: 500px;width: 300px;height: 251px; z-index: 8000;}/*** 1ere petitepub a droite **/
@@ -3219,33 +3219,30 @@
     position:relative;
     z-index: 9000;
     padding-left:750px;
-    padding-top:10px;
-    
-    
+    padding-top:10px;  
 }
 .tagtitlevoirun{
-    
     position: relative;
     padding-top: 0px;
     padding-bottom: 0px;
     padding-left: 400px;
-    padding-right: 0px; 
-    
+    padding-right: 0px;
+    margin-top: -40px;   
 }
 .Addnewcomment{ 
-text-decoration: none;
-font-weight: bold;
-color: red;
-/* font-size: 12px; */
-position: relative;
-margin-bottom: -30px;
-margin-right: 0px;
-margin-top: 0px;
-margin-left: 70px;
-padding-left: 20px;
-padding-top: 0px;
-padding-bottom: 0px;
-padding-right: 0px;   
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+    /* font-size: 12px; */
+    position: relative;
+    margin-bottom: -30px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-left: 70px;
+    padding-left: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;   
 }
 .imageuser{ 
     border-radius:50%;
@@ -3254,17 +3251,32 @@ padding-right: 0px;
 }
 
 .imageuserdebataveccomment{ 
-border-radius: 50%;
-width: 120px;
-height: 120px;}
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;}
 .paddingdebataveccomment{
-position: relative;
-margin-bottom: 0px;
-margin-right: 0px;
-margin-top: 0px;
-margin-left: 0px;
-padding-left: 30px;
-padding-top: 30px;
-padding-bottom: 0px;
-padding-right: 0px;    
+    position: relative;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-right: 0px;    
 }
+.motrepondre{
+    padding-left: 350px; 
+}
+.jaimeoujaimepas{
+    position: relative;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: -40px;
+    margin-left: 0px;
+    padding-left: 490px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+}
+ 
