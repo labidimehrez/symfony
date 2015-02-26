@@ -1,0 +1,15 @@
+{# empty Twig template #}
+{% for article in article%}
+
+
+            {{article.headline}}</br>
+
+            {{article.style.codecouleurfront}}</br>
+            {{article.style.codecouleurback}}</br>
+            
+            
+            
+            <div style="width: 200px;height: 150px;background-color: {{article.style.codecouleurback}};"></div> </br>  
+            <p><FONT color="{{article.style.codecouleurfront}}">aaaaa</p> 
+            
+{% endfor%}

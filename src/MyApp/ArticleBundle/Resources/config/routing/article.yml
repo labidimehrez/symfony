@@ -1,25 +1,17 @@
-my_app_article_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MyAppArticleBundle:Default:index }
 
-## style ##
-my_app_article_style_add:
-    pattern:  /style/add
-    defaults: { _controller: MyAppArticleBundle:style:add }
-my_app_article_style_show:
-    pattern:  /style/show
-    defaults: { _controller: MyAppArticleBundle:style:show }
-    requirements:
-        _method:  GET
-        id: \d+  
-        
-## article ##
+
 my_app_article_article_add:
-    pattern:  /article/add
+    pattern:  /add
     defaults: { _controller: MyAppArticleBundle:article:add }
+    
 my_app_article_article_show:
-    pattern:  /article/show
+    pattern:  /show
     defaults: { _controller: MyAppArticleBundle:article:show }
-    requirements:
-        _method:  GET
-        id: \d+  
+    
+my_app_article_article_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: MyAppArticleBundle:article:delete }  
+       
+my_app_article_article_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: MyAppArticleBundle:article:edit }  

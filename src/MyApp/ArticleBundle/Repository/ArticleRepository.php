@@ -7,9 +7,9 @@ class ArticleRepository extends EntityRepository
 {
    public function getAllArticle()
     {
-//        return $this->getEntityManager()
-//            ->createQuery('SELECT p FROM MyAppEspritBundle:publicite p  ')
-//            ->getResult();
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MyAppArticleBundle:article p  ')
+            ->getResult();
             
     }
 }

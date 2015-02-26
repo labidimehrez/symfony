@@ -1,6 +1,6 @@
 {# empty Twig template #}
 
-{{ render(controller('MyAppEspritBundle:publicite:show')) }}
+{{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 
  
 
@@ -42,14 +42,13 @@
                 <td>{{ form_widget(form.copyrights, { 'attr': {'placeholder': '  copyrights ','class':'inp-form'} }) }}</td>
             </tr>
             
-            
-        
+ 
          
-            <tr>
+            <tr>{## , 'height: 40px'##}
                 <td class="stylegras">Tags&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.tags, { 'attr': {'placeholder': '  tags ','class':'inp-form'} }) }}</td>
+                <td> {{form_widget(form.tags, { 'attr': {'placeholder': '  tags ','class':'inp-form','style': 'width: 320px'   } }) }}</td>
             </tr>
             
             
@@ -66,7 +65,7 @@
                 <td class="stylegras">Position</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.position, { 'attr': {'placeholder': '  position ','class':'inp-form'} }) }}</td>
+                <td> {{form_widget(form.placement) }}</td>
             </tr>
             
             

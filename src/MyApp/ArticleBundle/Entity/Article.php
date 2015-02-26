@@ -1,6 +1,7 @@
 <?php
 
 namespace MyApp\ArticleBundle\Entity;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,10 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="MyApp\ArticleBundle\Repository\ArticleRepository")
  */
- 
-class Article
-{
-   /**
+class Article {
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -21,31 +21,32 @@ class Article
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
-     */
- 
-    protected $user;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\ArticleBundle\Entity\style")
      * @ORM\JoinColumn(name="style_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
- 
     protected $style;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\ArticleBundle\Entity\Placement")
+     * @ORM\JoinColumn(name="placement_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
+     */
+    protected $placement;  
+    
+ 
+
     /**
      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\tag", inversedBy="articles")
      * @ORM\JoinTable(name="article_tags")
      */
- 
-     private $tags;
-     public function __construct() {
-     $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
-     }
+    private $tags;
 
-   /**
+    public function __construct() {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="headline", type="string", length=255,unique=true)
@@ -53,13 +54,13 @@ class Article
     private $headline;
 
     /**
-     * @var string $image
+     * @var string $urlimg
      * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
      * @ORM\Column(name="urlimg", type="string", length=2500, nullable=true)
      */
     private $urlimg;
 
-   /**
+    /**
      * @var string
      *
      * @ORM\Column(name="copyrights", type="string", length=255,unique=true)
@@ -76,27 +77,18 @@ class Article
  
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="position", type="integer",unique=true)
-     */
-    private $position;
-
-   /**
      * @var string
      *
      * @ORM\Column(name="lien", type="string", length=255,unique=true)
      */
     private $lien;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -106,10 +98,9 @@ class Article
      * @param string $headline
      * @return Article
      */
-    public function setHeadline($headline)
-    {
+    public function setHeadline($headline) {
         $this->headline = $headline;
-    
+
         return $this;
     }
 
@@ -118,8 +109,7 @@ class Article
      *
      * @return string 
      */
-    public function getHeadline()
-    {
+    public function getHeadline() {
         return $this->headline;
     }
 
@@ -129,10 +119,9 @@ class Article
      * @param string $urlimg
      * @return Article
      */
-    public function setUrlimg($urlimg)
-    {
+    public function setUrlimg($urlimg) {
         $this->urlimg = $urlimg;
-    
+
         return $this;
     }
 
@@ -141,8 +130,7 @@ class Article
      *
      * @return string 
      */
-    public function getUrlimg()
-    {
+    public function getUrlimg() {
         return $this->urlimg;
     }
 
@@ -152,10 +140,9 @@ class Article
      * @param string $copyrights
      * @return Article
      */
-    public function setCopyrights($copyrights)
-    {
+    public function setCopyrights($copyrights) {
         $this->copyrights = $copyrights;
-    
+
         return $this;
     }
 
@@ -164,8 +151,7 @@ class Article
      *
      * @return string 
      */
-    public function getCopyrights()
-    {
+    public function getCopyrights() {
         return $this->copyrights;
     }
 
@@ -175,10 +161,9 @@ class Article
      * @param boolean $fixedposition
      * @return Article
      */
-    public function setFixedposition($fixedposition)
-    {
+    public function setFixedposition($fixedposition) {
         $this->fixedposition = $fixedposition;
-    
+
         return $this;
     }
 
@@ -187,45 +172,29 @@ class Article
      *
      * @return boolean 
      */
-    public function getFixedposition()
-    {
+    public function getFixedposition() {
         return $this->fixedposition;
     }
- 
 
-    /**
-     * Set position
-     *
-     * @param integer $position
-     * @return Article
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    
+    public function getPlacement() {
+        return $this->placement;
+    }
+
+    public function setPlacement($placement) {
+        $this->placement = $placement;
         return $this;
     }
 
-    /**
-     * Get position
-     *
-     * @return integer 
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
+    
     /**
      * Set lien
      *
      * @param string $lien
      * @return Article
      */
-    public function setLien($lien)
-    {
+    public function setLien($lien) {
         $this->lien = $lien;
-    
+
         return $this;
     }
 
@@ -234,17 +203,8 @@ class Article
      *
      * @return string 
      */
-    public function getLien()
-    {
+    public function getLien() {
         return $this->lien;
-    }
-    
-    public function getUser() {
-        return $this->user;
-    }
-
-    public function setUser($user) {
-        $this->user = $user;
     }
 
     public function getStyle() {
@@ -265,11 +225,6 @@ class Article
         return $this;
     }
 
-
-    
-    
-      
-    
     public function getFullImagePath() {
         return null === $this->urlimg ? null : $this->getUploadRootDir() . $this->urlimg;
     }
@@ -298,7 +253,7 @@ class Article
         } else {
             $this->urlimg->move($this->getUploadRootDir(), $this->urlimg->getClientOriginalName());
         }
-        $this->setImage($this->urlimg->getClientOriginalName());
+        $this->setUrlimg($this->urlimg->getClientOriginalName());
     }
 
     /**
@@ -322,9 +277,9 @@ class Article
         unlink($this->getFullImagePath());
         rmdir($this->getUploadRootDir());
     }
-    
-    public function __toString()
-    {
-          return $this->title.'' ;
+
+    public function __toString() {
+        return $this->title . ''; 
     }
+
 }

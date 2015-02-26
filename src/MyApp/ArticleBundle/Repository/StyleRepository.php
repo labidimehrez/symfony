@@ -7,9 +7,9 @@ class StyleRepository extends EntityRepository
 {
    public function getAllStyle()
     {
-//        return $this->getEntityManager()
-//            ->createQuery('SELECT p FROM MyAppEspritBundle:publicite p  ')
-//            ->getResult();
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MyAppArticleBundle:style p  ')
+            ->getResult();
             
     }
 }

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Thread.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Thread.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/VoteManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/ThreadManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Comment.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Vote.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/CommentManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/app/config/config.yml</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Entity/Comment.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Vote.php</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/async.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/comment_content.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/menu/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Repository/ArticleRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Repository/PlacementRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/DataFixtures/ORM/LoadingFixturesstyle.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Form/PlacementType.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Repository/StyleRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/DataFixtures/ORM/LoadingFixturesplacement.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/BackOffice/administration.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Article.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Style.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Placement.php</file>
         </group>
     </open-files>
 </project-private>
