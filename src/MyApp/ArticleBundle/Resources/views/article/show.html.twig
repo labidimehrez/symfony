@@ -1,15 +1,70 @@
 {# empty Twig template #}
-{% for article in article%}
-
-
+{#% for article in article%}
             {{article.headline}}</br>
-
             {{article.style.codecouleurfront}}</br>
-            {{article.style.codecouleurback}}</br>
-            
-            
-            
+            {{article.style.codecouleurback}}</br>           
             <div style="width: 200px;height: 150px;background-color: {{article.style.codecouleurback}};"></div> </br>  
-            <p><FONT color="{{article.style.codecouleurfront}}">aaaaa</p> 
+            <p><FONT color="{{article.style.codecouleurfront}}">aaaaa</p>            
+{% endfor%#}
+{{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
+
+ {% block affichage_articles%}
+<div class="Forside___Debat___Politik___Samfund___Indenrigs">
+    <B>Forside >  
+            {% set uriapresForside = app.request.uri %}
+            {% if   "sujetrecent" in  uriapresForside %} Seneste debatter {%endif%} 
+
+
+    </B>
+</div>
+<div class="contenudetemplate">
+    
+ <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
+ <div class="senestredebattfrontpage" > <center><b><p class="rouge">SENESTE DEBATTER</p></b></center></div> 
+    {% for publicite in publicite%} 
+
+ 
+        {% if publicite.position==14%}
+            <img src="{{publicite.image}}" alt="" width="300" height="250" class="publicitenumero1" >  
+       {%endif%}       
             
-{% endfor%}
+       {% if publicite.position==15%}
+            <img src="{{publicite.image}}" alt="" width="301" height="82" class="publicitenumero2" >  
+       {%endif%}   
+            
+       {% if publicite.position==16%}
+            <img src="{{publicite.image}}" alt="" width="929" height="180" class="publicitenumero3" >  
+       {%endif%}       
+            
+       {% if publicite.position==17%}
+            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero4" >  
+       {%endif%}      
+            
+       {% if publicite.position==18%}
+            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero5" >  
+       {%endif%}   
+            
+       {% if publicite.position==19%}
+            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero6" >  
+       {%endif%}   
+          
+       {% if publicite.position==20%}
+            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero7" >  
+       {%endif%}       
+            
+        {% if publicite.position==21%}
+            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero8" >  
+       {%endif%} 
+            
+     {%endfor%}
+  
+    
+    
+ <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->   
+    
+    
+    
+    
+    
+</div>
+ {% endblock %}
