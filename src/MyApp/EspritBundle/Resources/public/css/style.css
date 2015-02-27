@@ -3297,94 +3297,28 @@
     /* left: 60px; */
     left: 635px;
 }
-.publicitenumero1{
-    position: relative;
-    margin-top: 10px;
-    left: 635px;
-}
-.publicitenumero2{
-    position: relative;
-    margin-top: 00px;
-    left: 330px;
-    top: 180px;
-}
-.publicitenumero3{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    left: 5px;
-    top: 100px;
-}
-.publicitenumero4{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    left: 634px;
-    top: 80px;
-}
+.publicitenumero1{position: relative; margin-top: 10px;left: 635px;} 
+.publicitenumero2{ position: relative;margin-top: 00px;left: 330px;top: 180px;} 
+.publicitenumero3{position: relative;left: 5px; top: 100px;}
+.publicitenumero4{position: relative;left: 634px;top: 80px;}
+.publicitenumero5{position: relative;top: 315px;left: 330px;}
+.publicitenumero6{position: relative;top: 580px;left: 26px;}
+.publicitenumero7{position: relative;top: 590px;left: 640px;}   
+.publicitenumero8{ position: relative; top: 850px;left: 335px;}
+   
 
-.publicitenumero5{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    top: 315px;
-    left: 330px;
-}
+.articleposition1{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 250px;}
+.articleposition2{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 267px;}
+.articleposition3{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 215px;top: 385px;}
+.articleposition4{ position: absolute;/*border: 1px solid #000;*/width: 313px;height: 215px;top: 385px;}
+.articleposition5{position: absolute;/*border: 1px solid #000;*/width: 160px;height: 138px;top: 808px;}
+.articleposition6{position: absolute;/*border: 1px solid #000;*/width: 160px;height: 138px;top: 952px;}
+.articleposition7{position: absolute;/*border: 1px solid #000;*/width: 220px;height: 298px;top: 801px;left: 170px;}
+.articleposition8{position: absolute;/*border: 1px solid #000;*/width: 220px;height: 298px;top: 801px;left: 400px;}
+.articleposition9{position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 1120px;}
+.articleposition10{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 1270px;}
+.articleposition11{position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 1420px;}
+.articlepositionA{position: absolute;/*border: 1px solid #000;*/width: 310px;height: 310px;top: 1535px;left: 5px;background-color: #e0e0e0;}
+.articlepositionB{position: absolute;/*border: 1px solid #000;*/width: 310px;height: 310px;top: 1535px;left: 324px;background-color: #e0e0e0;}
+.articleposition12{position: absolute;/*border: 1px solid #000;*/width: 594px;height: 177px;top: 1860px;left: 25px;}
 
-.publicitenumero6{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    top: 580px;
-    left: 26px;
-}
-.publicitenumero7{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    top: 590px;
-    left: 640px;
-}
-.publicitenumero8{
-    position: relative;
-    /* margin-bottom: -50px; */
-    /* margin-right: 0px; */
-    /* margin-top: 0px; */
-    /* margin-left: 0px; */
-    /* padding-left: 0px; */
-    /* padding-top: 0px; */
-    /* padding-bottom: 0px; */
-    /* padding-right: 0px; */
-    top: 850px;
-    left: 335px;
-}
