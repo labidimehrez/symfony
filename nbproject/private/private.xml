@@ -12,15 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Profile/edit_content.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/usedtag.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/DataFixtures/ORM/LoadingFixturesstyle.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Registration/register_content.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Profile/show_content.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Style.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Article.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
         </group>

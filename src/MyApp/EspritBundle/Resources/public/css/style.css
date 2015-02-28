@@ -2935,6 +2935,7 @@
 
 .rouge{
     color: #c52821 ;
+    font-weight: bold;
     background-color:transparent;
 }
 .stylepolice{
@@ -3187,14 +3188,11 @@
     z-index: 6000;
 
 }
-
-.timestyle{color: silver;}
-
-.lienstyledebat{
-    text-decoration:none; 
-    font-weight:bold;
-    color: black;
-}
+.black{color: black;font-weight: bold;}
+.silver{color: silver;font-weight: bold;}
+.timestyle{color: silver;font-weight: bold;}
+ 
+.lienstyledebat{ text-decoration:none; font-weight:bold;color: black;}
 .contenudetemplate{
 
     /*background-color: #f8fef0;

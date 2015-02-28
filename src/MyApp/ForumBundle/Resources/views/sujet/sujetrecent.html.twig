@@ -21,15 +21,15 @@
 
 <div class="contenudetemplate">
     <div class="senestredebatt">
-        <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
+        <center><p class="rouge">Most Used Tag</p></center>
 
            {% for mostusedtag in mostusedtag %}
         <tr>
             <td>
                 <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
-                    <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
-                <b style="color: black"> &nbsp;&nbsp;{{mostusedtag.title}}</b></td></br>
-        <b style="color: silver">-------------------------------------------</b></br>
+                    <p class="silver"> {#{sujet.datecreation|date('H:i')}#}</p></td>&nbsp;&nbsp;<td>
+                <p class="black"> &nbsp;&nbsp;{{mostusedtag.title|truncate(32, true, '...')}}</p></td></br>
+        <p class="silver">-------------------------------------------</p></br>
         </a>
 
         </tr>
@@ -123,7 +123,7 @@
 
 {%endfor%}</tr>
                  
-         <div class="pagination"><b>Slide</b>&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
+         <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
                     
 </div>
 <script>

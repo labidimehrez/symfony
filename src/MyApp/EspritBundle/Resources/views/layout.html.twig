@@ -21,15 +21,10 @@
 
     </head>
 
-
-
-
     <div class="HEADER"><img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt="" /></div>
 
     <div class="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
 
-
-   <!-- <div class="BG"><img src="{#{ asset('bundles/myappesprit/images/BG.png') }#}" alt="" /></div> -->
 
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
@@ -38,16 +33,12 @@
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %}  
         
-       <a href="{{path(route) }}" style="text-decoration:none;color: white;"> &nbsp;&nbsp;-&nbsp;&nbsp; {{menu.name}}{#{menu.lien}#}  </a>                                                                                                                                                     
+       <a href="{{path(route) }}" style="text-decoration:none;color: white;"> 
+        &nbsp;&nbsp;   {%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name}} </a>                                                                                                                                                     
  
       {% endfor%}
     </div>
 
-    <!-- -->
-    <!--  <div id="Forside___Debat___Politik___Samfund___Indenrigs">
-          <B>Forside >  
-   
-    <!-- -->
     <div class="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
 
     <div class="Debat">   

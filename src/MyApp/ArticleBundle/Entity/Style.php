@@ -26,28 +26,28 @@ class Style {
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255,unique=true)
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255,unique=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="codecouleurfront", type="string", length=255,unique=true)
+     * @ORM\Column(name="codecouleurfront", type="string", length=255)
      */
     private $codecouleurfront;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="codecouleurback", type="string", length=255,unique=true)
+     * @ORM\Column(name="codecouleurback", type="string", length=255)
      */
     private $codecouleurback;
 
