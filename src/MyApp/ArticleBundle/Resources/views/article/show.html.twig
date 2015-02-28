@@ -23,115 +23,120 @@
   {% for article in article %}
 {% if article.placement.position==1%}
             <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                    <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeueLTStd;">
                             {{article.headline|truncate(47, true, '...')}}
                    </FONT>               
             </div>{%endif%} 
 
 
+
+
 {% if article.placement.position==2%}
             <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront|truncate(41, true, '...')}}">
-                                {{article.headline}}
+                    <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeue;">
+                                {{article.headline|truncate(41, true, '...')}}
                    </FONT>               
             </div>{%endif%} 
 
 
+
 {% if article.placement.position==3%}
             <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
                              {{article.headline|truncate(31, true, '...')}}
                    </FONT>               
             </div>{%endif%}
 
 {% if article.placement.position==4%}
             <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
                              {{article.headline|truncate(31, true, '...')}}
                    </FONT>             
             </div>{%endif%} 
 
 {% if article.placement.position==5%}
             <div class="articleposition5" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
                    </FONT>              
             </div>{%endif%} 
 
 {% if article.placement.position==6%}
             <div class="articleposition6" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
                    </FONT>              
             </div>{%endif%} 
 
 {% if article.placement.position==7%}
             <div class="articleposition7" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
                    </FONT>                   
             </div>{%endif%} 
 
+
 {% if article.placement.position==8%}
             <div class="articleposition8" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
                    </FONT>                
             </div>{%endif%} 
 
 {% if article.placement.position==9%}
             <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
                    </FONT>                
             </div>{%endif%} 
 
 {% if article.placement.position==10%}
             <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
                    </FONT>                 
             </div>{%endif%} 
 
 {% if article.placement.position==11%}
             <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
                    </FONT>               
             </div>{%endif%} 
 
 <div class="articlepositionA">
-    
+   
     <center><p class="rouge">SENESTE NYHEDER</p></center>
 </div>
 <div class="articlepositionB">
     <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
 </div>
 
+
 {% if article.placement.position==12%}
             <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
                    </FONT>              
             </div>{%endif%} 
 
 {% if article.placement.position==13%}
             <div class="articleposition13" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
                    </FONT>               
             </div>{%endif%} 
 
 {% if article.placement.position==14%}
             <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
                    </FONT>               
             </div>{%endif%} 
 
 {% if article.placement.position==15%}
             <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}">
+                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
                    </FONT>             
             </div>{%endif%} 
