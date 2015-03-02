@@ -3307,8 +3307,8 @@
 
 .articleposition1{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 250px;}
 .articleposition2{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 267px;}
-.articleposition3{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 215px;top: 385px;}
-.articleposition4{ position: absolute;/*border: 1px solid #000;*/width: 313px;height: 215px;top: 385px;}
+.articleposition3{ position: absolute;/*border: 1px solid #000;*/width: 315px;;height: 215px;top: 385px;}
+.articleposition4{ position: absolute;/*border: 1px solid #000;*/width: 313px;height: 215px;top: 385px;left: 315px;}
 .articleposition5{position: absolute;/*border: 1px solid #000;*/width: 160px;height: 138px;top: 808px;}
 .articleposition6{position: absolute;/*border: 1px solid #000;*/width: 160px;height: 138px;top: 952px;}
 .articleposition7{position: absolute;/*border: 1px solid #000;*/width: 220px;height: 298px;top: 801px;left: 170px;}
@@ -3324,4 +3324,4 @@
 .articleposition14{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 5px;}
 .articleposition15{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 322px;}
 
-.bordurearticle{padding:10px;}
+.bordurearticle{padding:4px;}

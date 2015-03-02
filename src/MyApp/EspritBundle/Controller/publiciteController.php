@@ -1,12 +1,13 @@
 <?php
 
+
 namespace MyApp\EspritBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\EspritBundle\Form\publiciteType;
 use MyApp\EspritBundle\Entity\publicite;
 use MyApp\UserBundle\Entity\User;
 use MyApp\EspritBundle\Entity\menu;
- 
+ use Symfony\Component\HttpFoundation\Request;
 class publiciteController extends Controller {
 
     public function addAction() {
@@ -104,6 +105,7 @@ class publiciteController extends Controller {
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
         /*         * ********************   les pub externe  *************************** */
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getextPub();
+
         return $this->render('MyAppEspritBundle:publicite:showextpub.html.twig', array(
         'publicite' => $publicite, 'menu' => $menu)); 
         
