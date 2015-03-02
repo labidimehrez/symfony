@@ -22,64 +22,66 @@
 
 <div class="contenudetemplate">
     <div class="senestredebatt">
-        <center><p class="rouge">Most Used Tag</p></center>
+       </br> <center><b class="rouge">Most Used Tag</b></center></br>
 
-           {% for mostusedtag in mostusedtag %}
-        <tr>
-            <td>
-                <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
-                    <p class="silver"> {#{sujet.datecreation|date('H:i')}#}</p></td>&nbsp;&nbsp;<td>
-                <p class="black"> &nbsp;&nbsp;{{mostusedtag.title|truncate(32, true, '...')}}</p></td></br>
-        <p class="silver">-------------------------------------------</p></br>
-        </a>
+                {% for mostusedtag in mostusedtag %}
 
-        </tr>
-{% endfor%}    
+        
+        <b> <span style="padding: 30px;">{{mostusedtag.title|truncate(32, true, '...')}}</span></b> </br>
+        <font style="color: silver;"><center>-------------------------------------------</center></font> 
+
+
+
+                {% endfor%}    
 
     </div>
 
 
 {% for publicite in publicite %} 
 {#% if publicite.position  ==10%} <div class="position10"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
-{% if publicite.position  ==11%} <div class="position11"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==11%} <div class="position11"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" style="margin-top: -150px;" > </div>{% endif%}
 {% if publicite.position  ==12%} <div class="position12"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
 {% if publicite.position  ==13%} <div class="position13"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
-{% if publicite.position  ==14%} <div class="position14"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
-{% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{#% if publicite.position  ==14%} <div class="position14"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
+{#% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
 {% endfor%} 
 
-
-
-
-
-
-
+ 
     <div  class="StartaNewTopic">
         <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
     </div>
 
-    </br>  
+
     <h2>Seneste Debatter</h2>
 {% for sujet in pagination %}
     <tr {% if loop.index is odd %}class="color"{% endif %}>
-         
+
+
+
  
 
 
 
-
     {%if  sujet.user.id != 1%}
-    <a href="#" id="dialog-link"> 
+
+             {%if  sujet.user.image is not null %}
+        
+                <a href="#" id="dialog-link"> <img src="{{sujet.user.image }}"   class="imageuser" alt="" /></a>
+         
+             {%else%}
+    
+            <a href="#" id="dialog-link"><img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" /> </a>  
+                       
+             {%endif%}
+   
+    
+    
 
 
-           {%if  sujet.user.image is not null %}   <img src="{{sujet.user.image }}"   class="imageuser" alt="" /> {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  {%endif%}
-
-
-    </a>
     <b>{{sujet.user.username}}</b>
      {% else %}    
     <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
-    <b>{{sujet.user.nomprenom}}</b>
+    <b>{{sujet.user.username}}</b>
     {% endif %}
 
 
@@ -97,43 +99,55 @@
     </br>
     &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
 
-    </br> 
+    </br>  </br> 
      {% if loop.index  == 5 %} 
     </br>
         {% for publicite in publicite %} 
               {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
         {% endfor%} 
-    </br>
+    </br> 
     {% endif%}
 
 
-          
-                 
-                    
-    
-    
 
 
-   {%if  sujet.user.id != 1%}
-    <div id="dialog"> 
+
+
+
+
+
+
+
+
+
+{%endfor%} 
+
+    <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
+
+</div>
+ 
+   
+      
+         
+           <div id="dialog"> 
         <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
-        <h1> <b>{{ sujet.user.username}}</b></h1>   
-    </div>
-  {% endif %}
-
-{%endfor%}</tr>
-                 
-         <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
-                    
-</div>
-<script>
+      
+          </div>
+        
+       
+   <script>
     $("#dialog").dialog({
+  
         autoOpen: false,
+        show: "fold",
         width: 400,
+ 
         buttons: [
             {
+         
                 text: "Luk",
+        
                 click: function() {
                     $(this).dialog("close");
                 }
@@ -146,4 +160,3 @@
         event.preventDefault();
     });
 </script>
-
