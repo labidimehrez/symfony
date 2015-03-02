@@ -13,6 +13,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
          /*********** **    recuperation de tout les menus  *********** */
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+       
         return $this->render('MyAppEspritBundle::layout.html.twig', array(
                  'menu' => $menu
         ));

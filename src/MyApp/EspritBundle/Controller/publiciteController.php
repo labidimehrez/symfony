@@ -1,13 +1,12 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\EspritBundle\Form\publiciteType;
 use MyApp\EspritBundle\Entity\publicite;
 use MyApp\UserBundle\Entity\User;
 use MyApp\EspritBundle\Entity\menu;
-
+ 
 class publiciteController extends Controller {
 
     public function addAction() {

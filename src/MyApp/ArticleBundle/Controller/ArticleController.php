@@ -37,6 +37,7 @@ class ArticleController extends Controller {
         /*         * *******************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
+
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article,'publicite'=>$publicite
         ));

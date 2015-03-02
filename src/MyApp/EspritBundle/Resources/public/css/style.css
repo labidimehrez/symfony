@@ -1,11 +1,11 @@
-.SITE {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+.SITE {position: absolute; left: 0px; top: 0px; z-index: 253;}
+    
+   
+   
     /*width: 1280px;
     height: 2799px;*/
-    z-index: 253;
-}
+   
+
 .HEADER {
     background-color: #c52821;
     padding: 0;
@@ -3318,5 +3318,10 @@
 .articleposition11{position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 1420px;}
 .articlepositionA{position: absolute;/*border: 1px solid #000;*/width: 310px;height: 310px;top: 1535px;left: 5px;background-color: #e0e0e0;}
 .articlepositionB{position: absolute;/*border: 1px solid #000;*/width: 310px;height: 310px;top: 1535px;left: 324px;background-color: #e0e0e0;}
-.articleposition12{position: absolute;/*border: 1px solid #000;*/width: 594px;height: 177px;top: 1860px;left: 25px;}
 
+.articleposition12{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 103px;top: 1845px;left: 5px;}
+.articleposition13{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 103px;top: 1845px;left: 322px;}
+.articleposition14{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 5px;}
+.articleposition15{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 322px;}
+
+.bordurearticle{padding:10px;}

@@ -1,11 +1,4 @@
-{# empty Twig template #}
-{#% for article in article%}
-            {{article.headline}}</br>
-            {{article.style.codecouleurfront}}</br>
-            {{article.style.codecouleurback}}</br>           
-            <div style="width: 200px;height: 150px;background-color: {{article.style.codecouleurback}};"></div> </br>  
-            <p><FONT color="{{article.style.codecouleurfront}}">aaaaa</p>            
-{% endfor%#}
+
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 
  {% block affichage_articles%}
@@ -18,171 +11,210 @@
     </B>
 </div>
 <div class="contenudetemplate">
-         
-<!--       ici c'est la colonne gauche   pour les articles ....      .-->   
+
+    <!--       ici c'est la colonne gauche   pour les articles ....      .-->   
   {% for article in article %}
 {% if article.placement.position==1%}
-            <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">           
-                    <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">    
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;" />{%endif%}
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeueLTStd;">
                             {{article.headline|truncate(47, true, '...')}}
-                   </FONT>               
-            </div>{%endif%} 
+            </FONT>               
+        </div>
+    </div>{%endif%} 
 
 
 
 
 {% if article.placement.position==2%}
-            <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">           
-                    <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeue;">
+    <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">
+     {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;" />{%endif%}
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeue;">
                                 {{article.headline|truncate(41, true, '...')}}
-                   </FONT>               
-            </div>{%endif%} 
+            </FONT>         
+        </div>
+    </div>{%endif%} 
 
 
 
 {% if article.placement.position==3%}
-            <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
+    <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">  
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;" />{%endif%}
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
                              {{article.headline|truncate(31, true, '...')}}
-                   </FONT>               
-            </div>{%endif%}
+            </FONT>     
+        </div>             
+    </div>{%endif%}
 
 {% if article.placement.position==4%}
-            <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
+    <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;" />{%endif%}
+        <div class="bordurearticle">  
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
                              {{article.headline|truncate(31, true, '...')}}
-                   </FONT>             
-            </div>{%endif%} 
+            </FONT>    
+        </div>           
+    </div>{%endif%} 
 
 {% if article.placement.position==5%}
-            <div class="articleposition5" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition5" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle"> 
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
-                   </FONT>              
-            </div>{%endif%} 
+            </FONT>     
+        </div>           
+    </div>{%endif%} 
 
 {% if article.placement.position==6%}
-            <div class="articleposition6" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition6" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
-                   </FONT>              
-            </div>{%endif%} 
+            </FONT>     
+        </div>          
+    </div>{%endif%} 
 
 {% if article.placement.position==7%}
-            <div class="articleposition7" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
+    <div class="articleposition7" style="background-color: {{article.style.codecouleurback}};">   
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;" />{%endif%}
+        <div class="bordurearticle">
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
-                   </FONT>                   
-            </div>{%endif%} 
+            </FONT>       
+        </div>              
+    </div>{%endif%} 
 
 
 {% if article.placement.position==8%}
-            <div class="articleposition8" style="background-color: {{article.style.codecouleurback}};">           
-                   <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
+    <div class="articleposition8" style="background-color: {{article.style.codecouleurback}};">    
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;" />{%endif%}
+        <div class="bordurearticle"> 
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
-                   </FONT>                
-            </div>{%endif%} 
+            </FONT>       
+        </div>           
+    </div>{%endif%} 
 
 {% if article.placement.position==9%}
-            <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
-                             {{article.headline|truncate(51, true, '...')}}
-                   </FONT>                
-            </div>{%endif%} 
+    <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">  
+        {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;" />{%endif%}
+        <div class="bordurearticle">
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+              {{article.headline|truncate(51, true, '...')}} 
+            </FONT>      
+        </div>   
+    </div>{%endif%} 
 
 {% if article.placement.position==10%}
-            <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+    <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">      
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;" />{%endif%}
+        <div class="bordurearticle"> 
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
-                   </FONT>                 
-            </div>{%endif%} 
+            </FONT>     
+        </div>              
+    </div>{%endif%} 
 
 {% if article.placement.position==11%}
-            <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+    <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">   
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;" />{%endif%}
+        <div class="bordurearticle">  
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
-                   </FONT>               
-            </div>{%endif%} 
+            </FONT>       
+        </div>           
+    </div>{%endif%} 
 
-<div class="articlepositionA">
-   
-    <center><p class="rouge">SENESTE NYHEDER</p></center>
-</div>
-<div class="articlepositionB">
-    <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
-</div>
+    <div class="articlepositionA">
+
+        <center><p class="rouge">SENESTE NYHEDER</p></center>
+    </div>
+    <div class="articlepositionB">
+        <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
+    </div>
 
 
 {% if article.placement.position==12%}
-            <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
-                   </FONT>              
-            </div>{%endif%} 
+            </FONT>      
+        </div>          
+    </div>{%endif%} 
 
 {% if article.placement.position==13%}
-            <div class="articleposition13" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition13" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle">  
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
-                   </FONT>               
-            </div>{%endif%} 
+            </FONT>     
+        </div>           
+    </div>{%endif%} 
 
 {% if article.placement.position==14%}
-            <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle">   
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
-                   </FONT>               
-            </div>{%endif%} 
+            </FONT>    
+        </div>            
+    </div>{%endif%} 
 
 {% if article.placement.position==15%}
-            <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
-                <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+    <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
+        <div class="bordurearticle">  
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
-                   </FONT>             
-            </div>{%endif%} 
+            </FONT>    
+        </div>         
+    </div>{%endif%} 
 
 
     {% endfor%}
- <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
- <div class="senestredebattfrontpage" > <center><p class="rouge">SENESTE DEBATTER</p></center></div> 
- 
- 
- 
+    <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
+    <div class="senestredebattfrontpage" > <center><p class="rouge">SENESTE DEBATTER</p></center></div> 
+
+
+
     {% for publicite in publicite%} 
 
- 
+
         {% if publicite.position==14%}
-            <img src="{{publicite.image}}" alt="" width="300" height="250" class="publicitenumero1" >  
+    <img src="{{publicite.image}}" alt="" width="300" height="250" class="publicitenumero1" >  
        {%endif%}       
-            
+
        {% if publicite.position==15%}
-            <img src="{{publicite.image}}" alt="" width="301" height="82" class="publicitenumero2" >  
+    <img src="{{publicite.image}}" alt="" width="301" height="82" class="publicitenumero2" >  
        {%endif%}   
-            
+
        {% if publicite.position==16%}
-            <img src="{{publicite.image}}" alt="" width="929" height="180" class="publicitenumero3" >  
+    <img src="{{publicite.image}}" alt="" width="929" height="180" class="publicitenumero3" >  
        {%endif%}       
-            
+
        {% if publicite.position==17%}
-            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero4" >  
+    <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero4" >  
        {%endif%}      
-            
+
        {% if publicite.position==18%}
-            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero5" >  
+    <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero5" >  
        {%endif%}   
-            
+
        {% if publicite.position==19%}
-            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero6" >  
+    <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero6" >  
        {%endif%}   
-          
+
        {% if publicite.position==20%}
-            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero7" >  
+    <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero7" >  
        {%endif%}       
-            
+
         {% if publicite.position==21%}
-            <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero8" >  
+    <img src="{{publicite.image}}" alt="" width="" height="" class="publicitenumero8" >  
        {%endif%} 
-            
+
      {%endfor%}
 
 </div>
