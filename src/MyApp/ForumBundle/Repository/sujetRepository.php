@@ -14,8 +14,9 @@ class sujetRepository extends EntityRepository {
 
     public function getAllsujetrecent() {
         return $this->getEntityManager()
-                        ->createQuery('SELECT p    FROM MyAppForumBundle:sujet p   WHERE p.id < 7 ORDER BY  p.datecreation DESC   ')
-                        ->getResult();
+                        ->createQuery('SELECT p    FROM MyAppForumBundle:sujet p   ORDER BY  p.datecreation DESC   ')
+                          ->setMaxResults(5)
+                          ->getResult();
     }
 
     public function getmostreadsujet() {
