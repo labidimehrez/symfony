@@ -2,11 +2,40 @@
 
 namespace MyApp\EspritBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use MyApp\EspritBundle\Form\menuType;
 use MyApp\EspritBundle\Entity\menu;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class menuController extends Controller {
+
+    public function rechercheAction() {
+        $em = $this->getDoctrine()->getManager();
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+        $form = $this->createFormBuilder($menu)
+                ->add('name', 'text')
+                ->add('rechercher', 'submit')
+                ->getForm();
+
+        return $this->render('MyAppEspritBundle:menu:recherche.html.twig', array( 'form' => $form->createView()));
+                   
+    }
+
+    function searchAction(Request $request) {
+
+        $ids = $this->getRequest()->get('mesIds'); // ids contient la valeurinput
+        $valeurinput = implode(",", $ids); // convertir sous forme de string             
+        $em = $this->getDoctrine()->getManager();
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+        $menutrouve = "";
+        foreach ($menu as $menu) {
+            $toutlesnoms = $menu->getName();
+            if ($valeurinput == $toutlesnoms) {
+                $menutrouve = $em->getRepository('MyAppEspritBundle:menu')->findByName($toutlesnoms);
+            }
+        }
+        return $this->render('MyAppEspritBundle:menu:ShowByName.html.twig', array('menu' => $menutrouve));
+    }
 
     public function showAction() {
 
@@ -104,15 +133,14 @@ class menuController extends Controller {
     }
 
     public function listAction() {
-        /********   pagination de tout les menus  *********** */   
+        /*         * ******   pagination de tout les menus  *********** */
         $em = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM MyAppEspritBundle:menu a";
         $query = $em->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-                $query, $this->get('request')->query->get('page', 1)/* page number */, 
-                                                                5/* limit per page */
+                $query, $this->get('request')->query->get('page', 1)/* page number */, 5/* limit per page */
         );
         // parameters to template
         return $this->render('MyAppEspritBundle:menu:list.html.twig', array('pagination' => $pagination));

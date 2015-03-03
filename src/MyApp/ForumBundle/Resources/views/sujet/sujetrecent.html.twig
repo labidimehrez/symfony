@@ -132,13 +132,14 @@
            <div id="dialog"> 
         <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
-      
+        <h6>{{sujet.user.id}}</h6>
           </div>
         
        
    <script>
     $("#dialog").dialog({
-  
+        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+        modal: true,
         autoOpen: false,
         show: "fold",
         width: 400,

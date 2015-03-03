@@ -1,11 +1,4 @@
 .SITE {position: absolute; left: 0px; top: 0px; z-index: 253;}
-    
-   
-   
-    /*width: 1280px;
-    height: 2799px;*/
-   
-
 .HEADER {
     background-color: #c52821;
     padding: 0;
@@ -3326,4 +3319,6 @@ background-color: #c52821;
 
 .bordurearticle{padding:4px;}
 
+ /* This is poor CSS by design to be simple and readable */
  
+ div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }

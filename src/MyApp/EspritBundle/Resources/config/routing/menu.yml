@@ -16,3 +16,14 @@ my_app_esprit_menu_delete:
 my_app_esprit_menu_list:
     pattern:  /list
     defaults: { _controller: MyAppEspritBundle:menu:list}  
+    
+my_app_esprit_menu_recherche:
+    pattern:  /recherche
+    defaults: { _controller: MyAppEspritBundle:menu:recherche}
+    
+my_app_esprit_menu_search:
+    pattern:  /search
+    defaults: { _controller: MyAppEspritBundle:menu:search}
+ 
+    
+    
