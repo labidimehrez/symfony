@@ -1,0 +1,25 @@
+    {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<div class="count">
+    {#{ pagination.getTotalItemCount }#}
+</div>
+<table>
+    <tr>
+{# sorting of properties based on query components #}
+        <th>{#{ knp_pagination_sortable(pagination, 'Id', 'a.id') }#}</th>
+        <th{#% if pagination.isSorted('a.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.name') }#}</th>
+    </tr>
+
+{# table body #}
+{% for menu in pagination %}
+    <tr {% if loop.index is odd %}class="color"{% endif %}>
+        <td>{#{ menu.id }#}</td> 
+        <td>{{ menu.name }}</td>
+    </tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="pagination">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+ 

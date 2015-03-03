@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 24 Février 2015 à 15:24
+-- Généré le :  Mar 03 Mars 2015 à 17:35
 -- Version du serveur :  5.1.71-community
 -- Version de PHP :  5.5.12
 
@@ -28,22 +28,41 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
   `style_id` int(11) NOT NULL,
+  `position` int(11) NOT NULL,
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `urlimg` varchar(2500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `copyrights` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fixedposition` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `position` int(11) NOT NULL,
   `lien` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_23A0E66462CE4F5` (`position`),
   UNIQUE KEY `UNIQ_23A0E66E0E861BD` (`headline`),
   UNIQUE KEY `UNIQ_23A0E663F82EDB8` (`copyrights`),
-  UNIQUE KEY `UNIQ_23A0E66462CE4F5` (`position`),
   UNIQUE KEY `UNIQ_23A0E66A532B4B5` (`lien`),
-  KEY `IDX_23A0E66A76ED395` (`user_id`),
   KEY `IDX_23A0E66BACD6074` (`style_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `article`
+--
+
+INSERT INTO `article` (`id`, `style_id`, `position`, `headline`, `urlimg`, `copyrights`, `fixedposition`, `lien`) VALUES
+(1, 5, 1, 'Danmark far tre nye Michelin - restauranter - men mister...', 'http://s1.e-monsite.com/2009/03/14/03/78972373publicite-1-jpg.jpg', '1', '11', '111'),
+(2, 6, 2, 'Champagnedreng fangslet fire uger til fordi han...', 'http://www.llllitl.fr/wp-content/uploads/2013/04/llllitl-evian-baby-me-live-young-publicit%C3%A9-ad-marketing-campagne-publicitaire-advertising-yuksek-we-are-from-la-12.jpg', '2', '22', '222'),
+(3, 5, 3, 'Kvindelig kniv-morder stikker igen', 'http://www.publiz.net/wp-content/uploads/2010/07/ikea-chaussure-meuble-publicit%C3%A9-print-02.jpg', '3', '33', '333'),
+(4, 6, 4, 'Stunt blandt forse flypas', 'http://www.letribunaldunet.fr/wp-content/uploads/2012/05/une-publicite-contre-les-ogm_89708_w460.jpg', '4', '44', '444'),
+(5, 5, 5, 'Derfor besogte Brandby tran-eren Chelsea', 'http://www.danstapub.com/wp-content/uploads/2013/06/dans-ta-pub-musique-publicit%C3%A9-les-meilleures-f%C3%AAte-de-la-musique-21-juin.jpg', '5', '55', '555'),
+(6, 5, 6, 'Dansk          sko-kade far bedste resultat nogensinde', 'http://www.danstapub.com/wp-content/uploads/2013/07/dans-ta-pub-cigarette-publicit%C3%A9-op%C3%A9ration-marketing-loi-evin-tabac-contre-hausse-france-5.jpg', '6', '66', '666'),
+(7, 6, 7, 'Her far man den varste kundservice i Danmark', 'http://img.e-marketing.fr/Img/BREVE/2013/4/52620/Lego-remporte-28e-Grand-Prix-Publicite-Presse-Magazine-F.jpg', '7', '77', '777'),
+(8, 6, 8, 'Rygte: Rolling Stones til Roskilde Festival-ledelsen afviser ikke...', 'http://img.e-marketing.fr/Img/BREVE/2013/9/182241/Snickers-sort-publicite-decalee-Chantal-Goya-F.jpg', '8', '88', '888'),
+(9, 5, 9, 'Den stumper vist lidt Fagforening raser over fraek uniform', 'http://sjbm.files.wordpress.com/2009/10/pub-et-information.jpg', '9', '99', '999'),
+(10, 5, 10, 'VIDEO Overbevisende 3 arig vil have cupcakes till aftensmad', 'http://sjbm.files.wordpress.com/2009/10/pub-et-information.jpg', '10', '1010', '101010'),
+(11, 5, 11, 'Hvad sker der nar man beder 20 fremmede om at kysse ?', 'http://sjbm.files.wordpress.com/2009/10/pub-et-information.jpg', '11', '1111', '111111'),
+(12, 6, 12, '35.000 danske pas er forsvun-det', NULL, '12', '1212', '121212'),
+(13, 6, 13, 'Chokskifte på vej i Formel 1:Verdensmester vil væk', NULL, '13', '1313', '131313'),
+(14, 6, 14, 'Massiv føring til blå blok: Maser Thorning totalt', NULL, '14', '1414', '141414'),
+(15, 6, 15, 'Her er de nye regler for Formel 1-raceme', NULL, '15', '1515', '151515');
 
 -- --------------------------------------------------------
 
@@ -73,9 +92,20 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `depth` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `state` int(11) NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  `score` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_5BC96BF0E2904019` (`thread_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  KEY `IDX_5BC96BF0E2904019` (`thread_id`),
+  KEY `IDX_5BC96BF0F675F31B` (`author_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `comment`
+--
+
+INSERT INTO `comment` (`id`, `thread_id`, `body`, `ancestors`, `depth`, `created_at`, `state`, `author_id`, `score`) VALUES
+(1, 'test', 'Symfony est un framework MVC libre écrit en PHP 5. En tant que framework, il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '', 0, '2015-03-03 02:10:37', 0, NULL, 1),
+(2, 'test', 'Symfony est un framework MVC libre écrit en PHP 5. En tant que framework, il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '', 0, '2015-03-03 02:12:26', 0, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -174,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `publicite` (
   `image` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_1D394E39462CE4F5` (`position`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `publicite`
@@ -186,10 +216,23 @@ INSERT INTO `publicite` (`id`, `position`, `image`) VALUES
 (3, 2, 'http://img15.hostingpics.net/pics/363331CopiedeSkyleft.png'),
 (4, 3, 'http://img4.hostingpics.net/pics/532465StarTour.png'),
 (5, 4, 'http://img15.hostingpics.net/pics/669014CopiedeSkyright.png'),
-(6, 5, 'http://img4.hostingpics.net/pics/860893BannRight.png'),
-(7, 6, 'http://img4.hostingpics.net/pics/677738Sanstitre2.png'),
+(6, 5, 'http://img15.hostingpics.net/pics/363331CopiedeSkyleft.png'),
+(7, 6, 'http://img15.hostingpics.net/pics/363331CopiedeSkyleft.png'),
 (8, 7, ' http://img11.hostingpics.net/pics/786142REKLAME3.png'),
-(9, 8, 'http://img4.hostingpics.net/pics/165997Sanstitre.png');
+(9, 8, ' http://img11.hostingpics.net/pics/786142REKLAME3.png'),
+(10, 9, ' http://img11.hostingpics.net/pics/786142REKLAME3.png'),
+(11, 10, 'http://img11.hostingpics.net/pics/786142REKLAME3.png'),
+(12, 11, 'http://img4.hostingpics.net/pics/991865Layer47.png'),
+(13, 12, 'http://img4.hostingpics.net/pics/991865Layer47.png'),
+(14, 13, 'http://img4.hostingpics.net/pics/440813Layer49.png'),
+(15, 14, 'http://img4.hostingpics.net/pics/604892REKLAME1.png'),
+(16, 15, 'http://img11.hostingpics.net/pics/382466PROMO.png'),
+(17, 16, 'http://img11.hostingpics.net/pics/786142REKLAME3.png'),
+(18, 17, 'http://img15.hostingpics.net/pics/914270HOROSKOP.png'),
+(19, 18, 'http://img15.hostingpics.net/pics/195477pizza.png'),
+(20, 19, 'http://img4.hostingpics.net/pics/991865Layer47.png'),
+(21, 20, 'http://img4.hostingpics.net/pics/564265REKLAME5.png'),
+(22, 21, 'http://img15.hostingpics.net/pics/966204TVGUIDE.png');
 
 -- --------------------------------------------------------
 
@@ -221,12 +264,20 @@ CREATE TABLE IF NOT EXISTS `style` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `codecouleurfront` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `codecouleurback` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_33BDB86A2B36786B` (`title`),
-  UNIQUE KEY `UNIQ_33BDB86A5E237E06` (`name`),
-  UNIQUE KEY `UNIQ_33BDB86A2961539` (`codecouleurfront`),
-  UNIQUE KEY `UNIQ_33BDB86AB931726C` (`codecouleurback`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `style`
+--
+
+INSERT INTO `style` (`id`, `title`, `name`, `codecouleurfront`, `codecouleurback`) VALUES
+(1, 'Gris & Red', 'Style1', '#E6E6E6', '#FF0000'),
+(2, 'Yellow & Blue', 'Style2', '#0000FF', '#D7DF01'),
+(3, 'Vert& Violet', 'Style3', '#E3CEF6', '#38610B'),
+(4, 'Blanc & Jaune', 'Style4', '#F2F5A9', '#FFFFFF'),
+(5, 'Noir & Blanc', 'Style5', '#FFFFFF', '#190707'),
+(6, 'Blanc & Noir  ', 'Style6', '#190707', '#FFFFFF');
 
 -- --------------------------------------------------------
 
@@ -253,17 +304,17 @@ CREATE TABLE IF NOT EXISTS `sujet` (
 --
 
 INSERT INTO `sujet` (`id`, `sujet`, `contenu`, `date_creation`, `date_lus`, `notification`, `nblect`, `user_id`) VALUES
-(1, 'php', '\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \n          le code avec la communauté des développeurs PHP.', '2015-02-05 00:00:00', '2015-02-23 23:02:58', NULL, 4, 1),
-(2, 'Symfony 2', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', '2015-02-04 00:00:00', NULL, NULL, NULL, 2),
-(3, 'php1', '          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(4, 'php2', '          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(5, 'php5', '          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(6, 'php6', '          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(7, 'php7', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(8, 'php8', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(9, 'php9', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(10, 'php10', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1),
-(11, 'php11', '\r\n          Le site du framework symfony a été lancé en octobre 2005. À l''origine du projet, \r\n          on trouve une agence web française, Sensio, qui a développé ce qui s''appelait à \r\n          l''époque Sensio Framework1 pour ses propres besoins et a ensuite souhaité en partager \r\n          le code avec la communauté des développeurs PHP.', NULL, NULL, NULL, NULL, 1);
+(1, 'Symfony 2.36', '&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Le site du framework symfony a &eacute;t&eacute; lanc&eacute; en octobre 2005. &Agrave; l&#39;origine du projet,&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; on trouve une agence web fran&ccedil;aise, Sensio, qui a d&eacute;velopp&eacute; ce qui s&#39;appelait &agrave;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; l&#39;&eacute;poque Sensio Framework1 pour ses propres besoins et a ensuite souhait&eacute; en partager&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; le code avec la communaut&eacute; des d&eacute;veloppeurs PHP.', '2015-03-02 11:36:45', '2015-03-03 15:57:13', '1', 1, 2),
+(2, 'Framework php5', '&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Symfony est un framework MVC libre &eacute;crit en PHP 5. En tant que framework,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; il facilite et acc&eacute;l&egrave;re le d&eacute;veloppement de sites et d&#39;applications Internet et Intranet.', '2015-03-02 11:53:52', NULL, '1', NULL, 1),
+(3, 'Symfony', 'Framework php5', '2015-03-04 00:00:00', NULL, NULL, NULL, 1),
+(4, 'SF2', '           Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-01 00:00:00', NULL, NULL, NULL, 2),
+(5, 'Dev', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', NULL, NULL, NULL, 2),
+(6, 'POO', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', NULL, NULL, NULL, 2),
+(7, 'POA', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', NULL, NULL, NULL, 2),
+(8, 'SOA', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', NULL, NULL, NULL, 2),
+(9, 'WebService', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', NULL, NULL, NULL, 2),
+(10, 'Asp.Net', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', '2015-03-03 02:19:42', NULL, 2, 2),
+(11, 'See Sharp', '          Symfony est un framework MVC libre écrit en PHP 5. En tant que framework,\r\n          il facilite et accélère le développement de sites et d''applications Internet et Intranet.', '2015-03-02 00:00:00', '2015-03-03 02:10:14', NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -284,10 +335,10 @@ CREATE TABLE IF NOT EXISTS `sujet_tags` (
 --
 
 INSERT INTO `sujet_tags` (`sujet_id`, `tag_id`) VALUES
-(1, 2),
 (1, 3),
 (1, 4),
-(1, 5);
+(2, 1),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -334,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `thread` (
 --
 
 INSERT INTO `thread` (`id`, `permalink`, `is_commentable`, `num_comments`, `last_comment_at`) VALUES
-('test', 'http://localhost/SolDK/web/app_dev.php/sujet/1/voir', 1, 0, NULL);
+('test', 'http://localhost/SolDK/web/app_dev.php/sujet/11/voir', 1, 2, '2015-03-03 02:12:26');
 
 -- --------------------------------------------------------
 
@@ -379,8 +430,33 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `username_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `sexe`, `ville`, `numeroportable`, `surmoi`, `date_naissance`, `date_cre_user`, `addresse`, `nomprenom`, `codepostal`, `image`, `email`, `emailCanonical`) VALUES
-(1, 'root', 'root', 1, 'ammqvcq9dp4ckco8oggw8gsgkg4ckgw', '2GyVAUzcVjh5ZeRq2UUKbrOqf8rUwmTrmjZ/uxRGOeQumPbzdHcnyavdRoNZPYmPEN5sU5ac+uiXIfTVLd100w==', '2015-02-24 00:26:09', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"SUPERADMIN";}', 0, NULL, 'm', 'ville', 25112990, 'surmoi', '2015-02-23', '2015-02-23 19:22:39', 'ici', 'Anonymous', NULL, NULL, 'mehrez.labidi@esprit.tn', 'mehrez.labidi@esprit.tn'),
-(2, 'mehrez', 'mehrez', 1, 'f4826tdq0dkooc4wgkwkcc0ck40g8s8', 'KSz+eMeruEeIo6ucuy5cYjLnZfik0YZ4CdU0YwE7+5oRI2sgfnCvmYQ0ss15wIH4KxNq4AEm19pD+fr6Wswr+w==', '2015-02-23 22:15:09', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"SUPERADMIN";}', 0, NULL, 'm', 'ville', 25112990, 'surmoi', '2015-02-23', '2015-02-23 19:22:40', 'ici', 'nomprenom', NULL, NULL, 'mehrez.labidi@esprit.tn', 'mehrez.labidi@esprit.tn');
+(1, 'root', 'root', 1, 'luc141otp8g088ssocs0g0s4k0cwk48', 'r8VKfmFdXcQdD8CusxF9j8f1wJBouYMukF8C74sHXzuJWvNK0EFWHLFP0lxWUYU6QZTZWnUJ9Fx7KnpJZVSlCQ==', '2015-03-02 11:35:47', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"SUPERADMIN";}', 0, NULL, 'm', 'ville', 25112990, 'surmoi', '2015-03-01', '2015-03-01 23:54:33', 'ici', 'Anonymous', NULL, NULL, 'mehrez.labidi@esprit.tn', 'mehrez.labidi@esprit.tn'),
+(2, 'mehrez', 'mehrez', 1, 'de9u7gvlu28s084gos8s0s4wcoggogo', 'wJvnNkmfkCnEyRWMV3jhp9LmyPgPy+1F8z1WOBUbeCKeDTQCOwrt9C0b1yZG1PlRiTTxkKH1HSbjbIXBp1WX5g==', '2015-03-02 11:53:13', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"SUPERADMIN";}', 0, NULL, 'm', 'ville', 25112990, 'surmoi', '2015-03-01', '2015-03-01 23:54:34', 'ici', 'nomprenom', NULL, 'http://i-cms.journaldunet.com/image_cms/original/1852005-jean-baptiste-rudelle-l-homme-discret-a-l-origine-de-criteo.jpg', 'mehrez.labidi@esprit.tn', 'mehrez.labidi@esprit.tn');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vote`
+--
+
+CREATE TABLE IF NOT EXISTS `vote` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) DEFAULT NULL,
+  `voter_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_FA222A5AF8697D13` (`comment_id`),
+  KEY `IDX_FA222A5AEBB4B8AD` (`voter_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `vote`
+--
+
+INSERT INTO `vote` (`id`, `comment_id`, `voter_id`, `created_at`, `value`) VALUES
+(1, 1, NULL, '2015-03-03 02:10:49', 1),
+(2, 2, NULL, '2015-03-03 16:00:07', 1);
 
 --
 -- Contraintes pour les tables exportées
@@ -390,7 +466,6 @@ INSERT INTO `user` (`id`, `username`, `username_canonical`, `enabled`, `salt`, `
 -- Contraintes pour la table `article`
 --
 ALTER TABLE `article`
-  ADD CONSTRAINT `FK_23A0E66A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_23A0E66BACD6074` FOREIGN KEY (`style_id`) REFERENCES `style` (`id`) ON DELETE CASCADE;
 
 --
@@ -404,7 +479,8 @@ ALTER TABLE `article_tags`
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_5BC96BF0E2904019` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`id`);
+  ADD CONSTRAINT `FK_5BC96BF0E2904019` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`id`),
+  ADD CONSTRAINT `FK_5BC96BF0F675F31B` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`);
 
 --
 -- Contraintes pour la table `commentaire`
@@ -443,6 +519,13 @@ ALTER TABLE `sujet`
 ALTER TABLE `sujet_tags`
   ADD CONSTRAINT `FK_B86D53B17C4D497E` FOREIGN KEY (`sujet_id`) REFERENCES `sujet` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_B86D53B1BAD26311` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `vote`
+--
+ALTER TABLE `vote`
+  ADD CONSTRAINT `FK_FA222A5AEBB4B8AD` FOREIGN KEY (`voter_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_FA222A5AF8697D13` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

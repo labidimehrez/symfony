@@ -1,0 +1,16 @@
+{# empty Twig template #}
+<form  action='{{path('my_app_forum_sujet_updateuser2')}}' method="post" {{ form_enctype(form) }} > 
+ 
+    <input type="checkbox" name="mesIds[]" value=Superadmin  >Superadmin
+    <input type="checkbox" name="mesIds[]" value=Admin >Admin
+    <input type="checkbox" name="mesIds[]" value=Supersol >Supersol
+    <input type="checkbox" name="mesIds[]" value=Editor >Editor
+    <input type="checkbox" name="mesIds[]" value=User >User
+
+ 
+       {{form_widget(form._token)}}   
+
+    <input type="submit"  value="Save" />
+
+</form>
+
