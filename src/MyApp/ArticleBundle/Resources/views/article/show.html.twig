@@ -14,7 +14,7 @@
 
     <!--       ici c'est la colonne gauche   pour les articles ....      .-->   
   {% for article in article %}
-{% if article.placement.position==1%}
+{% if article.position==1%}
     <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">   
 
 
@@ -31,7 +31,7 @@
 
 
 
-{% if article.placement.position==2%}
+{% if article.position==2%}
     <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">
      {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
         <div class="bordurearticle">   
@@ -43,7 +43,7 @@
 
 
 
-{% if article.placement.position==3%}
+{% if article.position==3%}
     <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">  
            {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;margin-left: 10px;" />{%endif%}
         <div class="bordurearticle">   
@@ -53,7 +53,7 @@
         </div>             
     </div>{%endif%}
 
-{% if article.placement.position==4%}
+{% if article.position==4%}
     <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
            {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;margin-left: 10px;" />{%endif%}
         <div class="bordurearticle">  
@@ -63,7 +63,7 @@
         </div>           
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==5%}
+{% if article.position==5%}
     <div class="articleposition5" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle"> 
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
@@ -72,7 +72,7 @@
         </div>           
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==6%}
+{% if article.position==6%}
     <div class="articleposition6" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle">   
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
@@ -81,9 +81,9 @@
         </div>          
     </div>{%endif%} 
 
-{% if article.placement.position==7%}
+{% if article.position==7%}
     <div class="articleposition7" style="background-color: {{article.style.codecouleurback}};">   
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:top;margin-bottom: 10px;" />{%endif%}
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;margin-top: 10px;" />{%endif%}
         <div class="bordurearticle">
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
@@ -92,9 +92,9 @@
     </div>{%endif%} 
 
 
-{% if article.placement.position==8%}
+{% if article.position==8%}
     <div class="articleposition8" style="background-color: {{article.style.codecouleurback}};">    
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:top;margin-bottom: 10px;" />{%endif%}
+           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;margin-top: 10px;" />{%endif%}
         <div class="bordurearticle"> 
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
@@ -102,7 +102,7 @@
         </div>           
     </div>{%endif%} 
 
-{% if article.placement.position==9%}
+{% if article.position==9%}
     <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">  
         {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
         <div class="bordurearticle">
@@ -112,7 +112,7 @@
         </div>   
     </div>{%endif%} 
 
-{% if article.placement.position==10%}
+{% if article.position==10%}
     <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">      
            {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
         <div class="bordurearticle"> 
@@ -122,7 +122,7 @@
         </div>              
     </div>{%endif%} 
 
-{% if article.placement.position==11%}
+{% if article.position==11%}
     <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">   
            {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
         <div class="bordurearticle">  
@@ -141,7 +141,7 @@
     </div>
 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==12%}
+{% if article.position==12%}
     <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle">   
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
@@ -150,7 +150,7 @@
         </div>          
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==13%}
+{% if article.position==13%}
     <div class="articleposition13" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle">  
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
@@ -159,7 +159,7 @@
         </div>           
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==14%}
+{% if article.position==14%}
     <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle">   
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
@@ -168,7 +168,7 @@
         </div>            
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
-{% if article.placement.position==15%}
+{% if article.position==15%}
     <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
         <div class="bordurearticle">  
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">

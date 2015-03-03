@@ -47,7 +47,7 @@ class UserController extends Controller {
     }
 
     public function editAction($id) {
-
+            /** simplde eddit action ***/
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('MyAppUserBundle:user')->find($id);
         if (!$user) {

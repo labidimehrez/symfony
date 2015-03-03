@@ -27,14 +27,13 @@ class Article {
      * @ORM\JoinColumn(name="style_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
     protected $style;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\ArticleBundle\Entity\Placement")
-     * @ORM\JoinColumn(name="placement_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", length=255,unique=true)
      */
-    protected $placement;  
-    
- 
+    private $position;
 
     /**
      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\tag", inversedBy="articles")
@@ -73,8 +72,6 @@ class Article {
      * @ORM\Column(name="fixedposition")
      */
     private $fixedposition;
-
- 
 
     /**
      * @var string
@@ -185,7 +182,6 @@ class Article {
         return $this;
     }
 
-    
     /**
      * Set lien
      *
@@ -279,7 +275,16 @@ class Article {
     }
 
     public function __toString() {
-        return $this->title . ''; 
+        return $this->title . '';
+    }
+
+    public function getPosition() {
+        return $this->position;
+    }
+
+    public function setPosition($position) {
+        $this->position = $position;
+        return $this;
     }
 
 }
