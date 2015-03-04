@@ -24,12 +24,7 @@ class ArticleType extends AbstractType {
                     'expanded' => false,
                     'multiple' => false,
                     'required' => true))
-//                ->add('placement', 'entity', array(
-//                    'class' => 'MyApp\ArticleBundle\Entity\Placement',
-//                    'property' => 'position',
-//                    'expanded' => false,
-//                    'multiple' => false,
-//                    'required' => false))
+ 
                 ->add('lien')
                 ->add('position', 'choice', array(
                     'choices' => array(

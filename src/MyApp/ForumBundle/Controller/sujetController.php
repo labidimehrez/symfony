@@ -166,9 +166,11 @@ class sujetController extends Controller {
         
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
+        $commentassociated = $em->getRepository('MyAppForumBundle:comment')->getCommentBySujet($id);
+     
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet,'mostusedtag' => $mostusedtag,
-                    'tag' => $tag
+                    'tag' => $tag,'commentaire'=>$commentassociated
         ));
     }
 

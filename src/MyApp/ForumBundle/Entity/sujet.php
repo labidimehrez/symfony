@@ -23,7 +23,7 @@ class sujet {
      */
     private $id;
     protected $commentaires;
-
+    protected $comment;
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
@@ -209,8 +209,16 @@ class sujet {
     public function setCommentaires($commentaires) {
         $this->commentaires = $commentaires;
     }
+    public function getComment() {
+        return $this->comment;
+    }
 
-    public function getTags() {
+    public function setComment($comment) {
+        $this->comment = $comment;
+        return $this;
+    }
+
+        public function getTags() {
         return $this->tags;
     }
 

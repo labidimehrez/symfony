@@ -180,15 +180,17 @@
 
     {% endfor%}
     <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
-    <div class="senestredebattfrontpage" > <center><p class="rouge">SENESTE DEBATTER</p></center>
+    <div class="senestredebattfrontpage" > <center><p class="rouge"></br>SENESTE DEBATTER</p></center>
     
     {%for  sujet in sujet%}
    
     
-       <b style="color: rgb(94, 94, 94);">&nbsp;&nbsp; {{sujet.datecreation|date('H:i')}}</b>
-                
+      <div class="senestredebattelement">
+          <b style="color: rgb(94, 94, 94);">&nbsp;&nbsp; {{sujet.datecreation|date('H:i')}}</b>
+          <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+      </div>        
    
-      <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> </br>
+      
       
  
 {% endfor%}

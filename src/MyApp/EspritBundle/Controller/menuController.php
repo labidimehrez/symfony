@@ -133,6 +133,7 @@ class menuController extends Controller {
     }
 
     public function listAction() {
+   
         /*         * ******   pagination de tout les menus  *********** */
         $em = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM MyAppEspritBundle:menu a";

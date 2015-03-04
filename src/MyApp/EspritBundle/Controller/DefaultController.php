@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
-
+ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -13,9 +13,11 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
          /*********** **    recuperation de tout les menus  *********** */
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+
        
         return $this->render('MyAppEspritBundle::layout.html.twig', array(
                  'menu' => $menu
+            
         ));
         
     }
@@ -32,5 +34,5 @@ class DefaultController extends Controller
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
     
-
+ 
 }

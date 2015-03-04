@@ -12,6 +12,7 @@ use FOS\CommentBundle\Model\VotableCommentInterface;
 /**
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
+ * @ORM\Entity(repositoryClass="MyApp\ForumBundle\Repository\CommentRepository")
  */
 class Comment extends BaseComment  implements SignedCommentInterface, VotableCommentInterface
 {
@@ -102,5 +103,20 @@ class Comment extends BaseComment  implements SignedCommentInterface, VotableCom
     {
         $this->score += $by;
     }
+     /**
+     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\Sujet")
+     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id",nullable=true)
+     */
  
+    protected $sujet;
+    public function getSujet() {
+        return $this->sujet;
+    }
+
+    public function setSujet($sujet) {
+        $this->sujet = $sujet;
+        return $this;
+    }
+
+
 }

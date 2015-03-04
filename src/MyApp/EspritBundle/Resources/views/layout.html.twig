@@ -34,9 +34,9 @@
         {% set route = menu.lien %}  
         
        <a href="{{path(route) }}" style="text-decoration:none;color: white;"> 
-        &nbsp;&nbsp;   {%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name}} </a>                                                                                                                                                     
+        &nbsp;&nbsp;   {%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name}}  </a>                                                                                                                                                     
  
-      {% endfor%}
+      {% endfor%} 
     </div>
 
     <div class="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>

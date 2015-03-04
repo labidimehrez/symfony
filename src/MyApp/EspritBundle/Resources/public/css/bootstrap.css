@@ -48,17 +48,17 @@ body {
 }
 
 a {
-  background: transparent;
+ // background: transparent;
 }
 
 a:focus {
-  outline: thin dotted;
+ // outline: thin dotted;
   
 }
 
 a:active,
 a:hover {
-  outline: 0;
+//  outline: 0;
 }
 
 h1 {
@@ -327,14 +327,14 @@ a {
 
 a:hover,
 a:focus {
-  color: #2a6496;
-  text-decoration: underline;
+/*   color: #2a6496;
+   text-decoration: underline;*/
 }
 
 a:focus {
-  outline: thin dotted;
+/*  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  outline-offset: -2px;*/
 }
 
 img {
@@ -7142,7 +7142,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: #333;
+  //  color: #333;
 }
 
 h1 {
@@ -7162,9 +7162,9 @@ h4 {
 
 /* Paragraph & Typographic */
 p {
-    line-height: 28px;
-    margin-bottom: 25px;
-    font-size: 16px;
+   // line-height: 28px;
+   // margin-bottom: 25px;
+  //  font-size: 16px;
 }
 
 .centered {
@@ -7173,7 +7173,7 @@ p {
 
 /* Links */
 a {
-    color: #3498db;
+  //  color: #3498db;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -7185,9 +7185,9 @@ a {
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
+ //   color: #7b7b7b;
+/*    text-decoration: none;
+    outline: 0;*/
 }
 
 a:before,
@@ -7209,7 +7209,7 @@ a:after {
 }
 
 .navbar-default {
-	background-color: #3498db;
+//	background-color: #3498db;
 	border-color: transparent;
 }
 

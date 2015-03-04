@@ -48,11 +48,11 @@ body {
 }
 
 a {
-  background: transparent;
+  /*background: transparent;*/
 }
 
 a:focus {
-  outline: thin dotted;
+  /*outline: thin dotted;*/
 }
 
 a:active,
@@ -223,10 +223,10 @@ table {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
   }
   a[href]:after {
-    content: " (" attr(href) ")";
+    /*content: " (" attr(href) ")";*/
   }
   abbr[title]:after {
     content: " (" attr(title) ")";
@@ -321,7 +321,7 @@ textarea {
 
 a {
  /* color: #428bca;*/
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 a:hover,
@@ -331,7 +331,7 @@ a:focus {
 }
 
 a:focus {
-  outline: thin dotted;
+  /*outline: thin dotted;*/
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -5212,7 +5212,7 @@ a.badge:focus {
 
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #428bca;
+  /*color: #428bca;*/
   background-color: #ffffff;
 }
 
@@ -5287,7 +5287,7 @@ a.list-group-item.active > .badge,
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #428bca;
+  /*border-color: #428bca;*/
 }
 
 .thumbnail .caption {
@@ -5734,7 +5734,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-title > a {
-  color: inherit;
+  /*color: inherit;*/
 }
 
 .panel-footer {

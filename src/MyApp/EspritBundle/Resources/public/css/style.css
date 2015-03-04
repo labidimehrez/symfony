@@ -3183,8 +3183,8 @@ background-color: #c52821;
 }
 .black{color: black;font-weight: bold;}
 .silver{color: silver;font-weight: bold;}
-.timestyle{color: silver;font-weight: bold;}
- 
+.timestyle{color: silver;font-weight: bold;padding-left: 100px;}
+.senestredebattelement{padding-bottom: 10px;}
 .lienstyledebat{ text-decoration:none; font-weight:bold;color: black;}
 .contenudetemplate{
 
@@ -3322,3 +3322,6 @@ background-color: #c52821;
  /* This is poor CSS by design to be simple and readable */
  .stylecontenudebat{color: black;font-weight: bold;font-size: 13px;font-family: Helvetica;padding-left: 5px;}
  div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }
+ 
+ .commentassoci{padding:50px;width:850px;}
+ 

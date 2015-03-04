@@ -22,11 +22,11 @@
 
 <div class="contenudetemplate">
     <div class="senestredebatt">
-       </br> <center><b class="rouge">Most Used Tag</b></center></br>
+        </br> <center><b class="rouge">Most Used Tag</b></center></br>
 
                 {% for mostusedtag in mostusedtag %}
 
-        
+
         <b> <span style="padding: 30px;">{{mostusedtag.title|truncate(32, true, '...')}}</span></b> </br>
         <font style="color: silver;"><center>-------------------------------------------</center></font> 
 
@@ -46,7 +46,7 @@
 {#% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
 {% endfor%} 
 
- 
+
     <div  class="StartaNewTopic">
         <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
     </div>
@@ -58,24 +58,24 @@
 
 
 
- 
+
 
 
 
     {%if  sujet.user.id != 1%}
 
              {%if  sujet.user.image is not null %}
-        
-                <a href="#" id="dialog-link"> <img src="{{sujet.user.image }}"   class="imageuser" alt="" /></a>
-         
+
+    <a href="#" id="dialog-link"> <img src="{{sujet.user.image }}"   class="imageuser" alt="" /></a> 
+
              {%else%}
-    
-            <a href="#" id="dialog-link"><img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" /> </a>  
-                       
+
+    <a href="#" id="dialog-link"><img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" /> </a>  
+
              {%endif%}
-   
-    
-    
+
+
+
 
 
     <b>{{sujet.user.username}}</b>
@@ -85,7 +85,7 @@
     {% endif %}
 
 
-    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     
     <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
 
     </br>
@@ -125,32 +125,33 @@
     <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
 
 </div>
- 
-   
-      
-         
-           <div id="dialog">   
-              <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
-              <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6>  
-          </div>
-        
-       
-   <script>
+
+
+
+
+<div id="dialog">   
+    <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
+    <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6> 
+
+</div> 
+
+
+<script>
     $("#dialog").dialog({
-        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+        open: function(event, ui) {
+            $(".ui-dialog-titlebar-close").hide();
+        },
         modal: true,
         autoOpen: false,
         show: "fold",
         width: 400,
- 
         buttons: [
             {
-         
                 text: "Luk",
-        
                 click: function() {
                     $(this).dialog("close");
-                }
+                
+                } 
             }
         ]
     });

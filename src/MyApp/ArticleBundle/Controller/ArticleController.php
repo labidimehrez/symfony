@@ -39,8 +39,11 @@ class ArticleController extends Controller {
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
         
+ 
+        
+        
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
-                    'article' => $article,'publicite'=>$publicite,'sujet'=>$sujet
+                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet           
         ));
     }
 

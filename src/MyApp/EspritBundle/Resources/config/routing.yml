@@ -2,6 +2,7 @@ my_app_esprit_homepage:
     pattern:  /index.php
     defaults: { _controller: MyAppArticleBundle:article:show }
     
+ 
     
 my_app_esprit_administration:
     pattern:  /administration

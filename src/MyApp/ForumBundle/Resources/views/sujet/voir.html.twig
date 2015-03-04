@@ -2,8 +2,8 @@
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 
 
- 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
@@ -12,119 +12,119 @@
             {% set uriapresForside = app.request.uri %}
             {%if 'voir' in  uriapresForside%}
         <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" style="text-decoration:none;color:black;">
-                                            <u>Debats</u></a> > 
+            <u>Debats</u></a> > 
              {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
              {%endif%}
-           
+
     </B>
 </div> 
 
-    <div class="contenudetemplate">
-        <div class="paddingdebataveccomment">
-     <!--<div class="senestredebatt">
-        <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
-
+<div class="contenudetemplate">
+    <div class="paddingdebataveccomment">
+        <!--<div class="senestredebatt">
+           <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
+   
            {#% for mostusedtag in mostusedtag %}
         <tr>
             <td>
                 <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
-                    <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
-                <b style="color: black"> &nbsp;&nbsp;{#{mostusedtag.title}#}</b></td></br>
-        <b style="color: silver">-------------------------------------------</b></br>
-        </a>
-
-        </tr>
+                       <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
+                   <b style="color: black"> &nbsp;&nbsp;{#{mostusedtag.title}#}</b></td></br>
+           <b style="color: silver">-------------------------------------------</b></br>
+           </a>
+   
+           </tr>
         {#% endfor%#}    
-
-    </div>-->
-    <!--<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
-    <a href="{#{path('my_app_forum_sujet_add') }#}" class="btn btn-warning btn-lg">                                                                                                                                                      
-               Start a New Topic</a>
-    </div>-->
-     </br>  
+   
+       </div>-->
+        <!--<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
+        <a href="{#{path('my_app_forum_sujet_add') }#}" class="btn btn-warning btn-lg">                                                                                                                                                      
+                   Start a New Topic</a>
+        </div>-->
+        </br>  
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
              class="imageuserdebataveccomment" alt="" />  
 {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-            class="imageuserdebataveccomment" alt="" />             
+             class="imageuserdebataveccomment" alt="" />             
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">{{sujet.user.username}}</b>
 {% else%}
-        
-         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-         class="imageuserdebataveccomment"alt="" />  
-          &nbsp;&nbsp;&nbsp;
+
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+             class="imageuserdebataveccomment"alt="" />  
+        &nbsp;&nbsp;&nbsp;
         <b style="color: black">Anonymous</b>
  {% endif%}       
-        
-        
-        
-        
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
-        
+
+
+
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
+
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
         <div  class="Addnewcomment"><p class="flip">Add new comment</p></div>
         <div  class="tagtitlevoirun">{% for tag in tag %}<b> {{tag.title}} &nbsp;&nbsp;</b>{% endfor%}</div>
-        
-      
-  
 
- 
 
-<div class="panel">
-     <div class="commentaire">
-          
+
+
+
+
+        <div class="panel">
+            <div class="commentaire">
+
             {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
-      </div>
+            </div>
+        </div>
+
+        <br>
+
+
+
+
+
+    </div> 
 </div>
 
-<br>
 
-
-
-
- 
-</div> 
-</div>
-    
- 
     {################################################################################################################################}
-    
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-$(".flip").click(function() {
-$(".panel").slideToggle("slow");
-});
-});
+    $(document).ready(function() {
+        $(".flip").click(function() {
+            $(".panel").slideToggle("slow");
+        });
+    });
 </script>
 
 <style type="text/css">
-div.panel,p.flip {
-//margin: 0px;
-//padding: 5px;
-//text-align: center;
-// background: #ddd;
-width: 200px;
-height: 70px;
-//border: solid 1px #ddd;
-padding-left: 20px;
-padding-top: 20px;
-padding-bottom: 20px;
-margin-bottom: 0px;
-}
+    div.panel,p.flip {
+        //margin: 0px;
+        //padding: 5px;
+        //text-align: center;
+        // background: #ddd;
+        width: 200px;
+        height: 70px;
+        //border: solid 1px #ddd;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 0px;
+    }
 
-div.panel {
-width: 50%;
-height: 100px;
-display: none;
-}
+    div.panel {
+        width: 50%;
+        height: 100px;
+        display: none;
+    }
 </style>
