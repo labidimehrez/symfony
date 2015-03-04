@@ -1,9 +1,7 @@
  
 
  
-my_app_article_style_add:
-    pattern:  /add
-    defaults: { _controller: MyAppArticleBundle:style:add }
+ 
     
 my_app_article_style_show:
     pattern:  /show
@@ -16,3 +14,10 @@ my_app_article_style_delete:
 my_app_article_style_edit:
     pattern:  /{id}/edit
     defaults: { _controller: MyAppArticleBundle:style:edit }  
+ 
+my_app_article_style_add:
+    pattern:  /add
+    defaults: { _controller: MyAppArticleBundle:style:add}
+my_app_article_style_save:
+    pattern:  /save
+    defaults: { _controller: MyAppArticleBundle:style:save}

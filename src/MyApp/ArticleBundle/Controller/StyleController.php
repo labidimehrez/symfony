@@ -2,30 +2,56 @@
 
 namespace MyApp\ArticleBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use MyApp\ArticleBundle\Form\StyleType;
 use MyApp\ArticleBundle\Entity\style;
 
 class StyleController extends Controller {
 
     public function addAction() {
 
-        $style = new style();
-        $form = $this->createForm(new StyleType, $style);
-        $request = $this->getRequest();
-        if ($request->isMethod('Post')) {
+        $em = $this->getDoctrine()->getManager();
+        $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
+        $form = $this->createFormBuilder($style)
+                ->add('name', 'text')
+                ->add('rechercher', 'submit')
+                ->getForm();
 
-            $form->bind($request);
+        return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
+    }
 
-            if ($form->isValid()) {
-                $style = $form->getData();
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($style);
-                $em->flush();
-                
-                return $this->redirect($this->generateUrl('my_app_article_style_add'));
-            }
+    public function saveAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $style2 = $em->getRepository('MyAppArticleBundle:style')->findAll();
+        /*** form a afficher dans la vue **/
+        $form = $this->createFormBuilder($style2)
+                ->add('name', 'text')
+                ->add('rechercher', 'submit')
+                ->getForm();
+         /*** recuperation des valeurs **/
+        $ColorForFont = $this->getRequest()->get('color1');
+        $BackgroundColor = $this->getRequest()->get('color2');
+        $name = $this->getRequest()->get('name');
+        $title = $this->getRequest()->get('title');
+        /* var_dump($ColorForFont);var_dump($BackgroundColor);var_dump($name);var_dump($title);die(); */
+          
+        /*** test de validation title must be not blank **/
+        if ($title == null) {
+            return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
         }
+        /** ajout de style validé avec les input de la request ***/
+        $style = new style();
+        $style->setCodecouleurback($BackgroundColor);
+        $style->setCodecouleurfront($ColorForFont);
+        $style->setName($name);
+        $style->setTitle($title);
+
+        $em1 = $this->getDoctrine()->getManager();
+        $em1->persist($style);
+        $em1->flush();
+
+
+
 
         return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
     }
@@ -52,5 +78,4 @@ class StyleController extends Controller {
         )));
     }
 
-    
 }
