@@ -11,18 +11,19 @@
     <div style="margin-left: 150px;margin-top: 150px;">
         
    
-            <form action='{{path('my_app_article_style_save')}}' method="post" {{ form_enctype(form) }} style="width: 500px;">
-                
+            <form action='{{path('my_app_article_style_save')}}' method="post" {{ form_enctype(form) }} style="width: 500px;" > 
+                  
+            
                  <div class="form-item">
                      <label for="color1" class="stylegras">Title &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
-                     <input type="text" name="title" style="width: 600px;" value=  > 
+    <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
                 </div>
                 
                 </br></br>
                 
                  <div class="form-item">
                      <label for="color1" class="stylegras" >Name</label></br>
-                      <input type="text" name="name"  style="width: 600px;"  value=  > 
+                      <input type="text" name="name"  style="width: 600px;"  value="" value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
                 </div>
                 
                 </br></br>
@@ -30,7 +31,7 @@
                 <div id="picker" style="float: right;"></div>
                 <div class="form-item">
                     <label for="color1" class="stylegras">Color For Font:</label></br>
-                    <input type="text" id="color1" name="color1" class="colorwell" value="#123456" />
+                    <input type="text" id="color1" name="color1" class="colorwell"  value="#123456" />
                 </div>
                 
                 </br></br></br></br></br></br>

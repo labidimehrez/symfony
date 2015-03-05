@@ -36,9 +36,9 @@ class StyleController extends Controller {
         /* var_dump($ColorForFont);var_dump($BackgroundColor);var_dump($name);var_dump($title);die(); */
           
         /*** test de validation title must be not blank **/
-        if ($title == null) {
+        /*  if ($title == null) {
             return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
-        }
+        }*/
         /** ajout de style validé avec les input de la request ***/
         $style = new style();
         $style->setCodecouleurback($BackgroundColor);
@@ -49,10 +49,7 @@ class StyleController extends Controller {
         $em1 = $this->getDoctrine()->getManager();
         $em1->persist($style);
         $em1->flush();
-
-
-
-
+ 
         return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
     }
 

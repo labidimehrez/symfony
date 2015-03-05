@@ -36,7 +36,7 @@ class menu {
      * @ORM\Column(name="position", type="integer",unique=true)
      */
     private $position;
-    
+
     /**
      * @var string
      *
@@ -94,6 +94,7 @@ class menu {
     public function getPosition() {
         return $this->position;
     }
+
     public function getLien() {
         return $this->lien;
     }
@@ -102,8 +103,5 @@ class menu {
         $this->lien = $lien;
         return $this;
     }
- 
- 
-
 
 }

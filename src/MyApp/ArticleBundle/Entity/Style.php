@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\ArticleBundle\Entity;
-
+  
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,8 +25,8 @@ class Style {
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
+     *  
+     * @ORM\Column(name="title", type="string", length=255,nullable=false)
      */
     private $title;
 
@@ -39,15 +39,17 @@ class Style {
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="codecouleurfront", type="string", length=255)
+     *  
+     * @ORM\Column(name="codecouleurfront", type="string", length=255,nullable=false)
+     * 
      */
     private $codecouleurfront;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="codecouleurback", type="string", length=255)
+     * 
+     * @ORM\Column(name="codecouleurback", type="string", length=255,nullable=false)
+     * 
      */
     private $codecouleurback;
 
