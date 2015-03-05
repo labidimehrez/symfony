@@ -76,35 +76,40 @@ class sujetController extends Controller {
 
     public function sujetrecentAction() {
 
-      /********   pagination de tout les sujets  *********** */   
+        /*         * ******   pagination de tout les sujets  *********** */
         $em1 = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM MyAppForumBundle:sujet a";
         $query = $em1->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-                $query, $this->get('request')->query->get('page', 1)/* page number */, 
-                                                                10/* limit per page */
+                $query, $this->get('request')->query->get('page', 1)/* page number */, 10/* limit per page */
         );
         // parameters to template  
-        
-        
-        
-        
+
+
+
+
         $em = $this->getDoctrine()->getManager();
         /*         * *****  select all sujet from table ** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
 
-        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet(1);
+         foreach ($sujet as $s) {
+            $ids = $s->getId();/*** recuperer les tag associé dans un array multi dimension **/
+            $tag[$ids] = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);           
+         }
+ 
 
+        
+       
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
-       // var_dump($publicite);die();
-                         
+        // var_dump($publicite);die();
+
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag,
-                    'mostusedtag' => $mostusedtag,'pagination' => $pagination
-                ));
+                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination
+        ));
     }
 
     public function deleteAction($id) {
@@ -163,14 +168,14 @@ class sujetController extends Controller {
 
         $em->persist($sujet);
         $em->flush();
-        
+
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         $commentassociated = $em->getRepository('MyAppForumBundle:comment')->getCommentBySujet($id);
-     
+
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
-                    'sujet' => $sujet,'mostusedtag' => $mostusedtag,
-                    'tag' => $tag,'commentaire'=>$commentassociated
+                    'sujet' => $sujet, 'mostusedtag' => $mostusedtag,
+                    'tag' => $tag, 'commentaire' => $commentassociated
         ));
     }
 

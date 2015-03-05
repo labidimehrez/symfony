@@ -97,7 +97,8 @@
     <div class="contenudebat">  {{sujet.contenu|Contenu|truncate(188, true, '...')}}</div>  
 
     </br>
-    &nbsp;&nbsp;&nbsp;&nbsp; {% for tag in tag %} <b>{{tag.title}}</b>&nbsp; {% endfor%} 
+    &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' - '))}} </b>
+          
 
     </br>  </br> 
      {% if loop.index  == 5 %} 
