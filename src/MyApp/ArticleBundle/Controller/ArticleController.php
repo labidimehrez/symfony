@@ -10,6 +10,43 @@ class ArticleController extends Controller {
 
     public function addAction() {
 
+        $em = $this->getDoctrine()->getManager();
+        /** article fixed position * */
+        $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();
+        /** article NO fixedposition * */
+        $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();
+        
+        $lespositionsoccupés = $em->getRepository('MyAppArticleBundle:article')->getPositionOccuped();
+ 
+         /*** les 15 positions **/
+        $Totalpositions = array(
+            1 => 1,
+            2 => 2,
+            3 => 3,
+            4 => 4,
+            5 => 5,
+            6 => 6,
+            7 => 7,
+            8 => 8,
+            9 => 9,
+            10 => 10,
+            11 => 11,
+            12 => 12,
+            13 => 13,
+            14 => 14,
+            15 => 15,
+        );
+      
+
+        foreach ($articleNOfixedposition as $anfp) {  
+            $positionlibre = $anfp->getPosition();  //var_dump($positionlibre); die();      
+        }
+       
+        
+        foreach ($articlefixedposition as $afp) {
+            $positionoccuped = $afp->getPosition();     //  var_dump($positionoccuped);   die();    
+        }
+    
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();
@@ -38,11 +75,13 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-        $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();/** article fixed position **/
-        $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();/** article NO fixedposition **/
- 
+        /** article fixed position * */
+        $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();
+        /** article NO fixedposition * */
+        $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();
+
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
-                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet           
+                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
         ));
     }
 
