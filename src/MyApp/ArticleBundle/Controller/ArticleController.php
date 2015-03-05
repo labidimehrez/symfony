@@ -38,10 +38,9 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-        
+        $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();/** article fixed position **/
+        $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();/** article NO fixedposition **/
  
-        
-        
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet           
         ));

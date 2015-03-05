@@ -3,7 +3,10 @@
 
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<!-- css et js pour bundle JQuery  -->
+ 
+<!-- css et js pour bundle JQuery  -->
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
@@ -65,16 +68,25 @@
 
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <b style="color: silver">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
+        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
         <div  class="Addnewcomment"><p class="flip">Add new comment</p></div>
-        <div  class="tagtitlevoirun">{% for tag in tag %}<b> {{tag.title}} &nbsp;&nbsp;</b>{% endfor%}</div>
+        
+        <div  class="tagtitlevoirun">{% for tag in tag %}<b> {{tag.title}} &nbsp;&nbsp;</b>{% endfor%}
+              {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
+            
+             <a href="{#{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }#}">  
+                <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+            </a> 
+            {#% endif %#}
+        </div>
 
 
+     
 
 
 
@@ -94,10 +106,10 @@
 
     </div> 
 </div>
-
+ 
 
     {################################################################################################################################}
-
+  
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -128,3 +140,5 @@
         display: none;
     }
 </style>
+{########################################################################}
+  

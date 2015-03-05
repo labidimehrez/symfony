@@ -12,6 +12,21 @@ class ArticleRepository extends EntityRepository
             ->getResult();
             
     }
+    
+       public function getArticleWithFixedPosition()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MyAppArticleBundle:article p  WHERE p.fixedposition = 1 ')
+            ->getResult();
+            
+    }
+           public function getArticleNOFixedPosition()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MyAppArticleBundle:article p  WHERE p.fixedposition != 1 ')
+            ->getResult();
+            
+    }
 }
 
 ?>

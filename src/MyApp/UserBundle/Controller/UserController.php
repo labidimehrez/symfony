@@ -27,7 +27,7 @@ class UserController extends Controller {
       $ids = $user->getId();   
        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getSujetByUser($ids);
        foreach ($sujet as $s) /** update pour plusieurs sujets **/
-      /***   les sujets reuperé auont un nouveau id_user = 1  ***/           
+      /***   les sujets reuperé auront un nouveau id_user = 1  ***/           
        { $p = $em->createQueryBuilder()
                             ->update('MyAppForumBundle:sujet', 'd')
                             ->set('d.user', '1')

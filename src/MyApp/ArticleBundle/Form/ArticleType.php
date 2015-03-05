@@ -16,8 +16,10 @@ class ArticleType extends AbstractType {
         $builder
                 ->add('headline')
                 ->add('urlimg')
-                ->add('copyrights')
+                ->add('copyrights', null, array('required' => false))
+                
                 ->add('fixedposition', 'checkbox', array('required' => false, 'data' => true))
+                
                 ->add('style', 'entity', array(
                     'class' => 'MyApp\ArticleBundle\Entity\Style',
                     'property' => 'title',
@@ -28,10 +30,21 @@ class ArticleType extends AbstractType {
                 ->add('lien')
                 ->add('position', 'choice', array(
                     'choices' => array(
-                        '1' => '1', '2' => '2','3' => '3', '4' => '4',
-                        '5' => '5', '6' => '6','7' => '7', '8' => '8',
-                        '9' => '9', '10' => '10','11' => '11', '12' => '12',
-                        '13' => '13', '14' => '14','15' => '15'
+                        '1' => 'Position 1', 
+                        '2' => 'Position 2',
+                        '3' => 'Position 3',
+                        '4' => 'Position 4',
+                        '5' => 'Position 5',
+                        '6' => 'Position 6',
+                        '7' => 'Position 7',
+                        '8' => 'Position 8',
+                        '9' => 'Position 9',
+                        '10' => 'Position 10',
+                        '11' => 'Position 11', 
+                        '12' => 'Position 12',
+                        '13' => 'Position 13',
+                        '14' => 'Position 14',
+                        '15' => 'Position 15'
                         ),
                     'expanded' => false,
                     'multiple' => false
