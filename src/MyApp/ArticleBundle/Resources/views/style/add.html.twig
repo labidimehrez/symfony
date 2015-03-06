@@ -3,6 +3,7 @@
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
  {% block ajout_arstyle%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 <script src="http://code.jquery.com/jquery.js"></script>
 <!--<script src="{#{ asset('bundles/myappesprit/couleur/farbtastic.js')}}"></script>
 <link href="{{ asset('bundles/myappesprit/css/couleur/farbtastic.css') }#}"  rel="stylesheet" type="text/css" media="screen"  /> -->

@@ -15,10 +15,10 @@ class ArticleController extends Controller {
         $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();
         /** article NO fixedposition * */
         $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();
-        
+
         $lespositionsoccupés = $em->getRepository('MyAppArticleBundle:article')->getPositionOccuped();
  
-         /*** les 15 positions **/
+        /*         * * les 15 positions * */
         $Totalpositions = array(
             1 => 1,
             2 => 2,
@@ -36,17 +36,17 @@ class ArticleController extends Controller {
             14 => 14,
             15 => 15,
         );
-      
 
-        foreach ($articleNOfixedposition as $anfp) {  
+
+        foreach ($articleNOfixedposition as $anfp) {
             $positionlibre = $anfp->getPosition();  //var_dump($positionlibre); die();      
         }
-       
-        
+
+
         foreach ($articlefixedposition as $afp) {
             $positionoccuped = $afp->getPosition();     //  var_dump($positionoccuped);   die();    
         }
-    
+
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();

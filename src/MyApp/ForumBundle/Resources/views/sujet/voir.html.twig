@@ -10,17 +10,8 @@
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-<div class="Forside___Debat___Politik___Samfund___Indenrigs">
-    <B>Forside >  
-            {% set uriapresForside = app.request.uri %}
-            {%if 'voir' in  uriapresForside%}
-        <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" style="text-decoration:none;color:black;">
-            <u>Debats</u></a> > 
-             {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
-             {%endif%}
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
-    </B>
-</div> 
 
 <div class="contenudetemplate">
     <div class="paddingdebataveccomment">
@@ -67,7 +58,7 @@
 
 
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>

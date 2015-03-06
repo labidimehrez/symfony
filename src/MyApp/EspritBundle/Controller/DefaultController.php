@@ -33,6 +33,17 @@ class DefaultController extends Controller
     {
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
+   
+     
     
+     public function routeAction(){
+        $request = $this->container->get('request');
+        $routeName = $request->get('_route');
+     //   var_dump($routeName);die();
+                return $this->render('MyAppEspritBundle:Default:sousmenu.html.twig', array(
+ 
+                'routeName'=>$routeName
+        ));
+    }
  
 }

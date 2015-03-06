@@ -11,14 +11,8 @@
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-<div class="Forside___Debat___Politik___Samfund___Indenrigs">
-    <B>Forside >  
-            {% set uriapresForside = app.request.uri %}
-            {% if   "sujetrecent" in  uriapresForside %} Seneste debatter {%endif%} 
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
-
-    </B>
-</div>
 
 <div class="contenudetemplate">
     <div class="senestredebatt">
@@ -90,7 +84,7 @@
 
     </br>
     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration:none;"class="lienstyledebat" >{{sujet.sujet}}</a> 
+    <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" class="lienstyledebat" >{{sujet.sujet}}</a> 
 
 
     </br>

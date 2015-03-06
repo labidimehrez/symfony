@@ -1,0 +1,18 @@
+ 
+<div class="Forside___Debat___Politik___Samfund___Indenrigs">
+    <B>Forside >  
+          
+            {% if   "sujetrecent" in  routeName %} Seneste debatter {%endif%} 
+            {% if   "homepage" in  routeName %} Homepage {%endif%} 
+            {% if   "style_add" in  routeName %} Ajout de Style {%endif%}
+            {%if 'voir' in  routeName%}
+                <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" >
+                 <u>Debats</u></a> > 
+                  {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
+             {%endif%}
+            
+    </B>
+</div>
+
+
+    
