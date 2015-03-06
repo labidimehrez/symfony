@@ -1,0 +1,18 @@
+{# empty Twig template #}
+   <form role="form" method="post" {{ form_enctype(form) }} >
+                        
+                                    {#{form_widget(form.sujet, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }#}
+                                    
+                              
+                                    {#{form_widget(form.contenu, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }#}
+                                  
+                                    {{form_widget(form.tags) }} 
+ 
+                                    
+                                  {{form_widget(form._token)}}
+                                    <input type="submit"   value="Publish" class="alt_btn">
+                                    <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
+                                  
+                                    
+                           
+</form>

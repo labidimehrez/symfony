@@ -33,6 +33,10 @@ my_app_forum_sujet_edit:
     pattern:  /{id}/edit
     defaults: { _controller: MyAppForumBundle:sujet:edit}
     
+my_app_forum_sujet_specialedit:
+    pattern:  /{id}/specialedit
+    defaults: { _controller: MyAppForumBundle:sujet:specialedit}
+    
     
 my_app_forum_sujet_voir:
     pattern:  /{id}/voir
