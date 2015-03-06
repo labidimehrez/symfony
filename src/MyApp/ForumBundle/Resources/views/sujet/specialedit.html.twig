@@ -1,18 +1,15 @@
 {# empty Twig template #}
-   <form role="form" method="post" {{ form_enctype(form) }} >
-                        
-                                    {#{form_widget(form.sujet, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }#}
-                                    
-                              
-                                    {#{form_widget(form.contenu, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }#}
-                                  
-                                    {{form_widget(form.tags) }} 
- 
-                                    
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<div style="padding: 20px;">
+<form role="form" method="post" {{ form_enctype(form) }} >
+
+
+                                    {{form_widget(form.tags, { 'attr': { 'style': 'width: 150px' } }) }}</br></br>
+
                                   {{form_widget(form._token)}}
-                                    <input type="submit"   value="Publish" class="alt_btn">
-                                    <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
-                                  
-                                    
-                           
+    <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="reset" value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
+
 </form>
+ <div>

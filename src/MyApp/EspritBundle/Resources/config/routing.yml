@@ -18,7 +18,9 @@ publicite:
     resource: "@MyAppEspritBundle/Resources/config/routing/publicite.yml"
     prefix: /publicite 
     
-    
+notif:
+    resource: "@MyAppEspritBundle/Resources/config/routing/notification.yml"
+    prefix: /notif     
    
 menu:
     resource: "@MyAppEspritBundle/Resources/config/routing/menu.yml"

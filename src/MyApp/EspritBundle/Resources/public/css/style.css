@@ -3185,7 +3185,8 @@ background-color: #c52821;
 .silver{color: silver;font-weight: bold;}
 .timestyle{color: silver;font-weight: bold;padding-left: 100px;}
 .senestredebattelement{padding-bottom: 10px;}
-.lienstyledebat{ text-decoration:none; font-weight:bold;color: black;}
+.lienstyledebat{ text-decoration:none; font-weight:bold;color: black;padding-left: 55px;}
+ 
 .contenudetemplate{
 
     /*background-color: #f8fef0;
@@ -3324,4 +3325,4 @@ background-color: #c52821;
  div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }
  
  .commentassoci{padding:50px;width:850px;}
- 
+ .btn-annuler{background-color: transparent;border: 0px; color:#c52821;}

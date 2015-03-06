@@ -1,1 +1,3 @@
- 
+my_app_esprit_notif_show:
+    pattern:  /show
+    defaults: { _controller: MyAppEspritBundle:Default:testnotif } 

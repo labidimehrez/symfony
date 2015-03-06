@@ -15,26 +15,7 @@
 
 <div class="contenudetemplate">
     <div class="paddingdebataveccomment">
-        <!--<div class="senestredebatt">
-           <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Most Used Tag</p></b>
-   
-           {#% for mostusedtag in mostusedtag %}
-        <tr>
-            <td>
-                <a href="{#{path('my_app_esprit_homepage') }#}" style="text-decoration:none;color:black;"> 
-                       <b style="color: silver"> {#{sujet.datecreation|date('H:i')}#}</b></td>&nbsp;&nbsp;<td>
-                   <b style="color: black"> &nbsp;&nbsp;{#{mostusedtag.title}#}</b></td></br>
-           <b style="color: silver">-------------------------------------------</b></br>
-           </a>
-   
-           </tr>
-        {#% endfor%#}    
-   
-       </div>-->
-        <!--<div style="position: absolute;left: 980px;top: 380px;z-index: 9000;">
-        <a href="{#{path('my_app_forum_sujet_add') }#}" class="btn btn-warning btn-lg">                                                                                                                                                      
-                   Start a New Topic</a>
-        </div>-->
+     
         </br>  
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
@@ -46,7 +27,7 @@
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
-        <b style="color: black">{{sujet.user.username}}</b>
+        <b style="color: black" >{{sujet.user.username}}</b>
 {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
@@ -61,18 +42,30 @@
     
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b style="color: black"> <FONT size="5px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sujet.sujet}}</FONT></b>
+            
+        <b style="color: black;padding-left: 120px;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
         <div  class="Addnewcomment"><p class="flip">Add new comment</p></div>
         
-        <div  class="tagtitlevoirun">{% for tag in tag %}<b> {{tag.title}} &nbsp;&nbsp;</b>{% endfor%}
+        <div  class="tagtitlevoirun">
+                {% set counternombredetag = 0 %} 
+                {% for tag in tag %}
+                 <b> {% set counternombredetag = counternombredetag + 1 %}
+                                {{tag.title}} &nbsp;&nbsp;
+                 </b>
+                {% endfor%}
               {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
             
-             <a href="{#{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }#}">  
-                <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+             <a href="{{ path('my_app_forum_sujet_specialedit',{'id':sujet.id}) }}">  
+               {% if counternombredetag > 0%}
+                 <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                 {% endif%}
             </a> 
+            
+            
+             
             {#% endif %#}
         </div>
 

@@ -22,7 +22,7 @@ class sujetType extends AbstractType {
                 ## ->add('user')
                 ->add('tags', 'entity', array('class' => 'MyApp\ForumBundle\Entity\tag',
                     'property' => 'title',
-                    'expanded' => true,
+                    'expanded' => false,
                     'multiple' => true,
                     'required' => false))
 

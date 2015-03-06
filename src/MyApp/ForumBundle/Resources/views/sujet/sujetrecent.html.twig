@@ -85,8 +85,9 @@
     <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
 
     </br>
-    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" class="lienstyledebat" >{{sujet.sujet}}</a> 
+   
+    <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration: none; "class="lienstyledebat" >
+        {{sujet.sujet}}</a> 
 
 
     </br>

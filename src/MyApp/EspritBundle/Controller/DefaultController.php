@@ -34,6 +34,12 @@ class DefaultController extends Controller
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
    
+    
+          public function testnotifAction()
+    {
+        return $this->render('MyAppEspritBundle:Default:testnotif.html.twig');
+    }
+   
      
     
      public function routeAction(){
