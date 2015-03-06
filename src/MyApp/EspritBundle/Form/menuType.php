@@ -21,7 +21,6 @@ class menuType extends AbstractType
             ->add('name')
             ->add('position')
             ->add('lien')
-                
             
         ;
     }

@@ -22,7 +22,9 @@
 
 
         <b> <span style="padding: 30px;">{{mostusedtag.title|truncate(32, true, '...')}}</span></b> </br>
-        <font style="color: silver;"><center>-------------------------------------------</center></font> 
+        <font style="color: silver;"><center>
+                            {% if loop.index > loop.last%}-------------------------------------------{%endif%}
+        </center></font> 
 
 
 
@@ -127,7 +129,6 @@
 <div id="dialog">   
     <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
     <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6> 
-
 </div> 
 
 
