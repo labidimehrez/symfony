@@ -17,36 +17,33 @@ class ArticleController extends Controller {
         $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();
 
         $lespositionsoccupés = $em->getRepository('MyAppArticleBundle:article')->getPositionOccuped();
+        $pos=array();// tableau vide
+        $positionlibre=array();// tableau vide
+        foreach ($lespositionsoccupés as $s){
+            $a = $s->getPosition(); // recupere les positions des artciles ajoutés
+            array_push($pos, $a );  // ajouter la position au tableau vide
+        }
+        if (! in_array("1", $pos) ) {array_push($positionlibre, 1 );} 
+        if (! in_array("2", $pos) ) {array_push($positionlibre, 2 );} 
+        if (! in_array("3", $pos) ) {array_push($positionlibre, 3 );} 
+        if (! in_array("4", $pos) ) {array_push($positionlibre, 4 );} 
+        if (! in_array("5", $pos) ) {array_push($positionlibre, 5 );} 
+        if (! in_array("6", $pos) ) {array_push($positionlibre, 6 );} 
+        if (! in_array("7", $pos) ) {array_push($positionlibre, 7 );} 
+        if (! in_array("8", $pos) ) {array_push($positionlibre, 8 );} 
+        if (! in_array("9", $pos) ) {array_push($positionlibre, 9 );}        
+        if (! in_array("10",$pos) ){array_push($positionlibre, 10 );} 
+        if (! in_array("11",$pos) ){array_push($positionlibre, 11 );} 
+        if (! in_array("12",$pos) ){array_push($positionlibre, 12 );} 
+        if (! in_array("13",$pos) ){array_push($positionlibre, 13 );} 
+        if (! in_array("14",$pos) ){array_push($positionlibre, 14 );} 
+        if (! in_array("15",$pos) ){array_push($positionlibre, 15 );} 
+   
+      //  $positionlibre  tableau qui contient les position vides
+        $premierepositionlibre =reset($positionlibre);// integer => premiere position libre 
+    
+        
  
-        /*         * * les 15 positions * */
-        $Totalpositions = array(
-            1 => 1,
-            2 => 2,
-            3 => 3,
-            4 => 4,
-            5 => 5,
-            6 => 6,
-            7 => 7,
-            8 => 8,
-            9 => 9,
-            10 => 10,
-            11 => 11,
-            12 => 12,
-            13 => 13,
-            14 => 14,
-            15 => 15,
-        );
-
-
-        foreach ($articleNOfixedposition as $anfp) {
-            $positionlibre = $anfp->getPosition();  //var_dump($positionlibre); die();      
-        }
-
-
-        foreach ($articlefixedposition as $afp) {
-            $positionoccuped = $afp->getPosition();     //  var_dump($positionoccuped);   die();    
-        }
-
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();
@@ -56,6 +53,9 @@ class ArticleController extends Controller {
 
             if ($form->isValid()) {
                 $article = $form->getData();
+                /*** j 'affecte l a'rticle a la premiere position libre **/
+                $article->setPosition($premierepositionlibre);
+                /*** j 'affecte l a'rticle a la premiere position libre **/
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($article);
                 $em->flush();

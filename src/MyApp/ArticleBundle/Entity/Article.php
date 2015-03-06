@@ -172,15 +172,7 @@ class Article {
     public function getFixedposition() {
         return $this->fixedposition;
     }
-
-    public function getPlacement() {
-        return $this->placement;
-    }
-
-    public function setPlacement($placement) {
-        $this->placement = $placement;
-        return $this;
-    }
+ 
 
     /**
      * Set lien

@@ -32,7 +32,7 @@ class ArticleRepository extends EntityRepository
      public function getPositionOccuped()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT p.position FROM MyAppArticleBundle:article p  ')
+            ->createQuery('SELECT p FROM MyAppArticleBundle:article p  ')
             ->getResult();
             
     }
