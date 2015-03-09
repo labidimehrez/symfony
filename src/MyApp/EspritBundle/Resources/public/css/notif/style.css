@@ -14,10 +14,10 @@
   background: rgba(0, 0, 0, 0.5);
 }
 .notificationicon:hover i {
-  color: #fff;
+ // color: #fff;
 }
 .notificationicon.on i {
-  color: #ddd;
+
 }
 .notifications {
   max-width: 300px;
@@ -41,7 +41,7 @@
   position: absolute;
   top: -20px;
   left: 140px;
-  border: 10px solid #fff;
+  //border: 10px solid #fff;
   border-color: transparent transparent #fff transparent;
 }
 .notifications.open {
@@ -99,7 +99,7 @@
 }
 .notifications .notifbox li.notif {
   min-height: 70px;
-  border-bottom: 1px solid #ccc;
+  //border-bottom: 1px solid #ccc;
   position: relative;
 }
 .notifications .notifbox li.notif:last-child {

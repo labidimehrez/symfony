@@ -13,10 +13,9 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
          /*********** **    recuperation de tout les menus  *********** */
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
-
-       
+      
         return $this->render('MyAppEspritBundle::layout.html.twig', array(
-                 'menu' => $menu
+                 'menu' => $menu 
             
         ));
         
@@ -35,10 +34,16 @@ class DefaultController extends Controller
     }
    
     
-          public function testnotifAction()
+         public function testnotifAction()
     {
-        return $this->render('MyAppEspritBundle:Default:testnotif.html.twig');
-    }
+          
+        $em = $this->getDoctrine()->getManager();      
+        $numberNotif = $em->getRepository('MyAppEspritBundle:notification')->getNumberAllNotif();// get a number of rows
+        $array = array();  // declaration tableau vide a utiliser apres
+        $array["1"] = $numberNotif; // inserer l entier dans le tableau
+   
+        return $this->render('MyAppEspritBundle:Default:testnotif.html.twig', array('numberNotif' => $array)); // j 'envoie un tableau a une valeur converti dans twig avec join );
+    } 
    
      
     

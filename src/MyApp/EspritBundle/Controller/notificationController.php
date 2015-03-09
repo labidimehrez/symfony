@@ -6,8 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class notificationController extends Controller
 {
-//    public function indexAction()
-//    {
-//        return $this->render('MyAppEspritBundle:Default:index.html.twig');
-//    }
+        public function shownumberAction() {
+            
+        $em = $this->getDoctrine()->getManager();      
+        $numberNotif = $em->getRepository('MyAppEspritBundle:notification')->getNumberAllNotif();// get a number of rows
+        $array = array();  // declaration tableau vide a utiliser apres
+        $array["1"] = $numberNotif; // inserer l entier dans le tableau
+     
+        return $this->render('MyAppEspritBundle:notification:notifnumber.html.twig', array(
+        'numberNotif' => $array)); // j 'envoie un tableau a une valeur converti dans twig avec join
+        
+        }
 }

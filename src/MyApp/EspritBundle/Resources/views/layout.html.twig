@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 {% block head %} 
- {% include 'MyAppEspritBundle:Default:testnotif.html.twig'%} 
+ 
+ {% include   'MyAppEspritBundle:notification:notifnumber.html.twig' %}
+ 
+  
     <head>    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" /> 
@@ -104,7 +107,7 @@
 {% endif %}
 
 
-    <div class="MESSAGE4">4</div>
+    <div class="MESSAGE4"></div>
 
     <div class="Hvad">Hvad søger du?</div>
     <div class="SOL">SOL</div>

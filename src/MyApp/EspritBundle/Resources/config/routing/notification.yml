@@ -1,3 +1,8 @@
 my_app_esprit_notif_show:
     pattern:  /show
     defaults: { _controller: MyAppEspritBundle:Default:testnotif } 
+    
+    
+my_app_esprit_notif_shownumber:
+    pattern:  /shownumber
+    defaults: { _controller: MyAppEspritBundle:notification:shownumber } 
