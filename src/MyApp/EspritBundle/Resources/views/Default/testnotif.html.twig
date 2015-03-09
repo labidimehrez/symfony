@@ -1,18 +1,11 @@
-{# empty Twig template #}
-<html>
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <title>CodePen - Notifications</title>
+ 
 
   <style>
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 </style>
 
-  <link rel='stylesheet prefetch' href='http://cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css'>
+ <!-- <link rel='stylesheet prefetch' href='http://cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css'>-->
 
     <style>
 .contain {
@@ -22,10 +15,16 @@
   padding: 20px;
 }
 .notificationicon {
-  height: 44px;
+  /*height: 44px;
   position: absolute;
   top: 20px;
-  left: 170px;
+  left: 170px;*/
+height: 5px;
+width: 5px;
+position: absolute;
+top: 150px;
+left: -410px;
+z-index: 500000;
 }
 .notificationicon:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -45,7 +44,7 @@
   box-shadow: 0px 0px 20px #666;
   position: absolute;
   opacity: 1;
-  top: 65px;
+ // top: 65px;
   transition: .2s;
   opacity: 0;
   left: 100px;
@@ -64,6 +63,7 @@
 .notifications.open {
   opacity: 1;
   transition: .2s;
+  z-index: 500000;
 }
 .notifications li {
   padding: 5px;
@@ -167,15 +167,14 @@
 <script src="{{ asset('bundles/myappesprit/css/notif/prefixfree.min.js') }}" type="text/javascript"></script>
   
 
-</head>
+ 
 
-<body>
-
-  <body>
-  <div class="contain">
-    <a href="#" class="button notificationicon on">Check Notifications</a>
-
-    <ul id="notificationMenu" class="notifications">
+ 
+<div class="contain" style="position: absolute;left: 200px;top: -40px;">  
+    <a href="#" class="button notificationicon on" style="left: 570px;top: 30px;background-color: transparent;">a</a> 
+    
+    
+    <ul id="notificationMenu" class="notifications" style="left: 462px;top: 90px;">
       <li class="titlebar">
         <span class="title">Notifications</span>
         <span class="settings"><i class="icon-cog"></i>
@@ -263,13 +262,13 @@
         <a>See All</a>
       </li>
     </ul>
-  </div>
+  </div> 
 </body>
  
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/foundation/4.1.2/js/foundation.min.js'></script>
  
 <script src="{{ asset('bundles/myappesprit/css/notif/index.js') }}" type="text/javascript"></script>
-</body>
-
-</html>
+ 
+ 
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/notif/foundation.min.css') }}"/> 
