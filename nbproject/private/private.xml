@@ -12,9 +12,16 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/notif/foundation.min.css</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/add.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/testnotif.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Repository/notificationRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing/notification.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/notificationController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/menuController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/testnotif.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/notifnumber.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
         </group>
     </open-files>
