@@ -62,11 +62,15 @@
 
              {%if  sujet.user.image is not null %}
 
-    <a href="#" id="dialog-link"> <img src="{{sujet.user.image }}"   class="imageuser" alt="" /></a> 
+    <a href="#" id="dialog-link"> 
+        <img src="{{sujet.user.image }}"   class="imageuser" alt="" />
+    </a> 
 
              {%else%}
 
-    <a href="#" id="dialog-link"><img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" /> </a>  
+    <a href="#" id="dialog-link">
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />
+    </a>  
 
              {%endif%}
 
@@ -127,7 +131,7 @@
 
 
 
-<div id="dialog">   
+<div id="dialog" >   
     <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
     <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6> 
 </div> 
