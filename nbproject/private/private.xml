@@ -13,15 +13,28 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Repository/notificationRepository.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing/notification.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/style/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/style/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/specialedit.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/edit.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/notificationController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/menuController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Repository/sujetRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/add.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/testnotif.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/notifnumber.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/security.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing/notification.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/publicite/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/style/edit.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/composer.json</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/edit.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
         </group>
     </open-files>

@@ -5,10 +5,11 @@ use Doctrine\ORM\EntityRepository;
 
 class notificationRepository extends EntityRepository
 {
-   public function getNumberAllNotif()
+   public function getNumberAllNotif($id)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT COUNT(p)  FROM MyAppEspritBundle:notification p ')
+            ->createQuery('SELECT COUNT(p)  FROM MyAppEspritBundle:notification p    WHERE p.user=:id ')
+                ->setParameter('id', $id)
             ->getSingleScalarResult();// return integer
             
     }

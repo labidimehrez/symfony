@@ -28,8 +28,8 @@
         "Trsteel/ckeditor-bundle": "~1.6",
         "craue/twigextensions-bundle": "~2.0",
         "knplabs/knp-paginator-bundle": "~2.4" , 
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
-        
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "jms/security-extra-bundle": "dev-master"
         
     },
     "scripts": {

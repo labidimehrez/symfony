@@ -1,3 +1,4 @@
+{% if is_granted( 'ROLE_USER' ) %} 
 <div style="font-size: 14px;
 color: rgb(255, 255, 255);
 font-weight: bold;
@@ -12,6 +13,8 @@ top: 20.6px;
 z-index: 54400000;
 position: fixed;" >
     
-    
+   
 {{numberNotif|join}}
 </div>
+
+{% endif %}
