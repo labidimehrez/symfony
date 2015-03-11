@@ -5,8 +5,8 @@
 
         <li class=" notif">
           
-             {% set route = notif.lien %}  {% set id = notif.idsource %}
-             
+             {% set route = notif.lien %}  {% set id = notif.sujet.id %}
+         
          <a href="{{path(route,{'id':id} ) }}" >
             <div class="imageblock">
                 {% if notif.user.image is not null %}

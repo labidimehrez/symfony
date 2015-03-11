@@ -4,10 +4,10 @@ namespace MyApp\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Form;
+ 
 use MyApp\ForumBundle\Form\sujetType;
 use MyApp\ForumBundle\Entity\sujet;
-
+use MyApp\EspritBundle\Entity\notification;
 class sujetController extends Controller {
 
     public function addAction() {
@@ -28,13 +28,20 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
-
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
+                 /****                       ajout de notification                        ***/
+                $notif = new notification();
+                $notif->setUser($user);
+                $notif->setSujet($sujet);
+                $notif->setContenu("You Topic is added !!");
+                $notif->setLien("my_app_forum_sujet_voir");              
+                $em->persist($notif); 
+                 
                 $em->flush();
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
@@ -46,7 +53,13 @@ class sujetController extends Controller {
                             'form' => $form->createView()));
             }
         }
+                                                 /**** Creation de la notification associé ***/
+        
 
+         
+          
+         
+                
         return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
                     'form' => $form->createView()
         ));
@@ -169,7 +182,7 @@ class sujetController extends Controller {
         $em->persist($sujet);
         
             //** get the associated notif to remove ***/
-        $notif =$em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('idsource' => $id));
+        $notif =$em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
       //  var_dump($notif);die();
         $em->remove($notif); 
         $em->flush();

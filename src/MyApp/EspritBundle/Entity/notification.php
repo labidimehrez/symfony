@@ -28,12 +28,14 @@ class notification
      */
  
    protected $user;
-   /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_source", type="integer",unique=true)
+ 
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\sujet")
+     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id",nullable=true, onDelete="CASCADE")
      */
-    private $idsource;
+ 
+   protected $sujet;
+   
     /**
      * @var string
      *
@@ -57,28 +59,7 @@ class notification
         return $this->id;
     }
 
-    /**
-     * Set idsource
-     *
-     * @param integer $idsource
-     * @return notification
-     */
-    public function setIdsource($idsource)
-    {
-        $this->idsource = $idsource;
-    
-        return $this;
-    }
-
-    /**
-     * Get idsource
-     *
-     * @return integer 
-     */
-    public function getIdsource()
-    {
-        return $this->idsource;
-    }
+ 
     
 
     public function getUser() {
@@ -103,6 +84,15 @@ class notification
 
     public function setContenu($contenu) {
         $this->contenu = $contenu;
+        return $this;
+    }
+
+    public function getSujet() {
+        return $this->sujet;
+    }
+
+    public function setSujet($sujet) {
+        $this->sujet = $sujet;
         return $this;
     }
 

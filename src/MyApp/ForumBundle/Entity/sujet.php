@@ -24,6 +24,7 @@ class sujet {
     private $id;
     protected $commentaires;
     protected $comment;
+    protected $notifications;
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
@@ -239,5 +240,14 @@ class sujet {
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datecreation = new \DateTime();
     }
+    public function getNotifications() {
+        return $this->notifications;
+    }
+
+    public function setNotifications($notifications) {
+        $this->notifications = $notifications;
+        return $this;
+    }
+
 
 }
