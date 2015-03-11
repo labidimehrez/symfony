@@ -31,10 +31,21 @@ class notification
    /**
      * @var integer
      *
-     * @ORM\Column(name="nombre", type="integer",unique=true)
+     * @ORM\Column(name="id_source", type="integer",unique=true)
      */
-    private $nombre;
-
+    private $idsource;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lien", type="string", length=20000)
+     */
+    private $lien;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="string", length=255,unique=true)
+     */
+    private $contenu;
 
     /**
      * Get id
@@ -47,26 +58,26 @@ class notification
     }
 
     /**
-     * Set nombre
+     * Set idsource
      *
-     * @param integer $nombre
+     * @param integer $idsource
      * @return notification
      */
-    public function setNombre($nombre)
+    public function setIdsource($idsource)
     {
-        $this->nombre = $nombre;
+        $this->idsource = $idsource;
     
         return $this;
     }
 
     /**
-     * Get nombre
+     * Get idsource
      *
      * @return integer 
      */
-    public function getNombre()
+    public function getIdsource()
     {
-        return $this->nombre;
+        return $this->idsource;
     }
     
 
@@ -77,4 +88,23 @@ class notification
     public function setUser($user) {
         $this->user = $user;
     }
+    public function getLien() {
+        return $this->lien;
+    }
+
+    public function getContenu() {
+        return $this->contenu;
+    }
+
+    public function setLien($lien) {
+        $this->lien = $lien;
+        return $this;
+    }
+
+    public function setContenu($contenu) {
+        $this->contenu = $contenu;
+        return $this;
+    }
+
+
 }

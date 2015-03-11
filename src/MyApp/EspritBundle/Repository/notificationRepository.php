@@ -13,6 +13,15 @@ class notificationRepository extends EntityRepository
             ->getSingleScalarResult();// return integer
             
     }
+    
+     public function getAllNotif($id)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MyAppEspritBundle:notification p    WHERE p.user=:id ')
+                ->setParameter('id', $id)
+            ->getSingleScalarResult();// return integer
+            
+    }
 }
 
 ?>

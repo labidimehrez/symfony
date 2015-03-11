@@ -1,8 +1,14 @@
 my_app_esprit_notif_show:
     pattern:  /testnotif
     defaults: { _controller: MyAppEspritBundle:notification:testnotif } 
-    
-    
+my_app_esprit_notif_showall:
+    pattern:  /showall
+    defaults: { _controller: MyAppEspritBundle:notification:showall }   
+   
 my_app_esprit_notif_shownumber:
     pattern:  /shownumber
     defaults: { _controller: MyAppEspritBundle:notification:shownumber } 
+
+my_app_esprit_notif_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: MyAppEspritBundle:notification:delete }  

@@ -1,0 +1,29 @@
+{# empty Twig template #}
+
+{% for notif in notif %}
+
+
+        <li class=" notif">
+          
+             {% set route = notif.lien %}  {% set id = notif.idsource %}
+             
+         <a href="{{path(route,{'id':id} ) }}" >
+            <div class="imageblock">
+                {% if notif.user.image is not null %}
+                <img src="{{notif.user.image}}" class="notifimage" />
+                {%else%}
+                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="notifimage"  />
+                {%endif%}
+            </div> 
+            <div class="messageblock">
+              <div class="message">{{notif.contenu}} 
+              </div>
+              <div class="messageinfo">
+                <i class="icon-comment"></i>4 hours ago
+              </div>
+            </div>
+          </a>
+        </li>
+ 
+
+{% endfor %}

@@ -104,11 +104,11 @@ class sujetController extends Controller {
 
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         // var_dump($publicite);die();
-
+        $notif = $em->getRepository('MyAppEspritBundle:notification')->findAll();
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag,
-                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination
+                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination,'notif'=>$notif
         ));
     }
 
@@ -154,6 +154,7 @@ class sujetController extends Controller {
 
     public function voirAction($id, Request $request) {
 
+        
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
@@ -165,8 +166,12 @@ class sujetController extends Controller {
         $nblect = $sujet->getNblect();
         $nblect = $nblect + 1;
         $sujet->setNblect($nblect);
-
         $em->persist($sujet);
+        
+            //** get the associated notif to remove ***/
+        $notif =$em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('idsource' => $id));
+      //  var_dump($notif);die();
+        $em->remove($notif); 
         $em->flush();
 
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
