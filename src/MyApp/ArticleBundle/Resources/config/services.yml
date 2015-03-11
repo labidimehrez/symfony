@@ -5,3 +5,17 @@ services:
 #    my_app_article.example:
 #        class: %my_app_article.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+    collectify.style.manager.class: MyApp\ArticleBundle\Services\StyleManager
+    collectify.article.manager.class: MyApp\ArticleBundle\Services\ArticleManager
+
+services:
+    collectify_style_manager:
+        class: %collectify.style.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+
+    collectify_article_manager:
+        class: %collectify.article.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+
+    

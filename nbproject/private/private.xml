@@ -11,19 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing/notification.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/showall.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/notificationController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Controller/UserController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Entity/notification.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/testnotif.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing/menu.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/notification/notifnumber.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

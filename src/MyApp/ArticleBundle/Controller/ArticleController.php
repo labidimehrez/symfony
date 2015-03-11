@@ -70,17 +70,17 @@ class ArticleController extends Controller {
     }
 
     public function showAction() {
+        
+        
         $em = $this->getDoctrine()->getManager();
         /*         * *******************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-         
-       
-       
+        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();     
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet 
         ));
+  
     }
 
     public function deleteAction(article $article) {

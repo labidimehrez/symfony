@@ -21,8 +21,8 @@ class StyleController extends Controller {
     }
 
     public function saveAction(Request $request) {
-        $em = $this->getDoctrine()->getManager();
-        $style2 = $em->getRepository('MyAppArticleBundle:style')->findAll();
+        $manager = $this->get('collectify_style_manager');/** equivalent de em manager **/
+        $style2 = $manager->getAll();
         /*** form a afficher dans la vue **/
         $form = $this->createFormBuilder($style2)
                 ->add('name', 'text')
@@ -45,19 +45,18 @@ class StyleController extends Controller {
         $style->setCodecouleurfront($ColorForFont);
         $style->setName($name);
         $style->setTitle($title);
-
-        $em1 = $this->getDoctrine()->getManager();
-        $em1->persist($style);
-        $em1->flush();
- 
+  
+        $manager->persist($style);
+         
+         
         return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
     }
 
     public function showAction() {
-        $em = $this->getDoctrine()->getManager();
-        /*         * *******************    recuperation de tout les styles    ************ */
-        $style = $em->getRepository('MyAppArticleBundle:style')->getAllStyle();
-        //var_dump($style);die();
+
+        $manager = $this->get('collectify_style_manager');/** equivalent de em manager **/
+        $style = $manager->getAll();
+       
         return $this->render('MyAppArticleBundle:style:show.html.twig', array(
                     'style' => $style
         ));

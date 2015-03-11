@@ -13,3 +13,13 @@ services:
         class: %security.authentication.success_handler.class%
         public: false
         arguments:  [@router, @security.context]
+        
+        
+parameters:
+    collectify.user.manager.class: MyApp\UserBundle\Services\UserManager
+    
+
+services:
+    collectify_user_manager:
+        class: %collectify.user.manager.class%
+        arguments: [@doctrine.orm.entity_manager]

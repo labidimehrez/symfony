@@ -34,6 +34,7 @@ class sujetController extends Controller {
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
+                // if($sujet->getNotification() ==TRUE ){  traitement }
                  /****                       ajout de notification                        ***/
                 $notif = new notification();
                 $notif->setUser($user);
@@ -53,8 +54,7 @@ class sujetController extends Controller {
                             'form' => $form->createView()));
             }
         }
-                                                 /**** Creation de la notification associé ***/
-        
+                                             
 
          
           

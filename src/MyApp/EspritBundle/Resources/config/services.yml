@@ -6,4 +6,21 @@ services:
 #        class: %my_app_esprit.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
 
- 
+parameters:
+    collectify.menu.manager.class: MyApp\EspritBundle\Services\MenuManager
+    collectify.notification.manager.class: MyApp\EspritBundle\Services\NotificationManager
+    collectify.publicite.manager.class: MyApp\EspritBundle\Services\PubliciteManager
+    
+    
+services:
+    collectify_menu_manager:
+        class: %collectify.menu.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+
+    collectify_notification_manager:
+        class: %collectify.notification.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+  
+    collectify_publicite_manager:
+        class: %collectify.publicite.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
