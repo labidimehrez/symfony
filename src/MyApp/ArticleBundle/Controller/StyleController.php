@@ -65,7 +65,9 @@ class StyleController extends Controller {
     public function deleteAction(style $style) {
         $em = $this->getDoctrine()->getManager();
         $selectstyle = $em->getRepository('MyAppArticleBundle:style')->find($style->getId());
-
+  //      $manager = $this->get('collectify_style_manager');/** equivalent de em manager **/
+  //      $manager->remove($style);    
+         
         $em->remove($style);
         $em->flush();
         $this->get('session')->getFlashBag()->set('message', 'Ce style disparait !!');

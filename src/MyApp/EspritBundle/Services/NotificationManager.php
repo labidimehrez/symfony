@@ -1,51 +1,63 @@
 <?php
+
 namespace MyApp\EspritBundle\Services;
 
 use Doctrine\ORM\EntityManager;
 
-class NotificationManager
-{
+class NotificationManager {
+
     private $em;
     private $repository;
 
-    public function __construct(EntityManager $em)
-    {
+    public function __construct(EntityManager $em) {
         $this->em = $em;
         $this->repository = $em->getRepository('MyAppEspritBundle:notification');
     }
 
-    public function getAll()
-    {
+    public function getAll() {
         return $this->repository->findAll();
     }
 
-   /* public function getSheetByUser($user)
-    {
-        return $this->repository->getAll($user);
-    }
+    /* public function getSheetByUser($user)
+      {
+      return $this->repository->getAll($user);
+      }
+     */
 
-    public function getSheet($id)
-    {
+    public function getNotification($id) {
         return $this->repository->find($id);
     }
-
-    public function validate($sheet)
-    {
-        $sheet->setValidated(true);
-
-        $this->doFlush($sheet);
-    }*/
-
-    public function persist($notif )
-    {
-        $this->doFlush($notif);
+ 
+    
+    
+    public function addNotif($user, $sujet, $notif,$notifboolean) { /** Seul les Topic avec Notif deja Coché :) */
+        if($notifboolean==TRUE){
+        $notif->setUser($user);
+        $notif->setSujet($sujet);
+        $notif->setContenu("You Topic is added !!");
+        $notif->setLien("my_app_forum_sujet_voir");
+        return $notif;}
+        else{return null;}
     }
 
-    public function doFlush($notif)
-    {
+    public function persist($notif) {
+        if($notif != NULL){ /* si la notif n'est pas decoché , notif  est Null => rien a flusher ;) */
+        $this->doFlush($notif);}
+    }
+
+    public function remove($notif) {
+         if($notif != NULL){ 
+        $this->em->remove($notif);
+        $this->em->flush();
+
+         return $notif;}
+    }
+
+    public function doFlush($notif) {
         $this->em->persist($notif);
         $this->em->flush();
 
         return $notif;
     }
+
 }

@@ -49,16 +49,16 @@ class notificationController extends Controller {
 
     
         public function deleteAction($id) {
- 
-        $em = $this->getDoctrine()->getManager();
-        $notif = $em->getRepository('MyAppEspritBundle:notification')->find($id);
+            
+        $manager = $this->get('collectify_notification_manager');/** equivalent de em manager **/
+        $notif = $manager->getNotification($id);             
         if (!$notif) {
             throw $this->createNotFoundException('no  notif found for id ' . $id);
         }
-        $em->remove($notif);
-        $em->flush();
+        $manager->remove($notif);
+
         
-      return $id;
+        return null;
     }
 
 }

@@ -2,13 +2,22 @@ parameters:
 #    my_app_forum.example.class: MyApp\ForumBundle\Example
 
 services:
-     contenu:
-         class: MyApp\ForumBundle\Twig\Extension\ContenuExtension
-         tags:
-           - {name:twig.extension }
-     difftime:
-         class: MyApp\ForumBundle\Twig\Extension\DifftimeExtension
-         tags:
-           - {name:twig.extension }
+
            ################################################
-  
+parameters:
+    collectify.sujet.manager.class: MyApp\ForumBundle\Services\SujetManager
+ 
+    
+    
+services:
+    collectify_sujet_manager:
+        class: %collectify.sujet.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+    contenu:
+        class: MyApp\ForumBundle\Twig\Extension\ContenuExtension
+        tags:
+          - {name:twig.extension }
+    difftime:
+        class: MyApp\ForumBundle\Twig\Extension\DifftimeExtension
+        tags:
+          - {name:twig.extension }

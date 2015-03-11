@@ -42,6 +42,16 @@ class StyleManager
         $this->doFlush($style);
     }
 
+        
+    public function remove($style)
+    {
+        $this->em->remove($style);
+        $this->em->flush();
+
+        return $style;
+    }
+    
+    
     public function doFlush($style)
     {
         $this->em->persist($style);

@@ -4,10 +4,10 @@ namespace MyApp\ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
- 
 use MyApp\ForumBundle\Form\sujetType;
 use MyApp\ForumBundle\Entity\sujet;
 use MyApp\EspritBundle\Entity\notification;
+
 class sujetController extends Controller {
 
     public function addAction() {
@@ -25,25 +25,22 @@ class sujetController extends Controller {
 
             $form->bind($request);
 
-            if ($form->isValid()) {
+            if ($form->isValid()  ) {
 
                 $sujet = $form->getData();
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
-
+                $notifboolean = $sujet->getNotification(); 
+                
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
-                // if($sujet->getNotification() ==TRUE ){  traitement }
-                 /****                       ajout de notification                        ***/
+                 $em->flush();
+                /*                 * **                       ajout de notification                        ** */     
+                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
                 $notif = new notification();
-                $notif->setUser($user);
-                $notif->setSujet($sujet);
-                $notif->setContenu("You Topic is added !!");
-                $notif->setLien("my_app_forum_sujet_voir");              
-                $em->persist($notif); 
-                 
-                $em->flush();
+                $notif1 = $manager->addNotif($user,$sujet,$notif,$notifboolean); 
+                $manager->persist($notif1);
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
             }
@@ -54,12 +51,12 @@ class sujetController extends Controller {
                             'form' => $form->createView()));
             }
         }
-                                             
 
-         
-          
-         
-                
+
+
+
+
+
         return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
                     'form' => $form->createView()
         ));
@@ -67,10 +64,8 @@ class sujetController extends Controller {
 
     public function showAction() {
 
-        $em = $this->getDoctrine()->getEntityManager();
-        /*         * *******************    recuperation de tout les sujets    ************ */
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-        //var_dump($sujet);die();
+        $manager = $this->get('collectify_sujet_manager');/** equivalent de em manager * */
+        $sujet = $manager->getAll();
         return $this->render('MyAppForumBundle:sujet:show.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -81,7 +76,7 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * **************  recuperation de tout les sujets  *********** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-//var_dump($sujet);die();
+        //var_dump($sujet);die();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet
         ));
@@ -121,7 +116,7 @@ class sujetController extends Controller {
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag,
-                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination,'notif'=>$notif
+                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination, 'notif' => $notif
         ));
     }
 
@@ -166,27 +161,22 @@ class sujetController extends Controller {
     }
 
     public function voirAction($id, Request $request) {
-
         
-        $em = $this->getDoctrine()->getManager();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+        $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager **/
+        $sujet = $managersujet->getOne($id); 
+   
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
-        /*         * *** le debat que je lis aura la date_lus updated => new date() ***** */
-        $sujet->setDatelus(new \DateTime());
-        /*         * **** le nombre de lecture s'incremente de plus un   **** */
-        $nblect = $sujet->getNblect();
-        $nblect = $nblect + 1;
-        $sujet->setNblect($nblect);
-        $em->persist($sujet);
+ 
+         $managersujet->IncrementandSetNewDateLus($sujet);/* increment NBlect sujet et update DateLus */
+        //** get the associated notif to remove ***/
+        $em = $this->getDoctrine()->getManager();
+        $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
+     
+        $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager **/
+        $managernotif->remove($notif);
         
-            //** get the associated notif to remove ***/
-        $notif =$em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
-      //  var_dump($notif);die();
-        $em->remove($notif); 
-        $em->flush();
-
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         $commentassociated = $em->getRepository('MyAppForumBundle:comment')->getCommentBySujet($id);
@@ -217,7 +207,7 @@ class sujetController extends Controller {
     }
 
     public function specialeditAction($id) {
-       /*         * ************ simple edit action *************** */
+        /*         * ************ simple edit action *************** */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         $s = $sujet->getSujet(); // get the current sujet pour le renvooyer aprés :)
@@ -229,16 +219,14 @@ class sujetController extends Controller {
         $form = $this->createForm(new sujetType(), $sujet);
         $request = $this->getRequest();
 
-     
-             $form->bind($request);
-             $sujet = $form->getData(); // les données de la form 
-                $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
-                $sujet->setContenu($c);// j a'joute le Contenu recuperé avant a la requete update
-                $em->flush();
+
+        $form->bind($request);
+        $sujet = $form->getData(); // les données de la form 
+        $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
+        $sujet->setContenu($c); // j a'joute le Contenu recuperé avant a la requete update
+        $em->flush();
 
         return $this->render('MyAppForumBundle:sujet:specialedit.html.twig', array('form' => $form->createView()));
-           
-        }
-
+    }
 
 }
