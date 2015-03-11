@@ -185,6 +185,7 @@
 {###########                          pour que le menu rouge bouge et se colle en haut                        #######}
  {% block javascripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="{{ asset('bundles/myappesprit/js/menurouge.js') }}" type="text/javascript"></script>
 <style>
     body {
         height: 2000px;
@@ -200,7 +201,8 @@
         //  width: 200px;
     }
 </style>
-<script>
+
+<!--<script>
             jQuery(function($) {
                 function fixDiv() {
                     var $cache = $('#getFixed');
@@ -218,6 +220,6 @@
                 $(window).scroll(fixDiv);
                 fixDiv();
             });
-</script>
+</script> -->
 
 {% endblock %}

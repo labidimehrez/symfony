@@ -101,27 +101,16 @@
     &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' - '))}} </b>
           
 
-    </br>  </br> 
+    </br>   
      {% if loop.index  == 5 %} 
     </br>
         {% for publicite in publicite %} 
               {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
         {% endfor%} 
-    </br> 
+    </br> </br>
     {% endif%}
 
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 {%endfor%} 
 
     <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
