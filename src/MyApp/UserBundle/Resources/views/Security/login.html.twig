@@ -8,12 +8,13 @@
 
 
   <div class="contenudetemplate">
-      <div style="margin-left: 100px;margin-top: 100px;">
+      <div style="margin-left: 30px;margin-top:30px;">
+          
     <b><h2>Log p&aring; SOL.DK</h2></b> </br>
-    <p> Vekommen til SOL.dk ......</p> 
+    <p> Vekommen til SOL.dk ......</p> </br> 
     <form action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-        <div id="login-input">
+        <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
             <tr>             
                 <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>		
                 <td> <input type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
@@ -25,12 +26,10 @@
             </tr>		
             <div id="lower">
                 </br>		
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"   style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
+                <div style="padding-left: 120px;">
+                <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"  
+                      style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
+                </div>
                 </br></br>
 
 
@@ -47,7 +46,7 @@
             </div>
         </div>		
     </form>
-    </br></br> 
+    </br>  
     <p>Er du ny bruger .....</p>
 
     <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">

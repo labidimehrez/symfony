@@ -25,21 +25,21 @@ class sujetController extends Controller {
 
             $form->bind($request);
 
-            if ($form->isValid()  ) {
+            if ($form->isValid()) {
 
                 $sujet = $form->getData();
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
-                $notifboolean = $sujet->getNotification(); 
-                
+                $notifboolean = $sujet->getNotification();
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
-                 $em->flush();
-                /*                 * **                       ajout de notification                        ** */     
+                $em->flush();
+                /*                 * **                       ajout de notification                        ** */
                 $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
                 $notif = new notification();
-                $notif1 = $manager->addNotif($user,$sujet,$notif,$notifboolean); 
+                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
                 $manager->persist($notif1);
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
@@ -101,17 +101,17 @@ class sujetController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * *****  select all sujet from table ** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
-
-        foreach ($sujet as $s) {
-            $ids = $s->getId(); /*             * * recuperer les tag associé dans un array multi dimension * */
-            $tag[$ids] = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);
+        if ($sujet != NULL) {
+            foreach ($sujet as $s) {
+                $ids = $s->getId(); /*                 * *    * recuperer les tag associé dans un array multi dimension * */
+                $tag[$ids] = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);
+            }
         }
-
-
-
+        else{$tag[0]=0;} /* pour mettre quelque chose dans array tag **/
+    
 
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
-        // var_dump($publicite);die();
+   
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findAll();
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
@@ -161,22 +161,22 @@ class sujetController extends Controller {
     }
 
     public function voirAction($id, Request $request) {
-        
-        $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager **/
-        $sujet = $managersujet->getOne($id); 
-   
+
+        $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager * */
+        $sujet = $managersujet->getOne($id);
+
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
- 
-         $managersujet->IncrementandSetNewDateLus($sujet);/* increment NBlect sujet et update DateLus */
+
+        $managersujet->IncrementandSetNewDateLus($sujet); /* increment NBlect sujet et update DateLus */
         //** get the associated notif to remove ***/
         $em = $this->getDoctrine()->getManager();
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
-     
-        $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager **/
+
+        $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager * */
         $managernotif->remove($notif);
-        
+
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         $commentassociated = $em->getRepository('MyAppForumBundle:comment')->getCommentBySujet($id);

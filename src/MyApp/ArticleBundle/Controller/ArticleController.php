@@ -95,4 +95,11 @@ class ArticleController extends Controller {
         )));
     }
 
+    
+    
+    
+        public function manageAction() {
+        
+    }
+
 }

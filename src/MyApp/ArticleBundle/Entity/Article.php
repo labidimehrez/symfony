@@ -266,9 +266,9 @@ class Article {
         rmdir($this->getUploadRootDir());
     }
 
-    public function __toString() {
-        return $this->title . '';
-    }
+//    public function __toString() {
+//        return $this->title . '';
+//    }
 
     public function getPosition() {
         return $this->position;

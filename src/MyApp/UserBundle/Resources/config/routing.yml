@@ -16,11 +16,20 @@ my_app_user_edit:
     defaults: { _controller: MyAppUserBundle:User:edit}
     
     
-my_app_forum_sujet_updateuser:
-    pattern:  /updateuser
+my_app_user_updateuser:
+    pattern:  /user/updateuser
     defaults: { _controller: MyAppUserBundle:User:updateuser }
  
  
-my_app_forum_sujet_updateuser2:
-    pattern:  /updateuser2
+my_app_user_updateuser2:
+    pattern:  /user/updateuser2
     defaults: { _controller: MyAppUserBundle:User:updateuser2 }
+
+
+my_app_user_gestionRole:
+    pattern:  /user/gestionRole
+    defaults: { _controller: MyAppUserBundle:User:gestionRole }
+
+my_app_user_resultatchoixrole:
+    pattern:  /user/resultatchoixrole
+    defaults: { _controller: MyAppUserBundle:User:resultatchoixrole }

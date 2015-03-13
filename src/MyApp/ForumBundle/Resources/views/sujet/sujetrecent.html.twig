@@ -124,30 +124,7 @@
     <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
     <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6> 
 </div> 
+ <script src="{{ asset('bundles/myappesprit/css/dialog/jquerydiag.js') }}" type="text/javascript"></script>  
 
 
-<script>
-    $("#dialog").dialog({
-        open: function(event, ui) {
-            $(".ui-dialog-titlebar-close").hide();
-        },
-        modal: true,
-        autoOpen: false,
-        show: "fold",
-        width: 400,
-        buttons: [
-            {
-                text: "Luk",
-                click: function() {
-                    $(this).dialog("close");
-                
-                } 
-            }
-        ]
-    });
-// Link to open the dialog
-    $("#dialog-link").click(function(event) {
-        $("#dialog").dialog("open");
-        event.preventDefault();
-    });
-</script>
+ 

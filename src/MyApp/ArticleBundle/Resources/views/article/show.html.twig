@@ -19,11 +19,12 @@
            {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
 
         <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeueLTStd;">
+            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 34px;font-family: HelveticaNeueLTStd;">
               {{article.headline|truncate(47, true, '...')}} 
-            </FONT>               
+            </FONT>            
+           
         </div>
-
+           <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 
@@ -37,6 +38,7 @@
                                 {{article.headline|truncate(41, true, '...')}}
             </FONT>         
         </div>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 
@@ -48,7 +50,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>     
-        </div>             
+        </div>  
+            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%}
 
 {% if article.position==4%}
@@ -67,7 +70,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
-        </div>           
+        </div>  
+           <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>          
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==6%}
@@ -76,7 +80,9 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
-        </div>          
+        </div> 
+       
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==7%}
@@ -86,7 +92,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
-        </div>              
+        </div> 
+          <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>  
     </div>{%endif%} 
 
 
@@ -97,7 +104,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
-        </div>           
+        </div> 
+            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==9%}
@@ -108,6 +116,7 @@
               {{article.headline|truncate(51, true, '...')}} 
             </FONT>      
         </div>   
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==10%}
@@ -117,7 +126,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>     
-        </div>              
+        </div>   
+            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==11%}
@@ -127,7 +137,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>       
-        </div>           
+        </div> 
+            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
     <div class="articlepositionA">
@@ -145,7 +156,8 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>      
-        </div>          
+        </div>  
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
@@ -154,8 +166,10 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>     
-        </div>           
-    </div>{%endif%} 
+        </div>  
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+    </div>
+{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==14%}
     <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
@@ -163,8 +177,10 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
-        </div>            
-    </div>{%endif%} 
+        </div>     
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+    </div>
+{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==15%}
     <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
@@ -172,8 +188,10 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
-        </div>         
-    </div>{%endif%} 
+        </div> 
+         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+    </div>
+{%endif%} 
 
 
     {% endfor%}
