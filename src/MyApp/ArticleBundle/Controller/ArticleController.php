@@ -99,7 +99,13 @@ class ArticleController extends Controller {
     
     
         public function manageAction() {
-        
+               $em = $this->getDoctrine()->getManager();
+        /*         * *******************    recuperation de tout les article s    ************ */
+        $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
+          
+        return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
+                    'article' => $article 
+        )); 
     }
 
 }

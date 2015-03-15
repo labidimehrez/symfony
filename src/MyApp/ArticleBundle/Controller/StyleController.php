@@ -76,8 +76,14 @@ class StyleController extends Controller {
         )));
     }
 
-    public function manageAction() {
-        
+        public function manageAction() {
+               $em = $this->getDoctrine()->getManager();
+        /*         * *******************    recuperation de tout les style s    ************ */
+        $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
+          
+        return $this->render('MyAppArticleBundle:style:manage.html.twig', array(
+                    'style' => $style 
+        )); 
     }
 
 }

@@ -1,12 +1,55 @@
-{# empty Twig template #}
-{# empty Twig template #}
+ 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
  {% block managestyle %}  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
+<header><h3 class="tabs_involved">Content style Manager</h3>
+    <ul class="tabs">
+        <li><a href="#tab1">Posts</a></li>
+
+    </ul>
+</header>  
+<div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
+    <table class="tablesorter" cellspacing="0"> 
+        <thead> 
+            <tr> 
+               <th>No</th> 
+                <th>Title</th> 
+                <th>Name</th> 
+                <th>Couleur front</th> 
+                <th>Couleur back</th> 
+            </tr> 
+        </thead> 
+        <tbody> 
+            
+            {% for style in style %}
+            <tr> 
+                <td><input type="checkbox"></td> 
+                <td>{{style.title}}</td> 
+                <td>{{style.name}}</td> 
+                <td><div style="width: 100px;height: 20px;background-color:{{style.codecouleurfront}} "></div></td> 
+               
+                <td><div style="width: 100px;height: 20px;background-color:{{style.codecouleurback}}"></div></td>  
+
+
+                <td>
+                    <a href="{{ path('my_app_article_style_edit',{'id':style.id}) }}">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                    </a>   &nbsp;&nbsp;
+                    <a href="{{ path('my_app_article_style_delete',{'id':style.id}) }}">
+                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                    </a> 
+                </td>
+            </tr> 
+
+            {%endfor%}
+
+
+        </tbody> 
+    </table>
+</div> 
+ 
+ {% endblock  %}
 
 
 
-
-
- {% endblock %}
