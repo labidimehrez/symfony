@@ -60,5 +60,17 @@ class notificationController extends Controller {
         
         return null;
     }
-
+    
+    public function seeallAction() {
+       /** get current user  **/
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
+        if (!$user) {$id = 0;} else { $id = $user->getId();}
+            
+       $manager = $this->get('collectify_notification_manager');/** equivalent de em manager **/
+        $notification = $manager->getByUser($id);
+       $manager->removeall($notification);
+        return $this->render('MyAppEspritBundle:notification:seeall.html.twig');  
+    }
 }

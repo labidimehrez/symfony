@@ -18,11 +18,12 @@ class NotificationManager {
         return $this->repository->findAll();
     }
 
-    /* public function getSheetByUser($user)
+     public function getByUser($id)
       {
-      return $this->repository->getAll($user);
+     return $this->repository->findBy(array('user' => $id));
+  
       }
-     */
+     
 
     public function getNotification($id) {
         return $this->repository->find($id);
@@ -53,6 +54,15 @@ class NotificationManager {
          return $notif;}
     }
 
+        public function removeall($notification) {
+        foreach ($notification as $n)
+        { $this->em->remove($n);
+        $this->em->flush();
+         return $notification;}
+    }
+    
+    
+    
     public function doFlush($notif) {
         $this->em->persist($notif);
         $this->em->flush();
