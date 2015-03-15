@@ -19,23 +19,14 @@ class StyleManager
     {
         return $this->repository->findAll();
     }
+    public function removemore($style)
+    {        foreach ($style as $s){
+        $this->em->remove($s);
+    $this->em->flush();}
 
-   /* public function getSheetByUser($user)
-    {
-        return $this->repository->getAll($user);
+        return $style;
     }
-
-    public function getSheet($id)
-    {
-        return $this->repository->find($id);
-    }
-
-    public function validate($sheet)
-    {
-        $sheet->setValidated(true);
-
-        $this->doFlush($sheet);
-    }*/
+ 
 
     public function persist($style )
     {

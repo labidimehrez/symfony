@@ -2,11 +2,11 @@
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
  {% block managestyle %}  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
-
+            <form  action='{{path('my_app_article_style_deletemore')}}' method="post" {{ form_enctype(form) }} > 
 <header><h3 class="tabs_involved">Content style Manager</h3>
-    <ul class="tabs">
+    <ul class="tabs"> {{form_widget(form._token)}}   
         <li><a href="#tab1">Posts</a></li>
-
+     <input type="submit"  value="Delete" /> 
     </ul>
 </header>  
 <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
@@ -21,10 +21,10 @@
             </tr> 
         </thead> 
         <tbody> 
-            
+ 
             {% for style in style %}
             <tr> 
-                <td><input type="checkbox"></td> 
+                <td><input type="checkbox" name="mesIds[]" value="{{style.id}}" ></td> 
                 <td>{{style.title}}</td> 
                 <td>{{style.name}}</td> 
                 <td><div style="width: 100px;height: 20px;background-color:{{style.codecouleurfront}} "></div></td> 
@@ -43,12 +43,12 @@
             </tr> 
 
             {%endfor%}
-
+ 
 
         </tbody> 
     </table>
 </div> 
- 
+  </form>
  {% endblock  %}
 
 

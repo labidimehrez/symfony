@@ -26,3 +26,7 @@ my_app_article_style_save:
 my_app_article_style_manage:
     pattern:  /manage
     defaults: { _controller: MyAppArticleBundle:style:manage}
+    
+my_app_article_style_deletemore:
+    pattern:  /deletemore
+    defaults: { _controller: MyAppArticleBundle:style:deletemore}
