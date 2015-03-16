@@ -14,15 +14,11 @@
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Services/NotificationManager.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/StyleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/ArticleManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/StyleManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/style/manage.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/menu/recherche.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/menu/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/manage.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Services/PubliciteManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/config/routing/style.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/User/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/ArticleManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Services/SujetManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Article.php</file>
         </group>
     </open-files>
 </project-private>

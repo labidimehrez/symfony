@@ -8,7 +8,7 @@ class ArticleRepository extends EntityRepository
    public function getAllArticle()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT p FROM MyAppArticleBundle:article p  ')
+            ->createQuery('SELECT p FROM MyAppArticleBundle:article p order by p.datecreation DESC ')
             ->getResult();
             
     }

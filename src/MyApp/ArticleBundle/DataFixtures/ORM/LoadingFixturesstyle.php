@@ -184,6 +184,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         //  $article1->setUrlimg("zz");
         $article10->setHeadline("VIDEO Overbevisende 3 arig vil have cupcakes till aftensmad");
         $article10->setLien("article10");
+        
         $manager->persist($article10);
         
         

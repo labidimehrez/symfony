@@ -41,10 +41,6 @@ class Article {
      */
     private $tags;
 
-    public function __construct() {
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     /**
      * @var string
      *
@@ -79,6 +75,13 @@ class Article {
      * @ORM\Column(name="lien", type="string", length=255,unique=true)
      */
     private $lien;
+
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="date_creation",type="datetime",nullable=true)
+     */
+    private $datecreation;
 
     /**
      * Get id
@@ -172,7 +175,6 @@ class Article {
     public function getFixedposition() {
         return $this->fixedposition;
     }
- 
 
     /**
      * Set lien
@@ -277,6 +279,20 @@ class Article {
     public function setPosition($position) {
         $this->position = $position;
         return $this;
+    }
+
+    public function getDatecreation() {
+        return $this->datecreation;
+    }
+
+    public function setDatecreation(\DateTime $datecreation) {
+        $this->datecreation = $datecreation;
+        return $this;
+    }
+
+    public function __construct() {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->datecreation = new \DateTime();
     }
 
 }
