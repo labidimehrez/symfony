@@ -3,12 +3,12 @@
  {% block showUser %}   
 <header><h3 class="tabs_involved">Content User Manager</h3>
     <ul class="tabs">
-        <li><a href="#tab1">Posts</a></li>
-        <li><a href="#">Comments</a></li>
+        <li><a href="#tab1">Details</a></li>
+        <li><a href="#tab2">Roles</a></li>
     </ul>
 </header>  
 
-<div id="tab1" class="tab_content">
+<div id="tab1" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
             <tr> 
@@ -24,7 +24,7 @@
             <tr> 
                 <td><input type="checkbox"></td> 
                 <td>{{user.username}}</td> 
-                <td> {% for role in user.roles %}{{ role }}{% endfor %}</td> 
+                <td> {{user.roles|join}}</td> 
       
      
                 <td>{{user.datedeCreationUser|date('Y-M-d')}}</td> 
@@ -46,6 +46,9 @@
         </tbody> 
     </table>
 </div> 
+
+
+ {{ render(controller('MyAppUserBundle:User:resultatchoixrole')) }} {# pour afficher notif number #}
 
 
  {% endblock  %}

@@ -192,8 +192,9 @@ class UserController extends Controller {
         $users = $manager->getAll();
         $form = $this->createFormBuilder($users)->add('users')->getForm();
 
-
-        return $this->render('MyAppUserBundle:Security:gestionRole.html.twig', array('users' => $users, 'form' => $form->createView()));
+    
+        return $this->render('MyAppUserBundle:Security:resultatchoixrole.html.twig',
+                array('users' => $users, 'form' => $form->createView()));
     }
 
 }

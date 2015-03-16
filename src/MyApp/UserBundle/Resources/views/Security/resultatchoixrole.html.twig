@@ -1,0 +1,86 @@
+{# empty Twig template #}
+
+
+
+<form  action='{{path('my_app_user_resultatchoixrole')}}' method="post" {{ form_enctype(form) }} > 
+
+<div id="tab2" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
+    <table class="tablesorter" cellspacing="0"> 
+        <thead> 
+            <tr> 
+              
+                <th>UserName</th> 
+                <th>Roles</th> 
+             
+            </tr> 
+        </thead> 
+        <tbody> 
+            {% for users in users %} 
+            <tr> 
+                 
+                <td>{{users.username}}</td> 
+          
+      
+     
+                <td> 
+
+    {% set role = users.roles|join%}
+    
+
+
+
+     {% if "EDITORROLE_USER" == role%}
+        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+        <input type="checkbox" name="SuperSol[]" value="{{users.id}}"  /><label>SuperSol</label>&nbsp;
+        <input type="checkbox" name="Editor[]" value="{{users.id}}" checked="checked" /><label>Editor</label>   &nbsp;
+        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>     &nbsp;
+   {%endif%}
+
+     {% if "SUPERSOLROLE_USER" == role %}
+        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" checked="checked" /><label>SuperSol</label>&nbsp;
+        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
+        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>   &nbsp;  
+   {%endif%}
+
+
+  {% if "ADMINROLE_USER" == role %}
+        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+        <input type="checkbox" name="Admin[]" value="{{users.id}}" checked="checked" /><label>Admin</label>&nbsp;
+        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
+        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>  &nbsp; 
+        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>  &nbsp;   
+   {%endif%}
+
+    {% if "SUPERADMINROLE_USER" == role %}
+        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}" checked="checked" /><label>SuperAdmin</label>&nbsp;
+        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
+        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
+        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>     &nbsp;
+     {%endif%}
+
+                  
+                </td>
+            </tr> 
+            {%endfor%}
+
+
+
+        </tbody> 
+    </table>
+
+
+
+ {{form_widget(form._token)}}  
+    
+
+
+    </br></br>
+   <center> <div style="padding-bottom: 20px;">  <input type="submit"  value="change"  class="btn btn-warning btn-lg"/> </div></center>
+ </div>   
+</form>
+
+
