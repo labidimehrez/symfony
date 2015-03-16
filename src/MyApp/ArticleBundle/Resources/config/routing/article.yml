@@ -16,6 +16,11 @@ my_app_article_article_edit:
     pattern:  /{id}/edit
     defaults: { _controller: MyAppArticleBundle:article:edit }  
     
+    
 my_app_article_article_manage:
     pattern:  /manage
     defaults: { _controller: MyAppArticleBundle:article:manage}
+    
+my_app_article_article_deletemore:
+    pattern:  /deletemore
+    defaults: { _controller: MyAppArticleBundle:article:deletemore}

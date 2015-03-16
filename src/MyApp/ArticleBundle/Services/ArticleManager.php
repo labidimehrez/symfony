@@ -27,7 +27,14 @@ class ArticleManager {
         $article->setPosition($pos);
         $this->persist($article);
     }
+    public function removemore($article)
+    {        foreach ($article as $s){
+        $this->em->remove($s);
+    $this->em->flush();}
 
+        return $article;
+    }
+ 
     public function getAll() {
         return $this->repository->findAll();
     }

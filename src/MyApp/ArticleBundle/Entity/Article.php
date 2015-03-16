@@ -58,7 +58,7 @@ class Article {
     /**
      * @var string
      *
-     * @ORM\Column(name="copyrights", type="string", length=255,unique=true)
+     * @ORM\Column(name="copyrights", type="string", length=255,nullable=true)
      */
     private $copyrights;
 
@@ -264,8 +264,10 @@ class Article {
      * @ORM\PreRemove()
      */
     public function removeImage() {
-        unlink($this->getFullImagePath());
-        rmdir($this->getUploadRootDir());
+        if ($this->getFullImagePath()) {
+            unlink($this->getFullImagePath());
+            rmdir($this->getUploadRootDir());
+        }
     }
 
 //    public function __toString() {

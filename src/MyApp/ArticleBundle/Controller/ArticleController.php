@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\ArticleBundle\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\ArticleBundle\Form\ArticleType;
 use MyApp\ArticleBundle\Entity\Article;
@@ -71,6 +71,8 @@ class ArticleController extends Controller {
         if (!in_array("15", $pos)) {
             array_push($positionlibre, 15);
         }
+
+
 
         // var_dump($positionlibre);die();
         //  $positionlibre  tableau qui contient les position vides
@@ -143,9 +145,22 @@ class ArticleController extends Controller {
         $em = $this->getDoctrine()->getManager();
         /*         * *******************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
-
+        $form = $this->createFormBuilder($article)->add('article')->getForm();
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
-                    'article' => $article
+                    'form' => $form->createView(), 'article' => $article
+        ));
+    }
+
+    public function deletemoreAction(Request $request) {
+        $ids = $this->getRequest()->get('mesIds');
+        $em = $this->getDoctrine()->getManager();
+        $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
+        $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
+        $manager->removemore($articled);
+        $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
+        $form = $this->createFormBuilder($article)->add('article')->getForm();
+        return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
+                    'form' => $form->createView(), 'article' => $article
         ));
     }
 
