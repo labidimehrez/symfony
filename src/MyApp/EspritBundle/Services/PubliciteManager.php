@@ -35,7 +35,13 @@ class PubliciteManager
 
         $this->doFlush($sheet);
     }*/
+    public function removemore($publicite)
+    {        foreach ($publicite as $s){
+        $this->em->remove($s);
+    $this->em->flush();}
 
+        return $publicite;
+    }
     public function persist($publicite )
     {
         $this->doFlush($publicite);

@@ -2,50 +2,50 @@
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
  {% block showpub %}   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<form  action='{{path('my_app_esprit_publicite_deletemore')}}' method="post" {{ form_enctype(form) }} > 
+    <header><h3 class="tabs_involved">Content Banners Manager</h3>
+        <ul class="tabs"> {{form_widget(form._token)}}   
+            <li><a href="#tab1">Posts</a></li>
+             <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
+        </ul>
+    </header>  
 
-                <header><h3 class="tabs_involved">Content Banners Manager</h3>
-                    <ul class="tabs">
-                        <li><a href="#tab1">Posts</a></li>
-                        <li><a href="#tab2">Comments</a></li>
-                    </ul>
-                </header>  
 
-
-<div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
-    <table class="tablesorter" cellspacing="0"> 
-        <thead> 
-            <tr> 
-                <th> </th> 
-                <th>No</th> 
-                  <th> </th> 
-                <th>Position</th> 
-                <th>Actions</th> 
-            </tr> 
-        </thead> 
-        <tbody> 
+    <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
+        <table class="tablesorter" cellspacing="0"> 
+            <thead> 
+                <tr> 
+                    <th> </th> 
+                    <th>No</th> 
+                    <th> </th> 
+                    <th>Position</th> 
+                    <th>Actions</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
             {% for publicite2 in publicite2 %}
-            <tr> 
-                <td><input type="checkbox"></td> 
-                <td>{{publicite2.id}}</td> 
-                <td>{#{app.user.roles|join }#}</td> 
-                <td>{{publicite2.position}}</td> 
+                <tr> 
+                    <td><input type="checkbox"></td> 
+                    <td>{{publicite2.id}}</td> 
+                    <td>{#{app.user.roles|join }#}</td> 
+                    <td>{{publicite2.position}}</td> 
 
 
-                <td>
-                    <a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }}">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                    </a>   &nbsp;&nbsp;
-                   <a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                    </a> 
-                </td>
-            </tr>
+                    <td>
+                        <a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }}">
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                        </a>   &nbsp;&nbsp;
+                        <a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                        </a> 
+                    </td>
+                </tr>
              {%endfor%}
-        </tbody> 
-    </table>
-</div> 
+            </tbody> 
+        </table>
+    </div> 
 
-
+</form>
  {% endblock  %}
 
 

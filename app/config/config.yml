@@ -105,3 +105,11 @@ craue_twig_extensions: ~
 twig:
     globals:
         variable: aaa
+        
+# app/config/config.yml
+
+avalanche_imagine:
+    filters:
+        my_thumb:
+            type:    thumbnail
+            options: { size: [120, 90], mode: outbound }

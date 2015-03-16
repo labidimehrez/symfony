@@ -110,5 +110,17 @@ class publiciteController extends Controller {
         'publicite' => $publicite, 'menu' => $menu)); 
         
         }
-   
+        
+       public function deletemoreAction(Request $request) {
+        $ids = $this->getRequest()->get('mesIds');
+        $em = $this->getDoctrine()->getManager();
+        $publicited = $em->getRepository('MyAppEspritBundle:publicite')->findBy(array('id' => $ids));
+        $manager = $this->get('collectify_publicite_manager');/** equivalent de em manager * */
+        $manager->removemore($publicited);
+        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findAll();
+        $form = $this->createFormBuilder($publicite)->add('publicite')->getForm();
+        return $this->render('MyAppEspritBundle:publicite:manage.html.twig', array(
+                    'form' => $form->createView(), 'publicite2' => $publicite
+        ));
+    }
 }

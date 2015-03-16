@@ -9,7 +9,7 @@ use MyApp\UserBundle\Form\userType;
 use MyApp\UserBundle\Entity\user;
 
 class UserController extends Controller {
-   
+
     public function showAction() {
 
         $em = $this->getDoctrine()->getManager();
@@ -47,28 +47,27 @@ class UserController extends Controller {
 
     public function editAction($id) {
         /** simplde eddit action ** */
-          $em = $this->getDoctrine()->getManager();
-          $user = $em->getRepository('MyAppUserBundle:user')->find($id);
-          if (!$user) {
-          throw $this->createNotFoundException(
-          'no utilisateur found for id ' . $id
-          );
-          }
-          $form = $this->createForm(new userType(), $user);
-          $request = $this->getRequest();
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('MyAppUserBundle:user')->find($id);
+        if (!$user) {
+            throw $this->createNotFoundException(
+                    'no utilisateur found for id ' . $id
+            );
+        }
+        $form = $this->createForm(new userType(), $user);
+        $request = $this->getRequest();
 
-          if ($request->getMethod() == 'POST') {
-          $form->bind($request);
-          if ($form->isValid()) {
-          $em->flush();
-          return $this->redirect($this->generateUrl('my_app_user_show'));
-          }
-          }
-          return $this->render('MyAppUserBundle:user:edit.html.twig', array(
-          'form' => $form->createView(),
-          'user' => $user,
-          )); 
-
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('my_app_user_show'));
+            }
+        }
+        return $this->render('MyAppUserBundle:user:edit.html.twig', array(
+                    'form' => $form->createView(),
+                    'user' => $user,
+        ));
     }
 
     public function updateuserAction() {
@@ -140,47 +139,61 @@ class UserController extends Controller {
         $manager = $this->get('collectify_user_manager');/** equivalent de em manager * */
         $users = $manager->getAll();
         $form = $this->createFormBuilder($users)->add('users')->getForm();
-                
-                
+
+
         return $this->render('MyAppUserBundle:Security:gestionRole.html.twig', array('users' => $users, 'form' => $form->createView()));
     }
 
     public function resultatchoixroleAction(Request $request) {
         $manager = $this->get('collectify_user_manager');/** equivalent de em manager * */
+        $User = $this->getRequest()->get('User');
+        $usersUserId = $manager->getUserId($User);
+        if ($usersUserId != NULL) {
+            foreach ($usersUserId as $id) {
+                $manager->makeUser($manager->getOne($id));
+            }
+        }
 
- 
-        $SuperAdmin = $this->getRequest()->get('SuperAdmin');
-        $usersSuperAdminId = $manager->getSuperAdminId($SuperAdmin);//var_dump($usersSuperAdminId); 
-        if($usersSuperAdminId != NULL)
-        {foreach ($usersSuperAdminId as $id) { $manager->makeSuperadmin($manager->getOne($id)); }}
-       
-        $Admin = $this->getRequest()->get('Admin');
-        $usersAdminId = $manager->getAdminId($Admin); 
-        if($usersAdminId != NULL)
-        { foreach ($usersAdminId as $id) { $manager->makeAdmin($manager->getOne($id)); }}
 
-        $SuperSol = $this->getRequest()->get('SuperSol');
-        $usersSuperSolId = $manager->getSuperSolId($SuperSol); 
-         if($usersSuperSolId != NULL)
-         {foreach ($usersSuperSolId as $id) { $manager->makeSuperSol($manager->getOne($id)); }}
-         
         $Editor = $this->getRequest()->get('Editor');
         $usersEditorId = $manager->getEditorId($Editor);
-        if($usersEditorId != NULL){
-        foreach ($usersEditorId as $id) { $manager->makeEditor($manager->getOne($id)); }}
-        
-        
-        $User = $this->getRequest()->get('User');
-        $usersUserId = $manager->getUserId($User);  
-        if($usersUserId != NULL){
-        foreach ($usersUserId as $id) { $manager->makeUser($manager->getOne($id)); }}       
-     
-       
+        if ($usersEditorId != NULL) {
+            foreach ($usersEditorId as $id) {
+                $manager->makeEditor($manager->getOne($id));
+            }
+        }
+
+
+        $SuperSol = $this->getRequest()->get('SuperSol');
+        $usersSuperSolId = $manager->getSuperSolId($SuperSol);
+        if ($usersSuperSolId != NULL) {
+            foreach ($usersSuperSolId as $id) {
+                $manager->makeSuperSol($manager->getOne($id));
+            }
+        }
+
+
+        $Admin = $this->getRequest()->get('Admin');
+        $usersAdminId = $manager->getAdminId($Admin);
+        if ($usersAdminId != NULL) {
+            foreach ($usersAdminId as $id) {
+                $manager->makeAdmin($manager->getOne($id));
+            }
+        }
+
+        $SuperAdmin = $this->getRequest()->get('SuperAdmin');
+        $usersSuperAdminId = $manager->getSuperAdminId($SuperAdmin); //var_dump($usersSuperAdminId); 
+        if ($usersSuperAdminId != NULL) {
+            foreach ($usersSuperAdminId as $id) {
+                $manager->makeSuperadmin($manager->getOne($id));
+            }
+        }
+
         $users = $manager->getAll();
         $form = $this->createFormBuilder($users)->add('users')->getForm();
-        
-        
+
+
         return $this->render('MyAppUserBundle:Security:gestionRole.html.twig', array('users' => $users, 'form' => $form->createView()));
-     
     }
+
 }

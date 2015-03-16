@@ -6,7 +6,7 @@
     <header><h3 class="tabs_involved">Content article Manager</h3>
         <ul class="tabs">{{form_widget(form._token)}}  
             <li><a href="#tab1">Posts</a></li>
-           <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
+            <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
         </ul>
     </header>  
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
@@ -29,16 +29,27 @@
                     <td>{{article.style}}</td> 
                     <td>{{article.headline|truncate(20, true, '...')}}</td> 
                   {#<td>{{article.fixedposition}}</td>#}
-                {% if article.fixedposition ==1 %}<td>Oui</td> {%else%}<td>Non</td>{%endif%}
-                    <td>
-                        <a href="{{ path('my_app_article_article_edit',{'id':article.id}) }}">
-                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                        </a>   &nbsp;&nbsp;
-                        <a href="{{ path('my_app_article_article_delete',{'id':article.id}) }}">
-                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                        </a> 
-                    </td>
-                </tr> 
+                    <td>   {% if article.fixedposition ==1 %} 
+            <select>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>       
+            </select>
+                {%else%} 
+            <select>
+                <option value="Non">Non</option>  
+                <option value="Oui">Oui</option>    
+            </select>
+                {%endif%}</td>
+
+            <td>
+                <a href="{{ path('my_app_article_article_edit',{'id':article.id}) }}">
+                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                </a>   &nbsp;&nbsp;
+                <a href="{{ path('my_app_article_article_delete',{'id':article.id}) }}">
+                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                </a> 
+            </td>
+            </tr> 
 
             {%endfor%}
 

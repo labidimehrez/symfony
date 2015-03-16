@@ -39,3 +39,10 @@ fos_comment_api:
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
     prefix: /api
     defaults: { _format: html }
+
+
+# app/config/routing.yml
+
+_imagine:
+    resource: .
+    type:     imagine

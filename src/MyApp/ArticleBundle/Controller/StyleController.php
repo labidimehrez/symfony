@@ -76,32 +76,29 @@ class StyleController extends Controller {
         )));
     }
 
-        public function manageAction() {
-               $em = $this->getDoctrine()->getManager();
+    public function manageAction() {
+        $em = $this->getDoctrine()->getManager();
         /*         * *******************    recuperation de tout les style s    ************ */
         $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
-                  
-        $form = $this->createFormBuilder($style)->add('style') ->getForm();
-                
-               
+
+        $form = $this->createFormBuilder($style)->add('style')->getForm();
+
+
         return $this->render('MyAppArticleBundle:style:manage.html.twig', array(
                     'form' => $form->createView(), 'style' => $style));
-       
     }
-    
-            public function deletemoreAction(Request $request) {
-            $ids = $this->getRequest()->get('mesIds');         
-            $em = $this->getDoctrine()->getManager();
-         $styled = $em->getRepository('MyAppArticleBundle:style')->findBy(array('id' => $ids));
-         $manager = $this->get('collectify_style_manager');/** equivalent de em manager * */
-          $manager->removemore($styled);
-        $style = $em->getRepository('MyAppArticleBundle:style')->findAll();  
-        $form = $this->createFormBuilder($style)->add('style') ->getForm();
+
+    public function deletemoreAction(Request $request) {
+        $ids = $this->getRequest()->get('mesIds');
+        $em = $this->getDoctrine()->getManager();
+        $styled = $em->getRepository('MyAppArticleBundle:style')->findBy(array('id' => $ids));
+        $manager = $this->get('collectify_style_manager');/** equivalent de em manager * */
+        $manager->removemore($styled);
+        $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
+        $form = $this->createFormBuilder($style)->add('style')->getForm();
         return $this->render('MyAppArticleBundle:style:manage.html.twig', array(
-                        'form' => $form->createView(),  'style' => $style 
-        )); 
+                    'form' => $form->createView(), 'style' => $style
+        ));
     }
-    
-    
 
 }
