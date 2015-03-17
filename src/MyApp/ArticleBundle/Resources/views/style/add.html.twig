@@ -1,7 +1,7 @@
 {# empty Twig template #}
 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
-  {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
+{{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
  {% block ajout_arstyle%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}

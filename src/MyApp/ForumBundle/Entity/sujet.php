@@ -23,7 +23,7 @@ class sujet {
      */
     private $id;
     protected $commentaires;
-    protected $comment;
+   // protected $comment;
     protected $notifications;
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
@@ -50,7 +50,13 @@ class sujet {
      * @ORM\Column(name="contenu", type="string", length=20000)
      */
     private $contenu;
-
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="thread", type="integer",nullable=true)
+     */
+    private $thread;
     /**
      * @var \DateTime
      * 
@@ -210,14 +216,14 @@ class sujet {
     public function setCommentaires($commentaires) {
         $this->commentaires = $commentaires;
     }
-    public function getComment() {
+   /* public function getComment() {
         return $this->comment;
     }
 
     public function setComment($comment) {
         $this->comment = $comment;
         return $this;
-    }
+    }*/
 
         public function getTags() {
         return $this->tags;
@@ -246,6 +252,15 @@ class sujet {
 
     public function setNotifications($notifications) {
         $this->notifications = $notifications;
+        return $this;
+    }
+
+    public function getThread() {
+        return $this->thread;
+    }
+
+    public function setThread($thread) {
+        $this->thread = $thread;
         return $this;
     }
 

@@ -27,20 +27,22 @@ class ArticleManager {
         $article->setPosition($pos);
         $this->persist($article);
     }
-    public function removemore($article)
-    {        foreach ($article as $s){
-        $this->em->remove($s);
-    $this->em->flush();}
+
+    public function removemore($article) {
+        foreach ($article as $s) {
+            $this->em->remove($s);
+            $this->em->flush();
+        }
 
         return $article;
     }
- 
+
     public function getAll() {
         return $this->repository->findAll();
     }
 
-        public function getFirstPositionFree($lespositionsoccupés) {
-                $pos = array(); // tableau vide
+    public function getFirstPositionFree($lespositionsoccupés) {
+        $pos = array(); // tableau vide
         $positionlibre = array(); // tableau vide
         foreach ($lespositionsoccupés as $s) {
             $a = $s->getPosition(); // recupere les positions des artciles ajoutés
@@ -100,15 +102,13 @@ class ArticleManager {
 
 
         $premierepositionlibre = reset($positionlibre); // integer => premiere position libre     
-            
-            
-            
-            
+
+
+
+
         return $premierepositionlibre;
     }
-    
-    
-    
+
     public function persist($article) {
         $this->doFlush($article);
     }

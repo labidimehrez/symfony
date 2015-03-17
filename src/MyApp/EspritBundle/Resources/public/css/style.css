@@ -2926,7 +2926,13 @@ background-color: #c52821;
      height: 500px;*/
     z-index: 6;
 }
+.likebutton{  color: #c52821 ;
+    font-weight: bold;
+    background-color:transparent;  padding-left: 50px;}
 
+.likecount{  color: black ;
+    font-weight: bold;
+    background-color:transparent;  padding-left: 50px;}
 .rouge{
     color: #c52821 ;
     font-weight: bold;
@@ -3172,15 +3178,13 @@ background-color: #c52821;
 
 .commentaire{
 
-    /*background-color: #f8fef0;*/
-    /*border: 1px solid #2EFE2E;*/
-    position: relative;
-    left: /*155px;*/50px;
-    //top: /*380*/55px;
-    width: /*292*/600px;
-    height: /*180*/1000px;
-    z-index: 6000;
-
+  /* background-color: #f8fef0; */
+  //border: 1px solid #2EFE2E;
+  position: relative;
+  left: /*155px;*/50px;
+  width: /*292*/800px;
+  /* height: /*180; */
+  margin-top: 30px;
 }
 .black{color: black;font-weight: bold;}
 .silver{color: silver;font-weight: bold;}
@@ -3334,4 +3338,10 @@ margin-left: 4px;
 font-size: 11px;
 font-weight: normal;
 font-family: helvetica;
+ }
+ .contenucommentaireparent{
+  border-color: red;
+  /* border-style: dashed; */
+  padding-left: 50px;
+  margin-top: -15px;
  }

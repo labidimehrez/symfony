@@ -12,13 +12,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Services/NotificationManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/StyleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/StyleManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/ArticleManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Services/SujetManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Article.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/commentaire.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Repository/CommentRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Repository/CommentaireRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/commentaireController.php</file>
         </group>
     </open-files>
 </project-private>

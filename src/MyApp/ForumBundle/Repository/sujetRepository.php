@@ -31,5 +31,14 @@ class sujetRepository extends EntityRepository {
                         ->setParameter('id', $id)
                         ->getResult();
     }
+    
+       public function getCommentCountBySujet($id)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT COUNT(p)  FROM MyAppForumBundle:commentaire p    WHERE p.sujet=:id ')
+                ->setParameter('id', $id)
+            ->getSingleScalarResult();// return integer
+            
+    }
 }
 ?>

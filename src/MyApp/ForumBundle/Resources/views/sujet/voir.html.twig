@@ -3,9 +3,9 @@
  {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
 
- <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
 <!-- css et js pour bundle JQuery  -->
- 
+
 <!-- css et js pour bundle JQuery  -->
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
@@ -15,7 +15,7 @@
 
 <div class="contenudetemplate">
     <div class="paddingdebataveccomment">
-     
+
         </br>  
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
@@ -23,7 +23,7 @@
              class="imageuserdebataveccomment" alt="" />  
 {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             class="imageuserdebataveccomment" alt="" />             
+             class="imageuserdebataveccomment" alt=""  />             
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
@@ -39,48 +39,68 @@
 
 
 
-    
-        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b></br>
 
-            
+        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
+        </br>
         <b style="color: black;padding-left: 120px;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
         <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
-        <div  class="Addnewcomment"><p class="flip">Add new comment</p></div>
-        
+        <div  class="Addnewcomment"><p>Add new comment</p></div>
+
         <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
                 {% for tag in tag %}
-                 <b> {% set counternombredetag = counternombredetag + 1 %}
+            <b> {% set counternombredetag = counternombredetag + 1 %}
                                 {{tag.title}} &nbsp;&nbsp;
-                 </b>
+            </b>
                 {% endfor%}
               {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
-            
-             <a href="{{ path('my_app_forum_sujet_specialedit',{'id':sujet.id}) }}">  
+
+            <a href="{{ path('my_app_forum_sujet_specialedit',{'id':sujet.id}) }}">  
                {% if counternombredetag > 0%}
-                 <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                  {% endif%}
             </a> 
-            
-            
-             
+
+
+
             {#% endif %#}
         </div>
 
 
-     
 
 
 
 
-        <div class="panel">
-            <div class="commentaire">
 
-            {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
-            </div>
+
+        <div class="commentaire">
+              {% for  commentaire in commentaire %}
+        {% if loop.index <= sujet.thread %}
+    {% if commentaire.user.image is not null  %}<img src="{{commentaire.user.image }}" class="imageuser" alt=""/>   
+    {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   /> {% endif%}
+
+
+
+
+                    {{commentaire.user.username}}<b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+{% if commentaire.like  is not null %}
+  <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.like}} </b>
+  {%endif%}
+            </br>
+            <div class="contenucommentaireparent"> {{commentaire.texte}}
+                </br> <b class="rouge">Add new comment</b><b class="likebutton">like</b></div>
+
+
+
+
+      {%endif%}
+          {% endfor%}
         </div>
+
 
         <br>
 
@@ -90,10 +110,10 @@
 
     </div> 
 </div>
- 
 
-    {################################################################################################################################}
-  
+
+    {#
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -124,5 +144,5 @@
         display: none;
     }
 </style>
+ {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
 {########################################################################}
-  

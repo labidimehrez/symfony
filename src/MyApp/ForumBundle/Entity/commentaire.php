@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="commentaire")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MyApp\ForumBundle\Repository\CommentaireRepository")
  */
 class commentaire
 {
@@ -26,31 +27,30 @@ class commentaire
      */
  
     protected $sujet;
-    
-    
-    
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="commentaire")
-     */
-     private $commentaire;
-     
+ 
     /**
      * @var string
+     *
+     * @ORM\Column(name="texte", type="string", length=2550,nullable=false)
      */
     private $texte;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="commentaire_User", type="string", length=255,unique=true)
+     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
-    private $commentaireUser;
+    protected $user;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="like", type="integer",nullable=true)
+     */
+    private $like;
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire_Parent", type="string", length=255,unique=true)
+     * @ORM\Column(name="commentaire_Parent", type="string", length=255,unique=true,nullable=true)
      */
     private $commentaireParent;
 
@@ -60,7 +60,13 @@ class commentaire
      * @ORM\Column(name="notification")
      */
     private $notification;
-
+    
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="date_creation",type="datetime",nullable=true)
+     */
+    private $datecreation;
 
     /**
      * Get id
@@ -94,29 +100,7 @@ class commentaire
     {
         return $this->texte;
     }
-
-    /**
-     * Set commentaireUser
-     *
-     * @param string $commentaireUser
-     * @return commentaire
-     */
-    public function setCommentaireUser($commentaireUser)
-    {
-        $this->commentaireUser = $commentaireUser;
-    
-        return $this;
-    }
-
-    /**
-     * Get commentaireUser
-     *
-     * @return string 
-     */
-    public function getCommentaireUser()
-    {
-        return $this->commentaireUser;
-    }
+ 
 
     /**
      * Set commentaireParent
@@ -177,6 +161,37 @@ class commentaire
 
     public function setCommentaire($commentaire) {
         $this->commentaire = $commentaire;
+        return $this;
+    }
+
+    public function getUser() {
+        return $this->user;
+    }
+
+   
+
+    public function setUser($user) {
+        $this->user = $user;
+        return $this;
+    }
+
+   
+
+    public function getLike() {
+        return $this->like;
+    }
+
+    public function setLike($like) {
+        $this->like = $like;
+        return $this;
+    }
+
+    public function getDatecreation() {
+        return $this->datecreation;
+    }
+
+    public function setDatecreation(\DateTime $datecreation) {
+        $this->datecreation = $datecreation;
         return $this;
     }
 

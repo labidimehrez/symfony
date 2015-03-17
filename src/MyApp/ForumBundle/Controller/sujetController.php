@@ -179,11 +179,13 @@ class sujetController extends Controller {
 
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
-        $commentassociated = $em->getRepository('MyAppForumBundle:comment')->getCommentBySujet($id);
-
+        $commentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($id);
+       
+        $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($id);
+        //var_dump($commentCount);die();
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet, 'mostusedtag' => $mostusedtag,
-                    'tag' => $tag, 'commentaire' => $commentassociated
+                    'tag' => $tag, 'commentaire' => $commentassociated,'commentCount'=>$commentCount
         ));
     }
 

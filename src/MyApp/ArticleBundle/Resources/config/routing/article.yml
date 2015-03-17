@@ -1,5 +1,4 @@
 
-
 my_app_article_article_add:
     pattern:  /add
     defaults: { _controller: MyAppArticleBundle:article:add }

@@ -1,8 +1,4 @@
- 
-
- 
- 
-    
+   
 my_app_article_style_show:
     pattern:  /show
     defaults: { _controller: MyAppArticleBundle:style:show }
