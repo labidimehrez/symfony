@@ -3345,3 +3345,13 @@ font-family: helvetica;
   padding-left: 50px;
   margin-top: -15px;
  }
+ .nouveaucommentaire{
+       border-color: red;
+  /* border-style: dashed; */
+  padding-left: 50px;
+ }
+ .inputnouveaucommentaire{
+       margin-left: 50px;
+  width: 700px;
+  height: 100px;
+ }

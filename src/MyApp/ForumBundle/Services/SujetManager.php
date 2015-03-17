@@ -17,7 +17,7 @@ class SujetManager
 
     public function getAll()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(array(),array('datecreation' => 'DESC'));
     }
     public function getOne($id)
     {

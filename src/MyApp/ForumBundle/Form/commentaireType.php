@@ -15,11 +15,11 @@ class commentaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('commentaireUser')
-            ->add('commentaireParent')
-            ->add('notification')
-            ->add('sujet')
-            ->add('commentaire')
+           # ->add('commentaireUser')
+           # ->add('commentaireParent')
+            ->add('notification', 'checkbox', array('required' => false, 'data' => true))
+            ->add('texte')
+            #->add('commentaire')
         ;
     }
     

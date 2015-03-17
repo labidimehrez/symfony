@@ -79,7 +79,7 @@ class sujetController extends Controller {
         //var_dump($sujet);die();
         $form = $this->createFormBuilder($sujet)->add('sujet')->getForm();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
-                    'sujet' => $sujet ,'form' => $form->createView() 
+                    'sujet' => $sujet, 'form' => $form->createView()
         ));
     }
 
@@ -107,12 +107,13 @@ class sujetController extends Controller {
                 $ids = $s->getId(); /*                 * *    * recuperer les tag associé dans un array multi dimension * */
                 $tag[$ids] = $em->getRepository('MyAppForumBundle:tag')->getBySujet($ids);
             }
-        }
-        else{$tag[0]=0;} /* pour mettre quelque chose dans array tag **/
-    
+        } else {
+            $tag[0] = 0;
+        } /* pour mettre quelque chose dans array tag * */
+
 
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
-   
+
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findAll();
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
@@ -181,12 +182,12 @@ class sujetController extends Controller {
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         $commentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($id);
-       
+
         $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($id);
         //var_dump($commentCount);die();
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet, 'mostusedtag' => $mostusedtag,
-                    'tag' => $tag, 'commentaire' => $commentassociated,'commentCount'=>$commentCount
+                    'tag' => $tag, 'commentaire' => $commentassociated, 'commentCount' => $commentCount
         ));
     }
 
@@ -230,6 +231,24 @@ class sujetController extends Controller {
         $em->flush();
 
         return $this->render('MyAppForumBundle:sujet:specialedit.html.twig', array('form' => $form->createView()));
+    }
+
+    public function changethreadAction(Request $request) {
+
+       /* $manager = $this->get('collectify_sujet_manager');
+        $sujet = $manager->getAll();
+   
+        $sujetid = $this->getRequest()->get('i');
+     
+        var_dump($sujetid);
+       
+
+        die();
+
+        $form = $this->createFormBuilder($sujet)->add('sujet')->getForm();
+        return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
+                    'sujet' => $sujet, 'form' => $form->createView()
+        ));*/
     }
 
 }

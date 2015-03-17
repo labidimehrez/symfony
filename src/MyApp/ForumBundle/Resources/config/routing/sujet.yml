@@ -42,4 +42,6 @@ my_app_forum_sujet_voir:
     pattern:  /{id}/voir
     defaults: { _controller: MyAppForumBundle:sujet:voir }
     
- 
+my_app_forum_sujet_changethread:
+    pattern:  /changethread
+    defaults: { _controller: MyAppForumBundle:sujet:changethread }

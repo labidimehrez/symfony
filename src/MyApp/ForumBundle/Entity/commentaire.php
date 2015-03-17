@@ -11,9 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="MyApp\ForumBundle\Repository\CommentaireRepository")
  */
-class commentaire
-{
-   /**
+class commentaire {
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -21,13 +21,13 @@ class commentaire
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\Sujet")
-     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id",nullable=false)
+     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\sujet", cascade={"all"})
+     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
- 
     protected $sujet;
- 
+
     /**
      * @var string
      *
@@ -44,23 +44,19 @@ class commentaire
     /**
      * @var integer
      *
-     * @ORM\Column(name="like", type="integer",nullable=true)
+     * @ORM\Column(name="vote", type="integer",nullable=true)
      */
-    private $like;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="commentaire_Parent", type="string", length=255,unique=true,nullable=true)
-     */
-    private $commentaireParent;
+    private $vote;
+
+ 
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="notification")
+     * @ORM\Column(name="notification",nullable=true)
      */
     private $notification;
-    
+
     /**
      * @var \DateTime
      * 
@@ -73,8 +69,7 @@ class commentaire
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -84,10 +79,9 @@ class commentaire
      * @param string $texte
      * @return commentaire
      */
-    public function setTexte($texte)
-    {
+    public function setTexte($texte) {
         $this->texte = $texte;
-    
+
         return $this;
     }
 
@@ -96,34 +90,11 @@ class commentaire
      *
      * @return string 
      */
-    public function getTexte()
-    {
+    public function getTexte() {
         return $this->texte;
     }
+
  
-
-    /**
-     * Set commentaireParent
-     *
-     * @param string $commentaireParent
-     * @return commentaire
-     */
-    public function setCommentaireParent($commentaireParent)
-    {
-        $this->commentaireParent = $commentaireParent;
-    
-        return $this;
-    }
-
-    /**
-     * Get commentaireParent
-     *
-     * @return string 
-     */
-    public function getCommentaireParent()
-    {
-        return $this->commentaireParent;
-    }
 
     /**
      * Set notification
@@ -131,10 +102,9 @@ class commentaire
      * @param boolean $notification
      * @return commentaire
      */
-    public function setNotification($notification)
-    {
+    public function setNotification($notification) {
         $this->notification = $notification;
-    
+
         return $this;
     }
 
@@ -143,11 +113,10 @@ class commentaire
      *
      * @return boolean 
      */
-    public function getNotification()
-    {
+    public function getNotification() {
         return $this->notification;
     }
-    
+
     public function getSujet() {
         return $this->sujet;
     }
@@ -155,34 +124,22 @@ class commentaire
     public function setSujet($sujet) {
         $this->sujet = $sujet;
     }
-    public function getCommentaire() {
-        return $this->commentaire;
-    }
-
-    public function setCommentaire($commentaire) {
-        $this->commentaire = $commentaire;
-        return $this;
-    }
 
     public function getUser() {
         return $this->user;
     }
-
-   
 
     public function setUser($user) {
         $this->user = $user;
         return $this;
     }
 
-   
-
-    public function getLike() {
-        return $this->like;
+    public function getVote() {
+        return $this->vote;
     }
 
-    public function setLike($like) {
-        $this->like = $like;
+    public function setVote($vote) {
+        $this->vote = $vote;
         return $this;
     }
 
@@ -195,6 +152,9 @@ class commentaire
         return $this;
     }
 
+    public function __construct() {
 
+        $this->datecreation = new \DateTime();
+    }
 
 }

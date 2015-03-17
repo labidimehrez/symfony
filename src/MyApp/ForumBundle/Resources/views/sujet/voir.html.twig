@@ -17,7 +17,7 @@
     <div class="paddingdebataveccomment">
 
         </br> 
-      
+
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
@@ -33,7 +33,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
         </br> 
-        
+
 {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
@@ -43,40 +43,40 @@
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
-      
+
  {% endif%}       
 
+        <b style="color: black;  padding-left: 130px;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
+        <div>
 
-  <div>
 
 
-  
-       
-        </br><b style="color: black;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-         <b class="rouge"><p>Add new comment</p></b>
+            <b class="rouge"><p>Add new comment</p></b>
 
-        <div  class="tagtitlevoirun">
+            <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
                 {% for tag in tag %}
-            <b> {% set counternombredetag = counternombredetag + 1 %}
+                <b> {% set counternombredetag = counternombredetag + 1 %}
                                 {{tag.title}} &nbsp;&nbsp;
-            </b>
+                </b>
                 {% endfor%}
               {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
 
-            <a href="{{ path('my_app_forum_sujet_specialedit',{'id':sujet.id}) }}">  
+                <a href="{{ path('my_app_forum_sujet_specialedit',{'id':sujet.id}) }}">  
                {% if counternombredetag > 0%}
-                <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                  {% endif%}
-            </a> 
+                </a> 
 
 
 
             {#% endif %#}
+            </div>
         </div>
-</div>
 
 
 
@@ -94,8 +94,8 @@
 
 
                     {{commentaire.user.username}}<b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
-{% if commentaire.like  is not null %}
-  <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.like}} </b>
+{% if commentaire.vote  is not null %}
+            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.like}} </b>
   {%endif%}
             </br>
             <div class="contenucommentaireparent"> {{commentaire.texte}}
@@ -107,7 +107,17 @@
       {%endif%}</br>
           {% endfor%}
         </div>
-
+        <div class="nouveaucommentaire">
+    {{ render(controller('MyAppForumBundle:commentaire:add')) }} {# pour afficher notif number #}         
+        {#{% if app.user.image is not null %} <img src="{{ app.user.image }}" class="imageuser" alt=""/>
+       {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{%endif%}   
+          <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br>
+              <input type="text" name="" value=""  style=" width:700px;height:100px; margin-left: 50px;"></br></br>
+          <input type="submit"  value="submit"  class="btn btn-warning btn-lg" style="margin-left: 50px;"/>&nbsp;&nbsp;&nbsp;
+          <input type="reset"  value="Annuler"    style="margin-left: 50px;" class="btn-annuler"/>       
+          <label style="margin-left: 390px;">Notification</label>  &nbsp; <input type="checkbox"  value=""     class=""/>
+          #}
+        </div>
 
         <br>
 

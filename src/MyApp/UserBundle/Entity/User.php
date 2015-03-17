@@ -149,7 +149,8 @@ class User extends BaseUser {
     private $image;
     protected $notifications;
     protected $sujets;
-
+    protected $commentaires;
+ 
     public function getSexe() {
         return $this->sexe;
     }
@@ -239,6 +240,15 @@ class User extends BaseUser {
         $this->image = $image;
         return $this;
     }
- 
+    public function getCommentaires() {
+        return $this->commentaires;
+    }
+
+    public function setCommentaires($commentaires) {
+        $this->commentaires = $commentaires;
+        return $this;
+    }
+
+
  
 }
