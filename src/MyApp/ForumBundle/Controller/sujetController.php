@@ -77,8 +77,9 @@ class sujetController extends Controller {
         /*         * **************  recuperation de tout les sujets  *********** */
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujet();
         //var_dump($sujet);die();
+        $form = $this->createFormBuilder($sujet)->add('sujet')->getForm();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
-                    'sujet' => $sujet
+                    'sujet' => $sujet ,'form' => $form->createView() 
         ));
     }
 

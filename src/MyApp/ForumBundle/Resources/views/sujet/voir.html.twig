@@ -16,7 +16,8 @@
 <div class="contenudetemplate">
     <div class="paddingdebataveccomment">
 
-        </br>  
+        </br> 
+      
 {% if sujet.user is not null %}
 {% if sujet.user.image is not null  %}
         <img src="{{sujet.user.image }}"  
@@ -28,27 +29,33 @@
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black" >{{sujet.user.username}}</b>
+        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
+        </br> 
+        
 {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
              class="imageuserdebataveccomment"alt="" />  
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">Anonymous</b>
- {% endif%}       
-
-
-
-
-
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
-        </br>
-        <b style="color: black;padding-left: 120px;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
-        </br>
+      
+ {% endif%}       
+
+
+  <div>
+
+
+  
+       
+        </br><b style="color: black;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-        <div  style="width: 800px;">  {{sujet.contenu|Contenu}}  </div> </br>  
-        <div  class="Addnewcomment"><p>Add new comment</p></div>
+         {{sujet.contenu|Contenu}}   </br>  
+         <b class="rouge"><p>Add new comment</p></b>
 
         <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
@@ -69,7 +76,7 @@
 
             {#% endif %#}
         </div>
-
+</div>
 
 
 
@@ -97,7 +104,7 @@
 
 
 
-      {%endif%}
+      {%endif%}</br>
           {% endfor%}
         </div>
 
