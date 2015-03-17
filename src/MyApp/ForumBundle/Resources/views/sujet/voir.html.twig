@@ -95,7 +95,7 @@
 
                     {{commentaire.user.username}}<b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
 {% if commentaire.vote  is not null %}
-            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.like}} </b>
+            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.vote}} </b>
   {%endif%}
             </br>
             <div class="contenucommentaireparent"> {{commentaire.texte}}
@@ -107,18 +107,16 @@
       {%endif%}</br>
           {% endfor%}
         </div>
+        {% if is_granted( 'ROLE_USER' ) %} 
         <div class="nouveaucommentaire">
-    {{ render(controller('MyAppForumBundle:commentaire:add')) }} {# pour afficher notif number #}         
-        {#{% if app.user.image is not null %} <img src="{{ app.user.image }}" class="imageuser" alt=""/>
+          {% if app.user.image is not null %} <img src="{{ app.user.image }}" class="imageuser" alt=""/>
        {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{%endif%}   
-          <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br>
-              <input type="text" name="" value=""  style=" width:700px;height:100px; margin-left: 50px;"></br></br>
-          <input type="submit"  value="submit"  class="btn btn-warning btn-lg" style="margin-left: 50px;"/>&nbsp;&nbsp;&nbsp;
-          <input type="reset"  value="Annuler"    style="margin-left: 50px;" class="btn-annuler"/>       
-          <label style="margin-left: 390px;">Notification</label>  &nbsp; <input type="checkbox"  value=""     class=""/>
-          #}
+          <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
+             {{ render(controller('MyAppForumBundle:commentaire:add')) }}       
+ 
+    
         </div>
-
+        {% endif %}
         <br>
 
 
