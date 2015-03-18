@@ -104,7 +104,7 @@
 
 
 
-      {%endif%}</br>
+      {%endif%} 
           {% endfor%}
         </div>
         {% if is_granted( 'ROLE_USER' ) %} 
@@ -175,11 +175,17 @@ $(".panel").slideToggle("slow");
 </script>
 
 <style type="text/css">
-div.panel,p.flip {
+p.flip {
  
-    color: #c52821 ;
-    font-weight: bold;
-    background-color:transparent;
+color: #c52821;
+  font-weight: bold;
+  height: 50px;
+  width: 200px;
+  padding-left: 15px;
+  padding-top: 10px;
+  background-color: transparent;
+ /* border-color: aqua;
+  border-style: dashed;*/
 }
 
 div.panel {
