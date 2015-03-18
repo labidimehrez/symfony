@@ -87,7 +87,7 @@ class sujetController extends Controller {
 
         /*         * ******   pagination de tout les sujets  *********** */
         $em1 = $this->get('doctrine.orm.entity_manager');
-        $dql = "SELECT a FROM MyAppForumBundle:sujet a";
+        $dql = "SELECT a FROM MyAppForumBundle:sujet a ORDER BY a.datecreation DESC ";
         $query = $em1->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');

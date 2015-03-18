@@ -99,13 +99,13 @@
   {%endif%}
             
   <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"
-     style="padding-left:100px;text-decoration:none;"><b style="text-decoration-color: gray">Delete</b></a>
+     style="padding-left:100px;text-decoration:none;text-decoration-color: gray;">Delete</a>
            
             </br>
             <div class="contenucommentaireparent"> 
                     {{commentaire.texte}}
                 </br> 
-                <p class="flip2">Add new comment</p>
+                <a class="flip2">Add new comment</a>
                 <b class="likebutton">like</b>
             
             </div>
@@ -180,13 +180,13 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 $(document).ready(function() {
 $(".flip").click(function() {$(".panel").slideToggle("slow");});
 $(".flip2").click(function() {$(".panel2").slideToggle("slow");});
-
+ 
 });
 </script>
 
 <style type="text/css">
 p.flip {
- 
+ text-decoration:none;
 color: #c52821;
   font-weight: bold;
   height: 50px;
@@ -197,14 +197,14 @@ color: #c52821;
  /* border-color: aqua;
   border-style: dashed;*/
 }
-p.flip2 {
+a.flip2 {
  
 color: #c52821;
-  font-weight: bold;
- 
+font-weight: bold;
+ text-decoration:none;
 }
 div.panel {display: none;}
-div.panel2 {display: none;  padding-left: 100px;} 
+div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
 
 
 </style>

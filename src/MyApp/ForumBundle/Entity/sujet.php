@@ -40,7 +40,7 @@ class sujet {
     /**
      * @var string
      *
-     * @ORM\Column(name="sujet", type="string", length=255,unique=true,nullable=false)
+     * @ORM\Column(name="sujet", type="string", length=255 ,nullable=false)
      */
     private $sujet;
 
