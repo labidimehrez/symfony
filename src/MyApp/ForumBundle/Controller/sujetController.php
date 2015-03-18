@@ -235,20 +235,25 @@ class sujetController extends Controller {
 
     public function changethreadAction(Request $request) {
 
-       /* $manager = $this->get('collectify_sujet_manager');
-        $sujet = $manager->getAll();
-   
-        $sujetid = $this->getRequest()->get('i');
-     
-        var_dump($sujetid);
-       
+        $manager = $this->get('collectify_sujet_manager');
+        $sujet = $manager->getAll();/** liste debats a partir de la bd ordrer by DESC * */
+        $sujetarray = $sujet;  /* nouveau tableau pour traiter les debats */
 
-        die();
+        $sujetid = $this->getRequest()->get('i');/** array des val thread * */
+        for ($index = 0; $index < count($sujetid); $index++) {
+
+            if ($sujetarray[$index]->getThread() != $sujetid[$index]) {
+                $sujetarray[$index]->setThread($sujetid[$index]);
+                $manager->persist($sujetarray[$index]);
+            }
+        }
+
+
 
         $form = $this->createFormBuilder($sujet)->add('sujet')->getForm();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet, 'form' => $form->createView()
-        ));*/
+        ));
     }
 
 }
