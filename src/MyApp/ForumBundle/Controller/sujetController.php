@@ -211,11 +211,14 @@ class sujetController extends Controller {
     }
 
     public function specialeditAction($id) {
-        /*         * ************ simple edit action *************** */
+     
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+        
         $s = $sujet->getSujet(); // get the current sujet pour le renvooyer aprés :)
         $c = $sujet->getContenu(); // get the current Contenu pour le renvooyer aprés :)
+        
+        
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
@@ -226,6 +229,7 @@ class sujetController extends Controller {
 
         $form->bind($request);
         $sujet = $form->getData(); // les données de la form 
+ 
         $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
         $sujet->setContenu($c); // j a'joute le Contenu recuperé avant a la requete update
         $em->flush();

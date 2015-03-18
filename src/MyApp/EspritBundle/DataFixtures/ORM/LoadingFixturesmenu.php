@@ -38,8 +38,8 @@ class LoadingFixturesmenu implements FixtureInterface {
         
         $menu3 = new Menu();
         $menu3->setPosition(3);
-        $menu3->setName('UNDER');
-        $menu3->setLien('my_app_forum_sujet_sujetrecent');
+        $menu3->setName('STYLE');
+        $menu3->setLien('my_app_article_style_add');
         $manager->persist($menu3);
         
         $menu4 = new Menu();
