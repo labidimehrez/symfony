@@ -236,7 +236,7 @@ class sujetController extends Controller {
     public function changethreadAction(Request $request) {
 
         $manager = $this->get('collectify_sujet_manager');
-        $sujet = $manager->getAll();/** liste debats a partir de la bd ordrer by DESC * */
+        $sujet = $manager->getAll();/** liste debats a partir de la bd ordrer by datecreation DESC * */
         $sujetarray = $sujet;  /* nouveau tableau pour traiter les debats */
 
         $sujetid = $this->getRequest()->get('i');/** array des val thread * */
