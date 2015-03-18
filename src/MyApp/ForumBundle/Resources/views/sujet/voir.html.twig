@@ -8,7 +8,7 @@
 
 <!-- css et js pour bundle JQuery  -->
 
-  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
@@ -55,7 +55,7 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-            <b class="rouge"><p>Add new comment</p></b>
+           <p class="flip">Add new comment</p>
 
             <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
@@ -93,7 +93,7 @@
 
 
 
-                    {{commentaire.user.username}}<b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+                    <b>{{commentaire.user.username}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
 {% if commentaire.vote  is not null %}
             <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.vote}} </b>
   {%endif%}
@@ -108,14 +108,15 @@
           {% endfor%}
         </div>
         {% if is_granted( 'ROLE_USER' ) %} 
-        <div class="nouveaucommentaire">
+     
+           <div class="panel"> <div   class="nouveaucommentaire"   >
           {% if app.user.image is not null %} <img src="{{ app.user.image }}" class="imageuser" alt=""/>
-       {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{%endif%}   
-          <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
-             {{ render(controller('MyAppForumBundle:commentaire:add')) }}       
- 
-    
-        </div>
+          {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{%endif%}   
+            <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
+           {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
+
+
+        </div> </div>
         {% endif %}
         <br>
 
@@ -161,3 +162,32 @@
 </style>
  {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
 {########################################################################}
+
+
+<script type="text/javascript"
+src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$(".flip").click(function() {
+$(".panel").slideToggle("slow");
+});
+});
+</script>
+
+<style type="text/css">
+div.panel,p.flip {
+ 
+    color: #c52821 ;
+    font-weight: bold;
+    background-color:transparent;
+}
+
+div.panel {
+ 
+display: none;
+}
+</style>
+ 
+ 
+
+ 
