@@ -124,6 +124,7 @@ class sujet {
      * @return sujet
      */
     public function setContenu($contenu) {
+        
         $this->contenu = $contenu;
 
         return $this;

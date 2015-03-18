@@ -23,8 +23,8 @@ class commentaire {
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\sujet", cascade={"all"})
-     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\sujet") 
+     * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id")
      */
     protected $sujet;
 
@@ -36,11 +36,19 @@ class commentaire {
     private $texte;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
 
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\commentaire")
+     * @ORM\JoinColumn(name="commentaire_id", referencedColumnName="id",nullable=true)
+     */
+    protected $commentaire;
+    
+    
     /**
      * @var integer
      *

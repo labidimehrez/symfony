@@ -97,9 +97,18 @@
 {% if commentaire.vote  is not null %}
             <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.vote}} </b>
   {%endif%}
+            
+  <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"
+     style="padding-left:100px;text-decoration:none;"><b style="text-decoration-color: gray">Delete</b></a>
+           
             </br>
-            <div class="contenucommentaireparent"> {{commentaire.texte}}
-                </br> <b class="rouge">Add new comment</b><b class="likebutton">like</b></div>
+            <div class="contenucommentaireparent"> 
+                    {{commentaire.texte}}
+                </br> 
+                <p class="flip2">Add new comment</p>
+                <b class="likebutton">like</b>
+            
+            </div>
 
 
 
@@ -116,7 +125,8 @@
            {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
 
 
-        </div> </div>
+               </div> </div> 
+        <div class="panel2">{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }} </div>
         {% endif %}
         <br>
 
@@ -168,9 +178,9 @@
 src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-$(".flip").click(function() {
-$(".panel").slideToggle("slow");
-});
+$(".flip").click(function() {$(".panel").slideToggle("slow");});
+$(".flip2").click(function() {$(".panel2").slideToggle("slow");});
+
 });
 </script>
 
@@ -187,11 +197,16 @@ color: #c52821;
  /* border-color: aqua;
   border-style: dashed;*/
 }
-
-div.panel {
+p.flip2 {
  
-display: none;
+color: #c52821;
+  font-weight: bold;
+ 
 }
+div.panel {display: none;}
+div.panel2 {display: none;  padding-left: 100px;} 
+
+
 </style>
  
  
