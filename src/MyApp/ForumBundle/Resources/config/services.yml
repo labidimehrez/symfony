@@ -21,3 +21,10 @@ services:
         class: MyApp\ForumBundle\Twig\Extension\DifftimeExtension
         tags:
           - {name:twig.extension }
+          
+    sdzblog.validator.antiflood:                                # Le nom du service
+        class:     MyApp\ForumBundle\Validator\AntiFloodValidator  # La classe du service, ici notre validateur déjà créé
+        arguments: [@request, @doctrine.orm.entity_manager]     # Les données qu'on injecte au service : la requête et l'EntityManager
+        scope:     request                                      # Comme on injecte la requête, on doit préciser ce scope
+        tags:
+            - { name: validator.constraint_validator, alias: sdzblog_antiflood }  # C'est avec l'alias qu'on retrouvera le service

@@ -28,7 +28,7 @@
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
-        <b style="color: black" >{{sujet.user.username}}</b>
+        <b style="color: black" >{{sujet.user.username|capitalize}}</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
@@ -55,7 +55,7 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-           <p class="flip">Add new comment</p>
+            <a class="flip">Add new comment</a>
 
             <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
@@ -87,27 +87,30 @@
         <div class="commentaire">
               {% for  commentaire in commentaire %}
         {% if loop.index <= sujet.thread %}
-    {% if commentaire.user.image is not null  %}<img src="{{commentaire.user.image }}" class="imageuser" alt=""/>   
-    {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   /> {% endif%}
+            {% if commentaire.user.image is not null  %}
+            <img src="{{commentaire.user.image }}" class="imageuser" alt=""/>   
+        {% else %} 
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   /> 
+         {% endif%}
 
 
 
 
-                    <b>{{commentaire.user.username}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
-{% if commentaire.vote  is not null %}
+            <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+            {% if commentaire.vote  is not null %}
             <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.vote}} </b>
-  {%endif%}
-            
-  <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"
-     style="padding-left:100px;text-decoration:none;text-decoration-color: gray;">Delete</a>
-           
+             {%endif%}
+
+            <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"
+               style="padding-left:100px;text-decoration:none;text-decoration-color: gray;">Delete</a>
+
             </br>
             <div class="contenucommentaireparent"> 
                     {{commentaire.texte}}
                 </br> 
                 <a class="flip2">Add new comment</a>
                 <b class="likebutton">like</b>
-            
+
             </div>
 
 
@@ -117,17 +120,60 @@
           {% endfor%}
         </div>
         {% if is_granted( 'ROLE_USER' ) %} 
-     
-           <div class="panel"> <div   class="nouveaucommentaire"   >
-          {% if app.user.image is not null %} <img src="{{ app.user.image }}" class="imageuser" alt=""/>
-          {%else%}<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{%endif%}   
-            <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".flip").click(function() {
+                    $(".panel").slideToggle("slow");
+                    $(".panel2").hide();
+                });
+                $(".flip2").click(function() {
+                    $(".panel2").slideToggle("slow");
+                    $(".panel").hide();
+                });
+
+            });
+        </script>
+
+        <div class="panel"> 
+            <div   class="nouveaucommentaire"   >
+          {% if app.user.image is not null %} 
+                <img src="{{ app.user.image }}" class="imageuser" alt=""/>
+          {%else%}
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+          {%endif%}   
+                <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
            {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
 
 
-               </div> </div> 
+            </div>
+        </div> 
         <div class="panel2">{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }} </div>
+        {% else%} 
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".flip").click(function() {
+                    $(".panel3").slideToggle("slow");
+
+                });
+                $(".flip2").click(function() {
+                    $(".panel3").slideToggle("slow");
+
+                });
+
+            });
+        </script>
+        <div class="panel3"> 
+            <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
+            <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
+            <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
+            <a href="#" style="text-decoration:none;color:#c52821;"> 
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                Annuler&nbsp;&nbsp;</a> 
+        </div>
         {% endif %}
+
         <br>
 
 
@@ -137,6 +183,46 @@
     </div> 
 </div>
 
+
+<script type="text/javascript"
+src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+
+<style type="text/css">
+    a.flip {
+        text-decoration:none;
+        color: #c52821;
+        font-weight: bold;
+        height: 50px;
+        width: 200px;
+        padding-left: 15px;
+        padding-top: 10px;
+        background-color: transparent;
+        /* border-color: aqua;
+         border-style: dashed;*/
+    }
+    a.flip2 {
+
+        color: #c52821;
+        font-weight: bold;
+        text-decoration:none;
+    }
+    div.panel {display: none;}
+    div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
+    div.panel3 {
+        padding: 10px;
+        padding-left: 50px;
+        width: 450px;
+        display: none;
+        -moz-box-shadow: 10px 10px 5px 0px #656565;
+        -webkit-box-shadow: 10px 10px 5px 0px #656565;
+        -o-box-shadow: 10px 10px 5px 0px #656565;
+        box-shadow: 10px 10px 5px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+        border: 1px black;border-style: solid;
+    }
+
+</style>
 
     {#
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script> 
@@ -174,41 +260,5 @@
 {########################################################################}
 
 
-<script type="text/javascript"
-src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-$(".flip").click(function() {$(".panel").slideToggle("slow");});
-$(".flip2").click(function() {$(".panel2").slideToggle("slow");});
- 
-});
-</script>
-
-<style type="text/css">
-p.flip {
- text-decoration:none;
-color: #c52821;
-  font-weight: bold;
-  height: 50px;
-  width: 200px;
-  padding-left: 15px;
-  padding-top: 10px;
-  background-color: transparent;
- /* border-color: aqua;
-  border-style: dashed;*/
-}
-a.flip2 {
- 
-color: #c52821;
-font-weight: bold;
- text-decoration:none;
-}
-div.panel {display: none;}
-div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
 
 
-</style>
- 
- 
-
- 

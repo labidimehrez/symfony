@@ -159,8 +159,16 @@ class commentaire {
         $this->datecreation = $datecreation;
         return $this;
     }
+    public function getCommentaire() {
+        return $this->commentaire;
+    }
 
-    public function __construct() {
+    public function setCommentaire($commentaire) {
+        $this->commentaire = $commentaire;
+        return $this;
+    }
+
+        public function __construct() {
 
         $this->datecreation = new \DateTime();
     }

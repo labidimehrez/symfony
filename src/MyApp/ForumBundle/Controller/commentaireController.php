@@ -79,6 +79,8 @@ class commentaireController extends Controller {
                 $commentaire->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
                 $commentaire->setSujet($sujet);
+                $commentaire1 = $em->getRepository('MyAppForumBundle:commentaire')->find(6);               
+                $commentaire->setCommentaire($commentaire1);
                 $em->persist($commentaire);
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));

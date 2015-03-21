@@ -78,10 +78,10 @@
 
 
 
-    <b>{{sujet.user.username}}</b>
+    <b>{{sujet.user.username|capitalize}}</b>
      {% else %}    
     <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
-    <b>{{sujet.user.username}}</b>
+    <b>{{sujet.user.username|capitalize}}</b>
     {% endif %}
 
 
