@@ -152,14 +152,23 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".flip").click(function() {
-                    $(".panel3").slideToggle("slow");
+                $(".flip").click(function() 
+                        {  
+                            $(".panel3").slideToggle("slow");  
+                        });
+                  
 
-                });
-                $(".flip2").click(function() {
-                    $(".panel3").slideToggle("slow");
+             
+                $(".flip2").click(function() 
+                    { 
+                             $(".panel3").slideToggle("slow");  
+                    });
+                   
 
-                });
+                $(".flip3").click(function() 
+                   {    
+                    $(".panel3").fadeOut();
+                   });
 
             });
         </script>
@@ -168,7 +177,7 @@
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
             <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a href="#" style="text-decoration:none;color:#c52821;"> 
+            <a class="flip3" href="" style=""> 
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                 Annuler&nbsp;&nbsp;</a> 
         </div>
@@ -203,6 +212,12 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     }
     a.flip2 {
 
+        color: #c52821;
+        font-weight: bold;
+        text-decoration:none;
+    }
+    a.flip3 {
+ 
         color: #c52821;
         font-weight: bold;
         text-decoration:none;
@@ -257,8 +272,4 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     }
 </style>
  {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'test'} %}
-{########################################################################}
-
-
-
-
+{########################################################################} 
