@@ -113,7 +113,7 @@ class commentaireController extends Controller {
         return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
     }
 
-    public function editAction( Request $request) {
+    public function editAction() {
 
         $em = $this->getDoctrine()->getManager();
         $id=7;
@@ -126,7 +126,17 @@ class commentaireController extends Controller {
 
         $form = $this->createFormBuilder($commentaire)
                ->add('texte','textarea', array('required' => true))->getForm();
-        $form->handleRequest($request);
+         $request = $this->getRequest();
+
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            /*             * *********  validation form ********************* */
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
+            }
+        
+        }
 
 
         if ($form->isValid()) {
@@ -139,7 +149,7 @@ class commentaireController extends Controller {
     }
 
     
-        public function editsouscommentAction( Request $request) {
+        public function editsouscommentAction() {
 
         $em = $this->getDoctrine()->getManager();
         $id=7;
@@ -152,9 +162,9 @@ class commentaireController extends Controller {
 
         $form = $this->createFormBuilder($souscommentaire)
                ->add('texte','textarea', array('required' => true))->getForm();
-        $form->handleRequest($request);
+         $request = $this->getRequest();
 
-        $form->handleRequest($request);
+      
 
 
         if ($form->isValid()) {
