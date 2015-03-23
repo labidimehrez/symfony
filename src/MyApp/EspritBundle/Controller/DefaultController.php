@@ -3,7 +3,7 @@
 namespace MyApp\EspritBundle\Controller;
  use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+ 
 
 
 class DefaultController extends Controller
@@ -34,9 +34,7 @@ class DefaultController extends Controller
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
    
-
-   
-     
+ 
     
      public function routeAction(){
         $request = $this->container->get('request');

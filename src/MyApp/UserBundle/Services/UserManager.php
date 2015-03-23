@@ -21,7 +21,18 @@ class UserManager {
     public function getOne($id) {
         return $this->repository->find($id);
     }
-
+    public function makeEnable($user) {
+        $user->setEnabled(true);
+        $this->persist($user);
+        return $user;
+    }
+   public function makeDisable($user) {
+        $user->setEnabled(false);
+        $this->persist($user);
+        return $user;
+    }
+    
+    
     public function makeSuperadmin($user) {
         $user->setRoles(array('ROLE_SUPER_ADMIN' => 'Superadmin'));
         $this->persist($user);
@@ -50,8 +61,17 @@ class UserManager {
         $user->setRoles(array('ROLE_USER' => 'User'));
         $this->persist($user);
         return $user;
+    }   
+    public function getALLusersId($users) {
+        if ($users != NULL) {
+            return array_values($users);
+        }
     }
-
+    public function getenablesusersId($enablesusers) {
+        if ($enablesusers != NULL) {
+            return array_values($enablesusers);
+        }
+    }
     public function getSuperAdminId($SuperAdmin) {
         if ($SuperAdmin != NULL) {
             return array_values($SuperAdmin);

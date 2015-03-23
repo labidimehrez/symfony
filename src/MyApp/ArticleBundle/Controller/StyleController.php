@@ -71,9 +71,13 @@ class StyleController extends Controller {
         $em->remove($style);
         $em->flush();
         $this->get('session')->getFlashBag()->set('message', 'Ce style disparait !!');
-        return $this->redirect($this->generateUrl('my_app_article_style_show', array(
-                            'selectstyle' => $selectstyle
-        )));
+        $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
+
+        $form = $this->createFormBuilder($style)->add('style')->getForm();
+
+
+        return $this->render('MyAppArticleBundle:style:manage.html.twig', array(
+                    'form' => $form->createView(), 'style' => $style));
     }
 
     public function manageAction() {

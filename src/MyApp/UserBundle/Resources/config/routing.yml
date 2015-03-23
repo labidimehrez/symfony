@@ -25,11 +25,10 @@ my_app_user_updateuser2:
     pattern:  /user/updateuser2
     defaults: { _controller: MyAppUserBundle:User:updateuser2 }
 
-
-my_app_user_gestionRole:
-    pattern:  /user/gestionRole
-    defaults: { _controller: MyAppUserBundle:User:gestionRole }
-
-my_app_user_resultatchoixrole:
-    pattern:  /user/resultatchoixrole
-    defaults: { _controller: MyAppUserBundle:User:resultatchoixrole }
+ 
+    
+my_app_user_manage:
+    pattern:  /user/manage
+    defaults: { _controller: MyAppUserBundle:User:manage }  
+    
+   

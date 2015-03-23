@@ -38,7 +38,7 @@
         <section id="secondary_bar">
             <div class="user">
                 <p>
-   {% if is_granted("ROLE_SUPER_ADMIN") %} {{app.user.username }}{%else%} root {%endif%}       
+   {% if "SUPER_ADMIN" in  app.user.roles|join %} {{app.user.username }}{%else%} root {%endif%}       
 
                     (<a href="#">3 Messages</a>)</p>
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
@@ -73,8 +73,8 @@
             <h3>Users</h3>
             <ul class="toggle">
                 <li class="icn_add_user"><a href="{{path('fos_user_registration_register') }}">Add New User</a></li>
-                <li class="icn_view_users"><a href="{{path('my_app_user_show') }}">View Users</a></li>
-                {% if is_granted("ROLE_SUPER_ADMIN") %} <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Your Profile</a></li> {%endif%}
+                <li class="icn_view_users"><a href="{{path('my_app_user_manage') }}">View Users</a></li>
+                  {% if "SUPER_ADMIN" in  app.user.roles|join %}  <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Your Profile</a></li> {%endif%}
             </ul>
             <h3>Media</h3>
             <ul class="toggle">
@@ -87,7 +87,7 @@
             <ul class="toggle">
                 <li class="icn_settings"><a href="#">Options</a></li>
                 <li class="icn_security"><a href="#">Security</a></li>
-               {% if is_granted("ROLE_SUPER_ADMIN") %} <li class="icn_jump_back"><a href="{{path('fos_user_security_logout') }}">Logout</a></li>{%endif%}
+                {% if "SUPER_ADMIN" in  app.user.roles|join %}  <li class="icn_jump_back"><a href="{{path('fos_user_security_logout') }}">Logout</a></li>{%endif%}
             </ul>
 
             <footer>
@@ -139,7 +139,7 @@
 
                 <div class="tab_container">
 
-      {% block showUser %}{% endblock  %}       {% block editUser %}{% endblock  %}
+      {% block showUser %}{% endblock  %}       {% block editUser %}{% endblock  %} {% block manageuser %} {% endblock  %}
      {% block showtag %}{% endblock  %}         {% block edittag %}{% endblock  %}    {% block ajout_tag%} {% endblock %}                      
      {% block showpub %}{% endblock  %}          {% block ajout_publicite %}{% endblock  %}  
      {% block showsujet %}{% endblock %}         {% block editsujet %}{% endblock  %}
