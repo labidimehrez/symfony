@@ -86,74 +86,82 @@
 
         <div class="commentaire">
               {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %}
-        
-
- 
 
 
 
 
 
 
-           
+
+
+
+
             <div class="contenucommentaireparent"> 
-             
+
             {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-            <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
-            
-            
+                <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+
+
 
             {% if commentaire.vote  is not null %}
-            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                &nbsp;{{commentaire.vote}} </b>
+                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                    &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
-            </br>
+                </br>
                     {{commentaire.texte}}
                 </br> 
+
+
                 <a class="flip2">Add new comment</a>
                 <b class="likebutton">like</b>
-           <a class="flipedit" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
-              
-      &nbsp;&nbsp;&nbsp;&nbsp; 
- <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
-
-             </br> 
+                  {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %}
+                <a class="flipedit" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
+                 {%endif%}
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                  {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %}
+                <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
+                {%endif%}
+                </br> 
             </div>
-            
-            
+
+
               {% for  souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id %}
             <div class="contenucommentairefils"> 
-                
+
               {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-            <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
-            
+                <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+
 
             {% if souscommentaire.vote  is not null %}
-            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                &nbsp;{{souscommentaire.vote}} </b>
+                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                    &nbsp;{{souscommentaire.vote}} </b>
              {%endif%}                   
                 </br>
                     {{souscommentaire.texte}}
                 </br> 
                 <a class="flip2">Add new comment</a>
                 <b class="likebutton">like</b>
+                {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
                 <a class="flipedit2"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
-              
-      &nbsp;&nbsp;&nbsp;&nbsp;           
- <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
-                   
-             </br> 
+                {%endif%}
+                &nbsp;&nbsp;&nbsp;&nbsp;   
+               {# {%if (souscommentaire.user ==  app.user.username)||() %}#}
+                {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
+                <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
+                 {%endif%}
+                
+                </br> 
             </div>
             {%endif%} {% endfor%}
 
 
-      
+
           {%endif%}{% endfor%}
         </div>
                     {# fin affichage des commentaires #}
@@ -164,29 +172,29 @@
                     $(".panel").slideToggle("slow");/* afficher input nouveau commentaire */
                     $(".panel2").hide();           /* cacher input nouveau SOUS commentaire */
                     $(".paneledit2").hide();       /* cacher input edit SOUS commentaire */
-                     $(".paneledit").hide();       /* cacher input edit commentaire */
+                    $(".paneledit").hide();       /* cacher input edit commentaire */
                 });
                 $(".flip2").click(function() {
                     $(".panel2").slideToggle("slow");/* afficher input nouveau  SOUS commentaire */
                     $(".panel").hide();             /* cacher input input nouveau commentaire */
-                     $(".paneledit2").hide();       /* cacher input edit SOUS commentaire */
-                     $(".paneledit").hide();       /* cacher input edit commentaire */
+                    $(".paneledit2").hide();       /* cacher input edit SOUS commentaire */
+                    $(".paneledit").hide();       /* cacher input edit commentaire */
                 });
-                  
-              $(".flipedit").click(function() {
+
+                $(".flipedit").click(function() {
                     $(".paneledit").slideToggle("slow");/* afficher input EDIT nouveau commentaire */
                     $(".panel").hide();   /* cacher input nouveau  commentaire */
                     $(".panel2").hide(); /* cacher input nouveau SOUS commentaire */
                     $(".paneledit2").hide();/* cacher input EDIT SOUS nouveau commentaire */
                 });
-        
-              $(".flipedit2").click(function() {
+
+                $(".flipedit2").click(function() {
                     $(".paneledit2").slideToggle("slow");/* afficher input EDIT SOUS nouveau commentaire */
                     $(".panel").hide();  /* cacher input nouveau  commentaire */
                     $(".panel2").hide();/* cacher input nouveau SOUS commentaire */
                     $(".paneledit").hide();       /* cacher input edit commentaire */
                 });
-        
+
             });
         </script>
 
@@ -199,12 +207,12 @@
           {%endif%}   
                 <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
            {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
-           </div>
+            </div>
         </div> 
         <div class="panel2">{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }} </div>
-        
+
         {#####################################################}
-           <div class="paneledit"> 
+        <div class="paneledit"> 
             <div   class="nouveaucommentaire"   >
           {% if app.user.image is not null %} 
                 <img src="{{ app.user.image }}" class="imageuser" alt=""/>
@@ -213,36 +221,16 @@
           {%endif%}   
                 <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
            {{ render(controller('MyAppForumBundle:commentaire:edit')) }}     
-           </div>
+            </div>
         </div> 
         <div class="paneledit2">
                     {{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} 
         </div>
-        
+
         {% else%} 
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".flip").click(function()
-                {
-                    $(".panel3").slideToggle("slow");
-                });
-
-
-
-                $(".flip2").click(function()
-                {
-                    $(".panel3").slideToggle("slow");
-                });
-
-
-                $(".flip3").click(function()
-                {
-                    $(".panel3").fadeOut();
-                });
-
-            });
-        </script>
+ 
+     <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
+        
         <div class="panel3"> 
             <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
@@ -293,6 +281,8 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         font-weight: bold;
         text-decoration:none;
     }
+
+
     div.panel {display: none;}
     div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
     div.panel3 {
