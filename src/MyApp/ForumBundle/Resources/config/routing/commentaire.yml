@@ -16,3 +16,11 @@ my_app_forum_commentaire_show:
 my_app_forum_commentaire_delete:
     pattern:  /{id}/delete
     defaults: { _controller: MyAppForumBundle:commentaire:delete}
+    
+my_app_forum_commentaire_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: MyAppForumBundle:commentaire:edit}
+    
+my_app_forum_commentaire_editsous:
+    pattern:  /{id}/editsous
+    defaults: { _controller: MyAppForumBundle:commentaire:editsous}

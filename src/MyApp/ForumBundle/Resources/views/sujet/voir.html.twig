@@ -81,56 +81,108 @@
 
 
 
-
+                    {# debut affichage des commentaires #}
 
 
         <div class="commentaire">
-              {% for  commentaire in commentaire %}
-        {% if loop.index <= sujet.thread %}
-            {% if commentaire.user.image is not null  %}
-            <img src="{{commentaire.user.image }}" class="imageuser" alt=""/>   
-        {% else %} 
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   /> 
-         {% endif%}
+              {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %}
+        
+
+ 
 
 
+
+
+
+
+           
+            <div class="contenucommentaireparent"> 
+             
+            {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
             <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+            
+            
+
             {% if commentaire.vote  is not null %}
-            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>  &nbsp;{{commentaire.vote}} </b>
-             {%endif%}
-
-            <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"
-               style="padding-left:100px;text-decoration:none;text-decoration-color: gray;">Delete</a>
-
+            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                &nbsp;{{commentaire.vote}} </b>
+             {%endif%}       
             </br>
-            <div class="contenucommentaireparent"> 
                     {{commentaire.texte}}
                 </br> 
                 <a class="flip2">Add new comment</a>
                 <b class="likebutton">like</b>
+           <a class="flipedit" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
+              
+      &nbsp;&nbsp;&nbsp;&nbsp; 
+ <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
 
+             </br> 
             </div>
+            
+            
+              {% for  souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id %}
+            <div class="contenucommentairefils"> 
+                
+              {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
+            <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+            
+
+            {% if souscommentaire.vote  is not null %}
+            <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                &nbsp;{{souscommentaire.vote}} </b>
+             {%endif%}                   
+                </br>
+                    {{souscommentaire.texte}}
+                </br> 
+                <a class="flip2">Add new comment</a>
+                <b class="likebutton">like</b>
+                <a class="flipedit2"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
+              
+      &nbsp;&nbsp;&nbsp;&nbsp;           
+ <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
+                   
+             </br> 
+            </div>
+            {%endif%} {% endfor%}
 
 
-      {%endif%} 
-          {% endfor%}
+      
+          {%endif%}{% endfor%}
         </div>
+                    {# fin affichage des commentaires #}
         {% if is_granted( 'ROLE_USER' ) %} 
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".flip").click(function() {
-                    $(".panel").slideToggle("slow");
-                    $(".panel2").hide();
+                    $(".panel").slideToggle("slow");/* afficher input nouveau commentaire */
+                    $(".panel2").hide();           /* cacher input nouveau SOUS commentaire */
+                    $(".paneledit2").hide();       /* cacher input edit commentaire */
                 });
                 $(".flip2").click(function() {
-                    $(".panel2").slideToggle("slow");
-                    $(".panel").hide();
+                    $(".panel2").slideToggle("slow");/* afficher input nouveau  SOUS commentaire */
+                    $(".panel").hide();             /* cacher input input nouveau commentaire */
+                    $(".paneledit2").hide();       /* cacher input edit commentaire */
                 });
-
+                  
+              $(".flipedit").click(function() {
+                    $(".paneledit2").slideToggle("slow");/* afficher input EDIT nouveau commentaire */
+                    $(".panel").hide();   /* cacher input nouveau  commentaire */
+                    $(".panel2").hide(); /* cacher input nouveau SOUS commentaire */
+                });
+        
+              $(".flipedit2").click(function() {
+                    $(".paneledit2").slideToggle("slow");/* afficher input EDIT SOUS nouveau commentaire */
+                    $(".panel").hide();  /* cacher input nouveau  commentaire */
+                    $(".panel2").hide();/* cacher input nouveau SOUS commentaire */
+                });
+        
             });
         </script>
 
@@ -143,32 +195,47 @@
           {%endif%}   
                 <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
            {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
-
-
-            </div>
+           </div>
         </div> 
         <div class="panel2">{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }} </div>
+        
+        {#####################################################}
+           <div class="paneledit"> 
+            <div   class="nouveaucommentaire"   >
+          {% if app.user.image is not null %} 
+                <img src="{{ app.user.image }}" class="imageuser" alt=""/>
+          {%else%}
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+          {%endif%}   
+                <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
+           {{ render(controller('MyAppForumBundle:commentaire:edit')) }}     
+           </div>
+        </div> 
+        <div class="paneledit2">
+                    {{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} 
+        </div>
+        
         {% else%} 
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".flip").click(function() 
-                        {  
-                            $(".panel3").slideToggle("slow");  
-                        });
-                  
+                $(".flip").click(function()
+                {
+                    $(".panel3").slideToggle("slow");
+                });
 
-             
-                $(".flip2").click(function() 
-                    { 
-                             $(".panel3").slideToggle("slow");  
-                    });
-                   
 
-                $(".flip3").click(function() 
-                   {    
+
+                $(".flip2").click(function()
+                {
+                    $(".panel3").slideToggle("slow");
+                });
+
+
+                $(".flip3").click(function()
+                {
                     $(".panel3").fadeOut();
-                   });
+                });
 
             });
         </script>
@@ -177,7 +244,7 @@
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
             <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="flip3" href="" style=""> 
+            <a class="flip3" href="#" style=""> 
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                 Annuler&nbsp;&nbsp;</a> 
         </div>
@@ -217,7 +284,7 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         text-decoration:none;
     }
     a.flip3 {
- 
+
         color: #c52821;
         font-weight: bold;
         text-decoration:none;
@@ -236,7 +303,8 @@ src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
         border: 1px black;border-style: solid;
     }
-
+    div.paneledit {display: none;}
+    div.paneledit2 {display: none;  padding-left: 100px;padding-top: 10px;} 
 </style>
 
     {#

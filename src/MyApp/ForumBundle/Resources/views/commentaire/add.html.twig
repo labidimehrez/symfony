@@ -2,11 +2,7 @@
   <form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} > 
 
         <table height=" " width=" " border="0">
-            
-      
            
-           
-      
             <tr>
             <td>{{ form_widget(form.texte, { 'attr': { 'style': '  width: 700px;height: 100px;  margin-left: 40px;' ,'placeholder': 'Ecrire du commentaire ici ...'  }  }) }}</td> 
             </tr>
@@ -18,16 +14,11 @@
                   <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
           
                   <input type="reset"  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
-                
-                          
-                           
+                 
                 Notification {{form_widget(form.notification) }}
                   
                 </td>  
             </tr>
 
         </table>
- 
-
-
     </form>

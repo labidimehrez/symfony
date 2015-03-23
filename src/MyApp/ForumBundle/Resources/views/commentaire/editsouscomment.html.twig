@@ -1,0 +1,18 @@
+{# empty Twig template #}
+<form role="form" method="post" {{ form_enctype(form) }} >
+
+    <table height=" " width=" " border="0">
+        <tr>
+            <td>{{ form_widget(form.texte, { 'attr': { 'style': '  width: 300px;height: 50px;  margin-left: 40px;' ,'placeholder': 'Ecrire du commentaire ici ...'  }  }) }}</td> 
+        </tr>
+
+        <tr>   {{form_widget(form._token)}}   
+            <td> </br></br> 
+                <input type="submit"  value="reply" style="  width: 70px;  margin-left: 28px;" class="btn-annuler"  />
+
+                <input type="reset"  value="Annuler"    style="margin-left:50px;margin-right: 30px;" class="btn-annuler"/>                                                                                                                                                    
+            </td>  
+        </tr>
+
+    </table>
+</form>

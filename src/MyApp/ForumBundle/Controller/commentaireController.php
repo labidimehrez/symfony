@@ -55,9 +55,8 @@ class commentaireController extends Controller {
         return $this->render('MyAppForumBundle:commentaire:add.html.twig', array('form' => $form->createView()));
     }
 
-    
-        public function addsouscommentAction(Request $request) {
- 
+    public function addsouscommentAction(Request $request) {
+
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = substr($uri, 45, -5); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
@@ -74,12 +73,12 @@ class commentaireController extends Controller {
             $form->bind($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
-          
+
                 /*                 * ** je recuperer l id de user connecté * */
                 $commentaire->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
                 $commentaire->setSujet($sujet);
-                $commentaire1 = $em->getRepository('MyAppForumBundle:commentaire')->find(6);               
+                $commentaire1 = $em->getRepository('MyAppForumBundle:commentaire')->find(6);
                 $commentaire->setCommentaire($commentaire1);
                 $em->persist($commentaire);
                 $em->flush();
@@ -91,21 +90,17 @@ class commentaireController extends Controller {
                             'form' => $form->createView()));
             }
         }
-         
- 
+
+
         return $this->render('MyAppForumBundle:commentaire:addsouscomment.html.twig', array('form' => $form->createView()));
-                
-        
     }
-    
-    
-    
-    public function deleteAction($id,Request $request) {
+
+    public function deleteAction($id, Request $request) {
         /*         * ************ simple delete action *************** */
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = substr($uri, 45, -5); /* get current debat id */
-        
-        
+
+
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
 
@@ -115,6 +110,61 @@ class commentaireController extends Controller {
 
         $em->remove($commentaire);
         $em->flush();
-            return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
+        return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
     }
+
+    public function editAction( Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        $id=7;
+        $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+        if (!$commentaire) {
+            throw $this->createNotFoundException(
+                    'No commentaire found for id ' . $id
+            );
+        }
+
+        $form = $this->createFormBuilder($commentaire)
+               ->add('texte','textarea', array('required' => true))->getForm();
+        $form->handleRequest($request);
+
+
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array(
+                            'form' => $form->createView()));
+        }
+
+        return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView()));
+    }
+
+    
+        public function editsouscommentAction( Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        $id=7;
+        $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+        if (!$souscommentaire) {
+            throw $this->createNotFoundException(
+                    'No souscommentaire found for id ' . $id
+            );
+        }
+
+        $form = $this->createFormBuilder($souscommentaire)
+               ->add('texte','textarea', array('required' => true))->getForm();
+        $form->handleRequest($request);
+
+        $form->handleRequest($request);
+
+
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array(
+                            'form' => $form->createView()));
+        }
+
+        return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('form' => $form->createView()));
+    }
+    
+    
 }

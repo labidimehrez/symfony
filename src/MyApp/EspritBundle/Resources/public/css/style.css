@@ -1,5 +1,5 @@
 .SITE {position: absolute; left: 0px; top: 0px; z-index: 253;}
- 
+
 .HEADER {
     background-color: #c52821;
     padding: 0;
@@ -2860,20 +2860,20 @@
     z-index: 621;
 }
 .Footer {
-padding-top: 10px;
-padding-bottom: 0px;
-padding-left: 0px;
-padding-right: 0px;
-margin-right: 0px;
-margin-top: 17px;
-width: 930px;
-cursor: default;
-left: 195px;
-/* z-index: 8000; */
-position: absolute;
-top: 2573px;
-height: 326px;
-background-color: #c52821;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    margin-top: 17px;
+    width: 930px;
+    cursor: default;
+    left: 195px;
+    /* z-index: 8000; */
+    position: absolute;
+    top: 2573px;
+    height: 326px;
+    background-color: #c52821;
 }
 /*******  Foooter ***************/
 #div_publicite_add{
@@ -2927,12 +2927,12 @@ background-color: #c52821;
     z-index: 6;
 }
 .likebutton{  color: #c52821 ;
-    font-weight: bold;
-    background-color:transparent;  padding-left: 50px;}
+              font-weight: bold;
+              background-color:transparent;  padding-left: 50px;}
 
 .likecount{  color: black ;
-    font-weight: bold;
-    background-color:transparent;  padding-left: 50px;}
+             font-weight: bold;
+             background-color:transparent;  padding-left: 50px;}
 .rouge{
     color: #c52821 ;
     font-weight: bold;
@@ -3178,20 +3178,20 @@ background-color: #c52821;
 
 .commentaire{
 
-  /* background-color: #f8fef0; */
-  //border: 1px solid #2EFE2E;
-  position: relative;
-  left: /*155px;*/50px;
-  width: /*292*/800px;
-  /* height: /*180; */
-  margin-top: 30px;
+    /* background-color: #f8fef0; */
+    //border: 1px solid #2EFE2E;
+    position: relative;
+    left: /*155px;*/50px;
+    width: /*292*/800px;
+    /* height: /*180; */
+    margin-top: 30px;
 }
 .black{color: black;font-weight: bold;}
 .silver{color: silver;font-weight: bold;}
 .timestyle{color: silver;font-weight: bold;padding-left: 100px;}
 .senestredebattelement{padding-bottom: 10px;}
 .lienstyledebat{ text-decoration:none; font-weight:bold;color: black;padding-left: 55px;}
- 
+
 .contenudetemplate{
 
     /*background-color: #f8fef0;
@@ -3220,14 +3220,14 @@ background-color: #c52821;
     padding-top:10px;  
 }
 .tagtitlevoirun{
-   position: relative;
-  padding-top: -20px;
-  padding-bottom: -20px;
-  padding-left: 400px;
-  /* padding-right: 0px; */
-  /* margin-left: -40px; */
-  margin-top: -10px;
-      text-decoration: none;
+    position: relative;
+    padding-top: -20px;
+    padding-bottom: -20px;
+    padding-left: 400px;
+    /* padding-right: 0px; */
+    /* margin-left: -40px; */
+    margin-top: -10px;
+    text-decoration: none;
     font-weight: bold;
     color: black;
 }
@@ -3307,7 +3307,7 @@ background-color: #c52821;
 .publicitenumero6{position: relative;top: 580px;left: 26px;}
 .publicitenumero7{position: relative;top: 590px;left: 640px;}   
 .publicitenumero8{ position: relative; top: 850px;left: 335px;}
-   
+
 
 .articleposition1{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 250px;}
 .articleposition2{ position: absolute;/*border: 1px solid #000;*/width: 630px;height: 100px;top: 267px;}
@@ -3330,32 +3330,41 @@ background-color: #c52821;
 
 .bordurearticle{padding:4px;}
 
- /* This is poor CSS by design to be simple and readable */
- .stylecontenudebat{color: black;font-weight: bold;font-size: 13px;font-family: Helvetica;padding-left: 5px;}
- div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }
- 
- .commentassoci{padding:50px;width:850px;}
- .btn-annuler{background-color: transparent;border: 0px; color:#c52821;}
- 
- .lienOpretnydebatLaesdebat{
-margin-left: 4px;
-font-size: 11px;
-font-weight: normal;
-font-family: helvetica;
- }
- .contenucommentaireparent{
-  border-color: red;
-  /* border-style: dashed; */
-  padding-left: 50px;
-  margin-top: -15px;
- }
- .nouveaucommentaire{
-       border-color: red;
-  /* border-style: dashed; */
-  padding-left: 50px;
- }
- .inputnouveaucommentaire{
-       margin-left: 50px;
-  width: 700px;
-  height: 100px;
- }
+/* This is poor CSS by design to be simple and readable */
+.stylecontenudebat{color: black;font-weight: bold;font-size: 13px;font-family: Helvetica;padding-left: 5px;}
+div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }
+
+.commentassoci{padding:50px;width:850px;}
+.btn-annuler{background-color: transparent;border: 0px; color:#c52821;}
+
+.lienOpretnydebatLaesdebat{
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: normal;
+    font-family: helvetica;
+}
+.contenucommentaireparent{
+    border-color: red;
+    /* border-style: dashed; */
+    padding-left: 50px;
+    //  margin-top: -15px;
+}
+.contenucommentairefils{
+    border-color: red;
+    /* border-style: dashed; */
+    padding-left: 80px;
+    // margin-top: -15px; 
+}
+.nouveaucommentaire{
+    border-color: red;
+    /* border-style: dashed; */
+    padding-left: 50px;
+}
+.inputnouveaucommentaire{
+    margin-left: 50px;
+    width: 700px;
+    height: 100px;
+}
+.deletecommentaire{  color: #c52821 ;
+                     font-weight: bold;
+                     background-color:transparent;  padding-left: 50px;}
