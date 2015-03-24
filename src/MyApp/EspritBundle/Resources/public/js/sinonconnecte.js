@@ -20,6 +20,7 @@
                 $(".flip3").click(function()
                 {
                     $(".panel3").fadeOut();
+                    $("div#cacherdiv").hide();
                 });
 
             });

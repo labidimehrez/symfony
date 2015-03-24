@@ -103,17 +103,19 @@
                 </br> 
 
 
-                <a id=showthread><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a> 
-                <a id=hidethread><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a>
+                <a id=showthread><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
+                <a id=hidethread><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
                 <script type="text/javascript">
                     $("#showthread").click(function() {
                         $("div#div").show(1000);
-                        $("a#showthread").hide();$("a#hidethread").show();
+                        $("a#showthread").hide();
+                        $("a#hidethread").show();
                     });
 
                     $("#hidethread").click(function() {
                         $("div#div").hide(10);
-                        $("a#hidethread").hide(); $("a#showthread").show();
+                        $("a#hidethread").hide();
+                        $("a#showthread").show();
                     });
                 </script>
 
@@ -167,38 +169,9 @@
           {%endif%}{% endfor%}
         </div>
                     {# fin affichage des commentaires #}
-        {% if is_granted( 'ROLE_USER' ) %} 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".flip").click(function() {
-                    $(".panel").slideToggle("slow");/* afficher input nouveau commentaire */
-                    $(".panel2").hide();           /* cacher input nouveau SOUS commentaire */
-                    $(".paneledit2").hide();       /* cacher input edit SOUS commentaire */
-                    $(".paneledit").hide();       /* cacher input edit commentaire */
-                });
-                $(".flip2").click(function() {
-                    $(".panel2").slideToggle("slow");/* afficher input nouveau  SOUS commentaire */
-                    $(".panel").hide();             /* cacher input input nouveau commentaire */
-                    $(".paneledit2").hide();       /* cacher input edit SOUS commentaire */
-                    $(".paneledit").hide();       /* cacher input edit commentaire */
-                });
+        {% if is_granted( 'ROLE_USER' ) %}
+        <script src="{{ asset('bundles/myappesprit/js/siconnecte.js') }}" type="text/javascript"></script> 
 
-                $(".flipedit").click(function() {
-                    $(".paneledit").slideToggle("slow");/* afficher input EDIT nouveau commentaire */
-                    $(".panel").hide();   /* cacher input nouveau  commentaire */
-                    $(".panel2").hide(); /* cacher input nouveau SOUS commentaire */
-                    $(".paneledit2").hide();/* cacher input EDIT SOUS nouveau commentaire */
-                });
-
-                $(".flipedit2").click(function() {
-                    $(".paneledit2").slideToggle("slow");/* afficher input EDIT SOUS nouveau commentaire */
-                    $(".panel").hide();  /* cacher input nouveau  commentaire */
-                    $(".panel2").hide();/* cacher input nouveau SOUS commentaire */
-                    $(".paneledit").hide();       /* cacher input edit commentaire */
-                });
-
-            });
-        </script>
 
         <div class="panel"> 
             <div   class="nouveaucommentaire"   >
@@ -233,12 +206,12 @@
 
         <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
 
-        <div class="panel3"> 
+        <div class="panel3" id="cacherdiv" > 
             <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
             <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="flip3" href="#" style=""> 
+            <a class="flip3"> 
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                 Annuler&nbsp;&nbsp;</a> 
         </div>
@@ -254,7 +227,7 @@
 </div>
 
 
- 
+
 
 
 <style type="text/css">
@@ -283,6 +256,7 @@
         text-decoration:none;
     }
 
+    a#showthread{display: none;}
 
     div.panel {display: none;}
     div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
@@ -300,4 +274,5 @@
     }
     div.paneledit {display: none;}
     div.paneledit2 {display: none;  padding-left: 100px;padding-top: 10px;} 
+
 </style>
