@@ -69,7 +69,7 @@ class UserManager {
     }
     public function getenablesusersId($enablesusers) {
         if ($enablesusers != NULL) {
-            return (int)($enablesusers);
+            return array_values($enablesusers);
         }
     }
     public function getdisablesusersId($disablesusers) {

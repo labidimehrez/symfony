@@ -8,7 +8,7 @@ use MyApp\ArticleBundle\Entity\style;
 
 class StyleController extends Controller {
 
-    public function addAction() {
+ /*   public function addAction() {
 
         $em = $this->getDoctrine()->getManager();
         $style = $em->getRepository('MyAppArticleBundle:style')->findAll();
@@ -19,8 +19,8 @@ class StyleController extends Controller {
 
         return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
     }
-
-    public function saveAction(Request $request) {
+*/
+    public function addAction(Request $request) {
         $manager = $this->get('collectify_style_manager');/** equivalent de em manager * */
         $style2 = $manager->getAll();
         /*         * * form a afficher dans la vue * */
@@ -33,12 +33,12 @@ class StyleController extends Controller {
         $BackgroundColor = $this->getRequest()->get('color2');
         $name = $this->getRequest()->get('name');
         $title = $this->getRequest()->get('title');
-        /* var_dump($ColorForFont);var_dump($BackgroundColor);var_dump($name);var_dump($title);die(); */
+        
 
         /*         * * test de validation title must be not blank * */
-        /*  if ($title == null) {
+          if(($ColorForFont == null)||($BackgroundColor == null) ||($title == null)){
           return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
-          } */
+          }  
         /** ajout de style validé avec les input de la request ** */
         $style = new style();
         $style->setCodecouleurback($BackgroundColor);

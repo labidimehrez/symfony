@@ -121,11 +121,12 @@ class UserController extends Controller {
         $enablesusers = $this->getRequest()->get('enable');
         $enablesusersId = $manager->getenablesusersId($enablesusers); //var_dump($usersSuperAdminId); 
         $allusersId = $manager->getALLusersId($users); 
+//        var_dump($enablesusersId); die();
         
         if ($allusersId != NULL) {
             foreach ($allusersId as $id) {
-                if(($id= $enablesusersId))
-                {$manager->makeEnable($manager->getOne($id));}
+                if(in_array($id, array_values($enablesusersId))){$manager->makeEnable($manager->getOne($id));}
+                else{$manager->makeDisable($manager->getOne($id));}
             }
         }
         
