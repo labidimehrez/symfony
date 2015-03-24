@@ -149,7 +149,7 @@
                 </br>
                     {{souscommentaire.texte}}
                 </br> 
-              <!--  <a class="flip2">Add new comment</a>-->
+                <a class="flip2">Add new comment</a> 
                 <b class="likebutton">like</b>
                 {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
                 <a class="flipedit2"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
@@ -159,7 +159,8 @@
                 {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
                  {%endif%}
-                <div class="panel2">{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }} </div>
+                <div class="panel2">
+                {% if is_granted( 'ROLE_USER' ) %}{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }}{%endif%} </div>
                 </br> 
             </div>
             {%endif%} {% endfor%}
@@ -181,7 +182,7 @@
                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
           {%endif%}   
                 <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
-           {{ render(controller('MyAppForumBundle:commentaire:add')) }}     
+          {{ render(controller('MyAppForumBundle:commentaire:add')) }}  
             </div>
         </div> 
        
@@ -202,7 +203,7 @@
                     {{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} 
         </div>
 
-        {% else%} 
+        {% else %}
 
         <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
 
@@ -274,5 +275,6 @@
     }
     div.paneledit {display: none;}
     div.paneledit2 {display: none;  padding-left: 100px;padding-top: 10px;} 
-
+ 
 </style>
+ 

@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function testAction()
     {           
-        return $this->render('MyAppForumBundle:Default:index.html.twig' );                
+        return $this->render('MyAppForumBundle:commentaire:test.html.twig' );                
     }
  
 }

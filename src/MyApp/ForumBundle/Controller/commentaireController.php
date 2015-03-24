@@ -63,7 +63,7 @@ class commentaireController extends Controller {
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($idsujet);
         /*         * ** je recuperer l id de user connecté * */
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $user->getId();
+         $user->getId();
         /*         * ** je recuperer l id de user connecté * */
         $commentaire = new commentaire();
 

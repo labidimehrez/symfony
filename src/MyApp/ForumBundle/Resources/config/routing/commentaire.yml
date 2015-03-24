@@ -24,3 +24,9 @@ my_app_forum_commentaire_edit:
 my_app_forum_commentaire_editsous:
     pattern:  /{id}/editsous
     defaults: { _controller: MyAppForumBundle:commentaire:editsous}
+    
+    
+    
+my_app_forum_commentaire_test:
+    pattern:  /test
+    defaults: { _controller: MyAppForumBundle:Default:test}
