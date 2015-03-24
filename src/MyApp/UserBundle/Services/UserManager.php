@@ -69,7 +69,12 @@ class UserManager {
     }
     public function getenablesusersId($enablesusers) {
         if ($enablesusers != NULL) {
-            return array_values($enablesusers);
+            return (int)($enablesusers);
+        }
+    }
+    public function getdisablesusersId($disablesusers) {
+        if ($disablesusers != NULL) {
+            return  (int)($disablesusers);
         }
     }
     public function getSuperAdminId($SuperAdmin) {
