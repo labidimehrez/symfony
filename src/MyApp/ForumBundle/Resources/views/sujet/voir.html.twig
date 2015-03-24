@@ -83,7 +83,7 @@
 
         <div class="commentaire">
               {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %}
-
+                {% set commentaireid = commentaire.id %} 
             <div class="contenucommentaireparent"> 
 
             {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
@@ -98,28 +98,29 @@
                 <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
                     &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
-                </br>
-                    {{commentaire.texte}}
-                </br> 
+                </br>   {{commentaire.texte}}  </br> 
+                   
+               
 
-
-                <a id=showthread><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
-                <a id=hidethread><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
-                <script type="text/javascript">
-                    $("#showthread").click(function() {
-                        $("div#div").show(1000);
-                        $("a#showthread").hide();
-                        $("a#hidethread").show();
+                    
+                <a id=showthread{{commentaireid}}><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
+                <a id=hidethread{{commentaireid}}><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
+                
+                   <script type="text/javascript">
+                    $("#showthread{{commentaireid}}").click(function() {
+                        $("div#div{{commentaireid}}").show(1000);                 
+                        $("a#showthread{{commentaireid}}").hide();
+                        $("a#hidethread{{commentaireid}}").show();
                     });
 
-                    $("#hidethread").click(function() {
-                        $("div#div").hide(10);
-                        $("a#hidethread").hide();
-                        $("a#showthread").show();
+                    $("#hidethread{{commentaireid}}").click(function() {
+                        $("div#div{{commentaireid}}").hide(10);
+                        $("a#hidethread{{commentaireid}}").hide();
+                        $("a#showthread{{commentaireid}}").show();
                     });
                 </script>
 
-                <a class="flip2">Add new comment</a>
+                <a class="flip2">Add new comment &nbsp; {{commentaire.id}}</a>
                 <b class="likebutton">like</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
                 <a class="flipedit" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
@@ -133,7 +134,7 @@
 
 
               {% for  souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id %}
-            <div class="contenucommentairefils" id="div"> 
+            <div class="contenucommentairefils" id="div{{commentaireid}}"> 
 
               {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
@@ -149,7 +150,7 @@
                 </br>
                     {{souscommentaire.texte}}
                 </br> 
-                <a class="flip2">Add new comment</a> 
+                <a class="flip2">Add new comment &nbsp; {{souscommentaire.id}}</a> 
                 <b class="likebutton">like</b>
                 {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
                 <a class="flipedit2"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
@@ -199,9 +200,9 @@
            {{ render(controller('MyAppForumBundle:commentaire:edit')) }}     
             </div>
         </div> 
-        <div class="paneledit2">
-                    {{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} 
-        </div>
+        <div class="paneledit2">{{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} </div>
+                    
+       
 
         {% else %}
 
@@ -228,9 +229,7 @@
 </div>
 
 
-
-
-
+ 
 <style type="text/css">
     a.flip {
         text-decoration:none;
