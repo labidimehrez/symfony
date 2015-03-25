@@ -12,12 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Security/manage.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Services/UserManager.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/ArticleManager.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Controller/UserController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Repository/CommentaireRepository.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Repository/ArticleRepository.php</file>
         </group>
     </open-files>
 </project-private>

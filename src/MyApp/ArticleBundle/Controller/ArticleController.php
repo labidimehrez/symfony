@@ -36,10 +36,6 @@ class ArticleController extends Controller {
                 foreach ($Etatdelapositionchoisie as $e) {
                     $Etat = $e->getFixedposition(); // Etat de la position choisi par la form string cad "1" ou "0"
                 }
-
-//                    if($Etat == 1){echo "fixed";die();}
-
-
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
                     /*                     * * j 'affecte l a'rticle a la premiere position libre * */
                     if ($Etat != 1) {

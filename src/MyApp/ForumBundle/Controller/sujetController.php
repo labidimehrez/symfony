@@ -163,12 +163,17 @@ class sujetController extends Controller {
     }
 
     public function voirAction($id, Request $request) {
-
+        $em = $this->getDoctrine()->getManager();
         $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager * */
         $sujet = $managersujet->getOne($id);
+        $form = $this->createForm(new sujetType(), $sujet);
 
+        $managertag = $this->get('collectify_tag_manager');
+        $alltags = $managertag->getAll($id); /* array de tous les objets tags */
+        $i = $this->getRequest()->get('i'); /* valeur dans l input texte */
+    
         if (!$sujet) {
-            throw $this->createNotFoundException('No  sujet found for id ' . $id);
+            throw $this->createNotFoundException('no  sujet found for id ' . $id);
         }
 
         $managersujet->IncrementandSetNewDateLus($sujet); /* increment NBlect sujet et update DateLus */
@@ -182,15 +187,15 @@ class sujetController extends Controller {
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
         $commentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($id);
-   
+
         $Subcommentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getSubCommentaireBySujet($id);
-        
+
         $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($id);
         //var_dump($commentCount);die();
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet, 'mostusedtag' => $mostusedtag,
-                    'tag' => $tag, 'commentaire' => $commentassociated,'souscommentaire' => $Subcommentassociated,
-                    'commentCount' => $commentCount
+                    'tag' => $tag, 'commentaire' => $commentassociated, 'souscommentaire' => $Subcommentassociated,
+                    'commentCount' => $commentCount, 'form' => $form->createView()
         ));
     }
 
@@ -214,29 +219,25 @@ class sujetController extends Controller {
     }
 
     public function specialeditAction($id) {
-     
+
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
-        
+
         $s = $sujet->getSujet(); // get the current sujet pour le renvooyer aprés :)
         $c = $sujet->getContenu(); // get the current Contenu pour le renvooyer aprés :)
-        
-        
+
+
         if (!$sujet) {
             throw $this->createNotFoundException('No  sujet found for id ' . $id);
         }
-
         $form = $this->createForm(new sujetType(), $sujet);
         $request = $this->getRequest();
-
-
         $form->bind($request);
         $sujet = $form->getData(); // les données de la form 
- 
+
         $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
         $sujet->setContenu($c); // j a'joute le Contenu recuperé avant a la requete update
         $em->flush();
-
         return $this->render('MyAppForumBundle:sujet:specialedit.html.twig', array('form' => $form->createView()));
     }
 
@@ -245,7 +246,6 @@ class sujetController extends Controller {
         $manager = $this->get('collectify_sujet_manager');
         $sujet = $manager->getAll();/** liste debats a partir de la bd ordrer by datecreation DESC * */
         $sujetarray = $sujet;  /* nouveau tableau pour traiter les debats */
-
         $sujetid = $this->getRequest()->get('i');/** array des val thread * */
         for ($index = 0; $index < count($sujetid); $index++) {
 
@@ -254,9 +254,6 @@ class sujetController extends Controller {
                 $manager->persist($sujetarray[$index]);
             }
         }
-
-
-
         $form = $this->createFormBuilder($sujet)->add('sujet')->getForm();
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet, 'form' => $form->createView()

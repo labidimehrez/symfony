@@ -50,10 +50,6 @@ class ArticleManager {
         return $this->repository->findAll();
     }
 
-    /*public function getDisponiblitedelapositionenajout($positiondelarticleenajout) {
-      $this->repository->getDisponiblite($positiondelarticleenajout); 
-    }*/
-
     public function getArticleWithFixedPosition() {
         return $this->repository->getArticleWithFixedPosition();
     }

@@ -6,13 +6,17 @@ services:
            ################################################
 parameters:
     collectify.sujet.manager.class: MyApp\ForumBundle\Services\SujetManager
- 
+    collectify.tag.manager.class: MyApp\ForumBundle\Services\TagManager
     
     
 services:
     collectify_sujet_manager:
         class: %collectify.sujet.manager.class%
         arguments: [@doctrine.orm.entity_manager]
+    collectify_tag_manager:
+        class: %collectify.tag.manager.class%
+        arguments: [@doctrine.orm.entity_manager]
+        
     contenu:
         class: MyApp\ForumBundle\Twig\Extension\ContenuExtension
         tags:
