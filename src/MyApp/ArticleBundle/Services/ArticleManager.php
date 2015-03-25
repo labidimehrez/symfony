@@ -14,32 +14,45 @@ class ArticleManager {
         $this->repository = $em->getRepository('MyAppArticleBundle:article');
     }
 
-    public function shiftNofixedPosition() {
+    public function ShiftToRightNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         foreach ($ArticleNOFixedPosition as $anfp) {
             $this->incrementposition($anfp);
         }
     }
-
+   public function ShiftToLeftNofixedPosition() {
+        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+        foreach ($ArticleNOFixedPosition as $anfp) {
+            $this->decrementposition($anfp);
+        }
+    }
     public function incrementposition($article) {
         $pos = $article->getPosition();
         $pos = $pos + 1;
         $article->setPosition($pos);
         $this->persist($article);
     }
-
+   public function decrementposition($article) {
+        $pos = $article->getPosition();
+        $pos = $pos - 1;
+        $article->setPosition($pos);
+        $this->persist($article);
+    }
     public function removemore($article) {
         foreach ($article as $s) {
             $this->em->remove($s);
             $this->em->flush();
         }
-
         return $article;
     }
 
     public function getAll() {
         return $this->repository->findAll();
     }
+
+    /*public function getDisponiblitedelapositionenajout($positiondelarticleenajout) {
+      $this->repository->getDisponiblite($positiondelarticleenajout); 
+    }*/
 
     public function getArticleWithFixedPosition() {
         return $this->repository->getArticleWithFixedPosition();
@@ -105,31 +118,17 @@ class ArticleManager {
         if (!in_array("15", $pos)) {
             array_push($positionlibre, 15);
         }
-
-
-
-        // var_dump($positionlibre);die();
-        //  $positionlibre  tableau qui contient les position vides
-
-
-
         $premierepositionlibre = reset($positionlibre); // integer => premiere position libre     
-
-
-
-
         return $premierepositionlibre;
     }
 
     public function persist($article) {
         $this->doFlush($article);
     }
- 
 
     public function doFlush($article) {
         $this->em->persist($article);
         $this->em->flush();
-
         return $article;
     }
 
