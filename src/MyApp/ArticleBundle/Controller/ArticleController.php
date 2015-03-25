@@ -1,6 +1,7 @@
 <?php
 
 namespace MyApp\ArticleBundle\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\ArticleBundle\Form\ArticleType;
@@ -11,16 +12,10 @@ class ArticleController extends Controller {
     public function addAction() {
 
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
-        $em = $this->getDoctrine()->getManager();
-        /** article fixed position * */
-        $articlefixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleWithFixedPosition();
-        /** article NO fixedposition * */
-        $articleNOfixedposition = $em->getRepository('MyAppArticleBundle:article')->getArticleNOFixedPosition();
-        //var_dump($articleNOfixedposition);die();
-        $lespositionsoccupés = $em->getRepository('MyAppArticleBundle:article')->getPositionOccuped();
-        // var_dump($lespositionsoccupés);die();
-
-        $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés);
+        $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des positions FIXéS */
+        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array des positions non fixés */
+        $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
+        $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
 
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
@@ -31,25 +26,32 @@ class ArticleController extends Controller {
 
             if ($form->isValid()) {
                 $article = $form->getData();
-                $positiondelarticleenajout = $form["position"]->getData(); /* si position du nouveau article ajouté */
-                $fixedpositionChecked = $form["fixedposition"]->getData(); /* si Fixed Position is Checked */
+                $positiondelarticleenajout = $form["position"]->getData(); /* la position du nouveau article ajouté */
+                $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
 
-
-
-                // si la position choisis diff de 1 on ajute l article ou on veux
-                if ($positiondelarticleenajout === 1) {
+                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
                     /*                     * * j 'affecte l a'rticle a la premiere position libre * */
                     $article->setPosition($premierepositionlibre);
+                    $manager->shiftNofixedPosition();
+                    $manager->persist($article);
                 }
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($article);
-                $em->flush();
+                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
+                    /*                     * * j 'affecte l a'rticle a la premiere position libre * */
+                    $article->setPosition($premierepositionlibre);
+                    $manager->persist($article);
+                }
+                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
+                    $manager->shiftNofixedPosition();
+                    $manager->persist($article);
+                }
+                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
+                    $manager->persist($article);
+                }
 
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
-        /* $manager = $this->get('collectify_article_manager');
-          $manager->shiftNofixedPosition(); */
+       
 
         return $this->render('MyAppArticleBundle:article:add.html.twig', array('form' => $form->createView()));
     }

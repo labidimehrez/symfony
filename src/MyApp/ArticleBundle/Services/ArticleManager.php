@@ -41,6 +41,18 @@ class ArticleManager {
         return $this->repository->findAll();
     }
 
+    public function getArticleWithFixedPosition() {
+        return $this->repository->getArticleWithFixedPosition();
+    }
+
+    public function getArticleNOFixedPosition() {
+        return $this->repository->getArticleNOFixedPosition();
+    }
+
+    public function getPositionOccuped() {
+        return $this->repository->getPositionOccuped();
+    }
+
     public function getFirstPositionFree($lespositionsoccupés) {
         $pos = array(); // tableau vide
         $positionlibre = array(); // tableau vide
@@ -112,6 +124,7 @@ class ArticleManager {
     public function persist($article) {
         $this->doFlush($article);
     }
+ 
 
     public function doFlush($article) {
         $this->em->persist($article);
