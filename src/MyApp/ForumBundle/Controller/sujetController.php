@@ -174,20 +174,16 @@ class sujetController extends Controller {
         $inputtext = $this->getRequest()->get('i'); /* valeur array de String dans l input texte */
         /* text input de type string *///$inputtext[0]; 
         $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+         $tagaajouté = array(); // tableau vide
         foreach ($alltags as $tag) {
             $tagtitle = $tag->getTitle(); /* get title of objects :D */
             if (strpos($inputtext[0], $tagtitle) !== false) {
                 $selectedtag = $managertag->getByTitle($tagtitle);/* get objet tag by title */
-                echo "inclu";
-               
+                 array_push($tagaajouté, $selectedtag); 
+                 $sujet->setTags($tagaajouté);
             }
         }
-        die();
-
-        /* $title="Politique";
-          $selectedtag = $managertag->getByTitle($title); */
-
-
+        $managersujet->persist($sujet);
         if (!$sujet) {
             throw $this->createNotFoundException('no  sujet found for id ' . $id);
         }
