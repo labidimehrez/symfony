@@ -32,21 +32,31 @@
                 <tr>
                     <td width="158">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                    <td width="285">{{form_widget(form.username)}}</td>
+                    <td width="285">{{form_widget(form.username, 
+                 {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters'} ) }}</td>
+                                
                     <td width="156">&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
                         &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         Fuldtnavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                    <td>{{form_widget(form.nomprenom)}}</td>
+                    <td>{{form_widget(form.nomprenom,
+                          {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters'} ) }}</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         Adgangskode&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                    <td><div class="form-group">{{form_widget(form.plainPassword.first, { 'id': 'kv',  'attr': { 'style' : 'width:310px',  'class' : 'form-control strength' } } ) }}</div></td>
+                    <td>
+                        <div class="form-group">{{form_widget(form.plainPassword.first,
+                            
+                               { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 'form-control strength',
+                                  'required':'required', 'pattern': '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}' ,
+                                'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}
+                        </div>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
