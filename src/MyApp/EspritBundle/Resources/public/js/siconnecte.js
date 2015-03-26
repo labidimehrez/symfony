@@ -1,4 +1,4 @@
- $(document).ready(function() {
+  $(document).ready(function() {
                 $(".flip").click(function() {
                     $(".panel").slideToggle("slow");/* afficher input nouveau commentaire */
                     $(".panel2").hide();           /* cacher input nouveau SOUS commentaire */

@@ -71,7 +71,7 @@
                 <div class="tagdivedit" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
                     <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
                         <input type="text" name="i[]" id="" 
-                        value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
+                               value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
                         <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
                     </form>
@@ -259,9 +259,8 @@
         font-weight: bold;
         text-decoration:none;
     }
-
-
-
+ 
+  
     div.panel {display: none;}
     div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
     div.panel3 {
