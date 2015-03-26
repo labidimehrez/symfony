@@ -123,7 +123,7 @@ class UserController extends Controller {
         $allusersId = $manager->getALLusersId($users); 
 //        var_dump($enablesusersId); die();
         
-        if ($allusersId != NULL) {
+        if ( ($allusersId != NULL)&&($enablesusersId != NULL)  ) {
             foreach ($allusersId as $id) {
                 if(in_array($id, array_values($enablesusersId))){$manager->makeEnable($manager->getOne($id));}
                 else{$manager->makeDisable($manager->getOne($id));}

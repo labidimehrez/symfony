@@ -3328,7 +3328,7 @@
 .articleposition14{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 5px;}
 .articleposition15{position: absolute;/*border: 1px solid #000;*/width: 315px;height: 102px;top: 1948px;left: 322px;}
 
-.bordurearticle{padding:4px;}
+.bordurearticle{padding:4px;margin-bottom: -12px;}
 
 /* This is poor CSS by design to be simple and readable */
 .stylecontenudebat{color: black;font-weight: bold;font-size: 13px;font-family: Helvetica;padding-left: 5px;}

@@ -96,7 +96,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article3->setPosition(3);
         $article3->setStyle($style6);
         $article3->setCopyrights("article3");
-        $article3->setFixedposition(1);
+        $article3->setFixedposition(0);
         //  $article1->setUrlimg("zz");
         $article3->setHeadline("Kvindelig kniv-morder stikker igen");
         $article3->setLien("article3");
@@ -107,7 +107,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article4->setPosition(4);
         $article4->setStyle($style6);
         $article4->setCopyrights("article4");
-        $article4->setFixedposition(1);
+        $article4->setFixedposition(0);
         //  $article1->setUrlimg("zz");
         $article4->setHeadline("Stunt blandt forse flypas");
         $article4->setLien("article4");
@@ -156,7 +156,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article8->setPosition(8);
         $article8->setStyle($style5);
         $article8->setCopyrights("article8");
-        $article8->setFixedposition(1);
+        $article8->setFixedposition(0);
         //  $article1->setUrlimg("zz");
         $article8->setHeadline("Rygte: Rolling Stones til Roskilde Festival-ledelsen afviser ikke...");
         $article8->setLien("article8");
@@ -206,7 +206,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article12->setPosition(12);
         $article12->setStyle($style5);
         $article12->setCopyrights("article12");
-        $article12->setFixedposition(1);
+        $article12->setFixedposition(0);
         //  $article1->setUrlimg("zz");
         $article12->setHeadline("35.000 danske pas er forsvun-det");
         $article12->setLien("article12");

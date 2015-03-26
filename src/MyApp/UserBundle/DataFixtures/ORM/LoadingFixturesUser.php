@@ -22,7 +22,7 @@ class LoadingFixturesUser implements FixtureInterface
             $user = new User();
             $user->setUsername("root");
             $user->setSexe("m");
-            $user->setEmail("mehrez.labidi@esprit.tn");
+            $user->setEmail("root.labidi@esprit.tn");
             $user->setPlainPassword("root");
             $user->setVille("ville");
             $user->setSurmoi("surmoi");
@@ -53,9 +53,43 @@ class LoadingFixturesUser implements FixtureInterface
             $manager->persist($user1); 
             
             
+            $user2 = new User();
+            $user2->setUsername("editor");
+            $user2->setSexe("m");
+            $user2->setEmail("editor.labidi@esprit.tn");
+            $user2->setPlainPassword("editor");
+            $user2->setVille("ville");
+            $user2->setSurmoi("surmoi");
+            $user2->setNumeroportable(25112990);
+            $user2->setEnabled(true);
+            $user2->setNomprenom("editor");
+            $user2->setDatedeCreationUser(new \DateTime());
+            $user2->setDatenaissance(new \DateTime());
+            $user2->setAddresse("ici");
+            $user2->setImage("http://coiffure-esthetique.blogs-entreprises.com/files/2010/07/coiffure-homme-07.jpg");
+            $user2->setRoles(array('ROLE_EDITOR' => 'Editor'));
+            $manager->persist($user2);
             
             
+            $user3 = new User();
+            $user3->setUsername("supersol");
+            $user3->setSexe("f");
+            $user3->setEmail("supersol.labidi@esprit.tn");
+            $user3->setPlainPassword("supersol");
+            $user3->setVille("ville");
+            $user3->setSurmoi("surmoi");
+            $user3->setNumeroportable(25112990);
+            $user3->setEnabled(true);
+            $user3->setNomprenom("supersol");
+            $user3->setDatedeCreationUser(new \DateTime());
+            $user3->setDatenaissance(new \DateTime());
+            $user3->setAddresse("ici");
+            $user3->setImage("http://img.over-blog-kiwi.com/0/53/50/02/201307/ob_076fee_florence-colgate-plus-belle-femme-au-monde-2012.jpg");
+            $user3->setRoles(array('ROLE_SUPERSOL' => 'Supersol'));
+            $manager->persist($user3);
             
+            
+ 
             $manager->flush();
   }
 }

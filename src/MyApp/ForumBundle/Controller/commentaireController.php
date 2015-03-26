@@ -116,7 +116,7 @@ class commentaireController extends Controller {
     public function editAction() {
 
         $em = $this->getDoctrine()->getManager();
-        $id=7;
+        $id=2;
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
             throw $this->createNotFoundException(
@@ -152,7 +152,7 @@ class commentaireController extends Controller {
         public function editsouscommentAction() {
 
         $em = $this->getDoctrine()->getManager();
-        $id=7;
+        $id=2;
         $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$souscommentaire) {
             throw $this->createNotFoundException(

@@ -24,7 +24,10 @@ class TagManager
         return $this->repository->find($id);
     }
     
-   
+       public function getByTitle($title)
+    {
+        return $this->repository->findOneBy(array('title' => $title));
+    }
     public function persist($tag)
     {
         $this->doFlush($tag);

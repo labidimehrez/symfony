@@ -51,7 +51,7 @@
 
 
 <form  action='{{path('my_app_user_manage')}}' method="post" {{ form_enctype(form) }} > 
-<div id="tab2" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
+    <div id="tab2" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
     <table class="tablesorter" cellspacing="0"> 
         <thead> 
             <tr> 
@@ -62,7 +62,9 @@
             </tr> 
         </thead> 
         <tbody> 
+          
             {% for users in users %} 
+        
             <tr> 
                  
                 <td>{{users.username}}</td> 
@@ -119,8 +121,8 @@
              
             </tr> 
             {%endfor%}
-
-
+ 
+        
 
         </tbody> 
     </table>

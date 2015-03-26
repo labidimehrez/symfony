@@ -169,17 +169,32 @@ class sujetController extends Controller {
         $form = $this->createForm(new sujetType(), $sujet);
 
         $managertag = $this->get('collectify_tag_manager');
-        $alltags = $managertag->getAll($id); /* array de tous les objets tags */
-        $i = $this->getRequest()->get('i'); /* valeur dans l input texte */
-    
+
+
+        $inputtext = $this->getRequest()->get('i'); /* valeur array de String dans l input texte */
+        /* text input de type string *///$inputtext[0]; 
+        $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+        foreach ($alltags as $tag) {
+            $tagtitle = $tag->getTitle(); /* get title of objects :D */
+            if (strpos($inputtext[0], $tagtitle) !== false) {
+                $selectedtag = $managertag->getByTitle($tagtitle);/* get objet tag by title */
+                echo "inclu";
+               
+            }
+        }
+        die();
+
+        /* $title="Politique";
+          $selectedtag = $managertag->getByTitle($title); */
+
+
         if (!$sujet) {
             throw $this->createNotFoundException('no  sujet found for id ' . $id);
         }
 
         $managersujet->IncrementandSetNewDateLus($sujet); /* increment NBlect sujet et update DateLus */
-        //** get the associated notif to remove ***/
         $em = $this->getDoctrine()->getManager();
-        $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
+        $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id)); //** get the associated notif to remove ***/
 
         $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager * */
         $managernotif->remove($notif);
@@ -209,11 +224,11 @@ class sujetController extends Controller {
             $datelusdesujet = $sujet->getDatelus();
             $interval = $datelusdesujet->diff($now);
             $seconds = $interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
-/// 12h = 43200 s
+                    /// 12h = 43200 s
             if ($seconds < 43200) {
                 $mostreadsujet = $sujet;
             }
-// var_dump($mostreadsujet);die();
+                    // var_dump($mostreadsujet);die();
         }
         return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');
     }
