@@ -67,7 +67,7 @@
                     <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                  {% endif%}
                 </a> 
-
+                
                 <div class="divedittag" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
                     <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
                         <input type="text" name="i[]" id="" 
