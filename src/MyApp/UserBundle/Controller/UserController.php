@@ -119,14 +119,19 @@ class UserController extends Controller {
         $form = $this->createFormBuilder($users)->add('users')->getForm();
 
         $enablesusers = $this->getRequest()->get('enable');
-        $enablesusersId = $manager->getenablesusersId($enablesusers); //var_dump($usersSuperAdminId); 
-        $allusersId = $manager->getALLusersId($users); 
-//        var_dump($enablesusersId); die();
+        $enablesusersId = $manager->getenablesusersId($enablesusers); /* array contient string  "id"  des cochés :D */
+       
+        $allusersId = $manager->getALLusersId($users); /* array contient tout les objets USER */
+
         
         if ( ($allusersId != NULL)&&($enablesusersId != NULL)  ) {
             foreach ($allusersId as $id) {
-                if(in_array($id, array_values($enablesusersId))){$manager->makeEnable($manager->getOne($id));}
-                else{$manager->makeDisable($manager->getOne($id));}
+                          $x=$id->getId();/* get Id de objet user en cours*/
+                          if(in_array($x, array_values($enablesusersId))) /* si id de user en cour existe dans les enableuersid */
+                          {$manager->makeEnable($manager->getOne($id));}
+                          else{$manager->makeDisable($manager->getOne($id));}
+                 
+                
             }
         }
         
