@@ -1,6 +1,6 @@
 {# empty Twig template #}
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
- {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
+{{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
 
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
@@ -51,7 +51,7 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-            <a class="flip">Add new comment</a>
+            <a class="bouttonnouveaucommentaire{{commentaireid}}">Add new comment</a>
 
             <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
@@ -68,7 +68,7 @@
                  {% endif%}
                 </a> 
 
-                <div class="tagdivedit" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
+                <div class="divedittag" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
                     <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
                         <input type="text" name="i[]" id="" 
                                value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
@@ -109,7 +109,7 @@
 
                 <a id=showthread{{commentaireid}}><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
                 <a id=hidethread{{commentaireid}}><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
-
+                 {## show hide thread alterné :D ##}
                 <script type="text/javascript">
                     $("#showthread{{commentaireid}}").click(function() {
                         $("div#div{{commentaireid}}").show(1000);
@@ -124,10 +124,10 @@
                     });
                 </script>
 
-                <a class="flip2">Add new comment &nbsp; {{commentaire.id}}</a>
+                <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{commentaire.id}}</a>
                 <b class="likebutton">like</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a class="flipedit" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
+                <a class="bouttoneditcommentaire" style="text-decoration:none;" ><b class="likebutton" >Edit</b></a> 
                  {%endif%}
                 &nbsp;&nbsp;&nbsp;&nbsp; 
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
@@ -154,18 +154,21 @@
                 </br>
                     {{souscommentaire.texte}}
                 </br> 
-                <a class="flip2">Add new comment &nbsp; {{souscommentaire.id}}</a> 
+              {#  <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{souscommentaire.id}}</a>#}
                 <b class="likebutton">like</b>
                 {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
-                <a class="flipedit2"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
+                <a class="bouttoneditsouscommentaire"  style="text-decoration:none;"><b class="likebutton">Edit</b></a> 
                 {%endif%}
                 &nbsp;&nbsp;&nbsp;&nbsp;   
 
                 {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">Delete</a> 
                  {%endif%}
-                <div class="panel2">
-                {% if is_granted( 'ROLE_USER' ) %}{{ render(controller('MyAppForumBundle:commentaire:addsouscomment')) }}{%endif%} </div>
+                <div class="inputnouveausouscommentaire">
+                {% if is_granted( 'ROLE_USER' ) %}
+                            {{ render(controller('MyAppForumBundle:commentaire:addsouscomment', {'id': commentaire.id})) }}
+                {%endif%}
+                </div>
                 </br> 
             </div>
             {%endif%} {% endfor%}
@@ -179,7 +182,7 @@
         <script src="{{ asset('bundles/myappesprit/js/siconnecte.js') }}" type="text/javascript"></script> 
 
 
-        <div class="panel"> 
+        <div class="inputnouveaucommentaire{{commentaire.id}}"> 
             <div   class="nouveaucommentaire"   >
           {% if app.user.image is not null %} 
                 <img src="{{ app.user.image }}" class="imageuser" alt=""/>
@@ -193,7 +196,7 @@
 
 
         {#####################################################}
-        <div class="paneledit"> 
+        <div class="inputeditcommentaire"> 
             <div   class="nouveaucommentaire"   >
           {% if app.user.image is not null %} 
                 <img src="{{ app.user.image }}" class="imageuser" alt=""/>
@@ -204,7 +207,7 @@
            {{ render(controller('MyAppForumBundle:commentaire:edit')) }}     
             </div>
         </div> 
-        <div class="paneledit2">{{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} </div>
+        <div class="inputeditsouscommentaire">{{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} </div>
 
 
 
@@ -212,12 +215,12 @@
 
         <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
 
-        <div class="panel3" id="cacherdiv"> 
+        <div class="inputnouveaucommentaire3" id="cacherdiv"> 
             <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
             <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="flip3"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a> 
+            <a class="bouttonnouveaucommentaire3"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a> 
 
 
         </div>
@@ -235,7 +238,7 @@
 
 
 <style type="text/css">
-    a.flip {
+    a.bouttonnouveaucommentaire {
         text-decoration:none;
         color: #c52821;
         font-weight: bold;
@@ -247,13 +250,13 @@
         /* border-color: aqua;
          border-style: dashed;*/
     }
-    a.flip2 {
+    a.bouttonsousnouveaucommentaire {
 
         color: #c52821;
         font-weight: bold;
         text-decoration:none;
     }
-    a.flip3 {
+    a.bouttonnouveaucommentaire3 {
 
         color: #c52821;
         font-weight: bold;
@@ -261,9 +264,9 @@
     }
  
   
-    div.panel {display: none;}
-    div.panel2 {display: none;  padding-left: 100px;padding-top: 10px;} 
-    div.panel3 {
+    div.inputnouveaucommentaire {display: none;}
+    div.inputnouveausouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
+    div.inputnouveaucommentaire3 {
         padding: 10px;
         padding-left: 50px;
         width: 450px;
@@ -275,9 +278,9 @@
         filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
         border: 1px black;border-style: solid;
     }
-    div.paneledit {display: none;}
-    div.paneledit2 {display: none;  padding-left: 100px;padding-top: 10px;} 
-    div.tagdivedit {
+    div.inputeditcommentaire {display: none;}
+    div.inputeditsouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
+    div.divedittag {
         padding: 10px;
         padding-left: 50px;
         width: 400px;
@@ -292,21 +295,74 @@
         background-color: white;  z-index: 1000000;
     }
 
-
+ 
 </style>
 
 
 
 
 
+<script type="text/javascript">
+      $(document).ready(function() {
+                $(".bouttonnouveaucommentaire").click(function()
+                {
+                    $(".inputnouveaucommentaire{{commentaire.id}}").slideToggle("slow");
+                });
+                $(".bouttonsousnouveaucommentaire").click(function()
+                {
+                    $(".inputnouveaucommentaire3").slideToggle("slow");
+                });
+
+
+                $(".bouttonnouveaucommentaire3").click(function()
+                {
+                    $(".inputnouveaucommentaire3").fadeOut();
+                    $("div#cacherdiv").hide();
+                });
+
+            });
+</script>
+                {## show hide div edit tag ##}
+<script type="text/javascript">
+                    $("a#show").click(function() {
+                        $("div.divedittag").slideToggle("slow");
+                    });
+                    $("input#hide").click(function() {
+                        $("div.divedittag").slideToggle("slow");
+                    });
+</script>
+
 
 
 
 <script type="text/javascript">
-                    $("a#show").click(function() {
-                        $("div.tagdivedit").slideToggle("slow");
-                    });
-                    $("input#hide").click(function() {
-                        $("div.tagdivedit").slideToggle("slow");
-                    });
+$(document).ready(function() {
+                $(".bouttonnouveaucommentaire").click(function() {
+                    $(".inputnouveaucommentaire").slideToggle("slow");/* afficher bouttonnouveaucommentaire */
+                    $(".inputnouveausouscommentaire").hide();           /* cacher inputnouveausouscommentaire */
+                    $(".inputeditsouscommentaire").hide();       /* cacher input edit SOUS commentaire */
+                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
+                });
+                $(".bouttonsousnouveaucommentaire").click(function() {
+                    $(".inputnouveausouscommentaire").slideToggle("slow");/* afficher bouttonsousnouveaucommentaire */
+                    $(".inputnouveaucommentaire").hide();             /* cacher input inputnouveaucommentaire */
+                    $(".inputeditsouscommentaire").hide();       /* cacher inputeditsouscommentaire */
+                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
+                });
+
+                $(".bouttoneditcommentaire").click(function() {
+                    $(".inputeditcommentaire").slideToggle("slow");/* afficher bouttoneditcommentaire */
+                    $(".inputnouveaucommentaire").hide();   /* cacher input nouveau  commentaire */
+                    $(".inputnouveausouscommentaire").hide(); /* cacher input nouveau SOUS commentaire */
+                    $(".inputeditsouscommentaire").hide();/* cacher input EDIT SOUS nouveau commentaire */
+                });
+
+                $(".bouttoneditsouscommentaire").click(function() {
+                    $(".inputeditsouscommentaire").slideToggle("slow");/* afficher bouttoneditsouscommentaire */
+                    $(".inputnouveaucommentaire").hide();  /* cacher input nouveau  commentaire */
+                    $(".inputnouveausouscommentaire").hide();/* cacher input nouveau SOUS commentaire */
+                    $(".inputeditcommentaire").hide();       /* cacher inputeditcommentaire */
+                });
+
+            });
 </script>

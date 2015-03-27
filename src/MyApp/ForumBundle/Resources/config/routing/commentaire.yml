@@ -5,7 +5,7 @@ my_app_forum_commentaire_add:
     defaults: { _controller: MyAppForumBundle:commentaire:add }
     
 my_app_forum_commentaire_addsouscomment:
-    pattern:  /addsouscomment
+    pattern:  /{id}/addsouscomment
     defaults: { _controller: MyAppForumBundle:commentaire:addsouscomment }
     
     

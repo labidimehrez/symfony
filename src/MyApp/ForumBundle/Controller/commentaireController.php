@@ -55,31 +55,24 @@ class commentaireController extends Controller {
         return $this->render('MyAppForumBundle:commentaire:add.html.twig', array('form' => $form->createView()));
     }
 
-    public function addsouscommentAction(Request $request) {
-
+    public function addsouscommentAction($id,Request $request) {
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = substr($uri, 45, -5); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($idsujet);
-        /*         * ** je recuperer l id de user connecté * */
         $user = $this->container->get('security.context')->getToken()->getUser();
          $user->getId();
-        /*         * ** je recuperer l id de user connecté * */
         $commentaire = new commentaire();
-
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
-
-                /*                 * ** je recuperer l id de user connecté * */
-                $commentaire->setUser($user);
-                /*                 * ** je recuperer l id de user connecté * */
+                $commentaire->setUser($user);    
                 $commentaire->setSujet($sujet);
-                $commentaire1 = $em->getRepository('MyAppForumBundle:commentaire')->find(6);
-                $commentaire->setCommentaire($commentaire1);
+                $commentaireparent = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+                $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
@@ -90,9 +83,7 @@ class commentaireController extends Controller {
                             'form' => $form->createView()));
             }
         }
-
-
-        return $this->render('MyAppForumBundle:commentaire:addsouscomment.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppForumBundle:commentaire:addsouscomment.html.twig', array('form' => $form->createView(),'id' => $id));
     }
 
     public function deleteAction($id, Request $request) {

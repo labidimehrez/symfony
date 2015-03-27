@@ -14,7 +14,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
           
-                  <input type="reset" id=hide  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
+                  <input type="reset" id=hideinputnouveaucommentaire  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
                  
                 Notification {{form_widget(form.notification) }}
                   
@@ -30,8 +30,8 @@
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">
-$("input#hide").click(function () {
-   $("div.panel").hide(1);
+$("input#hideinputnouveaucommentaire").click(function () {
+   $("div.inputnouveaucommentaire").hide(1);
 });
 </script>
  
