@@ -1,0 +1,30 @@
+{# empty Twig template #}
+
+
+{% if sujet.user is not null %}
+{% if sujet.user.image is not null  %}
+        <img src="{{sujet.user.image }}"  
+             class="imageuserdebataveccomment" alt="" />  
+{% else %}
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+             class="imageuserdebataveccomment" alt=""  />             
+{% endif%} 
+
+        &nbsp;&nbsp;&nbsp;
+        <b style="color: black" >{{sujet.user.username|capitalize}}</b>
+        <b class="timestyle">{{ time_diff(sujet.datecreation) }}  </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
+        </br> 
+
+{% else%}
+
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
+             class="imageuserdebataveccomment"alt="" />  
+        &nbsp;&nbsp;&nbsp;
+        <b style="color: black">Anonymous</b>
+        <b class="timestyle">{{ time_diff(sujet.datecreation) }}  </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
+
+ {% endif%}

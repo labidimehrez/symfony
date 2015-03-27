@@ -13,34 +13,7 @@
     <div class="paddingdebataveccomment">
 
         </br> 
-
-{% if sujet.user is not null %}
-{% if sujet.user.image is not null  %}
-        <img src="{{sujet.user.image }}"  
-             class="imageuserdebataveccomment" alt="" />  
-{% else %}
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             class="imageuserdebataveccomment" alt=""  />             
-{% endif%}
-
-        &nbsp;&nbsp;&nbsp;
-        <b style="color: black" >{{sujet.user.username|capitalize}}</b>
-        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
-        </br> 
-
-{% else%}
-
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             class="imageuserdebataveccomment"alt="" />  
-        &nbsp;&nbsp;&nbsp;
-        <b style="color: black">Anonymous</b>
-        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
-
- {% endif%}       
+ {% include 'MyAppForumBundle:sujet/fragment:userimage.html.twig'%}        
 
         <b style="color: black;  padding-left: 130px;"> <FONT size="5px;"> {{sujet.sujet}}</FONT></b>
         <div class="contenutopic">
@@ -53,30 +26,10 @@
          {{sujet.contenu|Contenu}}   </br>  
             <a class="bouttonnouveaucommentaire{{commentaireid}}">Add new comment</a>
 
-            <div  class="tagtitlevoirun">
-                {% set counternombredetag = 0 %} 
-                {% for tag in tag %}      
-                <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
+                {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%}  
 
 
-                {% endfor%} 
-              {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
 
-                <a id=show>  
-               {% if counternombredetag > 0%}
-                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                 {% endif%}
-                </a> 
-                
-                <div class="divedittag" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
-                    <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
-                        <input type="text" name="i[]" id="" 
-                               value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
-                        <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
-                    </form>
-                </div>
-            </div>
         </div>
 
 
@@ -90,18 +43,8 @@
                 {% set commentaireid = commentaire.id %} 
             <div class="contenucommentaireparent"> 
 
-            {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+         {% include 'MyAppForumBundle:sujet/fragment:imagevotecommentaire.html.twig'%}        
 
-
-                <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
-
-
-
-            {% if commentaire.vote  is not null %}
-                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                    &nbsp;{{commentaire.vote}} </b>
-             {%endif%}       
                 </br>   {{commentaire.texte}}  </br> 
 
 
@@ -127,7 +70,9 @@
                 <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{commentaire.id}}</a>
                 <b class="likebutton">like</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a href="{{ path('my_app_forum_commentaire_edit',{'id':commentaire.id}) }}" class="bouttoneditcommentaire" style="text-decoration:none;"  ><b class="likebutton" >Edit</b></a> 
+                <a href="{{ path('my_app_forum_commentaire_edit',{'id':commentaire.id}) }}" class="bouttoneditcommentaire" style="text-decoration:none;"  >
+                    <b class="likebutton" >Edit</b>
+                </a> 
                  {%endif%}
                 &nbsp;&nbsp;&nbsp;&nbsp; 
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
@@ -139,18 +84,9 @@
 
               {% for  souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id %}
             <div class="contenucommentairefils" id="div{{commentaireid}}"> 
+                
+                    {% include 'MyAppForumBundle:sujet/fragment:imagevotesouscommentaire.html.twig'%} 
 
-              {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
-
-
-                <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
-
-
-            {% if souscommentaire.vote  is not null %}
-                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                    &nbsp;{{souscommentaire.vote}} </b>
-             {%endif%}                   
                 </br>
                     {{souscommentaire.texte}}
                 </br> 
@@ -209,7 +145,7 @@
                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
           {%endif%}   
                 <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
-                         {{ render(controller('MyAppForumBundle:commentaire:edit')) }}    
+                         {{ render(controller('MyAppForumBundle:commentaire:edit', {'id': commentaire.id})) }}  
             </div>
         </div> 
         <div class="inputeditsouscommentaire">{{ render(controller('MyAppForumBundle:commentaire:editsouscomment')) }} </div>
@@ -217,18 +153,9 @@
 
 
         {% else %}
-
-        <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
-
-        <div class="inputnouveaucommentaire3" id="cacherdiv"> 
-            <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
-            <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
-            <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
-                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="bouttonnouveaucommentaire3"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a> 
-
-
-        </div>
+        
+                {% include 'MyAppForumBundle:sujet/fragment:sinonconnectenotif.html.twig'%}  
+          
         {% endif %}
 
         <br>
@@ -267,8 +194,8 @@
         font-weight: bold;
         text-decoration:none;
     }
- 
-  
+
+
     div.inputnouveaucommentaire {display: none;}
     div.inputnouveausouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
     div.inputnouveaucommentaire3 {
@@ -301,7 +228,7 @@
         background-color: white;  z-index: 1000000;
     }
 
- 
+
 </style>
 
 
@@ -309,66 +236,66 @@
 
 
 <script type="text/javascript">
-      $(document).ready(function() {
-                $(".bouttonnouveaucommentaire").click(function()
-                {
-                    $(".inputnouveaucommentaire{{commentaire.id}}").slideToggle("slow");
-                });
-                $(".bouttonsousnouveaucommentaire").click(function()
-                {
-                    $(".inputnouveaucommentaire3").slideToggle("slow");
-                });
+                    $(document).ready(function() {
+                        $(".bouttonnouveaucommentaire").click(function()
+                        {
+                            $(".inputnouveaucommentaire{{commentaire.id}}").slideToggle("slow");
+                        });
+                        $(".bouttonsousnouveaucommentaire").click(function()
+                        {
+                            $(".inputnouveaucommentaire3").slideToggle("slow");
+                        });
 
 
-                $(".bouttonnouveaucommentaire3").click(function()
-                {
-                    $(".inputnouveaucommentaire3").fadeOut();
-                    $("div#cacherdiv").hide();
-                });
+                        $(".bouttonnouveaucommentaire3").click(function()
+                        {
+                            $(".inputnouveaucommentaire3").fadeOut();
+                            $("div#cacherdiv").hide();
+                        });
 
-            });
+                    });
 </script>
                 {## show hide div edit tag ##}
 <script type="text/javascript">
-                    $("a#show").click(function() {
-                        $("div.divedittag").slideToggle("slow");
-                    });
-                    $("input#hide").click(function() {
-                        $("div.divedittag").slideToggle("slow");
-                    });
+    $("a#show").click(function() {
+        $("div.divedittag").slideToggle("slow");
+    });
+    $("input#hide").click(function() {
+        $("div.divedittag").slideToggle("slow");
+    });
 </script>
 
 
 
 
 <script type="text/javascript">
-$(document).ready(function() {
-                $(".bouttonnouveaucommentaire").click(function() {
-                    $(".inputnouveaucommentaire").slideToggle("slow");/* afficher bouttonnouveaucommentaire */
-                    $(".inputnouveausouscommentaire").hide();           /* cacher inputnouveausouscommentaire */
-                    $(".inputeditsouscommentaire").hide();       /* cacher input edit SOUS commentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
-                });
-                $(".bouttonsousnouveaucommentaire").click(function() {
-                    $(".inputnouveausouscommentaire").slideToggle("slow");/* afficher bouttonsousnouveaucommentaire */
-                    $(".inputnouveaucommentaire").hide();             /* cacher input inputnouveaucommentaire */
-                    $(".inputeditsouscommentaire").hide();       /* cacher inputeditsouscommentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
-                });
+    $(document).ready(function() {
+        $(".bouttonnouveaucommentaire").click(function() {
+            $(".inputnouveaucommentaire").slideToggle("slow");/* afficher bouttonnouveaucommentaire */
+            $(".inputnouveausouscommentaire").hide();           /* cacher inputnouveausouscommentaire */
+            $(".inputeditsouscommentaire").hide();       /* cacher input edit SOUS commentaire */
+            $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
+        });
+        $(".bouttonsousnouveaucommentaire").click(function() {
+            $(".inputnouveausouscommentaire").slideToggle("slow");/* afficher bouttonsousnouveaucommentaire */
+            $(".inputnouveaucommentaire").hide();             /* cacher input inputnouveaucommentaire */
+            $(".inputeditsouscommentaire").hide();       /* cacher inputeditsouscommentaire */
+            $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
+        });
 
-                $(".bouttoneditcommentaire").click(function() {
-                    $(".inputeditcommentaire").slideToggle("slow");/* afficher bouttoneditcommentaire */
-                    $(".inputnouveaucommentaire").hide();   /* cacher input nouveau  commentaire */
-                    $(".inputnouveausouscommentaire").hide(); /* cacher input nouveau SOUS commentaire */
-                    $(".inputeditsouscommentaire").hide();/* cacher input EDIT SOUS nouveau commentaire */
-                });
+        $(".bouttoneditcommentaire").click(function() {
+            $(".inputeditcommentaire").slideToggle("slow");/* afficher bouttoneditcommentaire */
+            $(".inputnouveaucommentaire").hide();   /* cacher input nouveau  commentaire */
+            $(".inputnouveausouscommentaire").hide(); /* cacher input nouveau SOUS commentaire */
+            $(".inputeditsouscommentaire").hide();/* cacher input EDIT SOUS nouveau commentaire */
+        });
 
-                $(".bouttoneditsouscommentaire").click(function() {
-                    $(".inputeditsouscommentaire").slideToggle("slow");/* afficher bouttoneditsouscommentaire */
-                    $(".inputnouveaucommentaire").hide();  /* cacher input nouveau  commentaire */
-                    $(".inputnouveausouscommentaire").hide();/* cacher input nouveau SOUS commentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher inputeditcommentaire */
-                });
+        $(".bouttoneditsouscommentaire").click(function() {
+            $(".inputeditsouscommentaire").slideToggle("slow");/* afficher bouttoneditsouscommentaire */
+            $(".inputnouveaucommentaire").hide();  /* cacher input nouveau  commentaire */
+            $(".inputnouveausouscommentaire").hide();/* cacher input nouveau SOUS commentaire */
+            $(".inputeditcommentaire").hide();       /* cacher inputeditcommentaire */
+        });
 
-            });
+    });
 </script>

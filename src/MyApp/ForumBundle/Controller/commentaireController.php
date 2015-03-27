@@ -104,10 +104,9 @@ class commentaireController extends Controller {
         return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
     }
 
-    public function editAction() {
+    public function editAction($id , Request $request) {
         $id = 1;
         $em = $this->getDoctrine()->getManager();
-
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
             throw $this->createNotFoundException(
@@ -131,11 +130,12 @@ class commentaireController extends Controller {
 
         if ($form->isValid()) {
             $em->flush();
-            return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array(
-                        'form' => $form->createView(), 'id' => $id));
+            return $this->render('MyAppForumBundle:commentaire:edit.html.twig', 
+                    array('form' => $form->createView(), 'id' => $id));
         }
 
-        return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView(), 'id' => $id));
+        return $this->render('MyAppForumBundle:commentaire:edit.html.twig',
+                array('form' => $form->createView(), 'id' => $id));
     }
 
     public function editsouscommentAction() {

@@ -26,5 +26,6 @@ menu:
     resource: "@MyAppEspritBundle/Resources/config/routing/menu.yml"
     prefix: /menu 
 
+ 
 
  
