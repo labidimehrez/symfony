@@ -14,20 +14,28 @@
                 <header><h3 class="tabs_involved">Content Tag Manager</h3>
         <ul class="tabs">{{form_widget(form._token)}} 
             <li><a href="#tab1">Posts</a></li>
-          <input type="submit"  value="Change" style="background-color: transparent;border: none;" /> 
+          <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
         </ul>
                 </header>  
+    
+    <div> 
+      <table> 
+            <tr> 
+               <td width="100"> &nbsp;  </td>
+               <td><b>No</b></td> 
+                <td width="80"> &nbsp;  </td>
+                <td><b>Tag Title</b></td> 
+                <td width="250"> &nbsp;  </td>
+                 <td><b>Actions</b></td> 
+            </tr> 
+        </table> 
+    </div>
+    
+    
+    
 <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
     <table class="tablesorter" cellspacing="0"> 
-        <thead> 
-            <tr> 
-                <th></th> 
-                <th>No</th> 
-           <th> </th> 
-                <th>Tag Title</th> 
-                <th>Actions</th> 
-            </tr> 
-        </thead> 
+      
         <tbody> 
             
             {% for tag in tag %}

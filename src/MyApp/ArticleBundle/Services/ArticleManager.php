@@ -38,6 +38,17 @@ class ArticleManager {
         $article->setPosition($pos);
         $this->persist($article);
     }
+    
+//    public function fixposition($ar) {  
+//        $ar->setFixedposition(1);
+//        $this->persist($ar);return $ar;
+//    }
+//    
+//   public function nofixposition($ar) {  
+//        $ar->setFixedposition(0);
+//        $this->persist($ar); return $ar;
+//    }
+    
     public function removemore($article) {
         foreach ($article as $s) {
             $this->em->remove($s);

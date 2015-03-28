@@ -1,6 +1,7 @@
 <?php
 
 namespace MyApp\ForumBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\ForumBundle\Form\TagType;
 use MyApp\ForumBundle\Entity\tag;
@@ -9,7 +10,7 @@ class TagController extends Controller {
 
     public function showAction() {
 
-             /********* ajout de nouveau tag *******/
+        /*         * ******* ajout de nouveau tag ****** */
         $em = $this->getDoctrine()->getManager();
         $tag = new tag();
         $form = $this->createForm(new TagType, $tag);
@@ -23,12 +24,12 @@ class TagController extends Controller {
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
             }
-                if(!$form->isValid()){
-                
-                 $this->get('session')->getFlashBag()->set('message', 'This title is used before !!'); 
+            if (!$form->isValid()) {
+
+                $this->get('session')->getFlashBag()->set('message', 'This title is used before !!');
             }
         }
-                 /*************  recuperation de tout les tags  *********/
+        /*         * ***********  recuperation de tout les tags  ******** */
         $tag1 = $em->getRepository('MyAppForumBundle:tag')->getAlltag();
 
         return $this->render('MyAppForumBundle:tag:show.html.twig', array(
@@ -37,7 +38,7 @@ class TagController extends Controller {
     }
 
     public function mostusedAction() {
-        /********  les tag de la table association ********/
+        /*         * ******  les tag de la table association ******* */
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         // var_dump($tag);die();
@@ -47,22 +48,23 @@ class TagController extends Controller {
     }
 
     public function deleteAction() {
-        /************  simple delete action  ***********/
-           $em = $this->getDoctrine()->getManager();
-       /***** recuperation des id choisis avant ***/
-          $ids = $this->getRequest()->get('mesIds');
-       foreach ($ids as $id) {
-             $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
-              $em->remove($tag);
-              $em->flush();
+        /*         * **********  simple delete  more action  ********** */
+        $em = $this->getDoctrine()->getManager();
+        /*         * *** recuperation des id choisis avant ** */
+        $ids = $this->getRequest()->get('mesIds');
+        if ($ids != NULL) {
+            foreach ($ids as $id) {
+                $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
+                $em->remove($tag);
+                $em->flush();
+            }
         }
-       
 
         return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
     }
 
     public function editAction($id) {
-            /**** simple edit action ****/
+        /*         * ** simple edit action *** */
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('MyAppForumBundle:tag')->find($id);
 
@@ -74,39 +76,35 @@ class TagController extends Controller {
 
             if ($form->isValid()) {
                 $em->flush();
-                return $this->redirect($this->generateUrl('my_app_forum_tag_show'));
+                return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
             }
-
         }
-            /*********** **    recuperation de tout les tags  *********** */
-            $tag2 = $em->getRepository('MyAppForumBundle:tag')->findAll();
-            return $this->render('MyAppForumBundle:tag:edit.html.twig', array(
-                        'form' => $form->createView(),
-                        'tag' => $tag, 'tag2' => $tag2
-            ));
+        /*         * ********* **    recuperation de tout les tags  *********** */
+        $tag2 = $em->getRepository('MyAppForumBundle:tag')->findAll();
+        return $this->render('MyAppForumBundle:tag:edit.html.twig', array(
+                    'form' => $form->createView(),
+                    'tag' => $tag, 'tag2' => $tag2
+        ));
     }
 
-        
+    public function manageAction() {
 
-         public function manageAction() {
-            /*******         simple add action  ********* */
-            $em = $this->getDoctrine()->getManager();
-            $tag = new tag();
-            $form = $this->createForm(new TagType, $tag);
-            $request = $this->getRequest();
-            if ($request->isMethod('Post')) {
-                $form->bind($request);
-                if ($form->isValid()) {
-                    $tag = $form->getData();
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($tag);
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
-                }
+        $em = $this->getDoctrine()->getManager();
+        $tag = new tag();
+        $form = $this->createForm(new TagType, $tag);
+        $request = $this->getRequest();
+        if ($request->isMethod('Post')) {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $tag = $form->getData();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($tag);
+                $em->flush();
+                return $this->redirect($this->generateUrl('my_app_forum_tag_manage'));
             }
-               $tag1 = $em->getRepository('MyAppForumBundle:tag')->getAlltag();
-            return $this->render('MyAppForumBundle:tag:manage.html.twig', array('form' => $form->createView(),  'tag' => $tag1));
         }
-
+        $tag1 = $em->getRepository('MyAppForumBundle:tag')->getAlltag();
+        return $this->render('MyAppForumBundle:tag:manage.html.twig', array('form' => $form->createView(), 'tag' => $tag1));
     }
-    
+
+}
