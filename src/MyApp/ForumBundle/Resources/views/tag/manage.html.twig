@@ -12,11 +12,10 @@
 
 <form  action='{{path('my_app_forum_tag_delete')}}' method="post" {{ form_enctype(form) }} > 
                 <header><h3 class="tabs_involved">Content Tag Manager</h3>
-                    <ul class="tabs">
-                       
-                        <li><a href="#tab1">Posts</a></li>
-                         
-                    </ul>
+        <ul class="tabs">{{form_widget(form._token)}} 
+            <li><a href="#tab1">Posts</a></li>
+          <input type="submit"  value="Change" style="background-color: transparent;border: none;" /> 
+        </ul>
                 </header>  
 <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
     <table class="tablesorter" cellspacing="0"> 
@@ -49,15 +48,12 @@
                 </td>
             </tr> 
 
-            {%endfor%}{{form_widget(form._token)}} 
+            {%endfor%} 
             
          
-
-        </tbody> 
-    </table>
-</div>  
-       
-       <center>   <input type="submit"  value="Delete" />  </center>
+           </tbody> 
+        </table>
+    </div> 
 </form>
  
 <form  action='{{path('my_app_forum_tag_manage')}}' method="post" {{ form_enctype(form) }} > 

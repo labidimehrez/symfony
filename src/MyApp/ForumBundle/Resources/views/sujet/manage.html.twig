@@ -4,9 +4,9 @@
  {% block showsujet %}   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_forum_sujet_changethread')}}' method="post" {{ form_enctype(form) }} > 
     <header><h3 class="tabs_involved">Content Sujet Manager</h3>
-        <ul class="tabs">
+        <ul class="tabs">{{form_widget(form._token)}} 
             <li><a href="#tab1">Posts</a></li>
-
+          <input type="submit"  value="Change" style="background-color: transparent;border: none;" /> 
         </ul>
     </header>  
 
@@ -35,7 +35,7 @@
 
 
                     <td>
-                        <input type="text" name="i[]" id="" value="{{sujet.thread}}" style="width:20px;" 
+                        <input type="number" name="i[]" id="" value="{{sujet.thread}}" style="width:50px;" 
                                required="true" pattern="\d*" title="Only Number Hey">
                     </td>
 
@@ -51,24 +51,14 @@
                     </td>
                 </tr> 
 
-            {%endfor%}
+              {%endfor%}
 
 
             </tbody> 
         </table>
-
-
-
- {{form_widget(form._token)}}  
-
-        <center> <input type="submit"  value="change" /> </center>
-
-        </br></br>
-
-    </div>   
+    </div> 
 </form>
-
-
  {% endblock  %}
+
 
 
