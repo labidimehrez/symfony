@@ -1,18 +1,64 @@
 {# empty Twig template #}
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
- 
+
  {% block manageuser %} 
 
 <header><h3 class="tabs_involved">Content User Manager</h3>
     <ul class="tabs">
-        <li><a href="#tab1">Details</a></li>
-        <li><a href="#tab2">Roles</a></li>
+        <li><a href="#tab1" id="showtab1users">Details</a></li>
+        <li><a href="#tab2" id="showtab2users">Roles</a></li>
     </ul>
 </header>  
+                {## show hide div edit tag ##}
+<script type="text/javascript">
+    $("a#showtab1users").click(function() {
+        $("div.Roles").hide();
+        $("div.DetailsUsers").show();
+    });
+    $("a#showtab2users").click(function() {
+       $("div.Roles").show();
+        $("div.DetailsUsers").hide();
+    });
+</script>
+<style type="text/css">
+    div.Roles{display: none;}
+</style>
+<div class="Roles">
 
-<div id="tab1" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
-    <table class="tablesorter" cellspacing="0"> 
-        <thead> 
+    <table> 
+        <tr> 
+
+            <td> &nbsp;  </td>
+            <td><b> UserName </b> </td>  
+            <td width="36"> &nbsp;  </td>
+
+            <td><b> Roles </b></td>  
+            <td width="450"> &nbsp;  </td>
+            <td> <b>Enable</b> </td>     
+            <td width=""> &nbsp;  </td>
+
+        </tr>
+    </table>  
+</div> 
+
+<div class="DetailsUsers">
+
+    <table> 
+        <tr> 
+            <td width="70"> &nbsp;  </td>
+            <td><b> UserName </b> </td>  
+            <td width="50"> &nbsp;  </td>
+
+            <td><b> Roles </b></td>  
+            <td width="150"> &nbsp;  </td>
+            <td> <b>Created On</b> </td>     
+            <td width="120"> &nbsp;  </td>
+            <td><b>Actions</b></td> 
+        </tr>
+    </table>  
+</div>
+
+{#     <thead> 
             <tr> 
                 <th></th> 
                 <th>User Name</th> 
@@ -20,15 +66,19 @@
                 <th>Created On</th> 
                 <th>Actions</th> 
             </tr> 
-        </thead> 
+        </thead> #}
+
+<div id="tab1" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
+    <table class="tablesorter" cellspacing="0"> 
+
         <tbody> 
             {% for users in users %} 
             <tr> 
                 <td><input type="checkbox"></td> 
                 <td>{{users.username}}</td> 
-                <td> {{users.roles|join}}</td> 
-      
-     
+                <td> {{users.roles|join|replace({'ROLE_USER': ' '}) }}</td> 
+
+
                 <td>{{users.datedeCreationUser|date('Y-M-d')}}</td> 
 
 
@@ -50,92 +100,96 @@
 </div> 
 
 
+
+
 <form  action='{{path('my_app_user_manage')}}' method="post" {{ form_enctype(form) }} > 
     <div id="tab2" class="tab_content" style="height: 250px; /*width: 680px;*/ overflow: auto; display: block;">
-    <table class="tablesorter" cellspacing="0"> 
-        <thead> 
-            <tr> 
-              
-                <th>UserName</th> 
-                <th>Roles</th> 
-                <th>Enable</th>              
-            </tr> 
-        </thead> 
-        <tbody> 
-          
+        <table class="tablesorter" cellspacing="0"> 
+
+            <tbody> 
+
             {% for users in users %} 
-        
-            <tr> 
-                 
-                <td>{{users.username}}</td> 
-          
-      
-     
-                <td> 
+
+                <tr> 
+
+                    <td>{{users.username}}</td> 
+
+
+
+                    <td> 
 
     {% set role = users.roles|join%}
-    
+
 
 
 
      {% if "EDITORROLE_USER" == role%}
-        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
-        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
-        <input type="checkbox" name="SuperSol[]" value="{{users.id}}"  /><label>SuperSol</label>&nbsp;
-        <input type="checkbox" name="Editor[]" value="{{users.id}}" checked="checked" /><label>Editor</label>   &nbsp;
-        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>     &nbsp;
-   {%endif%}
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}"  /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" checked="checked" /><label>Editor</label>   &nbsp;
+                        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>     &nbsp;
+    
 
-     {% if "SUPERSOLROLE_USER" == role %}
-        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
-        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
-        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" checked="checked" /><label>SuperSol</label>&nbsp;
-        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
-        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>   &nbsp;  
-   {%endif%}
+     {% elseif "SUPERSOLROLE_USER" == role %}
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" checked="checked" /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
+                        <input type="checkbox" name="User[]" value="{{users.id}}"  /><label>User</label>   &nbsp;  
+   
 
 
-  {% if "ADMINROLE_USER" == role %}
-        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
-        <input type="checkbox" name="Admin[]" value="{{users.id}}" checked="checked" /><label>Admin</label>&nbsp;
-        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
-        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>  &nbsp; 
-        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>  &nbsp;   
-   {%endif%}
+  {% elseif "ADMINROLE_USER" == role %}
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"   /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}" checked="checked" /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>  &nbsp; 
+                        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>  &nbsp;   
+   
 
-    {% if "SUPERADMINROLE_USER" == role %}
-        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}" checked="checked" /><label>SuperAdmin</label>&nbsp;
-        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
-        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
-        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
-        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>     &nbsp;
-     {%endif%}
+    {% elseif "SUPERADMINROLE_USER" == role %}
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}" checked="checked" /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
+                        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>     &nbsp;
+     
+      {% else  %}
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"  /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
+                        <input type="checkbox" name="User[]" value="{{users.id}}"checked="checked" /><label>User</label>     &nbsp;
+     {%endif%}                  
+                        
+                        
 
-                  
-                </td>
+
+                    </td>
        {% if users.enabled == 1 %}          
-                <td><input type="checkbox" name="enable[]" value="{{users.id}}" checked="checked" /></td>
+                    <td><input type="checkbox" name="enable[]" value="{{users.id}}" checked="checked" /></td>
          {%else%}       
-                <td><input type="checkbox" name="enable[]" value="{{users.id}}"  /></td> 
+                    <td><input type="checkbox" name="enable[]" value="{{users.id}}"  /></td> 
          {%endif%}
-             
-            </tr> 
+                    </div>
+                </tr> 
             {%endfor%}
- 
-        
 
-        </tbody> 
-    </table>
+
+
+            </tbody> 
+        </table>
 
 
 
  {{form_widget(form._token)}}  
-    
 
 
-    </br></br>
-   <center> <div style="padding-bottom: 20px;">  <input type="submit"  value="change"  class="btn btn-warning btn-lg"/> </div></center>
- </div>   
+
+        </br></br>
+        <center>  <div style="padding-bottom: 20px;">  <input type="submit"  value="change"  class="btn btn-warning btn-lg"/> </div> </center>
+    </div>   
 </form>
 
 
