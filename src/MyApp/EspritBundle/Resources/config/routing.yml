@@ -2,7 +2,11 @@ my_app_esprit_homepage:
     pattern:  /index.php
     defaults: { _controller: MyAppArticleBundle:article:show }
  
-
+test:
+    pattern:  /test
+    defaults: { _controller: MyAppEspritBundle:Default:test }
+    
+    
     
 my_app_esprit_route:
     pattern:  /route

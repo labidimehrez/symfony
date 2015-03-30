@@ -57,15 +57,15 @@
                     $("div.loginifcomment").slideToggle();
                 });
             </script>
-
-            <div  class="tagtitlevoirun">
+     {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
+           {# <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
                 {% for tag in tag %}      
                 <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
 
 
                 {% endfor%} 
-              {#%if sujet.user ==  app.user.username and app.user.username is defined %#}
+            
 
                 <a id=show>  
                {% if counternombredetag > 0%}
@@ -81,7 +81,8 @@
                         <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
                     </form>
                 </div>
-            </div>
+            </div>#}
+            
         </div>
 
 

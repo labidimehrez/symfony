@@ -16,33 +16,38 @@ class ArticleManager {
     public function getOne($id) {
         return $this->repository->find($id);
     }
+    
     public function ShiftToRightNofixedPosition() {
-        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
-        foreach ($ArticleNOFixedPosition as $anfp) {
-            $this->incrementposition($anfp);
-        }
+//        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+//        $articleWithfixedposition = $manager->getArticleWithFixedPosition();
+//            foreach ($ArticleNOFixedPosition as $a) { $this->decrementposition($a);}
+        
     }
 
     public function ShiftToLeftNofixedPosition() {
-        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
-        foreach ($ArticleNOFixedPosition as $anfp) {
-            $this->decrementposition($anfp);
-        }
+//        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+//        $articleWithfixedposition = $manager->getArticleWithFixedPosition();
+//           foreach ($ArticleNOFixedPosition as $a) { $this->incrementposition($a);}
+//       //
     }
 
-    public function incrementposition($article) {
-        $pos = $article->getPosition();
-        $pos = $pos + 1;
-        $article->setPosition($pos);
-        $this->persist($article);
-    }
+  public function incrementposition($article) {
+//        $pos = $article->getPosition();
+//        $pos = $pos + 1;
+//        $articledetest = $this->repository->findOneBy(array('position' => $pos));
+//        if (in_array(!$articledetest, $articleWithfixedposition) )
+//        {$article->setPosition($pos);
+//        $this->persist($article);}
+    } 
 
     public function decrementposition($article) {
-        $pos = $article->getPosition();
-        $pos = $pos - 1;
-        $article->setPosition($pos);
-        $this->persist($article);
-    }
+//        $pos = $article->getPosition();
+//        $pos = $pos - 1;
+//        $articledetest = $this->repository->findOneBy(array('position' => $pos));
+//        if (in_array(!$articledetest, $articleWithfixedposition) )
+//        {$article->setPosition($pos);
+//        $this->persist($article);}
+    } 
 
     public function getallarticleId($article) {
         if ($article != NULL) {

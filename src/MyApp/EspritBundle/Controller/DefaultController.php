@@ -1,27 +1,24 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
- use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
- 
 
+class DefaultController extends Controller {
 
-class DefaultController extends Controller
-{
-    public function indexAction()
-    {     
-         $em = $this->get('doctrine.orm.entity_manager');
-         /*********** **    recuperation de tout les menus  *********** */
+    public function indexAction() {
+        $em = $this->get('doctrine.orm.entity_manager');
+        /*         * ********* **    recuperation de tout les menus  *********** */
         $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
-             
-     
+
+
         return $this->render('MyAppEspritBundle::layout.html.twig', array(
-                 'menu' => $menu 
-            
+                    'menu' => $menu
         ));
-        
     }
-                         # KnpMenuBundle
+
+    # KnpMenuBundle
 //    public function indexAction() {
 //        
 //        $menu = $this->get("myapp_main.menu.main");
@@ -29,20 +26,25 @@ class DefaultController extends Controller
 //        return $this->render('MyAppEspritBundle::layout.html.twig');
 //                  
 //}
-      public function administrationAction()
-    {
+
+    public function administrationAction() {
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
-   
 
-     public function routeAction(){
+    public function routeAction() {
         $request = $this->container->get('request');
         $routeName = $request->get('_route');
-     //   var_dump($routeName);die();
-                return $this->render('MyAppEspritBundle:Default:sousmenu.html.twig', array(
- 
-                'routeName'=>$routeName
+        //   var_dump($routeName);die();
+        return $this->render('MyAppEspritBundle:Default:sousmenu.html.twig', array(
+                    'routeName' => $routeName
         ));
     }
- 
+
+    public function testAction() {
+        
+        $em = $this->get('doctrine.orm.entity_manager');
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+        return $this->render('MyAppEspritBundle:Default:test.html.twig', array('menu' => $menu));
+    }
+
 }

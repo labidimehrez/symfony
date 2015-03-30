@@ -1,36 +1,32 @@
 {# empty Twig template #}
-<div  class="tagtitlevoirun">
+ 
+  
+ 
+
+ <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
                 {% for tag in tag %}      
-                <b> {% set counternombredetag = counternombredetag + 1 %}
-                    {{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
+                <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
 
 
-                {% endfor%}    
+                {% endfor%} 
+            
 
                 <a id=show>  
                {% if counternombredetag > 0%}
                     <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                  {% endif%}
                 </a> 
-                
+
                 <div class="divedittag" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
                     <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
-                        <input type="text" name="i[]" id="" 
-                               value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
+                        
+                        <input type="text" name="i[]" id="autocomplete" title=""
+                               value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}"> 
+                       
                         <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
                     </form>
                 </div>
-            </div>
-
-
-                {## show hide div edit tag ##}
-<script type="text/javascript">
-    $("a#show").click(function() {
-        $("div.divedittag").slideToggle("slow");
-    });
-    $("input#hide").click(function() {
-        $("div.divedittag").slideToggle("slow");
-    });
-</script>
+ </div>
+ 

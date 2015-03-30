@@ -12,8 +12,9 @@ class ArticleController extends Controller {
     public function addAction() {
 
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
-        $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des positions FIXéS */
-        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array des positions non fixés */
+        $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
+        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés */
+       
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
 
@@ -93,7 +94,7 @@ class ArticleController extends Controller {
         $em->remove($article);
         $em->flush();
         $manager = $this->get('collectify_article_manager');
-        $manager->ShiftToLeftNofixedPosition();
+  
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_deletemore', array(
                             'selectarticle' => $selectarticle
@@ -118,44 +119,61 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $form = $this->createFormBuilder($article)->add('article')->getForm();
 
+                /* delete one or more if checked */
+        $ids = $this->getRequest()->get('mesIds');
+        if($ids != NULL){
+        $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
+        $manager->removemore($articled); 
+     
+        
+        return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
+                    'form' => $form->createView(), 'article' => $article)); }
+        
+        /* delete one or more if checked */
+        
+        
+        
         $positions = $this->getRequest()->get('i'); /* tableau de string position text input deja   :D */
         /* test pour la duplication des valeurs positions AR */
-          if($positions != array_unique($positions)){ 
-                  $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
-                  return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
-                    'form' => $form->createView(), 'article' => $article
-                   ));    
-          }
-       
-        /* fin de la validation des valeurs positions AR */
-        for ($index = 0; $index < count($positions); $index++) {
+        if( ($positions != array_unique($positions))&&($positions!= NULL)  ) {
+            $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
+            return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
+                        'form' => $form->createView(), 'article' => $article
+            ));
+        }
 
+        /* fin de la validation des valeurs positions AR */
+       
+          if($positions!= NULL)  {
+               for ($index = 0; $index < count($positions); $index++) {
             if ($article[$index]->getPosition() != $positions[$index]) {
                 $article[$index]->setPosition($positions[$index]);
                 $manager->persist($article[$index]);
             }
-        }
+          }
+          }
 
 
         /*  gestion des FIXED and UNFIXED */
         $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
-        foreach ($article as $a) {
-
-            if (in_array($a->getId(), array_values($fixedornotvalue))) {
-                $manager->makeFIX($a); } else {  $manager->makeUNFIX($a); }       
-        }
+        if($fixedornotvalue != NULL) {
+            foreach ($article as $a){
+                if (in_array($a->getId(), array_values($fixedornotvalue))) 
+                   {$manager->makeFIX($a); } else { $manager->makeUNFIX($a);}
+            }
+                   
+                
+        } 
         /*  gestion des FIXED and UNFIXED */
 
 
-        /* delete one or more if checked */
-        $ids = $this->getRequest()->get('mesIds');
-        $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-        $manager->removemore($articled);
-        /* delete one or more if checked */
- 
+
+
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
         ));
     }
 
 }
+
+
