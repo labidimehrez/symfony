@@ -31,7 +31,7 @@ class Article {
     /**
      * @var integer
      *
-     * @ORM\Column(name="position", type="integer", length=255,unique=true)
+     * @ORM\Column(name="position", type="integer", length=255)
      */
     private $position;
 

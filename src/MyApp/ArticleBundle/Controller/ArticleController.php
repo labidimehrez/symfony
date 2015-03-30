@@ -113,31 +113,46 @@ class ArticleController extends Controller {
     public function deletemoreAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
+
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
+        $form = $this->createFormBuilder($article)->add('article')->getForm();
 
+        $positions = $this->getRequest()->get('i'); /* tableau de string position text input deja   :D */
+        /* test pour la duplication des valeurs positions AR */
+          if($positions != array_unique($positions)){ 
+                  $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
+                  return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
+                    'form' => $form->createView(), 'article' => $article
+                   ));    
+          }
+       
+        /* fin de la validation des valeurs positions AR */
+        for ($index = 0; $index < count($positions); $index++) {
 
-        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
-
-        foreach ($article as $a) {
-
-            if (in_array($a->getId(), array_values($fixedornotvalue))) {
-                $manager->makeFIX($a);
-            } else {
-                $manager->makeUNFIX($a);
+            if ($article[$index]->getPosition() != $positions[$index]) {
+                $article[$index]->setPosition($positions[$index]);
+                $manager->persist($article[$index]);
             }
         }
 
 
+        /*  gestion des FIXED and UNFIXED */
+        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
+        foreach ($article as $a) {
+
+            if (in_array($a->getId(), array_values($fixedornotvalue))) {
+                $manager->makeFIX($a); } else {  $manager->makeUNFIX($a); }       
+        }
+        /*  gestion des FIXED and UNFIXED */
 
 
+        /* delete one or more if checked */
         $ids = $this->getRequest()->get('mesIds');
-
         $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-
         $manager->removemore($articled);
-
-        $form = $this->createFormBuilder($article)->add('article')->getForm();
+        /* delete one or more if checked */
+ 
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
         ));
