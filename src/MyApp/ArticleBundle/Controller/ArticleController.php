@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MyApp\ArticleBundle\Form\ArticleType;
 use MyApp\ArticleBundle\Entity\Article;
 
-
 class ArticleController extends Controller {
 
     public function addAction() {
@@ -86,9 +85,9 @@ class ArticleController extends Controller {
     }
 
     public function deleteAction(article $article) {
-        
-      
-        
+
+
+
         $em = $this->getDoctrine()->getManager();
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
         $em->remove($article);
@@ -112,37 +111,32 @@ class ArticleController extends Controller {
     }
 
     public function deletemoreAction(Request $request) {
-        
+
         $em = $this->getDoctrine()->getManager();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
-    
-        
-        $idfixed = $this->getRequest()->get('fixed');
-        $idnofixed = $this->getRequest()->get('nofixed');
-//        var_dump($idfixed);var_dump($idnofixed);die();
-        
-        foreach ($article as $ar){
-            $x=$ar->getId();
-            if(in_array($x, array_values($idfixed))){
-//              echo "fix";echo'</br>';echo $x;echo'</br>';
-                $ar-> setFixedposition(1);
-                $em->persist($ar);              
-                }
-            if(in_array($x, array_values($idnofixed))){
-//               echo "unfix";echo'</br>';echo $x;echo'</br>';
-                 $ar->setFixedposition(0);    
-                $em->persist($ar);              
+
+
+        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
+
+        foreach ($article as $a) {
+
+            if (in_array($a->getId(), array_values($fixedornotvalue))) {
+                $manager->makeFIX($a);
+            } else {
+                $manager->makeUNFIX($a);
             }
         }
-          $em->flush();
- 
+
+
+
+
         $ids = $this->getRequest()->get('mesIds');
-        
+
         $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-        
+
         $manager->removemore($articled);
-        
+
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article

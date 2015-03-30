@@ -13,42 +13,59 @@ class ArticleManager {
         $this->em = $em;
         $this->repository = $em->getRepository('MyAppArticleBundle:article');
     }
-
+    public function getOne($id) {
+        return $this->repository->find($id);
+    }
     public function ShiftToRightNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         foreach ($ArticleNOFixedPosition as $anfp) {
             $this->incrementposition($anfp);
         }
     }
-   public function ShiftToLeftNofixedPosition() {
+
+    public function ShiftToLeftNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         foreach ($ArticleNOFixedPosition as $anfp) {
             $this->decrementposition($anfp);
         }
     }
+
     public function incrementposition($article) {
         $pos = $article->getPosition();
         $pos = $pos + 1;
         $article->setPosition($pos);
         $this->persist($article);
     }
-   public function decrementposition($article) {
+
+    public function decrementposition($article) {
         $pos = $article->getPosition();
         $pos = $pos - 1;
         $article->setPosition($pos);
         $this->persist($article);
     }
+
+    public function getallarticleId($article) {
+        if ($article != NULL) {
+            return array_values($article);
+        }
+    }
+    public function getfixedarticleId($fixedarticle) {
+        if ($fixedarticle != NULL) {
+            return array_values($fixedarticle);
+        }
+    }
+    public function makeFIX($article) {
+        $article->setFixedposition(1);
+        $this->persist($article);
+        return $article;
+    }
+   public function makeUNFIX($article) {
+        $article->setFixedposition(0);
+        $this->persist($article);
+        return $article;
+    }
     
-//    public function fixposition($ar) {  
-//        $ar->setFixedposition(1);
-//        $this->persist($ar);return $ar;
-//    }
-//    
-//   public function nofixposition($ar) {  
-//        $ar->setFixedposition(0);
-//        $this->persist($ar); return $ar;
-//    }
-    
+
     public function removemore($article) {
         foreach ($article as $s) {
             $this->em->remove($s);

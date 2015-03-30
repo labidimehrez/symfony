@@ -25,24 +25,26 @@
             {% for article in article %}
                 <tr> 
                     <td><input type="checkbox" name="mesIds[]" value="{{article.id}}" ></td> 
-                   {%if article.position <=15%} <td>
+                   <td>  
                         <input type="number" name="i[]" id="" value="{{article.position}}" style="width:50px;" 
                                required="true" pattern=""  min="1" max="15" title="">
-                   </td>{%else%}<td>I.P.</td> {%endif%}
+                        
+                   </td> 
                     <td>{{article.style}}</td> 
                     <td>{{article.headline|truncate(20, true, '...')}}</td> 
                   {#<td>{{article.fixedposition}}</td>#}
-                    <td>   {% if article.fixedposition ==1 %} 
-            <select name="fixed[]">
-                <option value="Oui">Oui</option>
-                <option value="{{article.id}}">Non</option>       
-            </select>
-                {%else%} 
-            <select name="nofixed[]">
-                <option value="Non">Non</option>  
-                <option value="{{article.id}}">Oui</option>    
-            </select>
-                {%endif%}</td>
+                   
+                
+                    <td>
+                        
+                        {% if article.fixedposition ==1 %}
+                        <input type="checkbox" name="fixedposition[]" value="{{article.id}}" checked >
+                         {%else%}<input type="checkbox" name="fixedposition[]" value="{{article.id}}">{%endif%}
+                       
+                    </td>
+                    
+                        
+                
 
             <td>
                 <a href="{{ path('my_app_article_article_edit',{'id':article.id}) }}">
