@@ -51,7 +51,12 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-            <a class="bouttonnouveaucommentaire{{commentaireid}}"  >Add new comment</a>
+            <a class="bouttonnouveaucommentaire{{commentaireid}}">Add new comment</a>
+            <script type="text/javascript">
+                $("a.bouttonnouveaucommentaire{{commentaireid}}").click(function() {
+                    $("div.loginifcomment").slideToggle();
+                });
+            </script>
 
             <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
@@ -134,8 +139,8 @@
                 {{ render(controller('MyAppForumBundle:commentaire:edit', {'id': commentaire.id})) }}           
                 </div>
                 <style type="text/css">
-                 div.inputeditcommentaire{{commentaireid}}{display: none;}
-                 </style>
+                    div.inputeditcommentaire{{commentaireid}}{display: none;}
+                </style>
                 <script type="text/javascript">
                     $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
                         $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
@@ -219,15 +224,18 @@
 
         <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
 
-        <div class="inputnouveaucommentaire3" id="cacherdiv"> 
+        <div class="loginifcomment" id="cacherdiv"> 
             <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
             <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
             <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
                 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="bouttonnouveaucommentaire3"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a> 
-
-
+            <a class="cacherdivloginifcomment" style="text-decoration:none;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
         </div>
+        <script type="text/javascript">
+                    $("a.cacherdivloginifcomment").click(function() {
+                        $("div#cacherdiv").hide();
+                    });
+        </script>
         {% endif %}
 
         <br>
@@ -274,7 +282,18 @@
 
     div.inputnouveaucommentaire {display: none;}
     div.inputnouveausouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
-   
+    div.loginifcomment{
+        padding: 10px;
+        padding-left: 50px;
+        width: 450px;
+        display: none;
+        -moz-box-shadow: 10px 10px 5px 0px #656565;
+        -webkit-box-shadow: 10px 10px 5px 0px #656565;
+        -o-box-shadow: 10px 10px 5px 0px #656565;
+        box-shadow: 10px 10px 5px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+        border: 1px black;border-style: solid;
+    }
 
     a.sho{display: none;}
 
@@ -300,17 +319,17 @@
 
 
 <script type="text/javascript">
-                       $(document).ready(function() {
-                           $("a.bouttonnouveaucommentaire").click(function()
-                           {
-                               $("div.inputnouveaucommentaire").slideToggle("slow");
-                           });
-                           $("a.bouttonsousnouveaucommentaire").click(function()
-                           {
-                               $("div.inputnouveausouscommentaire").slideToggle("slow");
-                           });
+    $(document).ready(function() {
+        $("a.bouttonnouveaucommentaire").click(function()
+        {
+            $("div.inputnouveaucommentaire").slideToggle("slow");
+        });
+        $("a.bouttonsousnouveaucommentaire").click(function()
+        {
+            $("div.inputnouveausouscommentaire").slideToggle("slow");
+        });
 
-                       });
+    });
 </script>
                 {## show hide div edit tag ##}
 <script type="text/javascript">
