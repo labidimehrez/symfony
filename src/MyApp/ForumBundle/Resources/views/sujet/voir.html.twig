@@ -129,6 +129,23 @@
                 </script>
 
                 <a class="bouttonsousnouveaucommentaire">Add new comment</a>
+                {% if not is_granted( 'ROLE_USER' ) %}
+                <div class="loginifSUBcomment" id="cacherdivSUB"> 
+                    <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
+                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
+                    <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
+                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
+                    <a class="cacherdivloginifSUBcomment" style="text-decoration:none;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
+                </div>
+                <script type="text/javascript">
+                    $("a.bouttonsousnouveaucommentaire").click(function() {
+                        $("div#cacherdivSUB").show();
+                    });
+                      $("a.cacherdivloginifSUBcomment").click(function() {
+                        $("div#cacherdivSUB").hide();
+                    });
+                </script>
+                {%endif%}
                 <b class="likebutton">like</b>
                 <a class="bouttoneditcommentaire{{commentaireid}}" style="text-decoration:none;"><b class="likebutton">edit</b></a>
                 &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -236,6 +253,7 @@
                         $("div#cacherdiv").hide();
                     });
         </script>
+
         {% endif %}
 
         <br>
@@ -282,6 +300,7 @@
 
     div.inputnouveaucommentaire {display: none;}
     div.inputnouveausouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
+
     div.loginifcomment{
         padding: 10px;
         padding-left: 50px;
@@ -294,6 +313,20 @@
         filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
         border: 1px black;border-style: solid;
     }
+
+    div.loginifSUBcomment{
+        padding: 10px;
+        padding-left: 50px;
+        width: 450px;
+        display: none;
+        -moz-box-shadow: 10px 10px 5px 0px #656565;
+        -webkit-box-shadow: 10px 10px 5px 0px #656565;
+        -o-box-shadow: 10px 10px 5px 0px #656565;
+        box-shadow: 10px 10px 5px 0px #656565;
+        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+        border: 1px black;border-style: solid;
+    }
+
 
     a.sho{display: none;}
 
@@ -341,34 +374,4 @@
     });
 </script>
 
-
-
-{#
-<script type="text/javascript">
-$(document).ready(function() {
-                $(".bouttonnouveaucommentaire").click(function() {
-                    $(".inputnouveaucommentaire").slideToggle("slow");/* afficher bouttonnouveaucommentaire */
-                    $(".inputnouveausouscommentaire").hide();           /* cacher inputnouveausouscommentaire */
-                    $(".inputeditsouscommentaire").hide();       /* cacher input edit SOUS commentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
-                });
-                $(".bouttonsousnouveaucommentaire").click(function() {
-                    $(".inputnouveausouscommentaire").slideToggle("slow");/* afficher bouttonsousnouveaucommentaire */
-                    $(".inputnouveaucommentaire").hide();             /* cacher input inputnouveaucommentaire */
-                    $(".inputeditsouscommentaire").hide();       /* cacher inputeditsouscommentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher input edit commentaire */
-                });
-                $(".bouttoneditcommentaire").click(function() {
-                    $(".inputeditcommentaire").slideToggle("slow");/* afficher bouttoneditcommentaire */
-                    $(".inputnouveaucommentaire").hide();   /* cacher input nouveau  commentaire */
-                    $(".inputnouveausouscommentaire").hide(); /* cacher input nouveau SOUS commentaire */
-                    $(".inputeditsouscommentaire").hide();/* cacher input EDIT SOUS nouveau commentaire */
-                });
-                $(".bouttoneditsouscommentaire").click(function() {
-                    $(".inputeditsouscommentaire").slideToggle("slow");/* afficher bouttoneditsouscommentaire */
-                    $(".inputnouveaucommentaire").hide();  /* cacher input nouveau  commentaire */
-                    $(".inputnouveausouscommentaire").hide();/* cacher input nouveau SOUS commentaire */
-                    $(".inputeditcommentaire").hide();       /* cacher inputeditcommentaire */
-                });
-            });
-</script>#}
+ 
