@@ -130,7 +130,7 @@
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">delete</a> 
                 {%endif%}
-                <div class="inputeditcommentaire{{commentaireid}}">           
+                <div class="inputeditcommentaire{{commentaireid}}" id="inputeditcommentaire">           
                 {{ render(controller('MyAppForumBundle:commentaire:edit', {'id': commentaire.id})) }}           
                 </div>
                 <style type="text/css">
@@ -197,7 +197,7 @@
         <script src="{{ asset('bundles/myappesprit/js/siconnecte.js') }}" type="text/javascript"></script> 
 
 
-        <div class="inputnouveaucommentaire{{commentaire.id}}"> 
+        <div class="inputnouveaucommentaire{{commentaire.id}}" > 
             <div   class="nouveaucommentaire"   >
           {% if app.user.image is not null %} 
                 <img src="{{ app.user.image }}" class="imageuser" alt=""/>
