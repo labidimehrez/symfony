@@ -105,7 +105,7 @@ class commentaireController extends Controller {
     }
 
     public function editAction($id , Request $request) {
-        $id = 1;
+     
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
@@ -117,22 +117,20 @@ class commentaireController extends Controller {
         $form = $this->createFormBuilder($commentaire)
                         ->add('texte', 'textarea', array('required' => true))->getForm();
         $request = $this->getRequest();
-
+        /*         * ************ simple delete action *************** */
+        $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
+        $idsujet = substr($uri, 45, -5); /* get current debat id */
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             /*             * *********  validation form ********************* */
             if ($form->isValid()) {
                 $em->flush();
-                return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
+          return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
         }
 
 
-        if ($form->isValid()) {
-            $em->flush();
-            return $this->render('MyAppForumBundle:commentaire:edit.html.twig', 
-                    array('form' => $form->createView(), 'id' => $id));
-        }
+    
 
         return $this->render('MyAppForumBundle:commentaire:edit.html.twig',
                 array('form' => $form->createView(), 'id' => $id));

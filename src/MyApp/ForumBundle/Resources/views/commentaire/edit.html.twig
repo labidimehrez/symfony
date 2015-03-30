@@ -1,5 +1,5 @@
 {# empty Twig template #}
- <form role="form" method="post" {{ form_enctype(form) }} >
+ <form role="form"  action='{{path('my_app_forum_commentaire_edit',{'id':id}  )}}' method="post" {{ form_enctype(form) }} >
  
     <table height=" " width=" " border="0">
             
@@ -13,7 +13,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
           
-                  <input type="reset"  id=hideedit   value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
+                  <input type="reset"  id=hideeditcommentaire   value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
  
                 </td>  
             </tr>
@@ -26,8 +26,8 @@
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">
-$("#hideedit").click(function () {
-   $("div.paneledit").hide(1);
+$("input#hideeditcommentaire").click(function () {
+   $("div.inputeditcommentaire").hide(1);
 });
 </script>
  

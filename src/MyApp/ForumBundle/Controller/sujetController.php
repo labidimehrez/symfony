@@ -138,6 +138,7 @@ class sujetController extends Controller {
 
     public function editAction($id) {
         /*         * ************ simple edit action *************** */
+        $id=1;
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {

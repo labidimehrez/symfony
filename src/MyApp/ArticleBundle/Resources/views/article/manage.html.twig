@@ -25,10 +25,10 @@
             {% for article in article %}
                 <tr> 
                     <td><input type="checkbox" name="mesIds[]" value="{{article.id}}" ></td> 
-                    <td>
+                   {%if article.position <=15%} <td>
                         <input type="number" name="i[]" id="" value="{{article.position}}" style="width:50px;" 
                                required="true" pattern=""  min="1" max="15" title="">
-                    </td>
+                   </td>{%else%}<td>I.P.</td> {%endif%}
                     <td>{{article.style}}</td> 
                     <td>{{article.headline|truncate(20, true, '...')}}</td> 
                   {#<td>{{article.fixedposition}}</td>#}

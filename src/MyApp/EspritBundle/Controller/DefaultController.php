@@ -34,8 +34,7 @@ class DefaultController extends Controller
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
    
- 
-    
+
      public function routeAction(){
         $request = $this->container->get('request');
         $routeName = $request->get('_route');
