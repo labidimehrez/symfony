@@ -13,32 +13,60 @@ class ArticleManager {
         $this->em = $em;
         $this->repository = $em->getRepository('MyAppArticleBundle:article');
     }
+
+    public function Disponiblitedelapositionchoisie($positiondelarticleenajout) {
+        $contenudelapositionchoisie = $this->repository->getDisponiblite($positiondelarticleenajout);
+        if (empty($contenudelapositionchoisie)) {
+            $lapositionchoisie = 'vide';      /* position disponible */
+        }
+        if (!empty($contenudelapositionchoisie) && ($contenudelapositionchoisie[0]->getFixedposition() == 1)) {
+            $lapositionchoisie = 'contenufixe';      /* position non disponible */
+        }
+        if (!empty($contenudelapositionchoisie) && ($contenudelapositionchoisie[0]->getFixedposition() == 0)) {
+            $lapositionchoisie = 'contenuNONfixe';      /* position non disponible */
+        }
+
+
+        return $lapositionchoisie;
+    }
+
     public function getOne($id) {
         return $this->repository->find($id);
     }
+   public function getARnumber() {
+       return intval($this->repository->getARnumber());/* return int qui contient 'number de AR'*/
+         
+    }
+    
     
     public function ShiftToRightNofixedPosition() {
 //        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
 //        $articleWithfixedposition = $manager->getArticleWithFixedPosition();
 //            foreach ($ArticleNOFixedPosition as $a) { $this->decrementposition($a);}
-        
     }
 
     public function ShiftToLeftNofixedPosition() {
-//        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
-//        $articleWithfixedposition = $manager->getArticleWithFixedPosition();
-//           foreach ($ArticleNOFixedPosition as $a) { $this->incrementposition($a);}
-//       //
+        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+        $totalnumberofar = intval($this->repository->getARnumber());/* nombre ancien des AR je vais l incrementer +1 */
+     
+       $ArticleNOFixedPosition[0]->setPosition($totalnumberofar+1);   $this->persist($ArticleNOFixedPosition[0]);  
+       /* le dernier element des non fixed AR est envoyé a une nouvelle position =  number dancien +1 */      
+        for ($index = 0; $index < count($ArticleNOFixedPosition)-1; $index++){      
+           $ArticleNOFixedPosition[$index+1]->setPosition(count($ArticleNOFixedPosition)+1);                  
+           $this->persist($ArticleNOFixedPosition[$index+1]);        
+             }     
+        /* chaque ar non fixé aura position de son next */
+     
     }
 
-  public function incrementposition($article) {
+    public function incrementposition($article) {
 //        $pos = $article->getPosition();
 //        $pos = $pos + 1;
 //        $articledetest = $this->repository->findOneBy(array('position' => $pos));
 //        if (in_array(!$articledetest, $articleWithfixedposition) )
 //        {$article->setPosition($pos);
 //        $this->persist($article);}
-    } 
+    }
 
     public function decrementposition($article) {
 //        $pos = $article->getPosition();
@@ -47,29 +75,31 @@ class ArticleManager {
 //        if (in_array(!$articledetest, $articleWithfixedposition) )
 //        {$article->setPosition($pos);
 //        $this->persist($article);}
-    } 
+    }
 
     public function getallarticleId($article) {
         if ($article != NULL) {
             return array_values($article);
         }
     }
+
     public function getfixedarticleId($fixedarticle) {
         if ($fixedarticle != NULL) {
             return array_values($fixedarticle);
         }
     }
+
     public function makeFIX($article) {
         $article->setFixedposition(1);
         $this->persist($article);
         return $article;
     }
-   public function makeUNFIX($article) {
+
+    public function makeUNFIX($article) {
         $article->setFixedposition(0);
         $this->persist($article);
         return $article;
     }
-    
 
     public function removemore($article) {
         foreach ($article as $s) {

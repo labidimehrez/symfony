@@ -14,10 +14,12 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés */
-       
+      
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
 
+       
+        
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();
@@ -29,44 +31,60 @@ class ArticleController extends Controller {
                 $article = $form->getData();
                 $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
-
-                $em = $this->getDoctrine()->getManager();
-                $Etatdelapositionchoisie = $em->getRepository('MyAppArticleBundle:article')->getDisponiblite($positiondelarticleenajout);
-                $Etat = 0;
-                foreach ($Etatdelapositionchoisie as $e) {
-                    $Etat = $e->getFixedposition(); // Etat de la position choisi par la form string cad "1" ou "0"
-                }
+                    /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
+                $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout); 
+          
+ 
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
                     /*                     * * j 'affecte l a'rticle a la premiere position libre * */
-                    if ($Etat != 1) {
+                    if ($lapositionchoisie != 'contenufixe') {
+                        $article->setPosition($positiondelarticleenajout);
+                        $manager->ShiftToLeftNofixedPosition();
+                        $manager->persist($article);
+                    }
+                    if ($lapositionchoisie == 'contenufixe') {
+                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
+                    }
+                } 
+                
+                
+                
+                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
+                    /*                     * * j 'affecte l a'rticle a la premiere position libre * */                   
                         $article->setPosition($premierepositionlibre);
-                        $manager->ShiftToRightNofixedPosition();
+                        $manager->persist($article);               
+                } 
+                
+                
+                
+                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
+                   if ($lapositionchoisie != 'contenufixe') {
+
+                        $article->setPosition($positiondelarticleenajout);       
+                        $manager->ShiftToLeftNofixedPosition();
                         $manager->persist($article);
-                    } else {
+                    } 
+                      if ($lapositionchoisie == 'contenufixe'){
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
-                } elseif (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
-                    /*                     * * j 'affecte l a'rticle a la premiere position libre * */
-                    if ($Etat != 1) {
-                        $article->setPosition($premierepositionlibre);
+                } 
+                
+                
+                
+                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
+                   if ($lapositionchoisie != 'contenufixe') {
+                        $article->setPosition($positiondelarticleenajout);  
                         $manager->persist($article);
-                    } else {
-                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
-                } elseif (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
-                    if ($Etat != 1) {
-                        $manager->ShiftToRightNofixedPosition();
-                        $manager->persist($article);
-                    } else {
-                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
-                    }
-                } elseif (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
-                    if ($Etat != 1) {
-                        $manager->persist($article);
-                    } else {
+                    if ($lapositionchoisie != 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
+                
+                
+                
+                
+                
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }

@@ -29,7 +29,13 @@ class ArticleRepository extends EntityRepository {
                         ->createQuery('SELECT p FROM MyAppArticleBundle:article p  ')
                         ->getResult();
     }
-
+    public function getARnumber() {
+        return $this->getEntityManager()
+                        ->createQuery('SELECT COUNT(p) FROM MyAppArticleBundle:article p  ')
+                        ->getSingleScalarResult();
+    }
+    
+    
     public function getDisponiblite($positiondelarticleenajout) {
         return $this->getEntityManager()
                         ->createQuery('SELECT p FROM  MyAppArticleBundle:article p   WHERE  p.position=:pos  ')                           
