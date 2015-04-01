@@ -1,7 +1,7 @@
 {# empty Twig template #}
-<form role="form" method="post" {{ form_enctype(form) }} >
+<form  role="form" action='{{path('my_app_forum_commentaire_editsous',{'id':id} )}}' method="post" {{ form_enctype(form) }}>
 
-    <table height=" " width=" " border="0">
+    <table height="" width="" border="0">
         <tr>
             <td>{{ form_widget(form.texte, { 'attr': { 'style': '  width: 300px;height: 50px;  margin-left: 40px;' ,'placeholder': 'Ecrire du commentaire ici ...'  }  }) }}</td> 
         </tr>
