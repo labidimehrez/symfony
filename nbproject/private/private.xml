@@ -14,6 +14,7 @@
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Services/ArticleManager.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Form/ArticleType.php</file>
         </group>
     </open-files>
 </project-private>

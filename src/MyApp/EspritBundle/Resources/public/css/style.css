@@ -3368,3 +3368,8 @@ div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:
 .deletecommentaire{  color: #c52821 ;
                      font-weight: bold;
                      background-color:transparent;  padding-left: 50px;}
+
+
+.stylepourchaquedebat{
+    width: 650px;}
+.stylepourchaquedebat:hover{background-color: #e0e0e0;}
