@@ -136,10 +136,14 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $form = $this->createFormBuilder($article)->add('article')->getForm();
-
+        $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber()); 
+        
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
-        if (count($ids) > 1) {
+        if( $totalnumberofar <= 15){ 
+              $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
+        }
+        if( (count($ids) > 1)&&( $totalnumberofar>15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
              $manager->removemore($articled);
             $done = 1;
@@ -152,9 +156,8 @@ class ArticleController extends Controller {
                         'form' => $form->createView(), 'article' => $article));
         }
         /* delete more  checked */
-        /* delete one checked */
-        
-        if (count($ids) === 1) {
+        /* delete one checked */        
+        if( (count($ids) === 1)&&( $totalnumberofar>15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
             $manager->ShiftToRightNofixedPosition();
             $manager->removemore($articled);
