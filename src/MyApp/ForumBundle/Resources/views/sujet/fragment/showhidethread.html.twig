@@ -1,0 +1,16 @@
+{# empty Twig template #}
+         <a id=showthread{{commentaireid}} class="sho"><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
+                <a id=hidethread{{commentaireid}} class="hid"><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
+                 {## show hide thread alterné :D ##}
+                <script type="text/javascript">
+                    $("#showthread{{commentaireid}}").click(function() {
+                        $("div#div{{commentaireid}}").slideToggle();
+                        $("a#showthread{{commentaireid}}").hide();
+                        $("a#hidethread{{commentaireid}}").show();
+                    });
+                    $("#hidethread{{commentaireid}}").click(function() {
+                        $("div#div{{commentaireid}}").slideToggle();
+                        $("a#hidethread{{commentaireid}}").hide();
+                        $("a#showthread{{commentaireid}}").show();
+                    });
+                </script>
