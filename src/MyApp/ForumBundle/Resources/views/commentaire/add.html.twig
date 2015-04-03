@@ -1,5 +1,5 @@
 {# empty Twig template #}
-
+</br>
   <form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} > 
 
         <table height=" " width=" " border="0">
@@ -31,7 +31,7 @@
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">
 $("input#hideinputnouveaucommentaire").click(function () {
-   $("div#bouttonnouveaucommentaire").hide(1);
+   $("div.inputajoutcommentaire").hide(1);
 });
 </script>
  

@@ -1,5 +1,5 @@
 {# empty Twig template #}
-<form  role="form" action='{{path('my_app_forum_commentaire_editsous',{'id':id} )}}' method="post" {{ form_enctype(form) }}>
+<form  role="form" action='{{path('my_app_forum_commentaire_editsous',{'id': commentaire.id} )}}' method="post" {{ form_enctype(form) }}>
 
     <table height="" width="" border="0">
         <tr>
@@ -22,7 +22,7 @@
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">
 $("#hideeditsouscomment").click(function () {
-   $("form").hide(1);
+ //  $("form").hide(1);
 });
 </script>
  

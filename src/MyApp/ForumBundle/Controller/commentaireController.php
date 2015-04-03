@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use MyApp\ForumBundle\Form\commentaireType;
 use MyApp\ForumBundle\Entity\commentaire;
 use MyApp\EspritBundle\Entity\notification;
+
 class commentaireController extends Controller {
     public function addAction(Request $request) {
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
@@ -93,7 +94,7 @@ class commentaireController extends Controller {
         $form = $this->createFormBuilder($commentaire)
                         ->add('texte', 'textarea', array('required' => true))->getForm();
         $request = $this->getRequest();
-        /*         * ************ simple delete action *************** */
+     
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = substr($uri, 45, -5); /* get current debat id */
         if ($request->getMethod() == 'POST') {
@@ -108,9 +109,9 @@ class commentaireController extends Controller {
         return $this->render('MyAppForumBundle:commentaire:edit.html.twig',
                 array('form' => $form->createView(), 'id' => $id));
     }
-    public function editsouscommentAction() {
+    public function editsouscommentAction($id , Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $id = 2;
+        $id = 19;
         $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$souscommentaire) {
             throw $this->createNotFoundException(
@@ -125,6 +126,6 @@ class commentaireController extends Controller {
             return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array(
                         'form' => $form->createView()));
         }
-        return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('form' => $form->createView(), 'id' => $id));
     }
 }

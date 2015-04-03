@@ -51,11 +51,16 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
-            <a class="bouttonnouveaucommentaire{{commentaireid}}" style="cursor:pointer">Add new comment</a>
-                   {##########}
+            <a class="bouttonnouveaucommentaire" style="cursor:pointer">Add new comment</a>
+                                <script type="text/javascript">
+                    $("a.bouttonnouveaucommentaire").click(function() {
+                        $("div.inputajoutcommentaire").slideToggle();
+                      
+                    });
+                </script>
      {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
 
-       {#% include 'MyAppForumBundle:sujet/fragment:tooltipajoutnouveaucommentaire.html.twig'%#}       
+      
 
 
         </div>
@@ -82,22 +87,8 @@
 
 
 
-
-                <a id=showthread{{commentaireid}} class="sho"><img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/></a> 
-                <a id=hidethread{{commentaireid}} class="hid"><img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/></a>
-                 {## show hide thread alterné :D ##}
-                <script type="text/javascript">
-                    $("#showthread{{commentaireid}}").click(function() {
-                        $("div.threadcontent{{commentaireid}}").slideToggle();
-                        $("a#hidethread{{commentaireid}}").show();
-                        $("a#showthread{{commentaireid}}").hide();
-                    });
-                    $("#hidethread{{commentaireid}}").click(function() {
-                        $("div.threadcontent{{commentaireid}}").slideToggle();
-                        $("a#showthread{{commentaireid}}").show();
-                        $("a#hidethread{{commentaireid}}").hide();
-                    });
-                </script>
+         {% include 'MyAppForumBundle:sujet/fragment:showhidethread.html.twig'%}
+             
 
 
                 <style type="text/css">
@@ -110,6 +101,7 @@
                 <a class="bouttonsousnouveaucommentaire{{commentaireid}}" style="cursor:pointer">Add new comment</a>
                 <script type="text/javascript">
                     $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
+                        $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("div.inputsnouveausouscommentaire{{commentaireid}}").slideToggle();
                     });
                 </script>
@@ -120,8 +112,20 @@
                 <b class="likebutton" style="cursor:pointer;">like</b>
                 <a class="bouttoneditcommentaire{{commentaireid}}" style="text-decoration:none;cursor:pointer;"><b class="likebutton">edit</b></a>
                 &nbsp;&nbsp;&nbsp;&nbsp; 
-
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;cursor:pointer;" class="deletecommentaire">delete</a> 
+
+                <script type="text/javascript">
+                    $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
+                        $("div.threadcontent{{commentaireid}}").slideToggle();
+                        $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
+                    });
+                </script>
+                <div class="inputeditcommentaire{{commentaireid}}">
+                         {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
+                </div>  
+                <style type="text/css">
+                    div.inputeditcommentaire{{commentaireid}}{display: none;}
+                </style>
                 <style type="text/css">
                     div.threadcontent{{commentaireid}}{display: none;}
                 </style>
@@ -134,13 +138,13 @@
                          {% include 'MyAppForumBundle:sujet/fragment:souscommentairesdetails.html.twig'%} 
 
                     </div>
+                {%endif%} {%endfor%}
 
-
-                    <div class="inputsnouveausouscommentaire{{commentaireid}}">
+                    <div class="inputsnouveausouscommentaire{{commentaireid}}"  >
                          {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%} 
                     </div>     
 
-                   {%endif%} {%endfor%}
+
                 </div>
 
 
@@ -152,8 +156,12 @@
 
         </div>
                     {# fin affichage des commentaires #}
-
-
+                <style type="text/css">
+                    div.inputajoutcommentaire{display: none;}
+                </style>
+                <div class="inputajoutcommentaire">
+                         {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
+                </div>  
         {#####################################################}
 
 

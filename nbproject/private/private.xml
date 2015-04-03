@@ -12,10 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/souscommentairesdetails.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/inputajoutsousommentaire.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/commentaire/editsouscomment.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/commentaireController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/config/routing/commentaire.yml</file>
         </group>
     </open-files>
 </project-private>
