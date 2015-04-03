@@ -52,48 +52,18 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu}}   </br>  
             <a class="bouttonnouveaucommentaire{{commentaireid}}">Add new comment</a>
-            <script type="text/javascript">
-                $("a.bouttonnouveaucommentaire{{commentaireid}}").click(function() {
-                    $("div.loginifcomment").slideToggle();
-                });
-            </script>
+                   {##########}
      {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
-           {# <div  class="tagtitlevoirun">
-                {% set counternombredetag = 0 %} 
-                {% for tag in tag %}      
-                <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
+
+       {#% include 'MyAppForumBundle:sujet/fragment:tooltipajoutnouveaucommentaire.html.twig'%#}       
 
 
-                {% endfor%} 
-            
-
-                <a id=show>  
-               {% if counternombredetag > 0%}
-                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                 {% endif%}
-                </a> 
-
-                <div class="divedittag" style="  position: absolute;background-color: white;  top: 30px;  left: 500px;">
-                    <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
-                        <input type="text" name="i[]" id="" 
-                               value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}">                    
-                        <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
-                    </form>
-                </div>
-            </div>#}
-            
         </div>
 
-
-
-
-                    {# debut affichage des commentaires #}
-
-
         <div class="commentaire">
-              {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %}
-                {% set commentaireid = commentaire.id %} 
+            {# debut affichage des commentaires #}
+              {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %} {% set commentaireid = commentaire.id %}
+
             <div class="contenucommentaireparent"> 
 
             {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
@@ -118,119 +88,70 @@
                  {## show hide thread alterné :D ##}
                 <script type="text/javascript">
                     $("#showthread{{commentaireid}}").click(function() {
-                        $("div#div{{commentaireid}}").slideToggle();
-                        $("a#showthread{{commentaireid}}").hide();
+                        $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("a#hidethread{{commentaireid}}").show();
+                        $("a#showthread{{commentaireid}}").hide();
                     });
                     $("#hidethread{{commentaireid}}").click(function() {
-                        $("div#div{{commentaireid}}").slideToggle();
-                        $("a#hidethread{{commentaireid}}").hide();
+                        $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("a#showthread{{commentaireid}}").show();
+                        $("a#hidethread{{commentaireid}}").hide();
                     });
                 </script>
 
-                <a class="bouttonsousnouveaucommentaire">Add new comment</a>
-                {% if not is_granted( 'ROLE_USER' ) %}
-                <div class="loginifSUBcomment" id="cacherdivSUB"> 
-                    <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
-                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
-                    <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
-                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-                    <a class="cacherdivloginifSUBcomment" style="text-decoration:none;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
-                </div>
+
+                <style type="text/css">
+                    a.bouttonsousnouveaucommentaire{{commentaireid}}{
+                        color: #c52821;
+                        font-weight: bold;
+                        text-decoration:none;                       
+                    }
+                </style> 
+                <a class="bouttonsousnouveaucommentaire{{commentaireid}}" >Add new comment</a>
                 <script type="text/javascript">
-                    $("a.bouttonsousnouveaucommentaire").click(function() {
-                        $("div#cacherdivSUB").show();
-                    });
-                      $("a.cacherdivloginifSUBcomment").click(function() {
-                        $("div#cacherdivSUB").hide();
+                    $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
+                        $("div.inputsnouveausouscommentaire{{commentaireid}}").slideToggle();
                     });
                 </script>
-                {%endif%}
+
+
+                 {###################}
+
                 <b class="likebutton">like</b>
                 <a class="bouttoneditcommentaire{{commentaireid}}" style="text-decoration:none;"><b class="likebutton">edit</b></a>
                 &nbsp;&nbsp;&nbsp;&nbsp; 
-                  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">delete</a> 
-                {%endif%}
-                <div class="inputeditcommentaire{{commentaireid}}">           
-                {{ render(controller('MyAppForumBundle:commentaire:edit', {'id': commentaire.id})) }}           
-                </div>
                 <style type="text/css">
-                    div.inputeditcommentaire{{commentaireid}}{display: none;}
+                    div.threadcontent{{commentaireid}}{display: none;}
                 </style>
-                <script type="text/javascript">
-                    $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
-                        $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
-
-                    });
-                </script>
-
-                </br> 
-            </div>
+                <div class="threadcontent{{commentaireid}}">
+                    {% for souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id%}
 
 
-              {% for  souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id %}
-            <div class="contenucommentairefils" id="div{{commentaireid}}"> 
+                    <div class="souscommentairesdetails">
 
-              {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+                         {% include 'MyAppForumBundle:sujet/fragment:souscommentairesdetails.html.twig'%} 
 
-
-                <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+                    </div>
 
 
-            {% if souscommentaire.vote  is not null %}
-                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                    &nbsp;{{souscommentaire.vote}} </b>
-             {%endif%}                   
-                </br>
-                    {{souscommentaire.texte}}
-                </br> 
-              {#  <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{souscommentaire.id}}</a>#}
-                <b class="likebutton">like</b>
-                {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
-                <a class="bouttoneditsouscommentaire"  style="text-decoration:none;"><b class="likebutton">edit</b></a> 
-                {%endif%}
-                &nbsp;&nbsp;&nbsp;&nbsp;   
+                    <div class="inputsnouveausouscommentaire{{commentaireid}}">
+                         {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%} 
+                    </div>     
 
-                {%if  ("EDITOR" in app.user.roles|join) or ( souscommentaire.user ==  app.user.username ) %} 
-                <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">delete</a> 
-                 {%endif%}
-                <div class="inputnouveausouscommentaire">
-                {% if is_granted( 'ROLE_USER' ) %}
-                            {{ render(controller('MyAppForumBundle:commentaire:addsouscomment', {'id': commentaire.id})) }}
-                {%endif%}
+                   {%endif%} {%endfor%}
                 </div>
+
+
+
                 </br> 
             </div>
-            {%endif%} {% endfor%}
+          {%endif%} {% endfor%} 
 
 
-
-          {%endif%}
-
-
-
-
-                {% endfor%}
         </div>
                     {# fin affichage des commentaires #}
-        {% if is_granted( 'ROLE_USER' ) %}
-        <script src="{{ asset('bundles/myappesprit/js/siconnecte.js') }}" type="text/javascript"></script> 
-
-
-        <div class="inputnouveaucommentaire{{commentaire.id}}" id="bouttonnouveaucommentaire"> 
-            <div   class="nouveaucommentaire"   >
-          {% if app.user.image is not null %} 
-                <img src="{{ app.user.image }}" class="imageuser" alt=""/>
-          {%else%}
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
-          {%endif%}   
-                <b>Comment &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</br></br>
-          {{ render(controller('MyAppForumBundle:commentaire:add')) }}  
-            </div>
-        </div> 
 
 
         {#####################################################}
@@ -238,24 +159,7 @@
 
 
 
-        {% else %}
 
-        <script src="{{ asset('bundles/myappesprit/js/sinonconnecte.js') }}" type="text/javascript"></script> 
-
-        <div class="loginifcomment" id="cacherdiv"> 
-            <p>Kun brugere, der er logged ind kan tilfoje</br> kommentarer.Du kan vaelge at logge pa eller oprettte</br> en ny profile </p></br>
-            <a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg">Log ind</a>  
-            <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
-                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Opre profil&nbsp;&nbsp;</a>   
-            <a class="cacherdivloginifcomment" style="text-decoration:none;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
-        </div>
-        <script type="text/javascript">
-                    $("a.cacherdivloginifcomment").click(function() {
-                        $("div#cacherdiv").hide();
-                    });
-        </script>
-
-        {% endif %}
 
         <br>
 
@@ -281,11 +185,7 @@
         /* border-color: aqua;
          border-style: dashed;*/
     }
-    a.bouttonsousnouveaucommentaire{
-        color: #c52821;
-        font-weight: bold;
-        text-decoration:none;
-    }
+
     a.bouttoneditcommentaire{
         text-decoration:none;
         color: #c52821;
@@ -300,7 +200,7 @@
     }
 
     div.inputnouveaucommentaire {display: none;}
-    div.inputnouveausouscommentaire {display: none;  padding-left: 100px;padding-top: 10px;} 
+
 
     div.loginifcomment{
         padding: 10px;
@@ -330,22 +230,6 @@
 
 
     a.sho{display: none;}
-
-    div.divedittag {
-        padding: 10px;
-        padding-left: 50px;
-        width: 400px;
-        display: none;
-        -moz-box-shadow: 10px 10px 5px 0px #656565;
-        -webkit-box-shadow: 10px 10px 5px 0px #656565;
-        -o-box-shadow: 10px 10px 5px 0px #656565;
-        box-shadow: 10px 10px 5px 0px #656565;
-        filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-        border: 1px black;
-        border-style: solid;
-        background-color: white;  z-index: 1000000;
-    }
-
 </style>
 
 
@@ -354,25 +238,15 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a.bouttonnouveaucommentaire").click(function()
-        {
-            $("div.inputnouveaucommentaire").slideToggle("slow");
-        });
-        $("a.bouttonsousnouveaucommentaire").click(function()
-        {
-            $("div.inputnouveausouscommentaire").slideToggle("slow");
-        });
+        /* $("a.bouttonnouveaucommentaire").click(function()
+         {
+         $("div.inputnouveaucommentaire").slideToggle("slow");
+         });*/
+        /* $("a.bouttonsousnouveaucommentaire").click(function()
+         {
+         $("div.inputnouveausouscommentaire").slideToggle("slow");
+         });*/
 
     });
 </script>
-                {## show hide div edit tag ##}
-<script type="text/javascript">
-    $("a#show").click(function() {
-        $("div.divedittag").slideToggle("slow");
-    });
-    $("input#hide").click(function() {
-        $("div.divedittag").slideToggle("slow");
-    });
-</script>
 
- 

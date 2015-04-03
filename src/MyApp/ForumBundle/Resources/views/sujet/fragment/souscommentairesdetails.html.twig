@@ -1,0 +1,30 @@
+{# empty Twig template #}
+    {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
+<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+
+
+<b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+
+
+            {% if souscommentaire.vote  is not null %}
+<b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+    &nbsp;{{souscommentaire.vote}} </b>
+             {%endif%}                   
+</br>
+                    {{souscommentaire.texte}}
+</br> 
+              {#  <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{souscommentaire.id}}</a>#}
+<b class="likebutton">like</b>
+
+<a class="bouttoneditsouscommentaire"  style="text-decoration:none;"><b class="likebutton">edit</b></a> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;   
+
+<a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;" class="deletecommentaire">delete</a> 
+
+
+
+
+<style type="text/css">
+    div.souscommentairesdetails{   padding-left: 50px;padding-top: 10px;} 
+</style>

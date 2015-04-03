@@ -17,7 +17,8 @@
     		// ok to override
     		fixed: false,
     		clickIt: false,
-    		inSpeed: 2000,
+			effect: "slideDown",
+    		inSpeed:  1,
     		outSpeed: 1,
     		tipContent: '',
     		toolTipClass: 'defaultTheme',
@@ -51,7 +52,7 @@
 				
 				if(tipContent && settings.clickIt){
 					$('#'+settings.toolTipId+' p.aToolTipContent')
-					.append("<a id='"+settings.closeTipBtn+"' href='#' alt='close'>Luk</a>");
+					.append("<a id='"+settings.closeTipBtn+"' href='#' alt='close'>Annuler</a>");
 				}
 			},
 			/**

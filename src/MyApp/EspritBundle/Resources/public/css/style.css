@@ -3220,16 +3220,17 @@
     padding-top:10px;  
 }
 .tagtitlevoirun{
-    position: relative;
-    padding-top: -20px;
-    padding-bottom: -20px;
-    padding-left: 400px;
-    /* padding-right: 0px; */
-    /* margin-left: -40px; */
-    margin-top: -10px;
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: -20px;
+  padding-left: 400px;
+  padding-right: 20px;
+  /* margin-left: -40px; */
+  margin-top: -10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  float: right;
 }
 .Addnewcomment{ 
     text-decoration: none;

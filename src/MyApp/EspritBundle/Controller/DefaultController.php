@@ -2,7 +2,7 @@
 
 namespace MyApp\EspritBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+ 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller {
@@ -40,11 +40,6 @@ class DefaultController extends Controller {
         ));
     }
 
-    public function testAction() {
-        
-        $em = $this->get('doctrine.orm.entity_manager');
-        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
-        return $this->render('MyAppEspritBundle:Default:test.html.twig', array('menu' => $menu));
-    }
+   
 
 }
