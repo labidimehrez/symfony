@@ -15,8 +15,9 @@
 </br> 
               {#  <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{souscommentaire.id}}</a>#}
 <b class="likebutton" style="cursor:pointer;">like</b>
-
+ {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
 <a class="bouttoneditsouscommentaire{{souscommentaire.id}}"  style="text-decoration:none;cursor:pointer;"><b class="likebutton">edit</b></a> 
+  {%endif%}
                <script type="text/javascript">
                     $("a.bouttoneditsouscommentaire{{souscommentaire.id}}").click(function() {
                         $("div.editsouscommentaire{{souscommentaire.id}}").slideToggle();
@@ -24,11 +25,11 @@
                     });
                 </script>
 &nbsp;&nbsp;&nbsp;&nbsp;   
-
+ {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;cursor:pointer;" class="deletecommentaire">delete</a> 
-
+  {%endif%}
 <div class="editsouscommentaire{{souscommentaire.id}}">
-      {##{ render(controller('MyAppForumBundle:commentaire:editsouscomment', {'id': souscommentaire.id})) }#}aa
+      {{ render(controller('MyAppForumBundle:commentaire:editsouscomment', {'id': souscommentaire.id})) }}
 </div>
 
 
