@@ -17,7 +17,7 @@
     		// ok to override
     		fixed: false,
     		clickIt: false,
-    		inSpeed: 2000,
+    		inSpeed: 1,
     		outSpeed: 1,
     		tipContent: '',
     		toolTipClass: 'defaultTheme',

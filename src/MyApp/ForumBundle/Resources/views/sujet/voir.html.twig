@@ -144,7 +144,9 @@
                 {%endif%} {%endfor%}
 
                     <div class="inputsnouveausouscommentaire{{commentaireid}}"  >
-                         {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%} 
+                         {% if is_granted( 'ROLE_USER' ) %}  
+                                {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
+                         {%endif%}
                     </div>     
 
 
@@ -163,7 +165,9 @@
             div.inputajoutcommentaire{display: none;}
         </style>
         <div class="inputajoutcommentaire">
-                         {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
+            {% if is_granted( 'ROLE_USER' ) %} 
+                {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
+            {%endif%}
         </div>  
         {#####################################################}
 
