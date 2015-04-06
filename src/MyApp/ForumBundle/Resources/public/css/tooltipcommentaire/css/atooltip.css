@@ -42,12 +42,14 @@
 }
 
 .defaultTheme #aToolTipCloseBtn {
-  display: block;
+   display: block;
   outline: none;
   position: absolute;
   /* top: 50px; */
-  right: -5px;
-  margin: 2px;
+  right: -25px;
+  /* margin: 2px; */
   padding: px;
   text-decoration: none;
+  color: red;
+ // font-weight: bold;
 }

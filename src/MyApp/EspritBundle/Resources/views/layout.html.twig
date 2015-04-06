@@ -213,18 +213,18 @@
 <script src="http://sd-1.archive-host.com/membres/up/3347790973941088/easing.js"></script>
 
 
-<script src="http://sd-1.archive-host.com/membres/up/3347790973941088/jqueryuitotop.js"></script>
+<script src="http://sd-1.archive-host.com/membres/up/3347790973941088/jqueryuitotop.js"></script> 
 
-
+  {#    ça cause un conflit avec tooltip 
 <script type="text/javascript">
 //<![CDATA[
-    $.noConflict();
+     $.noConflict();
     jQuery(document).ready(function() {
         jQuery().UItoTop({easingType: 'easeOutQuart'});
     });
 //]]>
 </script>
-
+ #}
 <style>
     #toTop {
         display:none;

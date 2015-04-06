@@ -3371,6 +3371,6 @@ div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:
                      background-color:transparent;  padding-left: 50px;}
 
 
-.stylepourchaquedebat{
-    width: 650px;}
-.stylepourchaquedebat:hover{background-color: #e0e0e0;}
+.stylepourchaquedebat{ width: 650px;}
+   
+.stylepourchaquedebat:hover{background-color: #F2F2F2;}
