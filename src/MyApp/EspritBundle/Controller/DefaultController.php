@@ -31,6 +31,16 @@ class DefaultController extends Controller {
         return $this->render('MyAppEspritBundle:BackOffice:administration.html.twig');
     }
 
+        public function testAction() {
+         $em = $this->get('doctrine.orm.entity_manager');
+        /*         * ********* **    recuperation de tout les menus  *********** */
+        $menu = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+        return $this->render('MyAppEspritBundle:Default:test.html.twig', array('menu' => $menu));
+                    
+        
+    }
+    
+    
     public function routeAction() {
         $request = $this->container->get('request');
         $routeName = $request->get('_route');

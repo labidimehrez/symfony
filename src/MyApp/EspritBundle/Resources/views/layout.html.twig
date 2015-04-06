@@ -3,7 +3,7 @@
 {% block head %} 
 
  {% include   'MyAppEspritBundle:notification:testnotif.html.twig'%}
-
+ 
 
     <head>    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -209,22 +209,21 @@
 
 
 
-                                {#  retour a haut de page   #}
-<script src="http://sd-1.archive-host.com/membres/up/3347790973941088/easing.js"></script>
+             {#  retour a haut de page   #}
+ 
 
-
-<script src="http://sd-1.archive-host.com/membres/up/3347790973941088/jqueryuitotop.js"></script> 
-
-  {#    ça cause un conflit avec tooltip 
-<script type="text/javascript">
-//<![CDATA[
-     $.noConflict();
+  {#    ça cause un conflit avec tooltip #}
+<script src="{{ asset('bundles/myappesprit/css/retourvershautdepage/jqueryuitotop.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/myappesprit/css/retourvershautdepage/easing.js') }}" type="text/javascript"></script>
+ <script type="text/javascript">
+ 
+    {#jQuery.noConflict();		 
     jQuery(document).ready(function() {
-        jQuery().UItoTop({easingType: 'easeOutQuart'});
-    });
-//]]>
-</script>
- #}
+        jQuery().UItoTop2({easingType: 'easeOutQuart'});
+    }); #}
+ 
+</script> 
+ 
 <style>
     #toTop {
         display:none;

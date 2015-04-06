@@ -11,7 +11,7 @@ use MyApp\EspritBundle\Entity\notification;
 class sujetController extends Controller {
 
     public function addAction() {
-
+        $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
 
         /*         * ** je recuperer l id de user connecté * */
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -28,6 +28,20 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
+                
+                /* traitement special pour le choix des tags*/
+                $inputtag = $this->getRequest()->get('inputtag');
+                $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+                $tagaajouté = array(); // tableau vide
+                foreach ($alltags as $tag) {
+                    $tagtitle = $tag->getTitle(); /* get title of objects :D */
+                    if ( $inputtag == $tagtitle  ) {
+                        $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                        array_push($tagaajouté, $selectedtag);
+                        $sujet->setTags($tagaajouté);
+                    }
+                }
+    
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
@@ -52,14 +66,14 @@ class sujetController extends Controller {
             }
         }
 
+        $em = $this->getDoctrine()->getManager();
+
+        $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
 
 
 
 
-
-        return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
-                    'form' => $form->createView()
-        ));
+        return $this->render('MyAppForumBundle:sujet:add.html.twig', array('form' => $form->createView(), 'tags' => $tags));
     }
 
     public function showAction() {
@@ -138,7 +152,7 @@ class sujetController extends Controller {
 
     public function editAction($id) {
         /*         * ************ simple edit action *************** */
-        $id=1;
+        $id = 1;
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
@@ -175,13 +189,13 @@ class sujetController extends Controller {
         $inputtext = $this->getRequest()->get('i'); /* valeur array de String dans l input texte */
         /* text input de type string *///$inputtext[0]; 
         $alltags = $managertag->getAll(); /* array de tous les objets tags  */
-         $tagaajouté = array(); // tableau vide
+        $tagaajouté = array(); // tableau vide
         foreach ($alltags as $tag) {
             $tagtitle = $tag->getTitle(); /* get title of objects :D */
             if (strpos($inputtext[0], $tagtitle) !== false) {
-                $selectedtag = $managertag->getByTitle($tagtitle);/* get objet tag by title */
-                 array_push($tagaajouté, $selectedtag); 
-                 $sujet->setTags($tagaajouté);
+                $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                array_push($tagaajouté, $selectedtag);
+                $sujet->setTags($tagaajouté);
             }
         }
         $managersujet->persist($sujet);
@@ -221,11 +235,11 @@ class sujetController extends Controller {
             $datelusdesujet = $sujet->getDatelus();
             $interval = $datelusdesujet->diff($now);
             $seconds = $interval->days * 86400 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
-                    /// 12h = 43200 s
+            /// 12h = 43200 s
             if ($seconds < 43200) {
                 $mostreadsujet = $sujet;
             }
-                    // var_dump($mostreadsujet);die();
+            // var_dump($mostreadsujet);die();
         }
         return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');
     }
