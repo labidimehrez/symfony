@@ -49,7 +49,7 @@ var CKBUILDER_CONFIG = {
 		'tests'
 	],
 	plugins : {
-		'a11yhelp' : 1,
+		/*'a11yhelp' : 1,
 		'about' : 1,
 		'basicstyles' : 1,
 		'bidi' : 1,
@@ -95,9 +95,10 @@ var CKBUILDER_CONFIG = {
 		'scayt' : 1,
 		'selectall' : 1,
 		'showblocks' : 1,
-		'showborders' : 1,
-		'smiley' : 1,
-		'sourcearea' : 1,
+		'showborders' : 1,*/
+		'smiley' : 1
+		/*
+                , 'sourcearea' : 1,
 		'specialchar' : 1,
 		'stylescombo' : 1,
 		'tab' : 1,
@@ -107,7 +108,7 @@ var CKBUILDER_CONFIG = {
 		'toolbar' : 1,
 		'undo' : 1,
 		'wsc' : 1,
-		'wysiwygarea' : 1
+		'wysiwygarea' : 1*/
 	},
 	languages : {
 		'af' : 1,

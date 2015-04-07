@@ -61,72 +61,88 @@
     {%if  sujet.user.id != 1%}
 
              {%if  sujet.user.image is not null %}
-        
+
         <a href="#" class="clickTip exampleTip" title="" style="text-decoration:none"><img src="{{sujet.user.image }}"   class="imageuser" alt="" /></a> 
         <script type="text/javascript">
             $(function() {
                 $('a.clickTip').aToolTip({
                     clickIt: true,
                     tipContent:
-                    '<b>'+'{{sujet.user.username}}'+'</b>'+'<br />'+       
-                    'Oprettet : '+'{{sujet.user.datedeCreationUser|date('Y-M-d')  }}'+'<br />'+
-                    'Sidst online : '+'{{sujet.user.lastLogin|date('Y-M-d')}}' +'<br />'
+                   '<div class="profilusername">' +'{{sujet.user.username }}'+'</div>'+
+                    '<div class="profildatetooltip">' +                    
+                    ' Oprettet : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size>'  +'</br>'+
+                    ' Sidst online : {{sujet.user.lastLogin|date('Y-M-d') }}'+'</div>'
+                    
+                    
                 });
             });
         </script>
+        <style type="text/css">
+            div.profildatetooltip{ font: 12px/15px Georgia;  margin-left: 220px;}
+            div.profilusername{position: relative;top: 25px;  left: 55px;  font-size: 24px;    font-weight: bold;    }
+            
+        </style>
 
- 
+        
+        
+        
+        
+        
              {%else%}
-  
+
 
         <a href="#" class="clickTip exampleTip" title="" style="text-decoration:none"><img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" /></a> 
-    
-        
-        
+
+
+
              {%endif%}
 
 
 
 
 
-        <b>{{sujet.user.username|capitalize}}</b>
+                                                 <b>{{sujet.user.username|capitalize}}</b>
      {% else %}    
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
-        <b>{{sujet.user.username|capitalize}}</b>
+                                                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
+                                                 <b>{{sujet.user.username|capitalize}}</b>
     {% endif %}
 
 
 
-        <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
+                                                 <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 
 
-        </br>
+                                                 </br>
 
-        <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration: none; "class="lienstyledebat" >
+                                                 <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" style="text-decoration: none; "class="lienstyledebat" >
         {{sujet.sujet}}</a> 
 
 
-        </br>
-        <div class="contenudebat">  {{sujet.contenu|Contenu|truncate(188, true, '...')}}  </div>  
+                                                                                    </br>
 
-        </br>
-        &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' - '))}} </b>
-    </div>
+                                                                                    <div class="contenudebat">   {{ sujet.contenu|Contenu|truncate(188, true, '...')  }}  </div>
 
-    </br>   
+
+
+
+                                                                                    </br>
+                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' - '))}} </b>
+                                                     </div>
+
+                                                     </br>   
      {% if loop.index  == 5 %} 
-    </br>
+                                                     </br>
         {% for publicite in publicite %} 
               {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
         {% endfor%} 
-    </br> </br>
+                                                     </br> </br>
     {% endif%}
 
 
 {%endfor%} 
 
-    <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
+                                                     <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
 
-</div>
+                                                 </div>
 
 
 
@@ -145,6 +161,6 @@
 
 
 {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/style.css') }}" />#}
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/atooltip.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.atooltip.js') }}"></script>
+                                                 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/atooltip.css') }}" />
+                                                 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.min.js') }}"></script>
+                                                 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.atooltip.js') }}"></script>

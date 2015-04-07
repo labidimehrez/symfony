@@ -244,28 +244,7 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');
     }
 
-    public function specialeditAction($id) {
 
-        $em = $this->getDoctrine()->getManager();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
-
-        $s = $sujet->getSujet(); // get the current sujet pour le renvooyer aprés :)
-        $c = $sujet->getContenu(); // get the current Contenu pour le renvooyer aprés :)
-
-
-        if (!$sujet) {
-            throw $this->createNotFoundException('No  sujet found for id ' . $id);
-        }
-        $form = $this->createForm(new sujetType(), $sujet);
-        $request = $this->getRequest();
-        $form->bind($request);
-        $sujet = $form->getData(); // les données de la form 
-
-        $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
-        $sujet->setContenu($c); // j a'joute le Contenu recuperé avant a la requete update
-        $em->flush();
-        return $this->render('MyAppForumBundle:sujet:specialedit.html.twig', array('form' => $form->createView()));
-    }
 
     public function changethreadAction(Request $request) {
 
@@ -285,5 +264,28 @@ class sujetController extends Controller {
                     'sujet' => $sujet, 'form' => $form->createView()
         ));
     }
-
 }
+    
+    //    public function specialeditAction($id) {
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
+//
+//        $s = $sujet->getSujet(); // get the current sujet pour le renvooyer aprés :)
+//        $c = $sujet->getContenu(); // get the current Contenu pour le renvooyer aprés :)
+//
+//
+//        if (!$sujet) {
+//            throw $this->createNotFoundException('No  sujet found for id ' . $id);
+//        }
+//        $form = $this->createForm(new sujetType(), $sujet);
+//        $request = $this->getRequest();
+//        $form->bind($request);
+//        $sujet = $form->getData(); // les données de la form 
+//
+//        $sujet->setSujet($s);  // j a'joute le sujet recuperé avant a la requete update
+//        $sujet->setContenu($c); // j a'joute le Contenu recuperé avant a la requete update
+//        $em->flush();
+//        return $this->render('MyAppForumBundle:sujet:specialedit.html.twig', array('form' => $form->createView()));
+//    }
+

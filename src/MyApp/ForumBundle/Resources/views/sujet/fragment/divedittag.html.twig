@@ -18,7 +18,7 @@
                  {% endif%}
     </a> 
 
-    <div class="divedittag" style="position: absolute;  margin-top: 15px;  overflow: hidden;  display: block;  margin-left: -280px;  background-color: white;">
+    <div class="divedittag" style="position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;">
         <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
 
             <input type="text" name="i[]" id="autocomplete" title=""
