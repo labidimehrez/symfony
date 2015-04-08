@@ -20,6 +20,7 @@
   {%endif%}
                <script type="text/javascript">
                     $("a.bouttoneditsouscommentaire{{souscommentaire.id}}").click(function() {
+                        $("div#divinputtohide").hide();/*to hide all other input add or edit */
                         $("div.editsouscommentaire{{souscommentaire.id}}").slideToggle();
               
                     });
@@ -28,7 +29,7 @@
  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;cursor:pointer;" class="deletecommentaire">delete</a> 
   {%endif%}
-<div class="editsouscommentaire{{souscommentaire.id}}">
+<div class="editsouscommentaire{{souscommentaire.id}}" id="divinputtohide">
       {{ render(controller('MyAppForumBundle:commentaire:editsouscomment', {'id': souscommentaire.id})) }}
 </div>
 

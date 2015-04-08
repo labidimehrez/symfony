@@ -53,11 +53,12 @@
          {{sujet.contenu|Contenu}}   </br>  
          
              
-    {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" style="cursor:pointer" id="Addnewcomment">Add new comment</a>  
+    {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">Add new comment</a>  
     {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment">Add new comment</a> {%endif%}
-    
+  
             <script type="text/javascript">
                 $("a.bouttonnouveaucommentaire").click(function() {
+                    $("div#divinputtohide").hide();/*to hide all other input add or edit */
                     $("div.inputajoutcommentaire").slideToggle();
                 });
             </script>
@@ -102,10 +103,11 @@
                     }
                 </style> 
  {% if is_granted( 'ROLE_USER' ) %}            
- <a class="bouttonsousnouveaucommentaire{{commentaireid}}" style="cursor:pointer" id="Addnewcomment" >Add new comment</a>
+ <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">Add new comment</a>{%endif%}              
                 <script type="text/javascript">
                     $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
+                        $("div#divinputtohide").hide();/*to hide all other input add or edit */
                         $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("div.inputsnouveausouscommentaire{{commentaireid}}").slideToggle();
                     });
@@ -116,19 +118,20 @@
 
                 <b class="likebutton" style="cursor:pointer;">like</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a class="bouttoneditcommentaire{{commentaireid}}" style="text-decoration:none;cursor:pointer;"><b class="likebutton">edit</b></a>
+                <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">edit</b></a>
                 {%endif%}
                 &nbsp;&nbsp;&nbsp;&nbsp; 
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}"style="text-decoration:none;cursor:pointer;" class="deletecommentaire">delete</a> 
+                <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire">delete</a> 
                 {%endif%}
                 <script type="text/javascript">
                     $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
+                           $("div#divinputtohide").hide();/*to hide all other input add or edit */
                         $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
                     });
                 </script>
-                <div class="inputeditcommentaire{{commentaireid}}">
+                <div class="inputeditcommentaire{{commentaireid}}" id="divinputtohide">
                          {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
                 </div>  
                 <style type="text/css">
@@ -138,23 +141,21 @@
                     div.threadcontent{{commentaireid}}{display: none;}
                 </style>
                 <div class="threadcontent{{commentaireid}}">
-                    {% for souscommentaire in souscommentaire %}{% if souscommentaire.commentaire.id == commentaire.id%}
+                  
 
-
-                    <div class="souscommentairesdetails">
-
-                         {% include 'MyAppForumBundle:sujet/fragment:souscommentairesdetails.html.twig'%} 
-
-                    </div>
-                {%endif%} {%endfor%}
-
-                    <div class="inputsnouveausouscommentaire{{commentaireid}}"  >
+                    <div class="inputsnouveausouscommentaire{{commentaireid}}" id="divinputtohide"  >
                          {% if is_granted( 'ROLE_USER' ) %}  
                                 {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
                          {%endif%}
                     </div>     
 
-
+                    {% for souscommentaire in souscommentaire %}
+                            {% if souscommentaire.commentaire.id == commentaire.id%}
+                    <div class="souscommentairesdetails">
+                         {% include 'MyAppForumBundle:sujet/fragment:souscommentairesdetails.html.twig'%} 
+                    </div>
+                          {%endif%}
+                     {%endfor%}
                 </div>
 
 
@@ -169,7 +170,7 @@
         <style type="text/css">
             div.inputajoutcommentaire{display: none;}
         </style>
-        <div class="inputajoutcommentaire">
+        <div class="inputajoutcommentaire" id="divinputtohide">
             {% if is_granted( 'ROLE_USER' ) %} 
                 {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
             {%endif%}

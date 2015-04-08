@@ -1,4 +1,4 @@
-<?php
+<?php   /*/#*
 
 namespace MyApp\UserBundle\Redirection;
 
@@ -34,3 +34,4 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
     }
 
 }
+ 
