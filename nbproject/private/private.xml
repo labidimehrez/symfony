@@ -12,10 +12,40 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Profile/edit_content.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Acl/AbstractRoleAcl.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/SpamDetection/SpamDetectionInterface.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Entity/ThreadManagerTest.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Functional/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Functional/Bundle/CommentBundle/Entity/Comment.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Form/UserType.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Form/CommentType.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Acl/AclCommentManagerTest.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/EventListener/CommentSpamListener.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Command/FixAcesCommand.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Entity/CommentManagerTest.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/SpamDetection/AkismetSpamDetection.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Form/ArticleType.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Command/InstallAcesCommand.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/vote_new.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Event/CommentPersistEventTest.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Functional/Bundle/CommentBundle/Controller/CommentController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/services.yml</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/FormFactory/CommentFormFactory.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Entity/User.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Model/Comment.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Event/CommentPersistEvent.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/errors.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Type/ProfileFormType.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/sousmenu.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Tests/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Entity/Article.php</file>
+            <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Event/CommentEvent.php</file>
         </group>
     </open-files>
 </project-private>

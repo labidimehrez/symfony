@@ -13,7 +13,7 @@ body
 	color: #333;
 
 	/* Remove the background color to make it transparent */
-	/*background-color: #fff;*/
+	background-color: #fff;
 
 	margin: 20px;
 }
@@ -50,7 +50,7 @@ blockquote
 
 a
 {
-	/*color: #0782C1;*/
+	color: #0782C1;
 }
 
 ol,ul,dl
@@ -127,8 +127,8 @@ figure > figcaption
 }
 
 a > img {
-	/*padding: 1px;
+	padding: 1px;
 	margin: 1px;
 	border: none;
-	outline: 1px solid #0782C1;*/
+	outline: 1px solid #0782C1;
 }
