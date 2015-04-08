@@ -3189,7 +3189,7 @@
 .black{color: black;font-weight: bold;}
 .silver{color: silver;font-weight: bold;}
 .timestyle{color: silver;font-weight: bold;padding-left: 100px;}
-.senestredebattelement{padding-bottom: 10px;}
+.senestredebattelement{  margin-left: 20px;  margin-right: 20px;  padding-bottom: 10px;}
 .lienstyledebat{ text-decoration:none; font-weight:bold;color: black;padding-left: 55px;}
 
 .contenudetemplate{
@@ -3332,7 +3332,8 @@
 .bordurearticle{padding:4px;margin-bottom: -12px;}
 
 /* This is poor CSS by design to be simple and readable */
-.stylecontenudebat{color: black;font-weight: bold;font-size: 13px;font-family: Helvetica;padding-left: 5px;}
+.stylecontenudebat{   /* font-weight: bold; */  /* font-size: 13px; */  /* font-family: Helvetica; */
+  color: black; font-size: 13px;  line-height: 34px;  font-family: helvetica;  font-weight: bold;  color: #000000;  /* padding-left: 5px; */}
 div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:red; }
 
 .commentassoci{padding:50px;width:850px;}
@@ -3371,6 +3372,5 @@ div.ui-dialog-buttonpane button.cancel { background:none; border:0px none;color:
                      background-color:transparent;  padding-left: 50px;}
 
 
-.stylepourchaquedebat{ width: 650px;}
-   
+.stylepourchaquedebat{ width: 650px;  height: 150px;}  
 .stylepourchaquedebat:hover{background-color: #F2F2F2;}

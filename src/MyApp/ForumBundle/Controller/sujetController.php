@@ -56,7 +56,7 @@ class sujetController extends Controller {
                 $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
                 $manager->persist($notif1);
 
-                return $this->redirect($this->generateUrl('my_app_forum_sujet_add'));
+                return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
             }
             if (!$form->isValid()) {
                 $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides ou existe deja !! )');

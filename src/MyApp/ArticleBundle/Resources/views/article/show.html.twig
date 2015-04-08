@@ -196,16 +196,22 @@
 
     {% endfor%}
     <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
-    <div class="senestredebattfrontpage" > <center><p class="rouge"></br>SENESTE DEBATTER</p></center>
+    <div class="senestredebattfrontpage" > <center><p class="rouge"></br>Seneste debatter</p></center>
     
     {%for  sujet in sujet%}
    
-    
-      <div class="senestredebattelement">
-          <b style="color: rgb(94, 94, 94);">&nbsp;&nbsp; {{sujet.datecreation|date('H:i')}}</b>
+       {% if sujet.id != loop.last%}
+      <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
+          <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
           <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
       </div>        
-   
+      {%else%}
+      <div class="senestredebattelement">
+          <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
+          <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+      </div> 
+
+        {%endif%}
       
       
  
