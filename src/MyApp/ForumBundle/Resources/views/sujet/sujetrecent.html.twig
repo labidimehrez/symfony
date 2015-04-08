@@ -141,7 +141,7 @@
         </br>
         &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' - '))}} </b>
         
-          <div class="tooltipfinal{{sujet.id}}">
+          <div class="tooltipfinal{{sujet.id}}" id="tooltipid">
                     <div class="profilusername">{{sujet.user.username }}</div>
                     <div class="profildatetooltip">                    
                      Oprettet : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size></br>
@@ -150,9 +150,10 @@
                     </br> 
                     <a id="Luk" style="float:right;  padding-right: 20px;  color: red; ">Luk</a>
           </div>
+   
          <script type="text/javascript">
            $("a#Luk").click(function() {
-                $("div.tooltipfinal{{sujet.id}}").hide(0);  
+                $("div#tooltipid").hide();  
             });
         </script>
         
@@ -172,6 +173,7 @@
     
         <script type="text/javascript">
            $("a#clickTipid{{sujet.id}}").click(function() {
+                $("div#tooltipid").hide(); 
              //   $("div.tooltipfinal{{sujet.id}}").hide(0);  
              //   $("div.tooltiploading{{sujet.id}}").fadeToggle( "slow", "linear" );
                 $("div.tooltiploading{{sujet.id}}").delay(200).show(200);
