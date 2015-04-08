@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
  
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -49,7 +49,4 @@ class DefaultController extends Controller {
                     'routeName' => $routeName
         ));
     }
-
-   
-
 }

@@ -4,7 +4,7 @@
                     if ($(window).scrollTop() > 200)
                         $cache.css({
                             'position': 'fixed',
-                            'top': '80px'
+                            'top': '89px'
                         });
                     else
                         $cache.css({
