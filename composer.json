@@ -30,7 +30,7 @@
         "knplabs/knp-paginator-bundle": "~2.4" , 
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "jms/security-extra-bundle": "dev-master",
-        "avalanche123/imagine-bundle": "v2.1" 
+        "avalanche123/imagine-bundle": "v2.1"
     },
     "scripts": {
         "post-install-cmd": [

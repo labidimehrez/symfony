@@ -5,11 +5,11 @@
 <form  action='{{path('my_app_article_article_deletemore')}}' method="post" {{ form_enctype(form) }} > 
     <header><h3 class="tabs_involved">Content article Manager</h3>
         <ul class="tabs">{{form_widget(form._token)}}  
-             <input type="submit"  value="Save" style="background-color: transparent;border: none;" /> 
-             
+            <input type="submit"  value="Save" style="background-color: transparent;border: none;"  /> 
+
         </ul>
     </header>  
-    
+
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
             <thead> 
@@ -26,36 +26,36 @@
             {% for article in article %}
                 <tr> 
                     <td><input type="checkbox" name="mesIds[]" value="{{article.id}}" ></td> 
-                   <td>  
+                    <td>  
                         <input type="number" name="i[]" id="" value="{{article.position}}" style="width:50px;" 
                                required="true" pattern=""  min="1" max="15" title="">
-                        
-                   </td> 
+ 
+                    </td> 
                     <td>{{article.style}}</td> 
                     <td>{{article.headline|truncate(20, true, '...')}}</td> 
                   {#<td>{{article.fixedposition}}</td>#}
-                   
-                
+
+
                     <td>
-                        
+
                         {% if article.fixedposition ==1 %}
                         <input type="checkbox" name="fixedposition[]" value="{{article.id}}" checked >
                          {%else%}<input type="checkbox" name="fixedposition[]" value="{{article.id}}">{%endif%}
-                       
-                    </td>
-                    
-                        
-                
 
-            <td>
-                <a href="#">
-                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                </a>   &nbsp;&nbsp;
-                <a href="#">
-                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                </a> 
-            </td>
-            </tr> 
+                    </td>
+
+
+
+
+                    <td>
+                        <a href="#">
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                        </a>   &nbsp;&nbsp;
+                        <a href="#">
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                        </a> 
+                    </td>
+                </tr> 
 
             {%endfor%}
 
