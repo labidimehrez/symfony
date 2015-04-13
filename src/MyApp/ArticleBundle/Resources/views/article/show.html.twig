@@ -1,11 +1,11 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
- 
+
   {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
 
  {% block affichage_articles%}
- 
+
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
 <div class="contenudetemplate">
@@ -22,9 +22,9 @@
             <FONT color="{{article.style.codecouleurfront}}" style="font-size: 34px;font-family: HelveticaNeueLTStd;">
               {{article.headline|truncate(47, true, '...')}} 
             </FONT>            
-           
+
         </div>
-           <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 
@@ -51,7 +51,7 @@
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>     
         </div>  
-            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%}
 
 {% if article.position==4%}
@@ -71,7 +71,7 @@
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div>  
-           <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>          
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>          
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==6%}
@@ -81,8 +81,8 @@
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div> 
-       
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==7%}
@@ -93,7 +93,7 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-          <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>  
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>  
     </div>{%endif%} 
 
 
@@ -105,7 +105,7 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==9%}
@@ -116,7 +116,7 @@
               {{article.headline|truncate(51, true, '...')}} 
             </FONT>      
         </div>   
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==10%}
@@ -127,7 +127,7 @@
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>     
         </div>   
-            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
 {% if article.position==11%}
@@ -138,7 +138,7 @@
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>       
         </div> 
-            <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
 
     <div class="articlepositionA">
@@ -157,7 +157,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>      
         </div>  
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
@@ -167,7 +167,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>     
         </div>  
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -178,7 +178,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div>     
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -189,7 +189,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div> 
-         <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
     </div>
 {%endif%} 
 
@@ -197,26 +197,26 @@
     {% endfor%}
     <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
     <div class="senestredebattfrontpage" > <center><p class="rouge"></br>Seneste debatter</p></center>
-    
+
     {%for  sujet in sujet%}
-   
+
        {% if sujet.id != loop.last%}
-      <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-          <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
-          <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
-      </div>        
+        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
+            <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+        </div>        
       {%else%}
-      <div class="senestredebattelement">
-          <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
-          <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
-      </div> 
+        <div class="senestredebattelement">
+            <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+        </div> 
 
         {%endif%}
-      
-      
- 
+
+
+
 {% endfor%}
-    
+
     </div> 
 
 
