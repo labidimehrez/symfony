@@ -1,6 +1,10 @@
 {# empty Twig template #}
 </br>
-  <form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} > 
+
+ <script src="{{ asset('bundles/myappforum/js/ckeditor/ckeditor.js')}}"></script> 
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/js/ckeditor/contents.css') }}"/> 
+
+<form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} style="  margin: 10px 95px 50px;" > 
 
         <table height=" " width=" " border="0">
            
@@ -11,7 +15,7 @@
             <tr>   {{form_widget(form._token)}}   
                 <td> </br></br> 
           
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
                   <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
           
                   <input type="reset" id=hideinputnouveaucommentaire  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    

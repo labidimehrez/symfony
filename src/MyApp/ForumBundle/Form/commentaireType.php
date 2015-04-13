@@ -18,7 +18,7 @@ class commentaireType extends AbstractType
            # ->add('commentaireUser')
            # ->add('commentaireParent')
             ->add('notification', 'checkbox', array('required' => false, 'data' => true))
-            ->add('texte','textarea', array('required' => true))
+            ->add('texte', 'textarea',array('attr'=>  array('class'=>'ckeditor')))
             #->add('commentaire')
         ;
     }

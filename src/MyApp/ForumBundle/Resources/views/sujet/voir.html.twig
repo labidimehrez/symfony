@@ -50,7 +50,7 @@
 
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-         {{sujet.contenu|Contenu}}   </br>  
+         {{sujet.contenu|Contenu|raw }}   </br>  
          
              
     {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">Add new comment</a>  
@@ -87,7 +87,7 @@
                 <b class="likecount" style="cursor:pointer;"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
                     &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
-                </br>   {{commentaire.texte}}  </br> 
+                </br>   {{commentaire.texte|raw }}  </br> 
 
 
 
@@ -168,9 +168,14 @@
         </div>
                     {# fin affichage des commentaires #}
         <style type="text/css">
-            div.inputajoutcommentaire{display: none;}
+            div.inputajoutcommentaire{display: none;  background-color: #E6E6E6;}
         </style>
         <div class="inputajoutcommentaire" id="divinputtohide">
+            
+                {% if app.user.image is not null  %} <img src="{{app.user.image }}" class="imageuser" alt=""/> {% else %}  
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+            
+            
             {% if is_granted( 'ROLE_USER' ) %} 
                 {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
             {%endif%}
