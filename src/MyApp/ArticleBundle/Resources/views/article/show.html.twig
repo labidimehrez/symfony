@@ -254,6 +254,28 @@
     </div>
     <div class="articlepositionB">
         <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
+        
+        
+       {#%for  mostcommenteddebat in mostcommenteddebat%}
+       {% if mostcommenteddebat.id != loop.last%}
+        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
+         
+            <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </br> 
+        </div>        
+      {%else%}
+        <div class="senestredebattelement">
+        
+            <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </br> 
+        </div> 
+     {%endif%} 
+     {%endfor%#}
+        
+        
+        
+        
+        
+        
+        
     </div>
 
     <!-- ici pas d image pour ces articles -->
@@ -306,7 +328,6 @@
     <div class="senestredebattfrontpage" > <center><p class="rouge"></br>Seneste debatter</p></center>
 
     {%for  sujet in sujet%}
-
        {% if sujet.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
@@ -317,8 +338,7 @@
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
             <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
         </div> 
-
-        {%endif%}
+   {%endif%}
 
 
 

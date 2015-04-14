@@ -15,8 +15,8 @@ class sujetRepository extends EntityRepository {
     public function getAllsujetrecent() {
         return $this->getEntityManager()
                         ->createQuery('SELECT p    FROM MyAppForumBundle:sujet p   ORDER BY  p.datecreation DESC   ')
-                          ->setMaxResults(5)
-                          ->getResult();
+                        ->setMaxResults(5)
+                        ->getResult();
     }
 
     public function getmostreadsujet() {
@@ -31,14 +31,20 @@ class sujetRepository extends EntityRepository {
                         ->setParameter('id', $id)
                         ->getResult();
     }
-    
-       public function getCommentCountBySujet($id)
-    {
+
+    public function getCommentCountBySujet($id) {
         return $this->getEntityManager()
-            ->createQuery('SELECT COUNT(p)  FROM MyAppForumBundle:commentaire p    WHERE p.sujet=:id ')
-                ->setParameter('id', $id)
-            ->getSingleScalarResult();// return integer
-            
+                        ->createQuery('SELECT COUNT(p)  FROM MyAppForumBundle:commentaire p    WHERE p.sujet=:id ')
+                        ->setParameter('id', $id)
+                        ->getSingleScalarResult(); // return integer
     }
+
+    /*public function getMostcommenteddebat() {
+        return $this->getEntityManager()
+                        ->createQuery('SELECT  p.sujet   FROM MyAppForumBundle:commentaire p   ')
+                        ->getResult();
+    }*/
+
 }
+
 ?>

@@ -98,8 +98,18 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
+        /*$array= array();
+        foreach ($sujet as $s) {
+            $id= $s->getId();
+            $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($id);
+           echo($commentCount);
+           echo'</br>';
+        }
+        die();*/
+
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
+                   // , 'mostcommenteddebat' => $mostcommenteddebat
         ));
     }
 
@@ -136,28 +146,28 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $form = $this->createFormBuilder($article)->add('article')->getForm();
-        $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber()); 
-        
+        $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
+
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
-        if( $totalnumberofar <= 15){ 
-              $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
+        if ($totalnumberofar <= 15) {
+            $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
         }
-        if( (count($ids) > 1)&&( $totalnumberofar>15)) {
+        if ((count($ids) > 1) && ( $totalnumberofar > 15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-             $manager->removemore($articled);
+            $manager->removemore($articled);
             $done = 1;
             while ($done <= $ids) {
-              $manager->ShiftToRightNofixedPosition();
-               $done++;
+                $manager->ShiftToRightNofixedPosition();
+                $done++;
             }
-           
+
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
         /* delete more  checked */
-        /* delete one checked */        
-        if( (count($ids) === 1)&&( $totalnumberofar>15)) {
+        /* delete one checked */
+        if ((count($ids) === 1) && ( $totalnumberofar > 15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
             $manager->ShiftToRightNofixedPosition();
             $manager->removemore($articled);
