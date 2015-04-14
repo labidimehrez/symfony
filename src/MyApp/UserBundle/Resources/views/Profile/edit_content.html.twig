@@ -3,18 +3,23 @@
 
 
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
-
+ 
 <div class="contenudetemplate">
 
     <div class="image">
         <h2>Min profil</h2> 
         </br></br>
-        {% if app.user.image is not null  %}
-        <img src="{{app.user.image }}"  
-             style=" border-radius:50%;width:100px;height:100px;/*border:2px solid #679403;*/" alt="" /> 
+        
+        {% if app.user.image is not null  %}     
+             {%if "http" in app.user.image %}
+        <img src="{{app.user.image }}" class="grandimageuser" alt="" />   
+             {%else%}
+         <img src="{{ asset('upload/' ~ app.user.id ~'/' ~ app.user.image)}}" class="grandimageuser" alt="" />  
+             {%endif%}
+         
         {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
-             style=" border-radius:50%;width:100px;height:100px;/*border:2px solid #679403;*/" alt="" />             
+             class="grandimageuser"alt="" />             
         {% endif%}
 
 
@@ -40,8 +45,8 @@
         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
     </div>
-    <div class="senestredebatt">
-        <b><p class="rouge">&nbsp;&nbsp;&nbsp;&nbsp;Seneste debatter</p></b>
+    <div class="senestredebatt"></br>
+        <center>  <b><p class="rouge"> Seneste debatter</p></b> </center>
 
 
 
@@ -85,31 +90,29 @@
 
                     </br></br> 
 
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr> 
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr> 
+                    <tr><td style="float: right;"> 
                             Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
-                    <tr><td>Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.datenaissance) }}   </td></tr>
-                    <tr><td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <tr><td style="float: right;"> Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.datenaissance) }}   </td></tr>
+                    <tr><td style="float: right;">
+                           
                             Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first) }}  </td></tr>
-                    <tr><td>Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.second) }}  </td></tr>
-                    <tr><td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <tr><td style="float: right;">Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.second) }}  </td></tr>
+                    <tr><td style="float: right;">
+                           
                             Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Code Postal</td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Ville</td><td> {{form_widget(form.ville)}}   </td></tr>
-                    <tr><td>Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
+                    <tr><td style="float: right;"> 
+                            Code Postal &nbsp; &nbsp;&nbsp; </td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
+                    <tr><td style="float: right;">  
+                            Ville&nbsp;&nbsp;&nbsp;</td><td> {{form_widget(form.ville)}}   </td></tr>
+                    <tr><td style="float: right;">Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
 
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            Email</td><td> {{form_widget(form.email) }}  </td></tr>
-                    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            About Me</td><td> {{form_widget(form.surmoi) }}    </td></tr>
+                    <tr><td style="float: right;"> 
+                           
+                            Email&nbsp;&nbsp;&nbsp; </td><td> {{form_widget(form.email) }}  </td></tr>
+                    <tr><td style="float: right;"> 
+                            
+                            About Me &nbsp;   &nbsp;&nbsp; </td><td> {{form_widget(form.surmoi) }}    </td></tr>
                     <tr>
                         <td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td> 
                     {# <td >{{ form_widget(form.image) }} </td>#}

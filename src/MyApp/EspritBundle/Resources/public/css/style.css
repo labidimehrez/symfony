@@ -3357,8 +3357,13 @@
 }
 .imageuser {
     border-radius: 50%;
-    width: 50px;
+    width: 10px;
     height: 50px;
+}
+.grandimageuser {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
 .imageuserdebataveccomment {
     border-radius: 50%;
