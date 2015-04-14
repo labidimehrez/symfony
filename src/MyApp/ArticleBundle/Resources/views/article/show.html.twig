@@ -18,9 +18,9 @@
 
            {% if article.urlimg is not null%}
                   {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="430" height="250"  alt="" style="float:left;margin-right: 10px;"  />
+        <img src="{{article.urlimg }}" class="imagearticle1"   />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle1"   />
                     {%endif%}
         {#<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />#}
 
@@ -45,9 +45,9 @@
      {% if article.urlimg is not null%}
 
               {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;"  />
+        <img src="{{article.urlimg }}" class="imagearticle2"  />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;"  />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle2"   />
                     {%endif%}
 
 
@@ -73,9 +73,9 @@
 
 
         {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+        <img src="{{article.urlimg }}" class="imagearticle3"  />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle3"  />
                     {%endif%}
 
 
@@ -95,9 +95,9 @@
     <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
            {% if article.urlimg is not null%}
        {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+        <img src="{{article.urlimg }}"  class="imagearticle4"   />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle4"  />
                     {%endif%}
 
 
@@ -151,9 +151,9 @@
      {% if article.urlimg is not null%}
 
         {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"  />
+        <img src="{{article.urlimg }}"  class="imagearticle7"   />
         {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"   />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"   class="imagearticle7"    />
         {%endif%}
 
 
@@ -175,9 +175,9 @@
 
           {% if article.urlimg is not null%}
           {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"  />
+           <img src="{{article.urlimg }}"  class="imagearticle8" />
           {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"   />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle8"   />
           {%endif%}
 
 
@@ -193,9 +193,9 @@
 
 
                 {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{article.urlimg }}" class="imagearticle9"/>
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle9"/>
                     {%endif%}
 
         {%endif%}
@@ -205,7 +205,8 @@
             </FONT>      
         </div>   
             <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
-    </div>{%endif%} 
+    </div>
+{%endif%} 
 
 {% if article.position==10%}
     <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">      
@@ -213,9 +214,9 @@
 
 
                 {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{article.urlimg }}"   class="imagearticle10" />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"   class="imagearticle10"   />
                     {%endif%}
 
         {%endif%}
@@ -233,9 +234,9 @@
 
 
                 {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{article.urlimg }}"    class="imagearticle10" />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle10" />
                     {%endif%}
 
         {%endif%}

@@ -3686,18 +3686,20 @@ div.ui-dialog-buttonpane button.cancel {
 
 .styleheadlinearticle1{font-size: 34px;font-family: HelveticaNeueLTStd;}
 .styleleinarticle1{  position: absolute;  bottom: 5px;  color: grey;}
+ .imagearticle1{float:left;margin-right: 10px;height: 250px;width: 430px;}
+ 
  
 .styleheadlinearticle2{font-size: 34px;  font-family: HelveticaNeue;position: relative;  top: -10px; }
 .styleleinarticle2{position: absolute;  bottom: 5px;  left: 110px;  color: grey;}
-
+ .imagearticle2{float:left;margin-right: 10px;height: 100px;width: 100px;}
 
 .styleheadlinearticle3{font-size: 30px;  font-family: HelveticaNeue;position: relative;  top: 5px;  left: 7px;}
 .styleleinarticle3{position: absolute;  bottom: 5px;   color: grey;}
-
+ .imagearticle3{float:right;margin-left: 10px;height: 215px;width: 170px;}
 
 .styleheadlinearticle4{font-size: 30px;  font-family: HelveticaNeue;  position: relative;  top: 5px;  left: 7px;}
 .styleleinarticle4{position: absolute;  bottom: 5px;   color: grey;}
-
+ .imagearticle4{float:right;margin-left: 10px;height:215px;width: 170px;}
 
 .styleheadlinearticle5{  font-size: 24.711px;  font-family: HelveticaNeueLTStd;  position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle5{position: absolute;  bottom: 5px;   color: grey;}
@@ -3710,22 +3712,26 @@ div.ui-dialog-buttonpane button.cancel {
 
 .styleheadlinearticle7{  position: relative;  top: 5px;  left: 5px;font-size: 18px;font-family: Helvetica;}
 .styleleinarticle7{position: absolute;  top: 80px;   color: grey;}
+ .imagearticle7{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
+
 
 .styleheadlinearticle8{ font-size: 18px;font-family: Helvetica;  position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle8{  position: absolute;  top: 80px;  color: grey;}
-
+ .imagearticle8{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
 
 .styleheadlinearticle9{ font-size: 30px;font-family: HelveticaNeue;   position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle9{position: absolute;  bottom: 5px;   color: grey;}
-
+ .imagearticle9{float:left;margin-right: 10px;height:100px;width: 100px;}
 
 
 .styleheadlinearticle10{ font-size: 30px;font-family: HelveticaNeue;    position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle10{position: absolute;  bottom: 5px;   color: grey;}
-
+ .imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
 
 .styleheadlinearticle11{ font-size: 30px;font-family: HelveticaNeue;    position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle11{position: absolute;  bottom: 5px;   color: grey;}
+ .imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
+
 
 .styleheadlinearticle12{  font-size: 24px;font-family: HelveticaNeueLTStd;  position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle12{position: absolute;  bottom: 5px;   color: grey;}
