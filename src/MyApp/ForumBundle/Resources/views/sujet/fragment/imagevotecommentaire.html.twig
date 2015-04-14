@@ -1,6 +1,19 @@
 {# empty Twig template #}
- {% if commentaire.user.image is not null  %} <img src="{{commentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+ {% if commentaire.user.image is not null  %}
+
+
+ 
+
+           {%if "http" in commentaire.user.image %}
+            <img src="{{commentaire.user.image }}"   class="imageuser" alt="" />
+             {%else%}
+             <img src="{{ asset('upload/' ~ commentaire.user.id ~'/' ~ commentaire.user.image)}}"   class="imageuser" alt="" />
+            {%endif%}
+
+
+ {% else %}  
+                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+{% endif%} 
 
 
                 <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>

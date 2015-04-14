@@ -1,12 +1,23 @@
 {# empty Twig template #}
-{% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+{% if souscommentaire.user.image is not null  %} 
 
 
-                <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+
+
+            {%if "http" in souscommentaire.user.image %}
+<img src="{{souscommentaire.user.image }}"   class="imageuser" alt="" />
+             {%else%}
+<img src="{{ asset('upload/' ~ souscommentaire.user.id ~'/' ~ souscommentaire.user.image)}}"   class="imageuser" alt="" />
+            {%endif%}
+
+{% else %}  
+<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+
+
+<b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
 
 
             {% if souscommentaire.vote  is not null %}
-                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                    &nbsp;{{souscommentaire.vote}} </b>
+<b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+    &nbsp;{{souscommentaire.vote}} </b>
              {%endif%}
