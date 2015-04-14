@@ -16,15 +16,25 @@
     <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">   
 
 
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
+           {% if article.urlimg is not null%}
+                  {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="430" height="250"  alt="" style="float:left;margin-right: 10px;"  />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />
+                    {%endif%}
+        {#<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />#}
+
+        {%endif%}
 
         <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 34px;font-family: HelveticaNeueLTStd;">
+            <FONT color="{{article.style.codecouleurfront}}" class="styleheadlinearticle1">
               {{article.headline|truncate(47, true, '...')}} 
             </FONT>            
 
         </div>
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle1"> Opret ny debat | Læs debat</f>
+        </a>
     </div>{%endif%} 
 
 
@@ -32,113 +42,209 @@
 
 {% if article.position==2%}
     <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">
-     {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
-        <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 36px;font-family: HelveticaNeue;">
+     {% if article.urlimg is not null%}
+
+              {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;"  />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;"  />
+                    {%endif%}
+
+
+
+
+
+    {%endif%}
+        <div class="styleheadlinearticle2">   
+            <FONT color="{{article.style.codecouleurfront}}" style="">
                                 {{article.headline|truncate(41, true, '...')}}
             </FONT>         
         </div>
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle2"> Opret ny debat | Læs debat</f>
+        </a>
     </div>{%endif%} 
 
 
 
 {% if article.position==3%}
     <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">  
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;margin-left: 10px;" />{%endif%}
-        <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
+           {% if article.urlimg is not null%}
+
+
+        {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+                    {%endif%}
+
+
+        {%endif%}
+        <div class="styleheadlinearticle3">   
+            <FONT color="{{article.style.codecouleurfront}}" style=""> 
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>     
         </div>  
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
-    </div>{%endif%}
+        <a href="#" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle3"> Opret ny debat | Læs debat</f>
+        </a>
+    </div>
+{%endif%}
 
 {% if article.position==4%}
     <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="170" height="215"  alt="" style="float:right;margin-left: 10px;" />{%endif%}
-        <div class="bordurearticle">  
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family:HelveticaNeue;">
+           {% if article.urlimg is not null%}
+       {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" width="170" height="215"  alt="" style="float:right;margin-left: 10px;"  />
+                    {%endif%}
+
+
+        {%endif%}
+        <div class="styleheadlinearticle4">  
+            <FONT color="{{article.style.codecouleurfront}}" style="">
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>    
-        </div>           
-    </div>{%endif%} 
+        </div> 
+        <a href="#" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle4"> Opret ny debat | Læs debat</f>
+        </a>
+    </div>
+{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==5%}
     <div class="articleposition5" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle"> 
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle5"> 
+            <FONT color="{{article.style.codecouleurfront}}" style="">
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div>  
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>          
-    </div>{%endif%} 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle5"> Opret ny debat | Læs debat</f></a>          
+    </div>
+{%endif%} 
     <!-- ici pas d image pour ces articles -->
+
+
 {% if article.position==6%}
     <div class="articleposition6" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24.711px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle6">   
+            <FONT color="{{article.style.codecouleurfront}}">
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div> 
-
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
-    </div>{%endif%} 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle6"> Opret ny debat | Læs debat</f></a> 
+    </div>
+{%endif%} 
 
 {% if article.position==7%}
     <div class="articleposition7" style="background-color: {{article.style.codecouleurback}};">   
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;margin-top: 10px;" />{%endif%}
-        <div class="bordurearticle">
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
+
+        <div class="styleheadlinearticle7">
+            <FONT color="{{article.style.codecouleurfront}}" >
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>  
-    </div>{%endif%} 
+      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
+
+
+     {% if article.urlimg is not null%}
+
+        {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"  />
+        {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"   />
+        {%endif%}
+
+
+        {%endif%}
+
+    </div>
+{%endif%} 
 
 
 {% if article.position==8%}
     <div class="articleposition8" style="background-color: {{article.style.codecouleurback}};">    
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="220" height="200"  alt="" style="float:bottom;margin-top: 10px;" />{%endif%}
-        <div class="bordurearticle"> 
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 18px;font-family: Helvetica;">
+
+        <div class="styleheadlinearticle8"> 
+            <FONT color="{{article.style.codecouleurfront}}">
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
-    </div>{%endif%} 
+           <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
+
+          {% if article.urlimg is not null%}
+          {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"  />
+          {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="220" height="200"  alt="" style="  position: absolute;  bottom: 0px;  right: 0px;"   />
+          {%endif%}
+
+
+            {%endif%}
+
+    </div>
+{%endif%} 
 
 {% if article.position==9%}
     <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">  
-        {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
-        <div class="bordurearticle">
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+
+        {% if article.urlimg is not null%}
+
+
+                {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                    {%endif%}
+
+        {%endif%}
+        <div class="styleheadlinearticle9">
+            <FONT color="{{article.style.codecouleurfront}}" >
               {{article.headline|truncate(51, true, '...')}} 
             </FONT>      
         </div>   
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+            <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
 {% if article.position==10%}
     <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">      
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
-        <div class="bordurearticle"> 
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+      {% if article.urlimg is not null%}
+
+
+                {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                    {%endif%}
+
+        {%endif%}
+        <div class="styleheadlinearticle10"> 
+            <FONT color="{{article.style.codecouleurfront}}" >
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>     
         </div>   
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle10"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
 {% if article.position==11%}
     <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">   
-           {% if article.urlimg is not null%}<img src="{{article.urlimg}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />{%endif%}
-        <div class="bordurearticle">  
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 30px;font-family: HelveticaNeue;">
+        {% if article.urlimg is not null%}
+
+
+                {%if "http" in article.urlimg %}
+        <img src="{{article.urlimg }}" width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                  {%else%}
+        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  width="100" height="100"  alt="" style="float:left;margin-right: 10px;" />
+                    {%endif%}
+
+        {%endif%}
+        <div class="styleheadlinearticle11">  
+            <FONT color="{{article.style.codecouleurfront}}">
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>       
         </div> 
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
     <div class="articlepositionA">
@@ -152,44 +258,44 @@
     <!-- ici pas d image pour ces articles -->
 {% if article.position==12%}
     <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle12">   
+            <FONT color="{{article.style.codecouleurfront}}"  >
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>      
         </div>  
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
     <div class="articleposition13" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle">  
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle13">  
+            <FONT color="{{article.style.codecouleurfront}}"  >
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>     
         </div>  
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+       <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==14%}
     <div class="articleposition14" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle">   
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle14">   
+            <FONT color="{{article.style.codecouleurfront}}" >
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div>     
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==15%}
     <div class="articleposition15" style="background-color: {{article.style.codecouleurback}};">           
-        <div class="bordurearticle">  
-            <FONT color="{{article.style.codecouleurfront}}" style="font-size: 24px;font-family: HelveticaNeueLTStd;">
+        <div class="styleheadlinearticle15">  
+            <FONT color="{{article.style.codecouleurfront}}" >
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div> 
-        <a href="#" class="lienOpretnydebatLaesdebat"><FONT color="grey"> Opret ny debat | Læs debat</FONT></a>
+       <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
