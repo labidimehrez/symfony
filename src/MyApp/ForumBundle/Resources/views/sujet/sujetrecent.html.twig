@@ -20,14 +20,10 @@
 
                 {% for mostusedtag in mostusedtag %}
 
-         {% if mostusedtag.id != loop.last%}
-        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-            {{mostusedtag.title|truncate(32, true, '...')}}
-        </div> 
+       {% if mostusedtag.id != loop.last%}
+        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;"> {{mostusedtag.title|truncate(32, true, '...')}}</div>    
        {%else%}
-        <div class="senestredebattelement" >
-            {{mostusedtag.title|truncate(32, true, '...')}}
-        </div> 
+        <div class="senestredebattelement" >{{mostusedtag.title|truncate(32, true, '...')}}</div> 
         {%endif%}
 
 
@@ -67,7 +63,12 @@
              {%if  sujet.user.image is not null %}
 
         <a   class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
+             {%if "http" in sujet.user.image %}
             <img src="{{sujet.user.image }}"   class="imageuser" alt="" />
+             {%else%}
+             <img src="{{ asset('upload/' ~ sujet.user.id ~'/' ~ sujet.user.image)}}"   class="imageuser" alt="" />
+            {%endif%}
+            
         </a> 
        {#  avec ce tooltip y a pas de soucils :D
              <script type="text/javascript">
@@ -212,10 +213,7 @@
 
 
 
-
-
-
-
+ 
 
 {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/style.css') }}" />#}
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/atooltip.css') }}" />
