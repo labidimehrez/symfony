@@ -39,12 +39,12 @@ class sujetRepository extends EntityRepository {
                         ->getSingleScalarResult(); // return integer
     }
 
-    /*public function getMostcommenteddebat() {
+    /* public function getMostcommenteddebat() {
         return $this->getEntityManager()
                         ->createQuery('SELECT  p.sujet   FROM MyAppForumBundle:commentaire p   ')
                         ->getResult();
-    }*/
-
+    }*/ 
+ 
 }
 
 ?>

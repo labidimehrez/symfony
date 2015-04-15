@@ -1,6 +1,5 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
-
   {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
 
@@ -145,7 +144,7 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
 
 
      {% if article.urlimg is not null%}
@@ -171,11 +170,11 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-           <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
 
           {% if article.urlimg is not null%}
           {%if "http" in article.urlimg %}
-           <img src="{{article.urlimg }}"  class="imagearticle8" />
+        <img src="{{article.urlimg }}"  class="imagearticle8" />
           {%else%}
         <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle8"   />
           {%endif%}
@@ -204,7 +203,7 @@
               {{article.headline|truncate(51, true, '...')}} 
             </FONT>      
         </div>   
-            <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
@@ -245,7 +244,7 @@
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>       
         </div> 
-      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
     <div class="articlepositionA">
@@ -254,28 +253,28 @@
     </div>
     <div class="articlepositionB">
         <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
-        
-        
-       {#%for  mostcommenteddebat in mostcommenteddebat%}
+
+
+       {%for  mostcommenteddebat in mostcommenteddebat%}
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
          
-            <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </br> 
+            <center>  <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t> </center>   
         </div>        
       {%else%}
         <div class="senestredebattelement">
         
-            <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </br> 
+         <center>     <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </center>   
         </div> 
      {%endif%} 
-     {%endfor%#}
-        
-        
-        
-        
-        
-        
-        
+     {%endfor%}
+
+
+
+
+
+
+
     </div>
 
     <!-- ici pas d image pour ces articles -->
@@ -286,7 +285,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>      
         </div>  
-      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
@@ -296,7 +295,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>     
         </div>  
-       <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -307,7 +306,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div>     
-      <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -318,7 +317,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div> 
-       <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
+        <a href="#" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
