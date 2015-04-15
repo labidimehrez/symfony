@@ -42,32 +42,32 @@
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %}  
 
-        <a href="{{path(route) }}" style="text-decoration:none;color: white;"> 
-            &nbsp;&nbsp;   {%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name}}  </a>                                                                                                                                                     
+        <a href="{{path(route) }}" class="lienenblanc" > 
+            &nbsp;&nbsp;   {%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name|raw}} 
+        </a>                                                                                                                                                     
 
       {% endfor%} 
     </div>
 
-    <div class="Profile"><img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" /></div>
+   <img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" class="Profile" /> 
 
-    <div class="Debat">   
-        <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" />
+     
+        <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" class="Debat" />
 
+     
+
+    <div class="DEBATMot">
+        <a href="{{path('my_app_forum_sujet_sujetrecent') }}" class="lienenblanc"> DEBATFORUM</a> 
     </div>
 
-    <div class="DEBATMot"><a href="{{path('my_app_forum_sujet_sujetrecent') }}" style="text-decoration:none;color: white;"> DEBATFORUM</a> 
-
-    </div>
-
-    <div class="Sol_logo"><img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" /></div>
+    <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt=""  class="Sol_logo"/> 
 
    <!-- <div class="ButtonCopy"><img src="{#{ asset('bundles/myappesprit/images/Button.png') }#}" alt="" /></div> -->
 
-    <div class="Button"><img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" /></div>
+    <img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" class="Button" /> 
 
-    <div class="Button_copy"><img src="{{ asset('bundles/myappesprit/images/Button copy.png') }}" alt="" /> </div>
-
-    <div class="Button_copy_2"><img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" /> </div>
+   <img src="{{ asset('bundles/myappesprit/images/Button copy.png') }}" alt=""  class="Button_copy" />  
+   <img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" class="Button_copy_2" />  
 
     <div class="text_field"> 
         <!--  recherche google
@@ -94,20 +94,20 @@
 
 
 
-    <div class="Mail_copy"><img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" /> </div>
+    <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" />  
 {% if is_granted( 'ROLE_USER' ) %}
     <div class="OPRET_PROFIL_LOGIN">
-        <a href="{{path('fos_user_profile_edit') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+        <a href="{{path('fos_user_profile_edit') }}" class="lienenblanc">                                                                                                                                                      
             MIN PROFIL  </a>
         </br>
-        <a href="{{path('fos_user_security_logout') }}"style="text-decoration:none;color: white;">LOG UID</a>
+        <a href="{{path('fos_user_security_logout') }}" class="lienenblanc">LOG UID</a>
     </div>
 {% else %}
     <div class="OPRET_PROFIL_LOGIN">
-        <a href="{{path('fos_user_registration_register') }}" style="text-decoration:none;color: white;">                                                                                                                                                      
+        <a href="{{path('fos_user_registration_register') }}"  class="lienenblanc">                                                                                                                                                      
             OPRET PROFIL  </a>
         </br>
-        <a href="{{path('fos_user_security_login') }}"style="text-decoration:none;color: white;">LOG IND</a>
+        <a href="{{path('fos_user_security_login') }}" class="lienenblanc">LOG IND</a>
     </div>
 {% endif %}
 
@@ -127,7 +127,7 @@
 
 
 
-        <div class="SKYBANNERS" >
+       <div class="SKYBANNERS" >  
 
 
 
@@ -143,17 +143,21 @@
 
             </div>
             <div class="cadreblanc"></div> 
-            <div class="SOLDK"><a href="https://www.facebook.com/Sol.dk?fref=ts" style="text-decoration:none;color:#3B5998;">SOL.DK</a></div> 
+            <div class="SOLDK">
+                <a href="https://www.facebook.com/Sol.dk?fref=ts" style="color:#3B5998;">SOL.DK</a>
+            </div> 
              {% block publicitemanage %} {% endblock  %}
             {% block publicite_show %}  {% endblock  %}
             {% block editUser %}  {% endblock  %} {% block showUser %}  {% endblock  %} 
             {% block fos_user_content %} {% endblock fos_user_content %}
             {% block ajout_arstyle%}   {% endblock  %}
             {% block ajout_article%}{% endblock %}
-          {% block affichage_articles%} {% endblock %} 
+            {% block affichage_articles%} {% endblock %} 
              {% block ajout_sujet%} {% endblock %}
+            
+             {% block ajout_sujet_ar%}{% endblock %}
 
-        </div>
+       </div> 
 
         <!--    <div class="contenudetemplate"></br></br></br></br></br> </div>-->
 
@@ -165,15 +169,13 @@
 
     </body>
 
-    <!-- ---------------------------------------------------------------------------------------------------------------->
-
+ 
 
     {% endblock %}
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
- {% block footer %}
+ {% block footer %}  
     <footer>
         <div class="Footer"> 
-
             <div class="SOL_dk_erFOOTER"><FONT color="FFFFFF">SOL.dk er ejet og drevet af CM-Consulting ApS </br>
                 </br>Adressen er:</br> CM-Consulting ApS</br>Sankt Ann&aelig; Gade 10</br>1416 K&oslash;benhavn k</br>CVR: 27 70 45 14
                 </br></br>Telefon: 89 88 38 00</br>Kontakt e-mail: solsupport@cm-consult.com</br>Brug ogs&auml; vores support-side http://support.sol.dk</br></br>
@@ -182,9 +184,9 @@
             <div class="NYHEDERKENDTE">NYHEDER </br>KENDTE</br> UNDERHOLDNING</br> REJSER</br> SUNDHED</br> FRITID </br>EROTIK </div>
             <div class="HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE">HOROSKOPER</br>TV-GUIDE</br>BACKUP </br> SHOP</br> KONKURRENCER</br> VEJRET</br> DEBAT</div>
             <div class="Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_">Om SOL</br> Annoncering</br> Kontakt os</br> HJ&AElig;LP og Support</br> Driftstatus Cookies</br>Brugsvilkar</div>
-        </div>
-  {% endblock %}  
+        </div>   
     </footer>
+ {% endblock %} 
 </html>
 
 {###########                          pour que le menu rouge bouge et se colle en haut                        #######}
@@ -193,7 +195,7 @@
 <script src="{{ asset('bundles/myappesprit/js/menurouge.js') }}" type="text/javascript"></script>
 <style>
     body {
-        height: 2000px;
+      //  height: 2000px;
         padding-top: 300px;
     }
     #getFixed {

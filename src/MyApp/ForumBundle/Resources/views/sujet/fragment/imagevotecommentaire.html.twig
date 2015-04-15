@@ -21,6 +21,8 @@
 
 
             {% if commentaire.vote  is not null %}
-                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-                    &nbsp;{{commentaire.vote}} </b>
+                <b class="likecount">
+                    <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                    &nbsp;{{commentaire.vote}} 
+                </b>
              {%endif%}

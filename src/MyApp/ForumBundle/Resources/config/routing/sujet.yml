@@ -2,6 +2,10 @@ my_app_forum_sujet_add:
     pattern:  /add
     defaults: { _controller: MyAppForumBundle:sujet:add }
     
+my_app_forum_sujet_addfromar:
+    pattern:  /{id}/addfromar
+    defaults: { _controller: MyAppForumBundle:sujet:addfromarticle }
+    
 my_app_forum_sujet_show:
     pattern:  /show
     defaults: { _controller: MyAppForumBundle:sujet:show }

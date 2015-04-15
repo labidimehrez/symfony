@@ -143,7 +143,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' , '))}} </b>
         
           <div class="tooltipfinal{{sujet.id}}" id="tooltipid">
-                    <div class="profilusername">{{sujet.user.username }}</div>
+                    <div class="profilusername">{{sujet.user.username|capitalize }}</div>
                     <div class="profildatetooltip">                    
                      Oprettet : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size></br>
                      Sidst online : {{sujet.user.lastLogin|date('Y-M-d') }}
@@ -199,6 +199,10 @@
 {%endfor%} 
 
     <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
+
+    
+    
+    
 
 </div>
 

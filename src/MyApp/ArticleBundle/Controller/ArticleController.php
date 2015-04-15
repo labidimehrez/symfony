@@ -36,13 +36,15 @@ class ArticleController extends Controller {
 
 
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
-                    /*                     * * j 'affecte l a'rticle a la premiere position libre * */
+                    /***     j 'affecte l a'rticle a la premiere position libre       ***/
                     if ($lapositionchoisie != 'contenufixe') {
                         $article->setPosition($positiondelarticleenajout);
-                        $manager->ShiftToLeftNofixedPosition();
+                        if (!empty($articleNOfixedposition) ) {
+                            $manager->ShiftToLeftNofixedPosition();
+                        }
+
                         $manager->persist($article);
-                    }
-                    if ($lapositionchoisie == 'contenufixe') {
+                    } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
@@ -50,7 +52,7 @@ class ArticleController extends Controller {
 
 
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
-                    /*                     * * j 'affecte l a'rticle a la premiere position libre * */
+                    /****    j 'affecte l a'rticle a la premiere position libre      ****/
                     $article->setPosition($premierepositionlibre);
                     $manager->persist($article);
                 }
@@ -60,11 +62,14 @@ class ArticleController extends Controller {
                 if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
                     if ($lapositionchoisie != 'contenufixe') {
 
-                        $article->setPosition($positiondelarticleenajout);
-                        $manager->ShiftToLeftNofixedPosition();
-                        $manager->persist($article);
-                    }
-                    if ($lapositionchoisie == 'contenufixe') {
+                       
+                        if (!empty($articleNOfixedposition) ) {$manager->ShiftToLeftNofixedPosition();}
+                            
+                        
+                         $article->setPosition($positiondelarticleenajout);
+                         $manager->persist($article);
+                         
+                    } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
@@ -75,16 +80,15 @@ class ArticleController extends Controller {
                     if ($lapositionchoisie != 'contenufixe') {
                         $article->setPosition($positiondelarticleenajout);
                         $manager->persist($article);
-                    }
-                    if ($lapositionchoisie != 'contenufixe') {
+                    } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
 
 
 
-
-
+             // $url = $this->getRequest()->headers->get("referer"); // renvoie previous url :D
+            
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
@@ -94,7 +98,7 @@ class ArticleController extends Controller {
 
     public function showAction() {
         $em = $this->getDoctrine()->getManager();
-        /*         * *******************    recuperation de tout les article s    ************ */
+        /*******************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
@@ -104,13 +108,13 @@ class ArticleController extends Controller {
         $sortedtopic = array(); // tableau vide
         foreach ($sujet as $s) {
             $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($s->getId());
-            array_push($commentarray, $commentCount); /* inserer la valeur dans l array vide*/
+            array_push($commentarray, $commentCount); /* inserer la valeur dans l array vide */
         }
-        rsort($commentarray);
+        rsort($commentarray); /* tri du tableau selon value */
         for ($index = 0; $index < count($commentarray); $index++) {
             for ($jndex = 0; $jndex < count($sujet); $jndex++) {
                 if ($em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($sujet[$jndex]->getId()) == $commentarray[$index]) {
-                    array_push($sortedtopic, $sujet[$jndex]); /* inserer la valeur dans l array vide*/
+                    array_push($sortedtopic, $sujet[$jndex]); /* inserer la valeur dans l array vide */
                 }
             }
         }
@@ -171,7 +175,7 @@ class ArticleController extends Controller {
             $manager->removemore($articled);
             $done = 1;
             while ($done <= $ids) {
-                $manager->ShiftToRightNofixedPosition();
+                if (!empty($articleNOfixedposition) ) { $manager->ShiftToRightNofixedPosition();}
                 $done++;
             }
 
@@ -182,7 +186,10 @@ class ArticleController extends Controller {
         /* delete one checked */
         if ((count($ids) === 1) && ( $totalnumberofar > 15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-            $manager->ShiftToRightNofixedPosition();
+            if ($articleNOfixedposition != NULL) {
+                $manager->ShiftToRightNofixedPosition();
+            }
+
             $manager->removemore($articled);
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));

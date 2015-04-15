@@ -204,7 +204,7 @@ class sujetController extends Controller {
         }
 
         $managersujet->IncrementandSetNewDateLus($sujet); /* increment NBlect sujet et update DateLus */
-        $em = $this->getDoctrine()->getManager();
+       
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id)); //** get the associated notif to remove ***/
 
         $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager * */
@@ -263,6 +263,75 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:manage.html.twig', array(
                     'sujet' => $sujet, 'form' => $form->createView()
         ));
+    }
+    
+    
+        public function addfromarticleAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $articlesrc = $em->getRepository('MyAppArticleBundle:article')->find($id);
+      
+        
+        $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $user->getId();
+        $sujet = new sujet();
+
+        $form = $this->createForm(new sujetType, $sujet);
+        $request = $this->getRequest();
+        if ($request->isMethod('Post')) {
+
+            $form->bind($request);
+
+            if ($form->isValid()) {
+
+                $sujet = $form->getData();
+                
+                /* traitement special pour le choix des tags*/
+                $inputtag = $this->getRequest()->get('inputtag');
+                $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+                $tagaajouté = array(); // tableau vide
+                foreach ($alltags as $tag) {
+                    $tagtitle = $tag->getTitle(); /* get title of objects :D */
+                    if ( $inputtag == $tagtitle  ) {
+                        $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                        array_push($tagaajouté, $selectedtag);
+                        $sujet->setTags($tagaajouté);
+                    }
+                }
+    
+                /*                 * ** je recuperer l id de user connecté * */
+                $sujet->setUser($user);
+                /*                 * ** je recuperer l id de user connecté * */
+                $notifboolean = $sujet->getNotification();
+                $sujet->setThread(4);      /* default thread */
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($sujet);
+                $em->flush();
+                /*                 * **                       ajout de notification                        ** */
+                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
+                $notif = new notification();
+                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
+                $manager->persist($notif1);
+
+                return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
+            }
+            if (!$form->isValid()) {
+                $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides ou existe deja !! )');
+
+                return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig', array(
+               'form' => $form->createView()));
+            }
+        }
+
+    
+
+        $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
+
+
+
+
+        return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig',
+                array('form' => $form->createView(), 'tags' => $tags , 'articlesrc' => $articlesrc));
     }
 }
     

@@ -53,7 +53,7 @@ INSERT INTO `article` (`id`, `style_id`, `position`, `headline`, `urlimg`, `copy
 (3, 5, 3, 'Kvindelig kniv-morder stikker igen', 'http://www.publiz.net/wp-content/uploads/2010/07/ikea-chaussure-meuble-publicit%C3%A9-print-02.jpg', '3', '33', '333'),
 (4, 6, 4, 'Stunt blandt forse flypas', 'http://www.letribunaldunet.fr/wp-content/uploads/2012/05/une-publicite-contre-les-ogm_89708_w460.jpg', '4', '44', '444'),
 (5, 5, 5, 'Derfor besogte Brandby tran-eren Chelsea', 'http://www.danstapub.com/wp-content/uploads/2013/06/dans-ta-pub-musique-publicit%C3%A9-les-meilleures-f%C3%AAte-de-la-musique-21-juin.jpg', '5', '55', '555'),
-(6, 5, 6, 'Dansk          sko-kade far bedste resultat nogensinde', 'http://www.danstapub.com/wp-content/uploads/2013/07/dans-ta-pub-cigarette-publicit%C3%A9-op%C3%A9ration-marketing-loi-evin-tabac-contre-hausse-france-5.jpg', '6', '66', '666'),
+(6, 5, 6, 'Dansk  sko-kade far bedste resultat nogensinde', 'http://www.danstapub.com/wp-content/uploads/2013/07/dans-ta-pub-cigarette-publicit%C3%A9-op%C3%A9ration-marketing-loi-evin-tabac-contre-hausse-france-5.jpg', '6', '66', '666'),
 (7, 6, 7, 'Her far man den varste kundservice i Danmark', 'http://img.e-marketing.fr/Img/BREVE/2013/4/52620/Lego-remporte-28e-Grand-Prix-Publicite-Presse-Magazine-F.jpg', '7', '77', '777'),
 (8, 6, 8, 'Rygte: Rolling Stones til Roskilde Festival-ledelsen afviser ikke...', 'http://img.e-marketing.fr/Img/BREVE/2013/9/182241/Snickers-sort-publicite-decalee-Chantal-Goya-F.jpg', '8', '88', '888'),
 (9, 5, 9, 'Den stumper vist lidt Fagforening raser over fraek uniform', 'http://sjbm.files.wordpress.com/2009/10/pub-et-information.jpg', '9', '99', '999'),

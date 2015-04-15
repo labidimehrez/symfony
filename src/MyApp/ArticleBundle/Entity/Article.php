@@ -240,7 +240,8 @@ class Article {
         }
         if (!$this->id) {
             $this->urlimg->move($this->getTmpUploadRootDir(), $this->urlimg->getClientOriginalName());
-        } else {
+        }
+        else {
             $this->urlimg->move($this->getUploadRootDir(), $this->urlimg->getClientOriginalName());
         }
         $this->setUrlimg($this->urlimg->getClientOriginalName());
