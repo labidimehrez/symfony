@@ -98,32 +98,31 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-        
-       $commentarray = array(); // tableau vide
-       $sortedtopic = array(); // tableau vide
-       
+
+        /*  sortedtopic by comment */
+        $commentarray = array(); // tableau vide
+        $sortedtopic = array(); // tableau vide
         foreach ($sujet as $s) {
             $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($s->getId());
-             array_push($commentarray, $commentCount); 
+            array_push($commentarray, $commentCount); /* inserer la valeur dans l array vide*/
         }
-        rsort($commentarray); 
-        for ($index = 0; $index < count($commentarray); $index++) {          
-               for ($jndex = 0; $jndex < count($sujet); $jndex++) {
-                   if(  $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($sujet[$jndex]->getId()) == $commentarray[$index])
-                       {         
-                        array_push($sortedtopic, $sujet[$jndex]); 
-                       }
-                   }
-               }  
-      // $sortedtopic ;  array des sujet triés par nbre de comments
-        
-        
-        
-        
-       
+        rsort($commentarray);
+        for ($index = 0; $index < count($commentarray); $index++) {
+            for ($jndex = 0; $jndex < count($sujet); $jndex++) {
+                if ($em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($sujet[$jndex]->getId()) == $commentarray[$index]) {
+                    array_push($sortedtopic, $sujet[$jndex]); /* inserer la valeur dans l array vide*/
+                }
+            }
+        }
+        /*  sortedtopic by comment */
+
+
+
+
+
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
-                       , 'mostcommenteddebat' => $sortedtopic
+                    , 'mostcommenteddebat' => $sortedtopic
         ));
     }
 

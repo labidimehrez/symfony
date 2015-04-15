@@ -23,6 +23,8 @@ class SujetManager
     {
         return $this->repository->find($id);
     }
+    
+ 
        public function incrementNBlect($sujet)
     {
         $nblect = $sujet->getNblect();
