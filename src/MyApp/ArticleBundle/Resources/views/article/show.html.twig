@@ -13,8 +13,6 @@
   {% for article in article %}
 {% if article.position==1%}
     <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">   
-
-
            {% if article.urlimg is not null%}
                   {%if "http" in article.urlimg %}
         <img src="{{article.urlimg }}" class="imagearticle1"   />
@@ -246,27 +244,84 @@
         </div> 
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
-
+ <!-------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionA">
 
         <center><p class="rouge">SENESTE NYHEDER</p></center>
+ 
+       {%for  sujetnotarticle in sujetnotarticle%}
+        
+         {% if loop.length > 4   %}{# si cette div est pleine les titres seront PEU espacés #}
+        
+       {% if sujetnotarticle.id != loop.last%}
+        <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(22, true, '...')}}</t></a>   
+        </div>        
+      {%else%}
+        <div class="senestredebattelementcompresse">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(22, true, '...')}}</t></a>      
+        </div> 
+     {%endif%} 
+        
+        
+        {%else%}
+        
+       {% if sujetnotarticle.id != loop.last%}
+        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(22, true, '...')}}</t></a>    
+        </div>        
+      {%else%}
+        <div class="senestredebattelement">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(22, true, '...')}}</t></a>      
+        </div> 
+      {%endif%}  
+        
+        
+        {%endif%}
+        
+     {%endfor%}
+        
+        
+        
+        
+        
+        
     </div>
+<!---------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionB">
         <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
 
 
        {%for  mostcommenteddebat in mostcommenteddebat%}
+        
+         {% if loop.length > 4   %}{# si cette div est pleine les titres seront PEU espacés #}
+        
+       {% if mostcommenteddebat.id != loop.last%}
+        <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}"> <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t></a>   
+        </div>        
+      {%else%}
+        <div class="senestredebattelementcompresse">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}"> <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t></a>      
+        </div> 
+     {%endif%} 
+        
+        
+        {%else%}
+        
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-
-            <center>  <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t> </center>   
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}"> <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t></a>    
         </div>        
       {%else%}
         <div class="senestredebattelement">
-
-            <center>     <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </center>   
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}"> <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t></a>      
         </div> 
-     {%endif%} 
+      {%endif%}  
+        
+        
+        {%endif%}
+        
      {%endfor%}
 
 
@@ -276,7 +331,7 @@
 
 
     </div>
-
+<!---------------------------------------------------------------------------------------------------------------------------------->
     <!-- ici pas d image pour ces articles -->
 {% if article.position==12%}
     <div class="articleposition12" style="background-color: {{article.style.codecouleurback}};">           
@@ -321,31 +376,52 @@
     </div>
 {%endif%} 
 
-
+  
     {% endfor%}
+ <!------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
     <div class="senestredebattfrontpage" > <center><p class="rouge"></br>Seneste debatter</p></center>
 
     {%for  sujet in sujet%}
+      {% if loop.length > 3 and  loop.length <6 %}{# si cette div est pleine les titres seront PEU espacés #}
+       {% if sujet.id != loop.last%}
+        <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
+            <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t> </a> </br> 
+        </div>        
+      {%else%}
+        <div class="senestredebattelementcompresse">
+              <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
+            <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t> </a>  </br> 
+        </div> 
+     {%endif%} 
+       {%else%}
        {% if sujet.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
-            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t> </a> </br> 
         </div>        
       {%else%}
         <div class="senestredebattelement">
+              <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
-            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t>  </br> 
+            <t class="stylecontenudebat">{{sujet.sujet|truncate(22, true, '...')}}</t> </a>  </br> 
         </div> 
-   {%endif%}
+     {%endif%}
+        
+        
+        
+       
 
-
-
+        {%endif%}
 {% endfor%}
 
     </div> 
 
-
+<!---------------------------------------------------------------------------------------------------------------------------------->
 
     {% for publicite in publicite%} 
 

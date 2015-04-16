@@ -36,10 +36,10 @@ class ArticleController extends Controller {
 
 
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
-                    /***     j 'affecte l a'rticle a la premiere position libre       ***/
+                    /*                     * *     j 'affecte l a'rticle a la premiere position libre       ** */
                     if ($lapositionchoisie != 'contenufixe') {
                         $article->setPosition($positiondelarticleenajout);
-                        if (!empty($articleNOfixedposition) ) {
+                        if (!empty($articleNOfixedposition)) {
                             $manager->ShiftToLeftNofixedPosition();
                         }
 
@@ -52,7 +52,7 @@ class ArticleController extends Controller {
 
 
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
-                    /****    j 'affecte l a'rticle a la premiere position libre      ****/
+                    /*                     * **    j 'affecte l a'rticle a la premiere position libre      *** */
                     $article->setPosition($premierepositionlibre);
                     $manager->persist($article);
                 }
@@ -62,13 +62,14 @@ class ArticleController extends Controller {
                 if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
                     if ($lapositionchoisie != 'contenufixe') {
 
-                       
-                        if (!empty($articleNOfixedposition) ) {$manager->ShiftToLeftNofixedPosition();}
-                            
-                        
-                         $article->setPosition($positiondelarticleenajout);
-                         $manager->persist($article);
-                         
+
+                        if (!empty($articleNOfixedposition)) {
+                            $manager->ShiftToLeftNofixedPosition();
+                        }
+
+
+                        $article->setPosition($positiondelarticleenajout);
+                        $manager->persist($article);
                     } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
@@ -87,8 +88,8 @@ class ArticleController extends Controller {
 
 
 
-             // $url = $this->getRequest()->headers->get("referer"); // renvoie previous url :D
-            
+                // $url = $this->getRequest()->headers->get("referer"); // renvoie previous url :D
+
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
@@ -98,7 +99,7 @@ class ArticleController extends Controller {
 
     public function showAction() {
         $em = $this->getDoctrine()->getManager();
-        /*******************    recuperation de tout les article s    ************ */
+        /*         * *****************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
@@ -119,14 +120,28 @@ class ArticleController extends Controller {
             }
         }
         /*  sortedtopic by comment */
-
-
-
-
+        $sujetneverarticlebeforearray = array(); 
+        foreach ($article as $ar) 
+        {
+            if($ar->getPosition() <16 ){
+        $s=$ar->getHeadline();
+        $qb1 = $em->createQueryBuilder();
+        $qb1->select('a')
+                ->from('MyAppForumBundle:sujet', 'a') 
+                    ->where('a.sujet != :v')
+                    ->setParameter('v', $s);
+        $query1 = $qb1->getQuery();
+        $sujetneverarticlebefore = $query1->getResult();
+            array_push($sujetneverarticlebeforearray, $sujetneverarticlebefore);}
+        }
+        
+        
+        $sujetnotarticle= $sujetneverarticlebeforearray[0]; 
+            
 
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
-                    , 'mostcommenteddebat' => $sortedtopic
+                    , 'mostcommenteddebat' => $sortedtopic,'sujetnotarticle'=>$sujetnotarticle
         ));
     }
 
@@ -175,7 +190,9 @@ class ArticleController extends Controller {
             $manager->removemore($articled);
             $done = 1;
             while ($done <= $ids) {
-                if (!empty($articleNOfixedposition) ) { $manager->ShiftToRightNofixedPosition();}
+                if (!empty($articleNOfixedposition)) {
+                    $manager->ShiftToRightNofixedPosition();
+                }
                 $done++;
             }
 
