@@ -331,7 +331,7 @@ class sujetController extends Controller {
 
 
         return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig',
-                array('form' => $form->createView(), 'tags' => $tags , 'articlesrc' => $articlesrc));
+                array('form' => $form->createView(), 'tags' => $tags , 'articlesrc' => $articlesrc ,'id'=>$id));
     }
 }
     

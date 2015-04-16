@@ -8,10 +8,10 @@
  {% block ajout_sujet_ar%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-
+ 
 <div class="contenudetemplate">
     <div style="margin-left: 180px;margin-top: 100px;width: 588px;">
-        <form  action='{{ path('my_app_forum_sujet_addfromar',{'id':id}) }}' method="post" {{ form_enctype(form) }} > 
+        <form  action='{{  path('my_app_forum_sujet_addfromar',{'id':id}) }}' method="post" {{ form_enctype(form) }} > 
 
             <table height=" " width=" " border="0">
 
@@ -56,8 +56,8 @@
                            {% for flashMessage in app.session.flashbag.get('message') %}{{ flashMessage }}{% endfor %}
                 </center>
  
-                        <x style="float:right;">
-                        Notification {{form_widget(form.notification) }}<x>
+                        <x style="float:right;"> Notification {{form_widget(form.notification) }}<x>
+                       
 
                     </td>  
                 </tr>

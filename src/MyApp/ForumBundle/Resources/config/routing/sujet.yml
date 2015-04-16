@@ -3,8 +3,10 @@ my_app_forum_sujet_add:
     defaults: { _controller: MyAppForumBundle:sujet:add }
     
 my_app_forum_sujet_addfromar:
-    pattern:  /{id}/addfromar
+    pattern:  /addfromar/{id}
     defaults: { _controller: MyAppForumBundle:sujet:addfromarticle }
+#    requirements:
+#        id:  \d+ 
     
 my_app_forum_sujet_show:
     pattern:  /show

@@ -29,9 +29,9 @@
             <FONT color="{{article.style.codecouleurfront}}" class="styleheadlinearticle1">
               {{article.headline|truncate(47, true, '...')}} 
             </FONT>            
-   
+
         </div>
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':sujet.id}) }}" class="lienOpretnydebatLaesdebat">
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id} ) }}" class="lienOpretnydebatLaesdebat">
             <f class="styleleinarticle1"> Opret ny debat | Læs debat</f>
         </a>
     </div>{%endif%} 
@@ -59,7 +59,7 @@
                                 {{article.headline|truncate(41, true, '...')}}
             </FONT>         
         </div>
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat">
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
             <f class="styleleinarticle2"> Opret ny debat | Læs debat</f>
         </a>
     </div>{%endif%} 
@@ -71,9 +71,9 @@
            {% if article.urlimg is not null%}
 
 
-        {%if "http" in article.urlimg %}
+                    {%if "http" in article.urlimg %}
         <img src="{{article.urlimg }}" class="imagearticle3"  />
-                  {%else%}
+                    {%else%}
         <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle3"  />
                     {%endif%}
 
@@ -84,7 +84,7 @@
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>     
         </div>  
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat">
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
             <f class="styleleinarticle3"> Opret ny debat | Læs debat</f>
         </a>
     </div>
@@ -93,11 +93,11 @@
 {% if article.position==4%}
     <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
            {% if article.urlimg is not null%}
-       {%if "http" in article.urlimg %}
+                       {%if "http" in article.urlimg %}
         <img src="{{article.urlimg }}"  class="imagearticle4"   />
-                  {%else%}
+                       {%else%}
         <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle4"  />
-                    {%endif%}
+                       {%endif%}
 
 
         {%endif%}
@@ -106,7 +106,7 @@
                              {{article.headline|truncate(31, true, '...')}}
             </FONT>    
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat">
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
             <f class="styleleinarticle4"> Opret ny debat | Læs debat</f>
         </a>
     </div>
@@ -119,7 +119,7 @@
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div>  
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle5"> Opret ny debat | Læs debat</f></a>          
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle5"> Opret ny debat | Læs debat</f></a>          
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -132,7 +132,7 @@
                              {{article.headline|truncate(36, true, '...')}}
             </FONT>     
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle6"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle6"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
@@ -144,7 +144,7 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
 
 
      {% if article.urlimg is not null%}
@@ -170,7 +170,7 @@
                              {{article.headline|truncate(58, true, '...')}}
             </FONT>       
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
 
           {% if article.urlimg is not null%}
           {%if "http" in article.urlimg %}
@@ -203,7 +203,7 @@
               {{article.headline|truncate(51, true, '...')}} 
             </FONT>      
         </div>   
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
@@ -224,7 +224,7 @@
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>     
         </div>   
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle10"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle10"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
 {% if article.position==11%}
@@ -244,7 +244,7 @@
                              {{article.headline|truncate(51, true, '...')}}
             </FONT>       
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
 
     <div class="articlepositionA">
@@ -258,13 +258,13 @@
        {%for  mostcommenteddebat in mostcommenteddebat%}
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-         
+
             <center>  <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t> </center>   
         </div>        
       {%else%}
         <div class="senestredebattelement">
-        
-         <center>     <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </center>   
+
+            <center>     <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(22, true, '...')}}</t>  </center>   
         </div> 
      {%endif%} 
      {%endfor%}
@@ -285,7 +285,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>      
         </div>  
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
@@ -295,7 +295,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>     
         </div>  
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -306,7 +306,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div>     
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -317,7 +317,7 @@
                              {{article.headline|truncate(42, true, '...')}}
             </FONT>    
         </div> 
-        <a href="{{ path'my_app_forum_sujet_addfromar',{'id':sujet.id} }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
     </div>
 {%endif%} 
 
