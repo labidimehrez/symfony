@@ -10,31 +10,45 @@ use MyApp\ArticleBundle\Entity\Article;
 class ArticleController extends Controller {
 
     public function addAction() {
-
+        $em = $this->getDoctrine()->getManager();
+        $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés */
-
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
-
-
-
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
-
             $form->bind($request);
-
             if ($form->isValid()) {
                 $article = $form->getData();
+
+                /* traitement special pour le choix des tags */
+                $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
+                $inputtag = $this->getRequest()->get('inputtag');
+                $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+                $tagaajouté = array(); // tableau vide
+                foreach ($alltags as $tag) {
+                    $tagtitle = $tag->getTitle(); /* get title of objects :D */
+                    if ($inputtag == $tagtitle) {
+                        $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                        array_push($tagaajouté, $selectedtag);
+                        $sujet->setTags($tagaajouté);
+                    }
+                }
+
+
+
+
+
+
+
                 $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
                 /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
                 $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout);
-
-
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
                     /*                     * *     j 'affecte l a'rticle a la premiere position libre       ** */
                     if ($lapositionchoisie != 'contenufixe') {
@@ -42,41 +56,27 @@ class ArticleController extends Controller {
                         if (!empty($articleNOfixedposition)) {
                             $manager->ShiftToLeftNofixedPosition();
                         }
-
                         $manager->persist($article);
                     } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
-
-
-
                 if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
                     /*                     * **    j 'affecte l a'rticle a la premiere position libre      *** */
                     $article->setPosition($premierepositionlibre);
                     $manager->persist($article);
                 }
-
-
-
                 if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
                     if ($lapositionchoisie != 'contenufixe') {
-
-
                         if (!empty($articleNOfixedposition)) {
                             $manager->ShiftToLeftNofixedPosition();
                         }
-
-
                         $article->setPosition($positiondelarticleenajout);
                         $manager->persist($article);
                     } elseif ($lapositionchoisie === 'contenufixe') {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
-
-
-
                 if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
                     if ($lapositionchoisie != 'contenufixe') {
                         $article->setPosition($positiondelarticleenajout);
@@ -85,16 +85,11 @@ class ArticleController extends Controller {
                         throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
                     }
                 }
-
-
-
                 // $url = $this->getRequest()->headers->get("referer"); // renvoie previous url :D
-
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
-
-        return $this->render('MyAppArticleBundle:article:add.html.twig', array('form' => $form->createView()));
+        return $this->render('MyAppArticleBundle:article:add.html.twig', array('form' => $form->createView(), 'tags' => $tags));
     }
 
     public function showAction() {
@@ -103,7 +98,6 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-
         /*  sortedtopic by comment */
         $commentarray = array(); // tableau vide
         $sortedtopic = array(); // tableau vide
@@ -120,41 +114,40 @@ class ArticleController extends Controller {
             }
         }
         /*  sortedtopic by comment */
-        $sujetneverarticlebeforearray = array(); 
-        foreach ($article as $ar) 
-        {
-            if($ar->getPosition() <16 ){
-        $s=$ar->getHeadline();
-        $qb1 = $em->createQueryBuilder();
-        $qb1->select('a')
-                ->from('MyAppForumBundle:sujet', 'a') 
-                    ->where('a.sujet != :v')
-                    ->setParameter('v', $s);
-        $query1 = $qb1->getQuery();
-        $sujetneverarticlebefore = $query1->getResult();
-            array_push($sujetneverarticlebeforearray, $sujetneverarticlebefore);}
+        $sujetneverarticlebeforearray = array();
+        foreach ($article as $ar) {
+            if ($ar->getPosition() < 16) {
+                $s = $ar->getHeadline();
+                $qb1 = $em->createQueryBuilder();
+                $qb1->select('a')
+                        ->from('MyAppForumBundle:sujet', 'a')
+                        ->where('a.sujet != :v')
+                        ->setParameter('v', $s);
+                $query1 = $qb1->getQuery();
+                $sujetneverarticlebefore = $query1->getResult();
+                array_push($sujetneverarticlebeforearray, $sujetneverarticlebefore);
+            } else {
+                foreach ($sujet as $s) {
+                    array_push($sujetneverarticlebeforearray, $s);
+                }
+            }
         }
-        
-        
-        $sujetnotarticle= $sujetneverarticlebeforearray[0]; 
-            
+
+
+        $sujetnotarticle = $sujetneverarticlebeforearray[0];
 
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
-                    , 'mostcommenteddebat' => $sortedtopic,'sujetnotarticle'=>$sujetnotarticle
+                    , 'mostcommenteddebat' => $sortedtopic, 'sujetnotarticle' => $sujetnotarticle
         ));
     }
 
     public function deleteAction(article $article) {
-
-
-
         $em = $this->getDoctrine()->getManager();
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
         $em->remove($article);
         $em->flush();
         $manager = $this->get('collectify_article_manager');
-
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_deletemore', array(
                             'selectarticle' => $selectarticle
@@ -172,14 +165,11 @@ class ArticleController extends Controller {
     }
 
     public function deletemoreAction(Request $request) {
-
         $em = $this->getDoctrine()->getManager();
-
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
-
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
         if ($totalnumberofar <= 15) {
@@ -195,7 +185,6 @@ class ArticleController extends Controller {
                 }
                 $done++;
             }
-
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
@@ -206,16 +195,11 @@ class ArticleController extends Controller {
             if ($articleNOfixedposition != NULL) {
                 $manager->ShiftToRightNofixedPosition();
             }
-
             $manager->removemore($articled);
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
         /* delete one  checked */
-
-
-
-
         $positions = $this->getRequest()->get('i'); /* tableau de string position text input deja   :D */
         /* test pour la duplication des valeurs positions AR */
         if (($positions != array_unique($positions)) && ($positions != NULL)) {
@@ -224,7 +208,6 @@ class ArticleController extends Controller {
                         'form' => $form->createView(), 'article' => $article
             ));
         }
-
         /* fin de la validation des valeurs positions AR */
         /* debut mise a jour des positions AR selon les input text */
         if ($positions != NULL) {
@@ -235,8 +218,6 @@ class ArticleController extends Controller {
                 }
             }
         } /*  fin  mise a jour des positions AR selon les input text */
-
-
         /*  gestion des FIXED and UNFIXED */
         $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
         if ($fixedornotvalue != NULL) {
@@ -249,10 +230,6 @@ class ArticleController extends Controller {
             }
         }
         /*  gestion des FIXED and UNFIXED */
-
-
-
-
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
         ));
