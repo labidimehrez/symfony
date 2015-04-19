@@ -1,6 +1,6 @@
 parameters:
 #    my_app_article.example.class: MyApp\ArticleBundle\Example
-
+ 
 services:
 #    my_app_article.example:
 #        class: %my_app_article.example.class%
@@ -13,9 +13,12 @@ services:
     collectify_style_manager:
         class: %collectify.style.manager.class%
         arguments: [@doctrine.orm.entity_manager]
-
+ 
     collectify_article_manager:
         class: %collectify.article.manager.class%
         arguments: [@doctrine.orm.entity_manager]
 
-    
+# src/OC/PlatformBundle/Resources/config/services.yml
+
+ 
+ 

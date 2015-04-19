@@ -30,30 +30,30 @@
 
                 <table width="670" height="383"  > 
                     <tr>
-                        <td width="158">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td width="" style="float: right;"> 
                             Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                         <td width="285">{{form_widget(form.username, 
-                 {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters'} ) }}</td>
+                 {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters',  'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
 
                         <td width="156">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
-                            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <td style="float: right;">
+                            
                             Fuldtnavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                         <td>{{form_widget(form.nomprenom,
-                          {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters'} ) }}</td>
+                          {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <td style="float: right;">
+                        
                             Adgangskode&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                         <td>
 
                             <div class="form-group">{{form_widget(form.plainPassword.first,
                             
-                               { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 'form-control strength',
+                               { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 'form-control strength','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
                                   'required':'required', 'pattern': '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}' ,
                                 'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}
                             </div> 
@@ -61,8 +61,9 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>Gentag Adgangskode<b  class="rouge">*</b></td>
-                        <td> {{form_widget(form.plainPassword.second)}}</td>
+                        <td style="float: right;">Gentag Adgangskode<b  class="rouge">*</b>&nbsp;&nbsp;</td>
+                        <td> {{form_widget(form.plainPassword.second , 
+{ 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
@@ -98,7 +99,14 @@
 
             </div>     
         </form>
-    </div></div>
+    </div>
+
+
+          <div style="padding-top: 70px;"> 
+               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
+</div>
 
 
 

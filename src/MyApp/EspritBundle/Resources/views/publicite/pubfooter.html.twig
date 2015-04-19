@@ -1,0 +1,34 @@
+{# empty Twig template #}
+ 
+
+{% for publicite in publicite %} 
+{% if publicite |length > 0 %}
+
+
+ 
+
+{%if publicite.position == 7 %}
+
+<div class="position7">
+    <table class="bordered" >         
+        <tr>
+          <td><img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border"></td>    
+        </tr>   
+    </table>
+</div>
+ 
+
+
+   
+        
+
+{% endif%}
+{% endif%}
+ {% endfor %} 
+
+
+
+
+ 
+
+ 

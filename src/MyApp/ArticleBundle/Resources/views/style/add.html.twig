@@ -13,10 +13,10 @@
    
             <form action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} style="width: 500px;" > 
                   
-            
+         
                  <div class="form-item">
                      <label for="color1" class="stylegras">Title &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
-    <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
+    <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters" onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" >    
                 </div>
                 
                 </br></br>
@@ -52,7 +52,15 @@
             </form>
       
 
- </div></div>
+ </div>
+
+
+          <div style="padding-top: 70px;"> 
+               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
+
+</div>
 
 
 {#########################}

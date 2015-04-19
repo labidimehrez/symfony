@@ -17,12 +17,15 @@
         <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
             <tr>             
                 <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>		
-                <td> <input type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
+                <td>
+       
+     
+                    <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
             </tr>	
             </br></br> 
             <tr> 
                 <td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                <td> <input type="password" id="password" name="_password" class="btn btn-warning btn-lg" style="width: 312px;" required="required" /></td>
+                <td> <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');"  type="password" id="password" name="_password" class="btn btn-warning btn-lg" style="width: 312px;" required="required" /></td>
             </tr>		
             <div id="lower">
                 </br>		
@@ -53,6 +56,13 @@
         <p  class="rouge">Registrer</p></a>
 
 
-</div>  </div>
+</div> 
+  
+  
+            <div style="padding-top: 70px;"> 
+               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
+  </div>
 
 {% endblock fos_user_content %}

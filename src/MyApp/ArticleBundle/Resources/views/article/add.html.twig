@@ -7,6 +7,9 @@
  {% block ajout_article%} 
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 </br> 
+
+<div class="contenudetemplate">
+
 <div class="arstyle">
     <form  action='{{path('my_app_article_article_add')}}' method="post" {{ form_enctype(form) }} > 
 
@@ -16,7 +19,7 @@
                 <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Headline&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.headline, { 'attr': {'placeholder': '  Headline ','class':'inp-form'} }) }}</td> 
+                <td> {{form_widget(form.headline, { 'attr': {'placeholder': '  Headline ','class':'inp-form', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' } }) }}</td> 
             </tr>
 
 
@@ -48,8 +51,9 @@
                 <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Tags&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                     <td><input required="true" type="text" class="form-control" id="tokenfield-1" value="" 
-                       name="inputtag"   placeholder="Type something and hit enter" tabindex="-1" style="width:315px;position: absolute; left: -10000px;" >
+                     <td>
+     <input required="true" type="text" class="form-control" id="tokenfield-1" value=""   
+                       name="inputtag"   placeholder="Type something and hit enter" tabindex="-1" style="width:315px;position: absolute; left: -10000px;" />
                     </td>
             </tr>
 
@@ -58,7 +62,7 @@
                 <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Style properties&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.style, { 'attr': {'placeholder': '  tags ','class':'inp-form','style': 'width: 100px' }} ) }}</td>
+                <td> {{form_widget(form.style, { 'attr': {'placeholder': '  tags ','class':'inp-form','style': 'width: 100px', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '  }} ) }}</td>
             </tr>
 
 
@@ -85,11 +89,11 @@
                 <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px; ">Link&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
-                <td> {{form_widget(form.lien, { 'attr': {'placeholder': '  link ','class':'inp-form'} }) }}</td>
+                <td> {{form_widget(form.lien, { 'attr': {     'placeholder': '  link ','class':'inp-form', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '  } }) }}</td>
             </tr>
 
 
-
+  <!--  <input type="text" onmouseover="tooltip.pop(this, '<h3>This Field is requiered</h3>');"  >-->
 
             </br></br>
 
@@ -114,7 +118,13 @@
 </div>
             
 
+          <div style="padding-top: 70px;"> 
+               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
 
+
+</div>
 
 
                                 {#######    Code test   ##}

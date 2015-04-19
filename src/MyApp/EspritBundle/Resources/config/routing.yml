@@ -31,5 +31,6 @@ my_app_esprit_test:
     pattern:  /test
     defaults: { _controller: MyAppEspritBundle:Default:test }
     
+ 
     
  

@@ -90,22 +90,34 @@
 
                     </br></br> 
 
-                    <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.nomprenom ) }}  </td></tr> 
+                    <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.nomprenom , { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     <tr><td style="float: right;"> 
                             Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
-                    <tr><td style="float: right;"> Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.datenaissance) }}   </td></tr>
+                    <tr><td style="float: right;"> Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                    </tr>
                     <tr><td style="float: right;">
                            
-                            Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first) }}  </td></tr>
-                    <tr><td style="float: right;">Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.second) }}  </td></tr>
+                            Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                    </tr>
+                    <tr><td style="float: right;">Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.plainPassword.second, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                    </tr>
                     <tr><td style="float: right;">
                            
-                            Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.addresse) }}  </td></tr>
+                            Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.addresse, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                    </tr>
                     <tr><td style="float: right;"> 
-                            Code Postal &nbsp; &nbsp;&nbsp; </td><td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
+                            Code Postal &nbsp; &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.codepostal, { 'attr': {'class': 'miniinput'} })}}    </td></tr>
                     <tr><td style="float: right;">  
-                            Ville&nbsp;&nbsp;&nbsp;</td><td> {{form_widget(form.ville)}}   </td></tr>
-                    <tr><td style="float: right;">Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.numeroportable) }} </td></tr>
+                            Ville&nbsp;&nbsp;&nbsp;</td>
+                        <td> {{form_widget(form.ville)}}   </td></tr>
+                    <tr><td style="float: right;">Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.numeroportable, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                    </tr>
 
                     <tr><td style="float: right;"> 
                            
@@ -139,6 +151,10 @@
         </form>
     </div>
 
+              <div style="padding-top: 70px;"> 
+               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
 </div>
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- css et js pour bundle JQuery  -->
@@ -148,8 +164,7 @@
 <!-- css et js pour bundle JQuery  -->
 
 
-<h2 class="demoHeaders"><br>
-
+ 
     <script>
         $("#dialog").dialog({
             autoOpen: false,
@@ -179,4 +194,4 @@
             event.preventDefault();
         });
     </script> 
-</h2> 
+ 

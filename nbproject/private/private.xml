@@ -12,21 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/inputajoutsousommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/config/routing/sujet.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/manage.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/souscommentairesdetails.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/sinonconnectenotif.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/addfromarticle.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/inputeditcommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/tooltipajoutnouveaucommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/inputajoutcommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/commentaireController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/imagevotecommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/imagevotesouscommentaire.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/style/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Security/login.html.twig</file>
         </group>
     </open-files>
 </project-private>

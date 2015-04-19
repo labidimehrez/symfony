@@ -35,7 +35,7 @@ class ArticleController extends Controller {
                     if ($inputtag == $tagtitle) {
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
-                        $sujet->setTags($tagaajouté);
+                        $article->setTags($tagaajouté);
                     }
                 }
 

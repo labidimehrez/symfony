@@ -123,4 +123,19 @@ class publiciteController extends Controller {
                     'form' => $form->createView(), 'publicite2' => $publicite
         ));
     }
+    
+    
+       public function showpubfooterAction() {
+            
+        $em = $this->getDoctrine()->getManager();      
+        
+        /*         * ********************   les pub externe  *************************** */
+        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findBy(array('position' => 7));
+
+        return $this->render('MyAppEspritBundle:publicite:pubfooter.html.twig', array(  'publicite' => $publicite)); 
+      
+        
+        }
+        
+        
 }
