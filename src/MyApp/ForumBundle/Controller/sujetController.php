@@ -128,11 +128,15 @@ class sujetController extends Controller {
 
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
 
+        $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->findAll();
+        
+        
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findAll();
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag,
-                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination, 'notif' => $notif
+                    'mostusedtag' => $mostusedtag, 'pagination' => $pagination, 'notif' => $notif,
+                    'commentaire' =>$commentaire
         ));
     }
 

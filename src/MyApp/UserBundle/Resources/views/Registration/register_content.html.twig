@@ -30,28 +30,28 @@
 
                 <table width="670" height="383"  > 
                     <tr>
-                        <td width="" style="float: right;"> 
-                            Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                        <td width="" style="">&nbsp;Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                            
                         <td width="285">{{form_widget(form.username, 
                  {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters',  'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
 
                         <td width="156">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="float: right;">
+                        <td style=""> &nbsp;&nbsp;&nbsp; Fuldtnavn&nbsp; <b  class="rouge">*</b>&nbsp;&nbsp;</td>
                             
-                            Fuldtnavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                          
                         <td>{{form_widget(form.nomprenom,
                           {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="float: right;">
+                        <td style=""> Adgangskode <b  class="rouge">*</b>  </td>
                         
-                            Adgangskode&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                           
                         <td>
 
-                            <div class="form-group">{{form_widget(form.plainPassword.first,
+                            <div class="">{{form_widget(form.plainPassword.first,
                             
                                { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 'form-control strength','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
                                   'required':'required', 'pattern': '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}' ,
@@ -61,7 +61,7 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="float: right;">Gentag Adgangskode<b  class="rouge">*</b>&nbsp;&nbsp;</td>
+                        <td style="">Gentag Adgangskode<b  class="rouge">*</b>&nbsp;&nbsp;</td>
                         <td> {{form_widget(form.plainPassword.second , 
 { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td>
                         <td>&nbsp;</td>
@@ -89,7 +89,7 @@
                 </br></br>
                 <div id="buttonsregistrer">
                     <input type="submit" style="width: 150px;" value="{{ 'opret profil'|trans({}, 'FOSUserBundle') }}"class="btn btn-warning btn-lg"  />
-                    <a href="{{path('my_app_esprit_homepage') }}" style="text-decoration:none;color:#c52821;">                                                                                                                                                      
+                    <a href="{{path('my_app_esprit_homepage') }}" style="color:#c52821;">                                                                                                                                                      
                         &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
                 </div>
 
