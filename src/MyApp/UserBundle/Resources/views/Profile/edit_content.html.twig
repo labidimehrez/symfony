@@ -3,20 +3,20 @@
 
 
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
- 
+
 <div class="contenudetemplate">
 
     <div class="image">
         <h2>Min profil</h2> 
         </br></br>
-        
+
         {% if app.user.image is not null  %}     
              {%if "http" in app.user.image %}
         <img src="{{app.user.image }}" class="grandimageuser" alt="" />   
              {%else%}
-         <img src="{{ asset('upload/' ~ app.user.id ~'/' ~ app.user.image)}}" class="grandimageuser" alt="" />  
+        <img src="{{ asset('upload/' ~ app.user.id ~'/' ~ app.user.image)}}" class="grandimageuser" alt="" />  
              {%endif%}
-         
+
         {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
              class="grandimageuser"alt="" />             
@@ -46,8 +46,8 @@
         <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
     </div>
     <div class="senestredebatt"></br>
-        <center>  <b><p class="rouge"> Seneste debatter</p></b> </center>
-
+        <center>  <b><p class="rouge"> Seneste debatter</p></b> </center> 
+ {{ render(controller('MyAppForumBundle:sujet:show')) }}
 
 
     </div>
@@ -64,11 +64,11 @@
     </br> </br> </br> </br></br> </br> </br> </br></br></br></br> </br></br> 
     <div style="background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#" style="width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Profile</a></li>
-            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Messages</a></li>
-            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Débats</a></li>
-            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Amis</a></li>
-            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;text-decoration:none;color: #000;">&nbsp;&nbsp;Notifications</a></li>
+            <li role="presentation" class="active"><a href="#" style="width:124px;color: #000;">&nbsp;&nbsp;Profile</a></li>
+            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Messages</a></li>
+            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Débats</a></li>
+            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Amis</a></li>
+            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Notifications</a></li>
         </ul>
     </div> 
 
@@ -88,24 +88,25 @@
 
 
 
-                    </br></br> 
+
 
                     <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.nomprenom , { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     <tr><td style="float: right;"> 
                             Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
-                    <tr><td style="float: right;"> Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                    <tr><td style="float: right;position: relative;  padding-bottom: 10px;  padding-top: 10px;"> 
+                            Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
                     <tr><td style="float: right;">
-                           
+
                             Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
                     <tr><td style="float: right;">Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.plainPassword.second, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
                     <tr><td style="float: right;">
-                           
+
                             Addresse &nbsp; <b  class="rouge" >*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.addresse, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
@@ -119,15 +120,16 @@
                         <td> {{form_widget(form.numeroportable, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
 
-                    <tr><td style="float: right;"> 
-                           
-                            Email&nbsp;&nbsp;&nbsp; </td><td> {{form_widget(form.email) }}  </td></tr>
-                    <tr><td style="float: right;"> 
-                            
-                            About Me &nbsp;   &nbsp;&nbsp; </td><td> {{form_widget(form.surmoi) }}    </td></tr>
+                    <tr><td style="float: right;"> Email&nbsp;&nbsp;&nbsp; </td><td> {{form_widget(form.email) }}  </td></tr>
+
+
+                    <tr><td style="float: right;">  About Me &nbsp;   &nbsp;&nbsp; </td><td> {{form_widget(form.surmoi) }}    </td></tr>
+
+
+
                     <tr>
-                        <td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td> 
-                    {# <td >{{ form_widget(form.image) }} </td>#}
+                       {# <td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td> #}
+                        <td style="  left: 275px;  top: 10px;position: relative;"> {{ form_widget(form.image) }} </td>
                     </tr> 
                 </table> 
 
@@ -151,10 +153,10 @@
         </form>
     </div>
 
-              <div style="padding-top: 70px;"> 
+    <div style="padding-top: 270px;"> 
                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
+    </div>
 </div>
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- css et js pour bundle JQuery  -->
@@ -164,34 +166,32 @@
 <!-- css et js pour bundle JQuery  -->
 
 
- 
-    <script>
-        $("#dialog").dialog({
-            autoOpen: false,
+
+<script>
+    $("#dialog").dialog({
+    autoOpen: false,
             width: 400,
             buttons: [
-                {
-                    text: "Ok",
+            {
+            text: "Ok",
                     click: function() {
-                        //  $(this).submit();
-           
-                            }
-                        });
-                    }
-                },
-                {
-                    text: "Cancel",
-                    click: function() {
-                        $(this).dialog("close");
-                    }
-                }
-            ]
-        });
+                    //  $(this).submit();
 
-        // Link to open the dialog
-        $("#dialog-link").click(function(event) {
-            $("#dialog").dialog("open");
+                    }
+            });
+            }
+            },
+            {
+            text: "Cancel",
+                    click: function() {
+                    $(this).dialog("close");
+                    }
+            }
+            ]
+    });
+            // Link to open the dialog
+            $("#dialog-link").click(function(event) {
+    $("#dialog").dialog("open");
             event.preventDefault();
-        });
-    </script> 
- 
+    });
+</script> 

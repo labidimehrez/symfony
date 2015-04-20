@@ -251,7 +251,7 @@
  
        {%for  sujetnotarticle in sujetnotarticle%}
          
-         {% if loop.length > 4  and  loop.length < 7 %}{# si cette div est pleine les titres seront PEU espacés #}
+         {% if loop.length > 4  and  loop.length < 8 %}{# si cette div est pleine les titres seront PEU espacés #}
         
        {% if sujetnotarticle.id != loop.last%}
         <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
@@ -287,7 +287,7 @@
         <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
        {%for  mostcommenteddebat in mostcommenteddebat%}
         
-         {% if loop.length > 4   %}{# si cette div est pleine les titres seront PEU espacés #}
+         {% if loop.length > 4  and loop.length < 8  %}{# si cette div est pleine les titres seront PEU espacés #}
         
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">

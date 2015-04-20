@@ -135,10 +135,13 @@ class ArticleController extends Controller {
 
 
         $sujetnotarticle = $sujetneverarticlebeforearray[0];
-
+        $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element*/
+           $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element*/
+           
+           
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
-                    , 'mostcommenteddebat' => $sortedtopic, 'sujetnotarticle' => $sujetnotarticle
+                    , 'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle
         ));
     }
 

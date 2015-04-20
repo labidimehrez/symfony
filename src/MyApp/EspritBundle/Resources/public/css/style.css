@@ -3016,14 +3016,9 @@
     margin-left: 150px;
 }
 #buttonsregistrerEditprofil {
-    /* position: absolute;
-     left: 320px;
-     top:770px;*/
-    /*width: 1000px;
-    height: 500px;*/
-
-    z-index: 6;
-    margin-left: 180px;
+  z-index: 6;
+  margin-left: 180px;
+  padding-left: 125px;
 }
 #buttonsregistrerpasswordprofil {
     //  position: absolute;
