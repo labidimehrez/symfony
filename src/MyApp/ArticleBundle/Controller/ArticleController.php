@@ -14,7 +14,12 @@ class ArticleController extends Controller {
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
-        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés */
+        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
+
+
+
+
+
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
         $article = new Article();
@@ -38,12 +43,12 @@ class ArticleController extends Controller {
                         $article->setTags($tagaajouté);
                     }
                 }
+                /* traitement special pour le choix des tags */
 
 
 
 
-
-
+//$counter
 
                 $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
@@ -116,7 +121,7 @@ class ArticleController extends Controller {
         /*  sortedtopic by comment */
         $sujetneverarticlebeforearray = array();
         foreach ($article as $ar) {
-            if ($ar->getPosition() < 16) {
+            if ($ar->getPosition() < 16) {/* il faut pas avoir un parmi 1-15 positions */
                 $s = $ar->getHeadline();
                 $qb1 = $em->createQueryBuilder();
                 $qb1->select('a')
@@ -133,16 +138,16 @@ class ArticleController extends Controller {
             }
         }
 
-
+        //var_dump($sujetneverarticlebeforearray);exit;
+        // if($sujetneverarticlebeforearray == NULL){array_push($sujetneverarticlebeforearray, "");}
         $sujetnotarticle = $sujetneverarticlebeforearray[0];
-        $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element*/
-           $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element*/
-           
-           
+        //var_dump($sujetnotarticle);exit;
+        $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element */
+        $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element */
+
+
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
-                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet
-                    , 'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle
-        ));
+                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet, 'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle));
     }
 
     public function deleteAction(article $article) {

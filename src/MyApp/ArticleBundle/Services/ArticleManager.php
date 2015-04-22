@@ -40,32 +40,32 @@ class ArticleManager {
 
     public function ShiftToRightNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
-         
-           
 
-          /*  $ArticleNOFixedPosition[0]->setPosition(3);  $this->persist($ArticleNOFixedPosition[0]);
-            $ArticleNOFixedPosition[1]->setPosition(2);  $this->persist($ArticleNOFixedPosition[1]);
-              $ArticleNOFixedPosition[2]->setPosition(1);  $this->persist($ArticleNOFixedPosition[2]);*/
-             for ($index = 0; $index < count($ArticleNOFixedPosition); $index++) {
-            $ArticleNOFixedPosition[$index]->setPosition( count($ArticleNOFixedPosition)-$index);
-            $this->persist($ArticleNOFixedPosition[$index ]);
-        }      
-            
-            
+
+
+        /*  $ArticleNOFixedPosition[0]->setPosition(3);  $this->persist($ArticleNOFixedPosition[0]);
+          $ArticleNOFixedPosition[1]->setPosition(2);  $this->persist($ArticleNOFixedPosition[1]);
+          $ArticleNOFixedPosition[2]->setPosition(1);  $this->persist($ArticleNOFixedPosition[2]); */
+        for ($index = 0; $index < count($ArticleNOFixedPosition); $index++) {
+            $ArticleNOFixedPosition[$index]->setPosition(count($ArticleNOFixedPosition) - $index);
+            $this->persist($ArticleNOFixedPosition[$index]);
+        }
     }
 
     public function ShiftToLeftNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
 
+        $index = count($ArticleNOFixedPosition)-1;
+        do {
+            $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index - 1]->getPosition());
+            $this->persist($ArticleNOFixedPosition[$index]);
+            $index--;
+          } while ( ($index >= 1) );/* tant que c vrai on repete */
+
+
         $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
         $this->persist($ArticleNOFixedPosition[0]);
-        /* le dernier element des non fixed AR est envoyé a une nouvelle position =  number dancien +1 */
-        for ($index = 0; $index < count($ArticleNOFixedPosition) - 1; $index++) {
-            $ArticleNOFixedPosition[$index + 1]->setPosition(count($ArticleNOFixedPosition) + 1);
-            $this->persist($ArticleNOFixedPosition[$index + 1]);
-        }
-        /* chaque ar non fixé aura position de son next */
     }
 
     public function incrementposition($article) {

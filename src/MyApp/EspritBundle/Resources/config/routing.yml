@@ -24,7 +24,9 @@ menu:
     resource: "@MyAppEspritBundle/Resources/config/routing/menu.yml"
     prefix: /menu 
 
- 
+signe:
+    resource: "@MyAppEspritBundle/Resources/config/routing/signe.yml"
+    prefix: /signe 
      
  
 my_app_esprit_test:

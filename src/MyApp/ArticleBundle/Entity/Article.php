@@ -72,7 +72,7 @@ class Article {
     /**
      * @var string
      *
-     * @ORM\Column(name="lien", type="string", length=255,unique=true)
+     * @ORM\Column(name="lien", type="string", length=255)
      */
     private $lien;
 

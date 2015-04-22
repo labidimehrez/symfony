@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
 
-                    <td><input required="true" type="text" class="form-control" id="tokenfield-1" value="" 
+                    <td><input required="true" type="text" class="form-control" id="tokenfield-1" value=""  
                                name="inputtag"   placeholder="Type something and hit enter" tabindex="-1" style="position: absolute; left: -10000px;" >
                     </td>
                 </tr>
@@ -56,8 +56,8 @@
                            {% for flashMessage in app.session.flashbag.get('message') %}{{ flashMessage }}{% endfor %}
                 </center>
 
-                <x style="float:right;">
-                    Notification {{form_widget(form.notification) }}<x>
+                <x style="float:right;"> Notification {{form_widget(form.notification) }}<x>
+                   
 
                         </td>  
                         </tr>

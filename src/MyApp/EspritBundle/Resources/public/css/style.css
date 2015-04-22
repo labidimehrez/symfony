@@ -382,16 +382,16 @@
     z-index: 200;
 }
 .Forside___Debat___Politik___Samfund___Indenrigs {
-  font-size: 11px;
-  font-family: "HelveticaNeueLTStd";
-  color: rgb(77, 77, 77);
-  line-height: 1.2;
-  text-align: left;
-  position: relative;
-  /* left: 1.937px; */
-  padding-left: 200px;
-  /* top: 366.756px; */
-  z-index: 399;
+    font-size: 11px;
+    font-family: "HelveticaNeueLTStd";
+    color: rgb(77, 77, 77);
+    line-height: 1.2;
+    text-align: left;
+    position: relative;
+    /* left: 1.937px; */
+    padding-left: 200px;
+    /* top: 366.756px; */
+    z-index: 399;
 }
 .Navigation_Bar {
     background-image: url("Navigation Bar.png");
@@ -2768,10 +2768,10 @@
 /*** la pub de a droite ***/
 
 .position7 {
-/*position: relative; */
-  left: 195px;
-  /* top: 2390px; */
-  z-index: 8000;
+    /*position: relative; */
+    left: 195px;
+    /* top: 2390px; */
+    z-index: 8000;
 }
 /*** la pub en bas  ***/
 /*width: 929px;height: 180px;padding-top: 1000px; padding-bottom: 43px;margin-right: 0px;margin-top: 17px;*/
@@ -2923,21 +2923,21 @@
     z-index: 621;
 }
 .Footer {
-  /*top: 100px; */
-  padding-top: 10px;
-  padding-bottom: 110px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-right: 0px;
-  /* margin-top: 100px; */
-  width: 930px;
-  cursor: default;
-  /* left: 195px; */
-  /* z-index: 8000; */
-  position: relative;
-  /* top: 2573px; */
-  height: 326px;
-  background-color: #c52821;
+    /*top: 100px; */
+    padding-top: 10px;
+    padding-bottom: 110px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    /* margin-top: 100px; */
+    width: 930px;
+    cursor: default;
+    /* left: 195px; */
+    /* z-index: 8000; */
+    position: relative;
+    /* top: 2573px; */
+    height: 326px;
+    background-color: #c52821;
 }
 /*******  Foooter ***************/
 
@@ -3017,9 +3017,9 @@
     margin-left: 150px;
 }
 #buttonsregistrerEditprofil {
-  z-index: 6;
-  margin-left: 180px;
-  padding-left: 125px;
+    z-index: 6;
+    margin-left: 180px;
+    padding-left: 125px;
 }
 #buttonsregistrerpasswordprofil {
     //  position: absolute;
@@ -3168,13 +3168,13 @@
    border:1px solid #8A0808;*/
 }
 .arstyle {
-position: relative;
-  /* left: 470px; */
-  /* top: 370px; */
-  /* width: 170px; */
-  /* left: 300px; */
-  /* height: 700px; */
-  margin-left: 300px;
+    position: relative;
+    /* left: 470px; */
+    /* top: 370px; */
+    /* width: 170px; */
+    /* left: 300px; */
+    /* height: 700px; */
+    margin-left: 300px;
 }
 .cadreblanc {
     position: absolute;
@@ -3286,8 +3286,8 @@ position: relative;
     padding-bottom: 10px;
 }
 .senestredebattelementcompresse {
-  margin-left: 20px;
-  margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 
@@ -3302,7 +3302,7 @@ position: relative;
 .contenudetemplate {
     /*background-color: #f8fef0;
     border: 1px solid #2EFE2E;*/
-
+    //  top: -25px;
     position: relative;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -3433,33 +3433,54 @@ position: relative;
 }
 .publicitenumero3 {
     position: relative;
-    left: 5px;
+    /*left: 5px;*/
     top: 100px;
+    clear: right;
+    float: right;
 }
 .publicitenumero4 {
     position: relative;
-    left: 634px;
-    top: 80px;
+    /*left: 634px;*/
+    top: 110px;
+    clear: right;
+    float: right;
 }
 .publicitenumero5 {
     position: relative;
-    top: 315px;
-    left: 330px;
+    top: 120px;
+    /* left: 330px;*/
+    clear: right;
+    float: right;
 }
 .publicitenumero6 {
+    /*  position: relative;
+      top: 580px;
+      left: 26px;*/
     position: relative;
-    top: 580px;
-    left: 26px;
+    top: 130px;
+    /* left: 26px; */
+    clear: right;
+    float: right;
 }
 .publicitenumero7 {
+    /* position: relative;
+     top: 590px;
+     left: 640px;*/
     position: relative;
-    top: 590px;
-    left: 640px;
+    top: 140px;
+    /* left: 640px; */
+    clear: right;
+    float: right;
 }
 .publicitenumero8 {
+    /*  position: relative;
+      top: 850px;
+      left: 335px;*/
     position: relative;
-    top: 850px;
-    left: 335px;
+    top: 150px;
+    /* left: 335px; */
+    clear: right;
+    float: right;
 }
 .articleposition1 {
     position: absolute;
@@ -3689,20 +3710,20 @@ div.ui-dialog-buttonpane button.cancel {
 
 .styleheadlinearticle1{font-size: 34px;font-family: HelveticaNeueLTStd;}
 .styleleinarticle1{  position: absolute;  bottom: 5px;  color: grey;}
- .imagearticle1{float:left;margin-right: 10px;height: 250px;width: 430px;}
- 
- 
+.imagearticle1{float:left;margin-right: 10px;height: 250px;width: 430px;}
+
+
 .styleheadlinearticle2{font-size: 34px;  font-family: HelveticaNeue;position: relative;  top: -10px; }
 .styleleinarticle2{position: absolute;  bottom: 5px;  left: 110px;  color: grey;}
- .imagearticle2{float:left;margin-right: 10px;height: 100px;width: 100px;}
+.imagearticle2{float:left;margin-right: 10px;height: 100px;width: 100px;}
 
 .styleheadlinearticle3{font-size: 30px;  font-family: HelveticaNeue;position: relative;  top: 5px;  left: 7px;}
 .styleleinarticle3{position: absolute;  bottom: 5px;   color: grey;}
- .imagearticle3{float:right;margin-left: 10px;height: 215px;width: 170px;}
+.imagearticle3{float:right;margin-left: 10px;height: 215px;width: 170px;}
 
 .styleheadlinearticle4{font-size: 30px;  font-family: HelveticaNeue;  position: relative;  top: 5px;  left: 7px;}
 .styleleinarticle4{position: absolute;  bottom: 5px;   color: grey;}
- .imagearticle4{float:right;margin-left: 10px;height:215px;width: 170px;}
+.imagearticle4{float:right;margin-left: 10px;height:215px;width: 170px;}
 
 .styleheadlinearticle5{  font-size: 24.711px;  font-family: HelveticaNeueLTStd;  position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle5{position: absolute;  bottom: 5px;   color: grey;}
@@ -3715,25 +3736,25 @@ div.ui-dialog-buttonpane button.cancel {
 
 .styleheadlinearticle7{  position: relative;  top: 5px;  left: 5px;font-size: 18px;font-family: Helvetica;}
 .styleleinarticle7{position: absolute;  top: 80px;   color: grey;}
- .imagearticle7{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
+.imagearticle7{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
 
 
 .styleheadlinearticle8{ font-size: 18px;font-family: Helvetica;  position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle8{  position: absolute;  top: 80px;  color: grey;}
- .imagearticle8{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
+.imagearticle8{position: absolute;  bottom: 0px;  right: 0px;height:200px;width: 220px;}
 
 .styleheadlinearticle9{ font-size: 30px;font-family: HelveticaNeue;   position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle9{position: absolute;  bottom: 5px;   color: grey;}
- .imagearticle9{float:left;margin-right: 10px;height:100px;width: 100px;}
+.imagearticle9{float:left;margin-right: 10px;height:100px;width: 100px;}
 
 
 .styleheadlinearticle10{ font-size: 30px;font-family: HelveticaNeue;    position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle10{position: absolute;  bottom: 5px;   color: grey;}
- .imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
+.imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
 
 .styleheadlinearticle11{ font-size: 30px;font-family: HelveticaNeue;    position: relative;  top: 5px;  left: 5px;}
 .styleleinarticle11{position: absolute;  bottom: 5px;   color: grey;}
- .imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
+.imagearticle10{float:left;margin-right: 10px;height:100px;width: 100px;}
 
 
 .styleheadlinearticle12{  font-size: 24px;font-family: HelveticaNeueLTStd;  position: relative;  top: 5px;  left: 5px;}

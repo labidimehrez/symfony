@@ -1,1 +1,15 @@
- 
+my_app_esprit_signe_add:
+    pattern:  /add
+    defaults: { _controller: MyAppEspritBundle:signe:add }
+my_app_esprit_signe_show:
+    pattern:  /show
+    defaults: { _controller: MyAppEspritBundle:signe:show }   
+my_app_esprit_signe_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: MyAppEspritBundle:signe:edit }
+my_app_esprit_signe_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: MyAppEspritBundle:signe:delete } 
+my_app_esprit_signe_manage:
+    pattern:  /manage
+    defaults: { _controller: MyAppEspritBundle:signe:manage } 

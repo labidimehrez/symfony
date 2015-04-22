@@ -4,10 +4,12 @@ namespace MyApp\EspritBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class signeController extends Controller
-{
-//    public function indexAction()
-//    {
-//        return $this->render('MyAppEspritBundle:Default:index.html.twig');
-//    }
+class signeController extends Controller {
+ 
+    public function showAction() {
+   
+         return $this->render('MyAppEspritBundle:signe:show.html.twig');
+                 
+    }
+
 }
