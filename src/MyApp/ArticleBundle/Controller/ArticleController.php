@@ -8,18 +8,15 @@ use MyApp\ArticleBundle\Form\ArticleType;
 use MyApp\ArticleBundle\Entity\Article;
 
 class ArticleController extends Controller {
-
-    public function addAction() {
+ 
+    
+    
+     public function addAction() {
         $em = $this->getDoctrine()->getManager();
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
-
-
-
-
-
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
         $article = new Article();
@@ -29,10 +26,10 @@ class ArticleController extends Controller {
             $form->bind($request);
             if ($form->isValid()) {
                 $article = $form->getData();
-
                 /* traitement special pour le choix des tags */
                 $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
                 $inputtag = $this->getRequest()->get('inputtag');
+                
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
@@ -44,53 +41,12 @@ class ArticleController extends Controller {
                     }
                 }
                 /* traitement special pour le choix des tags */
-
-
-
-
-//$counter
-
+                
                 $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
                 /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
                 $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout);
-                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
-                    /*                     * *     j 'affecte l a'rticle a la premiere position libre       ** */
-                    if ($lapositionchoisie != 'contenufixe') {
-                        $article->setPosition($positiondelarticleenajout);
-                        if (!empty($articleNOfixedposition)) {
-                            $manager->ShiftToLeftNofixedPosition();
-                        }
-                        $manager->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
-                    }
-                }
-                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
-                    /*                     * **    j 'affecte l a'rticle a la premiere position libre      *** */
-                    $article->setPosition($premierepositionlibre);
-                    $manager->persist($article);
-                }
-                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
-                    if ($lapositionchoisie != 'contenufixe') {
-                        if (!empty($articleNOfixedposition)) {
-                            $manager->ShiftToLeftNofixedPosition();
-                        }
-                        $article->setPosition($positiondelarticleenajout);
-                        $manager->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
-                    }
-                }
-                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
-                    if ($lapositionchoisie != 'contenufixe') {
-                        $article->setPosition($positiondelarticleenajout);
-                        $manager->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-                        throw $this->createNotFoundException('STOP. The chosen position is fixed. Please unfix this position first.');
-                    }
-                }
-                // $url = $this->getRequest()->headers->get("referer"); // renvoie previous url :D
+                $manager->traitementenajout($positiondelarticleenajout,$fixedpositionChecked,$lapositionchoisie,$articleNOfixedposition,$premierepositionlibre,$article);
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
@@ -108,7 +64,7 @@ class ArticleController extends Controller {
         $sortedtopic = array(); // tableau vide
         foreach ($sujet as $s) {
             $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($s->getId());
-            array_push($commentarray, $commentCount); /* inserer la valeur dans l array vide */
+          if($commentCount>0){  array_push($commentarray, $commentCount); }/* inserer la valeur dans l array vide */
         }
         rsort($commentarray); /* tri du tableau selon value */
         for ($index = 0; $index < count($commentarray); $index++) {
