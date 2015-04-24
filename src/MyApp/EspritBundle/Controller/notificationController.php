@@ -12,17 +12,15 @@ class notificationController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        $user = $this->getUser();
-        //var_dump($user);die();
+        $user = $this->getUser(); 
+   
         if (!$user) {
             $id = 0;
         } else {
             $id = $user->getId();
         }
-
-//        var_dump($id);die();
-        /*         * *********************************** */
-
+             /// if id user est celui id de comment.sujet.user
+        
         $numberNotif = $em->getRepository('MyAppEspritBundle:notification')->getNumberAllNotif($id); // get a number of rows
         $array = array();  // declaration tableau vide a utiliser apres
         $array["1"] = $numberNotif; // inserer l entier dans le tableau

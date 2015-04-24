@@ -68,6 +68,13 @@ class notification {
      */
     private $datecreation;
 
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="userConcerned", type="integer",nullable=false)
+     */
+    private $userConcerned;
     /**
      * Get id
      *
@@ -150,8 +157,16 @@ class notification {
     public function getDatecreation() {
         return $this->datecreation;
     }
+    public function getUserConcerned() {
+        return $this->userConcerned;
+    }
 
-    public function __construct() {
+    public function setUserConcerned($userConcerned) {
+        $this->userConcerned = $userConcerned;
+        return $this;
+    }
+
+        public function __construct() {
 
         $this->datecreation = new \DateTime();
     }

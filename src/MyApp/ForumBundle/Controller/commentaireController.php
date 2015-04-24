@@ -36,12 +36,12 @@ class commentaireController extends Controller {
                 
           
                 
-                
- 
+                $userConcerned = $sujet->getUser()->getId();/// id int du user qui a ecrit le sujet 
+          
                 $notif = new notification();  
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
-                $manager->AddNotifFromComment($user, $commentaire, $notif,$sujet->getNotification());
- 
+                $manager->AddNotifFromComment($user, $commentaire, $notif,$sujet->getNotification(),$userConcerned);
+                    /* il faut ajouter le user concerné par la notif */
  
                 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));

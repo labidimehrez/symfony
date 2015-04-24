@@ -26,13 +26,14 @@ class NotificationManager {
         return $this->repository->find($id);
     }
 
-    public function AddNotifFromComment($user, $commentaire, $notif,$boolean) {
-        if (($user != NULL) && ($notif != NULL) && ($commentaire != NULL)&& ($boolean ==='1') ) {
+    public function AddNotifFromComment($user, $commentaire, $notif,$boolean,$userConcerned) {
+        if (($user != NULL) && ($notif != NULL) && ($commentaire != NULL)&& ($boolean ==='1')&& ($userConcerned != NULL) ) {
             $notif->setContenu("has commented your topic");
-            //   $notif->setLien("my_app_forum_sujet_voir");      
+            $notif->setLien("my_app_forum_sujet_voir");      
             $notif->setUser($user);
             $notif->setCommentaire($commentaire);
             $notif->setLu(FALSE);
+             $notif->setUserConcerned($userConcerned);
            $this->doFlush($notif);
         } else {
             return NULL;
