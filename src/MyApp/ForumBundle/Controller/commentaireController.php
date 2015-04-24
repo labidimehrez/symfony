@@ -27,23 +27,23 @@ class commentaireController extends Controller {
             $form->bind($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
-                /*** je recuperer l id de user connecté **/
+                /*                 * * je recuperer l id de user connecté * */
                 $commentaire->setUser($user);
-                /*                 * ** je recuperer l id de user connecté **/
+                /*                 * ** je recuperer l id de user connecté * */
                 $commentaire->setSujet($sujet);
                 $em->persist($commentaire);
                 $em->flush();
-                
-          
-                
-                $userConcerned = $sujet->getUser()->getId();/// id int du user qui a ecrit le sujet 
-          
-                $notif = new notification();  
+
+
+
+                $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet 
+
+                $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
-                $manager->AddNotifFromComment($user, $commentaire, $notif,$sujet->getNotification(),$userConcerned);
-                    /* il faut ajouter le user concerné par la notif */
- 
-                
+                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned);
+                /* il faut ajouter le user concerné par la notif */
+
+
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
@@ -75,13 +75,14 @@ class commentaireController extends Controller {
                 $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
- 
-                
-                
-                
-                
-                
-                
+
+                $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet         
+                $notif = new notification();
+                $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
+                $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
+                /* il faut ajouter le user concerné par la notif */
+
+
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
