@@ -8,10 +8,9 @@ use MyApp\ArticleBundle\Form\ArticleType;
 use MyApp\ArticleBundle\Entity\Article;
 
 class ArticleController extends Controller {
- 
-    
-    
-     public function addAction() {
+
+    public function addAction() {
+        
         $em = $this->getDoctrine()->getManager();
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
@@ -29,7 +28,7 @@ class ArticleController extends Controller {
                 /* traitement special pour le choix des tags */
                 $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
                 $inputtag = $this->getRequest()->get('inputtag');
-                
+
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
@@ -41,12 +40,12 @@ class ArticleController extends Controller {
                     }
                 }
                 /* traitement special pour le choix des tags */
-                
+
                 $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
                 /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
                 $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout);
-                $manager->traitementenajout($positiondelarticleenajout,$fixedpositionChecked,$lapositionchoisie,$articleNOfixedposition,$premierepositionlibre,$article);
+                $manager->traitementenajout($positiondelarticleenajout, $fixedpositionChecked, $lapositionchoisie, $articleNOfixedposition, $premierepositionlibre, $article);
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }
@@ -59,22 +58,13 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
-        /*  sortedtopic by comment */
-        $commentarray = array(); // tableau vide
-        $sortedtopic = array(); // tableau vide
-        foreach ($sujet as $s) {
-            $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($s->getId());
-          if($commentCount>0){  array_push($commentarray, $commentCount); }/* inserer la valeur dans l array vide */
-        }
-        rsort($commentarray); /* tri du tableau selon value */
-        for ($index = 0; $index < count($commentarray); $index++) {
-            for ($jndex = 0; $jndex < count($sujet); $jndex++) {
-                if ($em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($sujet[$jndex]->getId()) == $commentarray[$index]) {
-                    array_push($sortedtopic, $sujet[$jndex]); /* inserer la valeur dans l array vide */
-                }
-            }
-        }
-        /*  sortedtopic by comment */
+
+            /*  sortedtopic by comment */
+         $managerarticle = $this->get('collectify_article_manager'); /* em pour article !! */
+         $sortedtopic= $managerarticle->debatsortedmostcommented();
+        
+
+        
         $sujetneverarticlebeforearray = array();
         foreach ($article as $ar) {
             if ($ar->getPosition() < 16) {/* il faut pas avoir un parmi 1-15 positions */
@@ -97,10 +87,9 @@ class ArticleController extends Controller {
         //var_dump($sujetneverarticlebeforearray);exit;
         // if($sujetneverarticlebeforearray == NULL){array_push($sujetneverarticlebeforearray, "");}
         $sujetnotarticle = $sujetneverarticlebeforearray[0];
-        //var_dump($sujetnotarticle);exit;
+ 
         $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element */
         $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element */
-
 
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
                     'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet, 'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle));

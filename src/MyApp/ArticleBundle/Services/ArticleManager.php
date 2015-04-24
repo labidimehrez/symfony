@@ -1,13 +1,18 @@
 <?php
 namespace MyApp\ArticleBundle\Services;
 use Doctrine\ORM\EntityManager;use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 class ArticleManager {
+    
     private $em;
     private $repository;
+      private $repositorydebat;
     public function __construct(EntityManager $em) {
         $this->em = $em;
         $this->repository = $em->getRepository('MyAppArticleBundle:article');
+         $this->repositorydebat = $em->getRepository('MyAppForumBundle:sujet');
     }
+    
     public function Disponiblitedelapositionchoisie($positiondelarticleenajout) {
         $contenudelapositionchoisie = $this->repository->getDisponiblite($positiondelarticleenajout);
         if (empty($contenudelapositionchoisie)) {
@@ -48,7 +53,7 @@ public function traitementenajout($positiondelarticleenajout,$fixedpositionCheck
                         }
                         $this->persist($article);
                     } elseif ($lapositionchoisie === 'contenufixe') {
-         throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");            
+                         throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");            
                         
                     }
                 }
@@ -95,6 +100,37 @@ public function traitementenajout($positiondelarticleenajout,$fixedpositionCheck
         $this->persist($ArticleNOFixedPosition[0]);
     }
 
+    
+     public function debatsortedmostcommented() {
+         
+         $sujet = $this->repositorydebat->getAllsujetrecent();
+                 /*  sortedtopic by comment */
+        $commentarray = array(); // tableau vide
+        $sortedtopic = array(); // tableau vide
+        foreach ($sujet as $s) {
+            $commentCount = $this->repositorydebat->getCommentCountBySujet($s->getId());
+            if ($commentCount > 0) {
+                array_push($commentarray, $commentCount);
+            }/* inserer la valeur dans l array vide */
+        }
+        rsort($commentarray); /* tri du tableau selon value */
+
+
+        for ($index = 0; $index < count($commentarray); $index++) {
+            for ($jndex = 0; $jndex < count($sujet); $jndex++) {
+                if ($this->repositorydebat->getCommentCountBySujet($sujet[$jndex]->getId()) == $commentarray[$index]) {
+
+                    if (!in_array($sujet[$jndex], $sortedtopic)) {
+                        array_push($sortedtopic, $sujet[$jndex]);
+                    } /* inserer la valeur si elle n'existe pas deja dans l array vide */
+                }
+            }
+        }
+        return $sortedtopic;
+     }
+    
+    
+    
     public function getallarticleId($article) {
         if ($article != NULL) {
             return array_values($article);

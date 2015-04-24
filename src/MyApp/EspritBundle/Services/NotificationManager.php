@@ -42,7 +42,7 @@ class NotificationManager {
 
         public function AddNotifFromSubComment($user, $commentaire, $notif,$boolean,$userConcerned) {
         if (($user != NULL) && ($notif != NULL) && ($commentaire != NULL)&& ($boolean ==='1')&& ($userConcerned != NULL) ) {
-            $notif->setContenu("has commented your topic");
+            $notif->setContenu("has replied your comment");
             $notif->setLien("my_app_forum_sujet_sujetrecent");      
             $notif->setUser($user);
             $notif->setCommentaire($commentaire);
