@@ -2,12 +2,14 @@
 
 {% for notif in notif %}
 
-
-        <li class=" notif">
+      {% if notif.lu == 1 %}
+        <li class="notif">
           
              {% set route = notif.lien %}  {% set id = notif.sujet.id %}
          
-         <a href="{{path(route,{'id':id} ) }}" >
+            {% if route is not null %}   <a href="{{path(route,{'id':id} ) }}" > {%else%}
+             <a href="#" > {%endif%}
+                 
             <div class="imageblock">
                 {% if notif.user.image is not null %}
                 <img src="{{notif.user.image}}" class="notifimage" />
@@ -19,11 +21,37 @@
               <div class="message">{{notif.contenu}} 
               </div>
               <div class="messageinfo">
-                <i class="icon-comment"></i>4 hours ago
+                <i class="icon-comment"></i>{{ time_diff(notif.datecreation) }}
               </div>
             </div>
           </a>
         </li>
- 
-
+        {%else%}
+        
+  {# background-color: #fff8dc#}  
+      
+        <li class="notif" style="background-color: #fff8dc;">
+          
+             {% set route = notif.lien %}  {% set id = notif.sujet.id %}
+         
+            {% if route is not null %}   <a href="{{path(route,{'id':id} ) }}" > {%else%}
+             <a href="#" > {%endif%}
+                 
+            <div class="imageblock">
+                {% if notif.user.image is not null %}
+                <img src="{{notif.user.image}}" class="notifimage" />
+                {%else%}
+                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="notifimage"  />
+                {%endif%}
+            </div> 
+            <div class="messageblock">
+              <div class="message">{{notif.contenu}} 
+              </div>
+              <div class="messageinfo">
+                <i class="icon-comment"></i>{{ time_diff(notif.datecreation) }}
+              </div>
+            </div>
+          </a>
+        </li>
+    {%endif%}  
 {% endfor %}

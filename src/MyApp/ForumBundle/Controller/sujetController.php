@@ -12,7 +12,6 @@ class sujetController extends Controller {
 
     public function addAction() {
         $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
-
         /*         * ** je recuperer l id de user connecté * */
         $user = $this->container->get('security.context')->getToken()->getUser();
         $user->getId();
@@ -51,10 +50,10 @@ class sujetController extends Controller {
                 $em->persist($sujet);
                 $em->flush();
                 /*                 * **                       ajout de notification                        ** */
-                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
-                $notif = new notification();
-                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
-                $manager->persist($notif1);
+//                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
+//                $notif = new notification();
+//                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
+//                $manager->persist($notif1);
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
             }

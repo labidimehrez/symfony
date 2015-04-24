@@ -89,6 +89,12 @@ fos_comment:
             comment: MyApp\ForumBundle\Entity\Comment
             thread: MyApp\ForumBundle\Entity\Thread
             vote: MyApp\ForumBundle\Entity\Vote
+#app/config/config.yml
+services:
+    debug.twig.extension:
+        class: Twig_Extensions_Extension_Debug
+        tags: [{ name: 'twig.extension' }]
+        
 assetic:
     bundles: [ "FOSCommentBundle" ]   
     

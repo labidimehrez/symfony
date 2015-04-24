@@ -27,7 +27,7 @@ class commentaire {
      * @ORM\JoinColumn(name="sujet_id", referencedColumnName="id")
      */
     protected $sujet;
-
+    protected $notifications;
     /**
      * @var string
      *
@@ -172,5 +172,12 @@ class commentaire {
 
         $this->datecreation = new \DateTime();
     }
+    public function getNotifications() {
+        return $this->notifications;
+    }
 
+    public function setNotifications($notifications) {
+        $this->notifications = $notifications;
+        return $this;
+    }
 }

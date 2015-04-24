@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use MyApp\ForumBundle\Form\commentaireType;
 use MyApp\ForumBundle\Entity\commentaire;
 use MyApp\EspritBundle\Entity\notification;
+use MyApp\EspritBundle\Entity\publicite;
 
 class commentaireController extends Controller {
 
@@ -26,12 +27,23 @@ class commentaireController extends Controller {
             $form->bind($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
-                /*                 * ** je recuperer l id de user connecté * */
+                /*** je recuperer l id de user connecté **/
                 $commentaire->setUser($user);
-                /*                 * ** je recuperer l id de user connecté * */
+                /*                 * ** je recuperer l id de user connecté **/
                 $commentaire->setSujet($sujet);
                 $em->persist($commentaire);
                 $em->flush();
+                
+          
+                
+                
+ 
+                $notif = new notification();  
+                $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
+                $manager->AddNotifFromComment($user, $commentaire, $notif,$sujet->getNotification());
+ 
+ 
+                
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
@@ -63,6 +75,13 @@ class commentaireController extends Controller {
                 $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
+ 
+                
+                
+                
+                
+                
+                
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
@@ -132,8 +151,7 @@ class commentaireController extends Controller {
             $em->flush();
             return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
         }
-        return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', 
-                array('id' => $id,'souscommentaire'=>$souscommentaire, 'form' => $form->createView()));
+        return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('id' => $id, 'souscommentaire' => $souscommentaire, 'form' => $form->createView()));
     }
 
 }
