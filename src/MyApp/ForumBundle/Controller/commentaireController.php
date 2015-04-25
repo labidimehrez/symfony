@@ -40,7 +40,7 @@ class commentaireController extends Controller {
 
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
-                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned);
+                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned,$sujet);
                 /* il faut ajouter le user concerné par la notif */
 
 

@@ -26,14 +26,17 @@ class NotificationManager {
         return $this->repository->find($id);
     }
 
-    public function AddNotifFromComment($user, $commentaire, $notif,$boolean,$userConcerned) {
+    public function AddNotifFromComment($user, $commentaire, $notif,$boolean,$userConcerned,$sujet) {
         if (($user != NULL) && ($notif != NULL) && ($commentaire != NULL)&& ($boolean ==='1')&& ($userConcerned != NULL) ) {
             $notif->setContenu("has commented your topic");
-            $notif->setLien("my_app_forum_sujet_sujetrecent");      
+            $notif->setLien("my_app_forum_sujet_voir");      
             $notif->setUser($user);
-            $notif->setCommentaire($commentaire);
+           
+            $notif->setCommentaire($commentaire);  
+            //$notif->setSujet($sujet);
             $notif->setLu(FALSE);
-             $notif->setUserConcerned($userConcerned);
+             $notif->setUserConcerned($userConcerned);    
+             $notif->setSujet($sujet);
            $this->doFlush($notif);
         } else {
             return NULL;
@@ -43,8 +46,8 @@ class NotificationManager {
         public function AddNotifFromSubComment($user, $commentaire, $notif,$boolean,$userConcerned) {
         if (($user != NULL) && ($notif != NULL) && ($commentaire != NULL)&& ($boolean ==='1')&& ($userConcerned != NULL) ) {
             $notif->setContenu("has replied your comment");
-            $notif->setLien("my_app_forum_sujet_sujetrecent");      
-            $notif->setUser($user);
+            $notif->setLien("my_app_forum_sujet_voir");      
+            $notif->setUser($user); 
             $notif->setCommentaire($commentaire);
             $notif->setLu(FALSE);
              $notif->setUserConcerned($userConcerned);
@@ -65,12 +68,10 @@ class NotificationManager {
         }
     }
 
-    public function remove($notif) {
+    public function changestate($notif) {
         if ($notif != NULL) {
-            $this->em->remove($notif);
-            $this->em->flush();
-
-            return $notif;
+            $notif->setLu(TRUE);
+           $this->doFlush($notif);
         }
     }
 

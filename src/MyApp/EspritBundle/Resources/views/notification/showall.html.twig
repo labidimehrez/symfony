@@ -5,11 +5,11 @@
       {% if notif.lu == 1 %}
 <li class="notif">
 
+
              {% set route = notif.lien %}  {#% set id = notif.sujet.id %#}
 
-             {% if route is not null %} 
-    
-                <a href="{{path(route) }}" >
+            {% if route is not null %}  
+             <a href="{{path(route,{'id':notif.sujet.id} ) }}" > 
                     
              {%else%}
                     <a href="#" >
@@ -36,10 +36,12 @@
   {# background-color: #fff8dc#}  
 <li class="notif" style="background-color: #fff8dc;">
 
-             {% set route = notif.lien %}  {% set id = notif.sujet.id %}
+             {% set route = notif.lien %}  {#% set id = notif.sujet.id %#}
 
-            {% if route is not null %}   <a href="{{path(route,{'id':id} ) }}" > {%else%}
-        <a href="#" > {%endif%}
+            {% if route is not null %}  
+             <a href="{{path(route,{'id':notif.sujet.id} ) }}" > 
+            {%else%}
+             <a href="#" > {%endif%}
 
             <div class="imageblock">
                 {% if notif.user.image is not null %}

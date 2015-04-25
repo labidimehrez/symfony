@@ -27,20 +27,20 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
-                
-                /* traitement special pour le choix des tags*/
+
+                /* traitement special pour le choix des tags */
                 $inputtag = $this->getRequest()->get('inputtag');
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
-                    if ( $inputtag == $tagtitle  ) {
+                    if ($inputtag == $tagtitle) {
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
                         $sujet->setTags($tagaajouté);
                     }
                 }
-    
+
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
@@ -128,14 +128,14 @@ class sujetController extends Controller {
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
 
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->findAll();
-        
-        
+
+
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findAll();
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         return $this->render('MyAppForumBundle:sujet:sujetrecent.html.twig', array(
                     'sujet' => $sujet, 'publicite' => $publicite, 'tag' => $tag,
                     'mostusedtag' => $mostusedtag, 'pagination' => $pagination, 'notif' => $notif,
-                    'commentaire' =>$commentaire
+                    'commentaire' => $commentaire
         ));
     }
 
@@ -207,11 +207,16 @@ class sujetController extends Controller {
         }
 
         $managersujet->IncrementandSetNewDateLus($sujet); /* increment NBlect sujet et update DateLus */
-       
-        $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id)); //** get the associated notif to remove ***/
 
-        $managernotif = $this->get('collectify_notification_manager');/** equivalent de em manager * */
-        $managernotif->remove($notif);
+        $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
+        $managernotif = $this->get('collectify_notification_manager');
+
+        $user = $this->container->get('security.context')->getToken()->getUser();/* le user en question voit la notif*/
+        if ($user->getId() == $notif->getUserConcerned()) {
+            $managernotif->changestate($notif); /* la notif devient en blanc " lu = TRUE " */
+        }
+
+
 
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
         $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
@@ -247,8 +252,6 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:mostreadsujet.html.twig');
     }
 
-
-
     public function changethreadAction(Request $request) {
 
         $manager = $this->get('collectify_sujet_manager');
@@ -267,13 +270,12 @@ class sujetController extends Controller {
                     'sujet' => $sujet, 'form' => $form->createView()
         ));
     }
-    
-    
-        public function addfromarticleAction($id) {
+
+    public function addfromarticleAction($id) {
         $em = $this->getDoctrine()->getManager();
         $articlesrc = $em->getRepository('MyAppArticleBundle:article')->find($id);
-      
-        
+
+
         $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
         $user = $this->container->get('security.context')->getToken()->getUser();
         $user->getId();
@@ -288,20 +290,20 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
-                
-                /* traitement special pour le choix des tags*/
+
+                /* traitement special pour le choix des tags */
                 $inputtag = $this->getRequest()->get('inputtag');
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
-                    if ( $inputtag == $tagtitle  ) {
+                    if ($inputtag == $tagtitle) {
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
                         $sujet->setTags($tagaajouté);
                     }
                 }
-    
+
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
@@ -322,23 +324,23 @@ class sujetController extends Controller {
                 $this->get('session')->getFlashBag()->set('message', ' ( Des Champs invalides ou existe deja !! )');
 
                 return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig', array(
-               'form' => $form->createView()));
+                            'form' => $form->createView()));
             }
         }
 
-    
+
 
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
 
 
 
 
-        return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig',
-                array('form' => $form->createView(), 'tags' => $tags , 'articlesrc' => $articlesrc ,'id'=>$id));
+        return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig', array('form' => $form->createView(), 'tags' => $tags, 'articlesrc' => $articlesrc, 'id' => $id));
     }
+
 }
-    
-    //    public function specialeditAction($id) {
+
+//    public function specialeditAction($id) {
 //
 //        $em = $this->getDoctrine()->getManager();
 //        $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
