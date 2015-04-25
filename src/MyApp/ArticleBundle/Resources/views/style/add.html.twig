@@ -5,8 +5,15 @@
  {% block ajout_arstyle%}
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
+
 <script src="http://code.jquery.com/jquery.js"></script>
- 
+
+<script src="{{ asset('bundles/myappesprit/css/couleur/jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/myappesprit/css/couleur/farbtastic.js') }}" type="text/javascript"></script>   
+<script src="{{ asset('bundles/myappesprit/css/couleur/scriptcouleur.js') }}" type="text/javascript"></script>  
+<link  href="{{ asset('bundles/myappesprit/css/couleur/stylecouleur.css') }}" rel="stylesheet" type="text/css" media="screen"/> 
+<link  href="{{ asset('bundles/myappesprit/css/couleur/farbtastic.css') }}" rel="stylesheet" type="text/css" media="screen"/> 
+
 <div class="contenudetemplate">
     <div style="margin-left: 150px;margin-top: 150px;">
         
@@ -61,16 +68,11 @@
           </div>
 
 </div>
-
-
-{#########################}
-<link  href="{{ asset('bundles/myappesprit/css/couleur/stylecouleur.css') }}" rel="stylesheet" type="text/css" media="screen"/> 
- <script src="{{ asset('bundles/myappesprit/css/couleur/scriptcouleur.js') }}" type="text/javascript"></script>  
-<script type="text/javascript">
+<!--<script type="text/javascript">
    jQuery.noConflict();		 
    jQuery(document).ready(function() {
        jQuery().UItoTop2({easingType: 'easeOutQuart'});
    }); 
-</script>
+</script> -->
 {% endblock %}
 
