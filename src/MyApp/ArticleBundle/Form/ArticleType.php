@@ -15,7 +15,7 @@ class ArticleType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('headline')
-                ->add('urlimg')
+                ->add('file','file', array('required' => false))
                 ->add('copyrights', null, array('required' => false))
                 
                 ->add('fixedposition', 'checkbox', array('required' => false, 'data' => false))

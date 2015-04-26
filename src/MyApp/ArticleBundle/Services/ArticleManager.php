@@ -1,18 +1,22 @@
 <?php
+
 namespace MyApp\ArticleBundle\Services;
-use Doctrine\ORM\EntityManager;use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ArticleManager {
-    
+
     private $em;
     private $repository;
-      private $repositorydebat;
+    private $repositorydebat;
+
     public function __construct(EntityManager $em) {
         $this->em = $em;
         $this->repository = $em->getRepository('MyAppArticleBundle:article');
-         $this->repositorydebat = $em->getRepository('MyAppForumBundle:sujet');
+        $this->repositorydebat = $em->getRepository('MyAppForumBundle:sujet');
     }
-    
+
     public function Disponiblitedelapositionchoisie($positiondelarticleenajout) {
         $contenudelapositionchoisie = $this->repository->getDisponiblite($positiondelarticleenajout);
         if (empty($contenudelapositionchoisie)) {
@@ -26,12 +30,72 @@ class ArticleManager {
         }
         return $lapositionchoisie;
     }
+
     public function getOne($id) {
         return $this->repository->find($id);
     }
+
     public function getARnumber() {
         return intval($this->repository->getARnumber()); /* return int qui contient 'number de AR' */
     }
+
+    public function traitementenajout($positiondelarticleenajout, $fixedpositionChecked, $lapositionchoisie, $articleNOfixedposition, $premierepositionlibre, $article) {
+
+        if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
+            /*             * * j 'affecte l a'rticle a la premiere position libre       ** */
+            if ($lapositionchoisie != 'contenufixe') {
+                $article->setPosition($positiondelarticleenajout);
+                if (!empty($articleNOfixedposition)) {
+                    $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
+                }
+                $this->persist($article);
+            } elseif ($lapositionchoisie === 'contenufixe') {
+                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+            }
+        }
+        if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
+            /*             * **    j 'affecte l a'rticle a la premiere position libre      *** */
+            $article->setPosition($premierepositionlibre);
+            $this->persist($article);
+        }
+        if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
+            if ($lapositionchoisie != 'contenufixe') {
+                if (!empty($articleNOfixedposition)) {
+                    $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
+                }
+                $article->setPosition($positiondelarticleenajout);
+                $this->persist($article);
+            } elseif ($lapositionchoisie === 'contenufixe') {
+                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+            }
+        }
+        if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
+            if ($lapositionchoisie != 'contenufixe') {
+                $article->setPosition($positiondelarticleenajout);
+                $this->persist($article);
+            } elseif ($lapositionchoisie === 'contenufixe') {
+                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+            }
+        }
+    }
+
+    public function ShiftToLeftNofixedPosition($position) {
+        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+        $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
+
+        $index = $totalnumberofar - $position; /* la translation concerne la position en ajout et ses successeurs */
+        do {
+
+            if ($ArticleNOFixedPosition[$index - 1]->getPosition() > $position) {
+                $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index - 1]->getPosition());
+                $this->persist($ArticleNOFixedPosition[$index]);
+            }
+            $index--;
+        } while (($index >= 1)); /* tant que c vrai on repete */
+        $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
+        $this->persist($ArticleNOFixedPosition[0]);
+    }
+
     public function ShiftToRightNofixedPosition() {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         /*  $ArticleNOFixedPosition[0]->setPosition(3);  $this->persist($ArticleNOFixedPosition[0]);
@@ -42,69 +106,11 @@ class ArticleManager {
             $this->persist($ArticleNOFixedPosition[$index]);
         }
     }
-public function traitementenajout($positiondelarticleenajout,$fixedpositionChecked,$lapositionchoisie,$articleNOfixedposition,$premierepositionlibre,$article){
-         
-           if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === TRUE)) {
-                    /*** j 'affecte l a'rticle a la premiere position libre       ** */
-                    if ($lapositionchoisie != 'contenufixe') {
-                        $article->setPosition($positiondelarticleenajout);
-                        if (!empty($articleNOfixedposition)) {
-                            $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                        }
-                        $this->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-                         throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");            
-                        
-                    }
-                }
-                if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
-                    /*                     * **    j 'affecte l a'rticle a la premiere position libre      *** */
-                    $article->setPosition($premierepositionlibre);
-                    $this->persist($article);
-                }
-                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
-                    if ($lapositionchoisie != 'contenufixe') {
-                        if (!empty($articleNOfixedposition)) {
-                            $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                        }
-                        $article->setPosition($positiondelarticleenajout);
-                        $this->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-         throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");            
-                    }
-                }
-                if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
-                    if ($lapositionchoisie != 'contenufixe') {
-                        $article->setPosition($positiondelarticleenajout);
-                        $this->persist($article);
-                    } elseif ($lapositionchoisie === 'contenufixe') {
-         throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");            
-                    }
-                }
-     }
-    
-    public function ShiftToLeftNofixedPosition($position) {
-        $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
-        $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
-  
-        $index = $totalnumberofar - $position ;/* la translation concerne la position en ajout et ses successeurs */
-        do {
-            
-         if($ArticleNOFixedPosition[$index - 1]->getPosition()>$position){  
-                 $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index - 1]->getPosition());
-                 $this->persist($ArticleNOFixedPosition[$index]);
-             }
-            $index--;
-          } while ( ($index >= 1) );/* tant que c vrai on repete */
-        $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
-        $this->persist($ArticleNOFixedPosition[0]);
-    }
 
-    
-     public function debatsortedmostcommented() {
-         
-         $sujet = $this->repositorydebat->getAllsujetrecent();
-                 /*  sortedtopic by comment */
+    public function debatsortedmostcommented() {
+
+        $sujet = $this->repositorydebat->getAllsujetrecent();
+        /*  sortedtopic by comment */
         $commentarray = array(); // tableau vide
         $sortedtopic = array(); // tableau vide
         foreach ($sujet as $s) {
@@ -127,30 +133,45 @@ public function traitementenajout($positiondelarticleenajout,$fixedpositionCheck
             }
         }
         return $sortedtopic;
-     }
-    
-    
-    
+    }
+
+    public function makeFIXormakeUNFIX($fixedornotvalue) {
+        $article = $this->repository->findAll();
+        if ($fixedornotvalue != NULL) {
+            foreach ($article as $a) {
+                if (in_array($a->getId(), array_values($fixedornotvalue))) {
+                    $this->makeFIX($a);
+                } else {
+                    $this->makeUNFIX($a);
+                }
+            }
+        }
+    }
+
     public function getallarticleId($article) {
         if ($article != NULL) {
             return array_values($article);
         }
     }
+
     public function getfixedarticleId($fixedarticle) {
         if ($fixedarticle != NULL) {
             return array_values($fixedarticle);
         }
     }
+
     public function makeFIX($article) {
         $article->setFixedposition(1);
         $this->persist($article);
         return $article;
     }
+
     public function makeUNFIX($article) {
         $article->setFixedposition(0);
         $this->persist($article);
         return $article;
     }
+
     public function removemore($article) {
         foreach ($article as $s) {
             $this->em->remove($s);
@@ -158,18 +179,23 @@ public function traitementenajout($positiondelarticleenajout,$fixedpositionCheck
         }
         return $article;
     }
+
     public function getAll() {
         return $this->repository->findAll();
     }
+
     public function getArticleWithFixedPosition() {
         return $this->repository->getArticleWithFixedPosition();
     }
+
     public function getArticleNOFixedPosition() {
         return $this->repository->getArticleNOFixedPosition();
     }
+
     public function getPositionOccuped() {
         return $this->repository->getPositionOccuped();
     }
+
     public function getFirstPositionFree($lespositionsoccupés) {
         $pos = array(); // tableau vide
         $positionlibre = array(); // tableau vide
@@ -225,12 +251,15 @@ public function traitementenajout($positiondelarticleenajout,$fixedpositionCheck
         $premierepositionlibre = reset($positionlibre); // integer => premiere position libre     
         return $premierepositionlibre;
     }
+
     public function persist($article) {
         $this->doFlush($article);
     }
+
     public function doFlush($article) {
         $this->em->persist($article);
         $this->em->flush();
         return $article;
     }
+
 }

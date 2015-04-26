@@ -44,7 +44,7 @@ class sujetController extends Controller {
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
-                $notifboolean = $sujet->getNotification();
+//                $notifboolean = $sujet->getNotification();
                 $sujet->setThread(4);      /* default thread */
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
@@ -195,7 +195,7 @@ class sujetController extends Controller {
         $tagaajouté = array(); // tableau vide
         foreach ($alltags as $tag) {
             $tagtitle = $tag->getTitle(); /* get title of objects :D */
-            if (strpos($inputtext[0], $tagtitle) !== false) {
+            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string*/
                 $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                 array_push($tagaajouté, $selectedtag);
                 $sujet->setTags($tagaajouté);

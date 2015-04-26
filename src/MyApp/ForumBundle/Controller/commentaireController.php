@@ -127,7 +127,7 @@ class commentaireController extends Controller {
         $request = $this->getRequest();
 
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = substr($uri, 45, -5); /* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             /*             * *********  validation form ********************* */

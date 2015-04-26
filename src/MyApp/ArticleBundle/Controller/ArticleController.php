@@ -100,7 +100,7 @@ class ArticleController extends Controller {
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
         $em->remove($article);
         $em->flush();
-        $manager = $this->get('collectify_article_manager');
+//        $manager = $this->get('collectify_article_manager');
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_deletemore', array(
                             'selectarticle' => $selectarticle
@@ -110,7 +110,7 @@ class ArticleController extends Controller {
     public function manageAction() {
         $em = $this->getDoctrine()->getManager();
         /*         * *******************    recuperation de tout les article s    ************ */
-        $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
+        $article = $em->getRepository('MyAppArticleBundle:article')->findBy(array(), array('position' => 'asc'));
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
@@ -121,6 +121,7 @@ class ArticleController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
+        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
         /* delete more  checked */
@@ -173,7 +174,7 @@ class ArticleController extends Controller {
         } /*  fin  mise a jour des positions AR selon les input text */
         /*  gestion des FIXED and UNFIXED */
         $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
-        if ($fixedornotvalue != NULL) {
+       /* if ($fixedornotvalue != NULL) {
             foreach ($article as $a) {
                 if (in_array($a->getId(), array_values($fixedornotvalue))) {
                     $manager->makeFIX($a);
@@ -181,7 +182,8 @@ class ArticleController extends Controller {
                     $manager->makeUNFIX($a);
                 }
             }
-        }
+        }*/
+         $manager->makeFIXormakeUNFIX($fixedornotvalue);
         /*  gestion des FIXED and UNFIXED */
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
