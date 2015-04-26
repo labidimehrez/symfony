@@ -211,9 +211,13 @@ class sujetController extends Controller {
         $notif = $em->getRepository('MyAppEspritBundle:notification')->findOneBy(array('sujet' => $id));
         $managernotif = $this->get('collectify_notification_manager');
 
-        $user = $this->container->get('security.context')->getToken()->getUser();/* le user en question voit la notif*/
-        if ($user->getId() == $notif->getUserConcerned()) {
-            $managernotif->changestate($notif); /* la notif devient en blanc " lu = TRUE " */
+
+        $user = $this->container->get('security.context')->getToken()->getUser(); /* le user en question voit la notif */
+ 
+        if (($user != 'anon.')&&($notif!=NULL)) {
+            if ($user->getId() == $notif->getUserConcerned()) {
+                $managernotif->changestate($notif); /* la notif devient en blanc " lu = TRUE " */
+            }
         }
 
 
@@ -307,16 +311,16 @@ class sujetController extends Controller {
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
-                $notifboolean = $sujet->getNotification();
+//                $notifboolean = $sujet->getNotification();
                 $sujet->setThread(4);      /* default thread */
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
                 $em->flush();
                 /*                 * **                       ajout de notification                        ** */
-                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
-                $notif = new notification();
-                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
-                $manager->persist($notif1);
+//                $manager = $this->get('collectify_notification_manager');/** equivalent de em manager * */
+//                $notif = new notification();
+//                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
+//                $manager->persist($notif1);
 
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
             }

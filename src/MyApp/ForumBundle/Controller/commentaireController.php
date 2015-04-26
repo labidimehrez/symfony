@@ -12,8 +12,13 @@ use MyApp\EspritBundle\Entity\publicite;
 class commentaireController extends Controller {
 
     public function addAction(Request $request) {
+        
+        
+         
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = substr($uri, 45, -5); /* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+//        var_dump($int);exit;
+//        $idsujet = substr($uri, 45, -5); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($idsujet);
         /*         * ** je recuperer l id de user connecté * */
@@ -57,7 +62,7 @@ class commentaireController extends Controller {
 
     public function addsouscommentAction($id, Request $request) {
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = substr($uri, 45, -5); /* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($idsujet);
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -97,7 +102,7 @@ class commentaireController extends Controller {
     public function deleteAction($id, Request $request) {
         /*         * ************ simple delete action *************** */
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = substr($uri, 45, -5); /* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
@@ -138,7 +143,7 @@ class commentaireController extends Controller {
     public function editsouscommentAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = substr($uri, 45, -5); /* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
         $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$souscommentaire) {
             throw $this->createNotFoundException('No souscommentaire found for id ' . $id);
