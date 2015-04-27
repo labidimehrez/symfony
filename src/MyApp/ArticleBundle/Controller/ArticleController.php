@@ -10,7 +10,7 @@ use MyApp\ArticleBundle\Entity\Article;
 class ArticleController extends Controller {
 
     public function addAction() {
-        
+
         $em = $this->getDoctrine()->getManager();
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
@@ -63,12 +63,12 @@ class ArticleController extends Controller {
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
 
-            /*  sortedtopic by comment */
-         $managerarticle = $this->get('collectify_article_manager'); /* em pour article !! */
-         $sortedtopic= $managerarticle->debatsortedmostcommented();
-        
+        /*  sortedtopic by comment */
+        $managerarticle = $this->get('collectify_article_manager'); /* em pour article !! */
+        $sortedtopic = $managerarticle->debatsortedmostcommented();
 
-        
+
+
         $sujetneverarticlebeforearray = array();
         foreach ($article as $ar) {
             if ($ar->getPosition() < 16) {/* il faut pas avoir un parmi 1-15 positions */
@@ -87,11 +87,12 @@ class ArticleController extends Controller {
                 }
             }
         }
- 
-        if($sujetneverarticlebeforearray == NULL)
-        {array_push($sujetneverarticlebeforearray, array());}
+
+        if ($sujetneverarticlebeforearray == NULL) {
+            array_push($sujetneverarticlebeforearray, array());
+        }
         $sujetnotarticle = $sujetneverarticlebeforearray[0];
- 
+
         $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element */
         $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element */
 
@@ -101,15 +102,19 @@ class ArticleController extends Controller {
     }
 
     public function deleteAction(article $article) {
+        $manager = $this->get('collectify_article_manager'); /* em pour article !! */
         $em = $this->getDoctrine()->getManager();
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
+
+        $manager->ShiftToRightNofixedPositionOneDelete($selectarticle);
+
         $em->remove($article);
         $em->flush();
 
+
+
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
-        return $this->redirect($this->generateUrl('my_app_article_article_deletemore', array(
-                            'selectarticle' => $selectarticle
-        )));
+        return $this->redirect($this->generateUrl('my_app_article_article_manage'));
     }
 
     public function manageAction() {
@@ -129,11 +134,16 @@ class ArticleController extends Controller {
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
+
+
+        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
+        $manager->makeFIXormakeUNFIX($fixedornotvalue); /*  gestion des FIXED and UNFIXED */
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
         if ($totalnumberofar <= 15) {
             $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
         }
+        /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
             $manager->removemore($articled);
@@ -147,49 +157,41 @@ class ArticleController extends Controller {
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
+        /*         * ********************************************************************************************** */
         /* delete more  checked */
+
+
         /* delete one checked */
         if ((count($ids) === 1) && ( $totalnumberofar > 15)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
             if ($articleNOfixedposition != NULL) {
-                $manager->ShiftToRightNofixedPosition();
+                $manager->ShiftToRightNofixedPositionOneDelete($articled);
             }
             $manager->removemore($articled);
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
         /* delete one  checked */
+        /*         * ********************************************************************************************** */
+
         $positions = $this->getRequest()->get('i'); /* tableau de string position text input deja   :D */
-        /* test pour la duplication des valeurs positions AR */
-        if (($positions != array_unique($positions)) && ($positions != NULL)) {
-            $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
-            return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
-                        'form' => $form->createView(), 'article' => $article
-            ));
-        }
-        /* fin de la validation des valeurs positions AR */
-        /* debut mise a jour des positions AR selon les input text */
         if ($positions != NULL) {
-            for ($index = 0; $index < count($positions); $index++) {
-                if ($article[$index]->getPosition() != $positions[$index]) {
-                    $article[$index]->setPosition($positions[$index]);
-                    $manager->persist($article[$index]);
-                }
+            if (($positions != array_unique($positions)) && ($positions != NULL)) {
+                $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
+            } else {
+                $manager->UpdatePosition($positions);  /*  mise a jour des positions AR selon les input text */
             }
-        } /*  fin  mise a jour des positions AR selon les input text */
-        /*  gestion des FIXED and UNFIXED */
-        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
-       /* if ($fixedornotvalue != NULL) {
-            foreach ($article as $a) {
-                if (in_array($a->getId(), array_values($fixedornotvalue))) {
-                    $manager->makeFIX($a);
-                } else {
-                    $manager->makeUNFIX($a);
-                }
-            }
-        }*/
-         $manager->makeFIXormakeUNFIX($fixedornotvalue);
-        /*  gestion des FIXED and UNFIXED */
+            /* test pour la duplication des valeurs positions AR */
+
+            return $this->render('MyAppArticleBundle:article:manage.html.twig', array('form' => $form->createView(), 'article' => $article));
+        }
+        /*         * ********************************************************************************************** */
+        /* fin de la validation des valeurs positions AR */
+
+
+
+
+
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
         ));
