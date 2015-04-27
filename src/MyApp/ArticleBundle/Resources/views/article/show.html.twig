@@ -247,7 +247,7 @@
  <!-------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionA">
 
-        <center><p class="rouge">SENESTE NYHEDER</p></center>
+        <center><p class="rouge" style="  margin-bottom: 0px;">SENESTE NYHEDER</p></center>
  
        {%for  sujetnotarticle in sujetnotarticle%}
          
@@ -255,11 +255,13 @@
         
        {% if sujetnotarticle.id != loop.last%}
         <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
-            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</t></a>   
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
+                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>   
         </div>        
       {%else%}
         <div class="senestredebattelementcompresse">
-           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</t></a>      
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
+               <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>      
         </div> 
       {%endif%} 
         
@@ -268,11 +270,13 @@
         
        {% if sujetnotarticle.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</t></a>    
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
+               <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>    
         </div>        
       {%else%}
         <div class="senestredebattelement">
-            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}"> <t class="stylecontenudebat">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</t></a>      
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
+                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>      
         </div> 
       {%endif%}  
         
@@ -284,7 +288,7 @@
     </div>
 <!---------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionB">
-        <center><p class="rouge">MEST LÆSTE DEBATTER</p></center>
+        <center><p class="rouge" style="  margin-bottom: 0px;">MEST LÆSTE DEBATTER</p></center>
        {%for  mostcommenteddebat in mostcommenteddebat%}
         
          {% if loop.length > 4  and loop.length < 8  %}{# si cette div est pleine les titres seront PEU espacés #}
@@ -292,13 +296,13 @@
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
             <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
-                <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</t>
+               <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
             </a>   
         </div>        
       {%else%}
         <div class="senestredebattelementcompresse">
            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
-               <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</t>
+              <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
            </a>      
         </div> 
      {%endif%} 
@@ -309,13 +313,13 @@
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
-               <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</t>
+               <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
            </a>    
         </div>        
       {%else%}
         <div class="senestredebattelement">
             <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
-                <t class="stylecontenudebat">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</t>
+                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
             </a>      
         </div> 
       {%endif%}  

@@ -14,7 +14,8 @@
 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-<b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+<b>{{souscommentaire.user.username|capitalize}}</b>
+<b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
 
 
             {% if souscommentaire.vote  is not null %}

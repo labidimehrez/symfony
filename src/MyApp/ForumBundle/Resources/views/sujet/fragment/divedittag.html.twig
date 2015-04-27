@@ -6,7 +6,7 @@
 <div  class="tagtitlevoirun">
                 {% set counternombredetag = 0 %} 
                 {% for tag in tag %}      
-    <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
+    <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title|raw}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
 
 
                 {% endfor%} 
@@ -22,7 +22,7 @@
         <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
 
             <input type="text" name="i[]" id="autocomplete" title=""
-                   value="{% for tag in tag %}{{tag.title}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}"> 
+                   value="{% for tag in tag %}{{tag.title|raw}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}"> 
             </br></br>
             <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 

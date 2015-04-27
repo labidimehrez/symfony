@@ -1,12 +1,23 @@
 {# empty Twig template #}
-    {% if souscommentaire.user.path is not null  %} 
-<img src="{{souscommentaire.user.path }}" class="imageuser" alt=""/> 
+{% if souscommentaire.user.path is not null  %} 
+
+           {%if "http" in souscommentaire.user.path %}
+			<img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
+             {%else%}
+				<img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
+            {%endif%}
+ 
+
+
+
 {% else %}  
 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
 {% endif%} 
 
 
-<b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+
+<b>{{souscommentaire.user.username|capitalize}}</b>
+<b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
 
 
             {% if souscommentaire.vote  is not null %}

@@ -4,10 +4,10 @@
 
  
 
-           {%if "http" in commentaire.user.path %}
-            <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+             {%if "http" in commentaire.user.path %}
+                     <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-             <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+                      <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
 
 
@@ -16,7 +16,8 @@
 {% endif%} 
 
 
-                <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+                <b>{{commentaire.user.username|capitalize}}</b>
+                <b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
 
 
 

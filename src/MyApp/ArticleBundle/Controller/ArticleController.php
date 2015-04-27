@@ -16,10 +16,8 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
-        //  var_dump($articleNOfixedposition);
-        //    var_dump($articleNOfixedposition[count($articleNOfixedposition)-1]);
-        // var_dump($articleNOfixedposition[0]);    
-        //    exit;
+
+
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
         $article = new Article();
@@ -140,26 +138,31 @@ class ArticleController extends Controller {
         $manager->makeFIXormakeUNFIX($fixedornotvalue); /*  gestion des FIXED and UNFIXED */
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
-        if ($totalnumberofar <= 15) {
+        if ($totalnumberofar <= 2) {
             $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
         }
         /*         * ********************************************************************************************** */
-        if ((count($ids) > 1) && ( $totalnumberofar > 15)) {
+        if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
+            
+            foreach($articled as $s) {
+                $manager->ShiftToRightNofixedPositionOneDelete($s);
+            }
+
             $manager->removemore($articled);
-            $done = 1;
+          /*  $done = 1;
             while ($done <= $ids) {
                 if (!empty($articleNOfixedposition)) {
                     $manager->ShiftToRightNofixedPosition();
                 }
                 $done++;
-            }
+            }*/
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
-        /*         * ********************************************************************************************** */
         /* delete more  checked */
 
+        /*         * ******************************************************************************************************* */
 
         /* delete one checked */
         if ((count($ids) === 1) && ( $totalnumberofar > 15)) {

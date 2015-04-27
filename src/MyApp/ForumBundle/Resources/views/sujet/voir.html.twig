@@ -191,7 +191,19 @@
         </style>
         <div class="inputajoutcommentaire" id="divinputtohide">
             
-                {% if app.user.path is not null  %} <img src="{{app.user.path }}" class="imageuser" alt=""/> {% else %}  
+                {% if app.user.path is not null  %} 
+
+ 
+							{%if "http" in app.user.path %}
+							<img src="{{app.user.path }}"   class="imageuser" alt="" />
+							{%else%}
+							<img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
+							{%endif%}
+					 
+
+
+
+				{% else %}  
                 <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
             
             

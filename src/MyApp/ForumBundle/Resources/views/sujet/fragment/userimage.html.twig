@@ -3,8 +3,8 @@
 
 {% if sujet.user is not null %}
 {% if sujet.user. is not null  %}
-        <img src="{{sujet.user.path }}"  
-             class="imageuserdebataveccomment" alt="" />  
+        <img src="{{ asset('upload/' ~ sujet.user.path)}}"    class="imageuserdebataveccomment" alt="" />  
+            
 {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  
              class="imageuserdebataveccomment" alt=""  />             
