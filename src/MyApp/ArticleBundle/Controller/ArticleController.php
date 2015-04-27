@@ -16,6 +16,10 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
+        //  var_dump($articleNOfixedposition);
+        //    var_dump($articleNOfixedposition[count($articleNOfixedposition)-1]);
+        // var_dump($articleNOfixedposition[0]);    
+        //    exit;
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
         $article = new Article();
@@ -83,16 +87,17 @@ class ArticleController extends Controller {
                 }
             }
         }
-
-        //var_dump($sujetneverarticlebeforearray);exit;
-        // if($sujetneverarticlebeforearray == NULL){array_push($sujetneverarticlebeforearray, "");}
+ 
+        if($sujetneverarticlebeforearray == NULL)
+        {array_push($sujetneverarticlebeforearray, array());}
         $sujetnotarticle = $sujetneverarticlebeforearray[0];
  
         $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element */
         $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element */
 
         return $this->render('MyAppArticleBundle:article:show.html.twig', array(
-                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet, 'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle));
+                    'article' => $article, 'publicite' => $publicite, 'sujet' => $sujet,
+                    'mostcommenteddebat' => $sortedtopicarticle, 'sujetnotarticle' => $outputsujetnotarticle));
     }
 
     public function deleteAction(article $article) {
@@ -100,7 +105,7 @@ class ArticleController extends Controller {
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
         $em->remove($article);
         $em->flush();
-//        $manager = $this->get('collectify_article_manager');
+
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_deletemore', array(
                             'selectarticle' => $selectarticle

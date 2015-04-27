@@ -45,9 +45,9 @@ class ArticleManager {
             /*             * * j 'affecte l a'rticle a la premiere position libre       ** */
             if ($lapositionchoisie != 'contenufixe') {
                 $article->setPosition($positiondelarticleenajout);
-               /* if (!empty($articleNOfixedposition)) {
+                   if (!empty($articleNOfixedposition)) {
                     $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                }*/
+                }
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
                 throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
@@ -60,9 +60,9 @@ class ArticleManager {
         }
         if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
             if ($lapositionchoisie != 'contenufixe') {
-                /*if (!empty($articleNOfixedposition)) {
+                if (!empty($articleNOfixedposition)) {
                     $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                }*/
+                }
                 $article->setPosition($positiondelarticleenajout);
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
@@ -80,20 +80,24 @@ class ArticleManager {
     }
 
     public function ShiftToLeftNofixedPosition($position) {
+        
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
 
-        $index = $totalnumberofar - $position; /* la translation concerne la position en ajout et ses successeurs */
-        do {
-
-            if ($ArticleNOFixedPosition[$index - 1]->getPosition() > $position) {
-                $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index - 1]->getPosition());
-                $this->persist($ArticleNOFixedPosition[$index]);
+        $index = 1;
+            do{
+                if($position<=$ArticleNOFixedPosition[count($ArticleNOFixedPosition)-$index] ->getPosition())
+                    {
+                   $ArticleNOFixedPosition[count($ArticleNOFixedPosition)-$index]
+                   ->setPosition($ArticleNOFixedPosition[count($ArticleNOFixedPosition)-($index+1)]->getPosition());       
+                   }
+             $index++;
             }
-            $index--;
-        } while (($index >= 1)); /* tant que c vrai on repete */
-        $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
-        $this->persist($ArticleNOFixedPosition[0]);
+            while ((count($ArticleNOFixedPosition) >  $index)); 
+            
+ 
+        $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);$this->persist($ArticleNOFixedPosition[0]);
+        
     }
 
     public function ShiftToRightNofixedPosition() {
