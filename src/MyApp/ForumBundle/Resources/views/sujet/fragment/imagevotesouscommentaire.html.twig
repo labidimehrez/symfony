@@ -1,13 +1,13 @@
 {# empty Twig template #}
-{% if souscommentaire.user.image is not null  %} 
+{% if souscommentaire.user.path is not null  %} 
 
 
 
 
-            {%if "http" in souscommentaire.user.image %}
-<img src="{{souscommentaire.user.image }}"   class="imageuser" alt="" />
+            {%if "http" in souscommentaire.user.path %}
+<img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-<img src="{{ asset('upload/' ~ souscommentaire.user.id ~'/' ~ souscommentaire.user.image)}}"   class="imageuser" alt="" />
+<img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
 
 {% else %}  
@@ -18,6 +18,7 @@
 
 
             {% if souscommentaire.vote  is not null %}
-<b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+<b class="likecount">
+    <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
     &nbsp;{{souscommentaire.vote}} </b>
              {%endif%}

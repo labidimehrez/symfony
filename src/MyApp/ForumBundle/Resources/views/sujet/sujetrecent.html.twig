@@ -60,13 +60,13 @@
 
     {%if  sujet.user.id != 1%}
 
-             {%if  sujet.user.image is not null %}
+             {%if  sujet.user.path is not null %}
 
         <a   class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
-             {%if "http" in sujet.user.image %}
-            <img src="{{sujet.user.image }}"   class="imageuser" alt="" />
+             {%if "http" in sujet.user.path %}
+            <img src="{{sujet.user.path }}"   class="imageuser" alt="" />
              {%else%}
-             <img src="{{ asset('upload/' ~ sujet.user.id ~'/' ~ sujet.user.image)}}"   class="imageuser" alt="" />
+             <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
             
         </a> 

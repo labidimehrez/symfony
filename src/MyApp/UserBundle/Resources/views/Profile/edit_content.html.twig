@@ -10,11 +10,11 @@
         <h2>Min profil</h2> 
         </br></br>
 
-        {% if app.user.image is not null  %}     
-             {%if "http" in app.user.image %}
-        <img src="{{app.user.image }}" class="grandimageuser" alt="" />   
+        {% if app.user.path is not null  %}     
+             {%if "http" in app.user.path %}
+        <img src="{{app.user.path }}" class="grandimageuser" alt="" />   
              {%else%}
-        <img src="{{ asset('upload/' ~ app.user.id ~'/' ~ app.user.image)}}" class="grandimageuser" alt="" />  
+        <img src="{{ asset('upload/' ~ app.user.path)}}" class="grandimageuser" alt="" />  
              {%endif%}
 
         {% else %}
@@ -129,7 +129,7 @@
 
                     <tr>
                        {# <td id="dialog" title="Dialog Title" ><p>{{ form_widget(form.image) }} </td> #}
-                        <td style="  left: 275px;  top: 10px;position: relative;"> {{ form_widget(form.image) }} </td>
+                        <td style="  left: 275px;  top: 10px;position: relative;"> {{ form_widget(form.file) }} </td>
                     </tr> 
                 </table> 
 

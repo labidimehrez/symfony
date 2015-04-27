@@ -45,9 +45,9 @@ class ArticleManager {
             /*             * * j 'affecte l a'rticle a la premiere position libre       ** */
             if ($lapositionchoisie != 'contenufixe') {
                 $article->setPosition($positiondelarticleenajout);
-                if (!empty($articleNOfixedposition)) {
+               /* if (!empty($articleNOfixedposition)) {
                     $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                }
+                }*/
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
                 throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
@@ -60,9 +60,9 @@ class ArticleManager {
         }
         if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === TRUE)) {
             if ($lapositionchoisie != 'contenufixe') {
-                if (!empty($articleNOfixedposition)) {
+                /*if (!empty($articleNOfixedposition)) {
                     $this->ShiftToLeftNofixedPosition($positiondelarticleenajout);
-                }
+                }*/
                 $article->setPosition($positiondelarticleenajout);
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {

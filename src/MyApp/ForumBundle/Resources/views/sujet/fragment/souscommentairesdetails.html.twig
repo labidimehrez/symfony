@@ -1,6 +1,9 @@
 {# empty Twig template #}
-    {% if souscommentaire.user.image is not null  %} <img src="{{souscommentaire.user.image }}" class="imageuser" alt=""/> {% else %}  
-<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+    {% if souscommentaire.user.path is not null  %} 
+<img src="{{souscommentaire.user.path }}" class="imageuser" alt=""/> 
+{% else %}  
+<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+{% endif%} 
 
 
 <b>{{souscommentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>

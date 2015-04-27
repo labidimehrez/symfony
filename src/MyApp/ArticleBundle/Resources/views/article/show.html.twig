@@ -13,13 +13,13 @@
   {% for article in article %}
 {% if article.position==1%}
     <div class="articleposition1" style="background-color: {{article.style.codecouleurback}};">   
-           {% if article.urlimg is not null%}
-                  {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" class="imagearticle1"   />
-                  {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle1"   />
+           {% if article.path is not null%}
+                  {%if "http" in article.path %}
+        <img src="{{article.path }}" class="imagearticle1"   />
+                  {%else%}           
+        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle1"   />            
                     {%endif%}
-        {#<img src="{{article.urlimg}}"  width="430" height="250"  alt="" style="float:left;margin-right: 10px;" />#}
+     
 
         {%endif%}
 
@@ -39,12 +39,12 @@
 
 {% if article.position==2%}
     <div class="articleposition2" style="background-color: {{article.style.codecouleurback}};">
-     {% if article.urlimg is not null%}
+     {% if article.path is not null%}
 
-              {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" class="imagearticle2"  />
+              {%if "http" in article.path %}
+        <img src="{{article.path }}" class="imagearticle2"  />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle2"   />
+        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle2"   />
                     {%endif%}
 
 
@@ -66,13 +66,13 @@
 
 {% if article.position==3%}
     <div class="articleposition3" style="background-color: {{article.style.codecouleurback}};">  
-           {% if article.urlimg is not null%}
+           {% if article.path is not null%}
 
 
-                    {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" class="imagearticle3"  />
+                    {%if "http" in article.path %}
+        <img src="{{article.path }}" class="imagearticle3"  />
                     {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}" class="imagearticle3"  />
+        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle3"  />
                     {%endif%}
 
 
@@ -90,11 +90,11 @@
 
 {% if article.position==4%}
     <div class="articleposition4" style="background-color: {{article.style.codecouleurback}};">     
-           {% if article.urlimg is not null%}
-                       {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"  class="imagearticle4"   />
+           {% if article.path is not null%}
+                       {%if "http" in article.path %}
+        <img src="{{article.path }}"  class="imagearticle4"   />
                        {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle4"  />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle4"  />
                        {%endif%}
 
 
@@ -145,12 +145,12 @@
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
 
 
-     {% if article.urlimg is not null%}
+     {% if article.path is not null%}
 
-        {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"  class="imagearticle7"   />
+        {%if "http" in article.path %}
+        <img src="{{article.path }}"  class="imagearticle7"   />
         {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"   class="imagearticle7"    />
+        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle7"    />
         {%endif%}
 
 
@@ -170,11 +170,11 @@
         </div> 
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
 
-          {% if article.urlimg is not null%}
-          {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"  class="imagearticle8" />
+          {% if article.path is not null%}
+          {%if "http" in article.path %}
+        <img src="{{article.path }}"  class="imagearticle8" />
           {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle8"   />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle8"   />
           {%endif%}
 
 
@@ -186,13 +186,13 @@
 {% if article.position==9%}
     <div class="articleposition9" style="background-color: {{article.style.codecouleurback}};">  
 
-        {% if article.urlimg is not null%}
+        {% if article.path is not null%}
 
 
-                {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}" class="imagearticle9"/>
+                {%if "http" in article.path %}
+        <img src="{{article.path }}" class="imagearticle9"/>
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle9"/>
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle9"/>
                     {%endif%}
 
         {%endif%}
@@ -207,13 +207,13 @@
 
 {% if article.position==10%}
     <div class="articleposition10" style="background-color: {{article.style.codecouleurback}};">      
-      {% if article.urlimg is not null%}
+      {% if article.path is not null%}
 
 
-                {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"   class="imagearticle10" />
+                {%if "http" in article.path %}
+        <img src="{{article.path }}"   class="imagearticle10" />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"   class="imagearticle10"   />
+        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle10"   />
                     {%endif%}
 
         {%endif%}
@@ -227,13 +227,13 @@
 
 {% if article.position==11%}
     <div class="articleposition11" style="background-color: {{article.style.codecouleurback}};">   
-        {% if article.urlimg is not null%}
+        {% if article.path is not null%}
 
 
-                {%if "http" in article.urlimg %}
-        <img src="{{article.urlimg }}"    class="imagearticle10" />
+                {%if "http" in article.path %}
+        <img src="{{article.path }}"    class="imagearticle10" />
                   {%else%}
-        <img src="{{ asset('upload/' ~ article.id ~'/' ~ article.urlimg)}}"  class="imagearticle10" />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle10" />
                     {%endif%}
 
         {%endif%}

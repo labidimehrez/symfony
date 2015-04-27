@@ -83,7 +83,7 @@ class Article {
     /**
      * @var \DateTime
      * 
-     * @ORM\COlumn(name="updated_at",type="datetime", nullable=true) 
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true) 
      */
     private $updateAt;
 
@@ -101,7 +101,7 @@ class Article {
     public $file;
 
     public function getUploadRootDir() {
-        return __dir__ . '/../../../../web/uploads';
+        return __dir__ . '/../../../../web/upload';
     }
 
     public function getAbsolutePath() {

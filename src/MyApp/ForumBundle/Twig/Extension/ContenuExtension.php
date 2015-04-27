@@ -20,8 +20,8 @@
      $contenu = str_replace("&ccedil;", 'ç', $contenu);
      $contenu = str_replace("&Agrave;", 'À', $contenu);
      $contenu = str_replace("&ecirc;", 'ê', $contenu);
-     
-    
+      $contenu = str_replace("<p>", '', $contenu);
+       $contenu = str_replace("</p>", '', $contenu);
  
      
 //    $contenu =strip_tags($contenu, '&nbsp;');

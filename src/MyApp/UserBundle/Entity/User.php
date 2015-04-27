@@ -141,12 +141,7 @@ class User extends BaseUser {
      */
     private $codepostal;
 
-    /**
-     * @var string $image
-     * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
-     * @ORM\Column(name="image", type="string", length=2500, nullable=true)
-     */
-    private $image;
+ 
     protected $notifications;
     protected $sujets;
     protected $commentaires;
@@ -232,14 +227,7 @@ class User extends BaseUser {
         return $this;
     }
 
-    public function getImage() {
-        return $this->image;
-    }
-
-    public function setImage($image) {
-        $this->image = $image;
-        return $this;
-    }
+ 
     public function getCommentaires() {
         return $this->commentaires;
     }
@@ -249,64 +237,84 @@ class User extends BaseUser {
         return $this;
     }
 
+ 
+ 
+     /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="updated_at",type="datetime", nullable=true) 
+     */
+    private $updateAt;
 
-  public function getFullImagePath() {
-        return null === $this->image ? null : $this->getUploadRootDir() . $this->image;
+    /**
+     * @ORM\PostLoad()
+     */
+    public function postLoad() {
+        $this->updateAt = new \DateTime();
     }
 
-    protected function getUploadRootDir() {
-        // the absolute directory path where uploaded documents should be saved
-        return $this->getTmpUploadRootDir() . $this->getId() . "/";
+    /**
+     * @ORM\Column(type="string",length=255, nullable=true) 
+     */
+    private $path;
+    public $file;
+
+    public function getUploadRootDir() {
+        return __dir__ . '/../../../../web/upload';
     }
 
-    protected function getTmpUploadRootDir() {
-        // the absolute directory path where uploaded documents should be saved
-        return __DIR__ . '/../../../../web/upload/';
+    public function getAbsolutePath() {
+        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
+    public function getAssetPath() {
+        return 'uploads/' . $this->path;
     }
 
     /**
      * @ORM\PrePersist()
-     * @ORM\PreUpdate()
+     * @ORM\PreUpdate() 
      */
-    public function uploadImage() {
-        // the file property can be empty if the field is not required
-        if (null === $this->image) {
-            return;
-        }
-        if (!$this->id) {
-            $this->image->move($this->getTmpUploadRootDir(), $this->image->getClientOriginalName());
-        } else {
-            $this->image->move($this->getUploadRootDir(), $this->image->getClientOriginalName());
-        }
-        $this->setImage($this->image->getClientOriginalName());
+    public function preUpload() {
+        $this->tempFile = $this->getAbsolutePath();
+        $this->oldFile = $this->getPath();
+        $this->updateAt = new \DateTime();
+
+        if (null !== $this->file)
+        { $this->path = sha1(uniqid(mt_rand(), true)) . '.' . $this->file->guessExtension();}
     }
 
     /**
      * @ORM\PostPersist()
+     * @ORM\PostUpdate() 
      */
-    public function moveImage() {
-        if (null === $this->image) {
-            return;
+    public function upload() {
+        if (null !== $this->file) {
+            $this->file->move($this->getUploadRootDir(), $this->path);
+            unset($this->file);
+
+            if ($this->oldFile != null) {
+                unlink($this->tempFile);
+            }
         }
-        if (!is_dir($this->getUploadRootDir())) {
-            mkdir($this->getUploadRootDir());
-        }
-        copy($this->getTmpUploadRootDir() . $this->image, $this->getFullImagePath());
-        unlink($this->getTmpUploadRootDir() . $this->image);
     }
 
     /**
-     * @ORM\PreRemove()
+     * @ORM\PreRemove() 
      */
-    public function removeImage() {
-        if ($this->getFullImagePath()) {
-            unlink($this->getFullImagePath());
-            rmdir($this->getUploadRootDir());
-        }
+    public function preRemoveUpload() {
+        $this->tempFile = $this->getAbsolutePath();
     }
 
-//    public function __toString() {
-//        return $this->title . '';
-//    }
-
+    /**
+     * @ORM\PostRemove() 
+     */
+    public function removeUpload() {
+        if (file_exists($this->tempFile)) {
+            unlink($this->tempFile);
+        }
+    }
+   public function getPath() {
+        return $this->path;
+    }
 }
