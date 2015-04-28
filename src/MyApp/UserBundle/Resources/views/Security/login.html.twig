@@ -8,6 +8,9 @@
 
 
   <div class="contenudetemplate">
+      
+
+      
       <div style="margin-left: 30px;margin-top:30px;">
           
     <b><h2>Log p&aring; SOL.DK</h2></b> </br>
@@ -55,7 +58,13 @@
     <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
         <p  class="rouge">Registrer</p></a>
 
-
+     
+{% for publicite in publicite %} 
+<div class="position22">
+   
+  <img src="{{publicite.image}}" alt="" width="300" height="250" > 
+</div>  
+ {%endfor%}
 </div> 
   
   

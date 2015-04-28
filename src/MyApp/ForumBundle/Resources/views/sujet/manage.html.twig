@@ -29,7 +29,7 @@
                 <tr> 
                     <td><input type="checkbox"></td> 
                     <td>{{sujet.id}}</td> 
-                    <td>{{sujet.sujet}}</td> 
+                    <td>{{sujet.sujet|truncate(32, true, '...')}}</td> 
                     <td>{{sujet.datecreation|date('Y-M-d')}}  </td> 
                 {# <td>{{sujet.thread}}  </td> #}
 

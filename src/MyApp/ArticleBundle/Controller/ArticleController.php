@@ -130,12 +130,11 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
+        $articlenofixedpositionreversed = array_reverse($articleNOfixedposition);/* ar non fixé le plus haut indice 0 */
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
 
 
-
-//        $manager->makeFIXormakeUNFIX($fixedornotvalue); /*  gestion des FIXED and UNFIXED */
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
         if ($totalnumberofar <= 2) {
@@ -143,20 +142,15 @@ class ArticleController extends Controller {
         }
         /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
-            $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-
-            foreach ($articled as $s) {
-                $manager->ShiftToRightNofixedPositionOneDelete($s);
-            }
+            $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids), array('position' => 'asc'));
+           
+           
 
             $manager->removemore($articled);
-            /*  $done = 1;
-              while ($done <= $ids) {
-              if (!empty($articleNOfixedposition)) {
-              $manager->ShiftToRightNofixedPosition();
-              }
-              $done++;
-              } */
+            /*Traitement pour supprimer plusieurs et translater plusieurs */
+          /********************************************************************/
+
+
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }

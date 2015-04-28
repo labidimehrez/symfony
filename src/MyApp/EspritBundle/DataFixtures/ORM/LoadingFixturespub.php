@@ -170,6 +170,10 @@ class LoadingFixturespub implements FixtureInterface {
 
 
 
+        $publicite23 = new publicite();
+        $publicite23->setPosition(22);
+        $publicite23->setImage('http://img11.hostingpics.net/pics/725694Layer40.png');
+        $manager->persist($publicite23);
 
 
 
