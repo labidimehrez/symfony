@@ -134,8 +134,8 @@ class ArticleController extends Controller {
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
 
 
-        $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
-        $manager->makeFIXormakeUNFIX($fixedornotvalue); /*  gestion des FIXED and UNFIXED */
+
+//        $manager->makeFIXormakeUNFIX($fixedornotvalue); /*  gestion des FIXED and UNFIXED */
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
         if ($totalnumberofar <= 2) {
@@ -144,19 +144,19 @@ class ArticleController extends Controller {
         /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
-            
-            foreach($articled as $s) {
+
+            foreach ($articled as $s) {
                 $manager->ShiftToRightNofixedPositionOneDelete($s);
             }
 
             $manager->removemore($articled);
-          /*  $done = 1;
-            while ($done <= $ids) {
-                if (!empty($articleNOfixedposition)) {
-                    $manager->ShiftToRightNofixedPosition();
-                }
-                $done++;
-            }*/
+            /*  $done = 1;
+              while ($done <= $ids) {
+              if (!empty($articleNOfixedposition)) {
+              $manager->ShiftToRightNofixedPosition();
+              }
+              $done++;
+              } */
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }
@@ -185,6 +185,11 @@ class ArticleController extends Controller {
                 $manager->UpdatePosition($positions);  /*  mise a jour des positions AR selon les input text */
             }
             /* test pour la duplication des valeurs positions AR */
+
+
+            $fixedornotvalue = $this->getRequest()->get('fixedposition'); /* tableau de string id deja coché :D */
+            $manager->makeFixorUnfix($fixedornotvalue);
+
 
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array('form' => $form->createView(), 'article' => $article));
         }

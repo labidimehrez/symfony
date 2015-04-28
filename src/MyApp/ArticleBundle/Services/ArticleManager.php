@@ -83,19 +83,28 @@ class ArticleManager {
 
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
+        
 
-        $index = 1;
-        do { /* les ar apres celle en ajout translate */
-            if ($position <= $ArticleNOFixedPosition[count($ArticleNOFixedPosition) - $index]->getPosition()) {
-                $ArticleNOFixedPosition[count($ArticleNOFixedPosition) - $index]
-                        ->setPosition($ArticleNOFixedPosition[count($ArticleNOFixedPosition) - ($index + 1)]->getPosition());
-            }
-            $index++;
-        } while ((count($ArticleNOFixedPosition) > $index));
+        if (count($ArticleNOFixedPosition) == 1) {$ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);$this->persist($ArticleNOFixedPosition[0]); }
 
+        elseif (count($ArticleNOFixedPosition) > 1) {
 
-        $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
-        $this->persist($ArticleNOFixedPosition[0]);
+            $index = 1;
+            do { /* les ar apres celle en ajout translate */
+                if ($position <= $ArticleNOFixedPosition[count($ArticleNOFixedPosition) - $index]->getPosition()) {
+                    $ArticleNOFixedPosition[count($ArticleNOFixedPosition) - $index]
+                            ->setPosition($ArticleNOFixedPosition[count($ArticleNOFixedPosition) - ($index + 1)]->getPosition());
+                }
+                $index++;
+            } while ((count($ArticleNOFixedPosition) > $index));
+        }
+
+        if ($position < $ArticleNOFixedPosition[0]->getPosition()) {
+            $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
+            $this->persist($ArticleNOFixedPosition[0]);
+        }
+            
+       
     }
 
     public function ShiftToRightNofixedPositionOneDelete($selectarticle) {
@@ -113,7 +122,7 @@ class ArticleManager {
 
         if ($position < $ArticleNOFixedPosition[$index]->getPosition()) {
             do {
-                $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());      
+                $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
                 $index++;
             } while ($index < count($pos));
         }
@@ -147,9 +156,9 @@ class ArticleManager {
         return $sortedtopic;
     }
 
-    public function makeFIXormakeUNFIX($fixedornotvalue) {
+    public function makeFixorUnfix($fixedornotvalue) {
         $article = $this->repository->findAll();
-        if (count($fixedornotvalue) > 1) {
+        if ($fixedornotvalue != NULL) {
             foreach ($article as $a) {
                 if (in_array($a->getId(), array_values($fixedornotvalue))) {
                     $this->makeFIX($a);
@@ -158,18 +167,7 @@ class ArticleManager {
                 }
             }
         }
-        elseif(count($fixedornotvalue)== 1)
-            {
-                  foreach ($article as $a) {          
-                    $this->makeUNFIX($a);
-                }
-            }
-        }
-        
-        
-        
-        
-   
+    }
 
     public function getallarticleId($article) {
         if ($article != NULL) {
@@ -182,17 +180,18 @@ class ArticleManager {
             return array_values($fixedarticle);
         }
     }
-    public function UpdatePosition($positions){
-           $article = $this->repository->findAll();          
-          if ($positions != NULL) {
+
+    public function UpdatePosition($positions) {
+        $article = $this->repository->findAll();
+        if ($positions != NULL) {
             for ($index = 0; $index < count($positions); $index++) {
                 if (
-                    $article[$index]->getPosition() != $positions[$index]) {
+                        $article[$index]->getPosition() != $positions[$index]) {
                     $article[$index]->setPosition($positions[$index]);
                     $this->persist($article[$index]);
                 }
             }
-          }
+        }
     }
 
     public function makeFIX($article) {
