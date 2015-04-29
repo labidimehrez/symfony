@@ -25,6 +25,13 @@ class SujetManager
     }
     
  
+        public function getIdFromSlug($slug)
+    {
+        return   $this->repository->findOneBySlug($slug)->getId();
+           
+    }
+    
+    
        public function incrementNBlect($sujet)
     {
         $nblect = $sujet->getNblect();

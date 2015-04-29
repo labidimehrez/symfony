@@ -1,8 +1,12 @@
 <?php
+
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 namespace MyApp\ForumBundle\Entity;
+
 use MyApp\ForumBundle\Validator\Constraints as CustomAssert;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * sujet
@@ -23,8 +27,8 @@ class sujet {
      */
     private $id;
     protected $commentaires;
-
     protected $notifications;
+
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User", cascade={"all"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
@@ -36,6 +40,11 @@ class sujet {
      * @ORM\JoinTable(name="sujet_tags")
      */
     private $tags;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     /**
      * @var string
@@ -50,13 +59,14 @@ class sujet {
      * @ORM\Column(name="contenu", type="string", length=20000)
      */
     private $contenu;
-    
+
     /**
      * @var integer
      *
      * @ORM\Column(name="thread", type="integer",nullable=true)
      */
     private $thread;
+
     /**
      * @var \DateTime
      * 
@@ -77,7 +87,7 @@ class sujet {
      * @ORM\Column(name="notification",nullable=true)
      */
     private $notification;
-    
+
     /**
      * @var integer
      *
@@ -85,8 +95,6 @@ class sujet {
      */
     private $nblect;
 
-    
-    
     /**
      * Get id
      *
@@ -104,7 +112,7 @@ class sujet {
      */
     public function setSujet($sujet) {
         $this->sujet = $sujet;
-
+        $this->setSlug($this->sujet);
         return $this;
     }
 
@@ -124,9 +132,10 @@ class sujet {
      * @return sujet
      */
     public function setContenu($contenu) {
-        
+        $contenu = str_replace("<p>", '', $contenu);
+        $contenu = str_replace("</p>", '', $contenu);
         $this->contenu = $contenu;
-
+        
         return $this;
     }
 
@@ -218,7 +227,7 @@ class sujet {
         $this->commentaires = $commentaires;
     }
 
-        public function getTags() {
+    public function getTags() {
         return $this->tags;
     }
 
@@ -226,6 +235,7 @@ class sujet {
         $this->tags = $tags;
         return $this;
     }
+
     public function getNblect() {
         return $this->nblect;
     }
@@ -235,11 +245,10 @@ class sujet {
         return $this;
     }
 
-        public function __construct() {
+    public function __construct() {
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datecreation = new \DateTime();
     }
-
 
     public function getThread() {
         return $this->thread;
@@ -258,4 +267,38 @@ class sujet {
         $this->notifications = $notifications;
         return $this;
     }
+
+    public function setSlug($slug) {
+        $this->slug = $this->slugify($slug);
+    }
+
+    public function getSlug() {
+        return $this->slug;
+    }
+
+    public function slugify($text) {
+        // replace non letter or digits by -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        if (function_exists('iconv')) {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+
 }

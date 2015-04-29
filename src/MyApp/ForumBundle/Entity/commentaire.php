@@ -164,6 +164,8 @@ class commentaire {
     }
 
     public function setCommentaire($commentaire) {
+        $commentaire = str_replace("<p>", '', $commentaire);
+        $commentaire = str_replace("</p>", '', $commentaire);
         $this->commentaire = $commentaire;
         return $this;
     }

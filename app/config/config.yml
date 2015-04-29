@@ -122,5 +122,11 @@ avalanche_imagine:
             
             
  
+# Stof\DoctrineExtensionBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            uploadable: true
 
  

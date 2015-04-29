@@ -45,7 +45,7 @@ my_app_forum_sujet_specialedit:
     
     
 my_app_forum_sujet_voir:
-    pattern:  /{id}/voir
+    pattern:  /{slug}/voir
     defaults: { _controller: MyAppForumBundle:sujet:voir }
     
 my_app_forum_sujet_changethread:
