@@ -3272,6 +3272,7 @@ div.ui-dialog-buttonpane button.cancel {
 }
 .stylepourchaquedebat {
     width: 650px;
+    height: 170px;
 }
 .stylepourchaquedebat:hover {
     background-color: #F2F2F2
@@ -3525,4 +3526,3 @@ input:focus {
     z-index: 8000;
 }
 
- 

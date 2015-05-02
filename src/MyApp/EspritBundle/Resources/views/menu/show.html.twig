@@ -49,7 +49,7 @@
 <form  action='{{path('my_app_esprit_menu_add')}}' method="post" {{ form_enctype(form) }} > 
     <article class="module width_full">
         <header><h3>Post New Menu</h3></header>
-        <div class="module_content">
+        <div> <!--<div class="/*module_content*/">-->
            <fieldset>
             <table width="200" >
                <tr>
@@ -70,7 +70,10 @@
             <div class="submit_link">
                                   {{form_widget(form._token)}}
                 <input type="submit"   value="Publish" class="alt_btn">
-                <input type="reset"   value="Reset" class="alt_btn" >
+                <input type="reset"   value="Reset" style="  background: #D0D1D4 url(../images/btn_submit_2.png) repeat-x;
+  border: 1px solid#30B0C8;  -webkit-box-shadow: 0 1px 0 #fff;  -moz-box-shadow: 0 1px 0 #fff;  box-shadow: 0 1px 0 #fff;
+  font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
+  color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer;  " >
             </div>
         </footer>
     </article> 

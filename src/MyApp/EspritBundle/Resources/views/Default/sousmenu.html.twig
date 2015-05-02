@@ -7,7 +7,7 @@
             {% if   "style_add" in  routeName %} Ajout de style {%endif%}
             {%if 'voir' in  routeName%}
             <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" >
-            <u>Debats</u></a> > 
+            <u style="color:black">Debats</u></a> > 
                   {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
              {%endif%}
 

@@ -96,7 +96,9 @@
                             Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
                     <tr><td style="float: right;position: relative;  padding-bottom: 10px;  padding-top: 10px;"> 
                             Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
-                        <td> {{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                        <td> 
+{{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}
+                        </td> 
                     </tr>
                     <tr><td style="float: right;">
 

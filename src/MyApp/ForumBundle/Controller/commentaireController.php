@@ -121,7 +121,8 @@ class commentaireController extends Controller {
             throw $this->createNotFoundException(
                     'No commentaire found for id ' . $id
             );
-        }
+        }/*echo strip_tags($text);*/
+    
         $form = $this->createFormBuilder($commentaire)
                         ->add('texte', 'textarea', array('required' => true))->getForm();
         $request = $this->getRequest();
