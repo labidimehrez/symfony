@@ -9,40 +9,58 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class menuController extends Controller {
 
-    public function rechercheAction() {
-        $em = $this->getDoctrine()->getManager();
-        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
-        $form = $this->createFormBuilder($menu)
-                ->add('name', 'text')
-                ->add('rechercher', 'submit')
-                ->getForm();
-
-        return $this->render('MyAppEspritBundle:menu:recherche.html.twig', array( 'form' => $form->createView()));
-                   
-    }
-
-    function searchAction(Request $request) {
-
-        $ids = $this->getRequest()->get('mesIds'); // ids contient la valeurinput
-        $valeurinput = implode(",", $ids); // convertir sous forme de string             
-        $em = $this->getDoctrine()->getManager();
-        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
-        $menutrouve = "";
-        foreach ($menu as $menu) {
-            $toutlesnoms = $menu->getName();
-            if ($valeurinput == $toutlesnoms) {
-                $menutrouve = $em->getRepository('MyAppEspritBundle:menu')->findByName($toutlesnoms);
-            }
-        }
-        return $this->render('MyAppEspritBundle:menu:ShowByName.html.twig', array('menu' => $menutrouve));
-    }
+//    public function rechercheAction() {
+//        $em = $this->getDoctrine()->getManager();
+//        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+//        $form = $this->createFormBuilder($menu)
+//                ->add('name', 'text')
+//                ->add('rechercher', 'submit')
+//                ->getForm();
+//
+//        return $this->render('MyAppEspritBundle:menu:recherche.html.twig', array( 'form' => $form->createView()));
+//                   
+//    }
+//
+//    function searchAction(Request $request) {
+//
+//        $ids = $this->getRequest()->get('mesIds'); // ids contient la valeurinput
+//        $valeurinput = implode(",", $ids); // convertir sous forme de string             
+//        $em = $this->getDoctrine()->getManager();
+//        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+//        $menutrouve = "";
+//        foreach ($menu as $menu) {
+//            $toutlesnoms = $menu->getName();
+//            if ($valeurinput == $toutlesnoms) {
+//                $menutrouve = $em->getRepository('MyAppEspritBundle:menu')->findByName($toutlesnoms);
+//            }
+//        }
+//        return $this->render('MyAppEspritBundle:menu:ShowByName.html.twig', array('menu' => $menutrouve));
+//    }
 
     public function showAction() {
 
-        /*         * ******* ajout de nouveau menu ****** */
+        $routes = $this->get('router')->getRouteCollection()->all();
+        foreach ($routes as $nom => $objet) {
+            $mesRoutes[] = $nom;
+        }
+
+
         $em = $this->getDoctrine()->getManager();
         $menu = new menu();
-        $form = $this->createForm(new menuType, $menu);
+
+    
+        $formBuilder = $this->get('form.factory')->createBuilder('form', $menu);
+        $formBuilder
+                ->add('name')
+                ->add('position')
+                ->add('lien', 'choice', array(
+                   'choices' =>  $mesRoutes  ,                                     
+                    'expanded' => false,
+                    'multiple' => false
+                ))
+        ;
+           
+        $form = $formBuilder->getForm();
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
             $form->bind($request);
@@ -67,28 +85,53 @@ class menuController extends Controller {
     }
 
     public function addAction() {
-        /*         * *************     ajout de nouveau menu   ******** */
+
+        $routes = $this->get('router')->getRouteCollection()->all();
+        foreach ($routes as $nom => $objet) {
+            $mesRoutes[] = $nom;
+        }
+
+
+        $em = $this->getDoctrine()->getManager();
         $menu = new menu();
-        $form = $this->createForm(new menuType(), $menu);
+ 
+        $formBuilder = $this->get('form.factory')->createBuilder('form', $menu);
+        $formBuilder
+                ->add('name')
+                ->add('position')
+                ->add('lien', 'choice', array(
+                   'choices' =>  $mesRoutes  ,                                   
+                    'expanded' => false,
+                    'multiple' => false
+                ))
+        ;
+ 
+        $form = $formBuilder->getForm();
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
-
             $form->bind($request);
-            /*             * *********  validation form ********************* */
             if ($form->isValid()) {
-                $publicite = $form->getData();
+                $menu = $form->getData();
+                $lien =  $form["lien"]->getData(); 
+ 
+                $menu->setLien($mesRoutes[$lien]);
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($publicite);
+ 
+                $em->persist($menu);
                 $em->flush();
-
                 return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
             }
             if (!$form->isValid()) {
 
-                $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!');
+                $this->get('session')->getFlashBag()->set('message', 'This title is used before !!');
             }
         }
-        return $this->render('MyAppEspritBundle:menu:show.html.twig', array('form' => $form->createView()));
+        /*         * ***********  recuperation de tout les menus  ******** */
+        $menu1 = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
+
+        return $this->render('MyAppEspritBundle:menu:show.html.twig', array(
+                    'menu' => $menu1, 'form' => $form->createView(),
+        ));
     }
 
     public function deleteAction($id) {
@@ -133,8 +176,8 @@ class menuController extends Controller {
     }
 
     public function listAction() {
- 
-        
+
+
         /*         * ******   pagination de tout les menus  *********** */
         $em = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM MyAppEspritBundle:menu a";

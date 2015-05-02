@@ -36,6 +36,8 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+//            new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
+//	    new Juanber84\Bundle\ProfilercommandBundle\Juanber84ProfilercommandBundle(),	 
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -43,6 +45,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+//            $bundles[] = new Elao\WebProfilerExtraBundle\WebProfilerExtraBundle();
         }
 
         return $bundles;

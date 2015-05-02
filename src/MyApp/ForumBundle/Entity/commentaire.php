@@ -28,6 +28,7 @@ class commentaire {
      */
     protected $sujet;
     protected $notifications;
+
     /**
      * @var string
      *
@@ -41,22 +42,18 @@ class commentaire {
      */
     protected $user;
 
-    
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\ForumBundle\Entity\commentaire")
      * @ORM\JoinColumn(name="commentaire_id", referencedColumnName="id",nullable=true)
      */
     protected $commentaire;
-    
-    
+
     /**
      * @var integer
      *
      * @ORM\Column(name="vote", type="integer",nullable=true)
      */
     private $vote;
-
- 
 
     /**
      * @var boolean
@@ -88,7 +85,10 @@ class commentaire {
      * @return commentaire
      */
     public function setTexte($texte) {
+        $texte = str_replace("<p>", '', $texte);
+        $texte = str_replace("</p>", '', $texte);
         $this->texte = $texte;
+
 
         return $this;
     }
@@ -101,8 +101,6 @@ class commentaire {
     public function getTexte() {
         return $this->texte;
     }
-
- 
 
     /**
      * Set notification
@@ -159,21 +157,21 @@ class commentaire {
         $this->datecreation = $datecreation;
         return $this;
     }
+
     public function getCommentaire() {
         return $this->commentaire;
     }
 
     public function setCommentaire($commentaire) {
-        $commentaire = str_replace("<p>", '', $commentaire);
-        $commentaire = str_replace("</p>", '', $commentaire);
         $this->commentaire = $commentaire;
         return $this;
     }
 
-        public function __construct() {
+    public function __construct() {
 
         $this->datecreation = new \DateTime();
     }
+
     public function getNotifications() {
         return $this->notifications;
     }
@@ -182,4 +180,5 @@ class commentaire {
         $this->notifications = $notifications;
         return $this;
     }
+
 }

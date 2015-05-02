@@ -12,7 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/app/SymfonyRequirements.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/menu/add.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/menuController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Entity/menu.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/menu/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Form/menuType.php</file>
         </group>
     </open-files>
 </project-private>

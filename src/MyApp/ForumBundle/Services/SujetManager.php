@@ -25,18 +25,11 @@ class SujetManager
     }
     
  
-        public function getIdFromSlug($slug)
-    {
-        return   $this->repository->findOneBySlug($slug)->getId();
-           
-    }
-    
-    
        public function incrementNBlect($sujet)
     {
-        $nblect = $sujet->getNblect();
-        $nblect = $nblect + 1;
-        $sujet->setNblect($nblect);
+//        $nblect = $sujet->getNblect();
+//        $nblect = $nblect + 1;
+        $sujet->setNblect($sujet->getNblect()+1);
          $this->persist($sujet);
     }
     public function UpdateDate($sujet) {

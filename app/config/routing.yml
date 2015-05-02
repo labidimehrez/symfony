@@ -46,3 +46,8 @@ fos_comment_api:
 _imagine:
     resource: .
     type:     imagine
+    
+#    
+#juanber84_profilercommand:
+#    resource: "@Juanber84ProfilercommandBundle/Resources/config/routing.yml"
+#    prefix: /

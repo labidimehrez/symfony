@@ -27,7 +27,7 @@ class LoadingFixturesmenu implements FixtureInterface {
         $menu1 = new Menu();
         $menu1->setPosition(1);
         $menu1->setName('NYHEDER');
-        $menu1->setLien('my_app_forum_sujet_sujetrecent');
+        $menu1->setLien('my_app_article_article_show');
         $manager->persist($menu1);
         
         $menu2 = new Menu();

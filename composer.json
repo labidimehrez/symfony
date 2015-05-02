@@ -31,7 +31,11 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "jms/security-extra-bundle": "dev-master",
         "avalanche123/imagine-bundle": "v2.1", 
-        "stof/doctrine-extensions-bundle": "dev-master"
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "elao/web-profiler-extra-bundle" : "~2.3@dev" ,
+        "juanber84/profilercommand-bundle": "dev-master"
+        
+		
     },
     "scripts": {
         "post-install-cmd": [

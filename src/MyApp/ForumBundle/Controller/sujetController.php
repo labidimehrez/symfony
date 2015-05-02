@@ -180,14 +180,9 @@ class sujetController extends Controller {
         ));
     }
 
-    public function voirAction($slug, Request $request) {
-        
+    public function voirAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
-
-
         $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager * */
-        $id = $managersujet->getIdFromSlug($slug);/* le slug converti en id */
-       
         $sujet = $managersujet->getOne($id);
         $form = $this->createForm(new sujetType(), $sujet);
 
@@ -200,7 +195,7 @@ class sujetController extends Controller {
         $tagaajouté = array(); // tableau vide
         foreach ($alltags as $tag) {
             $tagtitle = $tag->getTitle(); /* get title of objects :D */
-            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string */
+            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string*/
                 $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                 array_push($tagaajouté, $selectedtag);
                 $sujet->setTags($tagaajouté);
@@ -218,8 +213,8 @@ class sujetController extends Controller {
 
 
         $user = $this->container->get('security.context')->getToken()->getUser(); /* le user en question voit la notif */
-
-        if (($user != 'anon.') && ($notif != NULL)) {
+ 
+        if (($user != 'anon.')&&($notif!=NULL)) {
             if ($user->getId() == $notif->getUserConcerned()) {
                 $managernotif->changestate($notif); /* la notif devient en blanc " lu = TRUE " */
             }
@@ -228,12 +223,12 @@ class sujetController extends Controller {
 
 
         $mostusedtag = $em->getRepository('MyAppForumBundle:tag')->getmostusedtag();
-        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($slug);
-        $commentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($slug);
+        $tag = $em->getRepository('MyAppForumBundle:tag')->getBySujet($id);
+        $commentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($id);
 
-        $Subcommentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getSubCommentaireBySujet($slug);
+        $Subcommentassociated = $em->getRepository('MyAppForumBundle:commentaire')->getSubCommentaireBySujet($id);
 
-        $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($slug);
+        $commentCount = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($id);
         //var_dump($commentCount);die();
         return $this->render('MyAppForumBundle:sujet:voir.html.twig', array(
                     'sujet' => $sujet, 'mostusedtag' => $mostusedtag,

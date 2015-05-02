@@ -32,14 +32,7 @@
     </div>
 
 
-{% for publicite in publicite %} 
-{#% if publicite.position  ==10%} <div class="position10"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
-{% if publicite.position  ==11%} <div class="position11"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" style="margin-top: -150px;" > </div>{% endif%}
-{% if publicite.position  ==12%} <div class="position12"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
-{% if publicite.position  ==13%} <div class="position13"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
-{#% if publicite.position  ==14%} <div class="position14"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
-{#% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
-{% endfor%} 
+
 
 
     <div  class="StartaNewTopic">
@@ -132,7 +125,7 @@
        {% endif %} 
         </br>
 
-        <a href="{{ path('my_app_forum_sujet_voir',{'slug':sujet.slug}) }}"  class="lienstyledebat" >
+        <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  class="lienstyledebat" >
         {{sujet.sujet}}</a> 
 
 
@@ -204,6 +197,17 @@
     </br> </br>
     {% endif%}
 
+    
+ {% if loop.index  == 10 %}    
+{% for publicite in publicite %} 
+{#% if publicite.position  ==10%} <div class="position10"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
+{% if publicite.position  ==11%} <div class="position11"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" style="margin-top: -150px;" > </div>{% endif%}
+{% if publicite.position  ==12%} <div class="position12"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{% if publicite.position  ==13%} <div class="position13"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%}
+{#% if publicite.position  ==14%} <div class="position14"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
+{#% if publicite.position  ==15%} <div class="position15"> <img src="{{publicite.image}}" alt="" width="300" height="251" class="img-border" > </div>{% endif%#}
+{% endfor%} 
+{% endif%}
 
 {%endfor%} 
 

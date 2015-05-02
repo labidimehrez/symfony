@@ -270,12 +270,12 @@
         
        {% if sujetnotarticle.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-           <a href="{{ path('my_app_forum_sujet_voir',{'slug':sujetnotarticle.slug}) }}">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>    
         </div>        
       {%else%}
         <div class="senestredebattelement">
-            <a href="{{ path('my_app_forum_sujet_voir',{'slug':sujetnotarticle.slug}) }}">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujetnotarticle.id}) }}">
                 <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{sujetnotarticle.sujet|truncate(35, true, '...')}}</z></t></a>      
         </div> 
       {%endif%}  
@@ -295,13 +295,13 @@
         
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelementcompresse" style="border-bottom: 1px dashed #9fa1a3;">
-            <a href="{{ path('my_app_forum_sujet_voir',{'slug':mostcommenteddebat.slug}) }}">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
             </a>   
         </div>        
       {%else%}
         <div class="senestredebattelementcompresse">
-           <a href="{{ path('my_app_forum_sujet_voir',{'slug':mostcommenteddebat.slug}) }}">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
               <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
            </a>      
         </div> 
@@ -312,13 +312,13 @@
         
        {% if mostcommenteddebat.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-           <a href="{{ path('my_app_forum_sujet_voir',{'slug':mostcommenteddebat.slug}) }}">
+           <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
                <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
            </a>    
         </div>        
       {%else%}
         <div class="senestredebattelement">
-            <a href="{{ path('my_app_forum_sujet_voir',{'slug':mostcommenteddebat.slug}) }}">
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':mostcommenteddebat.id}) }}">
                 <t class="stylecontenudebat"><z class="hvr-pulse-grow">{{mostcommenteddebat.sujet|truncate(35, true, '...')}}</z></t>
             </a>      
         </div> 
@@ -398,13 +398,13 @@
        {%else %}
        {% if sujet.id != loop.last%}
         <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;">
-            <a href="{{ path('my_app_forum_sujet_voir',{'slug':sujet.slug}) }}"  >
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
             <t class="stylecontenudebat">{{sujet.sujet|truncate(28, true, '...')}}</t> </a> </br> 
         </div>        
       {%else%}
         <div class="senestredebattelement">
-              <a href="{{ path('my_app_forum_sujet_voir',{'slug':sujet.slug}) }}"  >
+              <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  >
             <g style="color: #767676;  font-size: 13px;"> {{sujet.datecreation|date('H:i')}}</g>
             <t class="stylecontenudebat">{{sujet.sujet|truncate(28, true, '...')}}</t> </a>  </br> 
         </div> 

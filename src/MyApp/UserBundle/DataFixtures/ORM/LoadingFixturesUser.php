@@ -48,7 +48,7 @@ class LoadingFixturesUser implements FixtureInterface
             $user1->setDatedeCreationUser(new \DateTime());
             $user1->setDatenaissance(new \DateTime());
             $user1->setAddresse("ici");
-      //      $user1->setImage("http://i-cms.journaldunet.com/image_cms/original/1852005-jean-baptiste-rudelle-l-homme-discret-a-l-origine-de-criteo.jpg");
+            $user1->setImage("http://i-cms.journaldunet.com/image_cms/original/1852005-jean-baptiste-rudelle-l-homme-discret-a-l-origine-de-criteo.jpg");
             $user1->setRoles(array('ROLE_SUPER_ADMIN' => 'Superadmin'));
             $manager->persist($user1); 
             
@@ -66,7 +66,7 @@ class LoadingFixturesUser implements FixtureInterface
             $user2->setDatedeCreationUser(new \DateTime());
             $user2->setDatenaissance(new \DateTime());
             $user2->setAddresse("ici");
-        //    $user2->setImage("http://coiffure-esthetique.blogs-entreprises.com/files/2010/07/coiffure-homme-07.jpg");
+            $user2->setImage("http://coiffure-esthetique.blogs-entreprises.com/files/2010/07/coiffure-homme-07.jpg");
             $user2->setRoles(array('ROLE_EDITOR' => 'Editor'));
             $manager->persist($user2);
             
@@ -84,7 +84,7 @@ class LoadingFixturesUser implements FixtureInterface
             $user3->setDatedeCreationUser(new \DateTime());
             $user3->setDatenaissance(new \DateTime());
             $user3->setAddresse("ici");
-    //       $user3->setImage("http://img.over-blog-kiwi.com/0/53/50/02/201307/ob_076fee_florence-colgate-plus-belle-femme-au-monde-2012.jpg");
+            $user3->setImage("http://img.over-blog-kiwi.com/0/53/50/02/201307/ob_076fee_florence-colgate-plus-belle-femme-au-monde-2012.jpg");
             $user3->setRoles(array('ROLE_SUPERSOL' => 'Supersol'));
             $manager->persist($user3);
             

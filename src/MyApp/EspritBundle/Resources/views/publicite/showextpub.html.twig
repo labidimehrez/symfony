@@ -20,7 +20,7 @@
 
 
 {% elseif publicite.position ==1%}
-<div class="position1" id="getPub">
+<div class="position1">
     <table class="bordered" >        
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>                
@@ -69,7 +69,7 @@
 
 {% elseif publicite.position == 6 %}
 
-<div class="position6" id="getPub2">
+<div class="position6">
     <table class="bordered" >         
         <tr>
             <td><img src="{{publicite.image}}" alt="" width="161" height="600" class="img-border"></td>    
@@ -105,63 +105,4 @@
 
  
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="{{ asset('bundles/myappesprit/js/menurouge.js') }}" type="text/javascript"></script>
-<style>
-    body {
-        //  height: 2000px;
-        padding-top: 300px;
-    }
-    #getPub { }
-    #getPub2 { }
-   
-</style>
-
-<script>
-            jQuery(function($) {
-                function fixDiv() {
-                    var $cache = $('#getPub');
-                    if ($(window).scrollTop() > 200)
-                        $cache.css({
-                            'position': 'fixed',
-                            'top': '160px'
-                        });
-                    else
-                        $cache.css({
-                            'position': 'absolute',
-                            'left': '0px',
-                            'top': '380px',
-                            'width': '160px',
-                            'height': '600px',
-                            'z-index': '8000'
-                        });
-                }
-                $(window).scroll(fixDiv);
-                fixDiv();
-            });
-</script>
-<script>
-            jQuery(function($) {
-                function fixDiv() {
-                    var $cache = $('#getPub2');
-                    if ($(window).scrollTop() > 200)
-                        $cache.css({
-                            'position': 'fixed',
-                            'top': '160px'
-                        });
-                    else
-                        $cache.css({
-                            'position': 'absolute',
-                            'left': '1179px',
-                            'top': '380px',
-                            'width': '160px',
-                            'height': '600px',
-                            'z-index': '8000'
-                        });
-                }
-                $(window).scroll(fixDiv);
-                fixDiv();
-            });
-</script>
-{% endblock  %}     
-    
+{% endblock  %}
