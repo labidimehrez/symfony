@@ -31,29 +31,34 @@
                 <table width="670" height="383"  > 
                     <tr>
                         <td width="" style="">&nbsp;Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                            
+
                         <td width="285">{{form_widget(form.username, 
-                 {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters',  'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
+                                { 'attr': { 'style' : 'width:310px','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
+                                  'required':'required', 'pattern': '[A-Za-z]{2,10}' ,
+                                'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}</td>
 
                         <td width="156">&nbsp;</td>
                     </tr>
                     <tr>
                         <td style=""> &nbsp;&nbsp;&nbsp; Fuldtnavn&nbsp; <b  class="rouge">*</b>&nbsp;&nbsp;</td>
-                            
-                          
-                        <td>{{form_widget(form.nomprenom,
-                          {'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }}</td>
+
+
+                        <td>{{form_widget(form.nomprenom,{ 'attr': { 'style' : 'width:310px','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
+                                  'required':'required', 'pattern': '[A-Za-z]{2,10}' ,
+                                'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}</td>
+
+                        <td>{#{form_widget(form.nomprenom,{'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }#}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td style=""> Adgangskode <b  class="rouge">*</b>  </td>
-                        
-                           
+
+
                         <td>
 
-                            <div class="">{{form_widget(form.plainPassword.first,
-                            
-                               { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 'form-control strength','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
+                            <div class="">{{form_widget(form.plainPassword.first, { 'id': 'kv',  'attr': { 'style' : 'width:310px','class' : 
+                                'form-control strength',                          
+                              'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
                                   'required':'required', 'pattern': '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}' ,
                                 'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}
                             </div> 
@@ -62,15 +67,15 @@
                     </tr>
                     <tr>
                         <td style="">Gentag Adgangskode<b  class="rouge">*</b>&nbsp;&nbsp;</td>
-                        <td> {{form_widget(form.plainPassword.second , 
-{ 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td>
+                        <td> {{form_widget(form.plainPassword.second , { 'attr': { 'style' : 'width:310px',
+                        'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td height="122">Skriv bogstaverne</td>
 
                         <td>{{form_widget(form.captcha)}}</td>
-                        <td><b  class="rouge">skift bogstaverne</b></td>
+                        <td><b  class="rouge" style="position: relative;left: -80px;">skift bogstaverne</b></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -102,10 +107,10 @@
     </div>
 
 
-          <div style="padding-top: 70px;"> 
+    <div style="padding-top: 70px;"> 
                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
+    </div>
 </div>
 
 

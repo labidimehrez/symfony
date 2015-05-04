@@ -44,7 +44,7 @@
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
          {#{currentRoute}#}
-      {% for menu in menu %}
+      {% for menu in menu|slice(0, 11)  %}
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %}  
 
@@ -121,7 +121,7 @@
 {% endif %}
 
 
-    <div class="MESSAGE4"></div>
+    <!--<div class="MESSAGE4"></div>-->
 
     
    
