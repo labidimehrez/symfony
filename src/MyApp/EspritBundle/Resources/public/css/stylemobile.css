@@ -7,7 +7,8 @@
     .cadreblanc{display: none;} 
     .SOLDK{display: none;} 
     .headbar{display: none;} 
-
+    .cerclenotif{display: none;}
+    .contain{display: none;}
 
 
     .position0 {
@@ -149,4 +150,5 @@
     }
     .senestredebatt{display: none;}
     .stylepourchaquedebat{max-width: 600px;}
+
 }
