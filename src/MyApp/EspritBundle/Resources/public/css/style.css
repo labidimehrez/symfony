@@ -3154,66 +3154,66 @@
     left: 400px
 }
 .articleposition9 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1120px
+  position: absolute;
+  width: 630px;
+  height: 100px;
+  top: 1120px;
 }
 .articleposition10 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1270px
+  position: absolute;
+  width: 630px;
+  height: 100px;
+  top: 1250px;
 }
 .articleposition11 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1420px
+  position: absolute;
+  width: 630px;
+  height: 100px;
+  top: 1380px;
 }
 .articlepositionA {
     position: absolute;
     width: 310px;
     height: 310px;
-    top: 1535px;
+     top: 1505px;
     left: 5px;
     background-color: #e0e0e0
 }
 .articlepositionB {
-    position: absolute;
-    width: 310px;
-    height: 310px;
-    top: 1535px;
-    left: 324px;
-    background-color: #e0e0e0
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  top: 1505px;
+  left: 324px;
+  background-color: #e0e0e0;
 }
 .articleposition12 {
     position: absolute;
     width: 315px;
     height: 103px;
-    top: 1845px;
+  top: 1825px;
     left: 5px
 }
 .articleposition13 {
-    position: absolute;
-    width: 315px;
-    height: 103px;
-    top: 1845px;
-    left: 322px
+  position: absolute;
+  width: 315px;
+  height: 103px;
+  top: 1825px;
+  left: 322px;
 }
 .articleposition14 {
     position: absolute;
     width: 315px;
     height: 102px;
-    top: 1948px;
+     top: 1932px;
     left: 5px
 }
 .articleposition15 {
-    position: absolute;
-    width: 315px;
-    height: 102px;
-    top: 1948px;
-    left: 322px
+  position: absolute;
+  width: 315px;
+  height: 102px;
+  top: 1932px;
+  left: 322px;
 }
 .bordurearticle {
     padding: 4px;
@@ -3524,5 +3524,16 @@ input:focus {
     top: 100px;
     left: 600px;
     z-index: 8000;
+}
+
+
+#getFixed {
+    // color: #c00;
+    //  font: bold 15px arial;
+    padding: 10px;
+    margin: 10px;
+    //   border: 1px solid #c00;
+    z-index: 50000;
+    //  width: 200px;
 }
 
