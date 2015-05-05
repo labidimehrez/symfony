@@ -150,5 +150,24 @@
     }
     .senestredebatt{display: none;}
     .stylepourchaquedebat{max-width: 600px;}
+    .divpourlogin{  position: relative;
+                    margin-left: 180px;
+                    margin-top: 0px;
+                    top: 300px;
+                    height: 700px;}
+
+    .position22{display: none;}
+
+    .StartaNewTopic{display: none;}
+
+
+
+
+
+
+
+
+
+
 
 }

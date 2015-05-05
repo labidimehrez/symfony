@@ -3,6 +3,7 @@
 {% block fos_user_content %}
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
 
 
@@ -11,15 +12,16 @@
       
 
       
-      <div style="margin-left: 30px;margin-top:30px;">
-          
+     <!-- <div style="margin-left: 30px;margin-top:30px;">-->
+          <div class="divpourlogin">
     <b><h2>Log p&aring; SOL.DK</h2></b> </br>
     <p> Vekommen til SOL.dk ......</p> </br> 
     <form action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
             <tr>             
-                <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>		
+               {# <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>#}	
+                <td>&nbsp;&nbsp;&nbsp; {{ 'log'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                 <td>
        
      

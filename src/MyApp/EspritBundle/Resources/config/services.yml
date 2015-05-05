@@ -24,3 +24,7 @@ services:
     collectify_publicite_manager:
         class: %collectify.publicite.manager.class%
         arguments: [@doctrine.orm.entity_manager]
+        
+        
+        
+ 

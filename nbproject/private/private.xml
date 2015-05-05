@@ -12,7 +12,23 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Profile/edit_content.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/config_dev.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/messages.fr.xlf</file>
+            <file>file:/C:/wamp/www/SolDK/app/AppCache.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/footer.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/config_test.yml</file>
+            <file>file:/C:/wamp/www/SolDK/app/AppKernel.php</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/security.yml</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/config_prod.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/translation.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/validators.en.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/messages.en.yml</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/parameters.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/messages.fr.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/sousmenu.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/routing_dev.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/validators.fr.yml</file>
         </group>
     </open-files>
 </project-private>
