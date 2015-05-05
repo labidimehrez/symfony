@@ -105,12 +105,7 @@ class ArticleController extends Controller {
         $selectarticle = $em->getRepository('MyAppArticleBundle:article')->find($article->getId());
 
         $manager->ShiftToRightNofixedPositionOneDelete($selectarticle);
-
-        $em->remove($article);
-        $em->flush();
-
-
-
+        $manager->remove($article);
         $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_manage'));
     }
@@ -130,7 +125,7 @@ class ArticleController extends Controller {
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $article = $em->getRepository('MyAppArticleBundle:article')->findAll();
         $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
-        $articlenofixedpositionreversed = array_reverse($articleNOfixedposition);/* ar non fixé le plus haut indice 0 */
+        $articlenofixedpositionreversed = array_reverse($articleNOfixedposition); /* ar non fixé le plus haut indice  egal 0 */
         $form = $this->createFormBuilder($article)->add('article')->getForm();
         $totalnumberofar = intval($em->getRepository('MyAppArticleBundle:article')->getARnumber());
 
@@ -143,12 +138,13 @@ class ArticleController extends Controller {
         /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids), array('position' => 'asc'));
-           
-           
-
+ 
             $manager->removemore($articled);
-            /*Traitement pour supprimer plusieurs et translater plusieurs */
-          /********************************************************************/
+             
+            
+            
+            /* Traitement pour supprimer plusieurs et translater plusieurs */
+            /*             * ***************************************************************** */
 
 
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
@@ -159,12 +155,14 @@ class ArticleController extends Controller {
         /*         * ******************************************************************************************************* */
 
         /* delete one checked */
-        if ((count($ids) === 1) && ( $totalnumberofar > 15)) {
+        if ((count($ids) === 1) && ( $totalnumberofar > 2)) {
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids));
+            $article = $articled[0];
             if ($articleNOfixedposition != NULL) {
-                $manager->ShiftToRightNofixedPositionOneDelete($articled);
+                $manager->ShiftToRightNofixedPositionOneDelete($article);
             }
-            $manager->removemore($articled);
+            $manager->remove($article);
+
             return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                         'form' => $form->createView(), 'article' => $article));
         }

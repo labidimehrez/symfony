@@ -83,11 +83,12 @@ class ArticleManager {
 
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
         $totalnumberofar = intval($this->repository->getARnumber()); /* nombre ancien des AR je vais l incrementer +1 */
-        
 
-        if (count($ArticleNOFixedPosition) == 1) {$ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);$this->persist($ArticleNOFixedPosition[0]); }
 
-        elseif (count($ArticleNOFixedPosition) > 1) {
+        if (count($ArticleNOFixedPosition) == 1) {
+            $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
+            $this->persist($ArticleNOFixedPosition[0]);
+        } elseif (count($ArticleNOFixedPosition) > 1) {
 
             $index = 1;
             do { /* les ar apres celle en ajout translate */
@@ -103,8 +104,6 @@ class ArticleManager {
             $ArticleNOFixedPosition[0]->setPosition($totalnumberofar + 1);
             $this->persist($ArticleNOFixedPosition[0]);
         }
-            
-       
     }
 
     public function ShiftToRightNofixedPositionOneDelete($selectarticle) {
@@ -121,10 +120,13 @@ class ArticleManager {
         $index = 0;
 
         if ($position < $ArticleNOFixedPosition[$index]->getPosition()) {
+            if(count($ArticleNOFixedPosition)>1){
             do {
                 $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
                 $index++;
             } while ($index < count($pos));
+            }else{$ArticleNOFixedPosition[$index]->setPosition($position);}
+            
         }
     }
 
@@ -288,6 +290,11 @@ class ArticleManager {
 
     public function persist($article) {
         $this->doFlush($article);
+    }
+
+    public function remove($article) {
+        $this->em->remove($article);
+        $this->em->flush();
     }
 
     public function doFlush($article) {

@@ -1,0 +1,32 @@
+
+log: login
+rubrique.title: rubric
+
+
+# Film
+film: Movie
+film.description: Description
+film.categorie: Category
+film.acteurs: Actors
+film.liste: Movies list
+film.liste.retour: Back to movies list
+film.ajouter: Add a movie
+film.modifier: Edit movie %titre%
+film.ajouter.succes: The movie %titre% has been successfully added !
+film.modifier.succes: The movie %titre% has been successfully updated !
+film.aucun: No movie found
+film.fiche: View movie %titre%
+film.top: Top movies
+
+# Menu
+menu.accueil: Home
+menu.title: title
+menu.choisir_langue: Choose a language
+
+# Divers
+voir: View
+modifier: Edit
+supprimer: Delete
+motcle: "Keyword :"
+rechercher: Search
+copyright: Copyright
