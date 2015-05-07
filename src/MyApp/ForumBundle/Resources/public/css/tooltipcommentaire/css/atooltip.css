@@ -1,1 +1,30 @@
-#aToolTip{position:absolute;display:none}#aToolTip .aToolTipContent{position:relative;margin:0;left:-50px;top:60px;padding:0}.defaultTheme{margin-top:120px;background:#fff;color:#000;-moz-border-radius:12px 12px 12px 0;-khtml-border-radius:12px 12px 12px 0;-moz-box-shadow:2px 2px 5px #111;-webkit-box-shadow:2px 0 3px 2px gray}.defaultTheme #aToolTipCloseBtn{display:block;outline:none;position:absolute;right:-25px;padding:px;text-decoration:none;color:red}
+#aToolTip {
+    position: absolute;
+    display: none
+}
+#aToolTip .aToolTipContent {
+    position: relative;
+    margin: 0;
+    left: -50px;
+    top: 60px;
+    padding: 0
+}
+.defaultTheme {
+    margin-top: 120px;
+    background: #fff;
+    color: #000;
+    -moz-border-radius: 12px 12px 12px 0;
+    -khtml-border-radius: 12px 12px 12px 0;
+    -moz-box-shadow: 2px 2px 5px #111;
+    /*-webkit-box-shadow: 2px 0 3px 2px gray;*/
+    box-shadow: 2px 0 3px 2px gray;
+}
+.defaultTheme #aToolTipCloseBtn {
+    display: block;
+    outline: none;
+    position: absolute;
+    right: -25px;
+    padding: px;
+    text-decoration: none;
+    color: red
+}

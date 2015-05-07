@@ -1,0 +1,40 @@
+{#% extends 'MyAppEspritBundle::layout.html.twig' %#}
+
+ 
+
+{% block content %}
+ <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script> -->
+        <script src="{{ asset('bundles/myappesprit/js/jqueryajax.min.js') }}" type="text/javascript"></script>
+
+<form id="form_recherche" action="{{ path('myapp_acteur_rechercher') }}" method="post">
+    {{ form_widget(form) }}
+    <input type="submit" value="{{ 'rechercher' | trans }}" />
+</form>
+<div class="loading"></div>
+<div id="resultats_recherche"> 
+    {% include 'MyAppEspritBundle:Default:liste.html.twig' with {'menu' : menu}  %}
+</div>
+
+ 
+  
+
+<script type="text/javascript">
+$(".loading").hide();
+$("#form_recherche").submit(function(){ 
+    $(".loading").show();
+        $(".loading").show();
+        var DATA = '';
+        $.ajax({
+            type: "POST",
+            url: "{{ path('myapp_acteur_rechercher')}}",
+            data: DATA,
+            cache: false,
+            success: function(data){
+               $('#resultats_recherche').html(data);
+               $(".loading").hide();
+            }
+        });
+    return false;
+});
+</script>
+{% endblock %}

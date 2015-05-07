@@ -128,5 +128,8 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             uploadable: true
-
- 
+            
+            
+# CSS JS configuration            
+#assetic:
+#    bundles:        ["MyAppEspritBundle"]

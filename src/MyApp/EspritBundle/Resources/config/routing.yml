@@ -34,7 +34,11 @@ my_app_esprit_test:
     defaults: { _controller: MyAppEspritBundle:Default:test }
     
  
-my_app_esprit_translation:
-    pattern:  /translation
-    defaults: { _controller: MyAppEspritBundle:Default:translation }
- 
+my_app_esprit_lister:
+    pattern:  /lister
+    defaults: { _controller: MyAppEspritBundle:Default:lister }
+
+
+myapp_acteur_rechercher:
+  pattern: /acteur/rechercher
+  defaults: { _controller: MyAppEspritBundle:Default:rechercher }

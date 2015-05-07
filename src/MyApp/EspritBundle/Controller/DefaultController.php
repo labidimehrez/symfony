@@ -1,7 +1,7 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
-
+use MyApp\EspritBundle\Form\ActeurRechercheForm;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -44,8 +44,8 @@ class DefaultController extends Controller {
 
         $this->getRequest()->setLocale('en_US');
         $this->getRequest()->setDefaultLocale('en');
-       /* $x=$this->getRequest();
-       var_dump($x);exit;*/
+        /* $x=$this->getRequest();
+          var_dump($x);exit; */
 
         return $this->render('MyAppEspritBundle:Default:translation.html.twig');
     }
@@ -59,6 +59,36 @@ class DefaultController extends Controller {
         ));
     }
 
- 
+    public function rechercherAction(Request $request) {
+        $request = $this->container->get('request');
+
+        if ($request->isXmlHttpRequest()) {
+
+     
+            
+            $em = $this->container->get('doctrine')->getEntityManager();
+
+                $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+     
+
+            return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:liste.html.twig', array(
+                        'menu' => $menu
+            ));
+        } else {
+            return $this->listerAction();
+        }
+    }
+
+    public function listerAction() {
+//        $em = $this->container->get('doctrine')->getEntityManager();
+//        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+
+        $form = $this->container->get('form.factory')->create(new ActeurRechercheForm());
+
+        return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:lister.html.twig', array(
+//                    'menu' => $menu,
+                    'form' => $form->createView()
+        ));
+    }
 
 }
