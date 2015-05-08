@@ -2988,15 +2988,15 @@
     padding-left: 55px
 }
 .contenudetemplate {
-    /*position: relative;
+    position: relative;
     margin-right: 220px;
     margin-left: 190px;
-    padding: 0*/
-    position: absolute;
+    padding: 0
+/*    position: absolute;
     margin-right: 220px;
     margin-left: 190px;
     padding: 0;
-    top: 375px;
+    top: 375px;*/
 }
 .contenudebat {
     width: 650px

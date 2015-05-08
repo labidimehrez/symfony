@@ -1,11 +1,14 @@
 <?php
 
 namespace MyApp\EspritBundle\Controller;
+
 use MyApp\EspritBundle\Form\ActeurRechercheForm;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use MyApp\EspritBundle\Form\menuType;
+use MyApp\EspritBundle\Entity\menu;
 
 class DefaultController extends Controller {
 
@@ -59,36 +62,90 @@ class DefaultController extends Controller {
         ));
     }
 
-    public function rechercherAction(Request $request) {
-        $request = $this->container->get('request');
+    public function listerAction( ) {
+        $menu = new Menu();
+        $form = $this->createForm(new MenuType, $menu);
+        $request = $this->getRequest();
+//        if ($request->isMethod('Post')) {
 
-        if ($request->isXmlHttpRequest()) {
+        $form->bind($request);
 
-     
-            
-            $em = $this->container->get('doctrine')->getEntityManager();
-
-                $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
-     
-
-            return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:liste.html.twig', array(
-                        'menu' => $menu
+        if ($form->isValid()) {
+            $menu = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($menu);
+            $em->flush();
+                    if ($request->isXmlHttpRequest()) {
+                        $em = $this->container->get('doctrine')->getEntityManager();
+                        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+                        return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:liste.html.twig', array(
+                                    'menu' => $menu
+                        ));
+                    } else {  return $this->listerAction();}
+//                return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
+        }
+//        }
+//        if ($request->isXmlHttpRequest()) {
+//            $em = $this->container->get('doctrine')->getEntityManager();
+//            $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+//            return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:liste.html.twig', array(
+//                        'menu' => $menu
+//            ));
+//        }
+        else {
+            return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:lister.html.twig', array('form' => $form->createView()
             ));
-        } else {
-            return $this->listerAction();
         }
     }
 
-    public function listerAction() {
-//        $em = $this->container->get('doctrine')->getEntityManager();
-//        $menu = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+    
+    
+    
+    
+    
+    
+   
+    
+   public function newFormAjaxAction() {
+        $request= $this->getRequest();
+        $newform = $this->get('form.factory') ->create(new menuType(), new Menu());
+               
+          $x="a"; 
+        if ($request->isXmlHttpRequest()) {
+            $newform->handleRequest($request);
+            if ($newform->isValid()){
+            $menu = $newform->getData();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($menu);
+                $em->flush();
+                
+                
+                                      
+              $x = $em->getRepository('MyAppEspritBundle:menu')->findAll();
+           return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(),'menu'   => $x));
 
-        $form = $this->container->get('form.factory')->create(new ActeurRechercheForm());
+            //return new JsonResponse(array('response'=>TRUE));
+            }
+            else{
+            return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(),'menu'   => $x));
 
-        return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:lister.html.twig', array(
-//                    'menu' => $menu,
-                    'form' => $form->createView()
-        ));
-    }
-
+       //      return new JsonResponse(array('response'=>false));  
+            }
+        }
+        return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView()      ,'menu'   => $x));
+               
+    } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+
+<script src="{{ asset('bundles/myappesprit/js/jqueryajax.min.js') }}" type="text/javascript"></script>
+
+ 
+<form id="form_recherche" action="{{ path('rn_phototekbundle_ajax') }}" method="post">
+    {{ form_widget(form) }} 
+            
+                           
+        
+    <input type="submit" value="{{ 'rechercher' | trans }}" />
+</form>
+ 
+<div class="loading"></div>
+<div id="resultats_recherche"> 
+    {% include 'MyAppEspritBundle:Default:liste.html.twig' with {'menu' : menu}  %}
+</div>
+
+ 
+
+<script type="text/javascript">
+$(function() {
+    $("#form_recherche").submit(function(){ 
+   //     var form = $(this).serialize();
+        $.ajax({
+            type: 'post',
+            url: "{{path('rn_phototekbundle_ajax')}}",
+     //       data: {form},
+              data: $(this).serialize(),
+            success: function(data)
+            {           
+             /*if (data['response']===true){
+                 console.log(data);
+                 $('#'+id).remove();
+             }*/              
+               $('#resultats_recherche').html(data);
+               $(".loading").hide();
+            }
+        });
+            return false;
+    });
+});
+</script>
