@@ -7,7 +7,7 @@
 
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
-<div class="contenudetemplate" style="/*top: -25px;*/">
+<div class="contenudetemplate" id="getFixedTemplate">
 
     <!--       ici c'est la colonne gauche   pour les articles ....      .-->   
   {% for article in article %}

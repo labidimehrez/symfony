@@ -5,10 +5,7 @@
 
  
 <form id="form_ajouter" action="{{ path('rn_phototekbundle_ajax') }}" method="post">
-    {{ form_widget(form) }} 
-            
-                           
-        
+    {{ form_widget(form) }}    
     <input type="submit" value="{{ 'ajouter' | trans }}" />
 </form>
  
@@ -22,15 +19,16 @@
 <script type="text/javascript">
 $(function() {
    
-    $("#form_ajouter").submit(function(){ 
-        
-   //     var form = $(this).serialize();
+    $("#form_ajouter").submit(function(e){ // On sélectionne le formulaire par son identifiant
+        e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+
         $.ajax({
             
             type: 'post',
             url: "{{path('rn_phototekbundle_ajax')}}",
-     //       data: {form},
-              data: $(this).serialize(),
+     //     data: {form},
+            data: $(this).serialize(),
+            cache: false,
             success: function(data)
             {           
              /*if (data['response']===true){
@@ -41,6 +39,7 @@ $(function() {
                $('#resultats_ajouter').html(data);
                
                $(".loading").hide();
+     
             }
         });
             return false;

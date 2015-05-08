@@ -9,7 +9,7 @@
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
  
-<div class="contenudetemplate">
+<div class="contenudetemplate" id="getFixedTemplate">
     <div style="margin-left: 180px;margin-top: 100px;width: 588px;">
         <form  action='{{  path('my_app_forum_sujet_addfromar',{'id':id}) }}' method="post" {{ form_enctype(form) }} > 
 

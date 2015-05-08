@@ -104,7 +104,7 @@ class DefaultController extends Controller {
         $request = $this->getRequest();
         $newform = $this->get('form.factory')->create(new menuType(), new Menu());
 
-//        $x = "a";
+        $x = "a";
         if ($request->isXmlHttpRequest()) {
             $newform->handleRequest($request);
             if ($newform->isValid()) {
@@ -118,14 +118,17 @@ class DefaultController extends Controller {
                 $x = $em->getRepository('MyAppEspritBundle:menu')->findAll();
                 return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(), 'menu' => $x));
             } else {
-                return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(), 'menu' => $x)); 
+                return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(), 'menu' => $x));
             }
-        } else {
-            return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView()));
+            //   }/* else {
+//             return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView()));
+            //  }*/
         }
+
+        else {
+          return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView()));
+          } 
+   
     }
-    
-    
-    
 
 }
