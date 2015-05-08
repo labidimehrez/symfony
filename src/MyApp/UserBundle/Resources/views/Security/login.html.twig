@@ -9,71 +9,79 @@
 
 
 <div class="contenudetemplate" id="getFixedTemplate">
-      
 
-      
-     <!-- <div style="margin-left: 30px;margin-top:30px;">-->
-          <div class="divpourlogin">
-    <b><h2>Log p&aring; SOL.DK</h2></b> </br>
-    <p> Vekommen til SOL.dk ......</p> </br> 
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-        <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
-            <tr>             
+
+
+    <!-- <div style="margin-left: 30px;margin-top:30px;">-->
+    <div class="divpourlogin">
+        <b><h2>Log p&aring; SOL.DK</h2></b> </br>
+        <p> Vekommen til SOL.dk ......</p> </br> 
+        <form action="{{ path("fos_user_security_check") }}" method="post" id="formsubmitid">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
+                <tr>             
                {# <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>#}	
-                <td>&nbsp;&nbsp;&nbsp; {{ 'log'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                <td>
-       
-     
-                    <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
-            </tr>	
-            </br></br> 
-            <tr> 
-                <td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
-                <td> <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');"  type="password" id="password" name="_password" class="btn btn-warning btn-lg" style="width: 312px;" required="required" /></td>
-            </tr>		
-            <div id="lower">
-                </br>		
-                <div style="padding-left: 120px;">
-                <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"  
-                      style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
-                </div>
-                </br></br>
+                    <td>&nbsp;&nbsp;&nbsp; {{ 'log'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                    <td>
+
+
+                        <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
+                </tr>	
+                </br></br> 
+                <tr> 
+                    <td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                    <td> <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');"  type="password" id="password" name="_password" class="btn btn-warning btn-lg" style="width: 312px;" required="required" /></td>
+                </tr>		
+                <div id="lower">
+                    </br>		
+                    <div style="padding-left: 120px;">
+                        <input type="submit" id="_submit" name="_submit" class="btn btn-warning btn-lg"  
+                               style="width: 150px;" value="{{'Log pa'|trans({}, 'FOSUserBundle') }}"  />
+                    </div>
+                          {#   submit avec entrée du clavier :D #}
+                    <script type="text/javascript">
+                        document.getElementById('password').onkeypress = function(e) {
+                            if (e.keyCode === 13) { $("#formsubmitid").submit(); }};  
+                    </script> 
+
+
+
+                    </br></br>
 
 
 
                 {% if error %}<div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <b  class="rouge">( {{ error|trans({}, 'FOSUserBundle') }} )</b></div>{% endif %}	
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b  class="rouge">( {{ error|trans({}, 'FOSUserBundle') }} )</b></div>{% endif %}	
 
-            </div>
-        </div>		
-    </form>
-    </br>  
-    <p>Er du ny bruger .....</p>
+                </div>
+            </div>		
+        </form>
+        </br>  
+        <p>Er du ny bruger .....</p>
 
-    <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
-        <p  class="rouge">Registrer</p></a>
+        <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none">
+            <p  class="rouge">Registrer</p></a>
 
-     
+
 {% for publicite in publicite %} 
-<div class="position22">
-   
-  <img src="{{publicite.image}}" alt="" width="300" height="250" > 
-</div>  
+        <div class="position22">
+
+            <img src="{{publicite.image}}" alt="" width="300" height="250" > 
+        </div>  
  {%endfor%}
-</div> 
-  
-  
-            <div style="padding-top: 70px;"> 
+    </div> 
+
+
+    <div style="padding-top: 70px;"> 
                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
-  </div>
+    </div>
+</div>
 
 {% endblock fos_user_content %}

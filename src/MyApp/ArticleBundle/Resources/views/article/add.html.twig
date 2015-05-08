@@ -11,7 +11,7 @@
 <div class="contenudetemplate" id="getFixedTemplate">
 
 <div class="arstyle">
-    <form  action='{{path('my_app_article_article_add')}}' method="post" {{ form_enctype(form) }} > 
+    <form  action='{{path('my_app_article_article_add')}}' method="post" {{ form_enctype(form) }} id="formsubmitid" > 
 
         <table height=" " width=" " border="0">
 
@@ -97,6 +97,13 @@
 
             </br></br>
 
+                        {#   submit avec entrée du clavier :D #}
+                      <script type="text/javascript">
+                        document.getElementById('myapp_articlebundle_article_lien').onkeypress = function(e) {
+                            if (e.keyCode === 13) { $("#formsubmitid").submit(); }};  
+                    </script>  
+            
+            
             <tr>   {{form_widget(form._token)}}   
                 <td> </br> </br> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

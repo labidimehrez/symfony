@@ -11,7 +11,7 @@
 
 <div class="contenudetemplate" id="getFixedTemplate">
     <div style="margin-left: 180px;margin-top: 100px;width: 588px;">
-        <form  action='{{path('my_app_forum_sujet_add')}}' method="post" {{ form_enctype(form) }} > 
+        <form  action='{{path('my_app_forum_sujet_add')}}' method="post" {{ form_enctype(form) }} id="formsubmitid" >  
 
             <table height=" " width=" " border="0">
 
@@ -44,7 +44,12 @@
 
                 <tr>   {{form_widget(form._token)}}   
                     <td> </br></br> 
-
+                   {#   submit avec entrée du clavier :D #}
+                      <script type="text/javascript">
+                        document.getElementById('tokenfield-1-tokenfield').onkeypress = function(e) {
+                             if (e.keyCode === 13) { $("#formsubmitid").submit(); }};  
+                      </script>  
+                    
                         <input type="submit"  value="Save" style="width: 150px;float:left;" class="btn btn-warning btn-lg"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
 
