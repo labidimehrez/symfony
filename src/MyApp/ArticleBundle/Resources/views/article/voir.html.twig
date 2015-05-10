@@ -32,9 +32,10 @@
 
         </br></br>
 
-                 {%if "http" in article.path %}<img src="{{article.path }}" class="ardetailsimg" width="550" height="360"  />{%else%} 
+        {%if article.path is not null %}
+        {%if "http" in article.path %}<img src="{{article.path }}" class="ardetailsimg" width="550" height="360"  />{%else%} 
         <img src="{{ asset('upload/' ~ article.path) }}" class="ardetailsimg" width="550" height="360"  />  {%endif%}
-
+        {%endif%}
 
 
 
