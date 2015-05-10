@@ -21,13 +21,13 @@
     <div class="divedittag" style="position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;">
         <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}'>
 
-           {# <input type="text" name="i[]" id="autocomplete" title=""
-                   value="{% for tag in tag %}{{tag.title|raw}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}"> #}
-             {% set counter = "" %}     
+            <input type="text" name="i[]" id="autocomplete" title=""
+                   value="{% for tag in tag %}{{tag.title|raw}}&nbsp;{% if not  loop.last %},{%endif%}{% endfor%}"> 
+             {#% set counter = "" %}     
                             {% for tags in sujet.tags%} {% set counter = counter ~ tags.title|raw ~ ',' %} {%endfor%}
                   
                        <input required="true" type="text" class="form-control" id="tokenfield-1" value="{{counter|slice(start, length-1)}}"     
-                       name="inputtag"    tabindex="-1" style="">
+                       name="inputtag"    tabindex="-1" style="">#}
                    
             
             

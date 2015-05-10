@@ -7,12 +7,16 @@
             {% if   "style_add" in  routeName %} Ajout de style {%endif%}
             
             
-            {%if "voir" and "sujet" in  routeName%}
+            {%if "voir" in  routeName%}
+             {%if "sujet" in  routeName%}
             <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" >
             <u style="color:black">Debats</u></a> > 
                   {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}
                                                   > 
-                   {{sujet.sujet}}                                 
+                   {{sujet.sujet}}  
+                                                  
+                                                  
+              {%endif%}                                    
              {%endif%}
     
 
@@ -25,11 +29,11 @@
             {% if "profile_edit" in routeName %}Min profil{%endif%}
           
 
-            {%if "voir" and "article" in  routeName%}  
-                                       
+            {%if "voir"   in  routeName%}  
+              {%if  "article" in  routeName%}                          
                    {{article.headline}}                                 
              {%endif%}
-           
+            {%endif%}
             
         </B>
 </div>

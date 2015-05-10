@@ -28,6 +28,7 @@ $(function() {
             url: "{{path('rn_phototekbundle_ajax')}}",
      //     data: {form},
             data: $(this).serialize(),
+            datatype: "json",        
             cache: false,
             success: function(data)
             {           
@@ -35,7 +36,7 @@ $(function() {
                  console.log(data);
                  $('#'+id).remove();
              }*/   
-               $("#form_ajouter").hide();
+           //    $("#form_ajouter").hide();
                $('#resultats_ajouter').html(data);            
                $(".loading").hide();
 

@@ -112,17 +112,15 @@ class DefaultController extends Controller {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($menu);
                 $em->flush();
-
-
-
                 $x = $em->getRepository('MyAppEspritBundle:menu')->findAll();
-                return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(), 'menu' => $x));
-            } else {
+              return $this->container->get('templating')->renderResponse('MyAppEspritBundle:Default:liste.html.twig', array(
+                            'menu' => $x
+                ));
+ 
+             } else {
                 return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView(), 'menu' => $x));
             }
-            //   }/* else {
-//             return $this->render('MyAppEspritBundle:Default:ajaxbouton.html.twig', array('form' => $newform->createView()));
-            //  }*/
+ 
         }
 
         else {
