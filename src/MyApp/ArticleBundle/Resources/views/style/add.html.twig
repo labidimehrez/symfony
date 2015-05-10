@@ -20,56 +20,59 @@
 
 <div class="contenudetemplate" id="getFixedTemplate">
     <div style="margin-left: 150px;margin-top: 150px;">
-        
-   
-            <form action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} style="width: 500px;" > 
-                  
-         
-                 <div class="form-item">
-                     <label for="color1" class="stylegras">Title &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
-    <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters" onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" >    
-                </div>
-                
-                </br></br>
-                
-                 <div class="form-item">
-                     <label for="color1" class="stylegras" >Name</label></br>
-                      <input type="text" name="name"  style="width: 600px;"  value="" value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
-                </div>
-                
-                </br></br>
-                
-                <div id="picker" style="float: right;"></div>
-                <div class="form-item">
-                    <label for="color1" class="stylegras">Color For Font:</label></br>
- <input type="text" id="color1" name="color1" required="true" pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}"  class="colorwell"  value="#123456" style="width: 100px;"/>
-                </div>
-                
-                </br></br></br></br></br></br>
-                
-                <div class="form-item">
-                    <label for="color2" class="stylegras">Background Color:</label></br>
-                    <input type="text" id="color2" required="true" name="color2" class="colorwell"   pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}" value="#123456" style="width: 100px;" />
-                </div>
-          
-                </br></br>
+
+
+        <form action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} style="width: 500px;" > 
+
+
+            <div class="form-item">
+                <label for="color1" class="stylegras">Title &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
+                <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters" onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" >    
+            </div>
+
+            </br></br>
+
+            <div class="form-item">
+                <label for="color1" class="stylegras" >Name</label></br>
+                <input type="text" name="name"  style="width: 600px;"  value="" value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
+            </div>
+
+            </br></br>
+
+            <div id="picker" style="float: right;"></div>
+            <div class="form-item">
+                <label for="color1" class="stylegras">Color For Font:</label></br>
+                <input type="text" id="color1" name="color1" required="true" pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}"  class="colorwell"  value="#123456" style="width: 100px;"/>
+            </div>
+
+            </br></br></br></br></br></br>
+
+            <div class="form-item">
+                <label for="color2" class="stylegras">Background Color:</label></br>
+                <input type="text" id="color2" required="true" name="color2" class="colorwell"   pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}" value="#123456" style="width: 100px;" />
+            </div>
+
+            </br></br>
                   {{form_widget(form._token)}}  
-                
-                    <input type="submit"  value="submit" style="width: 100px;margin-left: 150px;margin-right: 50px;" 
-                           class="btn btn-warning btn-lg"/>
-                 
-                    <input type="reset"  value="reset" style="width: 100px;"  class="btn btn-warning btn-lg"/>
-               
-            </form>
-      
 
- </div>
+            <input type="submit"  value="submit" style="width: 100px;margin-left: 150px;margin-right: 50px;" 
+                   class="btn btn-warning btn-lg"/>
+
+            <input type="reset"  value="reset" style="width: 100px;"  class="btn btn-warning btn-lg"/>
+
+        </form>
 
 
-          <div style="padding-top: 70px;"> 
-               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+    </div>
+
+
+    <div style="padding-top: 70px;"> 
+                <div style="margin-bottom: 20px;"> 
+                            {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                </div>   
+
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
+    </div>
 
 </div>
 <!--<script type="text/javascript">

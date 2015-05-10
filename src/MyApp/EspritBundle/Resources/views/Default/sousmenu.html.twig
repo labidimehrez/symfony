@@ -10,7 +10,9 @@
             {%if "voir" in  routeName%}
             <a href="{{ path('my_app_forum_sujet_sujetrecent' ) }}" >
             <u style="color:black">Debats</u></a> > 
-                  {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}</a>
+                  {% for tag in tag %}{% if loop.index == 1 %} {{tag.title}} {%endif%}{%endfor%}
+                                                  > 
+                   {{sujet.sujet}}                                 
              {%endif%}
     
 

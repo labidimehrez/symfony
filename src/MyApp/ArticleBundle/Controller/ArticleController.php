@@ -138,11 +138,11 @@ class ArticleController extends Controller {
         /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
             $articled = $em->getRepository('MyAppArticleBundle:article')->findBy(array('id' => $ids), array('position' => 'asc'));
- 
+
             $manager->removemore($articled);
-             
-            
-            
+
+
+
             /* Traitement pour supprimer plusieurs et translater plusieurs */
             /*             * ***************************************************************** */
 
@@ -195,6 +195,74 @@ class ArticleController extends Controller {
         return $this->render('MyAppArticleBundle:article:manage.html.twig', array(
                     'form' => $form->createView(), 'article' => $article
         ));
+    }
+
+    public function editAction($id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
+        $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
+        $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
+        $articleNOfixedposition = $manager->getArticleNOFixedPosition(); /* array  des objetcs a  positions non fixés  ordonnés ACS positions */
+
+
+        $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
+        $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
+
+
+
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('MyAppArticleBundle:Article')->find($id);
+        if (!$article) {
+            throw $this->createNotFoundException(
+                    'No Article found for id ' . $id
+            );
+        }
+
+        $form = $this->createFormBuilder($article)
+                ->add('headline')
+                ->add('file', 'file', array('required' => false))
+                ->add('copyrights', null, array('required' => false))
+                ->add('fixedposition', 'checkbox', array('required' => false, 'data' => false))
+                ->add('style', 'entity', array(
+                    'class' => 'MyApp\ArticleBundle\Entity\Style',
+                    'property' => 'title',
+                    'expanded' => false,
+                    'multiple' => false,
+                    'required' => true))
+                ->add('lien')
+                ->add('position', 'choice', array(
+                    'choices' => array(
+                        '1' => 'Position 1',
+                        '2' => 'Position 2',
+                        '3' => 'Position 3',
+                        '4' => 'Position 4',
+                        '5' => 'Position 5',
+                        '6' => 'Position 6',
+                        '7' => 'Position 7',
+                        '8' => 'Position 8',
+                        '9' => 'Position 9',
+                        '10' => 'Position 10',
+                        '11' => 'Position 11',
+                        '12' => 'Position 12',
+                        '13' => 'Position 13',
+                        '14' => 'Position 14',
+                        '15' => 'Position 15'
+                    ),
+                    'expanded' => false,
+                    'multiple' => false
+                ))
+             
+                ->add('tags')
+                ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->redirect($this->generateUrl('my_app_article_article_add'));
+        }
+
+        return $this->render('MyAppArticleBundle:article:edit.html.twig', array('form' => $form->createView(),'article'=>$article ,'tags' => $tags));
     }
 
 }
