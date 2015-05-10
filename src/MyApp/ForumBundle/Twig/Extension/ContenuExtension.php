@@ -22,13 +22,15 @@
      $contenu = str_replace("&ecirc;", 'ê', $contenu);
       $contenu = str_replace("<p>", '', $contenu);
        $contenu = str_replace("</p>", '', $contenu);
- 
+       $contenu = str_replace("Ã©", 'é', $contenu);
      
+  
+  $contenu = str_replace("Ã§", 'ç', $contenu);
+  $contenu = str_replace("Ã¨", 'è', $contenu);
 //    $contenu =strip_tags($contenu, '&nbsp;');
      
     return $contenu;
       }       
-
 
       public function getName() {
           return 'contenu_extension'; 

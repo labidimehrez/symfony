@@ -1,0 +1,62 @@
+{# empty Twig template #}
+ 
+ {# empty Twig template #}
+
+{{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
+ {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
+
+
+ {% block voir_article%}  
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+</br> 
+
+<div class="contenudetemplate" id="getFixedTemplate">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   {% for publicite in publicite %} 
+        <div class="position22"> <img src="{{publicite.image}}" alt="" width="300" height="250" >  </div> 
+    {%endfor%} 
+           
+        
+        
+
+        <div style="padding-top: 70px;"> 
+                            <div style="margin-bottom: 20px;"> 
+                                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                           </div>   
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
+
+</div>
+
+
+
+{% endblock %}

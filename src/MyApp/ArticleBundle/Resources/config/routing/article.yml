@@ -15,6 +15,11 @@ my_app_article_article_edit:
     pattern:  /{id}/edit
     defaults: { _controller: MyAppArticleBundle:article:edit }  
     
+my_app_article_article_voir:
+    pattern:  /{id}/voir
+    defaults: { _controller: MyAppArticleBundle:article:voir }    
+    
+    
     
 my_app_article_article_manage:
     pattern:  /manage

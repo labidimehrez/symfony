@@ -54,7 +54,7 @@
                       {% set counter = "" %}     
                             {% for tags in article.tags%} {% set counter = counter ~ tags.title|raw ~ ',' %} {%endfor%}
                      <td>
-                       <input required="true" type="text" class="form-control" id="tokenfield-1" value={{counter|slice(start, length-1)}}     
+                       <input required="true" type="text" class="form-control" id="tokenfield-1" value="{{counter|slice(start, length-1)}}"     
                        name="inputtag"    tabindex="-1" style="width:315px;position: absolute; left: -10000px;" />
                     </td>
             </tr>
@@ -187,7 +187,7 @@
                 delay: 100
             },
             showAutocompleteOnFocus: !0,
-            delimiter: [",", " ", "-", "_"]
+            delimiter: [","]
         });
         {#  b.initialize(), a("#tokenfield-typeahead").tokenfield({
             typeahead: [null, {

@@ -209,12 +209,11 @@ class ArticleController extends Controller {
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
 
 
-
-        $em = $this->getDoctrine()->getManager();
+ 
         $article = $em->getRepository('MyAppArticleBundle:Article')->find($id);
         if (!$article) {
             throw $this->createNotFoundException(
-                    'No Article found for id ' . $id
+                    'no article found for id ' . $id
             );
         }
 
@@ -258,11 +257,53 @@ class ArticleController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_app_article_article_add'));
+                    $article = $form->getData();
+                /* traitement special pour le choix des tags */
+                $managertag = $this->get('collectify_tag_manager'); /* em pour TAG !! */
+                $inputtag = $this->getRequest()->get('inputtag');
+
+                $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+                $tagaajouté = array(); // tableau vide
+                foreach ($alltags as $tag) {
+                    $tagtitle = $tag->getTitle(); /* get title of objects :D */
+                    if ($inputtag == $tagtitle) {
+                        $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                        array_push($tagaajouté, $selectedtag);
+                        $article->setTags($tagaajouté);
+                    }
+                }
+                /* traitement special pour le choix des tags */
+
+                $positiondelarticleenajout = $form["position"]->getData(); /* INTEGER la position du nouveau article ajouté */
+                $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
+                /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
+                $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout);
+                $manager->traitementenajout($positiondelarticleenajout, $fixedpositionChecked, $lapositionchoisie, $articleNOfixedposition, $premierepositionlibre, $article);
+                return $this->redirect($this->generateUrl('my_app_article_article_edit',array('id' => $id)));
         }
 
         return $this->render('MyAppArticleBundle:article:edit.html.twig', array('form' => $form->createView(),'article'=>$article ,'tags' => $tags));
     }
 
+    
+    
+    
+    
+        public function voirAction($id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $managerarticle = $this->get('collectify_article_manager');/** equivalent de em manager * */
+        $article = $managerarticle->getOne($id);
+        $publicite = $em->getRepository('MyAppEspritBundle:publicite')->findBy(array('position' => 22));    
+
+  
+        if (!$article) {
+            throw $this->createNotFoundException('no  article found for id ' . $id);
+        }
+
+    
+ 
+        return $this->render('MyAppArticleBundle:article:voir.html.twig', array(
+                    'article' => $article,'publicite'=>$publicite
+        ));
+    }
 }

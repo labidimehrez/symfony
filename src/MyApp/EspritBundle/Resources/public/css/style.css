@@ -309,9 +309,9 @@
 }
 .MENU {
     position: absolute;
-    left: 250px;
+    //left: 250px;width: 800px;
     top: 310px;
-    width: 800px;
+    left: 263px;width: 797px;
     height: 42px;
     background-color: #c52821;
     font-size: 11px;
@@ -360,7 +360,7 @@
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    padding-left: 200px;
+    padding-left: 220px;
     z-index: 399;
     top: 365px
 }
@@ -2543,7 +2543,7 @@
 }
 .position0 {
     position: absolute;
-    left: 195px;
+    left: /*195px;*/207px;
     top: 118px;
     width: 929px;
     height: 180px;
@@ -2990,7 +2990,7 @@
 .contenudetemplate {
     position: relative;
     margin-right: 220px;
-    margin-left: 190px;
+    margin-left: /*190px;*/ 207px;
     padding: 0
         /*    position: absolute;
             margin-right: 220px;
@@ -3081,30 +3081,30 @@
 .publicitenumero4 {
     position: relative;
     top: 110px;
-    clear: right;
+    clear: right;left: 10px;
     float: right
 }
 .publicitenumero5 {
     position: relative;
-    top: 120px;
+    top: 120px;left: 10px;
     clear: right;
     float: right
 }
 .publicitenumero6 {
     position: relative;
-    top: 130px;
+    top: 130px;left: 10px;
     clear: right;
     float: right
 }
 .publicitenumero7 {
     position: relative;
-    top: 140px;
+    top: 140px;left: 10px;
     clear: right;
     float: right
 }
 .publicitenumero8 {
     position: relative;
-    top: 150px;
+    top: 150px;left: 10px;
     clear: right;
     float: right
 }
@@ -3540,6 +3540,7 @@ input:focus {
     //   border: 1px solid #c00;
     z-index: 50000;
     //  width: 200px;
+    padding-left: 30px;
 }
 
 .divpourlogin{margin-left: 30px;margin-top:30px;}
