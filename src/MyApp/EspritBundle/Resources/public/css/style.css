@@ -3075,7 +3075,7 @@
 .publicitenumero3 {
     position: relative;
     top: 100px;
-    clear: right;
+    clear: right;  left: 11px;
     float: right
 }
 .publicitenumero4 {
@@ -3544,3 +3544,33 @@ input:focus {
 }
 
 .divpourlogin{margin-left: 30px;margin-top:30px;}
+
+
+.like-buttons{
+      float: left;
+    width: 150px;
+  background: #EFEFEF;
+  padding: 10px;
+  line-height: 25px;
+  text-align: center;
+  border: 1px solid #666;
+  margin-bottom: 10px;
+    
+}
+
+.divardetails{
+  width: 400px;
+  margin-left: 160px;
+  padding-bottom: 30px;
+    border-bottom: 2px solid gray;
+}
+
+.bouttonarticledetails{
+padding-top: 30px;
+  padding-left: 190px;
+}
+
+.ardetailsimg{ 
+    width: 550px;
+    height: 360px;
+}

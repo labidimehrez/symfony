@@ -300,10 +300,10 @@ class ArticleController extends Controller {
             throw $this->createNotFoundException('no  article found for id ' . $id);
         }
 
-    
- 
+         $sujet = $em->getRepository('MyAppForumBundle:sujet')->findBy(array('sujet' => $article->getHeadline()));  
+         
         return $this->render('MyAppArticleBundle:article:voir.html.twig', array(
-                    'article' => $article,'publicite'=>$publicite
+                    'article' => $article,'publicite'=>$publicite,'sujet'=>$sujet
         ));
     }
 }

@@ -1,5 +1,5 @@
 {# empty Twig template #}
- 
+
  {# empty Twig template #}
 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
@@ -8,52 +8,150 @@
 
  {% block voir_article%}  
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 </br> 
 
 <div class="contenudetemplate" id="getFixedTemplate">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   {% for publicite in publicite %} 
-        <div class="position22"> <img src="{{publicite.image}}" alt="" width="300" height="250" >  </div> 
-    {%endfor%} 
-           
-        
-        
 
-        <div style="padding-top: 70px;"> 
-                            <div style="margin-bottom: 20px;"> 
+    <div style="width:550px;">
+        </br>
+    {#{article.datecreation|date('Y-M-d')}#}
+        <h5>Solred {{article.datecreation|date('d/m-Y')}}</h5>
+
+        </br> 
+
+
+        <FONT size="15px" style="line-height: 100%;"><strong>{{article.headline|capitalize}}</strong></FONT>
+
+        </br>
+
+        <strong>
+            Lars Løkke Rasmussen undrer sig over Socialdemokraternes 
+            smædekampagne mod ham, men han bedyrer, at han hellere vil fokusere på egen politik.
+        </strong>
+
+        </br></br>
+
+                 {%if "http" in article.path %}<img src="{{article.path }}" class="ardetailsimg" width="550" height="360"  />{%else%} 
+        <img src="{{ asset('upload/' ~ article.path) }}" class="ardetailsimg" width="550" height="360"  />  {%endif%}
+
+
+
+
+        </br></br>
+
+        <div class="like-buttons">
+            <div class="title-like-buttons">L'article:</div>	
+            <div class="sol-facebook" style="margin-bottom:10px;">
+
+                <div class="fb-like fb_iframe_widget" data-href="http://sol.dk/nyhed/løkke-underlig-kampagneform" data-width="200" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true" rel="canonical" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=100&amp;href=http%3A%2F%2Fsol.dk%2Fnyhed%2Fl%25C3%25B8kke-underlig-kampagneform&amp;layout=box_count&amp;locale=fr_FR&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;width=200"><span style="vertical-align: bottom; width: 104px; height: 86px;"><iframe name="f25ab4768" width="200px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like.php?action=like&amp;app_id=&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FKTWTb9MY5lw.js%3Fversion%3D41%23cb%3Df2c300e9b%26domain%3Dsol.dk%26origin%3Dhttp%253A%252F%252Fsol.dk%252Ff2812efd04%26relation%3Dparent.parent&amp;container_width=100&amp;href=http%3A%2F%2Fsol.dk%2Fnyhed%2Fl%25C3%25B8kke-underlig-kampagneform&amp;layout=box_count&amp;locale=da_DK&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;width=200" style="border: none; visibility: visible; width: 104px; height: 86px;" class=""></iframe></span></div>
+
+            </div>
+            <div class="sol-twitter">
+                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.12a0910b1b8c2c2ad25af3fcd05d55c1.da.html#_=1431275390104&amp;count=vertical&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=da&amp;original_referer=http%3A%2F%2Fsol.dk%2Fnyhed%2Fl%25C3%25B8kke-underlig-kampagneform&amp;related=twitterdev%3ATwitter%20Developer%20Relations&amp;size=m&amp;text=Checking%20out%20this%20page%20about%20the%20Tweet%20Button&amp;url=http%3A%2F%2Fsol.dk%2Fnyhed%2Fl%C3%B8kke-underlig-kampagneform&amp;via=sol.dk" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 56px; height: 61px;"></iframe>
+                <script type="text/javascript">
+                    window.twttr = (function(d, s, id) {
+                        var t, js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {
+                            return
+                        }
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        return window.twttr || (t = {_e: [], ready: function(f) {
+                                t._e.push(f)
+                            }})
+                    }(document, "script", "twitter-wjs"));
+
+                </script>
+            </div>
+            <div class="sol-googleplus">
+                <!-- Placez cette balise dans l'en-tête ou juste avant la balise de fermeture du corps de texte. -->
+                <script src="https://apis.google.com/js/platform.js" async="" defer="" gapi_processed="true">
+                    {
+                        lang: 'fr'
+                    }
+                </script>
+
+                <!-- Placez cette balise où vous souhaitez faire apparaître le gadget bouton "Partager". -->
+                <div id="___plus_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 46px; height: 60px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 46px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1431275389812" name="I0_1431275389812" src="https://apis.google.com/u/0/se/0/_/+1/sharebutton?plusShare=true&amp;usegapi=1&amp;action=share&amp;annotation=vertical-bubble&amp;height=60&amp;hl=da&amp;origin=http%3A%2F%2Fsol.dk&amp;url=http%3A%2F%2Fsol.dk%2Fnyhed%2Fl%25C3%25B8kke-underlig-kampagneform&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en._HsXWPK6R0o.O%2Fm%3D__features__%2Fam%3DIQ%2Frt%3Dj%2Fd%3D1%2Ft%3Dzcms%2Frs%3DAGLTcCNjg71BahpShZ9R_fIzIrho4mnrcg#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1431275389812&amp;parent=http%3A%2F%2Fsol.dk&amp;pfname=&amp;rpctoken=25564964" data-gapiattached="true" title="+Del"></iframe></div>
+
+            </div>
+        </div>
+
+        <div class="divardetails">
+
+
+
+            <p>
+                I fredags lancerede Socialdemokraterne en meget personorienteret kampagne rettet mod Venstre-formand Lars Løkke Rasmussen, hvor der blev spurgt, hvem der skal betale regningen for nulvækst.
+
+                Efterfølgende er den aggressive kampagneform blevet diskuteret vidt og bredt, og flere politiske eksperter mener, at det mere ligner et personangreb end et forsøg på at fremme socialdemokratisk politik.
+
+                Lars Løkke Rasmussen selv tager situationen med ophøjet ro.
+
+                ”Jeg skal ikke blande mig i, hvordan Socialdemokraterne bruger deres kampagnekroner. Hvis de synes, det er underholdende at trampe rundt på mig, så må de jo gøre det,” siger han til Berlingske Nyhedsbureau.
+
+                Venstre-formanden kan dog alligevel ikke dy sig for at sende et modsvar tilbage til Socialdemokraterne.
+
+                LÆS OGSÅ: Ny måling: Joachim B. og LA større end R, C og SF 
+
+                ”Det er dog lidt underligt, kritikken kommer fra et parti, der hver dag siden seneste folketingsvalg har øget Danmarks gæld med 100 millioner kroner. Hvem skal betale alle de penge tilbage? Er det børnebørnene eller børnene?” spørger han.
+
+                Lars Løkke understreger desuden, at han bestræber sig på at føre en positiv kampagne, hvor der fokuseres på Venstres egen politik.
+
+                ”Jeg ønsker at føre en positiv kampagne, ligesom jeg gjorde ved seneste valgkamp, da jeg sagde til danskerne, at vi var nødt til at stramme op på efterløn og dagpenge.”
+
+                Hvad mener du om Socialdemokraternes kampagne? Tror du på, at Lars Løkke udelukkende vil føre en positiv valgkampagne?
+            </p> 
+
+
+            </br>
+            <u>  <a href="{{article.lien}}"><FONT style="color: #0044cc;">{{article.lien}}</FONT></a> </u>
+
+
+        </div>
+
+        <div class="bouttonarticledetails">
+             
+           
+            <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="btn btn-warning btn-lg" style="width:335px;">Opret ny debat</a> 
+            </br></br>
+            {#%elseif sujet is not null %}
+            <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}" class="btn btn-warning btn-lg" style="width:335px;"> See debat</a>#}
+             
+             
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>   
+
+
+
+   {% for publicite in publicite %} 
+    <div class="position22"> <img src="{{publicite.image}}" alt="" width="300" height="250" >  </div> 
+    {%endfor%} 
+
+
+
+
+    <div style="padding-top: 70px;"> 
+        <div style="margin-bottom: 20px;"> 
                                 {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
-                           </div>   
+        </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
+    </div>
 
 </div>
 
