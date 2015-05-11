@@ -45,7 +45,7 @@ class sujetController extends Controller {
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
 //                $notifboolean = $sujet->getNotification();
-                $sujet->setThread(4);      /* default thread */
+                $sujet->setThread(40);      /* default thread */
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sujet);
                 $em->flush();

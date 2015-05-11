@@ -47,7 +47,7 @@ class menuController extends Controller {
         }
         /*         * ***********  recuperation de tout les menus  ******** */
         $menu1 = $em->getRepository('MyAppEspritBundle:menu')->getAllMenu();
-
+      
         return $this->render('MyAppEspritBundle:menu:show.html.twig', array(
                     'menu' => $menu1, 'form' => $form->createView(),
         ));

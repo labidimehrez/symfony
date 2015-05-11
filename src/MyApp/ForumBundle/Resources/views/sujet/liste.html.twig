@@ -14,9 +14,9 @@
             {% if commentaire.user.path is not null  %} 
 
             {%if "http" in commentaire.user.path %}
-        <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+                  <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-        <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+                  <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
 
 

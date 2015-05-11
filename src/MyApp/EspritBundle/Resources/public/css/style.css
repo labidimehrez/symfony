@@ -3574,3 +3574,22 @@ padding-top: 30px;
     width: 550px;
     height: 360px;
 }
+
+
+.stylepleasewait{ color: brown;
+  font-family: fantasy;
+  padding-left: 10px;
+  position: relative;
+  /* top: -30px; */}
+ 
+.loadingbutton{  
+ 
+  padding-left: 100px;
+  /* margin-top: -10px; */
+  /* padding-top: 10px; */
+  position: relative;
+  top: -30px;}
+ 
+ 
+ 
+ 

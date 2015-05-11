@@ -1,41 +1,48 @@
 {# empty Twig template #}
 </br>
 
- <script src="{{ asset('bundles/myappforum/js/ckeditor/ckeditor.js')}}"></script> 
+<script src="{{ asset('bundles/myappforum/js/ckeditor/ckeditor.js')}}"></script> 
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/js/ckeditor/contents.css') }}"/> 
 
 <form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} style="  margin: 10px 95px 50px;" id="formcomment" > 
 
-        <table height=" " width=" " border="0">
-           
-            <tr>
+    <table height=" " width=" " border="0">
+
+        <tr>
             <td>{{ form_widget(form.texte, { 'attr': { 'style': '  width: 700px;height: 100px;  margin-left: 40px;' ,'placeholder': 'Ecrire du commentaire ici ...'  }  }) }}</td> 
-            </tr>
-            
-            <tr>   {{form_widget(form._token)}}   
-                <td> </br></br> 
+        </tr>
+
+        <tr>   {{form_widget(form._token)}}   
+            <td> </br></br> 
+
+
+                <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
           
-                 
-                  <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
-          
-                  <input type="reset" id=hideinputnouveaucommentaire  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
-                 
+                <input type="reset" id=hideinputnouveaucommentaire  value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
+
                 Notification {{form_widget(form.notification) }}
-                  
-                </td>  
-            </tr>
 
-        </table>
+            </td>  
+        </tr>
+
+    </table>
 </form>
-
+      
+                <div class="loadingbutton">
+                    <img src="{{ asset('bundles/myappesprit/css/images/nemams.gif') }}"  class="" alt=""   />
+                    <t class="stylepleasewait">Please wait ...</t>
+                </div>
+                <style type="text/css">div.loadingbutton{display: none;}</style>
+                
+                
 
 
 <div class="loading"></div>
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">
-$("input#hideinputnouveaucommentaire").click(function () {
-   $("div.inputajoutcommentaire").hide(1);
-});
+    $("input#hideinputnouveaucommentaire").click(function() {
+        $("div.inputajoutcommentaire").hide(1);
+    });
 </script>
- 
+

@@ -52,12 +52,12 @@ class commentaireController extends Controller {
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
 
-                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
-                $CountComment = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($idsujet);
-
+                 $commentaires= $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);            
+               
+                
                 // return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:voir.html.twig', array('commentaire' => $commentaires, 'id' => $idsujet));
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:liste.html.twig', array(
-                            'commentaire' => $commentaires,'CountComment'=>$CountComment
+                            'commentaire' => $commentaires 
                 ));
             } /*else {
                 return $this->render('MyAppForumBundle:sujet:voir.html.twig', array('form' => $form->createView(), 'id' => $idsujet, 'commentaire' => $commentaires));
