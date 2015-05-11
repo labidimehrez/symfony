@@ -342,6 +342,42 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig', array('form' => $form->createView(), 'tags' => $tags, 'articlesrc' => $articlesrc, 'id' => $id));
     }
 
+    
+    
+    
+     public function  edittagAction( Request $request){
+         
+        $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
+        $id = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
+        $em = $this->getDoctrine()->getManager();
+        $managersujet = $this->get('collectify_sujet_manager');/** equivalent de em manager * */
+        $sujet = $managersujet->getOne($id);
+        $form = $this->createForm(new sujetType(), $sujet);
+
+        $managertag = $this->get('collectify_tag_manager');
+
+
+        $inputtext = $this->getRequest()->get('i'); /* valeur array de String dans l input texte */
+           if ($request->isXmlHttpRequest()) {
+        /* text input de type string *///$inputtext[0]; 
+        $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+        $tagaajouté = array(); // tableau vide
+        foreach ($alltags as $tag) {
+            $tagtitle = $tag->getTitle(); /* get title of objects :D */
+            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string*/
+                $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                array_push($tagaajouté, $selectedtag);
+                $sujet->setTags($tagaajouté);
+            }
+        }
+           $managersujet->persist($sujet);
+           
+            }
+                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:tags.html.twig', array(
+                            'tag' => $tagaajouté
+                ));
+            }  
+       
 }
 
 //    public function specialeditAction($id) {

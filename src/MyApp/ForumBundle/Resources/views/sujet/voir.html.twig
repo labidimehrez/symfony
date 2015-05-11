@@ -85,7 +85,7 @@
                     $("div.inputajoutcommentaire").slideToggle();
                 });
             </script>
-     {#% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%#} 
+     {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
 
 
 
@@ -229,9 +229,8 @@
 
 
 
-	{% else %}  
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
-        {% endif%} 
+				{% else %}  
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
             {% if is_granted( 'ROLE_USER' ) %} 

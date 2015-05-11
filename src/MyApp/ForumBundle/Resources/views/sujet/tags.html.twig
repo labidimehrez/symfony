@@ -1,0 +1,9 @@
+{# empty Twig template #}
+{% for tag in tag %}
+               {#% set counternombredetag = 0 %#} 
+                {#% for tag in tag %#}      
+    <b> {#% set counternombredetag = counternombredetag + 1 %#}{{tag.title|raw}} &nbsp;{#% if not  loop.last %},{%endif%#}&nbsp;</b>
+
+
+                {#% endfor%#}
+{%endfor%}

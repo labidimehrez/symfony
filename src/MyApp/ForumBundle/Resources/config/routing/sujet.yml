@@ -51,3 +51,12 @@ my_app_forum_sujet_voir:
 my_app_forum_sujet_changethread:
     pattern:  /changethread
     defaults: { _controller: MyAppForumBundle:sujet:changethread }
+    
+    
+my_app_forum_sujet_tags:
+    pattern:  /edittag
+    defaults: { _controller: MyAppForumBundle:sujet:edittag }
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true
