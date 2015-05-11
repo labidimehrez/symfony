@@ -1,7 +1,8 @@
 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showmenu %}  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+ {% block showmenu %}
+  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
 <header><h3 class="tabs_involved">Content Menu Manager</h3>
     <ul class="tabs">
@@ -10,7 +11,7 @@
     </ul>
 </header>  
 <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
-    <table class="tablesorter" cellspacing="0"> 
+   <table class="tablesorter" cellspacing="0"> 
         <thead> 
             <tr> 
                 <th></th> 
@@ -20,24 +21,25 @@
                 <th>Actions</th> 
             </tr> 
         </thead> 
-        <tbody> 
+        <tbody> #}
             {% for menu in menu %}
             <tr> 
-                <td><input type="checkbox"></td> 
-                <td>{{menu.position}}</td> 
-                <td>{#{app.user.roles|join }#}</td> 
-                <td>{{menu.name}}</td> 
+         
+            <td><input type="checkbox"></td> 
+            <td>{{menu.position}}</td> 
+            <td>{#{app.user.roles|join }#}</td> 
+            <td>{{menu.name}}</td> 
+      
 
-
-                <td>
-                    <a href="{{ path('my_app_esprit_menu_edit',{'id':menu.id}) }}">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                    </a>   &nbsp;&nbsp;
-                    <a href="{{ path('my_app_esprit_menu_delete',{'id':menu.id}) }}">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                    </a> 
-                </td>
-            </tr> 
+        <td>
+            <a href="{{ path('my_app_esprit_menu_edit',{'id':menu.id}) }}">
+                <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+            </a>   &nbsp;&nbsp;
+            <a href="{{ path('my_app_esprit_menu_delete',{'id':menu.id}) }}">
+                <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+            </a> 
+        </td>
+        </tr> 
 
             {%endfor%}
 
@@ -46,20 +48,20 @@
     </table>
 </div> 
 
-<form  action='{{path('my_app_esprit_menu_add')}}' method="post" {{ form_enctype(form) }} > 
+<form  action='{{path('my_app_esprit_menu_add')}}' method="post" {{ form_enctype(form) }}  > 
     <article class="module width_full">
         <header><h3>Post New Menu</h3></header>
         <div> <!--<div class="/*module_content*/">-->
-           <fieldset>
-            <table width="200" >
-               <tr>
-                   <td> <label>Menu Position</label></td>{# margin-left: -30px''width: 70px #}
-                   <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 70px' } }) }}</td>
-                   <td> <label>Menu Title</label></td>
-                   <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
-               </tr>
-           </table>  
- 
+            <fieldset>
+                <table width="200" >
+                    <tr>
+                        <td> <label>Menu Position</label></td>{# margin-left: -30px''width: 70px #}
+                        <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 70px' } }) }}</td>
+                        <td> <label>Menu Title</label></td>
+                        <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
+                    </tr>
+                </table>  
+
                 <label>Menu Link</label>
               {{form_widget(form.lien, { 'attr': {'placeholder': 'Link','class':'inp-form'} }) }}
 
@@ -71,13 +73,15 @@
                                   {{form_widget(form._token)}}
                 <input type="submit"   value="Publish" class="alt_btn">
                 <input type="reset"   value="Reset" style="  background: #D0D1D4 url(../images/btn_submit_2.png) repeat-x;
-  border: 1px solid#30B0C8;  -webkit-box-shadow: 0 1px 0 #fff;  -moz-box-shadow: 0 1px 0 #fff;  box-shadow: 0 1px 0 #fff;
-  font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
-  color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer;  " >
+                       border: 1px solid#30B0C8;  -webkit-box-shadow: 0 1px 0 #fff;  -moz-box-shadow: 0 1px 0 #fff;  box-shadow: 0 1px 0 #fff;
+                       font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
+                       color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer;  " >
             </div>
         </footer>
     </article> 
 </form>
+
+
  {% endblock  %}
 
 

@@ -9,39 +9,51 @@
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.10.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
 
-<div class="contenudetemplate">
+<div class="contenudetemplate" id="getFixedTemplate">
     <div class="paddingdebataveccomment">
 
         </br> 
 
 {% if sujet.user is not null %}
 {% if sujet.user.path is not null  %}
-        
+
             {%if "http" in sujet.user.path %}
-             <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt="" />  
+        <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt="" />  
              {%else%}
-             <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuserdebataveccomment" alt="" />
+        <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuserdebataveccomment" alt="" />
             {%endif%}
-             
-             
-     
-             
+
+
+
+
 {% else %}
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"   class="imageuserdebataveccomment" alt=""  />   
-                      
+
 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black" >{{sujet.user.username|capitalize}}</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
+
+        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;
+
+       
+        <b>{{commentCount}}</b>
+        
+        {# commen COUNT AJAX } 
+        <div class="CountComment">
+                {% include 'MyAppForumBundle:sujet:commentcount.html.twig'%} 
+        </div> 
+        { commen COUNT AJAX #}
+
+
         </br> 
 
 {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuserdebataveccomment"alt="" /> 
-              
+
         &nbsp;&nbsp;&nbsp;
         <b style="color: black">Anonymous</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
@@ -50,9 +62,9 @@
 
  {% endif%}       
         <div style="  width: 800px;">
-        <b style="color: black;  padding-left: 130px;"> 
-            <FONT size="5px;"> {{sujet.sujet}}</FONT>
-        </b>
+            <b style="color: black;  padding-left: 130px;"> 
+                <FONT size="5px;"> {{sujet.sujet}}</FONT>
+            </b>
         </div>
         <div class="contenutopic">
 
@@ -62,23 +74,30 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
          {{sujet.contenu|Contenu|raw }}   </br>  
-         
-             
+
+
     {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">Add new comment</a>  
     {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment">Add new comment</a> {%endif%}
-  
+
             <script type="text/javascript">
                 $("a.bouttonnouveaucommentaire").click(function() {
-                    $("div#divinputtohide").hide();/*to hide all other input add or edit */
+                    $("div#divinputtohide").hide();
                     $("div.inputajoutcommentaire").slideToggle();
                 });
             </script>
-     {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
+     {#% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%#} 
 
 
 
 
         </div>
+
+        {##  ce div pour nouvea comment ajax ##} 
+        <div class="nouveaucommentaireafficher">
+             {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
+        </div> 
+        {##  ce div pour nouvea comment ajax ##}
+
 
         <div class="commentaire">
             {# debut affichage des commentaires #}
@@ -87,17 +106,17 @@
             <div class="contenucommentaireparent"> 
 
             {% if commentaire.user.path is not null  %} 
-                
+
             {%if "http" in commentaire.user.path %}
-            <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+                <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-             <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+                <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
-                
-        
-                
-                
-                
+
+
+
+
+
               {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
@@ -125,7 +144,7 @@
                     }
                 </style> 
  {% if is_granted( 'ROLE_USER' ) %}            
- <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
+                <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">Add new comment</a>{%endif%}              
                 <script type="text/javascript">
                     $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
@@ -148,7 +167,7 @@
                 {%endif%}
                 <script type="text/javascript">
                     $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
-                           $("div#divinputtohide").hide();/*to hide all other input add or edit */
+                        $("div#divinputtohide").hide();/*to hide all other input add or edit */
                         $("div.threadcontent{{commentaireid}}").slideToggle();
                         $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
                     });
@@ -163,7 +182,7 @@
                     div.threadcontent{{commentaireid}}{display: none;}
                 </style>
                 <div class="threadcontent{{commentaireid}}">
-                  
+
 
                     <div class="inputsnouveausouscommentaire{{commentaireid}}" id="divinputtohide"  >
                          {% if is_granted( 'ROLE_USER' ) %}  
@@ -193,23 +212,23 @@
             div.inputajoutcommentaire{display: none;  background-color: #E6E6E6;}
         </style>
         <div class="inputajoutcommentaire" id="divinputtohide">
-            
+
                 {% if app.user.path is not null  %} 
 
- 
+
 							{%if "http" in app.user.path %}
-							<img src="{{app.user.path }}"   class="imageuser" alt="" />
+            <img src="{{app.user.path }}"   class="imageuser" alt="" />
 							{%else%}
-							<img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
+            <img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
 							{%endif%}
-					 
+
 
 
 
 				{% else %}  
-                <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
-            
-            
+            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+
+
             {% if is_granted( 'ROLE_USER' ) %} 
                 {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
             {%endif%}
@@ -231,14 +250,14 @@
 
 
     </div> 
-    
-     
-              <div style="padding-top: 70px;"> 
-                   <div style="  margin-top: -20px; margin-bottom: 20px;">
+
+
+    <div style="padding-top: 70px;"> 
+        <div style="  margin-top: -20px; margin-bottom: 20px;">
                     {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}</div>
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
-              </div>
-    
+    </div>
+
 </div>
 
 
@@ -360,3 +379,26 @@
 
 
 
+<script src="{#{ asset('bundles/myappesprit/js/jqueryajax.min.js') }#}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+
+        $("#formcomment").submit(function(e) { // On sélectionne le formulaire par son identifiant
+            e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+            $.ajax({
+                type: 'post',
+                url: Routing.generate('my_app_forum_commentaire_add'),
+                data: $(this).serialize(),
+                //   datatype: "json",        
+
+                cache: false,
+                success: function(data)
+                {                
+                    $('.nouveaucommentaireafficher').html(data);                
+                    $(".loading").hide();
+                }
+            });
+            return false;
+        });
+    });
+</script>

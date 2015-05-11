@@ -8,15 +8,17 @@ use MyApp\ForumBundle\Form\commentaireType;
 use MyApp\ForumBundle\Entity\commentaire;
 use MyApp\EspritBundle\Entity\notification;
 use MyApp\EspritBundle\Entity\publicite;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class commentaireController extends Controller {
 
     public function addAction(Request $request) {
-        
-        
-         
+
+
+
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
 //        var_dump($int);exit;
 //        $idsujet = substr($uri, 45, -5); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
@@ -28,6 +30,40 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
+
+
+
+
+        $commentaires = "a";
+        if ($request->isXmlHttpRequest()) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $commentaire = $form->getData();
+                $commentaire->setUser($user);
+
+                $commentaire->setSujet($sujet);
+                $em->persist($commentaire);
+                $em->flush();
+
+
+                $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet
+                $notif = new notification();
+                $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
+                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
+                /* il faut ajouter le user concerné par la notif */
+
+                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
+                $CountComment = $em->getRepository('MyAppForumBundle:sujet')->getCommentCountBySujet($idsujet);
+
+                // return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:voir.html.twig', array('commentaire' => $commentaires, 'id' => $idsujet));
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:liste.html.twig', array(
+                            'commentaire' => $commentaires,'CountComment'=>$CountComment
+                ));
+            } /*else {
+                return $this->render('MyAppForumBundle:sujet:voir.html.twig', array('form' => $form->createView(), 'id' => $idsujet, 'commentaire' => $commentaires));
+            }*/
+        }
+
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
@@ -45,7 +81,7 @@ class commentaireController extends Controller {
 
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
-                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned,$sujet);
+                $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
 
 
@@ -57,12 +93,15 @@ class commentaireController extends Controller {
                             'form' => $form->createView()));
             }
         }
+
+
+
         return $this->render('MyAppForumBundle:commentaire:add.html.twig', array('form' => $form->createView()));
     }
 
     public function addsouscommentAction($id, Request $request) {
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($idsujet);
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -102,7 +141,7 @@ class commentaireController extends Controller {
     public function deleteAction($id, Request $request) {
         /*         * ************ simple delete action *************** */
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
@@ -121,14 +160,14 @@ class commentaireController extends Controller {
             throw $this->createNotFoundException(
                     'No commentaire found for id ' . $id
             );
-        }/*echo strip_tags($text);*/
-    
+        }/* echo strip_tags($text); */
+
         $form = $this->createFormBuilder($commentaire)
                         ->add('texte', 'textarea', array('required' => true))->getForm();
         $request = $this->getRequest();
 
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             /*             * *********  validation form ********************* */
@@ -144,7 +183,7 @@ class commentaireController extends Controller {
     public function editsouscommentAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT);/* get current debat id */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$souscommentaire) {
             throw $this->createNotFoundException('No souscommentaire found for id ' . $id);

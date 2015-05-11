@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-   
+
 {% block head %} 
 
  {% include   'MyAppEspritBundle:notification:testnotif.html.twig'%}
@@ -16,26 +16,31 @@
         <meta name="author" content="">
         <title>Sol.Dk</title>
         <script type="text/javascript">
-            var RecaptchaOptions = { lang: 'fr', theme: 'clean'};         
+            var RecaptchaOptions = {lang: 'fr', theme: 'clean'};
         </script> 
- 
-      <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/component.css') }}"/>        
-       <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/demo-page.css') }}"/>        
-       
+
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/component.css') }}"/>        
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/demo-page.css') }}"/>        
+
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/bootstrap.css') }}"/> 
-        
-        
-   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
-   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/stylemobile.css') }}"/> 
-          
-      <!-- tooltiprequired field ---->
+
+
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/stylemobile.css') }}"/> 
+
+        <!-- tooltiprequired field ---->
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.css') }}"/>
         <script src="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.js') }}" type="text/javascript"></script>
-       <!-- tooltiprequired field ---->    
+        <!-- tooltiprequired field ---->    
 
+
+        <!-- pour les ajax call FOSJSrouting Bundle -->
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <!-- pour les ajax call FOSJSrouting Bundle -->
 
     </head>
- 
+
 
 
 
@@ -49,82 +54,82 @@
         {% set route = menu.lien %}  
 
         <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name|raw}}</a>  
-            
-                                                                                                                                                             
+
+
 
       {% endfor%} 
     </div>
 
     <div class="headbar">
-   <img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt=""  class="HEADER" /> 
-  <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" class="Sol_logo" /> 
-   
+        <img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt=""  class="HEADER" /> 
+        <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" class="Sol_logo" /> 
 
-    <img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" class="Profile" /> 
-    <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" class="Debat" />
 
-     
+        <img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" class="Profile" /> 
+        <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" class="Debat" />
+
+
         <a href="{{path('my_app_forum_sujet_sujetrecent') }}" class="DEBATMot"> DEBATFORUM</a> 
-       <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt=""  class="Sol_logo"/> 
+        <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt=""  class="Sol_logo"/> 
 
-    
-    <div>
-    <img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" class="Button" />
-    <t class="SOL">SOL </t>
-    </div>
-    
- 
-    <div>
-    <img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" class="Button_copy_2" />  
-     <t class="GOOGLE">GOOGLE</t>
-    </div>
-     
-    <div class="text_field"> 
-        <!--  recherche google
-        <script>
-      (function() {
-        var cx = '016704472298602707163:_y2ygwymyuc';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
-            '//www.google.com/cse/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
-    <gcse:search></gcse:search>
-        -->
-    </div> 
-    <x class="Hvad">Hvad søger du?</x>
+
+        <div>
+            <img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" class="Button" />
+            <t class="SOL">SOL </t>
+        </div>
+
+
+        <div>
+            <img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" class="Button_copy_2" />  
+            <t class="GOOGLE">GOOGLE</t>
+        </div>
+
+        <div class="text_field"> 
+            <!--  recherche google
+            <script>
+          (function() {
+            var cx = '016704472298602707163:_y2ygwymyuc';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
+                '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+            -->
+        </div> 
+        <x class="Hvad">Hvad søger du?</x>
                               {#% render(controller('MyAppEspritBundle:menu:recherche')) %#}
-      <!--<div class="EMAIL2">2</div>-->
+        <!--<div class="EMAIL2">2</div>-->
 
-    <x class="EMAIL">EMAIL</x>
+        <x class="EMAIL">EMAIL</x>
 
 
 
-    <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" />  
+        <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" />  
 {% if is_granted( 'ROLE_USER' ) %}
-    <div class="OPRET_PROFIL_LOGIN">
-        <a href="{{path('fos_user_profile_edit') }}" > MIN PROFIL  </a>                                                                                                                                                                
-        </br>
-        <a href="{{path('fos_user_security_logout') }}" >LOG UID</a>
-    </div>
+        <div class="OPRET_PROFIL_LOGIN">
+            <a href="{{path('fos_user_profile_edit') }}" > MIN PROFIL  </a>                                                                                                                                                                
+            </br>
+            <a href="{{path('fos_user_security_logout') }}" >LOG UID</a>
+        </div>
 {% else %}
-    <div class="OPRET_PROFIL_LOGIN">
-        <a href="{{path('fos_user_registration_register') }}" > OPRET PROFIL  </a>                                                                                                                                                              
-        </br>
-        <a href="{{path('fos_user_security_login') }}">LOG IND</a>
-    </div>
+        <div class="OPRET_PROFIL_LOGIN">
+            <a href="{{path('fos_user_registration_register') }}" > OPRET PROFIL  </a>                                                                                                                                                              
+            </br>
+            <a href="{{path('fos_user_security_login') }}">LOG IND</a>
+        </div>
 {% endif %}
-</div>
+    </div>
 
     <!--<div class="MESSAGE4"></div>-->
 
-    
-   
-  
+
+
+
 
 
 {%endblock%}
@@ -150,7 +155,7 @@
 
 
             </div>
-     
+
             <div class="SOLDK">
                 <a href="https://www.facebook.com/Sol.dk?fref=ts" style="color:#3B5998;">SOL.DK</a>
             </div> 

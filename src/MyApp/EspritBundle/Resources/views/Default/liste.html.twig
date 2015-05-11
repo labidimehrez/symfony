@@ -4,7 +4,10 @@
 <table>
 {% for a in menu %}
     <tr>
-        <td>{{ a.id }}</td>
+        <td>{{ a.id }}        <a href="{{ path('my_app_esprit_menu_delete',{'id':a.id}) }}">
+                                    <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                                    </a> 
+            </td> 
         <td>{{ a.position }}</td>
         <td>{{ a.name }}</td>
         <td>{{ a.lien }}</td>

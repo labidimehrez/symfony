@@ -51,3 +51,6 @@ _imagine:
 #juanber84_profilercommand:
 #    resource: "@Juanber84ProfilercommandBundle/Resources/config/routing.yml"
 #    prefix: /
+
+fos_js_routing:
+     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

@@ -4,7 +4,7 @@
  <script src="{{ asset('bundles/myappforum/js/ckeditor/ckeditor.js')}}"></script> 
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/js/ckeditor/contents.css') }}"/> 
 
-<form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} style="  margin: 10px 95px 50px;" > 
+<form  action='{{path('my_app_forum_commentaire_add')}}' method="post" {{ form_enctype(form) }} style="  margin: 10px 95px 50px;" id="formcomment" > 
 
         <table height=" " width=" " border="0">
            
@@ -26,11 +26,11 @@
             </tr>
 
         </table>
-    </form>
+</form>
 
 
 
-
+<div class="loading"></div>
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
         {# code je pour cacher la div texte comment si je clique annuler :) #}
 <script type="text/javascript">

@@ -32,7 +32,9 @@ class menuController extends Controller {
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
-                $menu = $form->getData();
+               $menu = $form->getData();
+                $lien =  $form["lien"]->getData(); 
+                $menu->setLien($mesRoutes[$lien]);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($menu);
                 $em->flush();

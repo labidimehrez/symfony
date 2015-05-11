@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 //            new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
 //	    new Juanber84\Bundle\ProfilercommandBundle\Juanber84ProfilercommandBundle(),	 
         );
