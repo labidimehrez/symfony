@@ -1,12 +1,12 @@
 commentaire:
     resource: "@MyAppForumBundle/Resources/config/routing/commentaire.yml"
-    prefix: /commentaire
+    prefix: /{_locale}/commentaire
 sujet:
     resource: "@MyAppForumBundle/Resources/config/routing/sujet.yml"
-    prefix: /sujet
+    prefix: /{_locale}/sujet
 tag:
     resource: "@MyAppForumBundle/Resources/config/routing/tag.yml"
-    prefix: /tag
+    prefix: /{_locale}/tag
 my_app_forum_homepage:
     pattern:  /api/threads/{id}
     defaults: { _controller: MyAppForumBundle:Default:index }

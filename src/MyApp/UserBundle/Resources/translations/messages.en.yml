@@ -13,4 +13,7 @@ voirprofile : MIN PROFIL
 seconnecter: LOG IND
 logout: LOG UID
 
+Ajoutdestyle: Tilføjer Stil
 
+changpass: Skift adgangskode
+home: Homepage

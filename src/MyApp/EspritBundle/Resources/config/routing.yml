@@ -3,30 +3,30 @@ my_app_esprit_homepage:
     defaults: { _controller: MyAppArticleBundle:article:show }
   
 my_app_esprit_route:
-    pattern:  /route
+    pattern:  /{_locale}/route
     defaults: { _controller: MyAppEspritBundle:Default:route }
  
   
 my_app_esprit_administration:
-    pattern:  /administration
+    pattern:  /{_locale}/administration
     defaults: { _controller: MyAppEspritBundle:Default:administration } 
    
     
 publicite:
     resource: "@MyAppEspritBundle/Resources/config/routing/publicite.yml"
-    prefix: /publicite 
+    prefix: /{_locale}/publicite 
     
 notif:
     resource: "@MyAppEspritBundle/Resources/config/routing/notification.yml"
-    prefix: /notif     
+    prefix: /{_locale}/notif     
    
 menu:
     resource: "@MyAppEspritBundle/Resources/config/routing/menu.yml"
-    prefix: /menu 
+    prefix: /{_locale}/menu 
 
 signe:
     resource: "@MyAppEspritBundle/Resources/config/routing/signe.yml"
-    prefix: /signe 
+    prefix: /{_locale}/signe 
      
  
 my_app_esprit_test:

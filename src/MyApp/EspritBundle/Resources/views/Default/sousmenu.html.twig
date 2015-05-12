@@ -2,9 +2,16 @@
 <div class="Forside___Debat___Politik___Samfund___Indenrigs">
     <B>Forside >  
 
-            {% if   "sujetrecent" in  routeName %} Seneste debatter {%endif%} 
-            {% if   "homepage" in  routeName %} Homepage {%endif%} 
-            {% if   "style_add" in  routeName %} Ajout de style {%endif%}
+            {#% if   "sujetrecent" in  routeName %} Seneste debatter {%endif%#} 
+        
+             {% if   "sujetrecent" in  routeName %} {{'debatrecent'|trans}} {%endif%} 
+            
+      
+            {#% if   "homepage" in  routeName %} Homepage {%endif%#} 
+            {% if   "homepage" in  routeName %} {{'home'|trans}} {%endif%} 
+            
+            {#% if   "style_add" in  routeName %} Ajout de style {%endif%#}
+            {% if   "style_add" in  routeName %} {{'Ajoutdestyle'|trans}} {%endif%}
             
             
             {%if "voir" in  routeName%}
@@ -20,16 +27,30 @@
              {%endif%}
     
 
-           {% if  "register"  in routeName %} Opret profil {%endif%}
-           {% if  "login"  in routeName %} Login {%endif%}
-           {% if   "change_password" in routeName %}Skift adgangskode {%endif%}
+           {#% if  "register"  in routeName %} Opret profil {%endif%#}
+           {% if  "register"  in routeName %} {{ 'creeprofile'|trans }}  {%endif%}
            
-            {% if  "confirmed" in routeName %}   Opret profil   {%endif%}  
+           
+           
+           {#% if  "login"  in routeName %} Login {%endif%#}
+            {% if  "login"  in routeName %} {{ 'seconnecter'|trans }} {%endif%}
+           
+            
+            
+           {#% if   "change_password" in routeName %}Skift adgangskode {%endif%#}
+            {% if   "change_password" in routeName %}{{ 'changpass'|trans }} {%endif%}
+           
+           
+            {#% if  "confirmed" in routeName %}   Opret profil   {%endif%#}  
+            {% if  "confirmed" in routeName %}  {{ 'creeprofile'|trans }}  {%endif%}  
+            
          
-            {% if "profile_edit" in routeName %}Min profil{%endif%}
-          
+            {#% if "profile_edit" in routeName %}Min profil{%endif%#}
+           {% if "profile_edit" in routeName %}{{ 'voirprofile'|trans }}{%endif%}
+            
+            
 
-            {%if "voir"   in  routeName%}  
+             {%if "voir"   in  routeName%}  
               {%if  "article" in  routeName%}                          
                    {{article.headline}}                                 
              {%endif%}

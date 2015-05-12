@@ -13,4 +13,7 @@ voirprofile : MON PROFIL
 seconnecter: CONNECTER
 logout: DECONNCTER
 
+Ajoutdestyle: Ajout de Style
 
+changpass: Changer password
+home: Accueil

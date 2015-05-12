@@ -2,9 +2,9 @@
 
 article:
     resource: "@MyAppArticleBundle/Resources/config/routing/article.yml"
-    prefix: /article 
+    prefix: /{_locale}/article 
     
 style:
     resource: "@MyAppArticleBundle/Resources/config/routing/style.yml"
-    prefix: /style 
+    prefix: /{_locale}/style 
  
