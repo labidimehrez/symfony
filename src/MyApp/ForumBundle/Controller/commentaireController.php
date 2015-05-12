@@ -52,16 +52,16 @@ class commentaireController extends Controller {
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
 
-                 $commentaires= $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);            
-               
-                
+                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
+
+
                 // return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:voir.html.twig', array('commentaire' => $commentaires, 'id' => $idsujet));
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:liste.html.twig', array(
-                            'commentaire' => $commentaires 
+                            'commentaire' => $commentaires
                 ));
-            } /*else {
-                return $this->render('MyAppForumBundle:sujet:voir.html.twig', array('form' => $form->createView(), 'id' => $idsujet, 'commentaire' => $commentaires));
-            }*/
+            } /* else {
+              return $this->render('MyAppForumBundle:sujet:voir.html.twig', array('form' => $form->createView(), 'id' => $idsujet, 'commentaire' => $commentaires));
+              } */
         }
 
         if ($request->isMethod('Post')) {
@@ -142,14 +142,28 @@ class commentaireController extends Controller {
         /*         * ************ simple delete action *************** */
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
+
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+
         if (!$commentaire) {
             throw $this->createNotFoundException('No  commentaire found for id ' . $id);
         }
-        $em->remove($commentaire);
-        $em->flush();
-        return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
+
+
+
+
+        if ($request->isXmlHttpRequest()) {
+            $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+            $em->remove($commentaire);
+            $em->flush();
+            return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:deletecomment.html.twig');
+        } else {
+            $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+            $em->remove($commentaire);
+            $em->flush();
+            return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
+        }
     }
 
     public function editAction($id, Request $request) {
