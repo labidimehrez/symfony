@@ -27,4 +27,9 @@ services:
         
         
         
- 
+#services:
+#     my_app_esprit.locale_listener:
+#        class: MyApp\EspritBundle\Listener\LocaleListener
+#        arguments: ["%kernel.default_locale%"]
+#        tags:
+#            - { name: kernel.event_subscriber }

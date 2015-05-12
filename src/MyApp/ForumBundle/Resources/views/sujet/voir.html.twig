@@ -9,6 +9,8 @@
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.10.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
 
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/css/style.css') }}"/>        
+
 <div class="contenudetemplate" id="getFixedTemplate">
     <div class="paddingdebataveccomment">
 
@@ -91,7 +93,8 @@
 
 
         </div>
-
+        
+        
         {##  ce div pour nouvea comment ajax ##}  
         <div class="nouveaucommentaireafficher">
              {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
@@ -102,7 +105,7 @@
 
                     
                 
-
+   
         <div class="commentaire">
             {# debut affichage des commentaires #}
               {% for  commentaire in commentaire %}{% if loop.index <= sujet.thread %} {% set commentaireid = commentaire.id %}
@@ -179,6 +182,7 @@
        $("#deletecomment{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
             e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
             var commentaireid =  {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
+            $(".contenucommentaireparent{{commentaireid}}").hide();
             $.ajax({
                 type: 'post',
                 url: "{{path('my_app_forum_commentaire_delete',{id:commentaireid} ) }}",
@@ -187,7 +191,7 @@
                 cache: false,
                 success: function(data)
                 {                                          
-                    $(".contenucommentaireparent{{commentaireid}}").hide();                 
+                    //$(".contenucommentaireparent{#{commentaireid}#}").hide();                 
                 }
             });
             return false;
@@ -195,20 +199,19 @@
     });
 </script>         
                 
+<style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left: 350px;top: -22px;}</style>  
+     
+      
+  
+             
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                <div class="deletecomment{{commentaireid}}">
-                {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">delete</a> 
-                {%endif%}
-                </div>
+
+<div class="deletecomment{{commentaireid}}">
+{%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+<a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">delete</a> 
+{%endif%}
+</div>
                 
                 
                 <script type="text/javascript">
@@ -253,14 +256,25 @@
 
                 </br> 
             </div>
+            
+      {#   pour cacher les commentaire en doublons #}      
+    <script type="text/javascript">
+       if ($('div.contenucommentaireparent{{commentaireid}}').is(':visible')) {  $("#commentparentajax").hide();  };
+    </script>    
+   
+     
+     
+            
           {%endif%} {% endfor%} 
 
 
         </div>
+       
                     {# fin affichage des commentaires #}
         <style type="text/css">
             div.inputajoutcommentaire{display: none;  background-color: #E6E6E6;}
         </style>
+        
         <div class="inputajoutcommentaire" id="divinputtohide">
 
                 {% if app.user.path is not null  %} 
@@ -272,11 +286,9 @@
             <img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
 	 {%endif%}
 
-
-
-
-				{% else %}  
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+ 
+				 
+            {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
             {% if is_granted( 'ROLE_USER' ) %} 
@@ -356,7 +368,7 @@
 
 {### ajout commentaire ajax ##}
 
-<script src="{#{ asset('bundles/myappesprit/js/jqueryajax.min.js') }#}" type="text/javascript"></script>
+{#<script src="{{ asset('bundles/myappesprit/js/jqueryajax.min.js') }}" type="text/javascript"></script>#}
 <script type="text/javascript">
     $(function() {
         $("#formcomment").submit(function(e) { // On sélectionne le formulaire par son identifiant
@@ -372,9 +384,7 @@
                 success: function(data)
                 {                
                     $('.nouveaucommentaireafficher').html(data);                
-                    $(".loading").hide();
-                    //  .loadingbutton
-                     
+                    $(".loading").hide();  
                 }
             });
             return false;
@@ -382,73 +392,6 @@
     });
 </script>
 
-
-
-<style type="text/css"> 
-    a.bouttonnouveaucommentaire {
-        text-decoration:none;
-        color: #c52821;
-        font-weight: bold;
-        height: 50px;
-        width: 200px;
-        padding-left: 15px;
-        padding-top: 10px;
-        background-color: transparent;
-    }
-    a.bouttoneditcommentaire{
-        text-decoration:none;
-        color: #c52821;
-        font-weight: bold;
-        height: 50px;
-        width: 200px;
-        padding-left: 15px;
-        padding-top: 10px;
-        background-color: transparent;
-        /* border-color: aqua;
-         border-style: dashed;*/
-    }
-    div.inputnouveaucommentaire {display: none;}
-    div.loginifcomment{
-        padding: 10px;
-        padding-left: 50px;
-        width: 450px;
-        display: none;
-        -moz-box-shadow: 10px 10px 5px 0px #656565;
-        -webkit-box-shadow: 10px 10px 5px 0px #656565;
-        -o-box-shadow: 10px 10px 5px 0px #656565;
-        box-shadow: 10px 10px 5px 0px #656565;
-        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-        border: 1px black;border-style: solid;
-    }
-    div.loginifSUBcomment{
-        padding: 10px;
-        padding-left: 50px;
-        width: 450px;
-        display: none;
-        -moz-box-shadow: 10px 10px 5px 0px #656565;
-        -webkit-box-shadow: 10px 10px 5px 0px #656565;
-        -o-box-shadow: 10px 10px 5px 0px #656565;
-        box-shadow: 10px 10px 5px 0px #656565;
-        filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-        border: 1px black;border-style: solid;
-    }
-    a#Addnewcomment{    text-decoration: none;    font-weight: bold;    color: #c52821;}
-    a.sho{display: none;}
-</style>
-
-
-
-
-
 <script type="text/javascript">
-    $(document).ready(function() {
-        /* $("a.bouttonnouveaucommentaire").click(function()
-         {
-         $("div.inputnouveaucommentaire").slideToggle("slow");
-         });*/
-        /* $("a.bouttonsousnouveaucommentaire").click(function()
-         {
-         $("div.inputnouveausouscommentaire").slideToggle("slow");
-         });*/
-    });
+    $(document).ready(function() {});
 </script>

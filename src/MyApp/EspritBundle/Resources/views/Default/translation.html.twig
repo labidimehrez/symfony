@@ -1,12 +1,19 @@
  
 
- {#% for locale in ['en', 'fr'] %#}
+
+
+ 
+ 
+        
+        {#{dump(app.request.get('_locale'))}#}
+        
+            {#% for locale in ['en', 'fr'] %#}
 
 {#% endfor %#}
 <html>
     <body>
-    
-        {{ 'Hello'|trans }}!
+    <a href="{{path('my_app_esprit_translation') }}" > {{ 'Hello'|trans }}! </a>   
+        
         
     </body>
 </html>

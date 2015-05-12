@@ -155,6 +155,14 @@ class commentaireController extends Controller {
 
         if ($request->isXmlHttpRequest()) {
             $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+            
+            
+                        $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
+                        if($souscommentaire != NULL){
+                                            foreach ($souscommentaire as $s) {   $em->remove($s);$em->flush();}
+                                         }
+            
+               
             $em->remove($commentaire);
             $em->flush();
             return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:deletecomment.html.twig');

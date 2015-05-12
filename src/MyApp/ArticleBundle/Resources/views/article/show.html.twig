@@ -439,8 +439,10 @@
     {% endfor%}
  <!------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- ici c'est la colonne droite  pour pub , senestte debatter , sol , horoscope ...-->  
-    <div class="senestredebattfrontpage" > <center><p class="rouge"></br>Seneste debatter</p></center>
-
+    <div class="senestredebattfrontpage" > 
+        {#<center><p class="rouge"></br>Seneste debatter</p></center>#}
+        <center><p class="rouge"></br>{{ 'debatrecent'|trans }}</p></center>
+        
     {%for  sujet in sujet%}
       {% if loop.length > 3 and  loop.length <6 %}{# si cette div est pleine les titres seront PEU espacés #}
        {% if sujet.id != loop.last%}

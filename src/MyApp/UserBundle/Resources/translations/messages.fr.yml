@@ -1,4 +1,16 @@
 
-log: Brugernavn
+log: Login
+pass: Password
+Log pa: Connect
+newuser: si tu es nouveau ...
+Registrer : s'enregistrer
+debatrecent: Recent Debat
+Log au sol : Connexion SOL.DK
+welcomesol: Bienvenue au SOL.DK ......
 
- 
+creeprofile: CREER PROFIL
+voirprofile : MON PROFIL
+seconnecter: CONNECTER
+logout: DECONNCTER
+
+

@@ -1,5 +1,16 @@
 
-log: login
- 
+log: Brugernavn
+pass: Adgangskode
+Log pa: Log
+newuser: Er du ny bruger .....
+Registrer : Registrer
+debatrecent: Seneste debatter
+Log au sol : Log p&aring; SOL.DK
+welcomesol: Vekommen til SOL.dk ......
 
- 
+creeprofile: OPRET PROFIL
+voirprofile : MIN PROFIL
+seconnecter: LOG IND
+logout: LOG UID
+
+

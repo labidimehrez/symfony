@@ -43,14 +43,33 @@ class DefaultController extends Controller {
         return $this->render('MyAppEspritBundle:Default:test.html.twig');
     }
 
-    public function translationAction() {
+    public function translationAction(Request $request) {
 
-        $this->getRequest()->setLocale('en_US');
-        $this->getRequest()->setDefaultLocale('en');
+//        $this->getRequest()->setLocale('en_US');
+//        $this->getRequest()->setDefaultLocale('en');
         /* $x=$this->getRequest();
           var_dump($x);exit; */
+         $uri= $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
+        
+       if ($this->getRequest()->getLocale() =='en'){
+          var_dump($this->getRequest()->getLocale()); 
+          $this->getRequest()->setLocale('fr_FR');  
+          $this->getRequest()->setDefaultLocale('fr');
+           return $this->render('MyAppEspritBundle:Default:translation.html.twig');
+        }
+        if ($this->getRequest()->getLocale() =='fr'){
+             var_dump($this->getRequest()->getLocale());           
+          $this->getRequest()->setLocale('en_US');  
+          $this->getRequest()->setDefaultLocale('en');
+           return $this->render('MyAppEspritBundle:Default:translation.html.twig');
+        } 
+       
+     //   var_dump($this->getRequest()->getLocale());exit;
+//        var_dump($routeName);exit;
+        
+//       return $this->redirect($this->generateUrl($routeName, array('locale' => 'fr')));
 
-        return $this->render('MyAppEspritBundle:Default:translation.html.twig');
+//     return $this->render('MyAppEspritBundle:Default:translation.html.twig');
     }
 
     public function routeAction() {

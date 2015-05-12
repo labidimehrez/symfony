@@ -54,7 +54,10 @@ class ArticleController extends Controller {
         return $this->render('MyAppArticleBundle:article:add.html.twig', array('form' => $form->createView(), 'tags' => $tags));
     }
 
-    public function showAction() {
+    public function showAction(Request $request) {
+        
+    
+        
         $em = $this->getDoctrine()->getManager();
         /*         * *****************    recuperation de tout les article s    ************ */
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();

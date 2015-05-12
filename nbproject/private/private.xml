@@ -14,11 +14,9 @@
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/liste.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/commentaire/add.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/menuController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/fragment/inputajoutcommentaire.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/deletecomment.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/commentaireController.php</file>
         </group>
     </open-files>
 </project-private>

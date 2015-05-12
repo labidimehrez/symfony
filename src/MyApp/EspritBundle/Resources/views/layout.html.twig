@@ -112,15 +112,15 @@
         <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" />  
 {% if is_granted( 'ROLE_USER' ) %}
         <div class="OPRET_PROFIL_LOGIN">
-            <a href="{{path('fos_user_profile_edit') }}" > MIN PROFIL  </a>                                                                                                                                                                
+            <a href="{{path('fos_user_profile_edit') }}" > {{ 'voirprofile'|trans }}  </a>                                                                                                                                                                
             </br>
-            <a href="{{path('fos_user_security_logout') }}" >LOG UID</a>
+            <a href="{{path('fos_user_security_logout') }}" >{{ 'logout'|trans }}</a>
         </div>
 {% else %}
         <div class="OPRET_PROFIL_LOGIN">
-            <a href="{{path('fos_user_registration_register') }}" > OPRET PROFIL  </a>                                                                                                                                                              
+            <a href="{{path('fos_user_registration_register') }}" >{{ 'creeprofile'|trans }} </a>                                                                                                                                                              
             </br>
-            <a href="{{path('fos_user_security_login') }}">LOG IND</a>
+            <a href="{{path('fos_user_security_login') }}">{{ 'seconnecter'|trans }}</a>
         </div>
 {% endif %}
     </div>

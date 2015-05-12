@@ -14,7 +14,7 @@
           { border-color: red; padding-left: 50px;}                                                                
         </style> 
         
-    <div class="contenucommentaireparent{{commentaireid}}"> 
+    <div class="contenucommentaireparent{{commentaireid}}" id="commentparentajax"> 
 
             {% if commentaire.user.path is not null  %} 
 
@@ -87,6 +87,11 @@
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
         <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire">delete</a> 
                      {%endif%}
+        
+        
+        
+        
+        
         
         
         <script type="text/javascript">
