@@ -1,6 +1,6 @@
 commentaire:
     resource: "@MyAppForumBundle/Resources/config/routing/commentaire.yml"
-    prefix: /{_locale}/commentaire
+    prefix: /commentaire
 sujet:
     resource: "@MyAppForumBundle/Resources/config/routing/sujet.yml"
     prefix: /{_locale}/sujet

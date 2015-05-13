@@ -16,3 +16,9 @@
                         $("a#hidethread{{commentaireid}}").hide();
                     });
                 </script>
+                
+   <script type="text/javascript">
+       if ($('a#hidethread{{commentaireid}}').is(':visible')) {  $("a#showthread{{commentaireid}}").hide();};
+        if ($('a#showthread{{commentaireid}}').is(':visible')) {  $("a#hidethread{{commentaireid}}").hide();};
+    </script>    
+   

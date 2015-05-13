@@ -2,9 +2,13 @@
 log: Brugernavn
 pass: Adgangskode
 Log pa: Log
+log-in: Log ind
+creercompte: Opret ny bruger
 newuser: Er du ny bruger .....
 Registrer : Registrer
 debatrecent: Seneste debatter
+DebatRecent: Seneste Debatter
+Start a New Topic: Start en ny Topic
 Log au sol : Log p&aring; SOL.DK
 welcomesol: Vekommen til SOL.dk ......
 
@@ -16,4 +20,17 @@ logout: LOG UID
 Ajoutdestyle: Tilføjer Stil
 
 changpass: Skift adgangskode
+confpass: Bekræft adgangskode
 home: Homepage
+
+talifoun: Cellphone Antal
+About Me: Om Mig
+nometprenom: Navn Efternavn
+Datenaissance: Fødselsdag
+
+debatmesleast: MEST LÆSTE DEBATTER
+SENESTENYHEDER: SENESTE NYHEDER
+Opretdebat: Opret ny debat 
+Læsdebat: Læs debat
+Most Used Tag: Mest Brugt Tag
+notifpourcomment: Du skal være logget ind for at kommentere

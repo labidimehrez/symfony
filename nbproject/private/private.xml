@@ -12,11 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/liste.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/deletecomment.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/commentaireController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/messages.en.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/translations/messages.fr.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/Default/sousmenu.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/layout.html.twig</file>
         </group>
     </open-files>
 </project-private>

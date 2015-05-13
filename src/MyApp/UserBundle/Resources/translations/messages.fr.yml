@@ -2,18 +2,35 @@
 log: Login
 pass: Password
 Log pa: Connect
+log-in: S'identifier
+creercompte: Créer Utilisateur
 newuser: si tu es nouveau ...
 Registrer : s'enregistrer
 debatrecent: Recent Debat
+DebatRecent: Récent Debat
+Start a New Topic: Commencer un débat
 Log au sol : Connexion SOL.DK
 welcomesol: Bienvenue au SOL.DK ......
 
 creeprofile: CREER PROFIL
 voirprofile : MON PROFIL
 seconnecter: CONNECTER
-logout: DECONNCTER
+logout: DECONNECTER
 
 Ajoutdestyle: Ajout de Style
 
 changpass: Changer password
+confpass: Confirm Password
 home: Accueil
+
+talifoun: Numero de Portable
+About Me: A props de moi
+nometprenom: Nom & Prenom
+Datenaissance: Date de naissance
+
+debatmesleast: DEBAT RECENT
+SENESTENYHEDER: DERNIÈRES NOUVELLES
+Opretdebat: Créer un nouveau débat 
+Læsdebat: Lire Débat
+Most Used Tag: Les Tag les plus utilisés
+notifpourcomment: Vous devez être connecté pour commenter

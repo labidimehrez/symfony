@@ -347,9 +347,12 @@
             clickIt: true,
             tipContent:
                     '<div class="tool">' + '</br>' +
-                    '<center>Du skal være logget ind for at kommentere</center>' + '</br>' +
-                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg" >Log ind</a>' +
-                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_registration_register') }}" class="rouge" >Opret ny bruger</a>' +
+                 ///   '<center>Du skal være logget ind for at kommentere</center>' + '</br>' +
+                    '<center>{{'notifpourcomment'|trans}}</center>' + '</br>' +
+              {# '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg" >Log ind</a>' +#}
+  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg" >{{'log-in'|trans}}</a>' +                 
+   {#'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_registration_register') }}" class="rouge" >Opret ny bruger</a>' +#}
+       '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_registration_register') }}" class="rouge" >{{'creercompte'|trans}}{#Opret ny bruger#}</a>'+
                     '</div>'
         });
     });

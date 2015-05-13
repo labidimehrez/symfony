@@ -34,7 +34,7 @@
 
         </div>
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id} ) }}" class="lienOpretnydebatLaesdebat">
-            <f class="styleleinarticle1"> Opret ny debat | Læs debat</f>
+            <f class="styleleinarticle1"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f>
         </a>
     </div>{%endif%} 
 
@@ -68,7 +68,7 @@
             </FONT>         
         </div>
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
-            <f class="styleleinarticle2"> Opret ny debat | Læs debat</f>
+            <f class="styleleinarticle2"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f>
         </a>
     </div>{%endif%} 
 
@@ -100,7 +100,7 @@
             </FONT>     
         </div>  
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
-            <f class="styleleinarticle3"> Opret ny debat | Læs debat</f>
+            <f class="styleleinarticle3"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f>
         </a>
     </div>
 {%endif%}
@@ -127,7 +127,7 @@
             </FONT>    
         </div> 
         <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
-            <f class="styleleinarticle4"> Opret ny debat | Læs debat</f>
+            <f class="styleleinarticle4"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f>
         </a>
     </div>
 {%endif%} 
@@ -139,7 +139,8 @@
             <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">   {{article.headline|truncate(36, true, '...')}}</a>
             </FONT>     
         </div>  
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle5"> Opret ny debat | Læs debat</f></a>          
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle5"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a>          
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -153,7 +154,8 @@
          {{article.headline|truncate(36, true, '...')}}</a>
             </FONT>     
         </div> 
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle6"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle6"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>
 {%endif%} 
 
@@ -167,7 +169,8 @@
             </a>
             </FONT>       
         </div> 
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle7"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle7">{{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
 
 
      {% if article.path is not null%}
@@ -199,7 +202,8 @@
             </a>
             </FONT>       
         </div> 
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle8"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle8">{{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
 
           {% if article.path is not null%}
           {%if "http" in article.path %}
@@ -242,7 +246,8 @@
             </a>
             </FONT>      
         </div>   
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle9"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle9">{{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>
 {%endif%} 
 
@@ -269,7 +274,8 @@
             </a>
             </FONT>     
         </div>   
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle10"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle10"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>{%endif%} 
 
 {% if article.position==11%}
@@ -295,12 +301,13 @@
             </a>
             </FONT>       
         </div> 
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle11"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle11">{{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>{%endif%} 
  <!-------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionA">
 
-        <center><p class="rouge" style="  margin-bottom: 0px;">SENESTE NYHEDER</p></center>
+        <center><p class="rouge" style="  margin-bottom: 0px;">{#SENESTE NYHEDER#}{{'SENESTENYHEDER'|trans}}</p></center>
  
        {%for  sujetnotarticle in sujetnotarticle%}
          
@@ -341,7 +348,7 @@
     </div>
 <!---------------------------------------------------------------------------------------------------------------------------------->
     <div class="articlepositionB">
-        <center><p class="rouge" style="  margin-bottom: 0px;">MEST LÆSTE DEBATTER</p></center>
+        <center><p class="rouge" style="  margin-bottom: 0px;">{#MEST LÆSTE DEBATTER#}{{'debatmesleast'|trans}}</p></center>
        {%for  mostcommenteddebat in mostcommenteddebat%}
         
          {% if loop.length > 4  and loop.length < 8  %}{# si cette div est pleine les titres seront PEU espacés #}
@@ -393,7 +400,8 @@
             </a>
             </FONT>      
         </div>  
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle12"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle12"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>{%endif%} 
     <!-- ici pas d image pour ces articles -->
 {% if article.position==13%}
@@ -405,7 +413,8 @@
             </a>
             </FONT>     
         </div>  
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle13"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle13"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -418,7 +427,8 @@
             </a>
             </FONT>    
         </div>     
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle14"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle14">{{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>
 {%endif%} 
     <!-- ici pas d image pour ces articles -->
@@ -431,7 +441,8 @@
             </a>
             </FONT>    
         </div> 
-        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat"><f class="styleleinarticle15"> Opret ny debat | Læs debat</f></a> 
+        <a href="{{ path('my_app_forum_sujet_addfromar',{'id':article.id}) }}" class="lienOpretnydebatLaesdebat">
+            <f class="styleleinarticle15"> {{'Opretdebat'|trans}}{#Opret ny debat #}| {#Læs debat#}{{'Læsdebat'|trans}}</f></a> 
     </div>
 {%endif%} 
 

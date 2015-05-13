@@ -47,7 +47,8 @@
         <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
     </div>
     <div class="senestredebatt"></br>
-        <center>  <b><p class="rouge"> Seneste debatter</p></b> </center> 
+        {#<center>  <b><p class="rouge"> Seneste debatter</p></b> </center> #}
+        <center>  <b><p class="rouge">{{ 'debatrecent'|trans }}</p></b> </center> 
  {{ render(controller('MyAppForumBundle:sujet:show')) }}
 
 
@@ -91,21 +92,24 @@
 
 
 
-                    <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                   {# <tr><td style="float: right;">Nom & Prenom &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>#}
+                    <tr><td style="float: right;">{{'nometprenom'|trans}}&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.nomprenom , { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
-                    <tr><td style="float: right;"> 
-                            Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.sexe ) }}</td></tr> 
+                    <tr><td style="float: right;">  Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                           <td> {{form_widget(form.sexe ) }}</td></tr> 
                     <tr><td style="float: right;position: relative;  padding-bottom: 10px;  padding-top: 10px;"> 
-                            Date de naissance &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                            {{'Datenaissance'|trans}}
+                            {#Date de naissance#} &nbsp;
+                            <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> 
 {{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}
                         </td> 
                     </tr>
                     <tr><td style="float: right;">
 
-                            Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                            {{ 'pass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
-                    <tr><td style="float: right;">Confirm Password &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                    <tr><td style="float: right;">{{ 'confpass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.plainPassword.second, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
                     <tr><td style="float: right;">
@@ -119,14 +123,17 @@
                     <tr><td style="float: right;">  
                             Ville&nbsp;&nbsp;&nbsp;</td>
                         <td> {{form_widget(form.ville)}}   </td></tr>
-                    <tr><td style="float: right;">Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                    <tr>{#<td style="float: right;">Numero de Portable &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>#}
+                        <td style="float: right;">{{ 'talifoun'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.numeroportable, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
 
                     <tr><td style="float: right;"> Email&nbsp;&nbsp;&nbsp; </td><td> {{form_widget(form.email) }}  </td></tr>
 
 
-                    <tr><td style="float: right;">  About Me &nbsp;   &nbsp;&nbsp; </td><td> {{form_widget(form.surmoi) }}    </td></tr>
+                    <tr>{#<td style="float: right;">  About Me &nbsp;   &nbsp;&nbsp; </td>#}
+                        <td style="float: right;">  {{'About Me'|trans}} &nbsp;   &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.surmoi) }}    </td></tr>
 
 
 

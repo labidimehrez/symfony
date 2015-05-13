@@ -15,7 +15,7 @@
 
 <div class="contenudetemplate" id="getFixedTemplate">
     <div class="senestredebatt">
-        </br> <center><b class="rouge">Most Used Tag</b></center></br>
+        </br> <center><b class="rouge">{#Most Used Tag#}{{'Most Used Tag'|trans}}</b></center></br>
 
                 {% for mostusedtag in mostusedtag %}
 
@@ -35,11 +35,11 @@
 
 
     <div  class="StartaNewTopic">
-        <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> Start a New Topic</a>  
+        <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> {{'Start a New Topic'|trans}}{#Start a New Topic#}</a>  
     </div>
 
 
-    <h2>Seneste Debatter</h2>
+    {#<h2>Seneste Debatter</h2>#}<h2>{{'DebatRecent'|trans}}</h2>
 {% for sujet in pagination %}
     <tr {% if loop.index is odd %}class="color"{% endif %}>
 
