@@ -3133,16 +3133,16 @@ position: relative;
     left: 315px
 }
 .articleposition5 {
-    position: absolute;
-    width: 160px;
-    height: 138px;
-    top: 808px
+position: absolute;
+  width: 160px;
+  height: 146px;
+  top: 800px;
 }
 .articleposition6 {
-    position: absolute;
-    width: 160px;
-    height: 138px;
-    top: 952px
+   position: absolute;
+  width: 160px;
+  height: 145px;
+  top: 952px;
 }
 .articleposition7 {
     position: absolute;
@@ -3592,4 +3592,9 @@ padding-top: 30px;
  
  
  
- 
+.stylerubriqueeditprofile{
+    background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;
+}
+.stylepresentationrubrique{
+    background-color:#cccccc;width:124px;color: #000; 
+}

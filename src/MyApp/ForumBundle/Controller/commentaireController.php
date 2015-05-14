@@ -157,10 +157,10 @@ class commentaireController extends Controller {
             $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
             
             
-                        $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
-                        if($souscommentaire != NULL){
-                                            foreach ($souscommentaire as $s) {   $em->remove($s);$em->flush();}
-                                         }
+            $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
+            if($souscommentaire != NULL){
+                                foreach ($souscommentaire as $s) {   $em->remove($s);$em->flush();}
+                             }
             
                
             $em->remove($commentaire);

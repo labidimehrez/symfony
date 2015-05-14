@@ -8,7 +8,9 @@
 <div class="contenudetemplate" id="getFixedTemplate">
 
     <div class="image">
-        <h2>Min profil</h2> 
+        {#<h2>Min profil</h2>#} 
+        
+        <h2 style="font-size:30px;">{{'MONPROLFILE'|trans}}</h2>
         </br></br>
 
         {% if app.user.path is not null  %}     
@@ -35,7 +37,7 @@
     <div class="nomuser"> 
         </br></br></br></br> 
         <b class="username">
-            <h1> {{app.user.username }}</h1>
+            <h1> {{app.user.username|capitalize  }}</h1>
 
 
         </b>
@@ -43,8 +45,11 @@
     </div>
     <div class="donneeconnexion"> 
         </br></br></br></br>
-        <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
-        <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
+        {#<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oprettet:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
+        <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>#}
+        <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'etabli'|trans}}:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
+        <h6>{{'Sidstonline'|trans}}:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
+        
     </div>
     <div class="senestredebatt"></br>
         {#<center>  <b><p class="rouge"> Seneste debatter</p></b> </center> #}
@@ -64,13 +69,13 @@
 
 
     </br> </br> </br> </br></br> </br> </br> </br></br></br></br> </br></br> 
-    <div style="background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;">
+    <div class="stylerubriqueeditprofile">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#" style="width:124px;color: #000;">&nbsp;&nbsp;Profile</a></li>
-            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Messages</a></li>
-            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Débats</a></li>
-            <li role="presentation"><a href="#" style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Amis</a></li>
-            <li role="presentation"><a href="#"style="background-color:#cccccc;width:124px;color: #000;">&nbsp;&nbsp;Notifications</a></li>
+            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Messages</a></li>
+            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Débats</a></li>
+            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Amis</a></li>
+            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Notifications</a></li>
         </ul>
     </div> 
 
@@ -102,12 +107,13 @@
                             {#Date de naissance#} &nbsp;
                             <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> 
-{{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}
+                            {{form_widget(form.datenaissance, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}
                         </td> 
                     </tr>
                     <tr><td style="float: right;">
 
-                            {{ 'pass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td><td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
+                            {{ 'pass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
+                        <td> {{form_widget(form.plainPassword.first, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     </tr>
                     <tr><td style="float: right;">{{ 'confpass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.plainPassword.second, { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
@@ -151,7 +157,8 @@
 
 
             <div id="buttonsregistrerEditprofil"></br></br>
-                <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />
+               <!-- <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />-->
+               <input type="submit" value="{{'changprofil'|trans}}"  style="width: 150px;" class="btn btn-warning btn-lg"  />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{{path('my_app_esprit_homepage') }}" style="color:#c52821;">                                                                                                                                                      
                     &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
@@ -170,13 +177,10 @@
     </div>
 </div>
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
-<!-- css et js pour bundle JQuery  -->
+ {#
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappesprit/js/jquery-ui.css') }}" />
 <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/myappesprit/js/jquery-ui.js') }}"></script>
-<!-- css et js pour bundle JQuery  -->
-
-
 
 <script>
     $("#dialog").dialog({
@@ -187,7 +191,6 @@
             text: "Ok",
                     click: function() {
                     //  $(this).submit();
-
                     }
             });
             }
@@ -205,4 +208,4 @@
     $("#dialog").dialog("open");
             event.preventDefault();
     });
-</script> 
+</script> #}

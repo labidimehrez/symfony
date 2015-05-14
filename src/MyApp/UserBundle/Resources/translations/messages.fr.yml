@@ -11,7 +11,8 @@ DebatRecent: Récent Debat
 Start a New Topic: Commencer un débat
 Log au sol : Connexion SOL.DK
 welcomesol: Bienvenue au SOL.DK ......
-
+MONPROLFILE: Mon profil
+changprofil: Change profil
 creeprofile: CREER PROFIL
 voirprofile : MON PROFIL
 seconnecter: CONNECTER
@@ -34,3 +35,6 @@ Opretdebat: Créer un nouveau débat
 Læsdebat: Lire Débat
 Most Used Tag: Les Tag les plus utilisés
 notifpourcomment: Vous devez être connecté pour commenter
+
+etabli: Etablit
+Sidstonline: dernière log

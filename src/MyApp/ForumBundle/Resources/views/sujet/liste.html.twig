@@ -6,22 +6,21 @@
 <div class="commentaire">
 
      {% for  commentaire in commentaire %}
-   
+
   {% set commentaireid = commentaire.id %}
 
-        <style type="text/css">
-            div.contenucommentaireparent{{commentaireid}}
-          { border-color: red; padding-left: 50px;}                                                                
-        </style> 
-        
+    <style type="text/css">
+        div.contenucommentaireparent{{commentaireid}}{ border-color: red; padding-left: 50px;}                                                                     
+    </style> 
+
     <div class="contenucommentaireparent{{commentaireid}}" id="commentparentajax"> 
 
             {% if commentaire.user.path is not null  %} 
 
             {%if "http" in commentaire.user.path %}
-                  <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+        <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-                  <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+        <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
 
 
@@ -55,16 +54,16 @@
                 text-decoration:none;                       
             }
         </style> 
-        
-        
-        
-        
-        
+
+
+
+
+
  {% if is_granted( 'ROLE_USER' ) %}            
         <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">Add new comment</a>{%endif%} 
-  
-  
+
+
         <script type="text/javascript">
             $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
                 $("div#divinputtohide").hide();/*to hide all other input add or edit */
@@ -74,40 +73,67 @@
         </script>
 
 
-                 {###################}
-
+<!---------------------------------------------------------------------------------------------------->
         <b class="likebutton" style="cursor:pointer;">like</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
         <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">edit</b></a>
                 {%endif%}
-        
+
         &nbsp;&nbsp;&nbsp;&nbsp; 
-        
-        
-                  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-        <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire">delete</a> 
-                     {%endif%}
-        
-        
-        
-        
-        
-        
-        
+
+
+ <!---------------------------------------------------------------------------------------------------->
+        <script src="{#{ asset('bundles/myappesprit/js/jqueryajax.min.js') }#}" type="text/javascript"></script>
         <script type="text/javascript">
-            $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
-                $("div#divinputtohide").hide();/*to hide all other input add or edit */
-                $("div.threadcontent{{commentaireid}}").slideToggle();
-                $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
+            $(function() {
+                $("#deletecomment{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                    var commentaireid = {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
+                    $(".contenucommentaireparent{{commentaireid}}").hide();
+                    $.ajax({
+                        type: 'post',
+                        url: "{{path('my_app_forum_commentaire_delete',{id:commentaireid} ) }}",
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {
+                            //$(".contenucommentaireparent{#{commentaireid}#}").hide();                 
+                        }
+                    });
+                    return false;
+                });
             });
-        </script>
-        
-        
+        </script>         
+
+        <style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left: 350px;top: -22px;}</style>  
+        <div class="deletecomment{{commentaireid}}">
+{%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+            <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">delete</a> 
+{%endif%}
+        </div>
+
+<!---------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+<script type="text/javascript">
+    $("a.bouttoneditcommentaire{{commentaireid}}").click(function() {
+        $("div#divinputtohide").hide();/*to hide all other input add or edit */
+        $("div.threadcontent{{commentaireid}}").slideToggle();
+        $("div.inputeditcommentaire{{commentaireid}}").slideToggle();
+    });
+</script>
+
+
         <div class="inputeditcommentaire{{commentaireid}}" id="divinputtohide">
-                         {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
+          {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
         </div>  
-        
-        
+
+
         <style type="text/css">
             div.inputeditcommentaire{{commentaireid}}{display: none;}
         </style>
@@ -118,9 +144,9 @@
 
 
             <div class="inputsnouveausouscommentaire{{commentaireid}}" id="divinputtohide"  >
-                         {% if is_granted( 'ROLE_USER' ) %}  
-                                {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
-                         {%endif%}
+             {% if is_granted( 'ROLE_USER' ) %}  
+                    {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
+             {%endif%}
             </div>     
 
 
@@ -130,7 +156,7 @@
 
         </br> 
     </div>
-          
+
 {% endfor%} 
 
 

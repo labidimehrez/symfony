@@ -54,7 +54,7 @@
 
              {%if  sujet.user.path is not null %}
 
-        <a   class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
+        <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
              {%if "http" in sujet.user.path %}
             <img src="{{sujet.user.path }}"   class="imageuser" alt="" />
              {%else%}
@@ -146,8 +146,8 @@
           <div class="tooltipfinal{{sujet.id}}" id="tooltipid">
                     <div class="profilusername">{{sujet.user.username|capitalize }}</div>
                     <div class="profildatetooltip">                    
-                     Oprettet : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size></br>
-                     Sidst online : {{sujet.user.lastLogin|date('Y-M-d') }}
+                     {{'etabli'|trans}} : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size></br>
+                     {{'Sidstonline'|trans}} : {{sujet.user.lastLogin|date('Y-M-d') }}
                     </div>
                     </br> 
                     <a id="Luk" style="float:right;  padding-right: 20px;  color: red; ">Luk</a>
@@ -220,8 +220,8 @@
                     {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
                </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-              
-         </div>
+           </div>       
+         
 
  </div>
 
