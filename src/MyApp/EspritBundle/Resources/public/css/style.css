@@ -2544,7 +2544,7 @@
 .position0 {
     position: absolute;
     left: /*195px;*/207px;
-    top: 118px;
+    top: /*118px;*/114px;
     width: 929px;
     height: 180px;
     z-index: 8000
@@ -3597,4 +3597,24 @@ padding-top: 30px;
 }
 .stylepresentationrubrique{
     background-color:#cccccc;width:124px;color: #000; 
+}
+.divedittag{
+            padding: 10px;
+        padding-left: 50px;
+        width: 400px;
+        display: none;
+        -moz-box-shadow: 10px 10px 5px 0px #656565;
+        -webkit-box-shadow: 10px 10px 5px 0px #656565;
+        -o-box-shadow: 10px 10px 5px 0px #656565;
+        box-shadow: 10px 10px 5px 0px #656565;
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+        border: 1px black;
+        border-style: solid;
+        background-color: white; 
+        z-index: 10;
+        position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;
+}
+
+.inputajoutcommentaire{
+    display: none;  background-color: #E6E6E6;  display: none;margin-top: 20px;
 }

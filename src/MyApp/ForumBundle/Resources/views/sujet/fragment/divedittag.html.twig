@@ -5,18 +5,18 @@
 
 <div  class="tagtitlevoirun">
     
-                <style type="text/css">  div.listetag{display: none;} </style> 
+                <style type="text/css">  div.listetag{display: none;  padding-right: 50px;} </style> 
                 
                 <div class="listetag2">{% set counternombredetag = 0 %} 
                 {% for tag in tag %}      
             <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title|raw}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
                 {% endfor%} </div>
 
-                <div class="listetag"> {% include   'MyAppForumBundle:sujet:tags.html.twig'%} </div>
+                <div class="listetag" > {% include   'MyAppForumBundle:sujet:tags.html.twig'%} </div>
             
             
             
-    <a id=show style="  padding-left: 60px;padding-top: -50px; position: relative;top: -20px;cursor: pointer;"> 
+    <a id=show style="  padding-left: 150px;  padding-top: -50px;  position: relative;  top: -20px;  cursor: pointer;"> 
   
  
   
@@ -26,7 +26,7 @@
                  {% endif%}
     </a> 
 
-    <div class="divedittag" style="position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;">
+    <div class="divedittag" style="">
         <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}' id="formtag">
 
             <input type="text" name="i[]" id="autocomplete" title=""
@@ -57,24 +57,7 @@
     });
 </script>
 
-<style type="text/css">
-    div.divedittag {
-        padding: 10px;
-        padding-left: 50px;
-        width: 400px;
-        display: none;
-        -moz-box-shadow: 10px 10px 5px 0px #656565;
-        -webkit-box-shadow: 10px 10px 5px 0px #656565;
-        -o-box-shadow: 10px 10px 5px 0px #656565;
-        box-shadow: 10px 10px 5px 0px #656565;
-        filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-        border: 1px black;
-        border-style: solid;
-        background-color: white; 
-        z-index: 10;
-    }
-   
-</style>
+ 
 
  
 
