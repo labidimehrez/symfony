@@ -2863,7 +2863,7 @@
 }
 .senestredebatt {
     position: absolute;
-    left: 655px;
+    left: 650px;
     top: 50px;
     background-color: #e0e0e0;
     width: 280px;
@@ -3053,24 +3053,24 @@
     padding: 0 0 0 490px
 }
 .senestredebattfrontpage {
-position: relative;
-  margin-top: 40px;
-  background-color: #e0e0e0;
-  width: 296px;
-  height: 250px;
-  z-index: 6001;
-  left: 630px;
+    position: relative;
+    margin-top: 40px;
+    background-color: #e0e0e0;
+    width: 296px;
+    height: 250px;
+    z-index: 6001;
+    left: 630px;
 }
 .publicitenumero1 {
-   position: relative;
-  margin-top: 10px;
-  left: 627px;
+    position: relative;
+    margin-top: 10px;
+    left: 627px;
 }
 .publicitenumero2 {
-  position: relative;
-  margin-top: 0;
-  left: 322px;
-  top: 180px;
+    position: relative;
+    margin-top: 0;
+    left: 322px;
+    top: 180px;
 }
 .publicitenumero3 {
     position: relative;
@@ -3133,16 +3133,16 @@ position: relative;
     left: 315px
 }
 .articleposition5 {
-position: absolute;
-  width: 160px;
-  height: 146px;
-  top: 800px;
+    position: absolute;
+    width: 160px;
+    height: 146px;
+    top: 800px;
 }
 .articleposition6 {
-   position: absolute;
-  width: 160px;
-  height: 145px;
-  top: 952px;
+    position: absolute;
+    width: 160px;
+    height: 145px;
+    top: 952px;
 }
 .articleposition7 {
     position: absolute;
@@ -3185,12 +3185,12 @@ position: absolute;
     background-color: #e0e0e0
 }
 .articlepositionB {
-position: absolute;
-  width: 310px;
-  height: 310px;
-  top: 1505px;
-  left: 317px;
-  background-color: #e0e0e0;
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    top: 1505px;
+    left: 317px;
+    background-color: #e0e0e0;
 }
 .articleposition12 {
     position: absolute;
@@ -3547,27 +3547,27 @@ input:focus {
 
 
 .like-buttons{
-      float: left;
+    float: left;
     width: 150px;
-  background: #EFEFEF;
-  padding: 10px;
-  line-height: 25px;
-  text-align: center;
-  border: 1px solid #666;
-  margin-bottom: 10px;
-    
+    background: #EFEFEF;
+    padding: 10px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #666;
+    margin-bottom: 10px;
+
 }
 
 .divardetails{
-  width: 400px;
-  margin-left: 160px;
-  padding-bottom: 30px;
+    width: 400px;
+    margin-left: 160px;
+    padding-bottom: 30px;
     border-bottom: 2px solid gray;
 }
 
 .bouttonarticledetails{
-padding-top: 30px;
-  padding-left: 190px;
+    padding-top: 30px;
+    padding-left: 190px;
 }
 
 .ardetailsimg{ 
@@ -3577,21 +3577,21 @@ padding-top: 30px;
 
 
 .stylepleasewait{ color: brown;
-  font-family: fantasy;
-  padding-left: 10px;
-  position: relative;
-  /* top: -30px; */}
- 
+                  font-family: fantasy;
+                  padding-left: 10px;
+                  position: relative;
+                  /* top: -30px; */}
+
 .loadingbutton{  
- 
-  padding-left: 100px;
-  /* margin-top: -10px; */
-  /* padding-top: 10px; */
-  position: relative;
-  top: -30px;}
- 
- 
- 
+
+    padding-left: 100px;
+    /* margin-top: -10px; */
+    /* padding-top: 10px; */
+    position: relative;
+    top: -30px;}
+
+
+
 .stylerubriqueeditprofile{
     background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px;
 }
@@ -3599,22 +3599,26 @@ padding-top: 30px;
     background-color:#cccccc;width:124px;color: #000; 
 }
 .divedittag{
-            padding: 10px;
-        padding-left: 50px;
-        width: 400px;
-        display: none;
-        -moz-box-shadow: 10px 10px 5px 0px #656565;
-        -webkit-box-shadow: 10px 10px 5px 0px #656565;
-        -o-box-shadow: 10px 10px 5px 0px #656565;
-        box-shadow: 10px 10px 5px 0px #656565;
-        filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-        border: 1px black;
-        border-style: solid;
-        background-color: white; 
-        z-index: 10;
-        position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;
+    padding: 10px;
+    padding-left: 50px;
+    width: 400px;
+    display: none;
+    -moz-box-shadow: 10px 10px 5px 0px #656565;
+    -webkit-box-shadow: 10px 10px 5px 0px #656565;
+    -o-box-shadow: 10px 10px 5px 0px #656565;
+    box-shadow: 10px 10px 5px 0px #656565;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+    border: 1px black;
+    border-style: solid;
+    background-color: white; 
+    z-index: 10;
+    position: absolute;  margin-top: 15px;  overflow: hidden;     margin-left: -280px;  background-color: white;
 }
 
 .inputajoutcommentaire{
     display: none;  background-color: #E6E6E6;  display: none;margin-top: 20px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border: 2px solid #cfcfcf;
 }

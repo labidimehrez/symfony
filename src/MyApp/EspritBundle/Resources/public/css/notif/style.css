@@ -150,3 +150,7 @@
     z-index: 54400000;
     position: fixed
 }
+#cerclenotifcercle{
+     left: 800px;top: 17px;/*background-color: transparent;*/position: fixed;
+    width: 25px;height: 25px;border-radius: 50px;background-color: #ee3737;
+}

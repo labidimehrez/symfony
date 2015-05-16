@@ -153,11 +153,10 @@
                     <a id="Luk" style="float:right;  padding-right: 20px;  color: red; ">Luk</a>
           </div>
    
-         <script type="text/javascript">
-           $("a#Luk").click(function() {
-                $("div#tooltipid").hide();  
-            });
-        </script>
+ <script type="text/javascript">
+   $("a#Luk").click(function() { $("div#tooltipid").hide();});
+   $(document).click(function(event) {if ( !$(event.target).hasClass('.tooltipfinal{{sujet.id}}')) { $(".tooltipfinal{{sujet.id}}").hide();}});              
+</script>
         
         
         <div class="tooltiploading{{sujet.id}}">

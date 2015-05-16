@@ -27,26 +27,28 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
-
+      
                 /* traitement special pour le choix des tags */
                 $inputtag = $this->getRequest()->get('inputtag');
+ 
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
-                    if ($inputtag == $tagtitle) {
+                      if (strpos($inputtag, $tagtitle) !== false) {/* tagtile existe dans input string*/
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
-                        $sujet->setTags($tagaajouté);
+                      $sujet->setTags($tagaajouté);
                     }
                 }
-
+                 
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
 //                $notifboolean = $sujet->getNotification();
                 $sujet->setThread(40);      /* default thread */
                 $em = $this->getDoctrine()->getManager();
+                 
                 $em->persist($sujet);
                 $em->flush();
                 /*                 * **                       ajout de notification                        ** */
@@ -54,7 +56,7 @@ class sujetController extends Controller {
 //                $notif = new notification();
 //                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
 //                $manager->persist($notif1);
-
+               
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
             }
             if (!$form->isValid()) {
