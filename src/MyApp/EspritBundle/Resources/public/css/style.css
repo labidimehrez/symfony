@@ -308,23 +308,23 @@
     z-index: 216
 }
 .MENU {
-  position: absolute;
-  width: 800px;
-  top: 310px;
-  left: 197px;
-   width: 927px;
-  height: 42px;
-  background-color: #c52821;
-  font-size: 14px;
-  font-family: "HelveticaNeueLTStd";
-  color: #fff;
-  line-height: 1.2;
-  text-align: left;
-  text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-  -moz-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
-  /* -webkit-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0); */
-  -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
-  z-index: 2000;
+    position: absolute;
+    width: 800px;
+    top: 310px;
+    left: 197px;
+    width: 927px;
+    height: 42px;
+    background-color: #c52821;
+    font-size: 14px;
+    font-family: "HelveticaNeueLTStd";
+    color: #fff;
+    line-height: 1.2;
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    -moz-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
+    /* -webkit-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0); */
+    -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
+    z-index: 2000;
 }
 ._______________________________________________ {
     font-size: 11px;
@@ -3622,4 +3622,26 @@ input:focus {
     -webkit-border-radius:10px;
     border-radius:10px;
     border: 2px solid #cfcfcf;
+}
+
+#rotate{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    overflow:hidden;
+
+}	
+
+#rotate:hover	
+{ 
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg); 
+    -o-transform:rotate(360deg);
 }

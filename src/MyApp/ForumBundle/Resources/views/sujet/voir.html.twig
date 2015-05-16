@@ -20,15 +20,14 @@
 {% if sujet.user.path is not null  %}
 
             {%if "http" in sujet.user.path %}
-                  <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt="" />  
+                  <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt=""  id="rotate"  />  
              {%else%}
-                   <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuserdebataveccomment" alt="" />
+                   <img src="{{ asset('upload/' ~ sujet.user.path)}}" id="rotate"  class="imageuserdebataveccomment" alt="" />
             {%endif%}
 {% else %}
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"   class="imageuserdebataveccomment" alt=""  />  
+        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  id="rotate"   class="imageuserdebataveccomment" alt=""  />  
 {% endif%}
-
-        
+       
         &nbsp;&nbsp;&nbsp;
         <b style="color: black" >{{sujet.user.username|capitalize}}</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
