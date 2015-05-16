@@ -82,7 +82,7 @@
         </div>
         <!---------------------------------------------------------------------------------------------------------------------------------->
              <!---------------------------------------------------------------------------------------------------------------------------------->
-        <div class="inputajoutcommentaire" id="divinputtohide">
+        <div class="inputajoutcommentaire" id="divinputtohide" style="  overflow: hidden;  position: relative;  display: none;  left: 80px;">
 
                 {% if app.user.path is not null  %} 
 
@@ -378,7 +378,8 @@
                 datatype: "json",        
                 cache: false,
                 success: function(data)
-                {                
+                {    
+                    
                     $('.nouveaucommentaireafficher').html(data);                
                  //   $(".inputajoutcommentaire").hide();                     
                 }

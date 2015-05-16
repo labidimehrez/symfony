@@ -16,11 +16,11 @@
            {% if article.path is not null%}
                   {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">  
-            <img src="{{article.path }}" class="imagearticle1"   />
+            <img src="{{article.path }}" class="imagearticle1" id="opacity"  />
          </a>   
                   {%else%}           
        <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">  
-           <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle1"   />         
+           <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle1" id="opacity"    />         
        </a>    
                     {%endif%}
      
@@ -47,11 +47,11 @@
 
               {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}" class="imagearticle2"  />
+        <img src="{{article.path }}" class="imagearticle2"  id="opacity"   />
         </a>
                   {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle2"   />
+        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle2"  id="opacity"   />
         </a>
                     {%endif%}
 
@@ -81,11 +81,11 @@
 
                     {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}" class="imagearticle3"  />
+        <img src="{{article.path }}" class="imagearticle3"  id="opacity"  />
         </a>
                     {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle3"  />
+        <img src="{{ asset('upload/' ~ article.path) }}" class="imagearticle3"  id="opacity"  />
         </a>
                     {%endif%}
 
@@ -110,11 +110,11 @@
            {% if article.path is not null%}
                        {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}"  class="imagearticle4"   />
+        <img src="{{article.path }}"  class="imagearticle4"  id="opacity"   />
         </a>
                        {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle4"  />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle4"   id="opacity"  />
         </a>
                        {%endif%}
 
@@ -177,11 +177,11 @@
 
         {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}"  class="imagearticle7"   />
+        <img src="{{article.path }}"  class="imagearticle7"  id="opacity"  />
         </a>
         {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle7"    />
+        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle7"  id="opacity"    />
         </a>
         {%endif%}
 
@@ -208,11 +208,11 @@
           {% if article.path is not null%}
           {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}"  class="imagearticle8" />
+        <img src="{{article.path }}"  class="imagearticle8"  id="opacity"  />
         </a>
           {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle8"   />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle8"  id="opacity"  />
         </a>
           {%endif%}
 
@@ -230,11 +230,11 @@
 
                 {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}" class="imagearticle9"/>
+        <img src="{{article.path }}" class="imagearticle9"  id="opacity"  />
         </a>
                   {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle9"/>
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle9"  id="opacity"  />
         </a>
                     {%endif%}
 
@@ -258,11 +258,11 @@
 
                 {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}"   class="imagearticle10" />
+        <img src="{{article.path }}"   class="imagearticle10"  id="opacity"  />
         </a>
                   {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle10"   />
+        <img src="{{ asset('upload/' ~ article.path) }}"   class="imagearticle10"  id="opacity"    />
         </a>
                     {%endif%}
 
@@ -285,11 +285,11 @@
 
                 {%if "http" in article.path %}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{article.path }}"    class="imagearticle10" />
+        <img src="{{article.path }}"    class="imagearticle10"  id="opacity"  />
         </a>
                   {%else%}
         <a href="{{ path('my_app_article_article_voir',{'id':article.id} ) }}">
-        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle10" />
+        <img src="{{ asset('upload/' ~ article.path) }}"  class="imagearticle10"  id="opacity"  />
         </a>
                     {%endif%}
 
