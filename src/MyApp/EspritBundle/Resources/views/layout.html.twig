@@ -33,7 +33,13 @@
         <script src="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.js') }}" type="text/javascript"></script>
         <!-- tooltiprequired field ---->    
 
-
+<!-- style menu rouge -->
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/component.css') }}"/>        
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/demo.css') }}"/> 
+<!-- style menu rouge -->
+        
+        
+        
         <!-- pour les ajax call FOSJSrouting Bundle -->
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
@@ -43,21 +49,26 @@
 
 
 
-
-
-
+	 
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
          {#{currentRoute}#}
-      {% for menu in menu|slice(0, 11)  %}
+        <section class="color-5">
+	<nav class="cl-effect-5">
+      {% for menu in menu|slice(0, 9)  %}
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %}  
+        
 
-        <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;{{menu.name|raw}}</a>  
+        <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
+            <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
+        </a>  
 
 
 
       {% endfor%} 
+            	</nav>
+</section>
     </div>
 
     <div class="headbar">
