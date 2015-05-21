@@ -60,8 +60,8 @@
 
 
  {% if is_granted( 'ROLE_USER' ) %}            
-        <a class="bouttonsousnouveaucommentaireajax{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
-  {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">Add new comment</a>{%endif%} 
+        <a class="bouttonsousnouveaucommentaireajax{{commentaireid}}"  id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>
+  {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">{{'repondrecommentaire'|trans}}</a>{%endif%} 
 
 
         <script type="text/javascript">
@@ -74,9 +74,9 @@
 
 
 <!---------------------------------------------------------------------------------------------------->
-        <b class="likebutton" style="cursor:pointer;">like</b>
+<b class="likebutton" style="cursor:pointer;">{{'like'|trans}}</b>
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-        <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">edit</b></a>
+        <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
                 {%endif%}
 
         &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -106,10 +106,10 @@
             });
         </script>         
 
-        <style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left: 350px;top: -22px;}</style>  
+        <style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left: 420px;top: -22px;}</style>  
         <div class="deletecomment{{commentaireid}}">
 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-            <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">delete</a> 
+            <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">{{'delete'|trans}}</a> 
 {%endif%}
         </div>
 

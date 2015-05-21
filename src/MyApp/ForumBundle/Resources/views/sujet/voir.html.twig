@@ -103,13 +103,6 @@
 
         </div>  
         <!---------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
-
-
         <!--   ce div pour nouveau comment ajax -->  
         <div class="nouveaucommentaireafficher">
              {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
@@ -249,7 +242,7 @@
                                     });
                 </script>         
 
-                <style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left: 350px;top: -22px;}</style>  
+                <style type="text/css">a#deletecomment{{commentaireid}}{position: relative;left:420px;top: -22px;}</style>  
                 <div class="deletecomment{{commentaireid}}">
                     {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
                     <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">{{'delete'|trans}}</a> 
@@ -365,8 +358,9 @@
         $("#formcomment").submit(function(e) {
             CKupdate();// On sélectionne le formulaire par son identifiant
             e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
-            $(".loadingbutton").delay(500).fadeIn(500);
-            $(".loadingbutton").delay(500).fadeOut(0);
+          //  $(".loadingbutton").delay(500).fadeIn(500);
+          //  $(".loadingbutton").delay(500).fadeOut(0);
+          $(".loadingbutton").show();
             $.ajax({
                 type: 'post',
                 url: Routing.generate('my_app_forum_commentaire_add'),
@@ -374,9 +368,9 @@
                 datatype: "json",
                 cache: false,
                 success: function(data)
-                {
+                {   $(".loadingbutton").hide();
                     $('.nouveaucommentaireafficher').html(data);
-                    //   $(".inputajoutcommentaire").hide();                     
+                    $(".inputajoutcommentaire").hide();                     
                 }
             });
             return false;

@@ -19,7 +19,7 @@
                     <td class="stylegras" style="padding-bottom: 10px;">Sujet&nbsp;<b  class="rouge">*</b> &nbsp;</td>
                 </tr>
                 <tr>
-                    <td> {{form_widget(form.sujet, { 'attr': {'placeholder': '  Emne ','class':'inp-form', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' } }) }}</td> 
+                    <td> {{form_widget(form.sujet, { 'attr': {'placeholder': '  Emne ','style':'width:540px', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' } }) }}</td> 
                 </tr>
 
 
@@ -39,7 +39,7 @@
 
                     <td>
                         <input  name="inputtag"  required="true" type="text" class="form-control" id="tokenfield-1" value=""  
-                                 placeholder="Type something and hit enter" tabindex="-1" style="position: absolute; left: -10000px;" >
+                                 placeholder="Type something and hit enter" tabindex="-1" style="position: absolute; left: -10000px;  width: 540px;" >
                     </td>
                 </tr>
 
@@ -62,7 +62,7 @@
                            {% for flashMessage in app.session.flashbag.get('message') %}{{ flashMessage }}{% endfor %}
                 </center>
 
-                <x style="float:right;"> Notification {{form_widget(form.notification) }}<x>
+                <x style="  float: right;  position: relative;  top: -20px;"> Notification {{form_widget(form.notification) }}<x>
                    
 
                         </td>  
@@ -78,7 +78,9 @@
                         </div>
 
           <div style="padding-top: 70px;"> 
-               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                   <div style="  margin-top: -80px;margin-bottom: 20px;"> 
+                    {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                   </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
           </div>
 </div>
