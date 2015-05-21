@@ -1,0 +1,36 @@
+{# empty Twig template #}
+
+                                    {## pour la tooltip NON CONNECTé ##}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- aToolTip css -->
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/css/tooltipcommentaire/css/atooltip.css') }}"/> 
+<!-- Scripts -->
+<script src="{{ asset('bundles/myappforum/css/tooltipcommentaire/js/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/myappforum/css/tooltipcommentaire/js/jquery.atooltip.js') }}" type="text/javascript"></script>
+<!-- aToolTip js -->
+<script type="text/javascript">
+                $(function() {
+                    $('a.normalTip').aToolTip();
+                    $('a.normalTip').aToolTip({effect: 'slide', slideOffset: 30});
+                    $('a.fixedTip').aToolTip({
+                        fixed: true
+                    });
+                    $('a.clickTip').aToolTip({
+                    effect: 'slide', slideOffset: 30,
+                            clickIt: true,
+                            tipContent:
+                            '<div class="tool">' + '</br>' +
+                            ///   '<center>Du skal være logget ind for at kommentere</center>' + '</br>' +
+                            '<center>{{'notifpourcomment'|trans}}</center>' + '</br>' +
+              {# '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg" >Log ind</a>' +#}
+                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_security_login') }}" class="btn btn-warning btn-lg" style="margin-top: -10px;">{{'log-in'|trans}}</a>' +
+   {#'&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_registration_register') }}" class="rouge" >Opret ny bruger</a>' +#}
+                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ path('fos_user_registration_register') }}" class="rouge" >{{'creercompte'|trans}}{#Opret ny bruger#}</a>' +
+                            '</div>'
+                });
+                });</script>
+                          {## pour la tooltip NON CONNECTé ##}
+{#<a href="#" class="clickTip exampleTip" >Add</a> #}
+

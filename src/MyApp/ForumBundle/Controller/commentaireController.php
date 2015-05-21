@@ -14,9 +14,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class commentaireController extends Controller {
 
     public function addAction(Request $request) {
-
-
-
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
 //        var_dump($int);exit;
@@ -30,31 +27,21 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
-
-
-
-
         $commentaires = "a";
         if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
                 $commentaire->setUser($user);
-
                 $commentaire->setSujet($sujet);
                 $em->persist($commentaire);
                 $em->flush();
-
-
                 $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
-
                 $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
-
-
                 // return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:voir.html.twig', array('commentaire' => $commentaires, 'id' => $idsujet));
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:liste.html.twig', array(
                             'commentaire' => $commentaires
@@ -63,7 +50,6 @@ class commentaireController extends Controller {
               return $this->render('MyAppForumBundle:sujet:voir.html.twig', array('form' => $form->createView(), 'id' => $idsujet, 'commentaire' => $commentaires));
               } */
         }
-
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
@@ -74,17 +60,11 @@ class commentaireController extends Controller {
                 $commentaire->setSujet($sujet);
                 $em->persist($commentaire);
                 $em->flush();
-
-
-
                 $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet 
-
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
-
-
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
@@ -93,9 +73,6 @@ class commentaireController extends Controller {
                             'form' => $form->createView()));
             }
         }
-
-
-
         return $this->render('MyAppForumBundle:commentaire:add.html.twig', array('form' => $form->createView()));
     }
 
@@ -109,6 +86,30 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
+        /*         * *** */
+       
+        if ($request->isXmlHttpRequest()) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $commentaire = $form->getData();
+                $commentaire->setUser($user);
+                $commentaire->setSujet($sujet);
+                $commentaireparent = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+                $commentaire->setCommentaire($commentaireparent);
+                $em->persist($commentaire);
+                $em->flush();
+                $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet         
+                $notif = new notification();
+                $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
+                $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
+                /* il faut ajouter le user concerné par la notif */
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'
+                 ,array('souscommentaire' => $commentaire ));
+               
+                    }
+                }
+
+        /*         * ** */
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
@@ -119,14 +120,11 @@ class commentaireController extends Controller {
                 $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
-
                 $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet         
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
                 $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
                 /* il faut ajouter le user concerné par la notif */
-
-
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
             if (!$form->isValid()) {
@@ -142,27 +140,24 @@ class commentaireController extends Controller {
         /*         * ************ simple delete action *************** */
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
-
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
-
         if (!$commentaire) {
             throw $this->createNotFoundException('No  commentaire found for id ' . $id);
         }
-
-
-
-
         if ($request->isXmlHttpRequest()) {
             $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
-            
-            
+
+
             $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
-            if($souscommentaire != NULL){
-                                foreach ($souscommentaire as $s) {   $em->remove($s);$em->flush();}
-                             }
-            
-               
+            if ($souscommentaire != NULL) {
+                foreach ($souscommentaire as $s) {
+                    $em->remove($s);
+                    $em->flush();
+                }
+            }
+
+
             $em->remove($commentaire);
             $em->flush();
             return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:deletecomment.html.twig');
@@ -175,7 +170,6 @@ class commentaireController extends Controller {
     }
 
     public function editAction($id, Request $request) {
-
         $em = $this->getDoctrine()->getManager();
         $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$commentaire) {
@@ -183,13 +177,20 @@ class commentaireController extends Controller {
                     'No commentaire found for id ' . $id
             );
         }/* echo strip_tags($text); */
-
         $form = $this->createFormBuilder($commentaire)
                         ->add('texte', 'textarea', array('required' => true))->getForm();
         $request = $this->getRequest();
-
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
+        /*********/
+          /*if ($request->isXmlHttpRequest()) {
+              $form->bind($request);
+               return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:commentaireeditedajax.html.twig'
+                 ,array('commentaire' => $commentaire ));
+          }*/
+        
+        
+        /********/
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             /*             * *********  validation form ********************* */
@@ -198,7 +199,6 @@ class commentaireController extends Controller {
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
         }
-
         return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView(), 'id' => $id));
     }
 

@@ -39,7 +39,11 @@
              {% set route = notif.lien %}  {#% set id = notif.sujet.id %#}
 
             {% if route is not null %}  
-             <a href="{{path(route,{'id':notif.sujet.id} ) }}" > 
+    
+         <a href="#" >  
+            
+                 
+                 
             {%else%}
              <a href="#" > {%endif%}
 

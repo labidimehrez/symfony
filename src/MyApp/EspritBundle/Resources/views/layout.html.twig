@@ -15,16 +15,17 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Sol.Dk</title>
-        <script type="text/javascript">
-            var RecaptchaOptions = {lang: 'fr', theme: 'clean'};
-        </script> 
+     
 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/component.css') }}"/>        
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/demo-page.css') }}"/>        
 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/bootstrap.css') }}"/> 
 
-
+        <!-- animate icon -->
+      {#  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/animate.css') }}"/> #}
+        <!-- animate icon -->
+        
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/style.css') }}"/> 
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/stylemobile.css') }}"/> 
 
@@ -33,69 +34,100 @@
         <script src="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.js') }}" type="text/javascript"></script>
         <!-- tooltiprequired field ---->    
 
-<!-- style menu rouge -->
-<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/component.css') }}"/>        
-<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/demo.css') }}"/> 
-<!-- style menu rouge -->
-        
-        
-        
-        <!-- pour les ajax call FOSJSrouting Bundle -->
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-        <!-- pour les ajax call FOSJSrouting Bundle -->
+        <!-- style menu rouge -->
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/component.css') }}"/>        
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/menustyle/demo.css') }}"/> 
+        <!-- style menu rouge -->
+
+
 
     </head>
 
+ 
+    <!--  bookmark  -->
+    <div class="so" style="width: 120px;  top: 150px;  height: 100px;  position: absolute;  left: 1200px;">
+        <a href="https://www.facebook.com/TH3.professional">
+            <img src="https://cdn1.iconfinder.com/data/icons/flat-3d-social-media-icons/48/facebook.png" class="imgavecbordureronde">
+        </a>
+        <a href="https://www.youtube.com/user/geekraghib">
+            <img src="https://cdn1.iconfinder.com/data/icons/flat-3d-social-media-icons/48/youtube.png" class="imgavecbordureronde">
+        </a>
+        <a href="https://plus.google.com/u/0/110712684116503407942">
+            <img src="https://cdn1.iconfinder.com/data/icons/flat-3d-social-media-icons/48/google_plus.png" class="imgavecbordureronde">
+        </a>
+        <a href="https://twitter.com/mr_raghib">
+            <img src="https://cdn1.iconfinder.com/data/icons/flat-3d-social-media-icons/48/twitter.png" class="imgavecbordureronde">
+        </a>
+        <a href="http://feedburner.google.com/fb/a/mailverify?uri=raghib">
+            <img src="https://cdn1.iconfinder.com/data/icons/flat-3d-social-media-icons/48/rss.png" class="imgavecbordureronde">
+        </a>
+    </div>
 
 
-	 
+    <!--  bookmark  -->
+ <!--  bookmark  -->
+
+
+ <div id="rss_share_8378" class="stylebuttonpartageetrss"><noscript>Javascript is disable -
+     <a href="http://www.supportduweb.com/">http://www.supportduweb.com/</a> - 
+     <a href="http://www.supportduweb.com/generateur-boutons-partage-rss-share-button-web20-feed-atom-xml-rss-googlereader-myyahoo-netvibes-bloglines.html">Générateur de boutons de partage RSS</a></noscript></div>
+     <script type="text/javascript" src="http://services.supportduweb.com/rss_share/5-8378.js?url=http%3A%2F%2Ffeeds.feedburner.com%2FSupportduweb%3Fformat%3Dxml"></script>
+
+
+
+
+ <!--  bookmark  -->
+
     <!-- Menu -->
     <div class="MENU"  id="getFixed">                                         
          {#{currentRoute}#}
         <section class="color-5">
-	<nav class="cl-effect-5">
+            <nav class="cl-effect-5">
       {% for menu in menu|slice(0, 9)  %}
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %}  
-        
 
-        <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
-            <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
-        </a>  
+
+                <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
+                    <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
+                </a>  
 
 
 
       {% endfor%} 
-            	</nav>
-</section>
+            </nav>
+        </section>
     </div>
 
     <div class="headbar">
+        
         <img src="{{ asset('bundles/myappesprit/images/Navigation Bar 2.png') }}" alt=""  class="HEADER" /> 
-        <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt="" class="Sol_logo" /> 
+         <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt=""  class="Sol_logo" /> 
 
 
-        <img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" class="Profile" /> 
-        <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" class="Debat" />
-
-
-        <a href="{{path('my_app_forum_sujet_sujetrecent') }}" class="DEBATMot"> DEBATFORUM</a> 
-        <img src="{{ asset('bundles/myappesprit/images/Sol logo.png') }}" alt=""  class="Sol_logo"/> 
-
-
+        
+        
+        
+         <div class="forum">
+                <img src="{{ asset('bundles/myappesprit/images/Debat.png') }}" alt="" class="Debat" id="effectBounce" />
+                <a href="{{path('my_app_forum_sujet_sujetrecent') }}" class="DEBATMot"> DEBATFORUM</a> 
         <div>
+
+
+        <div style="display: none;">
             <img src="{{ asset('bundles/myappesprit/images/Button2.png') }}" alt="" class="Button" />
             <t class="SOL">SOL </t>
         </div>
 
 
-        <div>
+        <div style="display: none;">
             <img src="{{ asset('bundles/myappesprit/images/Button copy 2.png') }}" alt="" class="Button_copy_2" />  
             <t class="GOOGLE">GOOGLE</t>
         </div>
 
-        <div class="text_field"> 
+        <div class="text_field">  </div> 
+       
+
             <!--  recherche google
             <script>
           (function() {
@@ -111,42 +143,57 @@
         </script>
         <gcse:search></gcse:search>
             -->
-        </div> 
+       
         <x class="Hvad">Hvad søger du?</x>
                               {#% render(controller('MyAppEspritBundle:menu:recherche')) %#}
         <!--<div class="EMAIL2">2</div>-->
-
+        
+        
+        <div class="e-mail">
         <x class="EMAIL">EMAIL</x>
-
-
-
-        <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" />  
-{% if is_granted( 'ROLE_USER' ) %}
-        <div class="OPRET_PROFIL_LOGIN">
-            <a href="{{path('fos_user_profile_edit') }}" > {{ 'voirprofile'|trans }}  </a>                                                                                                                                                                
-            </br>
-            <a href="{{path('fos_user_security_logout') }}" >{{ 'logout'|trans }}</a>
+        <img src="{{ asset('bundles/myappesprit/images/Mail copy.png') }}" alt="" class="Mail_copy" id="effectTada" />  
         </div>
-{% else %}
-        <div class="OPRET_PROFIL_LOGIN">
-            <a href="{{path('fos_user_registration_register') }}" >{{ 'creeprofile'|trans }} </a>                                                                                                                                                              
-            </br>
-            <a href="{{path('fos_user_security_login') }}">{{ 'seconnecter'|trans }}</a>
-        </div>
-{% endif %}
-    </div>
+        
+        
+        
+        <div class="profilee">
+        <img src="{{ asset('bundles/myappesprit/images/Profile.png') }}" alt="" class="Profile" id="effectSwing"/> 
+        
+        {% if is_granted( 'ROLE_USER' ) %}
+                <div class="OPRET_PROFIL_LOGIN">
+                    <a href="{{path('fos_user_profile_edit') }}" id="monprofileoucreerprofile" > {{ 'voirprofile'|trans }}  </a>
+                                                                                                                                                                   
+                    </br>
+                    <a href="{{path('fos_user_security_logout') }}" id="connectdeconnect" >{{ 'logout'|trans }}</a>
+                </div>
+        {% else %}
+                <div class="OPRET_PROFIL_LOGIN">
+                    <a href="{{path('fos_user_registration_register') }}" id="monprofileoucreerprofile"  >{{ 'creeprofile'|trans }} </a>
+                                                                                                                                                                
+                    </br>
+                    <a href="{{path('fos_user_security_login') }}" id="connectdeconnect" >{{ 'seconnecter'|trans }}</a>
+                </div>
+        {% endif %}
+          </div>
 
     <!--<div class="MESSAGE4"></div>-->
 
 
-
-
-
+{#
+  <div class="scrollbar" id="style-2">
+      <div class="force-overflow">
+	  
+	  
+	  
+	  
+	  </div>
+    </div>
+#}
 
 {%endblock%}
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
  {% block container %}
-    <body>
+    <body class="scrollbar" id="style-2" style="font-family: 'Raleway', sans-serif;font-size: 15px;">
 
 
 
@@ -214,46 +261,6 @@
         padding-top: 300px;
     }
 
-</style>
-             {#  retour a haut de page   #}
-  {#    ça cause un conflit avec tooltip #}
-<script src="{{ asset('bundles/myappesprit/css/retourvershautdepage/jqueryuitotop.js') }}" type="text/javascript"></script>
-<script src="{{ asset('bundles/myappesprit/css/retourvershautdepage/easing.js') }}" type="text/javascript"></script>
-
-
-<style>
-    #toTop {
-        display:none;
-        text-decoration:none;
-        position:fixed;
-        bottom:20px;
-        right:20px;
-        overflow:hidden;
-        width:51px;
-        height:51px;
-        border:none;
-        text-indent:-999px;
-        background-image: url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png);
-        background-repeat: no-repeat;
-        background-position: left top;
-        z-index: 900000;
-    }
-
-    #toTopHover {
-        background:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png) no-repeat left -51px;
-        width:51px;
-        height:51px;
-        display:block;
-        overflow:hidden;
-        float:left;
-        opacity: 0;
-        -moz-opacity: 0;
-        filter:alpha(opacity=0);
-    }
-
-    #toTop:active, #toTop:focus {
-        outline:none;
-    }
 </style>
 
 

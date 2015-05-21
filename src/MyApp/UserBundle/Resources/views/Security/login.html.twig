@@ -15,26 +15,27 @@
     <!-- <div style="margin-left: 30px;margin-top:30px;">-->
     <div class="divpourlogin">
         {#<b><h2>Log p&aring; SOL.DK</h2></b> </br>#}
-        <b><h2>{{ 'Log au sol'|trans }}</h2></b> </br>
+        <b><h2 style="padding-top: 20px;">{{ 'Log au sol'|trans }}</h2></b> </br>
         {#<p> Vekommen til SOL.dk ......</p> </br> #}
         <p> {{'welcomesol'|trans}}</p> </br>
         <form action="{{ path("fos_user_security_check") }}" method="post" id="formsubmitid">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
             <div id="login-input" style="padding-left: 40px;padding-top: 10px;">
+                 <table width="450" height="80"> 
                 <tr>             
                {# <td>&nbsp;&nbsp;&nbsp;Brugernavn &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>#}	
-                    <td>&nbsp;&nbsp;&nbsp; &nbsp; {{ 'log'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                    <td style="float:right;">&nbsp;&nbsp;&nbsp; &nbsp; {{ 'log'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                     <td>
-
-
-                        <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" /></td>
+                        <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" type="name" id="username" name="_username" class="btn btn-warning btn-lg" value="{{ last_username }}" required="required" />
+                    </td>
                 </tr>	
                 </br></br> 
                 <tr> 
                    {# <td>Adgangskode &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td> #}
-                    <td>&nbsp;&nbsp;&nbsp; {{ 'pass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                    <td style="float:right;">&nbsp;&nbsp;&nbsp; {{ 'pass'|trans }} &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
                     <td> <input  onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');"  type="password" id="password" name="_password" class="btn btn-warning btn-lg" style="width: 312px;" required="required" /></td>
-                </tr>		
+                </tr>	
+                 </table>
                 <div id="lower">
                     </br>		
                     <div style="padding-left: 120px;">

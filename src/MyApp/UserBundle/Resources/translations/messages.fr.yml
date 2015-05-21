@@ -14,10 +14,11 @@ welcomesol: Bienvenue au SOL.DK ......
 MONPROLFILE: Mon profil
 changprofil: Change profil
 creeprofile: CREER PROFIL
+cree_profile: Creer Profil
 voirprofile : MON PROFIL
 seconnecter: CONNECTER
 logout: DECONNECTER
-
+Jacceptelestermes: J accepte les termes
 Ajoutdestyle: Ajout de Style
 
 changpass: Changer password
@@ -28,13 +29,26 @@ talifoun: Numero de Portable
 About Me: A props de moi
 nometprenom: Nom & Prenom
 Datenaissance: Date de naissance
-
-debatmesleast: DEBAT RECENT
+nomuser: Nom Utilisateur
+captcha: Ecrire les lettres
+debatmesleast: DEBAT COMENTEE
 SENESTENYHEDER: DERNIÈRES NOUVELLES
-Opretdebat: Créer un nouveau débat 
+Opretdebat: Créer un débat 
 Læsdebat: Lire Débat
 Most Used Tag: Les Tag les plus utilisés
 notifpourcomment: Vous devez être connecté pour commenter
 
 etabli: Etablit
 Sidstonline: dernière log
+Gem: Enregistre
+
+mdpactuel: mot de passe actuel
+nouveaumdp: Nouveau mot de passe
+repeatnouveaumdp: Répétez le mot de passe
+Changermotdepasse: Changer mot de passe
+
+like: j'aime
+Add new comment: Ajouter un commentaire
+repondrecommentaire: repondre commentaire
+modifier: modifier
+delete: supprimer

@@ -7,6 +7,6 @@ sujet:
 tag:
     resource: "@MyAppForumBundle/Resources/config/routing/tag.yml"
     prefix: /tag
-my_app_forum_homepage:
-    pattern:  /api/threads/{id}
-    defaults: { _controller: MyAppForumBundle:Default:index }
+#my_app_forum_homepage:
+#    pattern:  /api/threads/{id}
+#    defaults: { _controller: MyAppForumBundle:Default:index }

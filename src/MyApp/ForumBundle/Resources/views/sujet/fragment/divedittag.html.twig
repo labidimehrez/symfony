@@ -5,27 +5,34 @@
 
 <div  class="tagtitlevoirun">
     
-                <style type="text/css">  div.listetag{display: none;  padding-right: 50px;} </style> 
-                
+                <style type="text/css">
+                    div.listetag{display: none;  margin-right: 50px;}
+                    div.listetag2{   margin-right: 50px; }
+                </style> 
+            
+                    
+                    
                 <div class="listetag2">{% set counternombredetag = 0 %} 
                 {% for tag in tag %}      
-            <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title|raw}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
-                {% endfor%} </div>
+                 <b> {% set counternombredetag = counternombredetag + 1 %}{{tag.title|raw}} &nbsp;{% if not  loop.last %},{%endif%}&nbsp;</b>
+                {% endfor%}
+                </div>
 
                 <div class="listetag" > {% include   'MyAppForumBundle:sujet:tags.html.twig'%} </div>
             
             
             
-    <a id=show style="  padding-left:150px;  /*padding-top: -50px;*/  position: relative;  top: -20px;  cursor: pointer;"> 
-  
- 
-  
-   
-               {% if counternombredetag > 0%}
-                      <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                 {% endif%}
-    </a> 
-
+                <a id=show style="float: right;position: relative;  top: -20px;  cursor: pointer;margin-left: 70px;"> 
+                          {% if counternombredetag > 0%}
+                                  <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
+                             {% endif%}
+                </a> 
+                
+                
+                
+                
+                
+                
     <div class="divedittag" style="">
         <form role="form" method="post" {{ form_enctype(form) }}  action='{{path('my_app_forum_sujet_voir',{'id':sujet.id})}}' id="formtag">
 
@@ -40,7 +47,8 @@
             
             
             </br></br>
-            <input type="submit"   value="Gem" class="btn btn-warning btn-lg">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input type="submit"   value="{{'Gem'|trans}}" class="btn btn-warning btn-lg" style="  margin-left: 30px; margin-right: 20px;width: 100px;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <input type="reset" id=hide value="Annuler" style="background-color: transparent;border: 0px; color:#c52821;"> 
         </form>
     </div>

@@ -4,7 +4,7 @@
 <script src="{{ asset('bundles/myappforum/js/ckeditorreponse/ckeditor.js')}}"></script> 
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/js/ckeditorreponse/contents.css') }}"/> 
 
-  <form  action='{{path('my_app_forum_commentaire_addsouscomment',{'id':id}  )}}' method="post" {{ form_enctype(form) }} > 
+<form  action='{{path('my_app_forum_commentaire_addsouscomment',{'id':id}  )}}' method="post" {{ form_enctype(form) }} id="formsubcomment" > 
 
         <table height=" " width=" " border="0">
 

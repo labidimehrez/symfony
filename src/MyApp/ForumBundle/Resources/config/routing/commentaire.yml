@@ -11,7 +11,10 @@ my_app_forum_commentaire_add:
 my_app_forum_commentaire_addsouscomment:
     pattern:  /{id}/addsouscomment
     defaults: { _controller: MyAppForumBundle:commentaire:addsouscomment }
-    
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true
     
 my_app_forum_commentaire_show:
     pattern:  /show
@@ -24,9 +27,17 @@ my_app_forum_commentaire_delete:
 my_app_forum_commentaire_edit:
     pattern:  /{id}/edit
     defaults: { _controller: MyAppForumBundle:commentaire:edit}
-    
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true
+        
+        
 my_app_forum_commentaire_editsous:
     pattern:  /{id}/editsous
     defaults: { _controller: MyAppForumBundle:commentaire:editsouscomment}
-    
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true
  

@@ -19,10 +19,11 @@
                     <td class="stylegras" style="padding-bottom: 10px;">Sujet&nbsp;<b  class="rouge">*</b> &nbsp;</td>
                 </tr>
                 <tr>
-                    <td> {{form_widget(form.sujet,{'value' : articlesrc.headline } ) }} </td> 
+                    <td> {{form_widget(form.sujet,{'value' : articlesrc.headline,'attr': {'style' : 'width:590px'} } ) }} </td> 
                 </tr>
 
-
+  
+  
                 <tr>
                     <td class="stylegras" style="padding-bottom: 10px;"> </br>Contenu&nbsp;<b  class="rouge">*</b> &nbsp;</td>
                 </tr>
@@ -38,7 +39,7 @@
                 <tr>
              
                     <td><input required="true" type="text" class="form-control" id="tokenfield-1" value="" 
-                       name="inputtag"   placeholder="Type something and hit enter" tabindex="-1" style="position: absolute; left: -10000px;" >
+                       name="inputtag"   placeholder="Type something and hit enter" tabindex="-1" style="width: 590px; position: absolute; left: -10000px;" >
                     </td>
                 </tr>
 
@@ -56,7 +57,7 @@
                            {% for flashMessage in app.session.flashbag.get('message') %}{{ flashMessage }}{% endfor %}
                 </center>
  
-                        <x style="float:right;"> Notification {{form_widget(form.notification) }}<x>
+                        <x style="float:right;  margin-top: -20px;"> Notification {{form_widget(form.notification) }}<x>
                        
 
                     </td>  
@@ -72,7 +73,8 @@
     </div>
     
               <div style="padding-top: 70px;"> 
-               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                <div style="  margin-top: -20px; margin-bottom: 20px;"> 
+                   {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}</div>
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
           </div>
     

@@ -27,28 +27,28 @@ class sujetController extends Controller {
             if ($form->isValid()) {
 
                 $sujet = $form->getData();
-      
+
                 /* traitement special pour le choix des tags */
                 $inputtag = $this->getRequest()->get('inputtag');
- 
+
                 $alltags = $managertag->getAll(); /* array de tous les objets tags  */
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
-                      if (strpos($inputtag, $tagtitle) !== false) {/* tagtile existe dans input string*/
+                    if (strpos($inputtag, $tagtitle) !== false) {/* tagtile existe dans input string */
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
-                      $sujet->setTags($tagaajouté);
+                        $sujet->setTags($tagaajouté);
                     }
                 }
-                 
+
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */
 //                $notifboolean = $sujet->getNotification();
                 $sujet->setThread(40);      /* default thread */
                 $em = $this->getDoctrine()->getManager();
-                 
+
                 $em->persist($sujet);
                 $em->flush();
                 /*                 * **                       ajout de notification                        ** */
@@ -56,7 +56,7 @@ class sujetController extends Controller {
 //                $notif = new notification();
 //                $notif1 = $manager->addNotif($user, $sujet, $notif, $notifboolean);
 //                $manager->persist($notif1);
-               
+
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_sujetrecent'));
             }
             if (!$form->isValid()) {
@@ -197,7 +197,7 @@ class sujetController extends Controller {
         $tagaajouté = array(); // tableau vide
         foreach ($alltags as $tag) {
             $tagtitle = $tag->getTitle(); /* get title of objects :D */
-            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string*/
+            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string */
                 $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                 array_push($tagaajouté, $selectedtag);
                 $sujet->setTags($tagaajouté);
@@ -215,8 +215,8 @@ class sujetController extends Controller {
 
 
         $user = $this->container->get('security.context')->getToken()->getUser(); /* le user en question voit la notif */
- 
-        if (($user != 'anon.')&&($notif!=NULL)) {
+
+        if (($user != 'anon.') && ($notif != NULL)) {
             if ($user->getId() == $notif->getUserConcerned()) {
                 $managernotif->changestate($notif); /* la notif devient en blanc " lu = TRUE " */
             }
@@ -303,7 +303,7 @@ class sujetController extends Controller {
                 $tagaajouté = array(); // tableau vide
                 foreach ($alltags as $tag) {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
-                    if ($inputtag == $tagtitle) {
+                    if (strpos($inputtag, $tagtitle) !== false) {/* tagtile existe dans input string */
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
                         array_push($tagaajouté, $selectedtag);
                         $sujet->setTags($tagaajouté);
@@ -344,11 +344,8 @@ class sujetController extends Controller {
         return $this->render('MyAppForumBundle:sujet:addfromarticle.html.twig', array('form' => $form->createView(), 'tags' => $tags, 'articlesrc' => $articlesrc, 'id' => $id));
     }
 
-    
-    
-    
-     public function  edittagAction( Request $request){
-         
+    public function edittagAction(Request $request) {
+
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $id = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         $em = $this->getDoctrine()->getManager();
@@ -360,26 +357,25 @@ class sujetController extends Controller {
 
 
         $inputtext = $this->getRequest()->get('i'); /* valeur array de String dans l input texte */
-           if ($request->isXmlHttpRequest()) {
-        /* text input de type string *///$inputtext[0]; 
-        $alltags = $managertag->getAll(); /* array de tous les objets tags  */
-        $tagaajouté = array(); // tableau vide
-        foreach ($alltags as $tag) {
-            $tagtitle = $tag->getTitle(); /* get title of objects :D */
-            if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string*/
-                $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
-                array_push($tagaajouté, $selectedtag);
-                $sujet->setTags($tagaajouté);
+        if ($request->isXmlHttpRequest()) {
+            /* text input de type string *///$inputtext[0]; 
+            $alltags = $managertag->getAll(); /* array de tous les objets tags  */
+            $tagaajouté = array(); // tableau vide
+            foreach ($alltags as $tag) {
+                $tagtitle = $tag->getTitle(); /* get title of objects :D */
+                if (strpos($inputtext[0], $tagtitle) !== false) {/* tagtile existe dans input string */
+                    $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
+                    array_push($tagaajouté, $selectedtag);
+                    $sujet->setTags($tagaajouté);
+                }
             }
+            $managersujet->persist($sujet);
         }
-           $managersujet->persist($sujet);
-           
-            }
-                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:tags.html.twig', array(
-                            'tag' => $tagaajouté
-                ));
-            }  
-       
+        return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:tags.html.twig', array(
+                    'tag' => $tagaajouté
+        ));
+    }
+
 }
 
 //    public function specialeditAction($id) {

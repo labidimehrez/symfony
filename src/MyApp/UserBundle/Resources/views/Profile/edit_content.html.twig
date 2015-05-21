@@ -10,7 +10,7 @@
     <div class="image">
         {#<h2>Min profil</h2>#} 
         
-        <h2 style="font-size:30px;">{{'MONPROLFILE'|trans}}</h2>
+        <h2 style="  font-size: 30px;top: 30px;  position: relative;">{{'MONPROLFILE'|trans}}</h2>
         </br></br>
 
         {% if app.user.path is not null  %}     
@@ -29,8 +29,8 @@
 
 
 
-        <a href="#" id="dialog-link" style="color: #000;">changer photo</a></br>      
-        <a href="{{ path('fos_user_change_password') }}" style="color: #000;"> change password</a> 
+        <a href="#" id="dialog-link" class="blacktexte">changer photo</a></br>      
+        <a href="{{ path('fos_user_change_password') }}" class="blacktexte"> change password</a> 
 
     </div>
 
@@ -172,7 +172,9 @@
 
    <!--<div style="padding-top: 270px;">  -->
    <div style="padding-top: 20px;"> 
-               {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+              <div style="  margin-top: -80px;margin-bottom: 20px;"> 
+                    {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+               </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
     </div>
 </div>

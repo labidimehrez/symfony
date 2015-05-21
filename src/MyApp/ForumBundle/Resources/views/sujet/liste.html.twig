@@ -13,7 +13,7 @@
         div.contenucommentaireparent{{commentaireid}}{ border-color: red; padding-left: 50px;}                                                                     
     </style> 
 
-    <div class="contenucommentaireparent{{commentaireid}}" id="commentparentajax"> 
+    <div class="contenucommentaireparent{{commentaireid}}" id="commentparentajax{{commentaireid}}"> 
 
             {% if commentaire.user.path is not null  %} 
 
@@ -48,7 +48,7 @@
 
 
         <style type="text/css">
-            a.bouttonsousnouveaucommentaire{{commentaireid}}{
+            a.bouttonsousnouveaucommentaireajax{{commentaireid}}{
                 color: #c52821;
                 font-weight: bold;
                 text-decoration:none;                       
@@ -60,12 +60,12 @@
 
 
  {% if is_granted( 'ROLE_USER' ) %}            
-        <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
+        <a class="bouttonsousnouveaucommentaireajax{{commentaireid}}"  id="Addnewcomment" >Add new comment</a>
   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">Add new comment</a>{%endif%} 
 
 
         <script type="text/javascript">
-            $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
+            $("a.bouttonsousnouveaucommentaireajax{{commentaireid}}").click(function() {
                 $("div#divinputtohide").hide();/*to hide all other input add or edit */
                 $("div.threadcontent{{commentaireid}}").slideToggle();
                 $("div.inputsnouveausouscommentaire{{commentaireid}}").slideToggle();
@@ -149,7 +149,9 @@
              {%endif%}
             </div>     
 
-
+                    <div class="SousCommentAVECAJAX{{commentaireid}}" >
+                     {% include 'MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'%} 
+                    </div>
         </div>
 
 

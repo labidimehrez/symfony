@@ -16,8 +16,8 @@
 
 
 
-        <b><h2>Opret profil</h2></b> 
-        <p> Vekommen til SOL.dk ......</p> 
+        <b><h2 style="  margin-left: -50px;  margin-top: -30px;  margin-bottom: 20px;">{{'cree_profile'|trans}}</h2></b> 
+        <p>{{'welcomesol'|trans}}</p> 
       {% block javascripts %}{{ form_javascript(form) }}{% endblock %}
 
 
@@ -25,33 +25,33 @@
 
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"  > 
 
-            <div id="login-input" style="  padding-left: 100px;"> 
+            <div id="login-input" style=""> 
 
 
-                <table width="670" height="383"  > 
+                <table width="740" height="383"  > 
                     <tr>
-                        <td width="" style="">&nbsp;Brugernavn&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</td>
+                        <td width="700"> <t style="float:right;">&nbsp;{{'nomuser'|trans}}&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp;</t></td>
 
                         <td width="285">{{form_widget(form.username, 
                                 { 'attr': { 'style' : 'width:310px','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
                                   'required':'required', 'pattern': '[A-Za-z]{2,10}' ,
                                 'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}</td>
 
-                        <td width="156">&nbsp;</td>
+                        <td width="256">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style=""> &nbsp;&nbsp;&nbsp; Fuldtnavn&nbsp; <b  class="rouge">*</b>&nbsp;&nbsp;</td>
+                        <td style=""><t style="float:right;"> &nbsp;&nbsp;&nbsp; {{'nometprenom'|trans}}&nbsp; <b  class="rouge">*</b>&nbsp;&nbsp;</t></td>
 
 
                         <td>{{form_widget(form.nomprenom,{ 'attr': { 'style' : 'width:310px','onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' ,
                                   'required':'required', 'pattern': '[A-Za-z]{2,10}' ,
                                 'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more ' } } ) }}</td>
 
-                        <td>{#{form_widget(form.nomprenom,{'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }#}</td>
+                        {#<td>{form_widget(form.nomprenom,{'required':'required', 'pattern': '[A-Za-z]{2,10}','title': 'Only letters', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '} ) }</td>#}
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style=""> Adgangskode <b  class="rouge">*</b>  </td>
+                        <td style=""><t style="float:right;"> {{'pass'|trans}}<b  class="rouge">*</b>&nbsp;&nbsp;</t></td>
 
 
                         <td>
@@ -66,26 +66,24 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="">Gentag Adgangskode<b  class="rouge">*</b>&nbsp;&nbsp;</td>
+                        <td style=""><t style="float:right;">{{'repeatnouveaumdp'|trans}}<b  class="rouge">*</b>&nbsp;&nbsp;</t></td>
                         <td> {{form_widget(form.plainPassword.second , { 'attr': { 'style' : 'width:310px',
                         'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td height="122">Skriv bogstaverne</td>
+                        <td height="122"><t style="float:right;">{{'captcha'|trans}}</t></td>
 
                         <td>{{form_widget(form.captcha)}}</td>
-                        <td><b  class="rouge" style="position: relative;left: -80px;">skift bogstaverne</b></td>
+                        <td><b  class="rouge" style="position: relative;left: -80px;">{{'captcha'|trans}}</b></td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
                         <td><input type="checkbox" value="" class="btn btn-warning btn-lg" required="true" /> 
-                            J accepte les<b  class="rouge"> termes</b></td>
+                            <b>   {{'Jacceptelestermes'|trans}}</b></td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
@@ -93,7 +91,7 @@
                 {{form_widget(form._token)}} 
                 </br></br>
                 <div id="buttonsregistrer">
-                    <input type="submit" style="width: 150px;" value="{{ 'opret profil'|trans({}, 'FOSUserBundle') }}"class="btn btn-warning btn-lg"  />
+                    <input type="submit" style="  width: 150px;  margin-left:45px;  margin-right: 40px;" value="{{ 'cree_profile'|trans}}"class="btn btn-warning btn-lg"  />
                     <a href="{{path('my_app_esprit_homepage') }}" style="color:#c52821;">                                                                                                                                                      
                         &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
                 </div>
@@ -108,8 +106,8 @@
 
 
     <div style="padding-top: 70px;"> 
-           <div style="  margin-top: -20px;
-                   margin-bottom: 20px;">  {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}</div>
+           <div style="  margin-top: -20px; margin-bottom: 20px;"> 
+                   {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}</div>
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
     </div>
 </div>

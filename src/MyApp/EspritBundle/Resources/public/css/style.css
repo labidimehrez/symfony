@@ -1,3 +1,5 @@
+#monprofileoucreerprofile{ position: relative;right: -165px; top: 16px;}
+#connectdeconnect{position: relative;/* right: -145px; */top: -5px;}
 .SITE {
     position: absolute;
     left: 0;
@@ -11,7 +13,8 @@
     width: 100%;
     z-index: 11000;
     top: 0;
-    color: #fff
+    color: #fff;
+    height: 101px
 }
 .PROFILE {
     left: 0;
@@ -19,28 +22,51 @@
     z-index: 35100;
     position: fixed
 }
-.Profile {
+/*.Profile {
     background-image: url(Profile.png);
-    left: 779px;
+    //left: 749px;
+    left: 549px;
     top: 28px;
-    width: 35px;
-    height: 43px;
+    width: 2.2%;
     z-index: 34800;
     position: fixed
-}
-.OPRET_PROFIL_LOGIN {
+}*/
+.Profile {
+  background-image: url(Profile.png);
+  left: 569px;
+  top: 30px;
+  width: 2.2%;
+  z-index: 34800;
+  position: fixed;}
+
+
+
+/*.OPRET_PROFIL_LOGIN {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+   // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     line-height: 1.667;
     text-align: right;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    position: absolute;
-    left: 681.937px;
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+     left: 641.94px;
     top: 25.99px;
     z-index: 54700;
     font-weight: 700;
     position: fixed
+}*/
+.OPRET_PROFIL_LOGIN { 
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  line-height: 1.667;
+  text-align: right;
+  text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+  left: 441.94px;
+  top: 25.99px;
+  z-index: 54700;
+  font-weight: 700;
+  position: fixed;
 }
 .ButtonCopy {
     background-image: url(Button.png);
@@ -51,22 +77,13 @@
     z-index: 34900;
     position: fixed
 }
+/*
 ._2 {
-    font-size: 14px;
-    font-family: "HelveticaNeue";
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
     -moz-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -webkit-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -ms-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
-    position: absolute;
-    left: 940.566px;
-    top: 20.6px;
-    font-weight: bold;
-    z-index: 244
-}
+    font-weight: 700
+}*/
 .Button_copy {
     background-image: url("Button copy.png");
     left: 931px;
@@ -77,31 +94,38 @@
     position: fixed
 }
 .Mail_copy {
-    background-image: url("Mail copy.png");
-    position: absolute;
+    /*background-image: url("Mail copy.png");
     left: 894px;
     top: 34px;
-    width: 51px;
-    height: 35px;
+    width: 3%;
     z-index: 34200;
-    position: fixed
+    position: fixed*/
+    background-image: url("Mail copy.png");
+   // left: 799px;
+     left: 859px;
+    top: 37px;
+    width: 3%;
+    z-index: 34200;
+    position: fixed;
 }
 .EMAIL {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+ //   font-size: 12px;
+     font-size: 14px;
+    //font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    position: absolute;
-    left: 848.937px;
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    //  left: 848.94px;
+   // left: 748.94px;
+     left: 788.94px;
     top: 46.3px;
     z-index: 54100;
     font-weight: 700;
     position: fixed
 }
 .DEBATE {
-    position: absolute;
     left: 0;
     top: 0;
     z-index: 23900;
@@ -110,30 +134,32 @@
 }
 .Debat {
     background-image: url(Debat.png);
-    position: absolute;
-    left: 1084px;
+   // left: 1084px;
+    // left: 1010px;
+      right: 130px;
     top: 33px;
-    width: 73px;
-    height: 41px;
+    width: 5%;
     z-index: 53800;
     position: fixed
 }
 .DEBATMot {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+   // font-size: 12px;
+   font-size: 14px;
+    //font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    position: absolute;
-    left: 986.937px;
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    //left: 986.94px;
+     // left: 916.94px;
+     left: 1006.94px;
     top: 45.3px;
     z-index: 33600;
     font-weight: 700;
     position: fixed
 }
 .SEARCH {
-    position: absolute;
     left: 0;
     top: 0;
     z-index: 23400;
@@ -141,12 +167,12 @@
 }
 .GOOGLE {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #c52821;
     line-height: 1.2;
     text-align: left;
-    position: absolute;
-    left: 511.937px;
+    left: 511.94px;
     top: 43.8px;
     z-index: 33300;
     font-weight: 700;
@@ -163,12 +189,12 @@
 }
 .SOL {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #c52821;
     line-height: 1.2;
     text-align: left;
-    position: absolute;
-    left: 442.105px;
+    left: 442.11px;
     top: 43.8px;
     z-index: 33100;
     font-weight: 700;
@@ -185,23 +211,22 @@
 }
 .Hvad {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #a4a4a4;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(0.79214139227058, 0, 0, 0.79214139227058, 0, 0);
-    -webkit-transform: matrix(0.79214139227058, 0, 0, 0.79214139227058, 0, 0);
-    -ms-transform: matrix(0.79214139227058, 0, 0, 0.79214139227058, 0, 0);
-    position: absolute;
-    left: 242.671px;
-    top: 43.256px;
+    -moz-transform: matrix(.79214139227058, 0, 0, .79214139227058, 0, 0);
+    -webkit-transform: matrix(.79214139227058, 0, 0, .79214139227058, 0, 0);
+    -ms-transform: matrix(.79214139227058, 0, 0, .79214139227058, 0, 0);
+    left: 242.67px;
+    top: 43.26px;
     font-weight: 700;
     z-index: 32900;
     position: fixed
 }
 .text_field {
     background-image: url("../images/text field.png");
-    position: absolute;
     left: 236px;
     top: 37px;
     width: 174px;
@@ -211,22 +236,11 @@
 }
 .Sol_logo {
     background-image: url("Sol logo.png");
-    position: absolute;
     left: 134px;
     top: 5px;
     width: 85px;
     height: 86px;
     z-index: 32600;
-    position: fixed
-}
-.Navigation_Bar {
-    background-image: url("Navigation Bar.png");
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1280px;
-    height: 96px;
-    z-index: 32500;
     position: fixed
 }
 .SLIDESHOW {
@@ -240,26 +254,6 @@
     left: 0;
     top: 0;
     z-index: 222
-}
-.Shape_23_copy_2 {
-    border-radius: 50%;
-    background-color: #c52821;
-    position: absolute;
-    left: 1082px;
-    top: 281px;
-    width: 11px;
-    height: 11px;
-    z-index: 221
-}
-.Shape_23_copy {
-    border-radius: 50%;
-    background-color: #c52821;
-    position: absolute;
-    left: 1063px;
-    top: 281px;
-    width: 11px;
-    height: 11px;
-    z-index: 220
 }
 .Shape_23 {
     border-radius: 50%;
@@ -291,76 +285,60 @@
     height: 11px;
     z-index: 221
 }
-.Star_Tour {
-    background-image: url("Star Tour.png");
-    position: absolute;
-    left: 175px;
-    top: 118px;
-    width: 929px;
-    height: 180px;
-    z-index: 217
-}
+/*
 ._930x180 {
     background-image: url(930x180.png);
     position: absolute;
     left: 175px;
     top: 118px;
     z-index: 216
-}
+}*/
 .MENU {
     position: absolute;
-    width: 800px;
     top: 310px;
     left: 197px;
     width: 927px;
     height: 42px;
     background-color: #c52821;
     font-size: 14px;
-    font-family: "HelveticaNeueLTStd";
+    // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     z-index: 2000
 }
+/*
 ._______________________________________________ {
-    font-size: 11px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1.2;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
-    position: absolute;
-    left: 268.859px;
-    top: 330.9px;
-    z-index: 201;
     font-weight: 700
-}
+}*/
 .NYHEDER________KENDTE________UNDERHOLDNING_____ {
     font-size: 11px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     -webkit-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     position: absolute;
-    left: 333.367px;
+    left: 333.37px;
     top: 330.4px;
     z-index: 200
 }
 .Forside___Debat___Politik___Samfund___Indenrigs {
     font-size: 11px;
-    font-family: "HelveticaNeueLTStd";
+    // font-family: HelveticaNeueLTStd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #4d4d4d;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    padding-left: 220px;
+    padding-left: 210px;
     z-index: 399;
     top: 365px
 }
@@ -390,17 +368,17 @@
 }
 #MEST_L�ST {
     font-size: 13px;
-    font-family: "Impact";
+    font-family: Impact;
     color: #fff;
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-    -moz-transform: matrix(0.70710679664086, -0.70710676573224, 0.70710676573224, 0.70710679664086, 0, 0);
-    -webkit-transform: matrix(0.70710679664086, -0.70710676573224, 0.70710676573224, 0.70710679664086, 0, 0);
-    -ms-transform: matrix(0.70710679664086, -0.70710676573224, 0.70710676573224, 0.70710679664086, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+    -moz-transform: matrix(.70710679664086, -.70710676573224, .70710676573224, .70710679664086, 0, 0);
+    -webkit-transform: matrix(.70710679664086, -.70710676573224, .70710676573224, .70710679664086, 0, 0);
+    -ms-transform: matrix(.70710679664086, -.70710676573224, .70710676573224, .70710679664086, 0, 0);
     position: absolute;
-    left: 180.863px;
+    left: 180.86px;
     top: 409.7px;
     z-index: 193
 }
@@ -416,9 +394,9 @@
 }
 .shadow_top {
     border-radius: 3px;
-    background-image: -moz-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
-    background-image: -webkit-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
-    background-image: -ms-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
+    background-image: -moz-linear-gradient(90deg, #92c809 0, #abd04e 100%);
+    background-image: -webkit-linear-gradient(90deg, #92c809 0, #abd04e 100%);
+    background-image: -ms-linear-gradient(90deg, #92c809 0, #abd04e 100%);
     opacity: .051;
     position: absolute;
     left: 172px;
@@ -429,9 +407,9 @@
 }
 .shadow_btm {
     border-radius: 3px;
-    background-image: -moz-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
-    background-image: -webkit-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
-    background-image: -ms-linear-gradient(90deg, #92c809 0%, #abd04e 100%);
+    background-image: -moz-linear-gradient(90deg, #92c809 0, #abd04e 100%);
+    background-image: -webkit-linear-gradient(90deg, #92c809 0, #abd04e 100%);
+    background-image: -ms-linear-gradient(90deg, #92c809 0, #abd04e 100%);
     opacity: .051;
     position: absolute;
     left: 172px;
@@ -491,13 +469,13 @@
 }
 .Danmark_Michelin__restauranter__me {
     font-size: 36px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 607.637px;
-    top: 380.805px;
+    left: 607.64px;
+    top: 380.81px;
     width: 186px;
     height: 209px;
     z-index: 180
@@ -519,26 +497,26 @@
 }
 .mx_dk___Opret_ny_debat {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 734.589px;
+    left: 283.98px;
+    top: 734.59px;
     z-index: 176
 }
 .Champagnedreng {
     font-size: 36px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #000;
     font-weight: 700;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 282.937px;
-    top: 650.805px;
+    left: 282.94px;
+    top: 650.8px;
     width: 467px;
     height: 70px;
     z-index: 175
@@ -568,34 +546,34 @@
     z-index: 170
 }
 .mx_dk___19_debat_indl�g {
-    font-size: 12.512px;
-    font-family: "Helvetica";
+    font-size: 12.51px;
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -webkit-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -ms-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
+    -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -ms-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
     position: absolute;
-    left: 502.002px;
-    top: 972.658px;
+    left: 502px;
+    top: 972.66px;
     z-index: 169
 }
 .Stuntmand_blandt_forsvundne_flypassagerer {
     font-size: 30px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #c52821;
     line-height: 1;
     text-align: right;
-    -moz-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
-    -webkit-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
     position: absolute;
-    left: 476.508px;
-    top: 780.893px;
-    width: 122.066px;
-    height: 141.875px;
+    left: 476.51px;
+    top: 780.89px;
+    width: 122.07px;
+    height: 141.88px;
     z-index: 168
 }
 .Layer_27 {
@@ -607,15 +585,6 @@
     height: 215px;
     z-index: 167
 }
-._170x215 {
-    background-image: url(170x215.png);
-    position: absolute;
-    left: 629px;
-    top: 774px;
-    width: 166px;
-    height: 215px;
-    z-index: 166
-}
 ._6_2 {
     position: absolute;
     left: 0;
@@ -623,34 +592,24 @@
     z-index: 164
 }
 .mx_dk___41_debat_indl�g {
-    font-size: 12.512px;
-    font-family: "Helvetica";
-    color: #2c2c2c;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    -moz-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -webkit-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -ms-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    position: absolute;
-    left: 183.002px;
-    top: 972.658px;
-    z-index: 163
+    -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -ms-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0)
 }
 .Kvindelig_knivmorder_stikker_igen {
     font-size: 30px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: 1;
     text-align: right;
-    -moz-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
-    -webkit-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(0.97443778893321, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(.97443778893321, 0, 0, 1, 0, 0);
     position: absolute;
-    left: 165.013px;
-    top: 780.893px;
-    width: 128.875px;
+    left: 165.01px;
+    top: 780.89px;
+    width: 128.88px;
     height: 117.87px;
     z-index: 162
 }
@@ -678,32 +637,20 @@
     top: 0;
     z-index: 158
 }
-.mx_dk___41_debat_indl�g {
-    font-size: 9px;
-    font-family: "Helvetica";
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: absolute;
-    left: 177.974px;
-    top: 1323.545px;
-    z-index: 157
-}
 .Derfor {
-    font-size: 24.711px;
-    font-family: "HelveticaNeueLTStd";
+    font-size: 24.71px;
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1;
     text-align: left;
-    -moz-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
-    -webkit-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
-    -ms-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
+    -moz-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
+    -webkit-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
+    -ms-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
     position: absolute;
-    left: 177.774px;
-    top: 1200.804px;
-    width: 139.327px;
-    height: 67.546px;
+    left: 177.77px;
+    top: 1200.8px;
+    width: 139.33px;
+    height: 67.55px;
     z-index: 156
 }
 .Layer_28 {
@@ -724,65 +671,11 @@
     height: 138px;
     z-index: 150
 }
-._8 {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 153;
-    font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1;
-    text-align: left;
-    position: absolute;
-    left: 181.57px;
-    top: 1382.952px;
-    width: 133px;
-    height: 119px;
-    z-index: 152
-}
-.mx_dk___41_debat_indl�g {
-    font-size: 9px;
-    font-family: "Helvetica";
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: absolute;
-    left: 177.974px;
-    top: 1481.545px;
-    z-index: 151
-}
 ._9 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 148
-}
-._8 {
-    font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
-    color: #000;
-    line-height: 1;
-    text-align: left;
-    position: absolute;
-    left: 344.937px;
-    top: 1217.97px;
-    width: 214px;
-    height: 68px;
-    z-index: 147
-}
-.mx_dk___41_debat_indl�g {
-    font-size: 9px;
-    font-family: "Helvetica";
-    color: #000;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: absolute;
-    left: 344.974px;
-    top: 1282.545px;
-    z-index: 146
 }
 .Layer_38 {
     background-image: url("Layer 38.png");
@@ -793,15 +686,6 @@
     height: 200px;
     z-index: 145
 }
-._220x200 {
-    background-image: url(220x200.png);
-    position: absolute;
-    left: 346px;
-    top: 1296px;
-    width: 220px;
-    height: 200px;
-    z-index: 144
-}
 ._10 {
     position: absolute;
     left: 0;
@@ -810,28 +694,16 @@
 }
 ._8 {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 576.937px;
-    top: 1218.972px;
+    left: 576.94px;
+    top: 1218.97px;
     width: 211px;
     height: 67px;
     z-index: 141
-}
-.mx_dk___41_debat_indl�g {
-    font-size: 9px;
-    font-family: "Helvetica";
-    color: #000;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: absolute;
-    left: 579.974px;
-    top: 1282.545px;
-    z-index: 140
 }
 .Layer_37 {
     background-image: url("Layer 37.png");
@@ -859,26 +731,26 @@
 }
 .mx_dk___36_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1613.589px;
+    left: 283.98px;
+    top: 1613.59px;
     z-index: 135
 }
 .Den_stumper_vist_lidt_Fagforening_raser_over_fraek_uniform {
     font-size: 30px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 282.844px;
-    top: 1537.828px;
+    left: 282.84px;
+    top: 1537.83px;
     width: 481px;
     height: 53px;
     z-index: 134
@@ -901,15 +773,6 @@
     height: 100px;
     z-index: 121
 }
-._100x100 {
-    background-image: url(100x100.png);
-    position: absolute;
-    left: 175px;
-    top: 1529px;
-    width: 100px;
-    height: 100px;
-    z-index: 132
-}
 ._12 {
     position: absolute;
     left: 0;
@@ -918,26 +781,26 @@
 }
 .mx_dk___11_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1749.589px;
+    left: 283.98px;
+    top: 1749.59px;
     z-index: 129
 }
 .VIDEO {
     font-size: 30px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 281.855px;
-    top: 1675.828px;
+    left: 281.86px;
+    top: 1675.83px;
     width: 454px;
     height: 60px;
     z-index: 128
@@ -951,15 +814,6 @@
     height: 100px;
     z-index: 127
 }
-._100x100 {
-    background-image: url(100x100.png);
-    position: absolute;
-    left: 175px;
-    top: 1665px;
-    width: 100px;
-    height: 100px;
-    z-index: 126
-}
 ._13 {
     position: absolute;
     left: 0;
@@ -968,26 +822,26 @@
 }
 .mx_dk___41_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1883.589px;
+    left: 283.98px;
+    top: 1883.59px;
     z-index: 123
 }
 .Hvadsker {
     font-size: 30px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 282.884px;
-    top: 1809.828px;
+    left: 282.88px;
+    top: 1809.83px;
     width: 463px;
     height: 60px;
     z-index: 122
@@ -1009,18 +863,16 @@
 }
 ._1 {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
-    position: absolute;
     width: 292px;
-    height: 43px;
-    z-index: 117
+    height: 43px
 }
 .mx_dk___1_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
@@ -1030,20 +882,20 @@
 }
 ._2 {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 498.937px;
-    top: 2288.984px;
+    left: 498.94px;
+    top: 2288.98px;
     width: 274px;
     height: 44px;
     z-index: 115
 }
 .mx_dk___51_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
@@ -1053,12 +905,12 @@
 }
 ._3 {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 179.834px;
+    left: 179.83px;
     top: 2387.96px;
     width: 236px;
     height: 48px;
@@ -1066,7 +918,7 @@
 }
 .mx_dk___16_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
@@ -1076,27 +928,27 @@
 }
 ._4 {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 498.937px;
-    top: 2388.984px;
+    left: 498.94px;
+    top: 2388.98px;
     width: 223px;
     height: 43px;
     z-index: 111
 }
 .mx_dk___7_debat_indl�g {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 499.982px;
-    top: 2431.589px;
+    left: 499.98px;
+    top: 2431.59px;
     z-index: 110
 }
 .Layer_33 {
@@ -1114,48 +966,20 @@
     top: 0;
     z-index: 106
 }
-.SENESTE_DEBATTER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
-    color: #c52821;
-    font-weight: 700;
-    line-height: .463;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    position: absolute;
-    left: 747.515px;
-    top: 388.999px;
-    z-index: 105
-}
 .Danmark {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #5e5e5e;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
-    left: 815.981px;
-    top: 442.057px;
+    left: 815.98px;
+    top: 442.06px;
     width: 268px;
     height: 192px;
     z-index: 104
-}
-._______________________________________________ {
-    font-size: 11px;
-    font-family: "Georgia";
-    color: #b8b8b8;
-    line-height: 1.636;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    position: absolute;
-    left: 819px;
-    top: 457.191px;
-    z-index: 103
 }
 ._300x250_copy_2 {
     background-image: url("300x250 copy 2.png");
@@ -1165,15 +989,6 @@
     width: 300px;
     height: 250px;
     z-index: 102
-}
-._300x250 {
-    background-image: url(300x250.png);
-    position: absolute;
-    left: 805px;
-    top: 380px;
-    width: 300px;
-    height: 250px;
-    z-index: 101
 }
 .REKLAME_1 {
     position: absolute;
@@ -1189,15 +1004,6 @@
     width: 300px;
     height: 250px;
     z-index: 98
-}
-._300x250 {
-    background-image: url(300x250.png);
-    position: absolute;
-    left: 804px;
-    top: 643px;
-    width: 300px;
-    height: 250px;
-    z-index: 97
 }
 .PROMO {
     position: absolute;
@@ -1221,55 +1027,55 @@
     z-index: 86
 }
 .DAGENS_HOROSKOP {
-    font-size: 17.977px;
-    font-family: "HelveticaNeue";
+    font-size: 17.98px;
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     line-height: 1;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -webkit-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -ms-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     position: absolute;
-    left: 833.843px;
-    top: 1212.011px;
+    left: 833.84px;
+    top: 1212.01px;
     z-index: 85
 }
 .Fisk_13__marts_2014 {
-    font-size: 17.977px;
-    font-family: "HelveticaNeue";
+    font-size: 17.98px;
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -webkit-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -ms-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     position: absolute;
-    left: 823.369px;
-    top: 1242.178px;
-    width: 71.951px;
-    height: 27.426px;
+    left: 823.37px;
+    top: 1242.18px;
+    width: 71.95px;
+    height: 27.43px;
     z-index: 84
 }
 .Der_er_grobund_for_at_du_bliver_im�dekommet_p�_ {
-    font-size: 11.984px;
-    font-family: "HelveticaNeue";
+    font-size: 11.98px;
+    font-family: HelveticaNeue;
     color: #fff;
     line-height: .918;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -webkit-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     -ms-transform: matrix(1, 0, 0, 1.00129291373239, 0, 0);
     position: absolute;
     left: 818.61px;
-    top: 1296.137px;
-    width: 144.655px;
-    height: 94.736px;
+    top: 1296.14px;
+    width: 144.66px;
+    height: 94.74px;
     z-index: 83
 }
 .icon {
@@ -1313,15 +1119,6 @@
     width: 300px;
     height: 250px;
     z-index: 77
-}
-._300x250 {
-    background-image: url(300x250.png);
-    position: absolute;
-    left: 803px;
-    top: 1402px;
-    width: 300px;
-    height: 250px;
-    z-index: 76
 }
 .REKLAME_3 {
     position: absolute;
@@ -1371,15 +1168,6 @@
     height: 250px;
     z-index: 68
 }
-._300x250 {
-    background-image: url(300x250.png);
-    position: absolute;
-    left: 803px;
-    top: 1668px;
-    width: 300px;
-    height: 250px;
-    z-index: 67
-}
 .REKLAME_5 {
     position: absolute;
     left: 805px;
@@ -1411,65 +1199,28 @@
     z-index: 61
 }
 .SENESTE_NYHEDER {
-    background-image: url("300x250 copy 2.png");
-    position: absolute;
-    left: 802px;
-    top: 368px;
-    z-index: 102
+    background-image: url("300x250 copy 2.png")
 }
 .I_Israel_nasser_de_ortodokse_j�der_p�_samfund__ {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
-    left: 183.937px;
-    top: 2008.121px;
+    left: 183.94px;
+    top: 2008.12px;
     width: 287px;
     height: 230px;
     z-index: 59
-}
-._______________________________________________ {
-    font-size: 11px;
-    font-family: "Georgia";
-    color: #b8b8b8;
-    line-height: 1.636;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    position: absolute;
-    left: 186px;
-    top: 2023.191px;
-    z-index: 58
-}
-._310x310 {
-    background-image: url(310x310.png);
-    position: absolute;
-    left: 175px;
-    top: 1936px;
-    width: 310px;
-    height: 310px;
-    z-index: 57
 }
 .MEST_LASTE_DEBATTER_right {
     position: absolute;
     left: 490px;
     top: 1940px;
     z-index: 54
-}
-._______________________________________________ {
-    font-size: 11px;
-    font-family: "Georgia";
-    color: #b8b8b8;
-    line-height: 1.636;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    position: absolute;
-    left: 500px;
-    top: 2023.191px;
-    z-index: 51
 }
 ._310x310 {
     background-image: url(310x310.png);
@@ -1498,112 +1249,17 @@
     top: 0;
     z-index: 42
 }
-.How_I_Met_Your_Mother {
-    font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1.059;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    position: absolute;
-    z-index: 40
-}
-.TV3 {
-    background-image: url(TV3.png);
-    position: absolute;
-    left: 841px;
-    top: 2343px;
-    width: 44px;
-    height: 44px;
-    z-index: 39
-}
 ._1_copy {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 37
 }
-.How_I_Met_Your_Mother {
-    font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1.059;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    position: absolute;
-    left: 891.076px;
-    top: 2313.499px;
-    z-index: 35
-}
-.TV3 {
-    background-image: url(TV3.png);
-    position: absolute;
-    left: 841px;
-    top: 2293px;
-    width: 44px;
-    height: 44px;
-    z-index: 34
-}
 ._1 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 32
-}
-.How_I_Met_Your_Mother {
-    font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1.059;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    position: absolute;
-    left: 891.076px;
-    top: 2264.499px;
-    z-index: 30
-}
-.TV3 {
-    background-image: url(TV3.png);
-    position: absolute;
-    left: 841px;
-    top: 2243px;
-    width: 44px;
-    height: 44px;
-    z-index: 29
-}
-.TV_GUIDE {
-    font-size: 18px;
-    font-family: "HelveticaNeue";
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
-    -webkit-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
-    position: absolute;
-    left: 826.3px;
-    top: 2211.2px;
-    z-index: 27
-}
-.Shape_37 {
-    background-color: #c52821;
-    position: absolute;
-    left: 805px;
-    top: 2205px;
-    width: 300px;
-    height: 252px;
-    z-index: 26
 }
 ._300x250_copy {
     background-image: url("300x250 copy.png");
@@ -1622,30 +1278,18 @@
 }
 .Om_SOL_Annoncering_Kontakt_os_Hj�lp_og_Support_ {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     text-transform: uppercase;
     line-height: 3;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
     position: absolute;
-    left: 534.937px;
-    top: 2552.992px;
+    left: 534.94px;
+    top: 2552.99px;
     width: 126px;
     height: 227px;
     z-index: 21
-}
-._______________________________________________ {
-    font-size: 11px;
-    font-family: "Georgia";
-    color: #8f8f8f;
-    line-height: 3.273;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-    position: absolute;
-    left: 534px;
-    top: 2552.188px;
-    z-index: 20
 }
 .MID {
     position: absolute;
@@ -1655,29 +1299,17 @@
 }
 .NYHEDER_KENDTE_UNDERHOLDNING_REJSER_SUNDHED_FRI {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 3;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
     position: absolute;
-    left: 724.105px;
-    top: 2552.992px;
+    left: 724.11px;
+    top: 2552.99px;
     width: 108px;
     height: 227px;
     z-index: 17
-}
-._______________________________________________ {
-    font-size: 11px;
-    font-family: "Georgia";
-    color: #8f8f8f;
-    line-height: 3.273;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-    position: absolute;
-    left: 724px;
-    top: 2552.188px;
-    z-index: 16
 }
 .RIGHT {
     position: absolute;
@@ -1687,14 +1319,14 @@
 }
 ._______________________________________________ {
     font-size: 11px;
-    font-family: "Georgia";
+    font-family: Georgia;
     color: #8f8f8f;
     line-height: 3.273;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .1);
     position: absolute;
     left: 912px;
-    top: 2552.188px;
+    top: 2552.19px;
     z-index: 12
 }
 .SKYBANNERS {
@@ -1704,120 +1336,126 @@
     z-index: 7
 }
 .Derforsko {
-    font-size: 24.711px;
-    font-family: "HelveticaNeueLTStd";
+    font-size: 24.71px;
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1;
     text-align: left;
-    -moz-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
-    -webkit-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
-    -ms-transform: matrix(0.97121767520519, 0, 0, 0.97121767520519, 0, 0);
+    -moz-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
+    -webkit-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
+    -ms-transform: matrix(.97121767520519, 0, 0, .97121767520519, 0, 0);
     position: absolute;
-    left: 177.774px;
+    left: 177.77px;
     top: 1360px;
-    width: 139.327px;
-    height: 67.546px;
+    width: 139.33px;
+    height: 67.55px;
     z-index: 156
 }
 .Herfar {
     font-size: 18px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 350px;
-    top: 1200.804px;
+    top: 1200.8px;
     width: 200px;
     height: 192px;
     z-index: 104
 }
 .Rygte {
     font-size: 18px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 580px;
-    top: 1200.804px;
+    top: 1200.8px;
     width: 200px;
     height: 192px;
     z-index: 104
 }
 .MenuTexte {
     font-size: 11px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
     -moz-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     -webkit-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
     position: absolute;
-    left: 299.367px;
+    left: 299.37px;
     top: 325px;
     z-index: 2000
 }
 .tiretMenu {
     font-size: 11px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .75);
     position: absolute;
-    left: 268.859px;
+    left: 268.86px;
     top: 330.9px;
     z-index: 801
 }
 .SENESTE_DEBATTER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 740.515px;
-    top: 381.999px;
+    left: 740.52px;
+    top: 382px;
     z-index: 305
 }
 .Danmark_skal {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #5e5e5e;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
-    left: 808.981px;
-    top: 435.057px;
+    left: 808.98px;
+    top: 435.06px;
     width: 268px;
     height: 192px;
     z-index: 504
 }
 .TV_GUIDE {
+    -moz-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
     font-size: 18px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
-    -webkit-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
-    -ms-transform: matrix(0.98360655737705, 0, 0, 1, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
+    -webkit-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(.98360655737705, 0, 0, 1, 0, 0);
     position: absolute;
     left: 826.3px;
     top: 2211.2px;
@@ -1832,78 +1470,54 @@
     height: 252px;
     z-index: 526
 }
-.TV3 {
-    background-image: url(TV3.png);
-    position: absolute;
-    left: 841px;
-    top: 2243px;
-    width: 44px;
-    height: 44px;
-    z-index: 529
-}
-.How_I_Met_Your_Mother {
-    font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 1.059;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    position: absolute;
-    left: 891.076px;
-    top: 2264.499px;
-    z-index: 530
-}
 #23Marts {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.417;
     text-align: left;
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 893.563px;
-    top: 2266.967px;
+    left: 893.56px;
+    top: 2266.97px;
     z-index: 531
 }
 .MESTL�STEDEBATTER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 414.754px;
-    top: 1949.999px;
+    left: 414.75px;
+    top: 1950px;
     z-index: 553
 }
 .Overgrebmuslime {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 498.03px;
-    top: 1990.121px;
+    top: 1990.12px;
     width: 262px;
     height: 228px;
     z-index: 552
 }
 .EMAIL2 {
     font-size: 14px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     line-height: 1.2;
@@ -1911,15 +1525,14 @@
     -moz-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -webkit-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -ms-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
-    position: absolute;
-    left: 940.566px;
+    left: 940.57px;
     top: 20.6px;
     z-index: 54400;
     position: fixed
 }
 .MESSAGE4 {
     font-size: 14px;
-    font-family: "HelveticaNeue";
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     line-height: 1.2;
@@ -1927,8 +1540,7 @@
     -moz-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -webkit-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -ms-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
-    position: absolute;
-    left: 807.363px;
+    left: 807.36px;
     top: 20.6px;
     z-index: 55000;
     position: fixed
@@ -1962,7 +1574,6 @@
 }
 .Mail {
     background-image: url(Mail.png);
-    position: absolute;
     left: 933px;
     top: 941px;
     width: 34px;
@@ -1971,258 +1582,258 @@
     position: fixed
 }
 .SOL_SERVICES {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #fff;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 768.426px;
-    top: 911.999px;
+    left: 768.43px;
+    top: 912px;
     z-index: 594
 }
 .BACKUPMAIL {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.2;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.84772806253948, 0, 0, 0.84772806253948, 0, 0);
-    -webkit-transform: matrix(0.84772806253948, 0, 0, 0.84772806253948, 0, 0);
-    -ms-transform: matrix(0.84772806253948, 0, 0, 0.84772806253948, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.84772806253948, 0, 0, .84772806253948, 0, 0);
+    -webkit-transform: matrix(.84772806253948, 0, 0, .84772806253948, 0, 0);
+    -ms-transform: matrix(.84772806253948, 0, 0, .84772806253948, 0, 0);
     position: absolute;
-    left: 835.557px;
+    left: 835.56px;
     top: 966.8px;
     z-index: 593
 }
 .SENESTE_NYHEDER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 116.002px;
-    top: 1949.999px;
+    left: 116px;
+    top: 1950px;
     z-index: 560
 }
 .I_Israel_nasser {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
-    left: 183.937px;
-    top: 1990.121px;
+    left: 183.94px;
+    top: 1990.12px;
     width: 287px;
     height: 230px;
     z-index: 559
 }
 .tiret {
     font-size: 11px;
-    font-family: "Georgia";
+    font-family: Georgia;
     color: #b8b8b8;
     line-height: 1.636;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 186px;
-    top: 2023.191px;
+    top: 2023.19px;
     z-index: 558
 }
 .MEST_LASTE_DEBATTER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 414.754px;
-    top: 1949.999px;
+    left: 414.75px;
+    top: 1950px;
     z-index: 553
 }
 .tiretMestLast {
     font-size: 11px;
-    font-family: "Georgia";
+    font-family: Georgia;
     color: #b8b8b8;
     line-height: 1.636;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 500px;
-    top: 2023.191px;
+    top: 2023.19px;
     z-index: 551
 }
 .mxdk56 {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 608.982px;
-    top: 614.589px;
+    left: 608.98px;
+    top: 614.59px;
     z-index: 581
 }
 .mxdkOpretnydebat {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 734.589px;
+    left: 283.98px;
+    top: 734.59px;
     z-index: 576
 }
 .mxdk19 {
-    font-size: 12.512px;
-    font-family: "Helvetica";
+    font-size: 12.51px;
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -webkit-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -ms-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
+    -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -ms-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
     position: absolute;
-    left: 502.002px;
-    top: 972.658px;
+    left: 502px;
+    top: 972.66px;
     z-index: 669
 }
 .mxdk41debat {
-    font-size: 12.512px;
-    font-family: "Helvetica";
+    font-size: 12.51px;
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -webkit-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -ms-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
+    -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -ms-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
     position: absolute;
-    left: 168.002px;
-    top: 972.658px;
+    left: 168px;
+    top: 972.66px;
     z-index: 663
 }
 .mdk19debatindlag {
-    font-size: 12.512px;
-    font-family: "Helvetica";
+    font-size: 12.51px;
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -webkit-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
-    -ms-transform: matrix(0.85670852741367, 0, 0, 0.87918237279321, 0, 0);
+    -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
+    -ms-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
     position: absolute;
-    left: 480.002px;
-    top: 972.658px;
+    left: 480px;
+    top: 972.66px;
     z-index: 669
 }
 .mxdkDerfor {
     font-size: 9px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #fff;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 177.974px;
-    top: 1323.545px;
+    left: 177.97px;
+    top: 1323.55px;
     z-index: 657
 }
 .mxdkHerfar {
     font-size: 9px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 344.974px;
-    top: 1282.545px;
+    left: 344.97px;
+    top: 1282.55px;
     z-index: 646
 }
 .mxdkRygte {
     font-size: 9px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #000;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 579.974px;
-    top: 1282.545px;
+    left: 579.97px;
+    top: 1282.55px;
     z-index: 640
 }
 .mxdkDenStumper {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1613.589px;
+    left: 283.98px;
+    top: 1613.59px;
     z-index: 635
 }
 .mxdkVideo {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1749.589px;
+    left: 283.98px;
+    top: 1749.59px;
     z-index: 629
 }
 .mxdkHvad {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 283.982px;
-    top: 1883.589px;
+    left: 283.98px;
+    top: 1883.59px;
     z-index: 623
 }
 .mxdkDansk {
     font-size: 9px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #fff;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 177.974px;
-    top: 1481.545px;
+    left: 177.97px;
+    top: 1481.55px;
     z-index: 651
 }
 .copy_2 {
@@ -2235,68 +1846,68 @@
     z-index: 602
 }
 .SENESTEDEBATTER {
-    font-size: 38.882px;
-    font-family: "HelveticaNeue";
+    font-size: 38.88px;
+    font-family: HelveticaNeue;
     color: #c52821;
     font-weight: 700;
     line-height: .463;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
-    -moz-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -webkit-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
-    -ms-transform: matrix(0.46293359608226, 0, 0, 0.46293359608226, 0, 0);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
+    -moz-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -webkit-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
+    -ms-transform: matrix(.46293359608226, 0, 0, .46293359608226, 0, 0);
     position: absolute;
-    left: 710.981px;
-    top: 388.999px;
+    left: 710.98px;
+    top: 389px;
     z-index: 605
 }
 .Danmarkskal {
     font-size: 13px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #5e5e5e;
     font-weight: 700;
     line-height: 1.385;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
-    left: 810.981px;
-    top: 420.057px;
+    left: 810.98px;
+    top: 420.06px;
     width: 268px;
     height: 192px;
     z-index: 604
 }
 .tiretDebat {
     font-size: 11px;
-    font-family: "Georgia";
+    font-family: Georgia;
     color: #b8b8b8;
     line-height: 1.636;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 819px;
-    top: 457.191px;
+    top: 457.19px;
     z-index: 603
 }
 .tiretSENESTEDEBATTER {
     font-size: 11px;
-    font-family: "Georgia";
+    font-family: Georgia;
     color: #b8b8b8;
     line-height: 1.636;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.004);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .004);
     position: absolute;
     left: 819px;
-    top: 457.191px;
+    top: 457.19px;
     z-index: 703
 }
 .danske {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 177.498px;
+    left: 177.5px;
     top: 2275px;
     width: 292px;
     height: 43px;
@@ -2304,24 +1915,24 @@
 }
 .mxdkdanske {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 177.982px;
-    top: 2335.589px;
+    left: 177.98px;
+    top: 2335.59px;
     z-index: 116
 }
 .Chokskifte {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 498.937px;
+    left: 498.94px;
     top: 2275px;
     width: 274px;
     height: 44px;
@@ -2329,24 +1940,24 @@
 }
 .mxdkChokskifte {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 499.982px;
-    top: 2335.589px;
+    left: 499.98px;
+    top: 2335.59px;
     z-index: 112
 }
 .Massiv {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 179.834px;
+    left: 179.83px;
     top: 2375px;
     width: 292px;
     height: 48px;
@@ -2354,24 +1965,24 @@
 }
 .mxdkMassiv {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 177.982px;
-    top: 2431.589px;
+    left: 177.98px;
+    top: 2431.59px;
     z-index: 114
 }
 .Herer {
     font-size: 24px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #000;
     line-height: 1;
     text-align: left;
     position: absolute;
-    left: 498.937px;
+    left: 498.94px;
     top: 2375px;
     width: 250px;
     height: 43px;
@@ -2379,14 +1990,14 @@
 }
 .mxdkHerer {
     font-size: 11px;
-    font-family: "Helvetica";
+    font-family: Helvetica;
     color: #2c2c2c;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
     position: absolute;
-    left: 499.982px;
-    top: 2431.589px;
+    left: 499.98px;
+    top: 2431.59px;
     z-index: 110
 }
 .TV3 {
@@ -2400,31 +2011,31 @@
 }
 .Marts_9__2014 {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.417;
     text-align: left;
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 893.563px;
-    top: 2244.967px;
+    left: 893.56px;
+    top: 2244.97px;
     z-index: 531
 }
 .How_I_Met_Your_Mother {
     font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.059;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 891.076px;
-    top: 2264.499px;
+    left: 891.08px;
+    top: 2264.5px;
     z-index: 545
 }
 .TV32 {
@@ -2438,31 +2049,31 @@
 }
 .Marts_9__20142 {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.417;
     text-align: left;
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 893.563px;
-    top: 2293.967px;
+    left: 893.56px;
+    top: 2293.97px;
     z-index: 531
 }
 .How_I_Met_Your_Mother2 {
     font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.059;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 891.076px;
-    top: 2313.499px;
+    left: 891.08px;
+    top: 2313.5px;
     z-index: 545
 }
 .TV33 {
@@ -2476,31 +2087,31 @@
 }
 .Marts_9__20143 {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.417;
     text-align: left;
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 893.563px;
-    top: 2342.967px;
+    left: 893.56px;
+    top: 2342.97px;
     z-index: 531
 }
 .How_I_Met_Your_Mother3 {
     font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.059;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 891.076px;
-    top: 2363.499px;
+    left: 891.08px;
+    top: 2363.5px;
     z-index: 545
 }
 .TV34 {
@@ -2514,31 +2125,31 @@
 }
 .Marts_9__20144 {
     font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.417;
     text-align: left;
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 893.563px;
-    top: 2391.967px;
+    left: 893.56px;
+    top: 2391.97px;
     z-index: 531
 }
 .How_I_Met_Your_Mother4 {
     font-size: 17px;
-    font-family: "HelveticaNeueLTStd";
+    font-family: HelveticaNeueLTStd;
     color: #fff;
     line-height: 1.059;
     text-align: left;
-    text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
-    -moz-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -webkit-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
-    -ms-transform: matrix(0.90545859975659, 0, 0, 0.90545859975659, 0, 0);
+    text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+    -moz-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -webkit-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
+    -ms-transform: matrix(.90545859975659, 0, 0, .90545859975659, 0, 0);
     position: absolute;
-    left: 891.076px;
-    top: 2413.499px;
+    left: 891.08px;
+    top: 2413.5px;
     z-index: 545
 }
 .position0 {
@@ -2551,7 +2162,7 @@
 }
 .position1 {
     position: absolute;
-    left: 0;
+    left: -2px;
     top: 380px;
     width: 160px;
     height: 600px;
@@ -2591,7 +2202,7 @@
 }
 .position6 {
     position: absolute;
-    left: 1179px;
+    left: 1185px;
     top: 380px;
     width: 160px;
     height: 600px;
@@ -2605,1042 +2216,4 @@
     width: 929px;
     height: 180px;
     z-index: 8000
-} // pub de separation //
-.position10 {
-    position: absolute;
-    left: 655px;
-    top: 500px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.position11 {
-    position: absolute;
-    left: 655px;
-    top: 600px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.position12 {
-    position: absolute;
-    left: 655px;
-    top: 1300px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.position13 {
-    position: absolute;
-    left: 655px;
-    top: 1650px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.position14 {
-    position: absolute;
-    left: 655px;
-    top: 900px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.position15 {
-    position: absolute;
-    left: 655px;
-    top: 1000px;
-    width: 300px;
-    height: 251px;
-    z-index: 8000
-}
-.SOL_dk_erFOOTER {
-    font-size: 13px;
-    font-family: "HelveticaNeueLTStd";
-    color: initial;
-    color: #fff;
-    line-height: 1.385;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 600;
-    margin: 0 0 0 70px;
-    padding: 40px 0 0
-}
-.NYHEDERKENDTE {
-    font-size: 12px;
-    font-family: "HelveticaNeueLTStd";
-    color: #fff;
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
-    padding-bottom: 0;
-    padding-left: 580px;
-    padding-right: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-top: -250px;
-    z-index: 717
-}
-.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
-    font-size: 12px;
-    color: #fff;
-    font-family: "HelveticaNeueLTStd";
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
-    height: 226px;
-    z-index: 13;
-    margin: -295px 0 0 195px;
-    padding: 40px 0 0 560px
-}
-.Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_ {
-    font-size: 12px;
-    color: #fff;
-    font-family: "HelveticaNeueLTStd";
-    text-transform: uppercase;
-    line-height: 3;
-    text-align: left;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 621;
-    margin: -180px 0 0 400px;
-    padding: -300px 0 0
-}
-.Footer {
-    margin-right: 0;
-    width: 930px;
-    cursor: default;
-    position: relative;
-    height: 326px;
-    background-color: #c52821;
-    padding: 10px 0 110px
-}
-#div_publicite_add {
-    position: absolute;
-    left: 165px;
-    top: 500px;
-    width: 1000px;
-    height: 500px;
-    z-index: 6000
-}
-#div_showdetails {
-    background-color: #FFF;
-    position: absolute;
-    left: 350px;
-    top: 650px;
-    width: 550px;
-    height: 600px;
-    z-index: 6000
-}
-#login {
-    background-color: #FFF;
-    padding-top: 40px;
-    padding-left: 50px;
-    width: 650px;
-    z-index: 6
-}
-#login-input {
-    z-index: 6
-}
-#login-inputpassword {
-    z-index: 6
-}
-.likebutton {
-    color: #c52821;
-    font-weight: 700;
-    background-color: transparent;
-    padding-left: 50px
-}
-.likecount {
-    color: #000;
-    font-weight: 700;
-    background-color: transparent;
-    padding-left: 50px
-}
-.rouge {
-    font-size: large;
-    color: #c52821;
-    font-weight: 700;
-    background-color: transparent
-}
-.stylepolice {
-    font-family: "HelveticaNeueLTStd"
-}
-#buttonsregistrer {
-    z-index: 6;
-    margin-left: 150px
-}
-#buttonsregistrerEditprofil {
-    z-index: 6;
-    margin-left: 180px;
-    padding-left: 125px
-}
-#buttonsregistrerpasswordprofil {
-    left: 270px;
-    top: 330px;
-    z-index: 6
-}
-#buttonannuler {
-    color: #b41d23;
-    float: left;
-    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    left: 20px;
-    position: relative;
-    top: 20px;
-    text-decoration: none
-}
-.entetedeprofil {
-    border-color: #000;
-    left: 175px;
-    top: 380px;
-    width: 651px;
-    height: 210px;
-    z-index: 6000;
-    border-bottom: 1px solid gray
-}
-.image {
-    position: absolute;
-    top: 0;
-    width: 152px;
-    height: 180px;
-    z-index: 6000
-}
-.donneeconnexion {
-    top: 50px;
-    padding-right: 20px;
-    z-index: 6001;
-    position: relative;
-    float: right
-}
-.profilcreeconfirm {
-    position: absolute;
-    left: 175px;
-    top: 370px;
-    width: 931px;
-    height: 342px;
-    z-index: 6000
-}
-.profilcreeconfirmdiv1 {
-    position: absolute;
-    top: 80px;
-    width: 931px;
-    height: 50px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #8A0808
-}
-.profilcreeconfirmdiv2 {
-    position: absolute;
-    top: 150px;
-    width: 603px;
-    height: 50px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E
-}
-.profilcreeconfirmdiv3 {
-    position: absolute;
-    top: 220px;
-    width: 603px;
-    height: 190px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E
-}
-.nomuser {
-    position: absolute;
-    left: 155px;
-    top: 40px;
-    width: 292px;
-    height: 180px;
-    z-index: 6000
-}
-.senestredebatt {
-    position: absolute;
-    left: 650px;
-    top: 50px;
-    background-color: #e0e0e0;
-    width: 280px;
-    height: 250px;
-    z-index: 6001
-}
-#usereditdetails {
-    background-color: #FFF;
-    position: absolute;
-    left: 340px;
-    top: 450px;
-    width: 1000px;
-    height: 500px;
-    z-index: 6
-}
-#showuserlist {
-    background-color: #FFF;
-    position: absolute;
-    left: 440px;
-    top: 450px;
-    width: 1000px;
-    height: 500px;
-    z-index: 6
-}
-.idfacebook {
-    position: absolute;
-    left: 15px;
-    top: 290px;
-    width: 170px;
-    height: 50px;
-    z-index: 6001
-}
-.arstyle {
-    position: relative;
-    margin-left: 300px
-}
-.cadreblanc {
-    position: absolute;
-    left: 130px;
-    top: 313px;
-    width: 40px;
-    height: 20px;
-    z-index: 7001;
-    background-color: #FFF
-}
-.SOLDK {
-    position: absolute;
-    left: 69px;
-    top: 278px;
-    width: 67px;
-    height: 20px;
-    z-index: 7001;
-    background-color: #FFF;
-    font-weight: 700
-}
-.stylegras {
-    font-weight: 700
-}
-.ajoutsujet {
-    position: absolute;
-    left: 220px;
-    top: 380px;
-    width: 880px;
-    height: 590px;
-    z-index: 6001
-}
-.textfiledgrand {
-    width: 820px;
-    height: 336px
-}
-.messagealerteeditprofile {
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E;
-    position: absolute;
-    left: 0;
-    top: 55px;
-    width: 650px;
-    height: 40px;
-    z-index: 6000
-}
-.conteneursenestedebat {
-    position: absolute;
-    left: 180px;
-    top: 380px;
-    width: 625px;
-    height: 600px;
-    z-index: 6000
-}
-.commentaire {
-    position: relative;
-    left: 50px;
-    width: 800px;
-    margin-top: 30px
-}
-.black {
-    color: #000;
-    font-weight: 700
-}
-.silver {
-    color: silver;
-    font-weight: 700
-}
-.timestyle {
-    color: silver;
-    font-weight: 700;
-    padding-left: 100px
-}
-.senestredebattelement {
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px
-}
-.senestredebattelementcompresse {
-    margin-left: 20px;
-    margin-right: 20px
-}
-.lienstyledebat {
-    text-decoration: none;
-    font-weight: 700;
-    color: #000;
-    padding-left: 55px
-}
-.contenudetemplate {
-    position: relative;
-    margin-right: 220px;
-    margin-left: 207px;
-    padding: 0
-}
-.contenudebat {
-    width: 650px
-}
-.StartaNewTopic {
-    position: relative;
-    z-index: 9000;
-    padding-left: 750px;
-    padding-top: 10px
-}
-.tagtitlevoirun {
-    position: relative;
-    text-decoration: none;
-    font-weight: 700;
-    color: #000;
-    float: right;
-    padding: 15px 20px -20px 400px
-}
-.Addnewcomment {
-    text-decoration: none;
-    font-weight: 700;
-    color: red;
-    position: relative;
-    margin: 0 0 -30px 70px;
-    padding: 0 0 0 20px
-}
-.imageuser {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px
-}
-.grandimageuser {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px
-}
-.imageuserdebataveccomment {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px
-}
-.paddingdebataveccomment {
-    position: relative;
-    margin: 0;
-    padding: 30px 0 0 30px
-}
-.motrepondre {
-    padding-left: 350px
-}
-.jaimeoujaimepas {
-    position: relative;
-    margin: -40px 0 0;
-    padding: 0 0 0 490px
-}
-.senestredebattfrontpage {
-    position: relative;
-    margin-top: 40px;
-    background-color: #e0e0e0;
-    width: 296px;
-    height: 250px;
-    z-index: 6001;
-    left: 630px
-}
-.publicitenumero1 {
-    position: relative;
-    margin-top: 10px;
-    left: 627px
-}
-.publicitenumero2 {
-    position: relative;
-    margin-top: 0;
-    left: 322px;
-    top: 180px
-}
-.publicitenumero3 {
-    position: relative;
-    top: 100px;
-    clear: right;
-    left: 11px;
-    float: right
-}
-.publicitenumero4 {
-    position: relative;
-    top: 110px;
-    clear: right;
-    left: 10px;
-    float: right
-}
-.publicitenumero5 {
-    position: relative;
-    top: 120px;
-    left: 10px;
-    clear: right;
-    float: right
-}
-.publicitenumero6 {
-    position: relative;
-    top: 130px;
-    left: 10px;
-    clear: right;
-    float: right
-}
-.publicitenumero7 {
-    position: relative;
-    top: 140px;
-    left: 10px;
-    clear: right;
-    float: right
-}
-.publicitenumero8 {
-    position: relative;
-    top: 150px;
-    left: 10px;
-    clear: right;
-    float: right
-}
-.articleposition1 {
-    position: absolute;
-    width: 630px;
-    height: 250px
-}
-.articleposition2 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 267px
-}
-.articleposition3 {
-    position: absolute;
-    width: 315px;
-    height: 215px;
-    top: 385px
-}
-.articleposition4 {
-    position: absolute;
-    width: 313px;
-    height: 215px;
-    top: 385px;
-    left: 315px
-}
-.articleposition5 {
-    position: absolute;
-    width: 160px;
-    height: 146px;
-    top: 800px
-}
-.articleposition6 {
-    position: absolute;
-    width: 160px;
-    height: 145px;
-    top: 952px
-}
-.articleposition7 {
-    position: absolute;
-    width: 220px;
-    height: 298px;
-    top: 801px;
-    left: 170px
-}
-.articleposition8 {
-    position: absolute;
-    width: 220px;
-    height: 298px;
-    top: 801px;
-    left: 400px
-}
-.articleposition9 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1120px
-}
-.articleposition10 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1250px
-}
-.articleposition11 {
-    position: absolute;
-    width: 630px;
-    height: 100px;
-    top: 1380px
-}
-.articlepositionA {
-    position: absolute;
-    width: 310px;
-    height: 310px;
-    top: 1505px;
-    left: 5px;
-    background-color: #e0e0e0
-}
-.articlepositionB {
-    position: absolute;
-    width: 310px;
-    height: 310px;
-    top: 1505px;
-    left: 317px;
-    background-color: #e0e0e0
-}
-.articleposition12 {
-    position: absolute;
-    width: 315px;
-    height: 103px;
-    top: 1825px;
-    left: 5px
-}
-.articleposition13 {
-    position: absolute;
-    width: 315px;
-    height: 103px;
-    top: 1825px;
-    left: 322px
-}
-.articleposition14 {
-    position: absolute;
-    width: 315px;
-    height: 102px;
-    top: 1932px;
-    left: 5px
-}
-.articleposition15 {
-    position: absolute;
-    width: 315px;
-    height: 102px;
-    top: 1932px;
-    left: 322px
-}
-.bordurearticle {
-    padding: 4px;
-    margin-bottom: -12px
-}
-.stylecontenudebat {
-    color: #000;
-    font-size: 13px;
-    line-height: 34px;
-    font-family: helvetica;
-    font-weight: 700;
-    color: #000
-}
-div.ui-dialog-buttonpane button.cancel {
-    background: none;
-    border: 0 none;
-    color: red
-}
-.commentassoci {
-    padding: 50px;
-    width: 850px
-}
-.btn-annuler {
-    background-color: transparent;
-    border: 0;
-    color: #c52821
-}
-.lienOpretnydebatLaesdebat {
-    margin-left: 4px;
-    font-size: 11px;
-    font-weight: 400;
-    font-family: helvetica
-}
-.contenucommentaireparent {
-    border-color: red;
-    padding-left: 50px
-}
-.contenucommentairefils {
-    border-color: red;
-    padding-left: 80px
-}
-.nouveaucommentaire {
-    border-color: red;
-    padding-left: 50px
-}
-.inputnouveaucommentaire {
-    margin-left: 50px;
-    width: 700px;
-    height: 100px
-}
-.deletecommentaire {
-    color: #c52821;
-    font-weight: 700;
-    background-color: transparent;
-    padding-left: 50px
-}
-.stylepourchaquedebat {
-    width: 650px;
-    height: 170px
-}
-.stylepourchaquedebat:hover {
-    background-color: #F2F2F2
-}
-.styleheadlinearticle1 {
-    font-size: 34px;
-    font-family: HelveticaNeueLTStd
-}
-.styleleinarticle1 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle1 {
-    float: left;
-    margin-right: 10px;
-    height: 250px;
-    width: 430px
-}
-.styleheadlinearticle2 {
-    font-size: 34px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: -10px
-}
-.styleleinarticle2 {
-    position: absolute;
-    bottom: 5px;
-    left: 110px;
-    color: grey
-}
-.imagearticle2 {
-    float: left;
-    margin-right: 10px;
-    height: 100px;
-    width: 100px
-}
-.styleheadlinearticle3 {
-    font-size: 30px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: 5px;
-    left: 7px
-}
-.styleleinarticle3 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle3 {
-    float: right;
-    margin-left: 10px;
-    height: 215px;
-    width: 170px
-}
-.styleheadlinearticle4 {
-    font-size: 30px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: 5px;
-    left: 7px
-}
-.styleleinarticle4 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle4 {
-    float: right;
-    margin-left: 10px;
-    height: 215px;
-    width: 170px
-}
-.styleheadlinearticle5 {
-    font-size: 24.711px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle5 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.styleheadlinearticle6 {
-    font-size: 24.711px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle6 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.styleheadlinearticle7 {
-    position: relative;
-    top: 5px;
-    left: 5px;
-    font-size: 18px;
-    font-family: Helvetica
-}
-.styleleinarticle7 {
-    position: absolute;
-    top: 80px;
-    color: grey
-}
-.imagearticle7 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 200px;
-    width: 220px
-}
-.styleheadlinearticle8 {
-    font-size: 18px;
-    font-family: Helvetica;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle8 {
-    position: absolute;
-    top: 80px;
-    color: grey
-}
-.imagearticle8 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 200px;
-    width: 220px
-}
-.styleheadlinearticle9 {
-    font-size: 30px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle9 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle9 {
-    float: left;
-    margin-right: 10px;
-    height: 100px;
-    width: 100px
-}
-.styleheadlinearticle10 {
-    font-size: 30px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle10 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle10 {
-    float: left;
-    margin-right: 10px;
-    height: 100px;
-    width: 100px
-}
-.styleheadlinearticle11 {
-    font-size: 30px;
-    font-family: HelveticaNeue;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle11 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.imagearticle10 {
-    float: left;
-    margin-right: 10px;
-    height: 100px;
-    width: 100px
-}
-.styleheadlinearticle12 {
-    font-size: 24px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle12 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.styleheadlinearticle13 {
-    font-size: 24px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle13 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.styleheadlinearticle14 {
-    font-size: 24px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle14 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.styleheadlinearticle15 {
-    font-size: 24px;
-    font-family: HelveticaNeueLTStd;
-    position: relative;
-    top: 5px;
-    left: 5px
-}
-.styleleinarticle15 {
-    position: absolute;
-    bottom: 5px;
-    color: grey
-}
-.lienenblanc {
-    color: #fff
-}
-input:focus {
-    outline: none
-}
-:focus {
-    outline: 0
-}
-.position22 {
-    position: absolute;
-    top: 100px;
-    left: 600px;
-    z-index: 8000
-}
-#getFixed {
-    padding: 10px;
-    margin: 10px;
-    z-index: 50000;
-    padding-left: 30px
-}
-.divpourlogin {
-    margin-left: 30px;
-    margin-top: 30px
-}
-.like-buttons {
-    float: left;
-    width: 150px;
-    background: #EFEFEF;
-    padding: 10px;
-    line-height: 25px;
-    text-align: center;
-    border: 1px solid #666;
-    margin-bottom: 10px
-}
-.divardetails {
-    width: 400px;
-    margin-left: 160px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid gray
-}
-.bouttonarticledetails {
-    padding-top: 30px;
-    padding-left: 190px
-}
-.ardetailsimg {
-    width: 550px;
-    height: 360px
-}
-.stylepleasewait {
-    color: #a52a2a;
-    font-family: fantasy;
-    padding-left: 10px;
-    position: relative
-}
-.loadingbutton {
-    padding-left: 100px;
-    position: relative;
-    top: -30px
-}
-.stylerubriqueeditprofile {
-    background-color: #ededed;
-    height: 53px;
-    padding-top: 14px;
-    padding-left: 10px;
-    width: 651px;
-    top: 20px
-}
-.stylepresentationrubrique {
-    background-color: #ccc;
-    width: 124px;
-    color: #000
-}
-.divedittag {
-  padding: 10px;
-  padding-left: 50px;
-  width: 400px;
-  display: none;
-  -moz-box-shadow: 10px 10px 5px 0 #656565;
-  -webkit-box-shadow: 10px 10px 5px 0 #656565;
-  -o-box-shadow: 10px 10px 5px 0 #656565;
-  box-shadow: 10px 10px 5px 0 #656565;
-  filter: progid: DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-  border: 1px #000;
-  border-style: solid;
-  background-color: #fff;
-  z-index: 10;
-  position: absolute;
-  margin-top: -15px;
-  overflow: hidden;
-  margin-left: -280px;
-  background-color: #fff;
-}
-.inputajoutcommentaire {
-    display: none;
-    background-color: #E6E6E6;
-    display: none;
-    margin-top: 20px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: 2px solid #cfcfcf; 
-    //float: right;
-}
-#rotate {
-    -webkit-transition-duration: .8s;
-    -moz-transition-duration: .8s;
-    -o-transition-duration: .8s;
-    transition-duration: .8s;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-    overflow: hidden
-}
-#rotate:hover {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg)
-}
-
-img#opacity {
-	opacity: 0.95;
-	filter: alpha(opacity=50);
-	}	
-	
-img#opacity:hover {
-	opacity: 1;
-	filter: alpha(opacity=100);
-	}
+} // pub de separation // .position10{position:absolute;left:655px;top:500px;width:300px;height:251px;z-index:8000}.position11{position:absolute;left:625px;top:600px;width:300px;height:251px;z-index:8000}.position12{position:absolute;left:625px;top:1300px;width:300px;height:251px;z-index:8000}.position13{position:absolute;left:625px;top:1650px;width:300px;height:251px;z-index:8000}.position14{position:absolute;left:655px;top:900px;width:300px;height:251px;z-index:8000}.position15{position:absolute;left:655px;top:1000px;width:300px;height:251px;z-index:8000}.SOL_dk_erFOOTER{font-size:13px;font-family:HelveticaNeueLTStd;color:#fff;line-height:1.385;text-align:left;text-shadow:0 1px 0 rgba(0,0,0,.2);position:relative;z-index:600;margin:0 0 0 70px;padding:40px 0 0}.NYHEDERKENDTE{font-size:12px;font-family:HelveticaNeueLTStd;color:#fff;line-height:3;text-align:left;text-shadow:0 1px 0 rgba(0,0,0,.2);position:relative;padding-bottom:0;padding-left:580px;padding-right:0;margin-bottom:0;margin-right:0;margin-top:-250px;z-index:717}.HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE{font-size:12px;color:#fff;font-family:HelveticaNeueLTStd;line-height:3;text-align:left;text-shadow:0 1px 0 rgba(0,0,0,.2);position:relative;height:226px;z-index:13;margin:-295px 0 0 195px;padding:40px 0 0 560px;top:25px}.Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_{font-size:12px;color:#fff;font-family:HelveticaNeueLTStd;text-transform:uppercase;line-height:3;text-align:left;text-shadow:0 1px 0 rgba(0,0,0,.2);position:relative;z-index:621;margin:-180px 0 0 400px;top:25px;padding:-300px 0 0}.Footer{margin-right:0;width:930px;cursor:default;position:relative;height:326px;background-color:#c52821;padding:10px 0 110px}#div_publicite_add{position:absolute;left:165px;top:500px;width:1000px;height:500px;z-index:6000}#div_showdetails{background-color:#FFF;position:absolute;left:350px;top:650px;width:550px;height:600px;z-index:6000}#login{background-color:#FFF;padding-top:40px;padding-left:50px;width:650px;z-index:6}#login-input,#login-inputpassword{z-index:6}.likebutton{color:#c52821;font-weight:700;background-color:transparent;padding-left:50px}.likecount{color:#000;font-weight:700;background-color:transparent;padding-left:50px}.rouge{font-size:large;color:#c52821;font-weight:700;background-color:transparent}.blacktexte{color:#000}.stylepolice{font-family:HelveticaNeueLTStd}#buttonsregistrer{z-index:6;margin-left:150px}#buttonsregistrerEditprofil{z-index:6;margin-left:180px;padding-left:125px}#buttonsregistrerpasswordprofil{left:270px;top:330px;z-index:6}#buttonannuler{color:#b41d23;float:left;font-family:Arial,Helvetica,"Nimbus Sans L",sans-serif;font-size:14px;font-weight:400;left:20px;position:relative;top:20px;text-decoration:none}.entetedeprofil{border-color:#000;left:175px;top:380px;width:651px;height:210px;margin-top:-30px;z-index:6000;border-bottom:1px solid gray}.image{position:absolute;top:0;width:152px;height:180px;z-index:6000}.donneeconnexion{top:50px;padding-right:20px;z-index:6001;position:relative;float:right}.profilcreeconfirm{position:absolute;left:175px;top:370px;width:931px;height:342px;z-index:6000}.profilcreeconfirmdiv1{position:absolute;top:80px;width:931px;height:50px;z-index:6001;background-color:#f8fef0;border:1px solid #8A0808}.profilcreeconfirmdiv2{position:absolute;top:150px;width:603px;height:50px;z-index:6001;background-color:#f8fef0;border:1px solid #2EFE2E}.profilcreeconfirmdiv3{position:absolute;top:220px;width:603px;height:190px;z-index:6001;background-color:#f8fef0;border:1px solid #2EFE2E}.nomuser{position:absolute;left:155px;top:40px;width:292px;height:180px;z-index:6000}.senestredebatt{position:absolute;left:648px;top:50px;background-color:#e0e0e0;width:280px;height:250px;z-index:6001}#usereditdetails{background-color:#FFF;position:absolute;left:340px;top:450px;width:1000px;height:500px;z-index:6}#showuserlist{background-color:#FFF;position:absolute;left:440px;top:450px;width:1000px;height:500px;z-index:6}.idfacebook{position:absolute;left:15px;top:290px;width:170px;height:50px;z-index:6001}.arstyle{position:relative;margin-left:300px}.cadreblanc{position:absolute;left:130px;top:313px;width:40px;height:20px;z-index:7001;background-color:#FFF}.SOLDK{position:absolute;left:69px;top:278px;width:67px;height:20px;z-index:7001;background-color:#FFF;font-weight:700}.stylegras{font-weight:700}.ajoutsujet{position:absolute;left:220px;top:380px;width:880px;height:590px;z-index:6001}.textfiledgrand{width:820px;height:336px}.messagealerteeditprofile{background-color:#f8fef0;border:1px solid #2EFE2E;position:absolute;left:0;top:55px;width:650px;height:40px;z-index:6000}.conteneursenestedebat{position:absolute;left:180px;top:380px;width:625px;height:600px;z-index:6000}.commentaire{position:relative;left:50px;width:800px;margin-top:30px}.black{color:#000;font-weight:700}.silver{color:silver;font-weight:700}.timestyle{color:silver;font-weight:700;padding-left:100px}.senestredebattelement{margin-left:20px;margin-right:20px;padding-top:10px;padding-bottom:10px}.senestredebattelementcompresse{margin-left:20px;margin-right:20px}.lienstyledebat{text-decoration:none;font-weight:700;color:#000;padding-left:55px}.contenudetemplate{position:relative;margin-right:215px;margin-left:207px;padding:0}.contenudebat{margin-right:10px;margin-left:10px;margin-bottom:-25px}.StartaNewTopic{position:relative;z-index:9000;padding-left:750px;padding-top:10px}.tagtitlevoirun{position:relative;text-decoration:none;font-weight:700;color:#000;float:right;padding:15px 20px -20px 400px}.Addnewcomment{text-decoration:none;font-weight:700;color:red;position:relative;margin:0 0 -30px 70px;padding:0 0 0 20px}.imageuser{border-radius:50%;width:50px;height:50px}.grandimageuser{border-radius:50%;width:100px;height:100px}.imageuserdebataveccomment{border-radius:50%;width:120px;height:120px}.paddingdebataveccomment{position:relative;margin:0;padding:30px 0 0 30px}.motrepondre{padding-left:350px}.jaimeoujaimepas{position:relative;margin:-40px 0 0;padding:0 0 0 490px}.senestredebattfrontpage{position:relative;margin-top:40px;background-color:#e0e0e0;width:296px;height:250px;z-index:6001;left:630px}.publicitenumero1{position:relative;margin-top:10px;left:627px}.publicitenumero2{position:relative;margin-top:0;left:322px;top:180px}.publicitenumero3{position:relative;top:100px;clear:right;//left:11px;float:right;left:1.5px}.publicitenumero4{position:relative;top:110px;clear:right;float:right}.publicitenumero5{position:relative;top:120px;clear:right;float:right}.publicitenumero6{position:relative;top:130px;clear:right;float:right}.publicitenumero7{position:relative;top:140px;clear:right;float:right}.publicitenumero8{position:relative;top:150px;clear:right;float:right}.articleposition1{position:absolute;width:630px;height:250px}.articleposition2{position:absolute;width:630px;height:100px;top:267px}.articleposition3{position:absolute;width:315px;height:215px;top:385px}.articleposition4{position:absolute;width:313px;height:215px;top:385px;left:315px}.articleposition5{position:absolute;width:160px;height:146px;top:800px}.articleposition6{position:absolute;width:160px;height:145px;top:952px}.articleposition7{position:absolute;width:220px;height:298px;top:801px;left:170px}.articleposition8{position:absolute;width:220px;height:298px;top:801px;left:400px}.articleposition9{position:absolute;width:630px;height:100px;top:1120px}.articleposition10{position:absolute;width:630px;height:100px;top:1250px}.articleposition11{position:absolute;width:630px;height:100px;top:1380px}.articlepositionA{position:absolute;width:310px;height:310px;top:1505px;background-color:#e0e0e0}.articlepositionB{position:absolute;width:310px;height:310px;top:1505px;left:314px;background-color:#e0e0e0}.articleposition12{position:absolute;width:315px;height:103px;top:1825px;left:5px}.articleposition13{position:absolute;width:315px;height:103px;top:1825px;left:322px}.articleposition14{position:absolute;width:315px;height:102px;top:1932px;left:5px}.articleposition15{position:absolute;width:315px;height:102px;top:1932px;left:322px}.bordurearticle{padding:4px;margin-bottom:-12px}.stylecontenudebat{font-size:13px;line-height:34px;font-family:helvetica;font-weight:700;color:#000}div.ui-dialog-buttonpane button.cancel{background:0 0;border:0;color:red}.commentassoci{padding:50px;width:850px}.btn-annuler{background-color:transparent;border:0;color:#c52821}.lienOpretnydebatLaesdebat{margin-left:4px;font-size:11px;font-weight:400;font-family:helvetica}.contenucommentaireparent{border-color:red;padding-left:50px}.contenucommentairefils{border-color:red;padding-left:80px}.nouveaucommentaire{border-color:red;padding-left:50px}.inputnouveaucommentaire{margin-left:50px;width:700px;height:100px}.deletecommentaire{color:#c52821;font-weight:700;background-color:transparent;padding-left:50px}.stylepourchaquedebat{width:620px;height:170px}.stylepourchaquedebat:hover{background-color:#F2F2F2}.styleheadlinearticle1{font-size:34px;font-family:HelveticaNeueLTStd}.styleleinarticle1{position:absolute;bottom:5px;color:grey}.imagearticle1{float:left;margin-right:10px;height:250px;width:430px}.styleheadlinearticle2{font-size:34px;font-family:HelveticaNeue;position:relative;top:-10px}.styleleinarticle2{position:absolute;bottom:5px;left:110px;color:grey}.imagearticle2{float:left;margin-right:10px;height:100px;width:100px}.styleheadlinearticle3{font-size:30px;font-family:HelveticaNeue;position:relative;top:5px;left:7px}.styleleinarticle3{position:absolute;bottom:5px;color:grey}.imagearticle3{float:right;margin-left:10px;height:215px;width:170px}.styleheadlinearticle4{font-size:30px;font-family:HelveticaNeue;position:relative;top:5px;left:7px}.styleleinarticle4{position:absolute;bottom:5px;color:grey}.imagearticle4{float:right;margin-left:10px;height:215px;width:170px}.styleheadlinearticle5{font-size:24.71px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle5{position:absolute;bottom:5px;color:grey}.styleheadlinearticle6{font-size:24.71px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle6{position:absolute;bottom:5px;color:grey}.styleheadlinearticle7{position:relative;top:5px;left:5px;font-size:18px;font-family:Helvetica}.styleleinarticle7{position:absolute;top:80px;color:grey}.imagearticle7{position:absolute;bottom:0;right:0;height:200px;width:220px}.styleheadlinearticle8{font-size:18px;font-family:Helvetica;position:relative;top:5px;left:5px}.styleleinarticle8{position:absolute;top:80px;color:grey}.imagearticle8{position:absolute;bottom:0;right:0;height:200px;width:220px}.styleheadlinearticle9{font-size:30px;font-family:HelveticaNeue;position:relative;top:5px;left:5px}.styleleinarticle9{position:absolute;bottom:5px;color:grey}.imagearticle9{float:left;margin-right:10px;height:100px;width:100px}.styleheadlinearticle10{font-size:30px;font-family:HelveticaNeue;position:relative;top:5px;left:5px}.styleleinarticle10{position:absolute;bottom:5px;color:grey}.styleheadlinearticle11{font-size:30px;font-family:HelveticaNeue;position:relative;top:5px;left:5px}.styleleinarticle11{position:absolute;bottom:5px;color:grey}.imagearticle10{float:left;margin-right:10px;height:100px;width:100px}.styleheadlinearticle12{font-size:24px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle12{position:absolute;bottom:5px;color:grey}.styleheadlinearticle13{font-size:24px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle13{position:absolute;bottom:5px;color:grey}.styleheadlinearticle14{font-size:24px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle14{position:absolute;bottom:5px;color:grey}.styleheadlinearticle15{font-size:24px;font-family:HelveticaNeueLTStd;position:relative;top:5px;left:5px}.styleleinarticle15{position:absolute;bottom:5px;color:grey}.lienenblanc{color:#fff}:focus,input:focus{outline:0}.position22{position:absolute;top:100px;left:600px;z-index:8000}#getFixed{padding:10px 10px 10px 30px;margin:10px;z-index:50000}.divpourlogin{margin-left:30px;margin-top:30px}.like-buttons{float:left;width:150px;background:#EFEFEF;padding:10px;line-height:25px;text-align:center;border:1px solid #666;margin-bottom:10px}.divardetails{width:400px;margin-left:160px;padding-bottom:30px;border-bottom:2px solid gray}.bouttonarticledetails{padding-top:30px;padding-left:190px}.ardetailsimg{width:550px;height:360px}.stylepleasewait{color:brown;font-family:fantasy;padding-left:10px;position:relative}.loadingbutton{padding-left:100px;position:relative;top:-30px}.stylerubriqueeditprofile{background-color:#ededed;height:53px;padding-top:14px;padding-left:10px;width:651px;top:20px}.stylepresentationrubrique{background-color:#ccc;width:124px;color:#000}.divedittag{padding:10px 10px 10px 50px;width:400px;display:none;-moz-box-shadow:10px 10px 5px 0 #656565;-webkit-box-shadow:10px 10px 5px 0 #656565;-o-box-shadow:10px 10px 5px 0 #656565;box-shadow:10px 10px 5px 0 #656565;filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);border:1px #000;border-style:solid;z-index:10;position:absolute;margin-top:15px;overflow:hidden;margin-left:-200px;background-color:#fff}.inputajoutcommentaire{background-color:#E6E6E6;display:none;margin-top:20px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;border:2px solid #cfcfcf;//float:right;max-width:680px}#rotate{-webkit-transition-duration:.8s;-moz-transition-duration:.8s;-o-transition-duration:.8s;transition-duration:.8s;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;transition-property:transform;overflow:hidden}#rotate:hover{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg)}img#opacity{opacity:.95;filter:alpha(opacity=50)}img#opacity:hover{opacity:1;filter:alpha(opacity=100)}#toTop{display:none;text-decoration:none;position:fixed;bottom:20px;right:20px;overflow:hidden;width:51px;height:51px;border:none;text-indent:-999px;background-image:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png);background-repeat:no-repeat;background-position:left top;z-index:900000}#toTopHover{background:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png) left -51px no-repeat;width:51px;height:51px;display:block;overflow:hidden;float:left;opacity:0;-moz-opacity:0;filter:alpha(opacity=0)}#toTop:active,#toTop:focus{outline:0}.force-overflow{min-height:450px}#style-2::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);border-radius:10px;background-color:#F5F5F5}#style-2::-webkit-scrollbar{width:12px;background-color:#F5F5F5}#style-2::-webkit-scrollbar-thumb{border-radius:10px;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);background-color:#D62929}#taillepolicefooter{font-size:11px}.tool{//border:1px solid red;width:402px;height:86px;background-color:#FFF}.stylebuttonpartageetrss{width:170px;height:150px;top:150px;position:absolute;left:25px}.couleurnoir{color:#000}.imgavecbordureronde{border:1px solid;background:#ddd;border-radius:1em}

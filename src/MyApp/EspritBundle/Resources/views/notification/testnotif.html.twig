@@ -2,28 +2,26 @@
 {% if is_granted( 'ROLE_USER' ) %}
  
  <link href="{{ asset('bundles/myappesprit/css/notif/stylenotif.css') }}" rel="stylesheet" type="text/css" media="screen" /> 
- {#<link rel='stylesheet prefetch' href='http://cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css'> 
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>#}
+ 
   <script src="{{ asset('bundles/myappesprit/css/notif/jquery.js') }}" type="text/javascript"></script> 
 <script src="{{ asset('bundles/myappesprit/css/notif/index.js') }}" type="text/javascript"></script>
-  <link  href="{{ asset('bundles/myappesprit/css/notif/foundation.min.css') }}" rel="stylesheet" type="text/css" media="screen"/> 
- <script src="{{ asset('bundles/myappesprit/css/notif/modernizr.js') }}" type="text/javascript"></script>  
-<script src="{{ asset('bundles/myappesprit/css/notif/prefixfree.min.js') }}" type="text/javascript"></script>
+ 
 
 
  
 
  
 <div class="contain" style="position: absolute;left: 200px;top: -40px;">  
-<a href="#" class="button notificationicon on" style="" id="cerclenotifcercle">{{numberNotif|join}}</a>    
+<a href="#" class="button notificationicon on" id="notifid"> </a> 
+     
     
-    <ul id="notificationMenu" class="notifications" style="left: 660px;top: 50px;position: fixed;">
+    <ul id="notificationMenu" class="notifications" style="left: 630px;top: 50px;position: fixed;">
       <li class="titlebar">
         <span class="title">Notifications</span>
         <span class="settings"><i class="icon-cog"></i>
         </span>
       </li>
-      <div class="notifbox" style="">
+      <div class="notifbox" class="scrollbar" id="style-2">
            {{ render(controller('MyAppEspritBundle:notification:showall')) }} {# pour afficher notif number #}
       </div>
       <li class="seeall">

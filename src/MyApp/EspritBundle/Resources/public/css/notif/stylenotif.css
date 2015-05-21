@@ -13,7 +13,7 @@
     z-index: 500000
 }
 .notificationicon:hover {
-    background: rgba(0, 0, 0, 0.5)
+    background: rgba(0, 0, 0, .5)
 }
 .notificationicon:hover i {
     color: #fff
@@ -29,10 +29,9 @@
     padding: 0;
     box-shadow: 0 0 20px #666;
     position: absolute;
-    opacity: 1;
     transition: .2s;
     opacity: 0;
-    left: 100px;
+    left: 100px
 }
 .notifications:before {
     content: '';
@@ -51,7 +50,7 @@
     z-index: 500000;
     left: 664px;
     top: 50px;
-    position: fixed;
+    position: fixed
 }
 .notifications li {
     padding: 5px;
@@ -90,12 +89,9 @@
     padding-top: 8px
 }
 .notifications .notifbox {
-    max-height: 300px;
-    /*overflow:auto*/
+    max-height: 300px
 }
-.notifications .notifbox li {
-    color: #666
-}
+.notifications .notifbox li,
 .notifications .notifbox li a {
     color: #666
 }
@@ -135,8 +131,8 @@
     font-weight: 400;
     text-transform: uppercase
 }
-.notifications .notifbox li.notif .messageblock .messageaction .button.success,
-.notifications .notifbox li.notif .messageblock .messageaction .button.alert {
+.notifications .notifbox li.notif .messageblock .messageaction .button.alert,
+.notifications .notifbox li.notif .messageblock .messageaction .button.success {
     color: #fff
 }
 .notifications .notifbox li.notif .messageblock .messageinfo {
@@ -151,9 +147,8 @@
 .notifbox {
     overflow-y: scroll;
     height: 200px;
-    width: 295px;
+    width: 295px
 }
-
 .cerclenotif {
     font-size: 14px;
     color: #fff;
@@ -163,13 +158,28 @@
     -moz-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -webkit-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
     -ms-transform: matrix(1.35990046957245, 0, 0, 1.35990046957246, 0, 0);
-    position: absolute;
-    left: 809px;
+   // left: 779px;
+   left: 595px;
     top: 20.6px;
     z-index: 54400000;
     position: fixed
 }
-#cerclenotifcercle{
-    left: 800px;top: 17px;/*background-color: transparent;*/position: fixed;
-    width: 25px;height: 25px;border-radius: 50px;background-color: #ee3737;
+#cerclenotifcercle {
+    left: 800px;
+    top: 17px;
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: #ee3737
+}
+#notifid {
+   // left: 770px;
+   left: 587px;
+    top: 17px;
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: #ee3737
 }

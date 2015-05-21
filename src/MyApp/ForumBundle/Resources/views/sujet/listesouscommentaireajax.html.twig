@@ -1,5 +1,7 @@
-{# empty Twig template #}
+ 
 
+
+{% if souscommentaire is not null%}
 
             {% if souscommentaire.user.path is not null  %} 
 
@@ -43,16 +45,17 @@
                 </script>
 &nbsp;&nbsp;&nbsp;&nbsp;   
  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-<a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"style="text-decoration:none;cursor:pointer;" class="deletecommentaire">delete</a> 
+<a href="{#{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }#}"style="text-decoration:none;cursor:pointer;" id="deletesouscommentaire{{souscommentaire.id}}" class="deletecommentaire">delete</a> 
   {%endif%}
-
-
-
-
 <div class="editsouscommentaire{{souscommentaire.id}}" id="divinputtohide">
-      {{ render(controller('MyAppForumBundle:commentaire:editsouscomment', {'id': souscommentaire.id})) }}
+      {#{ render(controller('MyAppForumBundle:commentaire:editsouscomment', {'id': souscommentaire.id})) }#}
 </div>
-
+<script type="text/javascript">
+    $("a#deletesouscommentaire{{souscommentaire.id}}").click(function() {
+        $("div.SousCommentAVECAJAX{{commentaireid}}").hide();/*to hide all other input add or edit */
+ 
+    });
+</script>
 
 <style type="text/css">
     div.souscommentairesdetails{   padding-left: 50px;padding-top: 10px;} 
@@ -70,3 +73,8 @@
     }
     div.editsouscommentaire{{souscommentaire.id}}{display: none;}
 </style>
+
+
+{%endif%}
+
+ 

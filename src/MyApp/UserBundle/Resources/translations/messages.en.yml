@@ -14,10 +14,11 @@ welcomesol: Vekommen til SOL.dk ......
 MONPROLFILE: Min profil
 changprofil: Gim profil
 creeprofile: OPRET PROFIL
+cree_profile: Opret Profil
 voirprofile : MIN PROFIL
 seconnecter: LOG IND
 logout: LOG UID
-
+Jacceptelestermes: Jeg accepterer betingelserne
 Ajoutdestyle: Tilføjer Stil
 
 changpass: Skift adgangskode
@@ -28,7 +29,8 @@ talifoun: Cellphone Antal
 About Me: Om Mig
 nometprenom: Navn Efternavn
 Datenaissance: Fødselsdag
-
+nomuser: Brugernavn
+captcha: Skriv bogstaverne
 debatmesleast: MEST LÆSTE DEBATTER
 SENESTENYHEDER: SENESTE NYHEDER
 Opretdebat: Opret ny debat 
@@ -38,3 +40,15 @@ notifpourcomment: Du skal være logget ind for at kommentere
 
 etabli: Oprettet
 Sidstonline: Sidst online
+Gem: Gem
+
+mdpactuel: Nuværende adgangskode
+nouveaumdp: Ny adgangskode 
+repeatnouveaumdp: Gentag adgangskode
+Changermotdepasse: Skift adgangskode
+
+like: jeg kan lide
+Add new comment: Tilføj ny kommentar
+repondrecommentaire: svaret kommentar
+modifier: ændring
+delete: fjerne

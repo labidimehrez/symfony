@@ -52,3 +52,5 @@ rn_phototekbundle_ajax:
   pattern: /newFormAjax
   defaults: { _controller: MyAppEspritBundle:Default:newFormAjax }
  
+ 
+ 
