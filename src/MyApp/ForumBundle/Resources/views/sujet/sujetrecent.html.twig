@@ -15,7 +15,7 @@
 
 <div class="contenudetemplate" id="getFixedTemplate">
     <div class="senestredebatt">
-        </br> <center><b class="rouge">{#Most Used Tag#}{{'Most Used Tag'|trans}}</b></center></br>
+        </br> <center><b class="rouge" >{#Most Used Tag#}{{'Most Used Tag'|trans}}</b></center></br>
 
                 {% for mostusedtag in mostusedtag %}
 
@@ -35,7 +35,9 @@
 
 
     <div  class="StartaNewTopic">
-        <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg"> {{'Start a New Topic'|trans}}{#Start a New Topic#}</a>  
+        <a href="{{path('my_app_forum_sujet_add') }}" class="btn btn-warning btn-lg">
+             {{'Start a New Topic'|trans}}{#Start a New Topic#}
+        </a>  
     </div>
 
 
@@ -125,7 +127,8 @@
         </br>
 
         <a href="{{ path('my_app_forum_sujet_voir',{'id':sujet.id}) }}"  class="lienstyledebat" >
-        {{sujet.sujet}}</a> 
+                 {{sujet.sujet|truncate(55, true, '...')}}
+        </a> 
 
 
         </br>
@@ -141,7 +144,7 @@
 
 
         </br>
-        &nbsp;&nbsp;&nbsp;&nbsp;   <b>{{(tag[sujet.id]|join(' , '))}} </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;   <b style="  font-size: 12px;">{{(tag[sujet.id]|join(' , '))}} </b>
         
           <div class="tooltipfinal{{sujet.id}}" id="tooltipid">
                     <div class="profilusername">{{sujet.user.username|capitalize }}</div>
