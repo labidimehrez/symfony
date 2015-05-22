@@ -9,14 +9,14 @@
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.10.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('bundles/myappesprit/js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappforum/css/style.css') }}"/>        
+     
 
 <div class="contenudetemplate" id="getFixedTemplate">
     <div class="paddingdebataveccomment">
 
         </br> 
 
-     {% if sujet.user is not null %}
+      {% if sujet.user is not null %}
                 {% if sujet.user.path is not null  %}
 
                             {%if "http" in sujet.user.path %}
@@ -29,7 +29,7 @@
                 {% endif%}
 
         &nbsp;&nbsp;&nbsp;
-        <b style="color: black" >{{sujet.user.username|capitalize}}</b>
+        <b class="blacktexte" >{{sujet.user.username|capitalize}}</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -37,13 +37,6 @@
 
 
         <b>{{commentCount}}</b>
-
-        {# commen COUNT AJAX } 
-        <div class="CountComment">
-                {% include 'MyAppForumBundle:sujet:commentcount.html.twig'%} 
-        </div> 
-        { commen COUNT AJAX #}
-
 
         </br> 
 

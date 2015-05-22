@@ -27,7 +27,7 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
-        $commentaires = "a";
+        $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
         if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {

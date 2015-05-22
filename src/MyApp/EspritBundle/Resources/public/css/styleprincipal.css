@@ -982,6 +982,7 @@
     height: 192px;
     z-index: 104
 }
+/*
 ._300x250_copy_2 {
     background-image: url("300x250 copy 2.png");
     position: absolute;
@@ -990,7 +991,7 @@
     width: 300px;
     height: 250px;
     z-index: 102
-}
+}*/
 .REKLAME_1 {
     position: absolute;
     left: 805px;
@@ -1011,7 +1012,7 @@
     left: 805px;
     top: 910px;
     z-index: 95
-}
+}/*
 ._300x60 {
     background-image: url(300x60.png);
     position: absolute;
@@ -1020,7 +1021,7 @@
     width: 300px;
     height: 60px;
     z-index: 88
-}
+}*/
 .HOROSKOP {
     position: absolute;
     left: 805px;
@@ -1096,7 +1097,7 @@
     width: 300px;
     height: 190px;
     z-index: 81
-}
+}/*
 ._200x190 {
     background-image: url(200x190.png);
     position: absolute;
@@ -1105,7 +1106,7 @@
     width: 300px;
     height: 190px;
     z-index: 80
-}
+}*/
 .REKLAME_2 {
     position: absolute;
     left: 0;
@@ -1144,7 +1145,7 @@
     width: 930px;
     height: 180px;
     z-index: 72
-}
+}/*
 ._728x90 {
     background-image: url(728x90.png);
     position: absolute;
@@ -1153,7 +1154,7 @@
     width: 728px;
     height: 90px;
     z-index: 71
-}
+}*/
 .VEJRET {
     position: absolute;
     left: 805px;
@@ -1222,7 +1223,7 @@
     left: 490px;
     top: 1940px;
     z-index: 54
-}
+}/*
 ._310x310 {
     background-image: url(310x310.png);
     position: absolute;
@@ -1231,13 +1232,13 @@
     width: 310px;
     height: 310px;
     z-index: 50
-}
+}*/
 .TVGUIDE {
     position: absolute;
     left: 805px;
     top: 2210px;
     z-index: 48
-}
+}/*
 ._1_copy_3 {
     position: absolute;
     left: 0;
@@ -1270,7 +1271,7 @@
     width: 295px;
     height: 250px;
     z-index: 25
-}
+}*/
 .LEFT {
     position: absolute;
     left: 0;
@@ -1317,7 +1318,7 @@
     left: 0;
     top: 0;
     z-index: 14
-}
+}/*
 ._______________________________________________ {
     font-size: 11px;
     font-family: Georgia;
@@ -1329,7 +1330,7 @@
     left: 912px;
     top: 2552.19px;
     z-index: 12
-}
+}*/
 .SKYBANNERS {
     position: absolute;
     left: 0;
@@ -1628,7 +1629,7 @@
     left: 116px;
     top: 1950px;
     z-index: 560
-}
+}/*
 .I_Israel_nasser {
     font-size: 13px;
     font-family: Helvetica;
@@ -1643,7 +1644,7 @@
     width: 287px;
     height: 230px;
     z-index: 559
-}
+}*/
 .tiret {
     font-size: 11px;
     font-family: Georgia;
@@ -1900,7 +1901,7 @@
     left: 819px;
     top: 457.19px;
     z-index: 703
-}
+}/*
 .danske {
     font-size: 24px;
     font-family: HelveticaNeueLTStd;
@@ -2152,7 +2153,7 @@
     left: 891.08px;
     top: 2413.5px;
     z-index: 545
-}
+}*/
 .position0 {
     position: absolute;
     left: 207px;
@@ -2203,7 +2204,8 @@
 }
 .position6 {
     position: absolute;
-    left: 1185px;
+    //left: 1185px;
+    left: 1188px;
     top: 380px;
     width: 160px;
     height: 600px;
@@ -2298,7 +2300,7 @@
     margin-right: 0;
     margin-top: -250px;
     z-index: 717
-}
+} 
 .HOROSKOPER_TV_GUIDE_BACKUP_SHOP_KONKURRENCER_VE {
     font-size: 12px;
     color: #fff;
@@ -2312,7 +2314,7 @@
     margin: -295px 0 0 195px;
     padding: 40px 0 0 560px;
     top: 25px
-}
+} 
 .Om_SOL_Annoncering_Kontakt_os_Hjalp_og_Support_ {
     font-size: 12px;
     color: #fff;
@@ -2694,32 +2696,32 @@
     top: 180px
 }
 .publicitenumero3 {
-   /* position: relative;
+    /* position: relative;
+     top: 100px;
+     clear: right;    
+     float:right;left:1.5px*/
+    position: relative;
     top: 100px;
-    clear: right;    
-    float:right;left:1.5px*/
-   position: relative;
-  top: 100px;
-  clear: right;
+    clear: right;
 }
 
 .publicitenumero4 {
     position: relative;
-      left: 3px;
+    left: 3px;
     top: 110px;
     clear: right;
     float: right
 }
 .publicitenumero5 {
     position: relative;
-      left: 3px;
+    left: 3px;
     top: 120px;
     clear: right;
     float: right
 }
 .publicitenumero6 {
     position: relative;
-      left: 3px;
+    left: 3px;
     top: 130px;
     clear: right;
     float: right
@@ -3235,10 +3237,16 @@ input:focus {
 .inputajoutcommentaire {
     background-color: #E6E6E6;
     display: none;
+    width: 700px;
     margin-top: 20px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     border: 2px solid #cfcfcf;
+}
+
+.bouttonnouveaucommentaire{
+    color: #c52821;
+    font-weight: bold;
 }
 //float:right;max-width:680px}#rotate{-webkit-transition-duration:.8s;-moz-transition-duration:.8s;-o-transition-duration:.8s;transition-duration:.8s;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;transition-property:transform;overflow:hidden}#rotate:hover{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg)}img#opacity{opacity:.95;filter:alpha(opacity=50)}img#opacity:hover{opacity:1;filter:alpha(opacity=100)}#toTop{display:none;text-decoration:none;position:fixed;bottom:20px;right:20px;overflow:hidden;width:51px;height:51px;border:none;text-indent:-999px;background-image:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png);background-repeat:no-repeat;background-position:left top;z-index:900000}#toTopHover{background:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png) left -51px no-repeat;width:51px;height:51px;display:block;overflow:hidden;float:left;opacity:0;-moz-opacity:0;filter:alpha(opacity=0)}#toTop:active,#toTop:focus{outline:0}.force-overflow{min-height:450px}#style-2::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);border-radius:10px;background-color:#F5F5F5}#style-2::-webkit-scrollbar{width:12px;background-color:#F5F5F5}#style-2::-webkit-scrollbar-thumb{border-radius:10px;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);background-color:#D62929}#taillepolicefooter{font-size:11px}.tool{//border:1px solid red;width:402px;height:86px;background-color:#FFF}.stylebuttonpartageetrss{width:170px;height:150px;top:150px;position:absolute;left:25px}.couleurnoir{color:#000}.imgavecbordureronde{border:1px solid;background:#ddd;border-radius:1em}
