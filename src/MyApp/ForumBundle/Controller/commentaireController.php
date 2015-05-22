@@ -88,7 +88,7 @@ class commentaireController extends Controller {
         $request = $this->getRequest();
         /*         * *** */
        
-        if ($request->isXmlHttpRequest()) {
+        /*if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
@@ -98,16 +98,16 @@ class commentaireController extends Controller {
                 $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
-                $userConcerned = $sujet->getUser()->getId(); /// id int du user qui a ecrit le sujet         
+                $userConcerned = $sujet->getUser()->getId();        
                 $notif = new notification();
-                $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
+                $manager = $this->get('collectify_notification_manager');  
                 $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
-                /* il faut ajouter le user concerné par la notif */
+              
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'
                  ,array('souscommentaire' => $commentaire ));
                
                     }
-                }
+                }*/
 
         /*         * ** */
         if ($request->isMethod('Post')) {
@@ -152,9 +152,9 @@ class commentaireController extends Controller {
             $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
             if ($souscommentaire != NULL) {
                 foreach ($souscommentaire as $s) {
-                    $em->remove($s);
-                    $em->flush();
-                }
+                    $em->remove($s);  $em->flush(); }
+                  
+               
             }
 
 

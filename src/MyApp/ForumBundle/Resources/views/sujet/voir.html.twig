@@ -16,17 +16,17 @@
 
         </br> 
 
-{% if sujet.user is not null %}
-{% if sujet.user.path is not null  %}
+     {% if sujet.user is not null %}
+                {% if sujet.user.path is not null  %}
 
-            {%if "http" in sujet.user.path %}
-        <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt=""   />  
-             {%else%}
-        <img src="{{ asset('upload/' ~ sujet.user.path)}}"  class="imageuserdebataveccomment" alt="" />
-            {%endif%}
-{% else %}
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"    class="imageuserdebataveccomment" alt=""  />  
-{% endif%}
+                            {%if "http" in sujet.user.path %}
+                                        <img src="{{sujet.user.path }}"  class="imageuserdebataveccomment" alt=""   />  
+                             {%else%}
+                                        <img src="{{ asset('upload/' ~ sujet.user.path)}}"  class="imageuserdebataveccomment" alt="" />
+                            {%endif%}
+                {% else %}
+                        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"    class="imageuserdebataveccomment" alt=""  />  
+                {% endif%}
 
         &nbsp;&nbsp;&nbsp;
         <b style="color: black" >{{sujet.user.username|capitalize}}</b>
@@ -47,7 +47,7 @@
 
         </br> 
 
-{% else%}
+   {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuserdebataveccomment"alt="" /> 
 
@@ -58,17 +58,17 @@
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
 
  {% endif%}       
-        <div style="  width: 800px;">
-            <b style="color: black;  padding-left: 130px;"> 
-                <FONT size="5px;"> {{sujet.sujet}}</FONT>
-            </b>
-        </div>
+                <div style="width: 800px;">
+                    <b style="  color: black;  position: relative;top: 10px;"> 
+                        <FONT size="5px;"> {{sujet.sujet}}</FONT>
+                    </b>
+                </div>
         <!----------------------------------------------------------------------------------------------------------------------------------->
         <div class="contenutopic">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-         {{sujet.contenu|Contenu|raw }}   </br>  
-    {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">{{'Add new comment'|trans}}</a>  
-    {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment">{{'Add new comment'|trans}}</a> {%endif%}
+           {{sujet.contenu|Contenu|raw }}   </br>  
+            {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">{{'Add new comment'|trans}}</a>  
+            {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment">{{'Add new comment'|trans}}</a> {%endif%}
             <script type="text/javascript">
                 $("a.bouttonnouveaucommentaire").click(function() {
                     $("div#divinputtohide").hide();
@@ -77,37 +77,37 @@
             </script>
                  {% include 'MyAppForumBundle:sujet/fragment:divedittag.html.twig'%} 
         </div>
-        <!---------------------------------------------------------------------------------------------------------------------------------->
+         
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <div class="inputajoutcommentaire" id="divinputtohide" style="  overflow: hidden;  position: relative;  display: none;  left: 80px;">
 
                 {% if app.user.path is not null  %} 
 
 
-	 {%if "http" in app.user.path %}
-            <img src="{{app.user.path }}"   class="imageuser" alt="" />
-	 {%else%}
-            <img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
-	 {%endif%}
+                             {%if "http" in app.user.path %}
+                                    <img src="{{app.user.path }}"   class="imageuser" alt="" />
+                             {%else%}
+                                    <img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
+                             {%endif%}
 
 
 
-            {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+                 {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-            {% if is_granted( 'ROLE_USER' ) %} 
-                {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
-            {%endif%}
+                            {% if is_granted( 'ROLE_USER' ) %} 
+                                        {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
+                            {%endif%}
 
 
 
         </div>  
         <!---------------------------------------------------------------------------------------------------------------------------------->
-        <!--   ce div pour nouveau comment ajax -->  
-        <div class="nouveaucommentaireafficher">
-             {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
-        </div>   
-        <!--  ce div pour nouveau comment ajax -->
+                                        <!--   ce div pour nouveau comment ajax -->  
+                                        <div class="nouveaucommentaireafficher">
+                                             {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
+                                        </div>   
+                                        <!--  ce div pour nouveau comment ajax -->
 
         <!---------------------------------------------------------------------------------------------------------------------------------->
 
@@ -154,14 +154,11 @@
 
                 <style type="text/css">
                     a.bouttonsousnouveaucommentaire{{commentaireid}}{
-                        color: #c52821;
-                        font-weight: bold;
-                        text-decoration:none;                       
-                    }
+                        color: #c52821; font-weight: bold; text-decoration:none;  }
                 </style> 
 
                  {% if is_granted( 'ROLE_USER' ) %}            
-                <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>
+                  <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>
                   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">{{'repondrecommentaire'|trans}}</a>{%endif%}  
 
                     <!-------------------------------------------------------------------------------->
@@ -212,8 +209,8 @@
 
                 <!---------------------------------------------------------------------------------------------------------------------------------->              
                   {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
-                {%endif%}
+                     <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
+                  {%endif%}
                 &nbsp;&nbsp;&nbsp;&nbsp; 
                
 
@@ -289,9 +286,9 @@
                                  {%endif%}
                              {%endfor%}
                     
-                            <div class="SousCommentAVECAJAX{{commentaireid}}" >
+                            {#<div class="SousCommentAVECAJAX{{commentaireid}}" >
                              {% include 'MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'%} 
-                            </div>
+                            </div>#}
                 </div>
 
 
@@ -299,36 +296,25 @@
                 </br> 
             </div>
 
-            <!-- pour cacher les commentaires en doublons -->      
-            <script type="text/javascript">
-                if ($('#commentparentajax{{commentaireid}}').is(':visible')) {
-                    $('#commentparentNOajax{{commentaireid}}').hide();
-                } 
-                
-           
-            </script>   
-            <!-- pour cacher les commentaires en doublons -->  
+                    <!-- pour cacher les commentaires en doublons -->      
+                    <script type="text/javascript">
+                       /* if ($('#commentparentajax{{commentaireid}}').is(':visible')) {
+                            $('#commentparentNOajax{{commentaireid}}').hide();
+                        } */
+                    </script>   
+                    <!-- pour cacher les commentaires en doublons -->  
 
 
 
-          {%endif%} {% endfor%} 
+          {%endif%} 
+          {% endfor%} 
 
 
         </div>
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <!--  fin affichage des commentaires -->
 
-
-
-
-
-
         <br>
-
-
-
-
-
     </div> 
 
 
@@ -336,12 +322,12 @@
     <!---------------------------------------------------------------------------------------------------------------------------------->
     {% include   'MyAppForumBundle:sujet/fragment:socialnetwork.html.twig'%} 
     <!---------------------------------------------------------------------------------------------------------------------------------->
-    <div style="padding-top: 70px;"> 
-        <div style="  margin-top: -20px; margin-bottom: 20px;">
-                                        {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
-        </div>
+                     <div style="padding-top: 70px;"> 
+                            <div style="  margin-top: -20px; margin-bottom: 20px;">
+                                                            {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                            </div>
                                    {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
-    </div>
+                     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
 </div>
 
@@ -349,33 +335,31 @@
             {% include   'MyAppForumBundle:sujet/fragment:tooltippournonconnecte.html.twig'%} 
             {# tooltip non conncté #}
 
-{### ajout commentaire ajax ##}
-
-{#<script src="{{ asset('bundles/myappesprit/js/jqueryajax.min.js') }}" type="text/javascript"></script>#}
+ 
 <script type="text/javascript">
             function CKupdate() { for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement(); }  
-    $(function() {
-        $("#formcomment").submit(function(e) {
-            CKupdate();// On sélectionne le formulaire par son identifiant
-            e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
-          //  $(".loadingbutton").delay(500).fadeIn(500);
-          //  $(".loadingbutton").delay(500).fadeOut(0);
-          $(".loadingbutton").show();
-            $.ajax({
-                type: 'post',
-                url: Routing.generate('my_app_forum_commentaire_add'),
-                data: $(this).serialize(),
-                datatype: "json",
-                cache: false,
-                success: function(data)
-                {   $(".loadingbutton").hide();
-                    $('.nouveaucommentaireafficher').html(data);
-                    $(".inputajoutcommentaire").hide();                     
-                }
+            $(function() {
+                $("#formcomment").submit(function(e) {
+                    CKupdate();// On sélectionne le formulaire par son identifiant
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                  //  $(".loadingbutton").delay(500).fadeIn(500);
+                  //  $(".loadingbutton").delay(500).fadeOut(0);
+                  $(".loadingbutton").show();
+                    $.ajax({
+                        type: 'post',
+                        url: Routing.generate('my_app_forum_commentaire_add'),
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {   $(".loadingbutton").hide();
+                            $('.nouveaucommentaireafficher').html(data);
+                            $(".inputajoutcommentaire").hide();                     
+                        }
+                    });
+                    return false;
+                });
             });
-            return false;
-        });
-    });
 </script>
 
 <script type="text/javascript">$(document).ready(function() { });</script>

@@ -17,17 +17,13 @@
 
             {% if commentaire.user.path is not null  %} 
 
-            {%if "http" in commentaire.user.path %}
-        <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
-             {%else%}
-        <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
-            {%endif%}
+                    {%if "http" in commentaire.user.path %}
+                                <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+                     {%else%}
+                                 <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+                    {%endif%}
 
-
-
-
-
-              {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+           {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
         <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
@@ -35,11 +31,11 @@
 
 
             {% if commentaire.vote  is not null %}
-        <b class="likecount" style="cursor:pointer;">
-            <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
-            &nbsp;{{commentaire.vote}} </b>
+                    <b class="likecount" style="cursor:pointer;">
+                    <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                    &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
-        </br>   {{commentaire.texte|raw }}  </br> 
+                    </br>   {{commentaire.texte|raw }}  </br> 
 
 
 
@@ -48,11 +44,7 @@
 
 
         <style type="text/css">
-            a.bouttonsousnouveaucommentaireajax{{commentaireid}}{
-                color: #c52821;
-                font-weight: bold;
-                text-decoration:none;                       
-            }
+            a.bouttonsousnouveaucommentaireajax{{commentaireid}}{color: #c52821;font-weight: bold;text-decoration:none; }                 
         </style> 
 
 
@@ -135,9 +127,7 @@
 
 
         <style type="text/css">
-            div.inputeditcommentaire{{commentaireid}}{display: none;}
-        </style>
-        <style type="text/css">
+            div.inputeditcommentaire{{commentaireid}}{display: none;} 
             div.threadcontent{{commentaireid}}{display: none;}
         </style>
         <div class="threadcontent{{commentaireid}}">
@@ -149,9 +139,9 @@
              {%endif%}
             </div>     
 
-                    <div class="SousCommentAVECAJAX{{commentaireid}}" >
+                   {# <div class="SousCommentAVECAJAX{{commentaireid}}" >
                      {% include 'MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'%} 
-                    </div>
+                    </div>#}
         </div>
 
 

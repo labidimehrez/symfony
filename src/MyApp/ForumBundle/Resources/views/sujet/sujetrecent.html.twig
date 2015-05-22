@@ -1,13 +1,8 @@
-{# empty Twig template #}
+ 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
  {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
-
-<!-- css et js pour bundle JQuery  -->
-{#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/myappforum/css/styledebats/jquery-ui.js') }}"></script>#}
-<!-- css et js pour bundle JQuery  -->
+ 
 
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
@@ -18,14 +13,11 @@
         </br> <center><b class="rouge" >{#Most Used Tag#}{{'Most Used Tag'|trans}}</b></center></br>
 
                 {% for mostusedtag in mostusedtag %}
-
-       {% if mostusedtag.id != loop.last%}
-        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;"> {{mostusedtag.title|truncate(32, true, '...')}}</div>    
-       {%else%}
-        <div class="senestredebattelement" >{{mostusedtag.title|truncate(32, true, '...')}}</div> 
-        {%endif%}
-
-
+                       {% if mostusedtag.id != loop.last%}
+                        <div class="senestredebattelement" style="border-bottom: 1px dashed #9fa1a3;"> {{mostusedtag.title|truncate(32, true, '...')}}</div>    
+                       {%else%}
+                        <div class="senestredebattelement" >{{mostusedtag.title|truncate(32, true, '...')}}</div> 
+                        {%endif%}
                 {% endfor%}    
 
     </div>
@@ -56,49 +48,18 @@
 
              {%if  sujet.user.path is not null %}
 
-        <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
-             {%if "http" in sujet.user.path %}
-            <img src="{{sujet.user.path }}"   class="imageuser" alt="" />
+                    <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
+                         {%if "http" in sujet.user.path %}
+                            <img src="{{sujet.user.path }}"   class="imageuser" alt="" />
+                         {%else%}
+                            <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuser" alt="" />
+                        {%endif%}
+                    </a> 
+   
              {%else%}
-             <img src="{{ asset('upload/' ~ sujet.user.path)}}"   class="imageuser" alt="" />
-            {%endif%}
-            
-        </a> 
-       {#  avec ce tooltip y a pas de soucils :D
-             <script type="text/javascript">
-            $(function() {
-                $('a.clickTip').aToolTip({
-                    clickIt: true,
-                    tipContent:
-                   '<div class="profilusername">' +'{{sujet.user.username }}'+'</div>'+
-                    '<div class="profildatetooltip">' +                    
-                    ' Oprettet : {{sujet.user.datedeCreationUser|date('Y-M-d')  }}</font-size>'  +'</br>'+
-                    ' Sidst online : {{sujet.user.lastLogin|date('Y-M-d') }}'+'</div>'
-                    
-                    
-                });
-            });
-        </script>
-        <style type="text/css">
-            div.profildatetooltip{ font: 12px/15px Georgia;  margin-left: 220px;}
-            div.profilusername{position: relative;top: 25px;  left: 55px;  font-size: 24px;    font-weight: bold;    }
-            
-        </style>#}
-
-
-
-
-
-
-             {%else%}
-
-
-        <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
-            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />
-        </a> 
-
-
-
+                        <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
+                            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />
+                        </a> 
              {%endif%}
 
 
@@ -119,10 +80,10 @@
             {% if commentaire.sujet.id == sujet.id %}{% set counter = counter+1 %}  {%endif%}
             {% endfor%}
         
-      {% if counter >0 %}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
-        <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/>
-        &nbsp;<b>{{counter}}</b>
+        {% if counter >0 %}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+                <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/>
+                &nbsp;<b>{{counter}}</b>
        {% endif %} 
         </br>
 
@@ -133,18 +94,11 @@
 
         </br>
 
-        <div class="contenudebat">   {{ sujet.contenu|truncate(188, true, '...')|raw  }} 
-
-
-
-
-        </div>
-
-
-
+        <div class="contenudebat">   {{ sujet.contenu|truncate(188, true, '...')|raw  }}  </div>
 
         </br>
-        &nbsp;&nbsp;&nbsp;&nbsp;   <b style="  font-size: 12px;">{{(tag[sujet.id]|join(' , '))}} </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;  
+        <b style="  font-size: 12px;">{{(tag[sujet.id]|join(' , '))}} </b>
         
           <div class="tooltipfinal{{sujet.id}}" id="tooltipid">
                     <div class="profilusername">{{sujet.user.username|capitalize }}</div>
@@ -156,10 +110,10 @@
                     <a id="Luk" style="float:right;  padding-right: 20px;  color: red; ">Luk</a>
           </div>
    
- <script type="text/javascript">
-   $("a#Luk").click(function() { $("div#tooltipid").hide();});
-   $(document).click(function(event) {if ( !$(event.target).hasClass('.tooltipfinal{{sujet.id}}')) { $(".tooltipfinal{{sujet.id}}").hide();}});              
-</script>
+         <script type="text/javascript">
+           $("a#Luk").click(function() { $("div#tooltipid").hide();});
+           $(document).click(function(event) {if ( !$(event.target).hasClass('.tooltipfinal{{sujet.id}}')) { $(".tooltipfinal{{sujet.id}}").hide();}});              
+        </script>
         
         
         <div class="tooltiploading{{sujet.id}}">
@@ -190,13 +144,13 @@
     </div>
 
     </br>   
-     {% if loop.index  == 5 %} 
-    </br>
-        {% for publicite in publicite %} 
-              {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
-        {% endfor%} 
-    </br> </br>
-    {% endif%}
+         {% if loop.index  == 5 %} 
+        </br>
+            {% for publicite in publicite %} 
+                  {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
+            {% endfor%} 
+        </br> </br>
+        {% endif%}
 
     
  {% if loop.index  == 10 %}    
@@ -212,7 +166,7 @@
 
 {%endfor%} 
 
-    <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
+            <div class="pagination">&nbsp;&nbsp; {{ knp_pagination_render(pagination) }}</div>
 
     
     
@@ -227,18 +181,7 @@
 
  </div>
 
-{#
-<div id="dialog" >   
-    <h6>Oprettet:&nbsp;{{sujet.user.datedeCreationUser|date('Y-M-d')  }} </h6>   
-    <h6>Sidst online:&nbsp;{{sujet.user.lastLogin|date('Y-M-d')}}</h6> 
-</div> 
- <script src="{{ asset('bundles/myappesprit/css/dialog/jquerydiag.js') }}" type="text/javascript"></script>   #}
-
-
-
  
-
-{#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/style.css') }}" />#}
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/myappforum/css/tooltip/css/atooltip.css') }}" />
 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/myappforum/css/tooltip/js/jquery.atooltip.js') }}"></script>
