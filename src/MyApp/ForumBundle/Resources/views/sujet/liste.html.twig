@@ -22,16 +22,17 @@
            {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-        <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+        <b>{{commentaire.user.username|capitalize}}</b>
+        <b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
 
 
 
-            {% if commentaire.vote  is not null %}
+             {%if commentaire.vote  is not null %}
                     <b class="likecount" style="cursor:pointer;">
                     <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
                     &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
-                    </br>   {{commentaire.texte|raw }}  </br> 
+        </br>  <div class="contenudecommentaire"> {{commentaire.texte|raw }} </div>  </br> 
 
 
 

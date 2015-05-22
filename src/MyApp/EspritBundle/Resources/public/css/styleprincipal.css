@@ -2205,7 +2205,7 @@
 .position6 {
     position: absolute;
     //left: 1185px;
-    left: 1188px;
+     left: 1185px;
     top: 380px;
     width: 160px;
     height: 600px;
@@ -3244,7 +3244,12 @@ input:focus {
     border-radius: 10px;
     border: 2px solid #cfcfcf;
 }
-
+.contenudecommentaire{
+    max-width:700px;
+}
+.contenutopic{
+    max-width: 890px;
+}
 .bouttonnouveaucommentaire{
     color: #c52821;
     font-weight: bold;

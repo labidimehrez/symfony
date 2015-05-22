@@ -1,4 +1,4 @@
-{# empty Twig template #}
+ 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
 
@@ -11,7 +11,7 @@
 
      
 
-<div class="contenudetemplate" id="getFixedTemplate">
+<div style="margin-left: 207px;" id="getFixedTemplate">
     <div class="paddingdebataveccomment">
 
         </br> 
@@ -40,17 +40,17 @@
 
         </br> 
 
-   {% else%}
+      {% else%}
 
         <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuserdebataveccomment"alt="" /> 
 
         &nbsp;&nbsp;&nbsp;
-        <b style="color: black">Anonymous</b>
+        <b class="blacktexte">Anonymous</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;<b>{{commentCount}}</b>
 
- {% endif%}       
+     {% endif%}       
                 <div style="width: 800px;">
                     <b style="  color: black;  position: relative;top: 10px;"> 
                         <FONT size="5px;"> {{sujet.sujet}}</FONT>
@@ -75,32 +75,25 @@
         <div class="inputajoutcommentaire" id="divinputtohide" style="  overflow: hidden;  position: relative;  display: none;  left: 80px;">
 
                 {% if app.user.path is not null  %} 
-
-
                              {%if "http" in app.user.path %}
                                     <img src="{{app.user.path }}"   class="imageuser" alt="" />
                              {%else%}
                                     <img src="{{ asset('upload/' ~ app.user.path)}}"   class="imageuser" alt="" />
                              {%endif%}
-
-
-
                  {% else %} <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
-
-
                             {% if is_granted( 'ROLE_USER' ) %} 
-                                        {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
+                                 {% include 'MyAppForumBundle:sujet/fragment:inputajoutcommentaire.html.twig'%} 
                             {%endif%}
 
 
 
         </div>  
         <!---------------------------------------------------------------------------------------------------------------------------------->
-                                        <!--   ce div pour nouveau comment ajax -->  
-                                        <div class="nouveaucommentaireafficher">
-                                             {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
-                                        </div>   
-                                        <!--  ce div pour nouveau comment ajax -->
+            <!--   ce div pour nouveau comment ajax -->  
+            <div class="nouveaucommentaireafficher">
+                 {% include   'MyAppForumBundle:sujet:liste.html.twig'%}  
+            </div>   
+            <!--  ce div pour nouveau comment ajax -->
 
         <!---------------------------------------------------------------------------------------------------------------------------------->
 
@@ -129,16 +122,18 @@
               {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
 
 
-                <b>{{commentaire.user.username|capitalize}}</b><b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+                <b>{{commentaire.user.username|capitalize}}</b>
+                <b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
 
 
 
             {% if commentaire.vote  is not null %}
-                <b class="likecount" style="cursor:pointer;"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+                <b class="likecount" style="cursor:pointer;">
+                    <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
                     &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
 
-                </br>   {{commentaire.texte|raw }}  </br> 
+                </br> <div class="contenudecommentaire">  {{commentaire.texte|raw }}</div> </br> 
 
 
                         {% include 'MyAppForumBundle:sujet/fragment:showhidethread.html.twig'%}
@@ -291,9 +286,9 @@
 
                     <!-- pour cacher les commentaires en doublons -->      
                     <script type="text/javascript">
-                       /* if ($('#commentparentajax{{commentaireid}}').is(':visible')) {
+                        if ($('#commentparentajax{{commentaireid}}').is(':visible')) {
                             $('#commentparentNOajax{{commentaireid}}').hide();
-                        } */
+                        }  
                     </script>   
                     <!-- pour cacher les commentaires en doublons -->  
 
@@ -317,9 +312,9 @@
     <!---------------------------------------------------------------------------------------------------------------------------------->
                      <div style="padding-top: 70px;"> 
                             <div style="  margin-top: -20px; margin-bottom: 20px;">
-                                                            {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
                             </div>
-                                   {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
+                                {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
                      </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
 </div>
