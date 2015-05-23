@@ -61,7 +61,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
            {{sujet.contenu|Contenu|raw }}   </br>  
             {% if is_granted( 'ROLE_USER' ) %} <a class="bouttonnouveaucommentaire" id="Addnewcomment">{{'Add new comment'|trans}}</a>  
-            {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment">{{'Add new comment'|trans}}</a> {%endif%}
+            {%else%}<a href="#"  class="clickTip exampleTip" id="Addnewcomment"   >{{'Add new comment'|trans}}</a> {%endif%}
             <script type="text/javascript">
                 $("a.bouttonnouveaucommentaire").click(function() {
                     $("div#divinputtohide").hide();
@@ -141,13 +141,13 @@
 
 
                 <style type="text/css">
-                    a.bouttonsousnouveaucommentaire{{commentaireid}}{
-                        color: #c52821; font-weight: bold; text-decoration:none;  }
+                    a#Addnewcomment,a.bouttonsousnouveaucommentaire{{commentaireid}}{
+                        color: #c52821; font-weight: bold; text-decoration:none;  }				 
                 </style> 
 
                  {% if is_granted( 'ROLE_USER' ) %}            
                   <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>
-                  {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment">{{'repondrecommentaire'|trans}}</a>{%endif%}  
+                  {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>{%endif%}  
 
                     <!-------------------------------------------------------------------------------->
                   
@@ -325,7 +325,7 @@
 
  
 <script type="text/javascript">
-            function CKupdate() { for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement(); }  
+            function CKupdate() { for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement(); }             
             $(function() {
                 $("#formcomment").submit(function(e) {
                     CKupdate();// On sélectionne le formulaire par son identifiant
@@ -342,9 +342,11 @@
                         success: function(data)
                         {   $(".loadingbutton").hide();
                             $('.nouveaucommentaireafficher').html(data);
-                            $(".inputajoutcommentaire").hide();                     
+                            $(".inputajoutcommentaire").hide();   
+                            
                         }
                     });
+                    
                     return false;
                 });
             });

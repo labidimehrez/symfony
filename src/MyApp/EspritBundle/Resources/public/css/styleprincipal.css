@@ -1684,7 +1684,7 @@
     left: 500px;
     top: 2023.19px;
     z-index: 551
-}
+}/*
 .mxdk56 {
     font-size: 11px;
     font-family: Helvetica;
@@ -1846,7 +1846,7 @@
     width: 300px;
     height: 250px;
     z-index: 602
-}
+}*/
 .SENESTEDEBATTER {
     font-size: 38.88px;
     font-family: HelveticaNeue;
@@ -2639,13 +2639,8 @@
     float: right;
     padding: 15px 20px -20px 400px
 }
-.Addnewcomment {
-    text-decoration: none;
-    font-weight: 700;
-    color: red;
-    position: relative;
-    margin: 0 0 -30px 70px;
-    padding: 0 0 0 20px
+a#Addnewcomment {
+color:#c52821;font-weight: bold;
 }
 .imageuser {
     border-radius: 50%;

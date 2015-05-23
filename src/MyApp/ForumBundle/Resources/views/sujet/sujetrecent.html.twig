@@ -8,7 +8,7 @@
 
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
-<div class="contenudetemplate" id="getFixedTemplate">
+<div style="margin-left: 207px;" id="getFixedTemplate">
     <div class="senestredebatt">
         </br> <center><b class="rouge" >{#Most Used Tag#}{{'Most Used Tag'|trans}}</b></center></br>
 
@@ -147,7 +147,7 @@
          {% if loop.index  == 5 %} 
         </br>
             {% for publicite in publicite %} 
-                  {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" class="img-border" >{% endif%}
+                  {% if publicite.position  == 8 %}  <img src="{{publicite.image}}" alt="" width="929" height="180" style="width:930px;height:180px;" >{% endif%}
             {% endfor%} 
         </br> </br>
         {% endif%}
