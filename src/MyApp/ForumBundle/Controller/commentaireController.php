@@ -27,7 +27,14 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
-        $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+        
+        
+       $commentaires=array(); 
+       $com = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+       foreach ($com as $c) {if($c->getCommentaire()==NULL){array_push($commentaires, $c);} }
+                     
+                
+                 
         if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -41,9 +48,11 @@ class commentaireController extends Controller {
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
-                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
-                // return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:voir.html.twig', array('commentaire' => $commentaires, 'id' => $idsujet));
-                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:liste.html.twig', array(
+                 
+                 array_push($commentaires, $commentaire); 
+                 $commentaires= array_unique($commentaires);
+//                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
+                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array(
                             'commentaire' => $commentaires
                 ));
             } /* else {
@@ -87,8 +96,18 @@ class commentaireController extends Controller {
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
         /*         * *** */
-       
-        /*if ($request->isXmlHttpRequest()) {
+        
+         $souscommentaire=array(); 
+         $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+                 foreach ($comm as $c) {
+                     if($c->getCommentaire()!=NULL){array_push($souscommentaire, $c);}
+                 }
+         $commentaires=array(); 
+                   foreach ($comm as $c) {
+                     if($c->getCommentaire()==NULL){array_push($commentaires, $c);}
+                 }
+         
+        if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $commentaire = $form->getData();
@@ -102,12 +121,15 @@ class commentaireController extends Controller {
                 $notif = new notification();
                 $manager = $this->get('collectify_notification_manager');  
                 $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
-              
-                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:listesouscommentaireajax.html.twig'
-                 ,array('souscommentaire' => $commentaire ));
-               
+                
+                   array_push($souscommentaire, $commentaire);
+ 
+                        
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig'
+                 ,array('souscommentaire' => $souscommentaire ,'commentaire' => $commentaires));
+
                     }
-                }*/
+                } 
 
         /*         * ** */
         if ($request->isMethod('Post')) {

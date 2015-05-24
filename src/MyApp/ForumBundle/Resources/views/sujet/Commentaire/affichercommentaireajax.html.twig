@@ -1,0 +1,240 @@
+
+<div class="commentaire">
+
+    <!-- debut affichage des commentaires -->
+              {% for  commentaire in commentaire|reverse %} 
+
+             {% set commentaireid = commentaire.id %}
+
+    <div class="contenucommentaireparent{{commentaireid}}"> 
+
+            {% if commentaire.user.path is not null  %} 
+
+            {%if "http" in commentaire.user.path %}
+        <img src="{{commentaire.user.path }}"   class="imageuser" alt="" />
+             {%else%}
+        <img src="{{ asset('upload/' ~ commentaire.user.path)}}"   class="imageuser" alt="" />
+            {%endif%}
+
+
+
+
+
+              {% else %}   <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />{% endif%} 
+
+
+        <b>{{commentaire.user.username|capitalize}}</b>
+        <b class="timestyle">{{ time_diff(commentaire.datecreation) }}</b>
+
+
+
+            {% if commentaire.vote  is not null %}
+        <b class="likecount" style="cursor:pointer;">
+            <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
+            &nbsp;{{commentaire.vote}} </b>
+             {%endif%}       
+
+        </br> <div class="contenudecommentaire">  {{commentaire.texte|raw }}</div> </br> 
+
+
+        <!---------------------------------------------------------------------------------------------------------------------------------->
+<a id=hidethread{{commentaireid}} class="hidethread">
+    <img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/>
+</a>
+<a id=showthread{{commentaireid}} class="showthread">
+    <img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/>
+</a>   
+              
+    <style type="text/css">a#hidethread{{commentaireid}}{display: none;}</style>          
+     <script type="text/javascript">
+            $("a#hidethread{{commentaireid}}").click(function() {
+                $("div.souscommentaire{{commentaireid}}").slideToggle();
+                $("a#showthread{{commentaireid}}").show();
+                $("a#hidethread{{commentaireid}}").hide();
+            }); 
+           $("a#showthread{{commentaireid}}").click(function() {
+                $("div.souscommentaire{{commentaireid}}").slideToggle();
+                $("a#showthread{{commentaireid}}").hide();
+                $("a#hidethread{{commentaireid}}").show();
+            }); 
+    </script>           
+<!---------------------------------------------------------------------------------------------------------------------------------->
+
+                 {% if is_granted( 'ROLE_USER' ) %}            
+                    <a class="bouttonsousnouveaucommentaire{{commentaireid}}"  id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>
+                  {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>{%endif%} 
+
+        <script type="text/javascript">
+            function CKupdate() {
+                for (instance in CKEDITOR.instances)
+                    CKEDITOR.instances[instance].updateElement();
+            }
+            $(function() {
+                $("#formsubcomment").submit(function(e) {
+                    CKupdate();
+                    // On sélectionne le formulaire par son identifiant
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire  
+                    $.ajax({
+                        type: 'post',
+                        url: "{{path('my_app_forum_commentaire_addsouscomment',{id:commentaireid} ) }}",
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {
+                            $('.inputsnouveausouscommentaire{{commentaireid}}').hide();
+                           $('.commentaireafficher').html(data);
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>       
+
+        <script type="text/javascript">
+            $("a.bouttonsousnouveaucommentaire{{commentaireid}}").click(function() {
+                $("div.inputsnouveausouscommentaire{{commentaireid}}").slideToggle();
+            });
+        </script>                
+
+  
+
+        <!---------------------------------------------------------------------------------------------------------------------------------->
+        <b class="likebutton"  >{{'like'|trans}}</b>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------->              
+                  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+                        <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
+                  {%endif%}
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <!---------------------------------------------------------------------------------------------------------------------------------->             
+    {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+        <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">{{'delete'|trans}}</a> 
+    {%endif%}
+        <script type="text/javascript">
+            $(function() {
+                $("#deletecomment{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                    var commentaireid = {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
+                    $(".contenucommentaireparent{{commentaireid}}").hide();
+                    $.ajax({
+                        type: 'post',
+                        url: "{{path('my_app_forum_commentaire_delete',{id:commentaireid} ) }}",
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {
+                            //$(".contenucommentaireparent{{commentaireid}}").hide();                 
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>         
+        <!---------------------------------------------------------------------------------------------------------------------------------->
+        <div class="inputsnouveausouscommentaire{{commentaireid}}" style="display: none;">
+                         {% if is_granted( 'ROLE_USER' ) %}  
+                                {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
+                         {%endif%}
+        </div>   
+          <!---------------------------------------------------------------------------------------------------------------------------------->
+          <style type="text/css">div.souscommentaire{{commentaireid}}{  position: relative;top: 20px;  left: 70px;}</style>
+                
+        <div class="souscommentaire{{commentaireid}}">
+           {% if souscommentaire|length >0  %}
+                   {% for souscommentaire in souscommentaire|reverse %}
+                                  {% if souscommentaire.commentaire.id == commentaireid%}
+            <div class="commentairefils{{souscommentaire.id}}">
+                 {% if souscommentaire.user.path is not null  %} 
+
+           {%if "http" in souscommentaire.user.path %}
+                <img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
+             {%else%}
+                <img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
+            {%endif%}
+
+
+
+
+            {% else %}  
+                    <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+            {% endif%} 
+
+
+
+                <b>{{souscommentaire.user.username|capitalize}}</b>
+                <b class="timestyle">{{ time_diff(souscommentaire.datecreation) }}</b>
+
+
+            {% if souscommentaire.vote  is not null %}
+                <b class="likecount"><img src="{{ asset('bundles/myappesprit/images/like.png') }}" 
+                                          height="20px;" width="20px;" alt=""/>
+                    &nbsp;{{souscommentaire.vote}} </b>
+             {%endif%}                   
+                </br>
+                    {{souscommentaire.texte|raw }}
+                </br> 
+              {#  <a class="bouttonsousnouveaucommentaire">Add new comment &nbsp; {{souscommentaire.id}}</a>#}
+                <b class="likebutton" style="">{{'like'|trans}}</b>
+                     {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+                                    <a class="bouttoneditsouscommentaire{{souscommentaire.id}}" 
+                                       style=""><b class="likebutton">{{'modifier'|trans}}</b></a> 
+                      {%endif%}
+                                 <!-------------------------------- -------------------------------->
+                                &nbsp;&nbsp;&nbsp;&nbsp;   
+                                 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+                                                <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"
+                  style="color: #c52821;font-weight: bold;" class="deletecommentaire{{souscommentaire.id}}">{{'delete'|trans}}</a> 
+                                  {%endif%}
+                                        <script type="text/javascript">
+                            $(function() {
+                                $("a.deletecommentaire{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                                   var souscommentaireid = {{souscommentaire.id}};/// cette variable pour recuperer l id dynamique concerné
+                                    $(".commentairefils{{souscommentaire.id}}").hide();
+                                    $.ajax({
+                                        type: 'post',
+                                        url: "{{path('my_app_forum_commentaire_delete',{id:souscommentaire.id} ) }}",
+                                        data: $(this).serialize(),
+                                        datatype: "json",
+                                        cache: false,
+                                        success: function(data)
+                                        {
+                           
+                                        }
+                                    });
+                                    return false;
+                                });
+                            });
+                        </script>  
+                          <!----------------------------- ---------------------------------->
+            </div>
+                                 {%endif%}
+                             {%endfor%}
+                            {%endif%}
+                 
+
+        </div>
+        <!---------------------------------------------------------------------------------------------------------------------------------->      
+
+
+        <!--  fin affichage des commentaires -->
+
+        <br>
+    </div>   
+
+  {%endfor%}  
+</div> 
+
+
+<!---------------------------------------------------------------------------------------------------------------------------------->
+<div class="footerclassajax" style="">   {% include   'MyAppForumBundle:sujet/fragment:socialnetwork.html.twig'%} 
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div style="padding-top: 70px;"> 
+        <div style="  margin-top: -20px; margin-bottom: 20px;">
+                                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+        </div>
+                                {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
+    </div>
+</div>
