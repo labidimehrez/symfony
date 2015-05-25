@@ -32,7 +32,17 @@ my_app_forum_commentaire_edit:
     options:
         expose: true
         
-        
+
+my_app_forum_commentaire_vote:
+    pattern:  /{id}/vote
+    defaults: { _controller: MyAppForumBundle:commentaire:vote}
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true   
+       
+       
+       
 my_app_forum_commentaire_editsouscomment:
     pattern:  /{id}/editsouscomment
     defaults: { _controller: MyAppForumBundle:commentaire:editsouscomment}

@@ -82,8 +82,28 @@
 
 
         <!---------------------------------------------------------------------------------------------------------------------------------->
-        <b class="likebutton">{{'like'|trans}}</b>
+        <b class="likebutton" id="like{{commentaireid}}">{{'like'|trans}}</b>
+        <script type="text/javascript">
+            $(function() {
+                $("#like{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                    var commentaireid = {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
 
+                    $.ajax({
+                        type: 'post',
+                        url: "{{path('my_app_forum_commentaire_vote',{id:commentaireid} ) }}",
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {
+                            $('.commentaireafficher').html(data);
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>   
         <!---------------------------------------------------------------------------------------------------------------------------------->              
       {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
         <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
