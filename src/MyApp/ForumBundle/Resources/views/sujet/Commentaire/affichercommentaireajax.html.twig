@@ -83,7 +83,7 @@
 
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <b class="likebutton" id="like{{commentaireid}}">{{'like'|trans}}</b>
-   
+        <b class="likebutton" id="dislike{{commentaireid}}" style="display:none;">{{'dislike'|trans}}</b>
         
         <script type="text/javascript">
             $(function() {
@@ -100,6 +100,8 @@
                         {
                         
                             $('.commentaireafficher').html(data);
+                            $('b#like{{commentaireid}}').hide();
+                            $('b#dislike{{commentaireid}}').show();
                         }
                     });
                     return false;
@@ -162,7 +164,6 @@
                         cache: false,
                         success: function(data)
                         {
-
                         }
                     });
                     return false;
@@ -218,7 +219,7 @@
                 </br> 
                 <!-------------------------------- -------------------------------->
                 <b class="likebutton" id="like{{souscommentaire.id}}">{{'like'|trans}}</b>
-                
+                 <b class="likebutton" id="dislike{{souscommentaire.id}}" style="display:none;">{{'dislike'|trans}}</b>
                  <script type="text/javascript">
             $(function() {
                 $("#like{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
@@ -231,9 +232,10 @@
                         datatype: "json",
                         cache: false,
                         success: function(data)
-                        {
-                        
+                        {                      
                             $('.commentaireafficher').html(data);
+                            $('b#like{{souscommentaire.id}}').hide();
+                            $('b#dislike{{souscommentaire.id}}').show();
                         }
                     });
                     return false;
