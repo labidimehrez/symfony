@@ -56,7 +56,7 @@
      {% endif%}       
                 <div style="width: 800px;">
                     <b style="  color: black;  position: relative;top: 10px;"> 
-                        <FONT size="5px;"> {{sujet.sujet}}</FONT>
+                        <FONT size="5px;">{{sujet.sujet}}</FONT>
                     </b>
                 </div>
         <!----------------------------------------------------------------------------------------------------------------------------------->
@@ -107,7 +107,7 @@
  
 <script type="text/javascript">
             function CKupdate() { 
-                for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();  CKEDITOR.instances[instance].setData('');}             
+            for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();CKEDITOR.instances[instance].setData('');}             
             $(function() {
                 $("#formcomment").submit(function(e) {
                     CKupdate();

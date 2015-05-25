@@ -1,11 +1,11 @@
 {# empty Twig template #}
-<form  role="form" action='{{path('my_app_forum_commentaire_editsous',{'id': id} )}}' method="post" {{ form_enctype(form) }}>
+<form  role="form" action='{{path('my_app_forum_commentaire_editsouscomment',{'id': id} )}}' method="post" {{ form_enctype(form) }} id="formeditsouscomment">
 
     <table height="" width="" border="0">
         <tr>
             <td style="  padding-top: 10px;">  
-                <textarea type="text" name="textcomment" style="width: 700px">{{souscommentaire.texte|raw}}
-                        </textarea>
+                {#<textarea type="text" name="textcomment" style="width: 700px">{{souscommentaire.texte|raw}}</textarea>#}   
+               {{ form_widget(form.texte, { 'attr': { 'style': '  width: 700px;height: 100px;  margin-left: 40px;'  }  }) }} 
             </td> 
         </tr>
 

@@ -54,7 +54,7 @@ class commentaireController extends Controller {
                 /* il faut ajouter le user concerné par la notif */
 
                 array_push($commentaires, $commentaire);
-   //             $commentaires = array_unique($commentaires);
+                //             $commentaires = array_unique($commentaires);
 //                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array(
                             'commentaire' => $commentaires
@@ -206,58 +206,100 @@ class commentaireController extends Controller {
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
         $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
 
-        $form = $this->createFormBuilder($co)
-                        ->add('texte', 'textarea', array('required' => true))->getForm();
+        $form = $this->createFormBuilder($co)->add('texte', 'textarea', array('required' => true))->getForm();
+                        
 //        $request = $this->getRequest();
 //         $form->handleRequest($request);
-         
+
         $commentaire = array();
-        foreach ($comm as $c) {if ($c->getCommentaire() == NULL) { array_push($commentaire, $c); } }
-            
- 
-        $souscommentaire = array();
-        foreach ($comm as $c) {if ($c->getCommentaire() != NULL) {array_push($souscommentaire, $c);}}
-            
- 
-        /*         * ****** */
-        if ($request->isXmlHttpRequest()) {
-              $form->bind($request);
-            if ($form->isValid()) {      
-                    $em->flush();
-        return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig' ,
-           array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() == NULL) {
+                array_push($commentaire, $c);
             }
         }
 
- 
+
+        $souscommentaire = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() != NULL) {
+                array_push($souscommentaire, $c);
+            }
+        }
+
+
+        /*         * ****** */
+        if ($request->isXmlHttpRequest()) {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
+            }
+        }
+
+
+        /* if ($request->getMethod() == 'POST') {
+          $form->bind($request);
+
+          if ($form->isValid()) {
+          $em->flush();
+          return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
+          }
+          } */
+        return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView(), 'id' => $id));
+    }
+
+    public function editsouscommentAction($id, Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
+
+
+        $souscommentaireCourant = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+        if (!$souscommentaireCourant) {
+            throw $this->createNotFoundException('no souscommentaire found for id ' . $id);
+        }
+        $form = $this->createFormBuilder($souscommentaireCourant)->add('texte', 'textarea', array('required' => true))->getForm();
+
+
+
+        $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+
+        $commentaire = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() == NULL) {
+                array_push($commentaire, $c);
+            }
+        }
+
+        $souscommentaire = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() != NULL) {
+                array_push($souscommentaire, $c);
+            }
+        }
+      //  array_push($souscommentaire, $souscommentaireCourant); /* ajouter subcomment-courant aux autres pour affichage */
+
+        if ($request->isXmlHttpRequest()) {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig',
+                        array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
+            }
+        }
+
+
+
         /*if ($request->getMethod() == 'POST') {
             $form->bind($request);
-         
             if ($form->isValid()) {
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
         }*/
-        return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView(), 'id' => $id));
-    }
 
-    public function editsouscommentAction($id, Request $request) {
-        $em = $this->getDoctrine()->getManager();
-        $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
-        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
-        $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
-        if (!$souscommentaire) {
-            throw $this->createNotFoundException('No souscommentaire found for id ' . $id);
-        }
-        $form = $this->createFormBuilder($souscommentaire)
-                        ->add('texte', 'textarea', array('required' => true))->getForm();
-        $textcomment = $this->getRequest()->get('textcomment');
-        if ($textcomment != NULL) {
-            $souscommentaire->setTexte($textcomment);
-            $em->persist($souscommentaire);
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
-        }
+
         return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('id' => $id, 'souscommentaire' => $souscommentaire, 'form' => $form->createView()));
     }
 

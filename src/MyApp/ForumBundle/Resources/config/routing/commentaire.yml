@@ -33,8 +33,8 @@ my_app_forum_commentaire_edit:
         expose: true
         
         
-my_app_forum_commentaire_editsous:
-    pattern:  /{id}/editsous
+my_app_forum_commentaire_editsouscomment:
+    pattern:  /{id}/editsouscomment
     defaults: { _controller: MyAppForumBundle:commentaire:editsouscomment}
     requirements:
         _method:  POST|GET

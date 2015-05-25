@@ -201,13 +201,45 @@
                 <a class="bouttoneditsouscommentaire{{souscommentaire.id}}" 
                    style=""><b class="likebutton">{{'modifier'|trans}}</b></a> 
                       {%endif%}
-                <!-------------------------------- -------------------------------->
+
+                <!---------------------------->
                 &nbsp;&nbsp;&nbsp;&nbsp;   
                                  {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"
                    style="color: #c52821;font-weight: bold;" class="deletecommentaire{{souscommentaire.id}}">
                                   {{'delete'|trans}}</a> 
                                   {%endif%}
+                <!----------------------->
+                <script type="text/javascript">
+                    $("a.bouttoneditsouscommentaire{{souscommentaire.id}}").click(function() {
+                        $("div.inputeditsouscommentaire{{souscommentaire.id}}").show();
+                    });
+                </script>
+                <div class="inputeditsouscommentaire{{souscommentaire.id}}" id="divinputtohide" style="display: none;">
+         {% include 'MyAppForumBundle:sujet/fragment:inputeditsouscommentaire.html.twig'%} 
+                </div> 
+
+                <script type="text/javascript">
+                    $(function() {
+                        $("#formeditsouscomment").submit(function(e) { // On sélectionne le formulaire par son identifiant       
+                            e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                            $.ajax({
+                                type: 'post',
+                                url: "{{path('my_app_forum_commentaire_editsouscomment',{id:souscommentaire.id} ) }}",
+                                data: $(this).serialize(),
+                                datatype: "json",
+                                cache: false,
+                                success: function(data)
+                                {
+                                    $('.commentaireafficher').html(data);
+                                }
+                            });
+                            return false;
+                        });
+                    });
+                </script>               
+                <!-------------------------------- -------------------------------->
+
                 <script type="text/javascript">
                     $(function() {
                         $("a.deletecommentaire{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
@@ -222,7 +254,6 @@
                                 cache: false,
                                 success: function(data)
                                 {
-
                                 }
                             });
                             return false;
