@@ -27,14 +27,18 @@ class commentaireController extends Controller {
         $commentaire = new commentaire();
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
-        
-        
-       $commentaires=array(); 
-       $com = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
-       foreach ($com as $c) {if($c->getCommentaire()==NULL){array_push($commentaires, $c);} }
-                     
-                
-                 
+
+
+        $commentaires = array();
+        $com = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+        foreach ($com as $c) {
+            if ($c->getCommentaire() == NULL) {
+                array_push($commentaires, $c);
+            }
+        }
+
+
+
         if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -48,11 +52,11 @@ class commentaireController extends Controller {
                 $manager = $this->get('collectify_notification_manager'); /*  ajout de notif si sujet notif est deja coché */
                 $manager->AddNotifFromComment($user, $commentaire, $notif, $sujet->getNotification(), $userConcerned, $sujet);
                 /* il faut ajouter le user concerné par la notif */
-                 
-                 array_push($commentaires, $commentaire); 
-                 $commentaires= array_unique($commentaires);
+
+                array_push($commentaires, $commentaire);
+   //             $commentaires = array_unique($commentaires);
 //                $commentaires = $em->getRepository('MyAppForumBundle:commentaire')->getCommentaireBySujet($idsujet);
-                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array(
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array(
                             'commentaire' => $commentaires
                 ));
             } /* else {
@@ -96,17 +100,21 @@ class commentaireController extends Controller {
         $form = $this->createForm(new commentaireType, $commentaire);
         $request = $this->getRequest();
         /*         * *** */
-        
-         $souscommentaire=array(); 
-         $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
-                 foreach ($comm as $c) {
-                     if($c->getCommentaire()!=NULL){array_push($souscommentaire, $c);}
-                 }
-         $commentaires=array(); 
-                   foreach ($comm as $c) {
-                     if($c->getCommentaire()==NULL){array_push($commentaires, $c);}
-                 }
-         
+
+        $souscommentaire = array();
+        $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() != NULL) {
+                array_push($souscommentaire, $c);
+            }
+        }
+        $commentaires = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() == NULL) {
+                array_push($commentaires, $c);
+            }
+        }
+
         if ($request->isXmlHttpRequest()) {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -117,19 +125,18 @@ class commentaireController extends Controller {
                 $commentaire->setCommentaire($commentaireparent);
                 $em->persist($commentaire);
                 $em->flush();
-                $userConcerned = $sujet->getUser()->getId();        
+                $userConcerned = $sujet->getUser()->getId();
                 $notif = new notification();
-                $manager = $this->get('collectify_notification_manager');  
+                $manager = $this->get('collectify_notification_manager');
                 $manager->AddNotifFromSubComment($user, $commentaire, $notif, $commentaireparent->getNotification(), $userConcerned);
-                
-                   array_push($souscommentaire, $commentaire);
- 
-                        
-                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig'
-                 ,array('souscommentaire' => $souscommentaire ,'commentaire' => $commentaires));
 
-                    }
-                } 
+                array_push($souscommentaire, $commentaire);
+
+
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig'
+                                , array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaires));
+            }
+        }
 
         /*         * ** */
         if ($request->isMethod('Post')) {
@@ -169,17 +176,13 @@ class commentaireController extends Controller {
         }
         if ($request->isXmlHttpRequest()) {
             $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
-
-
             $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('commentaire' => $id));
             if ($souscommentaire != NULL) {
                 foreach ($souscommentaire as $s) {
-                    $em->remove($s);  $em->flush(); }
-                  
-               
+                    $em->remove($s);
+                    $em->flush();
+                }
             }
-
-
             $em->remove($commentaire);
             $em->flush();
             return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:deletecomment.html.twig');
@@ -193,34 +196,48 @@ class commentaireController extends Controller {
 
     public function editAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $commentaire = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
-        if (!$commentaire) {
-            throw $this->createNotFoundException(
-                    'No commentaire found for id ' . $id
-            );
-        }/* echo strip_tags($text); */
-        $form = $this->createFormBuilder($commentaire)
-                        ->add('texte', 'textarea', array('required' => true))->getForm();
-        $request = $this->getRequest();
+        $co = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+        if (!$co) {
+            throw $this->createNotFoundException('no commentaire found for id ' . $id);
+        }
+
+
         $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
         $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
-        /*********/
-          /*if ($request->isXmlHttpRequest()) {
+        $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+
+        $form = $this->createFormBuilder($co)
+                        ->add('texte', 'textarea', array('required' => true))->getForm();
+//        $request = $this->getRequest();
+//         $form->handleRequest($request);
+         
+        $commentaire = array();
+        foreach ($comm as $c) {if ($c->getCommentaire() == NULL) { array_push($commentaire, $c); } }
+            
+ 
+        $souscommentaire = array();
+        foreach ($comm as $c) {if ($c->getCommentaire() != NULL) {array_push($souscommentaire, $c);}}
+            
+ 
+        /*         * ****** */
+        if ($request->isXmlHttpRequest()) {
               $form->bind($request);
-               return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet:commentaireeditedajax.html.twig'
-                 ,array('commentaire' => $commentaire ));
-          }*/
-        
-        
-        /********/
-        if ($request->getMethod() == 'POST') {
+            if ($form->isValid()) {      
+                    $em->flush();
+        return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig' ,
+           array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
+            }
+        }
+
+ 
+        /*if ($request->getMethod() == 'POST') {
             $form->bind($request);
-            /*             * *********  validation form ********************* */
+         
             if ($form->isValid()) {
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_forum_sujet_voir', array('id' => $idsujet)));
             }
-        }
+        }*/
         return $this->render('MyAppForumBundle:commentaire:edit.html.twig', array('form' => $form->createView(), 'id' => $id));
     }
 

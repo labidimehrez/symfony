@@ -106,7 +106,8 @@
 
  
 <script type="text/javascript">
-            function CKupdate() { for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement(); }             
+            function CKupdate() { 
+                for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();  CKEDITOR.instances[instance].setData('');}             
             $(function() {
                 $("#formcomment").submit(function(e) {
                     CKupdate();
@@ -149,7 +150,7 @@
                             </div>
                                 {% include   'MyAppEspritBundle:Default:footer.html.twig'%}  
                      </div>
-           </div>
+    </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
      
             {# tooltip non conncté #}

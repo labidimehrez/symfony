@@ -1,6 +1,6 @@
 {# empty Twig template #}
 <form role="form"  action='{{path('my_app_forum_commentaire_edit',{'id':id}  )}}' method="post" {{ form_enctype(form) }} id="formeditcomment">
-
+ 
     <table height=" " width=" " border="0">
 
         <tr>
@@ -11,7 +11,7 @@
             <td> </br></br> 
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg"  />
+                <input type="submit" name="textecomment[]"  value="Commenter" style="width: 150px;" class="btn btn-warning btn-lg" id="formeditcommentsubmit"  />
 
                 <input type="reset"  id=hideeditcommentaire   value="Annuler"    style="margin-left:50px;margin-right: 330px;" class="btn-annuler"/>                                                                                                                                                    
 

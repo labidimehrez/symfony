@@ -1,6 +1,4 @@
-{# empty Twig template #}
-
-                                    {## pour la tooltip NON CONNECTé ##}
+ 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -31,6 +29,10 @@
                             '</div>'
                 });
                 });</script>
-                          {## pour la tooltip NON CONNECTé ##}
-{#<a href="#" class="clickTip exampleTip" >Add</a> #}
-
+ 
+ <script type="text/javascript">
+   $(document).click(function(event) {
+       if ( !$(event.target).hasClass('div#aToolTip')) { $("div#aToolTip").hide();}}
+           );              
+</script>
+        

@@ -1,0 +1,20 @@
+<a id=hidethread{{commentaireid}} class="hidethread">
+    <img src="{{ asset('bundles/myappesprit/images/flechedroite.png') }}" height="20px;" width="20px;" alt=""/>
+</a>
+<a id=showthread{{commentaireid}} class="showthread">
+    <img src="{{ asset('bundles/myappesprit/images/flechebas.png') }}" height="20px;" width="20px;" alt=""/>
+</a>   
+              
+    <style type="text/css">a#hidethread{{commentaireid}}{display: none;}</style>          
+     <script type="text/javascript">
+            $("a#hidethread{{commentaireid}}").click(function() {
+                $("div.souscommentaire{{commentaireid}}").slideToggle();
+                $("a#showthread{{commentaireid}}").show();
+                $("a#hidethread{{commentaireid}}").hide();
+            }); 
+           $("a#showthread{{commentaireid}}").click(function() {
+                $("div.souscommentaire{{commentaireid}}").slideToggle();
+                $("a#showthread{{commentaireid}}").hide();
+                $("a#hidethread{{commentaireid}}").show();
+            }); 
+    </script>   
