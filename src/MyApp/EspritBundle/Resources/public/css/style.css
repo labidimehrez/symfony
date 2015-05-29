@@ -2356,11 +2356,11 @@
     z-index: 6000
 }
 #login {
-    background-color: #FFF;
-    padding-top: 40px;
-    padding-left: 50px;
-    width: 650px;
-    z-index: 6
+  background-color: #FFF;
+  padding-top: 40px;
+  /* padding-left: 50px; */
+  width: 650px;
+  z-index: 6;
 }
 #login-input,
 #login-inputpassword {
@@ -2442,40 +2442,34 @@
     position: relative;
     float: right
 }
-.profilcreeconfirm {
-    position: absolute;
-    left: 175px;
-    top: 370px;
-    width: 931px;
-    height: 342px;
-    z-index: 6000
+ .profilcreeconfirm {
+  position: relative;
+  /* left: 175px; */
+  top: 30px;
+  width: 931px;
+  height: 342px;
+  z-index: 6000;
 }
 .profilcreeconfirmdiv1 {
-    position: absolute;
-    top: 80px;
-    width: 931px;
-    height: 50px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #8A0808
+  top: 80px;
+  width: 929px;
+  height: 50px;
+  z-index: 6001;
+  background-color: #f8fef0;
 }
 .profilcreeconfirmdiv2 {
-    position: absolute;
-    top: 150px;
-    width: 603px;
-    height: 50px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E
+  top: 150px;
+  width: 929px;
+  height: 50px;
+  z-index: 6001;
+  background-color: #f8fef0;
 }
 .profilcreeconfirmdiv3 {
-    position: absolute;
-    top: 220px;
-    width: 603px;
-    height: 190px;
-    z-index: 6001;
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E
+  top: 220px;
+  width: 929px;
+  height: 200px;
+  z-index: 6001;
+  background-color: #f8fef0;
 }
 .nomuser {
     position: absolute;
@@ -2561,14 +2555,14 @@
     height: 336px
 }
 .messagealerteeditprofile {
-    background-color: #f8fef0;
-    border: 1px solid #2EFE2E;
-    position: absolute;
-    left: 0;
-    top: 55px;
-    width: 650px;
-    height: 40px;
-    z-index: 6000
+background-color: #f8fef0;
+  border: 1px solid #2EFE2E;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 648px;
+  height: 25px;
+  z-index: 6000;
 }
 .conteneursenestedebat {
     position: absolute;

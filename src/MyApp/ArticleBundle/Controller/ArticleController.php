@@ -63,39 +63,38 @@ class ArticleController extends Controller {
         $article = $em->getRepository('MyAppArticleBundle:article')->getAllArticle();
         $publicite = $em->getRepository('MyAppEspritBundle:publicite')->getintPub();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->findAll();
-        $sujetlimited= $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
+        $sujetlimited = $em->getRepository('MyAppForumBundle:sujet')->getAllsujetrecent();
         /*  sortedtopic by comment */
         $managerarticle = $this->get('collectify_article_manager'); /* em pour article !! */
         $sortedtopic = $managerarticle->debatsortedmostcommented();
 
         $sujetneverarticlebeforearray = array();
         $articlearray = array();
-        
+
         foreach ($sujet as $s) {
             array_push($sujetneverarticlebeforearray, $s);
         }
-        
+
         foreach ($article as $ar) {
             if ($ar->getPosition() < 16) {/* il faut pas avoir un parmi 1-15 positions */
                 array_push($articlearray, $ar);
-            } 
+            }
         }
-        
-      //  var_dump($sujetneverarticlebeforearray);exit;
-         foreach ($sujetneverarticlebeforearray as $snar) {
-             foreach ($articlearray as $ar) {
-                 if($snar->getSujet()==$ar ->getHeadline()){
-                        unset($sujetneverarticlebeforearray[array_search($snar, $sujetneverarticlebeforearray)]);
-                 }
-             }
-             
-         }
+
+        //  var_dump($sujetneverarticlebeforearray);exit;
+        foreach ($sujetneverarticlebeforearray as $snar) {
+            foreach ($articlearray as $ar) {
+                if ($snar->getSujet() == $ar->getHeadline()) {
+                    unset($sujetneverarticlebeforearray[array_search($snar, $sujetneverarticlebeforearray)]);
+                }
+            }
+        }
 //        var_dump($sujetneverarticlebeforearray);exit;
-        
+
         if ($sujetneverarticlebeforearray == NULL) {
-                       array_push($sujetneverarticlebeforearray, array());
-                              }
-         $sujetnotarticle = $sujetneverarticlebeforearray;
+            array_push($sujetneverarticlebeforearray, array());
+        }
+        $sujetnotarticle = $sujetneverarticlebeforearray;
 
         $outputsujetnotarticle = array_slice($sujetnotarticle, 0, 7); /* get Only 7 element */
         $sortedtopicarticle = array_slice($sortedtopic, 0, 7); /* get Only 7 element */

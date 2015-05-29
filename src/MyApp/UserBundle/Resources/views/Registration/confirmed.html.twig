@@ -3,45 +3,60 @@
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 {% block fos_user_content %}
  
-
+<div class="contenudetemplate" id="getFixedTemplate">
 <div class="profilcreeconfirm">
 
-    <h1>Opret profil</h1></b> 
+    <h1>{{'cree_profile'|trans}}</h1></b> 
 <div class="profilcreeconfirmdiv1"></br>
     &nbsp;&nbsp;&nbsp; 
     <img src="{{ asset('bundles/myappesprit/images/error.png') }}" alt="" />
     &nbsp;&nbsp;&nbsp;
-    Kan ikke sende e-mail. Kontakt sitets administrator hvis problemet fortsætter.</div>
+    {{'problemeemail'|trans}}</div>
 <div class="profilcreeconfirmdiv2"></br>
    &nbsp;&nbsp;&nbsp;  <img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
     &nbsp;&nbsp;&nbsp;
-    Yderligere instruktioner er sendt til din e-mail-adresse.</div>
+    {{'autreinstructionatonmail'|trans}}</div>
 
 <div class="profilcreeconfirmdiv3"></br> 
    &nbsp;&nbsp;&nbsp;<img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
      &nbsp;&nbsp;&nbsp;
-    Velkommen  {{user.username}} til SOL.dk.Din konto er oprettet </br>
+     {{'bienvenue'|trans}}  {{user.username}} {{'comptecrée'|trans}} </br>
 
     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-    Du har nu følgende vægmuligheder: </br></br> 
+    {{'possibilité'|trans}}: </br></br> 
 
     &nbsp;&nbsp;&nbsp;
 
-    <a href="{{ path('my_app_esprit_homepage') }}" class="rouge" style="text-decoration:none;">Se nyheder</a></br>
+    <a href="{{ path('my_app_esprit_homepage') }}" class="rouge" style="text-decoration:none;">{{'Senyheder'|trans}}</a></br>
     &nbsp;&nbsp;&nbsp;
 
-    <a href="{{ path('fos_user_profile_edit') }}" class="rouge" style="text-decoration:none;">Fædiggøre din profil</a></br> 
+    <a href="{{ path('fos_user_profile_edit') }}" class="rouge" style="text-decoration:none;">{{'completeprofil'|trans}}</a></br> 
     &nbsp;&nbsp;&nbsp;
-    <a href="{#{ path('fos_user_change_password') }#}" class="rouge" style="text-decoration:none;">Se din mail</a></div>
+    <a href="{#{ path('fos_user_change_password') }#}" class="rouge" style="text-decoration:none;">{{'Sedinmail'|trans}}</a></div>
 
 </div> 
 
 
+{% for publicite in publicite %} 
+    <div style="  position: absolute;  top: 135px;  left: 629px;  z-index: 8000;">
 
+            <img src="{{publicite.image}}" alt="" width="300" height="250" > 
+        </div>  
+ {%endfor%}
 
 
     {% if app.session is not empty %}
         {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
         {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
     {% endif %}
+        
+        
+        
+    <div style="padding-top: 70px;"> 
+           <div style="  margin-bottom: 20px;"> 
+                   {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}</div>
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+    </div>
+</div>
+ 
 {% endblock fos_user_content %}
