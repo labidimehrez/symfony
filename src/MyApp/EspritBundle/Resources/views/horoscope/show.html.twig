@@ -9,9 +9,12 @@
 <div style="margin-left: 207px;" id="getFixedTemplate">
 
 
-    <div style="background-color: red;width: 930px;height: 110px;position: relative;margin-bottom: -100px;top: 30px;"></div>
+    <div id="capricone" style="background-color:white;width: 930px;height: 110px;position: relative;margin-bottom: -100px;top: 30px;">
+        <img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="imagehoro" /> 
+        <b style="color:#c52821;">Capricorne</b>
+    </div>
     <div id="capricone" style="  width: 930px;">{{capricone|raw}}</div>
-    <div style="background-color: red;width: 930px;height: 110px;position: relative;margin-top: -40px;margin-bottom:-50px;"></div>
+
 {#<div id="belier">{{belier|raw}}</div>
 <div id="lion">{{lion|raw}}</div>
 <div id="vierge">{{vierge|raw}}</div>
@@ -28,7 +31,60 @@
 
 
 
+    <div  style="background-color: white;height: 110px;position: relative;margin-top: -40px;margin-bottom:-50px;">
 
+
+
+
+      
+
+
+        <div class="slideshow">  
+            <ul style="margin-left: 0px;">
+
+
+
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+                <li><img src="{{ asset('bundles/myappesprit/images/horoscope/Capricorne.png') }}" alt=""  class="" /></li>
+
+            </ul>  
+        </div>
+
+
+
+
+
+        <script type="text/javascript" src="./Infinite Slideshow with jQuery_files/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                setInterval(function() {
+                    $(".slideshow ul").animate({marginLeft: -350}, 800, function() {
+                        $(this).css({marginLeft: 0}).find("li:last").after($(this).find("li:first"));
+                    })
+                }, 3500);
+            });
+        </script>
+
+
+        <script type="text/javascript">
+            $("#img1").click(function() {
+                $("#img1").hide();
+            });
+        </script>
+
+    </div>
 
     <div style="padding-top: 70px;"> 
         <div style="margin-bottom: 20px;"> 
