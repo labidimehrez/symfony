@@ -8,10 +8,10 @@
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <div style="margin-left: 207px;" id="getFixedTemplate">
 
-    
-   
+
+    <div style="background-color: red;width: 930px;height: 110px;position: relative;margin-bottom: -100px;top: 30px;"></div>
     <div id="capricone" style="  width: 930px;">{{capricone|raw}}</div>
-    
+    <div style="background-color: red;width: 930px;height: 110px;position: relative;margin-top: -40px;margin-bottom:-50px;"></div>
 {#<div id="belier">{{belier|raw}}</div>
 <div id="lion">{{lion|raw}}</div>
 <div id="vierge">{{vierge|raw}}</div>
@@ -23,19 +23,19 @@
 <div id="gemeaux">{{gemeaux|raw}}</div>
 <div id="poissons">{{poissons|raw}}</div>
 <div id="taureau">{{taureau|raw}}</div>#}
- 
 
 
 
 
 
 
-        <div style="padding-top: 70px;"> 
-                            <div style="margin-bottom: 20px;"> 
+
+    <div style="padding-top: 70px;"> 
+        <div style="margin-bottom: 20px;"> 
                                 {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
-                           </div>   
+        </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
-          </div>
+    </div>
 
 </div>
 
