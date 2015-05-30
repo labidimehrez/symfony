@@ -1,0 +1,4 @@
+## YAML Template.
+my_app_esprit_horoscope_show:
+    pattern:  /show
+    defaults: { _controller: MyAppEspritBundle:horoscope:show }

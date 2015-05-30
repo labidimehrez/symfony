@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+{{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
+ {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
+
+{% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
+ {% block show_horoscope%} 
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+<div style="margin-left: 207px;" id="getFixedTemplate">
+
+    
+   
+    <div id="capricone" style="  width: 930px;">{{capricone|raw}}</div>
+    
+{#<div id="belier">{{belier|raw}}</div>
+<div id="lion">{{lion|raw}}</div>
+<div id="vierge">{{vierge|raw}}</div>
+<div id="cancer">{{cancer|raw}}</div>
+<div id="scorpion">{{scorpion|raw}}</div>
+<div id="balance">{{balance|raw}}</div>
+<div id="verseau">{{verseau|raw}}</div>
+<div id="sagittaire">{{sagittaire|raw}}</div>
+<div id="gemeaux">{{gemeaux|raw}}</div>
+<div id="poissons">{{poissons|raw}}</div>
+<div id="taureau">{{taureau|raw}}</div>#}
+ 
+
+
+
+
+
+
+        <div style="padding-top: 70px;"> 
+                            <div style="margin-bottom: 20px;"> 
+                                {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
+                           </div>   
+               {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
+          </div>
+
+</div>
+
+{% endblock %}
+
+

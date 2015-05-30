@@ -75,7 +75,7 @@ class LoadingFixturesmenu implements FixtureInterface {
         $menu9 = new Menu();
         $menu9->setPosition(9);
         $menu9->setName('HOROSKOPER');
-        $menu9->setLien('my_app_forum_sujet_sujetrecent');
+        $menu9->setLien('my_app_esprit_horoscope_show');
         $manager->persist($menu9);
         
         $menu10 = new Menu();

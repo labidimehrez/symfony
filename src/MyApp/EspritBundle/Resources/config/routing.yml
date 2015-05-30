@@ -28,7 +28,10 @@ signe:
     resource: "@MyAppEspritBundle/Resources/config/routing/signe.yml"
     prefix: /{_locale}/signe 
      
- 
+horoscope:
+    resource: "@MyAppEspritBundle/Resources/config/routing/horoscope.yml"
+    prefix: /{_locale}/horoscope 
+
 my_app_esprit_test:
     pattern:  /test
     defaults: { _controller: MyAppEspritBundle:Default:test }
