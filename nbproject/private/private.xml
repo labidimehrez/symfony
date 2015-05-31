@@ -19,6 +19,9 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/horoscope/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/horoscopeController.php</file>
+        </group>
     </open-files>
 </project-private>
