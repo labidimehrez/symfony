@@ -1,29 +1,24 @@
 @media screen and (max-width: 1000px) {
-    .SOLDK,
-    .cadreblanc,
-    .cerclenotif,
-    .contain,
-    .headbar,
-    .idfacebook,
-    .position1,
-    .position6,
-    .so,
-    .stylebuttonpartageetrss {
+    .position1 {
+        display: none 
+    }
+
+    .position6 {
         display: none
     }
-    .position0 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 929px;
-        height: 180px;
-        z-index: 8000
+    .so{ display: none}
+    .stylebuttonpartageetrss,.idfacebook,.SOLDK,.Debat,.cerclenotif,#notifid,.Mail_copy,.Profile{ display: none}
+    contenudetemplate {
+        position: relative;
+        width: 100%; 
+        padding: 0;
     }
+    .senestredebattelement{ display: none}
     .MENU {
         position: absolute;
-        left: 55px;
+        left: 50px;
         top: 175px;
-        width: 800px;
+        width: auto;
         height: 42px;
         background-color: #c52821;
         font-size: 11px;
@@ -37,115 +32,158 @@
         -ms-transform: matrix(1.16555689978784, 0, 0, 1.16555689978784, 0, 0);
         z-index: 2000
     }
+
     .contenudetemplate {
-        position: relative;
-        margin-right: 0;
-        margin-left: 0;
-        padding: 0;
-        top: -10px
+        /* position: relative; */
+        /* margin-right: 215px; */
+        margin-left: 0px; 
+        /* padding: 0; */
     }
-    .position7 {
-        display: none
-    }
-    .publicitenumero1 {
-        position: relative;
-        margin-top: 10px
-    }
-    .publicitenumero2 {
-        position: relative;
-        margin-top: 0;
-        top: 180px
-    }
-    .publicitenumero3 {
-        position: relative;
-        top: 100px;
-        clear: right;
-        float: left
-    }
+
+
     .Forside___Debat___Politik___Samfund___Indenrigs {
         font-size: 11px;
-        font-family: HelveticaNeueLTStd;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         color: #4d4d4d;
         line-height: 1.2;
         text-align: left;
         position: absolute;
-        padding-left: 20px;
+        padding-left: 10px; 
         z-index: 399;
-        top: 190px
+        top: 365px;
     }
-    #getFixed {
-        padding: 10px;
-        margin: -80px 10px 10px;
-        z-index: 50000
-    }
-    .articlepositionA {
+
+
+    .position0 {
         position: absolute;
-        width: 310px;
-        height: 310px;
-        top: 1505px;
-        left: 0;
-        background-color: #e0e0e0
+        left: 0px;
+        top: 114px;
+        width: 929px;
+        height: 180px;
+        z-index: 8000;
     }
-    .articleposition12 {
-        position: absolute;
-        width: 315px;
-        height: 103px;
-        top: 1845px;
-        left: 0
-    }
-    .articleposition14 {
-        position: absolute;
-        width: 315px;
-        height: 102px;
-        top: 1932px;
-        left: 0
-    }
-    .contenudebat {
-        max-width: 600px
-    }
-    .position12 {
-        position: absolute;
-        left: 625px;
-        top: 1300px;
-        width: 300px;
-        height: 251px;
-        z-index: 8000
-    }
-    .position11 {
-        position: absolute;
-        left: 625px;
-        top: 600px;
-        width: 300px;
-        height: 251px;
-        z-index: 8000
-    }
-    .position13 {
-        position: absolute;
-        left: 625px;
-        top: 1650px;
-        width: 300px;
-        height: 251px;
-        z-index: 8000
-    }
-    .senestredebatt {
-        display: none
-    }
-    .stylepourchaquedebat {
-        max-width: 600px
-    }
-    .divpourlogin {
+
+
+    .publicitenumero4 {
         position: relative;
-        margin-left: 180px;
-        margin-top: 0;
-        top: 300px;
-        height: 700px
+        left: 210px;
+        top: 110px;
+        clear: right;
+        float: right;
     }
-    .StartaNewTopic,
-    .position22 {
-        display: none
+
+
+    .publicitenumero5 {
+        position: relative;
+        left: 210px;
+        top: 120px;
+        clear: right;
+        float: right;
     }
-    .login-input {
-        padding-left: 100px;
-        padding-top: 100px
+
+
+    .publicitenumero6 {
+        position: relative;
+        left: 210px;
+        top: 130px;
+        clear: right;
+        float: right;
     }
+
+    .publicitenumero7 {
+        position: relative;
+        left: 210px;
+        top: 140px;
+        clear: right;
+        float: right;
+    }
+
+    .publicitenumero8 {
+        position: relative;
+        left: 210px;
+        top: 150px;
+        clear: right;
+        float: right;
+    }
+
+    #getFixed {
+        padding: 10px 10px 10px 30px;
+        margin: 10px;
+        z-index: 50000;
+        width: 803px;
+    }
+    
+    
+    .DEBATMot {
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  line-height: 1.2;
+  text-align: left;
+  text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+  left: 780px;
+  top: 36.3px;
+  z-index: 33600;
+  font-weight: 700;
+  position: fixed;
 }
+
+
+.EMAIL {
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  line-height: 1.2;
+  text-align: left;
+  text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+  left: 678.94px;
+  top: 37.3px;
+  z-index: 54100;
+  font-weight: 700;
+  position: fixed;
+}
+
+.OPRET_PROFIL_LOGIN {
+  font-size: 14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  line-height: 1.667;
+  text-align: right;
+  text-shadow: 0 1px 0 rgba(57, 57, 57, .004);
+  left: 381.94px;
+  top: 15.99px;
+  z-index: 54700;
+  font-weight: 700;
+  position: fixed;
+}
+
+
+#monprofileoucreerprofile {
+  position: relative;
+  right: -145px;
+  top: 18px;
+}
+
+.Sol_logo {
+  background-image: url("Sol logo.png");
+  left: 54px;
+  top: 5px;
+  width: 85px;
+  height: 86px;
+  z-index: 32600;
+  position: fixed;
+}
+ 
+.text_field {
+  background-image: url("../images/text field.png");
+  left: 176px;
+  top: 37px;
+  width: 174px;
+  height: 26px;
+  z-index: 32800;
+  position: fixed;
+}
+    
+}
+
+ 

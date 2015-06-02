@@ -1,11 +1,12 @@
 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showsujet %}   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+ {% block showsujet %}  
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_forum_sujet_changethread')}}' method="post" {{ form_enctype(form) }} > 
     <header><h3 class="tabs_involved">Content Sujet Manager</h3>
         <ul class="tabs">{{form_widget(form._token)}} 
-            <li><a href="#tab1">Posts</a></li>
+            {#<li><a href="#tab1">Posts</a></li>#}
           <input type="submit"  value="Change" style="background-color: transparent;border: none;" /> 
         </ul>
     </header>  

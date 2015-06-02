@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4">
         <file>
-            <url>vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</url>
-            <bookmark id="1">
-                <name/>
-                <line>0</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
             <bookmark id="4">
                 <name/>
@@ -17,11 +9,21 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/horoscope/show.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/horoscopeController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/config/services.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/manage.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/security.yml</file>
         </group>
     </open-files>
 </project-private>

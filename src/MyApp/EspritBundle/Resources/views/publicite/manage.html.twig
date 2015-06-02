@@ -1,11 +1,12 @@
 
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block showpub %}   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+ {% block showpub %}  
+ {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_esprit_publicite_deletemore')}}' method="post" {{ form_enctype(form) }} > 
-    <header><h3 class="tabs_involved">Content Banners Manager</h3>
-        <ul class="tabs"> {{form_widget(form._token)}}   
-            <li><a href="#tab1">Posts</a></li>
+    <header><h3 class="tabs_involved">Content Banners Manager</h3>{{form_widget(form._token)}}
+        <ul class="tabs">    
+           {# <li><a href="#tab1">Posts</a></li>#}
              <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
         </ul>
     </header>  

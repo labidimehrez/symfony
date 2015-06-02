@@ -1,7 +1,8 @@
 {# empty Twig template #}
 {% extends 'MyAppEspritBundle:BackOffice:administration.html.twig' %}
 
- {% block managearticle %}  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
+ {% block managearticle %}
+  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_article_article_deletemore')}}' method="post" {{ form_enctype(form) }} > 
     <header><h3 class="tabs_involved">Content article Manager</h3>
         <ul class="tabs">{{form_widget(form._token)}}  
@@ -48,10 +49,10 @@
 
 
                     <td>
-                        <a href="#">
+                      <a href="{{ path('my_app_article_article_edit',{'id':article.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                         </a>   &nbsp;&nbsp;
-                        <a href="#">
+                      <a href="{{ path('my_app_article_article_delete',{'id':article.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                         </a> 
                     </td>

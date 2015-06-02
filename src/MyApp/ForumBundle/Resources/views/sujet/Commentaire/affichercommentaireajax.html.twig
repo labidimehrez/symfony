@@ -29,7 +29,7 @@
 
 
             {% if commentaire.vote  is not null %}
-        <b class="likecount" style="cursor:pointer;">
+            <b class="likecount" style="cursor:pointer;">
             <img src="{{ asset('bundles/myappesprit/images/like.png') }}" height="20px;" width="20px;" alt=""/>
             &nbsp;{{commentaire.vote}} </b>
              {%endif%}       
@@ -46,10 +46,8 @@
                   {%else%} <a href="#" class="clickTip exampleTip" id="Addnewcomment" >{{'repondrecommentaire'|trans}}</a>{%endif%} 
 
         <script type="text/javascript">
-            function CKupdate() {
-                for (instance in CKEDITOR.instances)
-                    CKEDITOR.instances[instance].updateElement();
-                CKEDITOR.instances[instance].setData('');
+            function CKupdate() {              
+     for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();CKEDITOR.instances[instance].setData('');                
             }
             $(function() {
                 $("#formsubcomment").submit(function(e) {
@@ -84,10 +82,12 @@
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <b class="likebutton" id="like{{commentaireid}}">{{'like'|trans}}</b>
         <b class="likebutton" id="dislike{{commentaireid}}" style="display:none;">{{'dislike'|trans}}</b>
-        
+
         <script type="text/javascript">
             $(function() {
                 $("#like{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                    $('b#like{{commentaireid}}').hide();
+                    $('b#dislike{{commentaireid}}').show();
                     e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
                     var commentaireid = {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
                     $.ajax({
@@ -98,7 +98,7 @@
                         cache: false,
                         success: function(data)
                         {
-                        
+
                             $('.commentaireafficher').html(data);
                             $('b#like{{commentaireid}}').hide();
                             $('b#dislike{{commentaireid}}').show();
@@ -173,12 +173,12 @@
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <div class="inputsnouveausouscommentaire{{commentaireid}}" style="display: none;">
 
-                         {% if is_granted( 'ROLE_USER' ) %}  
-                                {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
-                         {%endif%}
+         {% if is_granted( 'ROLE_USER' ) %}  
+                {% include 'MyAppForumBundle:sujet/fragment:inputajoutsousommentaire.html.twig'%}  
+         {%endif%}
         </div>   
         <div class="inputeditcommentaire{{commentaireid}}" id="divinputtohide" style="display: none;">
-                         {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
+             {% include 'MyAppForumBundle:sujet/fragment:inputeditcommentaire.html.twig'%} 
         </div>  
         <!---------------------------------------------------------------------------------------------------------------------------------->
         <style type="text/css">div.souscommentaire{{commentaireid}}{  position: relative;top: 20px;  left: 70px;}</style>
@@ -191,9 +191,9 @@
                  {% if souscommentaire.user.path is not null  %} 
 
                          {%if "http" in souscommentaire.user.path %}
-                <img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
+                                 <img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
                          {%else%}
-                <img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
+                                 <img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
                         {%endif%}
 
 
@@ -219,45 +219,47 @@
                 </br> 
                 <!-------------------------------- -------------------------------->
                 <b class="likebutton" id="like{{souscommentaire.id}}">{{'like'|trans}}</b>
-                 <b class="likebutton" id="dislike{{souscommentaire.id}}" style="display:none;">{{'dislike'|trans}}</b>
-                 <script type="text/javascript">
-            $(function() {
-                $("#like{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
-                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
-                     /// cette variable pour recuperer l id dynamique concerné
-                    $.ajax({
-                        type: 'post',
-                        url: "{{path('my_app_forum_commentaire_vote',{id:souscommentaire.id} ) }}",
-                        data: $(this).serialize(),
-                        datatype: "json",
-                        cache: false,
-                        success: function(data)
-                        {                      
-                            $('.commentaireafficher').html(data);
+                <b class="likebutton" id="dislike{{souscommentaire.id}}" style="display:none;">{{'dislike'|trans}}</b>
+                <script type="text/javascript">
+                    $(function() {
+                        $("#like{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
                             $('b#like{{souscommentaire.id}}').hide();
                             $('b#dislike{{souscommentaire.id}}').show();
-                        }
+                            e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                            /// cette variable pour recuperer l id dynamique concerné
+                            $.ajax({
+                                type: 'post',
+                                url: "{{path('my_app_forum_commentaire_vote',{id:souscommentaire.id} ) }}",
+                                data: $(this).serialize(),
+                                datatype: "json",
+                                cache: false,
+                                success: function(data)
+                                {
+                                    $('.commentaireafficher').html(data);
+                                    $('b#like{{souscommentaire.id}}').hide();
+                                    $('b#dislike{{souscommentaire.id}}').show();
+                                }
+                            });
+                            return false;
+                        });
                     });
-                    return false;
-                });
-            });
-        </script>      
-                
-                
-                
-                
+                </script>      
+
+
+
+
                 <!-------------------------------- -------------------------------->
                      {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a class="bouttoneditsouscommentaire{{souscommentaire.id}}" 
-                   style=""><b class="likebutton">{{'modifier'|trans}}</b></a> 
+                <a class="bouttoneditsouscommentaire{{souscommentaire.id}}"  style="">
+                  <b class="likebutton">{{'modifier'|trans}}</b></a> 
                       {%endif%}
 
                 <!---------------------------->
                 &nbsp;&nbsp;&nbsp;&nbsp;   
-                                 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
-                <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"
-                   style="color: #c52821;font-weight: bold;" class="deletecommentaire{{souscommentaire.id}}">
-                                  {{'delete'|trans}}</a> 
+                 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+              <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"
+               style="color: #c52821;font-weight: bold;" class="deletecommentaire{{souscommentaire.id}}">
+                  {{'delete'|trans}}</a> 
                                   {%endif%}
                 <!----------------------->
                 <script type="text/javascript">
@@ -266,7 +268,7 @@
                     });
                 </script>
                 <div class="inputeditsouscommentaire{{souscommentaire.id}}" id="divinputtohide" style="display: none;">
-         {% include 'MyAppForumBundle:sujet/fragment:inputeditsouscommentaire.html.twig'%} 
+                        {% include 'MyAppForumBundle:sujet/fragment:inputeditsouscommentaire.html.twig'%} 
                 </div> 
 
                 <script type="text/javascript">
@@ -281,7 +283,7 @@
                                 cache: false,
                                 success: function(data)
                                 {
-                                    $('.commentaireafficher').html(data);
+                                  $('.commentaireafficher').html(data);
                                 }
                             });
                             return false;

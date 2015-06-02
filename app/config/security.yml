@@ -45,7 +45,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/administration, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/administration, role: ROLE_USER  }
         
           ## ajout de sujet permis au user connecté #
         - { path: ^/sujet/add, role: ROLE_USER }
