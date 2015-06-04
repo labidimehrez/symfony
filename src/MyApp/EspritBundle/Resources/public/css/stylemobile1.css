@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4 juin 2015, 16:56:38
+    Author     : Mehrez
+*/
+
+@media screen and (max-width: 1152px) {
+    .so,.position6 { display: none}
+
+
+
+    .stylebuttonpartageetrss,.idfacebook,.SOLDK,.Debat,.cerclenotif,#notifid,.Mail_copy,.Profile{ display: none}
+    contenudetemplate {
+        position: relative;
+        width: 100%; 
+        padding: 0;
+    }
+    .senestredebattelement{ display: none}
+
+    
+    
+      .publicitenumero4 {
+        position: relative;
+         left: 213px;
+        top: 110px;
+        clear: right;
+        float: right;
+    }
+
+
+    .publicitenumero5 {
+        position: relative;
+       left: 213px;
+        top: 120px;
+        clear: right;
+        float: right;
+    }
+
+
+    .publicitenumero6 {
+        position: relative;
+         left: 213px;
+        top: 130px;
+        clear: right;
+        float: right;
+    }
+
+    .publicitenumero7 {
+        position: relative;
+       left: 213px;
+        top: 140px;
+        clear: right;
+        float: right;
+    }
+
+    .publicitenumero8 {
+        position: relative;
+         left: 213px;
+        top: 150px;
+        clear: right;
+        float: right;
+    }
+
+}
