@@ -7,10 +7,10 @@
     z-index: 253
 }
 .resetbutton{
-      background: #D0D1D4 url(../images/btn_submit_2.png) repeat-x;
-                       border: 1px solid#30B0C8;  -webkit-box-shadow: 0 1px 0 #fff;  -moz-box-shadow: 0 1px 0 #fff;  box-shadow: 0 1px 0 #fff;
-                       font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
-                       color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer; 
+    background: #D0D1D4 url(../images/btn_submit_2.png) repeat-x;
+    border: 1px solid#30B0C8;  -webkit-box-shadow: 0 1px 0 #fff;  -moz-box-shadow: 0 1px 0 #fff;  box-shadow: 0 1px 0 #fff;
+    font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
+    color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer; 
 }
 .HEADER {
     background-color: #c52821;
@@ -3253,7 +3253,7 @@ input:focus {
     padding-left: 10px;
 }
 .slideshow {  
-   width: 560px;
+    width: 560px;
     height: 102px;
     margin-left: 200px;
     overflow: hidden;
@@ -3266,6 +3266,71 @@ input:focus {
     list-style:none;
 }  
 .slideshow li { float: left; }
- 
+
+
+
 .deletecommentaire,.likebutton{text-decoration:none;cursor:pointer;}
 //float:right;max-width:680px}#rotate{-webkit-transition-duration:.8s;-moz-transition-duration:.8s;-o-transition-duration:.8s;transition-duration:.8s;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;transition-property:transform;overflow:hidden}#rotate:hover{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg)}img#opacity{opacity:.95;filter:alpha(opacity=50)}img#opacity:hover{opacity:1;filter:alpha(opacity=100)}#toTop{display:none;text-decoration:none;position:fixed;bottom:20px;right:20px;overflow:hidden;width:51px;height:51px;border:none;text-indent:-999px;background-image:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png);background-repeat:no-repeat;background-position:left top;z-index:900000}#toTopHover{background:url(http://sd-1.archive-host.com/membres/images/3347790973941088/uitotop.png) left -51px no-repeat;width:51px;height:51px;display:block;overflow:hidden;float:left;opacity:0;-moz-opacity:0;filter:alpha(opacity=0)}#toTop:active,#toTop:focus{outline:0}.force-overflow{min-height:450px}#style-2::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);border-radius:10px;background-color:#F5F5F5}#style-2::-webkit-scrollbar{width:12px;background-color:#F5F5F5}#style-2::-webkit-scrollbar-thumb{border-radius:10px;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);background-color:#D62929}#taillepolicefooter{font-size:11px}.tool{//border:1px solid red;width:402px;height:86px;background-color:#FFF}.stylebuttonpartageetrss{width:170px;height:150px;top:150px;position:absolute;left:25px}.couleurnoir{color:#000}.imgavecbordureronde{border:1px solid;background:#ddd;border-radius:1em}
+
+
+@-moz-document url-prefix() {
+    .MENU {
+        background-color: #c52821;
+        color: #fff;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        height: 42px;
+        left: 263px;
+        line-height: 1.2;
+        position: absolute;
+        text-align: left;
+        text-shadow: 0 1px 0 rgba(57, 57, 57, 0.004);
+        top: 310px;
+        transform: matrix(1.16556, 0, 0, 1.16556, 0, 0);
+        width: 798px;
+        z-index: 2000;
+    }
+    .position6 {
+        height: 600px;
+        left: 1180px;
+        position: absolute;
+        top: 380px;
+        width: 160px;
+        z-index: 8000;
+    }
+    .publicitenumero4 {
+        position: relative;
+        left: 9px;
+        top: 110px;
+        clear: right;
+        float: right
+    }
+    .publicitenumero5 {
+        position: relative;
+        left: 9px;
+        top: 120px;
+        clear: right;
+        float: right
+    }
+    .publicitenumero6 {
+        position: relative;
+        left: 9px;
+        top: 130px;
+        clear: right;
+        float: right
+    }
+    .publicitenumero7 {
+        position: relative;  
+        left: 9px;
+        top: 140px;
+        clear: right;
+        float: right
+    }
+    .publicitenumero8 {
+        position: relative;
+        left: 9px;
+        top: 150px;
+        clear: right;
+        float: right
+    }
+}
