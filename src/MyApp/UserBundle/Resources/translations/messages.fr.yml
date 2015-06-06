@@ -1,6 +1,7 @@
 
 log: Login
-pass: Password
+pass: Mot de passe
+password: mot de passe
 Log pa: Connect
 log-in: S'identifier
 creercompte: Créer Utilisateur
@@ -21,8 +22,8 @@ logout: DECONNECTER
 Jacceptelestermes: J accepte les termes
 Ajoutdestyle: Ajout de Style
 
-changpass: Changer password
-confpass: Confirm Password
+changpass: Changer mot de passe
+confpass: Confirm mot de passe
 home: Accueil
 
 talifoun: Numero de Portable
@@ -42,14 +43,14 @@ etabli: Etablit
 Sidstonline: dernière log
 Gem: Enregistre
 
-mdpactuel: mot de passe actuel
+mdpactuel: Mot de passe actuel
 nouveaumdp: Nouveau mot de passe
 repeatnouveaumdp: Répétez le mot de passe
 Changermotdepasse: Changer mot de passe
 dislike: j 'aime pas
 like: j'aime
 Add new comment: Ajouter un commentaire
-repondrecommentaire: repondre commentaire
+repondrecommentaire: répondre 
 modifier: modifier
 delete: supprimer
 

@@ -26,13 +26,13 @@ class LoadingFixturesmenu implements FixtureInterface {
         
         $menu1 = new Menu();
         $menu1->setPosition(1);
-        $menu1->setName('NYHEDER');
+        $menu1->setName('SPORT');
         $menu1->setLien('my_app_article_article_show');
         $manager->persist($menu1);
         
         $menu2 = new Menu();
         $menu2->setPosition(2);
-        $menu2->setName('KENDTE');
+        $menu2->setName('DÉBAT');
         $menu2->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu2);
         
@@ -44,37 +44,37 @@ class LoadingFixturesmenu implements FixtureInterface {
         
         $menu4 = new Menu();
         $menu4->setPosition(4);
-        $menu4->setName('HOLDNING');
+        $menu4->setName('ARTICLE');
         $menu4->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu4);
         
         $menu5 = new Menu();
         $menu5->setPosition(5);
-        $menu5->setName('REJSER');
+        $menu5->setName('ACTUALITÉ');
         $menu5->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu5);
         
         $menu6 = new Menu();
         $menu6->setPosition(6);
-        $menu6->setName('SUNDHED');
+        $menu6->setName('SANTÉ');
         $menu6->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu6);
         
         $menu7 = new Menu();
         $menu7->setPosition(7);
-        $menu7->setName('FRITID');
+        $menu7->setName('LOISIRS');
         $menu7->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu7);
         
         $menu8 = new Menu();
         $menu8->setPosition(8);
-        $menu8->setName('EROTIK');
+        $menu8->setName('HUMOUR');
         $menu8->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu8);
         
         $menu9 = new Menu();
         $menu9->setPosition(9);
-        $menu9->setName('HOROSKOPER');
+        $menu9->setName('HOROSCOPE');
         $menu9->setLien('my_app_esprit_horoscope_show');
         $manager->persist($menu9);
         

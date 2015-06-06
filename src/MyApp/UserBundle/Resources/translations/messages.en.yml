@@ -1,6 +1,7 @@
 
 log: Brugernavn
 pass: Adgangskode
+password: adgangskode
 Log pa: Log
 log-in: Log ind
 creercompte: Opret ny bruger

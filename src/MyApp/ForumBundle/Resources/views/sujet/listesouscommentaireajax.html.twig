@@ -8,14 +8,11 @@
            {%if "http" in souscommentaire.user.path %}
 			<img src="{{souscommentaire.user.path }}"   class="imageuser" alt="" />
              {%else%}
-				<img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
+			<img src="{{ asset('upload/' ~ souscommentaire.user.path)}}"   class="imageuser" alt="" />
             {%endif%}
  
-
-
-
 {% else %}  
-<img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
+    <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt=""   />
 {% endif%} 
 
 
