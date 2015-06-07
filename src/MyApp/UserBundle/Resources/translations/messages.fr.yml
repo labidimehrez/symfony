@@ -7,8 +7,8 @@ log-in: S'identifier
 creercompte: Créer Utilisateur
 newuser: si tu es nouveau ...
 Registrer : s'enregistrer
-debatrecent: Recent Debat
-DebatRecent: Récent Debat
+debatrecent: Débat Récent
+DebatRecent: Débat Récent
 Start a New Topic: Commencer un débat
 Log au sol : Connexion SOL.DK
 welcomesol: Bienvenue au SOL.DK ......
@@ -19,7 +19,7 @@ cree_profile: Creer Profil
 voirprofile : MON PROFIL
 seconnecter: CONNECTER
 logout: DECONNECTER
-Jacceptelestermes: J accepte les termes
+Jacceptelestermes: J'accepte les termes
 Ajoutdestyle: Ajout de Style
 
 changpass: Changer mot de passe

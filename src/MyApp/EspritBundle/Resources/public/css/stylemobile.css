@@ -1,6 +1,6 @@
 @media screen and (max-width: 1000px) {
 
-  
+
     .position1 {
         display: none 
     }
@@ -180,6 +180,18 @@
         background-image: url("../images/text field.png");
         left: 176px;
         top: 37px;
+        width: 174px;
+        height: 26px;
+        z-index: 32800;
+        position: fixed;
+    }
+
+
+    .quick_search {
+        text-align: center;
+        padding: 14px 0 10px 0;
+        left: 180px;
+        top: 17px;
         width: 174px;
         height: 26px;
         z-index: 32800;

@@ -122,26 +122,65 @@
                     <t class="GOOGLE">GOOGLE</t>
                 </div>
 
-                <div class="text_field">  </div> 
+                <!-- <div class="text_field"> </div>  
 
 
-                <!--  recherche google
-                <script>
-              (function() {
-                var cx = '016704472298602707163:_y2ygwymyuc';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
-                -->
+                <!--  
+               <script>
+             (function() {
+               var cx = '016704472298602707163:_y2ygwymyuc';
+               var gcse = document.createElement('script');
+               gcse.type = 'text/javascript';
+               gcse.async = true;
+               gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
+                   '//www.google.com/cse/cse.js?cx=' + cx;
+               var s = document.getElementsByTagName('script')[0];
+               s.parentNode.insertBefore(gcse, s);
+             })();
+           </script>
+           <gcse:search></gcse:search>-->
 
-                <x class="Hvad">Hvad søger du?</x>
+
+
+
+
+
+
+
+
+
+
+    <style>
+        .gsib_a{padding-right:0;padding-left:0}.gsib_a,.gsib_b{vertical-align:top}.gsib_a{width:100%;padding:0}
+        #___gcse_0{top:-15px;position:relative;width:220px}.gsc-input-box{border:1px solid transparent;background:transparent;height:25px;-webkit-border-radius:20px;-moz-border-radius:20px}
+        .gsc-control-cse{border-color:transparent;background-color:transparent}.cse .gsc-control-cse,.gsc-control-cse{background-color:transparent;border:1px solid transparent}.gsc-search-button{display:none}
+    </style>
+
+                <form class="quick_search">
+                    <!--	<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">-->
+
+                    <script>
+                        (function() {
+                            var cx = '016704472298602707163:_y2ygwymyuc';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') +
+                                    '//www.google.com/cse/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                        })();
+                    </script>
+                    <gcse:search></gcse:search>
+                </form>
+
+
+
+
+
+
+                <!--<x class="Hvad">Hvad søger du?</x>-->
+
                               {#% render(controller('MyAppEspritBundle:menu:recherche')) %#}
                 <!--<div class="EMAIL2">2</div>-->
 
