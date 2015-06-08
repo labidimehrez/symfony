@@ -54,7 +54,12 @@ class commentaire {
      * @ORM\Column(name="vote", type="integer",nullable=true)
      */
     private $vote;
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idvoter", type="string", length=2550,nullable=true)
+     */
+    private $idvoter;
     /**
      * @var boolean
      *
@@ -180,5 +185,14 @@ class commentaire {
         $this->notifications = $notifications;
         return $this;
     }
+    public function getIdvoter() {
+        return $this->idvoter;
+    }
+
+    public function setIdvoter($idvoter) {
+        $this->idvoter = $idvoter;
+        return $this;
+    }
+
 
 }

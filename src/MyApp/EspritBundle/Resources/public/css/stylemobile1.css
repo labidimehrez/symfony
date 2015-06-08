@@ -21,11 +21,11 @@ and open the template in the editor.
     }
     .senestredebattelement{ display: none}
 
-
-
-    .publicitenumero4 {
+    
+    
+      .publicitenumero4 {
         position: relative;
-        left: 213px;
+         left: 213px;
         top: 110px;
         clear: right;
         float: right;
@@ -34,7 +34,7 @@ and open the template in the editor.
 
     .publicitenumero5 {
         position: relative;
-        left: 213px;
+       left: 213px;
         top: 120px;
         clear: right;
         float: right;
@@ -43,7 +43,7 @@ and open the template in the editor.
 
     .publicitenumero6 {
         position: relative;
-        left: 213px;
+         left: 213px;
         top: 130px;
         clear: right;
         float: right;
@@ -51,7 +51,7 @@ and open the template in the editor.
 
     .publicitenumero7 {
         position: relative;
-        left: 213px;
+       left: 213px;
         top: 140px;
         clear: right;
         float: right;
@@ -59,23 +59,10 @@ and open the template in the editor.
 
     .publicitenumero8 {
         position: relative;
-        left: 213px;
+         left: 213px;
         top: 150px;
         clear: right;
         float: right;
     }
 
-
-
-    .quick_search {
-        text-align: center;
-        padding: 14px 0 10px 0;
-        left: 180px;
-        top: 17px;
-        width: 174px;
-        height: 26px;
-        z-index: 32800;
-        position: fixed;
-    }
-    .position11,.position12,.position13,.senestredebatt{display: none}
 }

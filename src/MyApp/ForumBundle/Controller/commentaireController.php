@@ -303,6 +303,10 @@ class commentaireController extends Controller {
         return $this->render('MyAppForumBundle:commentaire:editsouscomment.html.twig', array('id' => $id, 'souscommentaire' => $souscommentaire, 'form' => $form->createView()));
     }
     public function voteAction($id, Request $request) {
+        
+         $user = $this->container->get('security.context')->getToken()->getUser();
+        $user->getId();
+        
         $em = $this->getDoctrine()->getManager();
         $co = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
         if (!$co) {
@@ -340,7 +344,8 @@ class commentaireController extends Controller {
            
                  
                 $em = $this->getDoctrine()->getManager();
-                $co->setVote($co->getVote()+1);   
+                $co->setVote($co->getVote()+1);  
+                $co->setIdvoter($co->getIdvoter()."-".$user->getId()."=>".$co->getId());/* pour marquer les gens deja qui ont voté */
                 $em->persist($co);
                 $em->flush();
                 return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
