@@ -21,8 +21,10 @@ class StyleController extends Controller {
     }
 */
     public function addAction(Request $request) {
+         $em = $this->getDoctrine()->getManager();
         $manager = $this->get('collectify_style_manager');/** equivalent de em manager * */
         $style2 = $manager->getAll();
+//        var_dump($style2);exit;
         /*         * * form a afficher dans la vue * */
         $form = $this->createFormBuilder($style2)
                 ->add('name', 'text')
@@ -37,6 +39,7 @@ class StyleController extends Controller {
 
         /*         * * test de validation title must be not blank * */
           if(($ColorForFont == null)||($BackgroundColor == null) ||($title == null)){
+//            $this->get('session')->getFlashBag()->set('messagestylefail', 'Style non ajouté ,  certains champs sont invalides  ');     
           return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
           }  
         /** ajout de style validé avec les input de la request ** */
@@ -45,9 +48,20 @@ class StyleController extends Controller {
         $style->setCodecouleurfront($ColorForFont);
         $style->setName($name);
         $style->setTitle($title);
-
-        $manager->persist($style);
-
+ 
+         $exist= FALSE; 
+        foreach ($style2 as $s) {
+            if(  $s->getTitle()==$style->getTitle() ){
+            $exist= TRUE;  /* c 'est vrai ca existe !! donc pas de persist */
+           $this->get('session')->getFlashBag()->set('messagestylefailtitre', 'Style non ajouté ,changez de titre svp  '); 
+         
+            }
+        }
+        
+        $manager->persist($style,$exist); 
+        
+        
+        $this->get('session')->getFlashBag()->set('messagestylesuccess', 'Style ajouté avec Succés  '); 
 
         return $this->render('MyAppArticleBundle:style:add.html.twig', array('form' => $form->createView()));
     }

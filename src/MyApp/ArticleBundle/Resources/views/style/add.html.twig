@@ -27,7 +27,24 @@
 <div class="contenudetemplate" id="getFixedTemplate">
     <div style="margin-left: 150px;margin-top: 100px;">
 
-
+{% for flashMessage in app.session.flashbag.get('messagestylesuccess') %}
+        <div class="messagealertestyleajoute">
+        <img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
+{{ flashMessage }}
+</div>{% endfor %}
+     
+{% for flashMessage in app.session.flashbag.get('messagestylefail') %}
+        <div class="messagealertestyleajoute">
+        <img src="{{ asset('bundles/myappesprit/images/error.png') }}" alt="" />
+{{ flashMessage }}
+</div>{% endfor %}      
+ {% for flashMessage in app.session.flashbag.get('messagestylefailtitre') %}
+        <div class="messagealertestyleajoute">
+        <img src="{{ asset('bundles/myappesprit/images/error.png') }}" alt="" />
+{{ flashMessage }}
+</div>{% endfor %}          
+        
+        
         <form action='{{path('my_app_article_style_add')}}' method="post" {{ form_enctype(form) }} style="width: 500px;" > 
 
 

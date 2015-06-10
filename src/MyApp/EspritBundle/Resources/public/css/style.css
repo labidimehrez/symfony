@@ -2560,6 +2560,16 @@
     width: 820px;
     height: 336px
 }
+.messagealertestyleajoute{
+   background-color: #f8fef0;
+  border: 1px solid #2EFE2E;
+  position: absolute;
+ /* left: 10;*/
+  top: -40px;
+    width: 300px;
+  height: 25px;
+  z-index: 6000;
+}
 .messagealerteeditprofile {
     background-color: #f8fef0;
     border: 1px solid #2EFE2E;

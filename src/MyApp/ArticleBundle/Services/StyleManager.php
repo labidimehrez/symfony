@@ -17,6 +17,7 @@ class StyleManager {
     public function getAll() {
         return $this->repository->findAll();
     }
+ 
 
     public function removemore($style) {
         foreach ($style as $s) {
@@ -27,8 +28,9 @@ class StyleManager {
         return $style;
     }
 
-    public function persist($style) {
-        $this->doFlush($style);
+    public function persist($style,$exist) {
+        if($exist == FALSE)
+        {$this->doFlush($style);}
     }
 
     public function remove($style) {
