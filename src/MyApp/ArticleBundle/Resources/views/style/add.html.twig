@@ -2,7 +2,10 @@
 
 {{ render(controller('MyAppEspritBundle:publicite:showextpub')) }}
 {{ render(controller('MyAppEspritBundle:notification:shownumber')) }} {# pour afficher notif number #}
+
+
  {% block ajout_arstyle%}
+
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 {% include 'MyAppEspritBundle:Default:sousmenu.html.twig'  with { 'routeName':app.request.get('_route') }%}
 
@@ -29,14 +32,14 @@
 
 
             <div class="form-item">
-                <label for="color1" class="stylegras">Title &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
+                <label for="color1" class="stylegras">{{'Title'|trans}} &nbsp;<b  class="rouge">*</b> &nbsp;</label></br>
                 <input type="text" name="title" style="width: 600px;" required="true"  value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters" onmouseover="tooltip.pop(this, '<h6>&nbsp;&nbsp;This Field is requiered&nbsp;&nbsp;</h6>');" >    
             </div>
 
             </br></br>
 
             <div class="form-item">
-                <label for="color1" class="stylegras" >Name</label></br>
+                <label for="color1" class="stylegras" >{{'Name'|trans}}</label></br>
                 <input type="text" name="name"  style="width: 600px;"  value="" value="" pattern="[A-Za-z].{0,20}" title="Title containts Only letters"> 
             </div>
 
@@ -44,24 +47,24 @@
 
             <div id="picker" style="float: right;"></div>
             <div class="form-item">
-                <label for="color1" class="stylegras">Color For Font:</label></br>
+                <label for="color1" class="stylegras">{{'Color For Font'|trans}}:</label></br>
                 <input type="text" id="color1" name="color1" required="true" pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}"  class="colorwell"  value="#123456" style="width: 100px;"/>
             </div>
 
             </br></br></br></br></br></br>
 
             <div class="form-item">
-                <label for="color2" class="stylegras">Background Color:</label></br>
+                <label for="color2" class="stylegras">{{'Background Color'|trans}}:</label></br>
                 <input type="text" id="color2" required="true" name="color2" class="colorwell"   pattern="#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}" value="#123456" style="width: 100px;" />
             </div>
 
             </br></br>
                   {{form_widget(form._token)}}  
 
-            <input type="submit"  value="submit" style="width: 100px;margin-left: 150px;margin-right: 50px;" 
+            <input type="submit"  value="{{'submit'|trans}}" style="width: 100px;margin-left: 150px;margin-right: 50px;" 
                    class="btn btn-warning btn-lg"/>
 
-            <input type="reset"  value="reset" style="width: 100px;"  class="btn btn-warning btn-lg"/>
+            <input type="reset"  value="{{'reset'|trans}}" style="width: 100px;"  class="btn btn-warning btn-lg"/>
 
         </form>
 
