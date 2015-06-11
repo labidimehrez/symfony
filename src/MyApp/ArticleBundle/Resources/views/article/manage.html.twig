@@ -4,29 +4,41 @@
  {% block managearticle %}
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_article_article_deletemore')}}' method="post" {{ form_enctype(form) }} > 
-    <header><h3 class="tabs_involved">Content article Manager</h3>
+    <header><h3 class="tabs_involved">Gestion de Contenu article </h3>
         <ul class="tabs">{{form_widget(form._token)}}  
-            <input type="submit"  value="Save" style="background-color: transparent;border: none;"  /> 
+            <input type="submit"  value="Enregistrer" style="background-color: transparent;border: none;" id="submit" /> 
 
         </ul>
     </header>  
+    
+  <script type="text/javascript">
+        document.querySelector('#submit').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
+
 
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
             <thead> 
                 <tr> 
-                    <th></th> 
+                   <!-- <th></th> -->
                     <th>Position</th> 
                     <th>Style</th> 
-                    <th>Article Title</th> 
-                    <th>Fixed</th> 
+                    <th>Titre Article</th> 
+                    <th>Fixé</th> 
                 </tr> 
             </thead> 
             <tbody> 
 
             {% for article in article %}
                 <tr> 
-                    <td><input type="checkbox" name="mesIds[]" value="{{article.id}}" ></td> 
+                 {#  <td><input type="checkbox" name="mesIds[]" value="{{article.id}}" ></td> #}
                     <td>  
                         <input type="number" name="i[]" id="" value="{{article.position}}" style="width:50px;" 
                                required="true" pattern=""  min="1" max="15" title="">
@@ -52,12 +64,21 @@
                       <a href="{{ path('my_app_article_article_edit',{'id':article.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                         </a>   &nbsp;&nbsp;
-                      <a href="{{ path('my_app_article_article_delete',{'id':article.id}) }}">
+                      <a href="{{ path('my_app_article_article_delete',{'id':article.id}) }}" id="supprimer">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                         </a> 
                     </td>
                 </tr> 
-
+  <script type="text/javascript">
+         document.querySelector('#supprimer').onclick = function(){
+            swal({
+                    title: "Alert automatique!",
+                    text: "Veuillez patientez un peu",
+                    timer: 8000,
+                    showConfirmButton: false
+            });
+    };
+</script>
             {%endfor%}
 
 

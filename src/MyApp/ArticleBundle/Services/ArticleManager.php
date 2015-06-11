@@ -111,25 +111,28 @@ class ArticleManager {
 
     public function ShiftToRightNofixedPositionOneDelete($selectarticle) {
         $ArticleNOFixedPosition = $this->repository->getArticleNOFixedPosition();
+        if ($ArticleNOFixedPosition != NULL) {
 
-        $position = $selectarticle->getPosition();
-        $pos = array(); /* tableau des objets a translater :D */
-        foreach ($ArticleNOFixedPosition as $s) {
-            $a = $s->getPosition();
-            if ($a > $position) {
-                array_push($pos, $a);  /* ajouter la position au tableau vide */
+
+            $position = $selectarticle->getPosition();
+            $pos = array(); /* tableau des objets a translater :D */
+            foreach ($ArticleNOFixedPosition as $s) {
+                $a = $s->getPosition();
+                if ($a > $position) {
+                    array_push($pos, $a);  /* ajouter la position au tableau vide */
+                }
             }
-        }
-        $index = 0;
+            $index = 0;
 
-        if ($position < $ArticleNOFixedPosition[$index]->getPosition()) {
-            if (count($ArticleNOFixedPosition) > 1) {
-                do {
-                    $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
-                    $index++;
-                } while ($index < count($pos));
-            } else {
-                $ArticleNOFixedPosition[$index]->setPosition($position);
+            if ($position < $ArticleNOFixedPosition[$index]->getPosition()) {
+                if (count($ArticleNOFixedPosition) > 1) {
+                    do {
+                        $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
+                        $index++;
+                    } while ($index < count($pos));
+                } else {
+                    $ArticleNOFixedPosition[$index]->setPosition($position);
+                }
             }
         }
     }

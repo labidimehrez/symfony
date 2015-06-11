@@ -114,7 +114,7 @@ class ArticleController extends Controller {
 
         $manager->ShiftToRightNofixedPositionOneDelete($selectarticle);
         $manager->remove($article);
-        $this->get('session')->getFlashBag()->set('message', 'Ce article  disparait !!');
+        $this->get('session')->getFlashBag()->set('message', 'Cet article  disparait !!');
         return $this->redirect($this->generateUrl('my_app_article_article_manage'));
     }
 
@@ -141,7 +141,7 @@ class ArticleController extends Controller {
         /* delete more  checked */
         $ids = $this->getRequest()->get('mesIds');
         if ($totalnumberofar <= 2) {
-            $this->get('session')->getFlashBag()->set('message', 'At least  15 AR  !');
+            $this->get('session')->getFlashBag()->set('message', 'au moins  15 articles  !');
         }
         /*         * ********************************************************************************************** */
         if ((count($ids) > 1) && ( $totalnumberofar > 2)) {//15
@@ -180,7 +180,7 @@ class ArticleController extends Controller {
         $positions = $this->getRequest()->get('i'); /* tableau de string position text input deja   :D */
         if ($positions != NULL) {
             if (($positions != array_unique($positions)) && ($positions != NULL)) {
-                $this->get('session')->getFlashBag()->set('message', 'More than one AR per position  !!');
+                $this->get('session')->getFlashBag()->set('message', 'Plus qun article pour une position  !!');
             } else {
                 $manager->UpdatePosition($positions);  /*  mise a jour des positions AR selon les input text */
             }
