@@ -30,8 +30,9 @@
 {% for flashMessage in app.session.flashbag.get('messagestylesuccess') %}
         <div class="messagealertestyleajoute">
         <img src="{{ asset('bundles/myappesprit/images/OK.png') }}" alt="" />
-{{ flashMessage }}
-</div>{% endfor %}
+            {{ flashMessage }}
+        </div>
+{% endfor %}
      
 {% for flashMessage in app.session.flashbag.get('messagestylefail') %}
         <div class="messagealertestyleajoute">

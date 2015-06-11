@@ -16,6 +16,14 @@
 
 <div class="contenudetemplate" id="getFixedTemplate">
 
+ {% for flashMessage in app.session.flashbag.get('messagearticlefailtitre') %}
+        <div class="messagealertearticleajoute">
+        <img src="{{ asset('bundles/myappesprit/images/error.png') }}" alt="" />
+            {{ flashMessage }}
+        </div>
+{% endfor %}   
+    
+    
 <div class="arstyle">
     <form  action='{{path('my_app_article_article_add')}}' method="post" {{ form_enctype(form) }} id="formsubmitid" > 
 

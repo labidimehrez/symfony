@@ -58,7 +58,7 @@ class StyleController extends Controller {
             }
         }
         
-        $manager->persist($style,$exist); 
+        $manager->persist($style,$exist); /* si existe est vrai donc pas de persist dans manager */
         
         
         $this->get('session')->getFlashBag()->set('messagestylesuccess', 'Style ajouté avec Succés  '); 

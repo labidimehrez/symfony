@@ -47,7 +47,10 @@ class ArticleController extends Controller {
                 $fixedpositionChecked = $form["fixedposition"]->getData(); /*  Boolean TRUE si Fixed Position is Checked */
                 /* $lapositionchoisie contient 'vide' si position vide sinon 'contenufixe' ou 'contenuNONfixe' */
                 $lapositionchoisie = $manager->Disponiblitedelapositionchoisie($positiondelarticleenajout);
-                $manager->traitementenajout($positiondelarticleenajout, $fixedpositionChecked, $lapositionchoisie, $articleNOfixedposition, $premierepositionlibre, $article);
+            $message=  $manager->traitementenajout($positiondelarticleenajout, $fixedpositionChecked, $lapositionchoisie, $articleNOfixedposition, $premierepositionlibre, $article);
+//              var_dump($message);exit;
+            if($message=="STOP. The chosen position is fixed. Please unfix this position first.")
+            {$this->get('session')->getFlashBag()->set('messagearticlefailtitre', 'la position choisie est déja fixée, veuillez choisir autre ou librez-la avant  '); }
                 return $this->redirect($this->generateUrl('my_app_article_article_add'));
             }
         }

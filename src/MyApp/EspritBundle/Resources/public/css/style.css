@@ -12,6 +12,16 @@
     font-weight: 700;  height: 22px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  padding: 0 10px;
     color: #003E49;  text-shadow: 0 1px 0 #6CDCF9;  cursor: pointer; 
 }
+.messagealertearticleajoute{
+    background-color: #f8fef0;
+    border: 1px solid #2EFE2E;
+    position: absolute;
+    left: 190px;
+    top: 0px;
+    width: 550px;
+    height: 25px;
+    z-index: 6000;
+}
 .HEADER {
     background-color: #c52821;
     padding: 0;
@@ -2561,14 +2571,14 @@
     height: 336px
 }
 .messagealertestyleajoute{
-   background-color: #f8fef0;
-  border: 1px solid #2EFE2E;
-  position: absolute;
- /* left: 10;*/
-  top: -40px;
+    background-color: #f8fef0;
+    border: 1px solid #2EFE2E;
+    position: absolute;
+    /* left: 10;*/
+    top: -40px;
     width: 300px;
-  height: 25px;
-  z-index: 6000;
+    height: 25px;
+    z-index: 6000;
 }
 .messagealerteeditprofile {
     background-color: #f8fef0;
@@ -3286,41 +3296,41 @@ input:focus {
 
 
 .quick_search {
-text-align: center;
-padding: 14px 0 10px 0;
-left: 236px;
-   top: 27px;
-  width: 174px;
-  height: 26px;
-   z-index: 3280000;
-  position: fixed;
+    text-align: center;
+    padding: 14px 0 10px 0;
+    left: 236px;
+    top: 27px;
+    width: 174px;
+    height: 26px;
+    z-index: 3280000;
+    position: fixed;
 }
 
 .quick_search input[type=text] {
--webkit-border-radius: 20px;
--moz-border-radius: 20px;
-border-radius: 20px;
-border: 1px solid #bbb;
-height: 26px;
-width: 90%;
-color: #ccc;
-/*-webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
--moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;*/
-text-indent: 30px;
-background: #fff url(../images/icn_search.png) no-repeat;
-background-position: 10px 6px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    height: 26px;
+    width: 90%;
+    color: #ccc;
+    /*-webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+    -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+    box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;*/
+    text-indent: 30px;
+    background: #fff url(../images/icn_search.png) no-repeat;
+    background-position: 10px 6px;
 }
 
 .quick_search input[type=text]:focus {
-outline: none;
-color: #666666;
-border: 1px solid #77BACE;
--webkit-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
--moz-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+    outline: none;
+    color: #666666;
+    border: 1px solid #77BACE;
+    -webkit-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+    -moz-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+    box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
 }
- 
+
 
 
 

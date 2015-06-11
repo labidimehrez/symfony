@@ -50,7 +50,8 @@ class ArticleManager {
                 }
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
-                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+                $message = "STOP. The chosen position is fixed. Please unfix this position first.";
+                return $message;
             }
         }
         if (($positiondelarticleenajout === 1) && ($fixedpositionChecked === FALSE)) {
@@ -66,7 +67,8 @@ class ArticleManager {
                 $article->setPosition($positiondelarticleenajout);
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
-                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+                $message = "STOP. The chosen position is fixed. Please unfix this position first.";
+                return $message;
             }
         }
         if (($positiondelarticleenajout != 1) && ($fixedpositionChecked === FALSE)) {
@@ -74,7 +76,8 @@ class ArticleManager {
                 $article->setPosition($positiondelarticleenajout);
                 $this->persist($article);
             } elseif ($lapositionchoisie === 'contenufixe') {
-                throw new NotFoundHttpException("STOP. The chosen position is fixed. Please unfix this position first.");
+                $message = "STOP. The chosen position is fixed. Please unfix this position first.";
+                return $message;
             }
         }
     }
@@ -120,13 +123,14 @@ class ArticleManager {
         $index = 0;
 
         if ($position < $ArticleNOFixedPosition[$index]->getPosition()) {
-            if(count($ArticleNOFixedPosition)>1){
-            do {
-                $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
-                $index++;
-            } while ($index < count($pos));
-            }else{$ArticleNOFixedPosition[$index]->setPosition($position);}
-            
+            if (count($ArticleNOFixedPosition) > 1) {
+                do {
+                    $ArticleNOFixedPosition[$index]->setPosition($ArticleNOFixedPosition[$index + 1]->getPosition());
+                    $index++;
+                } while ($index < count($pos));
+            } else {
+                $ArticleNOFixedPosition[$index]->setPosition($position);
+            }
         }
     }
 
