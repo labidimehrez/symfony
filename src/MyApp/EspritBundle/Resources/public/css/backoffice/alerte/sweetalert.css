@@ -1,7 +1,9 @@
 body.stop-scrolling {
   height: 100%;
   overflow: hidden; }
-
+     .sweet-alert  fieldset input[type=text] {
+         display: none;
+     }  
 .sweet-overlay {
   background-color: black;
   /* IE8 */
@@ -137,7 +139,7 @@ body.stop-scrolling {
     display: none;
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
-    .sweet-alert input:focus {
+     .sweet-alert input:focus {
       outline: none;
       box-shadow: 0px 0px 3px #c4e6f5;
       border: 1px solid #b4dbed; }

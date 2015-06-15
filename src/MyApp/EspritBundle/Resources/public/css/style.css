@@ -1,5 +1,6 @@
 #monprofileoucreerprofile{ position: relative;right: -165px; top: 16px;}
 #connectdeconnect{position: relative;/* right: -145px; */top: -5px;}
+.transparent{background-color: transparent;border: none;}
 .SITE {
     position: absolute;
     left: 0;

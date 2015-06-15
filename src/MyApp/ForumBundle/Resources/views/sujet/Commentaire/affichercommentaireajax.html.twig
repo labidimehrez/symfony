@@ -117,7 +117,7 @@
             });
         </script>   
         <!---------------------------------------------------------------------------------------------------------------------------------->              
-      {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+      {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user.username ==  app.user.username ) %}
         <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
       {%endif%}
 
@@ -155,7 +155,7 @@
             });
         </script>  
         <!---------------------------------------------------------------------------------------------------------------------------------->             
-    {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+    {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user.username ==  app.user.username ) %}
         <a href="{{ path('my_app_forum_commentaire_delete',{'id':commentaire.id}) }}" class="deletecommentaire" id="deletecomment{{commentaireid}}">{{'delete'|trans}}</a> 
     {%endif%}
         <script type="text/javascript">
@@ -263,14 +263,14 @@
 
 
                 <!-------------------------------- -------------------------------->
-                     {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+                     {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user.username ==  app.user.username ) %}
                 <a class="bouttoneditsouscommentaire{{souscommentaire.id}}"  style="">
                     <b class="likebutton">{{'modifier'|trans}}</b></a> 
                       {%endif%}
 
                 <!---------------------------->
                 &nbsp;&nbsp;&nbsp;&nbsp;   
-                 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user ==  app.user.username ) %}
+                 {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user.username ==  app.user.username ) %}
                 <a href="{{ path('my_app_forum_commentaire_delete',{'id':souscommentaire.id}) }}"
                    style="color: #c52821;font-weight: bold;" class="deletecommentaire{{souscommentaire.id}}">
                   {{'delete'|trans}}</a> 

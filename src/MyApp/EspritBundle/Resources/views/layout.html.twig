@@ -82,13 +82,19 @@
             <nav class="cl-effect-5">
       {% for menu in menu|slice(0, 9)  %}
         {## la variable route contient le lien de la rubrique de menu ##}
-        {% set route = menu.lien %}  
-
-
-                <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
-                    <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
-                </a>  
-
+        {% set route = menu.lien %} 
+                
+               {%if  route=="my_app_article_article_add" %} 
+                          {%if  ("EDITOR" in app.user.roles|join) %}  
+                            <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
+                                <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
+                            </a>
+                         {%endif%} 
+              {%else%}
+                           <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
+                            <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
+                          </a>
+              {%endif%}  
 
 
       {% endfor%} 

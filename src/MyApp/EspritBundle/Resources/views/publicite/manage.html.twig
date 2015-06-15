@@ -7,29 +7,29 @@
     <header><h3 class="tabs_involved">Gestion de Contenu bannières</h3>{{form_widget(form._token)}}
         <ul class="tabs">    
            {# <li><a href="#tab1">Posts</a></li>#}
-             <input type="submit"  value="Supprimer" style="background-color: transparent;border: none;" /> 
+            <input type="submit"  value="Supprimer" class="transparent" style="" /> 
         </ul>
     </header>  
 
-  <div> 
-      <table style="float: left;margin-left: 130px;"> 
+    <div> 
+        <table style="float: left;margin-left: 130px;"> 
             <tr> 
-            
-               <td><b>No</b></td> 
+
+                <td><b>No</b></td> 
                 <td width="25px;"> &nbsp;  </td>
                 <td><b> </b></td> 
-             
-                 <td width="120"> </td> 
-                 <td width="170"><b>Position</b></td> 
-                 <td><b>Actions</b></td> 
+
+                <td width="120"> </td> 
+                <td width="170"><b>Position</b></td> 
+                <td><b>Actions</b></td> 
             </tr> 
         </table> 
     </div>
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
-             
-                  
-                 
+
+
+
             <tbody> 
             {% for publicite2 in publicite2 %}
                 <tr> 
@@ -44,8 +44,18 @@
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                         </a>  #} &nbsp;&nbsp;
                         <a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">
-                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" id="submitdeletepub" alt="" />
                         </a> 
+                        <script type="text/javascript">
+                            document.querySelector('#submitdeletepub').onclick = function() {
+                                swal({
+                                    title: "Alert automatique!",
+                                    text: "Veuillez patientez un peu",
+                                    timer: 600000,
+                                    showConfirmButton: false
+                                });
+                            };
+                        </script>
                     </td>
                 </tr>
              {%endfor%}

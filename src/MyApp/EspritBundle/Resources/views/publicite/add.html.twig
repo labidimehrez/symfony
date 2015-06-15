@@ -14,8 +14,20 @@
                  {{form_widget(form._token)}}  	
                 <td>  
                 <td> {{form_widget(form.position)}}  </td><td>position</td>
-                <td>  <input type="submit"   value="Publish"    ></td>
+                <td>  <input type="submit"   value="Publish"  id="submitnewpub"  ></td>
                 <td>  <input type="reset"  value="Reset"  class="resetbutton" style="background-color: transparent;  border: none;"  </td>
+
+<script type="text/javascript">
+    document.querySelector('#submitnewpub').onclick = function() {
+        swal({
+            title: "Alert automatique!",
+            text: "Veuillez patientez un peu",
+            timer: 600000,
+            showConfirmButton: false
+        });
+    };
+</script>
+
 
 
             </tr>   

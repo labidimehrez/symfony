@@ -78,14 +78,23 @@
         <footer style="  margin-top: 5px;">
             <div class="submit_link">
                                   {{form_widget(form._token)}}
-                <input type="submit"   value="Enregistrer" class="alt_btn">
+                <input type="submit"   value="Enregistrer" class="alt_btn" id="submitnouveaumenu">
                 <input type="reset"   value="Reset"  style="background-color: transparent;border: none;" >
             </div>
         </footer>
     </article> 
 </form>
 
-
+  <script type="text/javascript">
+        document.querySelector('#submitnouveaumenu').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
  {% endblock  %}
 
 

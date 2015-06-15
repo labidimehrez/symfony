@@ -21,13 +21,13 @@
                 <div class="listetag" > {% include   'MyAppForumBundle:sujet:tags.html.twig'%} </div>
             
             
-            
+            {%if  ("EDITOR" in app.user.roles|join) or ( sujet.user.username ==  app.user.username ) %}
                 <a id=show style="float: right;position: relative;  top: -20px;  cursor: pointer;margin-left: 70px;"> 
                           {% if counternombredetag > 0%}
                                   <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                              {% endif%}
                 </a> 
-                
+            {%endif%}   
                 
                 
                 

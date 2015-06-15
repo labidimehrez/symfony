@@ -10,7 +10,7 @@
         <!--            alerte auto timer          -->
        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/backoffice/alerte/sweetalert.css') }}"/>  
         <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/backoffice/alerte/sweetalert-dev.js' )}} "></script>   
-       <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/backoffice/alerte/jquery-2.1.3.min.js' )}} "></script>      
+     {#  <script type="text/javascript" src="{{ asset('bundles/myappesprit/css/backoffice/alerte/jquery-2.1.3.min.js' )}} "></script>#}      
 
         <!--            alerte auto timer          -->
         
@@ -71,9 +71,9 @@
             <ul class="toggle">
                 <li class="icn_new_article"><a href="{{path('my_app_forum_sujet_manage') }}">Les Débats</a></li>            
                 <li class="icn_new_article"><a href="{{path('my_app_forum_tag_manage') }}">Les Tags</a></li>
-                <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_add') }}">Nouvelle Banniére</a></li>
+            {%if  ("EDITOR" in app.user.roles|join)%}    <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_add') }}">Nouvelle Banniére</a></li>{%endif%}
                 <li class="icn_new_article"><a href="{{path('my_app_esprit_publicite_manage')}}">Les Banniéres</a></li>
-                <li class="icn_edit_article"><a href="{{path('my_app_esprit_menu_show')}}">Les Menus</a></li>
+                <li class="icn_edit_article"><a href="{{path('my_app_esprit_menu_show')}}">Le Menu</a></li>
                 <li class="icn_edit_article"><a href="{{path('my_app_article_article_manage')}}">Les  Articles</a></li>
                 <li class="icn_categories"><a href="#">Les Catégories</a></li>
 
@@ -82,7 +82,7 @@
             <ul class="toggle">
                 <li class="icn_add_user"><a href="{{path('fos_user_registration_register') }}">Ajouter un utilisateur</a></li>
               {% if "SUPER_ADMIN" in  app.user.roles|join %}   <li class="icn_view_users"><a href="{{path('my_app_user_manage') }}">Les Utilisateurs</a></li>{%endif%}
-                  {% if "SUPER_ADMIN" in  app.user.roles|join %}  <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Your Profile</a></li> {%endif%}
+                  {% if "SUPER_ADMIN" in  app.user.roles|join %}  <li class="icn_profile"><a href="{{path('fos_user_profile_show') }}">Votre Profile</a></li> {%endif%}
             </ul>
             <h3>Media</h3>
             <ul class="toggle">

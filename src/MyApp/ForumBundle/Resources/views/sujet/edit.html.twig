@@ -30,9 +30,9 @@
 
 
                 <td>
-                    <a href="{{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }}">
+                    {%if  ("EDITOR" in app.user.roles|join)%}    <a href="{{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                    </a>   &nbsp;&nbsp;
+                    </a> {%endif%}  &nbsp;&nbsp;
                     <a href="{{ path('my_app_forum_sujet_delete',{'id':sujet.id}) }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a> 
@@ -69,7 +69,7 @@
                                     
                                   {{form_widget(form._token)}}
                                     <input type="submit"   value="Publish" class="alt_btn">
-                                    <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
+                                    <a href="{{path('my_app_esprit_homepage') }}" value="Reset"/>
                                   
                                     
                                 </div> 
