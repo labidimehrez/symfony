@@ -3,27 +3,27 @@
 
  {% block editmenu %}      {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-<header><h3 class="tabs_involved">Content Menu Manager</h3>
+<header><h3 class="tabs_involved">Gestion de Contenu menu</h3>
     <ul class="tabs">
-        <li><a href="#tab1">Posts</a></li>
+     <!-- <li><a href="#tab1">Posts</a></li>-->
 
     </ul>
 </header>  
-<div id="tab1" class="tab_content">
+<div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
     <table class="tablesorter" cellspacing="0"> 
-        <thead> 
+       <thead> 
             <tr> 
-                <th></th> 
-                <th>No</th> 
+               <!--  <th></th>  -->
+                <th>Position</th> 
                 <th> </th> 
-                <th>menu Title</th> 
-                <th> </th> 
+                <th>Menu Titre</th> 
+                <th>Actions</th> 
             </tr> 
         </thead> 
         <tbody> 
             {% for menu2 in menu2 %}
             <tr> 
-                <td><input type="checkbox"></td> 
+                  <!--   <td><input type="checkbox"></td> -->
                 <td>{{menu2.position}}</td> 
                 <td>{#{app.user.roles|join }#}</td> 
                 <td>{{menu2.name}}</td> 
@@ -48,20 +48,20 @@
 
 <form role="form" method="post" {{ form_enctype(form) }} >
     <article class="module width_full">
-        <header><h3>Update This Menu</h3></header>
+        <header><h3>modifier la rurique</h3></header>
         <div class="module_content">
 
           <fieldset>
             <table width="200" >
                <tr>
-                   <td> <label>Menu Position</label></td>
+                   <td> <label>Rubrique Position</label></td>
                    <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 50px' } }) }}</td>
-                   <td> <label>Menu Title</label></td>
+                   <td> <label>Rubrique Titre</label></td>
                    <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
                </tr>
            </table>  
  
-                <label>Menu Link</label>
+                <label>Rubrique Lien</label>
         {{form_widget(form.lien, { 'attr': {'placeholder': 'Link','class':'inp-form'} }) }}
 
             </fieldset>                      
@@ -70,7 +70,7 @@
         <footer>
             <div class="submit_link">
                                   {{form_widget(form._token)}}
-                <input type="submit"   value="Publish" class="alt_btn">
+                <input type="submit"   value="Enregistrer" class="alt_btn">
                 <input type="submit" href="{{path('my_app_esprit_homepage') }}" value="Reset">
             </div>
         </footer>

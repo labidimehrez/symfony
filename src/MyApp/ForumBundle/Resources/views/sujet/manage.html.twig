@@ -4,31 +4,47 @@
  {% block showsujet %}  
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_forum_sujet_changethread')}}' method="post" {{ form_enctype(form) }} > 
-    <header><h3 class="tabs_involved">Content Sujet Manager</h3>
+    <header><h3 class="tabs_involved">Gestion de Contenu débats</h3>
         <ul class="tabs">{{form_widget(form._token)}} 
             {#<li><a href="#tab1">Posts</a></li>#}
-          <input type="submit"  value="Change" style="background-color: transparent;border: none;" /> 
+            <input type="submit"  value="Change" style="background-color: transparent;border: none;" id="idsubmitdebat" /> 
         </ul>
     </header>  
+    
+    
+     <script type="text/javascript">
+        document.querySelector('#idsubmitdebat').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
 
+  <div> 
+      <table style="float: left;margin-left: 7px;"> 
+            <tr> 
+            
+               <td><b>No</b></td> 
+                <td width="25px;"> &nbsp;  </td>
+                <td><b>Débat Titre</b></td> 
+                <td width="270"> &nbsp;  </td>
+                 <td width="120"><b>Posté le</b></td> 
+                 <td width="70"><b>Niveau</b></td> 
+                 <td><b>Actions</b></td> 
+            </tr> 
+        </table> 
+    </div>
 
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
-            <thead> 
-                <tr> 
-                    <th> </th> 
-                    <th>No</th> 
-
-                    <th>Sujet Title</th> 
-                    <th>Post at</th> 
-                    <th>Thread</th>
-                    <th>Actions</th> 
-                </tr> 
-            </thead> 
+         
             <tbody> 
             {% for sujet in sujet %}
                 <tr> 
-                    <td><input type="checkbox"></td> 
+                     {#  <td><input type="checkbox"></td> #}
                     <td>{{sujet.id}}</td> 
                     <td>{{sujet.sujet|truncate(32, true, '...')}}</td> 
                     <td>{{sujet.datecreation|date('Y-M-d')}}  </td> 

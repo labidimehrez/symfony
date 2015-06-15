@@ -4,10 +4,10 @@
  {% block managestyle %}  
 {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_article_style_deletemore')}}' method="post" {{ form_enctype(form) }} > 
-    <header><h3 class="tabs_involved">Content style Manager</h3>
+    <header><h3 class="tabs_involved">Gestion de Contenu style</h3>
         <ul class="tabs"> {{form_widget(form._token)}}   
-            <li><a href="#tab1">Posts</a></li>
-            <li><input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> </li>
+             {# <li><a href="#tab1">Posts</a></li>#}
+            <li><input type="submit"  value="Supprimer" style="background-color: transparent;border: none;" /> </li>
 
         </ul>
     </header>  
@@ -16,10 +16,10 @@
             <thead> 
                 <tr> 
                     <th>No</th> 
-                    <th>Title</th> 
-                    <th>Name</th> 
-                    <th>Couleur front</th> 
-                    <th>Couleur back</th> 
+                    <th>Titre</th> 
+                    <th>Nom</th> 
+                    <th>Couleur font</th> 
+                    <th>Couleur ariere</th> 
                 </tr> 
             </thead> 
             <tbody> 
@@ -35,9 +35,9 @@
 
 
                     <td>
-                        <a href="{{ path('my_app_article_style_edit',{'id':style.id}) }}">
+                        {#<a href="{{ path('my_app_article_style_edit',{'id':style.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                        </a>   &nbsp;&nbsp;
+                        </a>  #} &nbsp;&nbsp;
                         <a href="{{ path('my_app_article_style_delete',{'id':style.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                         </a> 

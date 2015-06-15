@@ -4,25 +4,32 @@
  {% block showpub %}  
  {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 <form  action='{{path('my_app_esprit_publicite_deletemore')}}' method="post" {{ form_enctype(form) }} > 
-    <header><h3 class="tabs_involved">Content Banners Manager</h3>{{form_widget(form._token)}}
+    <header><h3 class="tabs_involved">Gestion de Contenu bannières</h3>{{form_widget(form._token)}}
         <ul class="tabs">    
            {# <li><a href="#tab1">Posts</a></li>#}
-             <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
+             <input type="submit"  value="Supprimer" style="background-color: transparent;border: none;" /> 
         </ul>
     </header>  
 
-
+  <div> 
+      <table style="float: left;margin-left: 130px;"> 
+            <tr> 
+            
+               <td><b>No</b></td> 
+                <td width="25px;"> &nbsp;  </td>
+                <td><b> </b></td> 
+             
+                 <td width="120"> </td> 
+                 <td width="170"><b>Position</b></td> 
+                 <td><b>Actions</b></td> 
+            </tr> 
+        </table> 
+    </div>
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
-            <thead> 
-                <tr> 
-                    <th> </th> 
-                    <th>No</th> 
-                    <th> </th> 
-                    <th>Position</th> 
-                    <th>Actions</th> 
-                </tr> 
-            </thead> 
+             
+                  
+                 
             <tbody> 
             {% for publicite2 in publicite2 %}
                 <tr> 
@@ -33,9 +40,9 @@
 
 
                     <td>
-                        <a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }}">
+                        {#<a href="{{ path('my_app_esprit_publicite_edit',{'id':publicite2.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                        </a>   &nbsp;&nbsp;
+                        </a>  #} &nbsp;&nbsp;
                         <a href="{{ path('my_app_esprit_publicite_delete',{'id':publicite2.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                         </a> 

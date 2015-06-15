@@ -22,18 +22,22 @@
         };
 </script>
 
+    <div style="float:left;"> 
+      <table> 
+            <tr> 
+               <td width="100"> &nbsp;&nbsp;<b>Position</b>  </td>
+               <td><b>Style</b></td> 
+                <td width="100"> &nbsp;  </td>
+                <td width="280"><b>Titre Article</b></td> 
+                <td width="70"> <b>Fixé</b> </td>
+                 <td><b>Actions</b></td> 
+            </tr> 
+        </table> 
+    </div>
 
     <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
         <table class="tablesorter" cellspacing="0"> 
-            <thead> 
-                <tr> 
-                   <!-- <th></th> -->
-                    <th>Position</th> 
-                    <th>Style</th> 
-                    <th>Titre Article</th> 
-                    <th>Fixé</th> 
-                </tr> 
-            </thead> 
+          
             <tbody> 
 
             {% for article in article %}

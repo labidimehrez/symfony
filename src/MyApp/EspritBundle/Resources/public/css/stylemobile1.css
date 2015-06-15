@@ -11,7 +11,16 @@ and open the template in the editor.
 @media screen and (max-width: 1152px) {
     .so,.position6 { display: none}
 
-
+.quick_search {
+  text-align: center;
+  padding: 14px 0 10px 0;
+  left: 156px;
+  top: 27px;
+  width: 174px;
+  height: 26px;
+  z-index: 3280000;
+  position: fixed;
+}
 
     .stylebuttonpartageetrss,.idfacebook,.SOLDK,.Debat,.cerclenotif,#notifid,.Mail_copy,.Profile{ display: none}
     contenudetemplate {

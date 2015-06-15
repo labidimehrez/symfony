@@ -11,20 +11,31 @@
 
 
 <form  action='{{path('my_app_forum_tag_delete')}}' method="post" {{ form_enctype(form) }} > 
-                <header><h3 class="tabs_involved">Content Tag Manager</h3>
+                <header><h3 class="tabs_involved">Gestion de Contenu tag</h3>
         <ul class="tabs">{{form_widget(form._token)}} 
-            <li><a href="#tab1">Posts</a></li>
-          <input type="submit"  value="Delete" style="background-color: transparent;border: none;" /> 
+            {# <li><a href="#tab1">Posts</a></li>#}
+            <input type="submit"  value="Supprimer" style="background-color: transparent;border: none;" id="tagdeletesubmit"/> 
         </ul>
                 </header>  
     
+<script type="text/javascript">
+        document.querySelector('#tagdeletesubmit').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
+
     <div> 
       <table> 
             <tr> 
                <td width="100"> &nbsp;  </td>
                <td><b>No</b></td> 
                 <td width="80"> &nbsp;  </td>
-                <td><b>Tag Title</b></td> 
+                <td><b>Tag Titre</b></td> 
                 <td width="250"> &nbsp;  </td>
                  <td><b>Actions</b></td> 
             </tr> 
@@ -66,10 +77,10 @@
  
 <form  action='{{path('my_app_forum_tag_manage')}}' method="post" {{ form_enctype(form) }} > 
                         <article class="module width_full">
-                            <header><h3>Post New Tag</h3></header>
+                            <header><h3>Ajout nouvelle Tag</h3></header>
                             <div class="module_content">
                                 <fieldset>
-                                    <label>Tag Title</label>
+                                    <label>Tag Titre</label>
                                     {{form_widget(form.title, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
                                    
                                 </fieldset>  
@@ -78,7 +89,7 @@
                             <footer>
                                 <div class="submit_link">
                                   {{form_widget(form._token)}}
-                                    <input type="submit"   value="Publish" class="alt_btn">
+                                    <input type="submit"   value="Ajouter" class="alt_btn">
                                     <input type="reset"   value="Reset" style="background-color: transparent;border: none;" >
                                 </div>
                             </footer>

@@ -4,28 +4,35 @@
  {% block showmenu %}
   {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-<header><h3 class="tabs_involved">Content Menu Manager</h3>
+<header><h3 class="tabs_involved">Gestion de Contenu menu</h3>
     <ul class="tabs">
-        <li><a href="#tab1">Posts</a></li>
+       <!-- <li><a href="#tab1">Posts</a></li>-->
 
     </ul>
 </header>  
+
+  <div> 
+      <table style="float: left;margin-left: 10px;"> 
+            <tr> 
+            
+               <td><b>Position</b></td> 
+                <td width="75px;"> &nbsp;  </td>
+                
+                 <td width="330"><b>Rubrique Titre</b></td> 
+                 <td><b>Actions</b></td> 
+            </tr> 
+        </table> 
+    </div>
+
+
 <div id="tab1" class="tab_content" style="height: 250px; width: 680px; overflow: auto; display: block;">
    <table class="tablesorter" cellspacing="0"> 
-        <thead> 
-            <tr> 
-                <th></th> 
-                <th>Position</th> 
-                <th> </th> 
-                <th>Menu Title</th> 
-                <th>Actions</th> 
-            </tr> 
-        </thead> 
+     
         <tbody>  
             {% for menu in menu %}
             <tr> 
          
-            <td><input type="checkbox"></td> 
+         <!--   <td><input type="checkbox"></td> -->
             <td>{{menu.position}}</td> 
             <td>{#{app.user.roles|join }#}</td> 
             <td>{{menu.name}}</td> 
@@ -50,29 +57,29 @@
 
 <form  action='{{path('my_app_esprit_menu_add')}}' method="post" {{ form_enctype(form) }}  > 
     <article class="module width_full">
-        <header><h3>Post New Menu</h3></header>
+        <header><h3>Ajout nouvelle rubrique</h3></header>
         <div> <!--<div class="/*module_content*/">-->
             <fieldset>
                 <table width="200" >
                     <tr>
-                        <td> <label>Menu Position</label></td>{# margin-left: -30px''width: 70px #}
+                        <td> <label>Rubrique Position</label></td>{# margin-left: -30px''width: 70px #}
                         <td>{{form_widget(form.position, { 'attr': {'placeholder': 'position','class':'inp-form','style': 'width: 70px' } }) }}</td>
-                        <td> <label>Menu Title</label></td>
+                        <td> <label>Rubrique Titre</label></td>
                         <td>{{form_widget(form.name, { 'attr': {'placeholder': 'Title','class':'inp-form','style': 'width: 100px' } }) }}</td>
                     </tr>
                 </table>  
 
-                <label>Menu Link</label>
+                <label>Rubrique Lien</label>
               {{form_widget(form.lien, { 'attr': {'placeholder': 'Link','class':'inp-form'} }) }}
 
             </fieldset>  
             <div class="clear"></div>
         </div>
-        <footer>
+        <footer style="  margin-top: 5px;">
             <div class="submit_link">
                                   {{form_widget(form._token)}}
-                <input type="submit"   value="Publish" class="alt_btn">
-                <input type="reset"   value="Reset" style="" class="resetbutton" >
+                <input type="submit"   value="Enregistrer" class="alt_btn">
+                <input type="reset"   value="Reset"  style="background-color: transparent;border: none;" >
             </div>
         </footer>
     </article> 

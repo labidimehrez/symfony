@@ -46,7 +46,7 @@
         <section id="secondary_bar">
             <div class="user">
                 <p>
-   {% if "SUPER_ADMIN" in  app.user.roles|join %} {{app.user.username }}{%else%} root {%endif%}       
+    {% if is_granted( 'ROLE_USER' ) %}  {{app.user.username }}{%else%} root {%endif%}       
 
                     (<a href="#">3 Messages</a>)</p>
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
