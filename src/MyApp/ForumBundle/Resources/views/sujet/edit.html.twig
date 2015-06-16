@@ -3,15 +3,32 @@
 
  {% block editsujet %}    {% include 'TwitterBootstrapBundle::stylesheets.html.twig'%}
 
-                <header><h3 class="tabs_involved">Content Sujet Manager</h3>
-                    <ul class="tabs">
-                        <li><a href="#tab1">Posts</a></li>
-                         
-                    </ul>
-                </header>  
+<header><h3 class="tabs_involved">Gestion de Contenu débats</h3>
+    <ul class="tabs">
+                           {#<li><a href="#tab1">Posts</a></li>#}
+
+    </ul>
+</header>  
+
+
+<div> 
+    <table style="float: left;margin-left: 7px;"> 
+        <tr> 
+
+            <td><b>No</b></td> 
+            <td width="25px;"> &nbsp;  </td>
+            <td><b>Débat Titre</b></td> 
+            <td width="270"> &nbsp;  </td>
+            <td width="120"><b>Posté le</b></td> 
+            <td width="70"><b>Niveau</b></td> 
+            <td><b>Actions</b></td> 
+        </tr> 
+    </table> 
+</div>
+
 <div id="tab1" class="tab_content">
     <table class="tablesorter" cellspacing="0"> 
-        <thead> 
+        {#<thead> 
             <tr> 
                 <th></th> 
                 <th>No</th> 
@@ -19,14 +36,16 @@
                     <th>Sujet</th> 
                 <th>Actions</th> 
             </tr> 
-        </thead> 
+        </thead> #}
         <tbody> 
             {% for sujet2 in sujet2 %}
             <tr> 
-                <td><input type="checkbox"></td> 
+             {#<td><input type="checkbox"></td> #}
                 <td>{{sujet2.id}}</td> 
-                <td>{#{app.user.roles|join }#}</td> 
-                <td>{{sujet2.sujet}}</td> 
+
+                <td   style="width: 300px;">{{sujet2.sujet|truncate(32, true, '...')}}</td> 
+                <td>{{sujet2.datecreation|date('Y-M-d')}}  </td> 
+                <td>{{sujet2.thread}}  </td>
 
 
                 <td>
@@ -46,35 +65,44 @@
     </table>
 </div> 
 
-   <form role="form" method="post" {{ form_enctype(form) }} >
-                        <article class="module width_full">
-                            <header><h3>Post New sujet</h3></header>
-                            <div class="module_content">
-                                <fieldset>    
-                                    <label>Sujet </label>
+<form role="form" method="post" {{ form_enctype(form) }} >
+    <article class="module width_full">
+        <header><h3>Modifier un débat</h3></header>
+        <div class="module_content">
+            <fieldset>    
+                <label>Sujet </label>
                                     {{form_widget(form.sujet, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
-                                    
-                                    <label>Contenu</label>
+
+                <label>Contenu</label>
                                     {{form_widget(form.contenu, { 'attr': {'placeholder': '  Title ','class':'inp-form'} }) }}
-                                  
+                <label>Tags</label>
                                     {{form_widget(form.tags) }} 
-                                    
-                                    
-                                </fieldset> 
-                                <div class="clear"> </div>
-                                
-                            </div>
-                            <footer>  
-                                <div class="submit_link">
-                                    
+
+
+            </fieldset> 
+            <div class="clear"> </div>
+
+        </div>
+        <footer>  
+            <div class="submit_link">
+
                                   {{form_widget(form._token)}}
-                                    <input type="submit"   value="Publish" class="alt_btn">
-                                    <a href="{{path('my_app_esprit_homepage') }}" value="Reset"/>
-                                  
-                                    
-                                </div> 
-                            </footer>
-                        </article> 
+                <input type="submit"   value="Publier" class="alt_btn" id="editdebat">
+                <a href="{{path('my_app_esprit_homepage') }}" value="Reset"/>
+                <script type="text/javascript">
+                    document.querySelector('#editdebat').onclick = function() {
+                        swal({
+                            title: "Alert automatique!",
+                            text: "Veuillez patientez un peu",
+                            timer: 6000,
+                            showConfirmButton: false
+                        });
+                    };
+                </script>                              
+
+            </div> 
+        </footer>
+    </article> 
 </form>
 
 
@@ -87,10 +115,7 @@
 
 
 
-<!--
-  <p class="container">
-      <button id="loadToSuccess" class="btn">Loading Then Success</button>
-  </p>  -->
+{#
   <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/bootstrap.min.css') }}"/> 
    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/custom.css') }}"/>  
    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/dialog/iosOverlay.css') }}"/> 
@@ -115,7 +140,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
-
+#}
  {% endblock  %}
 
 
