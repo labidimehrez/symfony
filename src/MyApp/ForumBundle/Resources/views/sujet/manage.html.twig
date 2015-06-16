@@ -62,9 +62,23 @@
                         <a href="{{ path('my_app_forum_sujet_edit',{'id':sujet.id}) }}">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                         </a>    
-                        <a href="{{ path('my_app_forum_sujet_delete',{'id':sujet.id}) }}">
+                        <a href="{{ path('my_app_forum_sujet_delete',{'id':sujet.id}) }}" id="deletedebat">
                             <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                         </a> 
+                        
+                        <script type="text/javascript">
+    document.querySelector('#deletedebat').onclick = function() {
+        swal({
+            title: "Alert automatique!",
+            text: "Veuillez patientez un peu",
+            timer: 6000,
+            showConfirmButton: false
+        });
+    };
+</script>
+
+
+
                     </td>
                 </tr> 
 

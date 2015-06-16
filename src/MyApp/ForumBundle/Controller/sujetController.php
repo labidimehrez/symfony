@@ -144,10 +144,26 @@ class sujetController extends Controller {
     public function deleteAction($id) {
         /*         * ************ simple delete action *************** */
         $em = $this->getDoctrine()->getManager();
+
+
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
 
+        /* $souscommentaire = $em->getRepository('MyAppForumBundle:commentaire')->getSubCommentaireBySujet($id);
+
+          if ($souscommentaire != NULL) { foreach ($souscommentaire as $sc) {$em->remove($sc);}}
+
+
+          $commentaire  = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $id));
+          if ($commentaire != NULL) { foreach ($commentaire as $c) {
+          if($c->getCommentaire()!=NULL)
+          { $em->remove($c);$em->flush();} }
+
+          }
+         */
+
+
         if (!$sujet) {
-            throw $this->createNotFoundException('No  sujet found for id ' . $id);
+            throw $this->createNotFoundException('no  sujet found for id ' . $id);
         }
 
         $em->remove($sujet);
@@ -157,7 +173,7 @@ class sujetController extends Controller {
 
     public function editAction($id) {
         /*         * ************ simple edit action *************** */
-        $id = 1;
+        //  $id = 1;
         $em = $this->getDoctrine()->getManager();
         $sujet = $em->getRepository('MyAppForumBundle:sujet')->find($id);
         if (!$sujet) {
