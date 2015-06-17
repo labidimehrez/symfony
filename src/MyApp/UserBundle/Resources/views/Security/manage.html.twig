@@ -43,9 +43,9 @@
 
     <table> 
         <tr> 
-            <td width="70"> &nbsp;  </td>
+            <td width="0"> &nbsp;  </td>
             <td><b> UserName </b> </td>  
-            <td width="50"> &nbsp;  </td>
+            <td width="90"> &nbsp;  </td>
 
             <td><b> Roles </b></td>  
             <td width="150"> &nbsp;  </td>
@@ -72,21 +72,39 @@
         <tbody> 
             {% for users in users %} 
             <tr> 
-                <td><input type="checkbox"></td> 
+              {#  <td><input type="checkbox"></td> #}
                 <td>{{users.username}}</td> 
-                <td> {{users.roles|join|replace({'ROLE_USER': ' '}) }}</td> 
+                {% set rol=users.roles|join|replace({'ROLE_USER': ' '}) %}
+                {%if rol ==' '%}
+                <td>USER</td>
+                {%else%}
+                
+                <td> {{rol }}</td> 
 
-
+                {%endif%}
                 <td>{{users.datedeCreationUser|date('Y-M-d')}}</td> 
 
 
                 <td>
-                    <a href="{{ path('my_app_user_edit',{'id':users.id}) }}">
+                    <a href="{{ path('fos_user_profile_edit') }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
                     </a>   &nbsp;&nbsp;
-                    <a href="{{ path('my_app_user_delete',{'id':users.id}) }}">
+                    <a href="{{ path('my_app_user_delete',{'id':users.id}) }}" id="submitdeleteuser">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
                     </a> 
+                    
+                      <script type="text/javascript">
+                      document.querySelector('#submitdeleteuser').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
+                    
+                    
                 </td>
             </tr> 
             {%endfor%}
@@ -187,10 +205,19 @@
 
         </br></br>
         <center>  <div style="  position: absolute;  top: 340px;  left: 720px;"> 
-                <input type="submit"  value="change"  style="width:150px;background-color: transparent;"/>
+                <input type="submit"  value="change" id="submitchangeuser"  style="width:150px;background-color: transparent;"/>
             </div> </center>
     </div>   
 </form>
-
+  <script type="text/javascript">
+        document.querySelector('#submitchangeuser').onclick = function(){
+                swal({
+                        title: "Alert automatique!",
+                        text: "Veuillez patientez un peu",
+                        timer: 6000,
+                        showConfirmButton: false
+                });
+        };
+</script>
 
  {% endblock  %}
