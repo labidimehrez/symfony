@@ -1,5 +1,5 @@
 @media screen and (max-width: 1000px) {
-
+.contenutemplateresponsive{margin-left:0px;}
   .quick_search {
   text-align: center;
   padding: 14px 0 10px 0;
@@ -18,7 +18,7 @@
         display: none
     }
     .so{ display: none}
-    .stylebuttonpartageetrss,.idfacebook,.SOLDK,.Debat,.cerclenotif,#notifid,.Mail_copy,.Profile{ display: none}
+    .stylebuttonpartageetrss,.idfacebook,.SOLDK,.Debat,.cerclenotif,#notifid,.Mail_copy,.Profile,.position22{ display: none}
     contenudetemplate {
         position: relative;
         width: 100%; 
@@ -77,7 +77,7 @@
 
     .publicitenumero4 {
         position: relative;
-        left: 210px;
+         left: -2px;
         top: 110px;
         clear: right;
         float: right;
@@ -86,7 +86,7 @@
 
     .publicitenumero5 {
         position: relative;
-        left: 210px;
+        left: -2px;
         top: 120px;
         clear: right;
         float: right;
@@ -95,7 +95,7 @@
 
     .publicitenumero6 {
         position: relative;
-        left: 210px;
+         left: -2px;
         top: 130px;
         clear: right;
         float: right;
@@ -103,7 +103,7 @@
 
     .publicitenumero7 {
         position: relative;
-        left: 210px;
+          left: -2px;
         top: 140px;
         clear: right;
         float: right;
@@ -111,7 +111,7 @@
 
     .publicitenumero8 {
         position: relative;
-        left: 210px;
+         left: -2px;
         top: 150px;
         clear: right;
         float: right;

@@ -1,15 +1,7 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 4 juin 2015, 16:56:38
-    Author     : Mehrez
-*/
+ 
 
 @media screen and (max-width: 1152px) {
-    .so,.position6 { display: none}
+    .so,.position6,.position22 { display: none}
 
 .quick_search {
   text-align: center;
@@ -31,10 +23,10 @@ and open the template in the editor.
     .senestredebattelement{ display: none}
 
     
-    
-      .publicitenumero4 {
+ 
+    .publicitenumero4 {
         position: relative;
-         left: 213px;
+         left: -2px;
         top: 110px;
         clear: right;
         float: right;
@@ -43,7 +35,7 @@ and open the template in the editor.
 
     .publicitenumero5 {
         position: relative;
-       left: 213px;
+        left: -2px;
         top: 120px;
         clear: right;
         float: right;
@@ -52,7 +44,7 @@ and open the template in the editor.
 
     .publicitenumero6 {
         position: relative;
-         left: 213px;
+         left: -2px;
         top: 130px;
         clear: right;
         float: right;
@@ -60,7 +52,7 @@ and open the template in the editor.
 
     .publicitenumero7 {
         position: relative;
-       left: 213px;
+          left: -2px;
         top: 140px;
         clear: right;
         float: right;
@@ -68,7 +60,7 @@ and open the template in the editor.
 
     .publicitenumero8 {
         position: relative;
-         left: 213px;
+         left: -2px;
         top: 150px;
         clear: right;
         float: right;

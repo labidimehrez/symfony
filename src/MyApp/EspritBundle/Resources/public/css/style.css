@@ -1,6 +1,8 @@
 #monprofileoucreerprofile{ position: relative;right: -165px; top: 16px;}
 #connectdeconnect{position: relative;/* right: -145px; */top: -5px;}
 .transparent{background-color: transparent;border: none;}
+.contenutemplateresponsive{margin-left: 207px;}
+
 .SITE {
     position: absolute;
     left: 0;
@@ -464,6 +466,7 @@
     height: 10px;
     z-index: 186
 }
+/*
 .INFO {
     position: absolute;
     left: 0;
@@ -475,7 +478,7 @@
     left: 0;
     top: 0;
     z-index: 183
-}
+}*/
 .Layer_20 {
     background-image: url("Layer 20.png");
     position: absolute;
@@ -498,6 +501,7 @@
     height: 209px;
     z-index: 180
 }
+/*
 ._430x250 {
     background-image: url(430x250.png);
     position: absolute;
@@ -512,7 +516,7 @@
     left: 0;
     top: 0;
     z-index: 177
-}
+}*/
 .mx_dk___Opret_ny_debat {
     font-size: 11px;
     font-family: Helvetica;
@@ -548,6 +552,7 @@
     height: 100px;
     z-index: 174
 }
+/*
 #_100x100 {
     background-image: url(100x100.png);
     position: absolute;
@@ -562,7 +567,7 @@
     left: 0;
     top: 0;
     z-index: 170
-}
+}*/
 .mx_dk___19_debat_indl�g {
     font-size: 12.51px;
     font-family: Helvetica;
@@ -603,12 +608,13 @@
     height: 215px;
     z-index: 167
 }
+/*
 ._6_2 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 164
-}
+}*/
 .mx_dk___41_debat_indl�g {
     -moz-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
     -webkit-transform: matrix(.85670852741367, 0, 0, .87918237279321, 0, 0);
@@ -649,12 +655,14 @@
     height: 215px;
     z-index: 160
 }
+/*
 ._7 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 158
 }
+*/
 .Derfor {
     font-size: 24.71px;
     font-family: HelveticaNeueLTStd;
@@ -689,12 +697,14 @@
     height: 138px;
     z-index: 150
 }
+/*
 ._9 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 148
 }
+*/
 .Layer_38 {
     background-image: url("Layer 38.png");
     position: absolute;
@@ -704,6 +714,7 @@
     height: 200px;
     z-index: 145
 }
+/*
 ._10 {
     position: absolute;
     left: 0;
@@ -723,6 +734,7 @@
     height: 67px;
     z-index: 141
 }
+*/
 .Layer_37 {
     background-image: url("Layer 37.png");
     position: absolute;
@@ -732,6 +744,7 @@
     height: 200px;
     z-index: 139
 }
+/*
 ._220x200 {
     background-image: url(220x200.png);
     position: absolute;
@@ -747,6 +760,7 @@
     top: 0;
     z-index: 136
 }
+*/
 .mx_dk___36_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -791,12 +805,14 @@
     height: 100px;
     z-index: 121
 }
+/*
 ._12 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 130
 }
+*/
 .mx_dk___11_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -832,12 +848,14 @@
     height: 100px;
     z-index: 127
 }
+/*
 ._13 {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 124
 }
+*/
 .mx_dk___41_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -873,6 +891,8 @@
     height: 100px;
     z-index: 120
 }
+
+/*
 ._16 {
     position: absolute;
     left: 0;
@@ -888,6 +908,7 @@
     width: 292px;
     height: 43px
 }
+*/
 .mx_dk___1_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -898,6 +919,7 @@
     position: absolute;
     z-index: 116
 }
+/*
 ._2 {
     font-size: 24px;
     font-family: HelveticaNeueLTStd;
@@ -911,6 +933,7 @@
     height: 44px;
     z-index: 115
 }
+*/
 .mx_dk___51_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -921,6 +944,8 @@
     position: absolute;
     z-index: 114
 }
+
+/*
 ._3 {
     font-size: 24px;
     font-family: HelveticaNeueLTStd;
@@ -933,7 +958,7 @@
     width: 236px;
     height: 48px;
     z-index: 113
-}
+}*/
 .mx_dk___16_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -944,6 +969,8 @@
     position: absolute;
     z-index: 112
 }
+
+/*
 ._4 {
     font-size: 24px;
     font-family: HelveticaNeueLTStd;
@@ -956,7 +983,7 @@
     width: 223px;
     height: 43px;
     z-index: 111
-}
+}*/
 .mx_dk___7_debat_indl�g {
     font-size: 11px;
     font-family: Helvetica;
@@ -2452,12 +2479,22 @@
     height: 180px;
     z-index: 6000
 }
+
+
+
+#debat{
+ 
+}
+#notifications{
+ 
+
+}
 .donneeconnexion {
     top: 50px;
-    padding-right: 20px;
+    padding-right: 550px;
     z-index: 6001;
     position: relative;
-    float: right
+    float: right;
 }
 .profilcreeconfirm {
     position: relative;
@@ -2723,33 +2760,35 @@ a#Addnewcomment {
 
 .publicitenumero4 {
     position: relative;
-    left: 3px;
+    left: -212px;
     top: 110px;
     clear: right;
     float: right
 }
 .publicitenumero5 {
     position: relative;
-    left: 3px;
+    left: -212px;
     top: 120px;
     clear: right;
     float: right
 }
 .publicitenumero6 {
     position: relative;
-    left: 3px;
+    left: -212px;
     top: 130px;
     clear: right;
     float: right
 }
 .publicitenumero7 {
-    position: relative;  left: 3px;
+    position: relative;     
+    left: -212px;
     top: 140px;
     clear: right;
     float: right
 }
 .publicitenumero8 {
-    position: relative;  left: 3px;
+    position: relative;  
+    left: -212px;
     top: 150px;
     clear: right;
     float: right
@@ -3331,10 +3370,13 @@ input:focus {
     -moz-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
     box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
 }
+.kv-password input[type=password]{
+    height: 24px;
+}
 
 
-
-
+.input-group-addon {
+    padding: 2px 12px;}
 
 
 @-moz-document url-prefix() {

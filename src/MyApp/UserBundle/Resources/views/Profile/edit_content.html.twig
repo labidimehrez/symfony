@@ -9,11 +9,11 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.css') }}"/>
 <script src="{{ asset('bundles/myappesprit/css/tooltiprequieredfield/tooltip.js') }}" type="text/javascript"></script>
 <!-- tooltiprequired field ---->  
-<div class="contenudetemplate" id="getFixedTemplate">
+<div class="contenutemplateresponsive" id="getFixedTemplate">
 
     <div class="image">
         {#<h2>Min profil</h2>#} 
-        
+
         <h2 style="  font-size: 30px;top: 30px;  position: relative;">{{'MONPROLFILE'|trans}}</h2>
         </br></br>
 
@@ -33,7 +33,9 @@
 
 
 
-        <a href="#" id="dialog-link" class="blacktexte">changer photo</a></br>      
+        {#<a href="#" id="dialog-link" class="blacktexte">changer photo</a>#}
+
+        </br>      
         <a href="{{ path('fos_user_change_password') }}" class="blacktexte"> change {{'password'|trans}}</a> 
 
     </div>
@@ -53,12 +55,12 @@
         <h6>Sidst online:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>#}
         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'etabli'|trans}}:&nbsp;{{ app.user.datedeCreationUser|date('Y-M-d')  }} </h6>  
         <h6>{{'Sidstonline'|trans}}:&nbsp;{{app.user.lastLogin|date('Y-M-d')}}</h6>
-        
+
     </div>
     <div class="senestredebatt"></br>
         {#<center>  <b><p class="rouge"> Seneste debatter</p></b> </center> #}
         <center>  <b><p class="rouge">{{ 'debatrecent'|trans }}</p></b> </center> 
- {{ render(controller('MyAppForumBundle:sujet:show')) }}
+             {{ render(controller('MyAppForumBundle:sujet:show')) }}
 
 
     </div>
@@ -75,17 +77,55 @@
     </br> </br> </br> </br></br> </br> </br> </br></br></br></br> </br></br> 
     <div class="stylerubriqueeditprofile">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#" style="width:124px;color: #000;">&nbsp;&nbsp;Profile</a></li>
-            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Messages</a></li>
-            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Débats</a></li>
-            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Amis</a></li>
-            <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Notifications</a></li>
+            <li role="presentation" class="active"><a href="#" style="width:124px;color: #000;"id="profile">&nbsp;&nbsp;Profile</a></li>
+          {#  <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Messages</a></li>#}
+            <li role="presentation"><a href="#" class="stylepresentationrubrique" id="debat">&nbsp;&nbsp;Débats</a></li>
+          {#  <li role="presentation"><a href="#" class="stylepresentationrubrique">&nbsp;&nbsp;Amis</a></li> #}
+            <li role="presentation"><a href="#" class="stylepresentationrubrique"  id="notifications">&nbsp;&nbsp;Notifications</a></li>
         </ul>
     </div> 
 
 
+    <script type="text/javascript">
+        $("a#debat").click(function() {
+            $("div#login").hide();
+            $("div#notifications").hide();
+            $("div#debat").show();
+        });
+        $("a#notifications").click(function() {
+            $("div#login").hide();
+            $("div#debat").hide();
+            $("div#notifications").show();
+        });
+
+        $("a#profile").click(function() {
+            $("div#debat").hide();
+            $("div#notifications").hide();
+            $("div#login").show();
+        });
+    </script>
 
 
+    <div id="debat" style="display: none;">
+        <div style="height: auto;  width: 650px;min-height: 200px;">
+            </br></br>
+        {% for mesdebats in mesdebats %}
+    
+            <div style="border-bottom: silver;  /* margin-top: 20px; */  border-style: ridge;  padding: 20px;">
+                &nbsp; Votre débat :<b> {{mesdebats.sujet|truncate(25, true, '...')}} </b>  crée depuis  <b> {{ time_diff(sujet.datecreation) }} </b> et lus  <b>{{mesdebats.nblect}}</b> fois
+           </div>
+           </br> </br>
+       
+           
+        {%endfor%}
+        </div>
+    </div>
+
+    <div id="notifications" style="display: none;">
+        <div style="height: auto;  width: 650px;">
+
+        </div>
+    </div>
 
 
     <div id="login">
@@ -105,7 +145,7 @@
                     <tr><td style="float: right;">{{'nometprenom'|trans}}&nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
                         <td> {{form_widget(form.nomprenom , { 'attr': { 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' }  }) }}</td> 
                     <tr><td style="float: right;">  Sexe &nbsp; <b  class="rouge">*</b> &nbsp;&nbsp; </td>
-                           <td> {{form_widget(form.sexe ) }}</td></tr> 
+                        <td> {{form_widget(form.sexe ) }}</td></tr> 
                     <tr><td style="float: right;position: relative;  padding-bottom: 10px;  padding-top: 10px;"> 
                             {{'Datenaissance'|trans}}
                             {#Date de naissance#} &nbsp;
@@ -161,8 +201,8 @@
 
 
             <div id="buttonsregistrerEditprofil"></br></br>
-               <!-- <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />-->
-               <input type="submit" value="{{'changprofil'|trans}}"  style="width: 150px;" class="btn btn-warning btn-lg"  />
+                <!-- <input type="submit" value="Gim profil"  style="width: 150px;" class="btn btn-warning btn-lg"  />-->
+                <input type="submit" value="{{'changprofil'|trans}}"  style="width: 150px;" class="btn btn-warning btn-lg"  />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{{path('my_app_esprit_homepage') }}" style="color:#c52821;">                                                                                                                                                      
                     &nbsp;&nbsp;Annuler&nbsp;&nbsp;</a>
@@ -174,11 +214,11 @@
         </form>
     </div>
 
-   <!--<div style="padding-top: 270px;">  -->
-   <div style="padding-top: 20px;"> 
-              <div style="  margin-top: -10px;margin-bottom: 20px;"> 
+    <!--<div style="padding-top: 270px;">  -->
+    <div style="padding-top: 20px;"> 
+        <div style="  margin-top: -10px;margin-bottom: 20px;"> 
                     {{ render(controller('MyAppEspritBundle:publicite:showpubfooter')) }}
-               </div>   
+        </div>   
                {% include   'MyAppEspritBundle:Default:footer.html.twig'%} 
     </div>
 </div>
