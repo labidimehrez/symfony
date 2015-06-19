@@ -86,23 +86,25 @@
 
 
                 <td>
-                    <a href="{{ path('fos_user_profile_edit') }}">
+                    {#<a href="{{ path('fos_user_profile_edit') }}">
                         <img src="{{ asset('bundles/myappesprit/images/admin/icn_edit.png') }}" alt="" />
-                    </a>   &nbsp;&nbsp;
-                    <a href="{{ path('my_app_user_delete',{'id':users.id}) }}" id="submitdeleteuser">
-                        <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
-                    </a> 
+                    </a>   #} &nbsp;&nbsp;
+                      {% if "SUPERADMINROLE_USER" not in users.roles|join %}
+                        <a href="{{ path('my_app_user_delete',{'id':users.id}) }}" id="submitdeleteuser">
+                            <img src="{{ asset('bundles/myappesprit/images/admin/icn_trash.png') }}" alt="" />
+                        </a> 
+                    {%endif%}
                     
                       <script type="text/javascript">
-                      document.querySelector('#submitdeleteuser').onclick = function(){
-                swal({
-                        title: "Alert automatique!",
-                        text: "Veuillez patientez un peu",
-                        timer: 6000,
-                        showConfirmButton: false
-                });
-        };
-</script>
+                         document.querySelector('#submitdeleteuser').onclick = function(){
+                         swal({
+                                title: "Alert automatique!",
+                                text: "Veuillez patientez un peu",
+                                timer: 6000,
+                                showConfirmButton: false
+                              });
+                          };
+                    </script>
                     
                     
                 </td>
@@ -165,11 +167,11 @@
    
 
     {% elseif "SUPERADMINROLE_USER" == role %}
-                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}" checked="checked" /><label>SuperAdmin</label>&nbsp;
-                        <input type="checkbox" name="Admin[]" value="{{users.id}}"  /><label>Admin</label>&nbsp;
-                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}" /><label>SuperSol</label>&nbsp;
-                        <input type="checkbox" name="Editor[]" value="{{users.id}}" /><label>Editor</label>   &nbsp;
-                        <input type="checkbox" name="User[]" value="{{users.id}}" /><label>User</label>     &nbsp;
+                        <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}" disabled="disabled" checked="checked" /><label>SuperAdmin</label>&nbsp;
+                        <input type="checkbox" name="Admin[]" value="{{users.id}}" disabled="disabled" /><label>Admin</label>&nbsp;
+                        <input type="checkbox" name="SuperSol[]" value="{{users.id}}"  disabled="disabled" /><label>SuperSol</label>&nbsp;
+                        <input type="checkbox" name="Editor[]" value="{{users.id}}" disabled="disabled" /><label>Editor</label>   &nbsp;
+                        <input type="checkbox" name="User[]" value="{{users.id}}" disabled="disabled" /><label>User</label>     &nbsp;
      
       {% else  %}
                         <input type="checkbox" name="SuperAdmin[]" value="{{users.id}}"  /><label>SuperAdmin</label>&nbsp;
