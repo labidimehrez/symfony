@@ -12,6 +12,8 @@ class publiciteController extends Controller {
 
     public function addAction() {
         /*         * ******* ajout de nouveau publicite  ****** */
+          $em = $this->getDoctrine()->getManager();
+          
         $publicite = new publicite();
         $form = $this->createForm(new publiciteType(), $publicite);
         $request = $this->getRequest();
@@ -21,15 +23,21 @@ class publiciteController extends Controller {
 
             if ($form->isValid()) {
                 $publicite = $form->getData();
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($publicite);
-                $em->flush();
-
+                 $pub =$form["image"]->getData(); 
+//                 var_dump($pub);exit;
+                     if( (strpos($pub, '</script>') == false)&& (strpos($pub, '.png') == false)&& (strpos($pub, '.jpeg') == false)){
+                       $this->get('session')->getFlashBag()->set('message', 'Publicité lien invalide !!');                
+                     }
+                     else{
+                       $em->persist($publicite);
+                       $em->flush();                    
+                     }
+                
                 return $this->redirect($this->generateUrl('my_app_esprit_publicite_add'));
             }
             if (!$form->isValid()) {
 
-                $this->get('session')->getFlashBag()->set('message', 'This position is occuped !!');
+                $this->get('session')->getFlashBag()->set('message', 'Cette position est déja occupée !!');
             }
         }
         return $this->render('MyAppEspritBundle:publicite:add.html.twig', array('form' => $form->createView()));

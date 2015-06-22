@@ -2,18 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4">
         <file>
-            <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
-            <bookmark id="4">
-                <name/>
-                <line>137</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</url>
             <bookmark id="1">
                 <name/>
                 <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
+            <bookmark id="4">
+                <name/>
+                <line>137</line>
                 <key/>
             </bookmark>
         </file>
@@ -24,6 +24,7 @@
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/public/css/style.css</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Entity/sujet.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/Resources/views/Security/manage.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/sujetrecent.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Resources/views/sujet/voir.html.twig</file>
             <file>file:/C:/wamp/www/SolDK/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ProfileController.php</file>
