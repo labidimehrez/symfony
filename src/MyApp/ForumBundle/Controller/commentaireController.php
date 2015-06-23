@@ -353,4 +353,65 @@ class commentaireController extends Controller {
         }
         return $this->render('MyAppForumBundle:commentaire:vote.html.twig');
     }
+    
+    
+    
+      public function novoteAction($id, Request $request) {
+        
+         $user = $this->container->get('security.context')->getToken()->getUser();
+        $user->getId();
+        
+        $em = $this->getDoctrine()->getManager();
+        $co = $em->getRepository('MyAppForumBundle:commentaire')->find($id);
+        if (!$co) {
+            throw $this->createNotFoundException('no commentaire found for id ' . $id);
+        }
+
+
+        $uri = $this->get('request')->server->get('HTTP_REFERER'); /* get current url */
+        $idsujet = filter_var($uri, FILTER_SANITIZE_NUMBER_INT); /* get current debat id */
+        $comm = $em->getRepository('MyAppForumBundle:commentaire')->findBy(array('sujet' => $idsujet));
+
+       
+                        
+//        $request = $this->getRequest();
+//         $form->handleRequest($request);
+
+        $commentaire = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() == NULL) {
+                array_push($commentaire, $c);
+            }
+        }
+
+
+        $souscommentaire = array();
+        foreach ($comm as $c) {
+            if ($c->getCommentaire() != NULL) {
+                array_push($souscommentaire, $c);
+            }
+        }
+
+
+        /*         * ****** */
+        if ($request->isXmlHttpRequest()) {
+           
+                 
+                $em = $this->getDoctrine()->getManager();
+                $co->setVote($co->getVote()-1);  
+                $identifier=$co->getIdvoter();
+                 //  if (strpos($inputtag, $tagtitle) !== false)              
+                if(   strpos($identifier, $user->getId()."=>".$co->getId()) !== false  ){
+                    
+                 $identifier=  str_replace($user->getId()."=>".$co->getId(),"",$identifier);
+//                 echo $identifier ;exit;
+                }
+                $co->setIdvoter($identifier);/* pour marquer les gens deja qui ont voté */
+                $em->persist($co);
+                $em->flush();
+                return $this->container->get('templating')->renderResponse('MyAppForumBundle:sujet/Commentaire:affichercommentaireajax.html.twig', array('souscommentaire' => $souscommentaire, 'commentaire' => $commentaire));
+            
+        }
+        return $this->render('MyAppForumBundle:commentaire:novote.html.twig');
+    }
 }

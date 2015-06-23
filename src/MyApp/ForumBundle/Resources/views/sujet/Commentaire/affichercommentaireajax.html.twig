@@ -116,6 +116,57 @@
                 });
             });
         </script>   
+        
+        
+        <script type="text/javascript">
+            $(function() {
+                $("#dislike{{commentaireid}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                    /*$('b#like{{commentaireid}}').hide();
+                    $('b#dislike{{commentaireid}}').show();*/
+                    e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                    var commentaireid = {{commentaireid}};/// cette variable pour recuperer l id dynamique concerné
+                    $.ajax({
+                        type: 'post',
+                        url: "{{path('my_app_forum_commentaire_novote',{id:commentaireid} ) }}",
+                        data: $(this).serialize(),
+                        datatype: "json",
+                        cache: false,
+                        success: function(data)
+                        {
+
+                            $('.commentaireafficher').html(data);
+                          /*  $('b#like{{commentaireid}}').hide();
+                            $('b#dislike{{commentaireid}}').show();*/
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <!---------------------------------------------------------------------------------------------------------------------------------->              
       {%if  ("EDITOR" in app.user.roles|join) or ( commentaire.user.username ==  app.user.username ) %}
         <a class="bouttoneditcommentaire{{commentaireid}}" ><b class="likebutton">{{'modifier'|trans}}</b></a>
@@ -229,9 +280,9 @@
 
                    {% if   app.user.id~"=>"~souscommentaire.id in  souscommentaire.idvoter %} 
                        <b class="likebutton" id="dislike{{souscommentaire.id}}" >{{'dislike'|trans}}</b>
-                     {%else%}     
-                <b class="likebutton" id="like{{souscommentaire.id}}">{{'like'|trans}}</b>               
-                 {%endif%}
+                   {%else%}     
+                         <b class="likebutton" id="like{{souscommentaire.id}}">{{'like'|trans}}</b>               
+                   {%endif%}
                 
                 
                 <script type="text/javascript">
@@ -259,7 +310,30 @@
                     });
                 </script>      
 
-
+               <script type="text/javascript">
+                    $(function() {
+                        $("#dislike{{souscommentaire.id}}").click(function(e) { // On sélectionne le formulaire par son identifiant
+                           /* $('b#like{{souscommentaire.id}}').hide();
+                            $('b#dislike{{souscommentaire.id}}').show();*/
+                            e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+                            /// cette variable pour recuperer l id dynamique concerné
+                            $.ajax({
+                                type: 'post',
+                                url: "{{path('my_app_forum_commentaire_novote',{id:souscommentaire.id} ) }}",
+                                data: $(this).serialize(),
+                                datatype: "json",
+                                cache: false,
+                                success: function(data)
+                                {
+                                    $('.commentaireafficher').html(data);
+                                   /*$('b#like{{souscommentaire.id}}').hide();
+                                    $('b#dislike{{souscommentaire.id}}').show();*/
+                                }
+                            });
+                            return false;
+                        });
+                    });
+                </script> 
 
 
                 <!-------------------------------- -------------------------------->

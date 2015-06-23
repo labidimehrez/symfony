@@ -40,7 +40,14 @@ my_app_forum_commentaire_vote:
         _method:  POST|GET
     options:
         expose: true   
-       
+        
+my_app_forum_commentaire_novote:
+    pattern:  /{id}/novote
+    defaults: { _controller: MyAppForumBundle:commentaire:novote}
+    requirements:
+        _method:  POST|GET
+    options:
+        expose: true       
        
        
 my_app_forum_commentaire_editsouscomment:
