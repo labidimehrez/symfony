@@ -17,7 +17,7 @@ class sujetController extends Controller {
         $user->getId();
         /*         * ** je recuperer l id de user connecté * */
         $sujet = new sujet();
-
+        $nbtagajouté=0;
         $form = $this->createForm(new sujetType, $sujet);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {
@@ -37,11 +37,18 @@ class sujetController extends Controller {
                     $tagtitle = $tag->getTitle(); /* get title of objects :D */
                     if (strpos($inputtag, $tagtitle) !== false) {/* tagtile existe dans input string */
                         $selectedtag = $managertag->getByTitle($tagtitle); /* get objet tag by title */
-                        array_push($tagaajouté, $selectedtag);
+                        array_push($tagaajouté, $selectedtag);$nbtagajouté=$nbtagajouté+1;
                         $sujet->setTags($tagaajouté);
                     }
                 }
+            if ( $nbtagajouté>=6 ) {
+                $this->get('session')->getFlashBag()->set('message', ' ( 5 tags possible ,pas plus svp )');
 
+                return $this->render('MyAppForumBundle:sujet:add.html.twig', array(
+                            'form' => $form->createView()));
+            }
+                
+                
                 /*                 * ** je recuperer l id de user connecté * */
                 $sujet->setUser($user);
                 /*                 * ** je recuperer l id de user connecté * */

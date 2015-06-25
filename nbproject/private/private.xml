@@ -13,7 +13,7 @@
             <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
             <bookmark id="4">
                 <name/>
-                <line>137</line>
+                <line>188</line>
                 <key/>
             </bookmark>
         </file>
@@ -21,10 +21,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Controller/ArticleController.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Entity/publicite.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Resources/views/BackOffice/administration.html.twig</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/Controller/publiciteController.php</file>
         </group>
     </open-files>
 </project-private>
