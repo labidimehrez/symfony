@@ -2,7 +2,7 @@ Log pa: s'authentifier
 log: Login
 pass: Mot de passe
 password: mot de passe
-
+creerdebat: CREER DEBAT
 log-in: S'identifier
 creercompte: Créer Utilisateur
 newuser: si tu es nouveau ...
@@ -79,5 +79,5 @@ Name: Nom
 Color For Font: Couleur Texte
 Background Color: Couleur Arrière
 
-submit: soumettre
-reset: remettre
+submit: ajouter
+reset: annuler

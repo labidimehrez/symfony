@@ -30,7 +30,7 @@
            {#% if  "register"  in routeName %} Opret profil {%endif%#}
            {% if  "register"  in routeName %} {{ 'creeprofile'|trans }}  {%endif%}
            
-           
+             {% if  "sujet_add"  in routeName %} {{ 'creerdebat'|trans }}  {%endif%}
            
            {#% if  "login"  in routeName %} Login {%endif%#}
             {% if  "login"  in routeName %} {{ 'seconnecter'|trans }} {%endif%}

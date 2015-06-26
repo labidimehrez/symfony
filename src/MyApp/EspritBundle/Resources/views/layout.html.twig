@@ -84,8 +84,18 @@
         {## la variable route contient le lien de la rubrique de menu ##}
         {% set route = menu.lien %} 
                 
+                {# editor ajout article#}
                {%if  route=="my_app_article_article_add" %} 
                           {%if  ("EDITOR" in app.user.roles|join) %}  
+                            <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
+                                <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
+                            </a>
+                         {%endif%} 
+             
+
+                {# supersol ajout article#}
+               {%elseif  route=="my_app_article_style_add" %} 
+                          {%if  ("SOL" in app.user.roles|join) %}  
                             <a href="{{path(route) }}">&nbsp;&nbsp;{%if loop.index >1%}-{%endif%}&nbsp;&nbsp;
                                 <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
                             </a>
@@ -95,8 +105,6 @@
                             <span data-hover=" {{menu.name|raw}}">    {{menu.name|raw}}</span>
                           </a>
               {%endif%}  
-
-
       {% endfor%} 
             </nav>
         </section>
