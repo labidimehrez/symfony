@@ -319,8 +319,9 @@
 
         <center><p class="rouge" style="  margin-bottom: 0px;">{#SENESTE NYHEDER#}{{'SENESTENYHEDER'|trans}}</p></center>
  
-       {%for  sujetnotarticle in sujetnotarticle%}
-         
+       {%for  sujetnotarticle in sujetnotarticle %}
+          {% if sujetnotarticle|length >0 %}
+        
          {% if loop.length > 4  and  loop.length < 8 %}{# si cette div est pleine les titres seront PEU espacés #}
         
        {% if sujetnotarticle.id != loop.last%}
@@ -353,6 +354,7 @@
         
         {%endif%}
         
+        {%endif%}
      {%endfor%}
    
     </div>
@@ -360,7 +362,7 @@
     <div class="articlepositionB">
         <center><p class="rouge" style="  margin-bottom: 0px;">{#MEST LÆSTE DEBATTER#}{{'debatmesleast'|trans}}</p></center>
        {%for  mostcommenteddebat in mostcommenteddebat%}
-        
+         {% if mostcommenteddebat|length >0 %}
          {% if loop.length > 4  and loop.length < 8  %}{# si cette div est pleine les titres seront PEU espacés #}
         
        {% if mostcommenteddebat.id != loop.last%}
@@ -397,6 +399,7 @@
         
         {%endif%}
         
+         {%endif%}
      {%endfor%}
     </div>
 <!---------------------------------------------------------------------------------------------------------------------------------->

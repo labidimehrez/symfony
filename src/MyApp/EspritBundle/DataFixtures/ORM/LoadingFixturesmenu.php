@@ -86,7 +86,7 @@ class LoadingFixturesmenu implements FixtureInterface {
         
         $menu11 = new Menu();
         $menu11->setPosition(11);
-        $menu11->setName('DEBAT');
+        $menu11->setName('RECENT');
         $menu11->setLien('my_app_forum_sujet_sujetrecent');
         $manager->persist($menu11);
 

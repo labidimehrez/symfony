@@ -76,7 +76,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article1->setCopyrights("article1");
         $article1->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article1->setHeadline("Danmark far tre nye Michelin - restauranter - men mister...");
+        $article1->setHeadline("Danemark père trois nouveaux Michelin - restaurants - mais perdre ...");
         $article1->setLien("article1");
         $manager->persist($article1);
 
@@ -87,7 +87,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article2->setCopyrights("article2");
         $article2->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article2->setHeadline("Champagnedreng fangslet fire uger til fordi han...");
+        $article2->setHeadline("Champagne garçon Fang a fait quatre semaines parce qu'il ...");
         $article2->setLien("article2");
         $manager->persist($article2);
         
@@ -98,7 +98,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article3->setCopyrights("article3");
         $article3->setFixedposition(0);
         //  $article1->setUrlimg("zz");
-        $article3->setHeadline("Kvindelig kniv-morder stikker igen");
+        $article3->setHeadline("Femme couteau-killer colle à nouveau");
         $article3->setLien("article3");
         $manager->persist($article3);
         
@@ -109,7 +109,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article4->setCopyrights("article4");
         $article4->setFixedposition(0);
         //  $article1->setUrlimg("zz");
-        $article4->setHeadline("Stunt blandt forse flypas");
+        $article4->setHeadline("Stunt parmi passe vigueur de vol");
         $article4->setLien("article4");
         $manager->persist($article4);
         
@@ -121,7 +121,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article5->setCopyrights("article5");
         $article5->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article5->setHeadline("Derfor besogte Brandby tran-eren Chelsea");
+        $article5->setHeadline("Derfor est  inquiet de Branby tran-eren Chelsea");
         $article5->setLien("article5");
         $manager->persist($article5);
        
@@ -132,7 +132,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article6->setCopyrights("article6");
         $article6->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article6->setHeadline("Dansk  sko-kade far bedste resultat nogensinde");
+        $article6->setHeadline("Chaussure-kade danoise papa meilleur résultat");
         $article6->setLien("article6");
         $manager->persist($article6);
         
@@ -145,7 +145,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article7->setCopyrights("article7");
         $article7->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article7->setHeadline("Her far man den varste kundservice i Danmark");
+        $article7->setHeadline("Ici, vous obtenez le pire service client au Danemark");
         $article7->setLien("article7");
         $manager->persist($article7);
         
@@ -158,7 +158,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article8->setCopyrights("article8");
         $article8->setFixedposition(0);
         //  $article1->setUrlimg("zz");
-        $article8->setHeadline("Rygte: Rolling Stones til Roskilde Festival-ledelsen afviser ikke...");
+        $article8->setHeadline("Rumeur: Rolling Stones à la gestion Roskilde Festival ne rejette pas ...");
         $article8->setLien("article8");
         $manager->persist($article8);
         
@@ -170,7 +170,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article9->setCopyrights("article9");
         $article9->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article9->setHeadline("Den stumper vist lidt Fagforening raser over fraek uniform");
+        $article9->setHeadline("Les bits inscrits certains syndicats fait rage sur l'uniforme coquine");
         $article9->setLien("article9");
         $manager->persist($article9);
         
@@ -182,7 +182,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article10->setCopyrights("article10");
         $article10->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article10->setHeadline("VIDEO Overbevisende 3 arig vil have cupcakes till aftensmad");
+        $article10->setHeadline("Convaincant VIDEO 3 Arig veulent petits gâteaux jusqu'au dîner");
         $article10->setLien("article10");
         
         $manager->persist($article10);
@@ -196,7 +196,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article11->setCopyrights("article11");
         $article11->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article11->setHeadline("Hvad sker der nar man beder 20 fremmede om at kysse ?");
+        $article11->setHeadline("Qu'advient-il lorsque vous demandez 20 étrangers sur les baisers?");
         $article11->setLien("article11");
         $manager->persist($article11);
         
@@ -208,7 +208,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article12->setCopyrights("article12");
         $article12->setFixedposition(0);
         //  $article1->setUrlimg("zz");
-        $article12->setHeadline("35.000 danske pas er forsvun-det");
+        $article12->setHeadline("35.000 passeport danois a disparu");
         $article12->setLien("article12");
         $manager->persist($article12);
         
@@ -219,7 +219,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article13->setCopyrights("article13");
         $article13->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article13->setHeadline("Chokskifte på vej i Formel 1:Verdensmester vil væk");
+        $article13->setHeadline("Shock commutateur sur le chemin de la Formule 1: Champion du Monde sera loin");
         $article13->setLien("article13");
         $manager->persist($article13);
         
@@ -234,7 +234,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article14->setCopyrights("article14");
         $article14->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article14->setHeadline("Massiv føring til blå blok: Maser Thorning totalt");
+        $article14->setHeadline("Solide avance au bloc bleu:  Maser Thorning totale");
         $article14->setLien("article14");
         $manager->persist($article14);
         
@@ -245,7 +245,7 @@ class LoadingFixturesstyle implements FixtureInterface {
         $article15->setCopyrights("article15");
         $article15->setFixedposition(1);
         //  $article1->setUrlimg("zz");
-        $article15->setHeadline("Her er de nye regler for Formel 1-raceme");
+        $article15->setHeadline("Voici les nouvelles règles pour les coureurs de Formule 1");
         $article15->setLien("article15");
         $manager->persist($article15);
          
