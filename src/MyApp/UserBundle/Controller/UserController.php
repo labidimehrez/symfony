@@ -24,18 +24,35 @@ class UserController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $selectuser = $em->getRepository('MyAppForumBundle:sujet')->findBySujet($user->getId());
         /**   je selectionne les sujets associé au user deja choisi  * */
-        $ids = $user->getId();
-        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getSujetByUser($ids);
-        foreach ($sujet as $s) /** update pour plusieurs sujets * */
-        /*         * *   les sujets reuperé auront un nouveau id_user = 1  ** */ {
-            $p = $em->createQueryBuilder()
-                    ->update('MyAppForumBundle:sujet', 'd')
-                    ->set('d.user', '1')
-                    ->where('d.user = :v')
-                    ->setParameter('v', $s)
-                    ->getQuery()
-                    ->execute();
-        }
+//        $ids = $user->getId();
+//        $sujet = $em->getRepository('MyAppForumBundle:sujet')->getSujetByUser($ids);
+//        
+//        foreach ($sujet as $s) /** update pour plusieurs sujets * */
+//        /*         * *   les sujets reuperé auront un nouveau id_user = 1  ** */ {
+//            $p = $em->createQueryBuilder()
+//                    ->update('MyAppForumBundle:sujet', 'd')
+//                    ->set('d.user', '1')
+//                    ->where('d.user = :v')
+//                    ->setParameter('v', $s)
+//                    ->getQuery()
+//                    ->execute();
+//        }
+//        
+//        
+//       $publicite= $em->getRepository('MyAppEspritBundle:publicite')->findBy(array('user' => $ids));
+//               foreach ($publicite as $p) /** update pour plusieurs sujets * */
+//        /*         * *   les sujets reuperé auront un nouveau id_user = 1  ** */ {
+//            $p = $em->createQueryBuilder()
+//                    ->update('MyAppEspritBundle:publicite', 'd')
+//                    ->set('d.user', '1')
+//                    ->where('d.user = :v')
+//                    ->setParameter('v', $p)
+//                    ->getQuery()
+//                    ->execute();
+//        }
+       
+       
+       
         /*         * *** je supprime le user choisi au debut  ** */
         $em->remove($user);
         $em->flush();

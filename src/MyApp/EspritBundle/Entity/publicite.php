@@ -36,7 +36,11 @@ class publicite
      */
     private $image;
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",onDelete="SET NULL")
+     */
+    protected $user;
     /**
      * Get id
      *
@@ -92,4 +96,14 @@ class publicite
     {
         return $this->image;
     }
+    public function getUser() {
+        return $this->user;
+    }
+
+    public function setUser($user) {
+        $this->user = $user;
+        return $this;
+    }
+
+
 }

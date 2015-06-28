@@ -11,7 +11,7 @@ class menuController extends Controller {
 
 
     public function showAction() {
-
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $routes = $this->get('router')->getRouteCollection()->all();
         foreach ($routes as $nom => $objet) {
             $mesRoutes[] = $nom;
@@ -32,9 +32,11 @@ class menuController extends Controller {
         if ($request->isMethod('Post')) {
             $form->bind($request);
             if ($form->isValid()) {
-               $menu = $form->getData();
+                $menu = $form->getData();
                 $lien =  $form["lien"]->getData(); 
                 $menu->setLien($mesRoutes[$lien]);
+                $menu->setUser($user);
+ 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($menu);
                 $em->flush();
@@ -42,7 +44,7 @@ class menuController extends Controller {
             }
             if (!$form->isValid()) {
 
-                $this->get('session')->getFlashBag()->set('message', 'This title is used before !!');
+                $this->get('session')->getFlashBag()->set('message', 'Ce titre est déja utilisé !!');
             }
         }
         /*         * ***********  recuperation de tout les menus  ******** */
@@ -54,7 +56,7 @@ class menuController extends Controller {
     }
 
     public function addAction() {
-
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $routes = $this->get('router')->getRouteCollection()->all();
         foreach ($routes as $nom => $objet) {
             $mesRoutes[] = $nom;
@@ -78,13 +80,14 @@ class menuController extends Controller {
                 $menu = $form->getData();
                 $lien =  $form["lien"]->getData(); 
                 $menu->setLien($mesRoutes[$lien]);
+                $menu->setUser($user);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($menu);
                 $em->flush();
                 return $this->redirect($this->generateUrl('my_app_esprit_menu_show'));
             }
             if (!$form->isValid()) {
-                $this->get('session')->getFlashBag()->set('message', 'This title is used before !!');
+                $this->get('session')->getFlashBag()->set('message', 'Ce titre est déja utilisé  !!');
             }
         }
         /*         * ***********  recuperation de tout les menus  ******** */

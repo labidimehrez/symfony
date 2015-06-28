@@ -35,6 +35,12 @@ class Article {
      * @ORM\Column(name="position", type="integer", length=255)
      */
     private $position;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",onDelete="SET NULL")
+     */
+    protected $user;
 
     /**
      * @ORM\ManyToMany(targetEntity="MyApp\ForumBundle\Entity\tag", inversedBy="articles")
@@ -284,8 +290,16 @@ class Article {
         $this->datecreation = $datecreation;
         return $this;
     }
+    public function getUser() {
+        return $this->user;
+    }
 
-    public function getPath() {
+    public function setUser($user) {
+        $this->user = $user;
+        return $this;
+    }
+
+        public function getPath() {
         return $this->path;
     }
 

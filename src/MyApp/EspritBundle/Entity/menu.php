@@ -29,7 +29,11 @@ class menu {
      * @ORM\Column(name="name", type="string", length=255,unique=true)
      */
     private $name;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",onDelete="SET NULL")
+     */
+    protected $user;
     /**
      * @var integer
      *
@@ -104,5 +108,14 @@ class menu {
         return $this;
     }
 
- 
+    public function getUser() {
+        return $this->user;
+    }
+
+    public function setUser($user) {
+        $this->user = $user;
+        return $this;
+    }
+
+
 }

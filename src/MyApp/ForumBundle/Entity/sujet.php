@@ -27,7 +27,7 @@ class sujet {
     protected $notifications;
     /**
      * @ORM\ManyToOne(targetEntity="MyApp\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id",onDelete="SET NULL")
      */
     protected $user;
 

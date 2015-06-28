@@ -12,8 +12,10 @@ class publiciteController extends Controller {
 
     public function addAction() {
         /*         * ******* ajout de nouveau publicite  ****** */
-          $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
           
+        $user = $this->container->get('security.context')->getToken()->getUser();  
+         
         $publicite = new publicite();
         $form = $this->createForm(new publiciteType(), $publicite);
         $request = $this->getRequest();
@@ -23,7 +25,8 @@ class publiciteController extends Controller {
 
             if ($form->isValid()) {
                 $publicite = $form->getData();
-                 $pub =$form["image"]->getData(); 
+                 $pub =$form["image"]->getData();
+                 $publicite->setUser($user);
 //                 var_dump($pub);exit;
                      if( (strpos($pub, '</script>') == false)&& (strpos($pub, '.png') == false)&& (strpos($pub, '.jpeg') == false)){
                        $this->get('session')->getFlashBag()->set('message', 'Publicité lien invalide !!');                
@@ -32,7 +35,7 @@ class publiciteController extends Controller {
                        $em->persist($publicite);
                        $em->flush();                    
                      }
-                
+                $this->get('session')->getFlashBag()->set('message', 'Publicité ajouté');  
                 return $this->redirect($this->generateUrl('my_app_esprit_publicite_add'));
             }
             if (!$form->isValid()) {

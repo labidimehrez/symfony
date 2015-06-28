@@ -41,13 +41,15 @@
     <div class="stylepourchaquedebat">
 
         <!-- tooltip personnalisé :D -->
-
-
-
-    {%if  sujet.user.id != 1%}
+{%if  sujet.user is   null %}
+                        <a  class="clickTip exampleTip">
+                            <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />
+                        </a> 
+                         <b>Anonymous</b>
+{% endif %}
+{%if ( sujet.user.id != 1 ) and ( sujet.user is not  null ) %}
 
              {%if  sujet.user.path is not null %}
-
                     <a  class="clickTip exampleTip" id="clickTipid{{sujet.id}}">
                          {%if "http" in sujet.user.path %}
                             <img src="{{sujet.user.path }}"   class="imageuser" alt="" />
@@ -62,16 +64,13 @@
                         </a> 
              {%endif%}
 
-
-
-
-
         <b>{{sujet.user.username|capitalize}}</b>
-     {% else %}    
-        <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
-        <b>{{sujet.user.username|capitalize}}</b>
-    {% endif %}
-       
+        
+ {#% else %}    
+    <img src="{{ asset('bundles/myappesprit/images/user.png') }}"  class="imageuser" alt="" />  
+    <b>{{sujet.user.username|capitalize}}</b>#}
+{% endif %}
+
            
 
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b> 

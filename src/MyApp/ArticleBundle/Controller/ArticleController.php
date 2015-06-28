@@ -12,6 +12,9 @@ class ArticleController extends Controller {
     public function addAction() {
 
         $em = $this->getDoctrine()->getManager();
+        
+        $user = $this->container->get('security.context')->getToken()->getUser();
+         
         $tags = $em->getRepository('MyAppForumBundle:tag')->findAll();
         $manager = $this->get('collectify_article_manager');/** equivalent de em manager * */
         $articleWithfixedposition = $manager->getArticleWithFixedPosition(); /* array des objetcs a positions FIXéS */
@@ -21,6 +24,7 @@ class ArticleController extends Controller {
         $lespositionsoccupés = $manager->getPositionOccuped(); /* array des positions occupés */
         $premierepositionlibre = $manager->getFirstPositionFree($lespositionsoccupés); /* int la premiere position libre sinon return boolean false */
         $article = new Article();
+        $article->setUser($user);
         $form = $this->createForm(new ArticleType, $article);
         $request = $this->getRequest();
         if ($request->isMethod('Post')) {

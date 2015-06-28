@@ -143,6 +143,11 @@ class User extends BaseUser {
 
  
     protected $notifications;
+    protected $articles;
+    protected $menus;
+    protected $publicites;
+    
+    
     protected $sujets;
     protected $commentaires;
  
