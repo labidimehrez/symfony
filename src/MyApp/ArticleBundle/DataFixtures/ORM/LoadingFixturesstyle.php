@@ -21,8 +21,8 @@ class LoadingFixturesstyle implements FixtureInterface {
         $style1 = new Style();
         $style1->setName("Style1");
         $style1->setTitle("Gris & Red");
-        $style1->setCodecouleurback("#FF0000"); //rouge  
-        $style1->setCodecouleurfront("#E6E6E6"); //gris clair       
+        $style1->setCodecouleurfront("#FF0000"); //rouge  
+        $style1->setCodecouleurback("#E6E6E6"); //gris clair       
         $manager->persist($style1);
 
         $style2 = new Style();
@@ -59,6 +59,14 @@ class LoadingFixturesstyle implements FixtureInterface {
         $style6->setCodecouleurback("#FFFFFF");  //blanc
         $style6->setCodecouleurfront("#190707"); // noir 
         $manager->persist($style6);
+        
+        
+        $style7 = new Style();
+        $style7->setName("Style6");
+        $style7->setTitle("Blanc & Noir  ");
+        $style7->setCodecouleurback("#000000");  //noir
+        $style7->setCodecouleurfront("#190707"); // VERT 
+        $manager->persist($style7);
 
         /***** les articles  **/
        

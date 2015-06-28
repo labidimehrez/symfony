@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4">
         <file>
-            <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
-            <bookmark id="4">
-                <name/>
-                <line>188</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views/Thread/thread_xml_feed.rss.twig</url>
             <bookmark id="1">
                 <name/>
@@ -17,11 +9,26 @@
                 <key/>
             </bookmark>
         </file>
+        <file>
+            <url>src/MyApp/ForumBundle/Resources/views/sujet/Commentaire/affichercommentaireajax.html.twig</url>
+            <bookmark id="4">
+                <name/>
+                <line>188</line>
+                <key/>
+            </bookmark>
+        </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/Controller/sujetController.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/DataFixtures/ORM/LoadingFixturesstyle.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/DependencyInjection/MyAppUserExtension.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/DataFixtures/ORM/LoadingFixturesUser.php</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/DataFixtures/ORM/LoadingFixturessujets.php</file>
             <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/DataFixtures/ORM/LoadingFixturespub.php</file>
+            <file>file:/C:/wamp/www/SolDK/app/config/security.yml</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/Resources/views/article/show.html.twig</file>
+            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/DataFixtures/ORM/LoadingFixturesmenu.php</file>
         </group>
     </open-files>
 </project-private>
