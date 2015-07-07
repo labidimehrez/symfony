@@ -18,7 +18,7 @@
         <table height=" " width=" " border="0">
 
             <tr>
-                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Headline&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">{{'Headline'|trans}}&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
                 <td> {{form_widget(form.headline, { 'attr': {'placeholder': '  Headline ','class':'inp-form', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") ' } }) }}</td> 
@@ -41,7 +41,7 @@
 
 
             <tr>
-                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Copy right </td>
+                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">{{'Copy right'|trans}} </td>
             </tr>
             <tr>
                 <td>{{ form_widget(form.copyrights, { 'attr': {'placeholder': '  copyrights ','class':'inp-form'} }) }}</td>
@@ -65,7 +65,7 @@
 
    
             <tr>
-                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">Style properties&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;">{{'Style properties'|trans}}&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
                 <td> {{form_widget(form.style, { 'attr': {'placeholder': '  tags ','class':'inp-form','style': 'width: 100px', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '  }} ) }}</td>
@@ -86,13 +86,13 @@
 
 
             <tr>
-                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;"> {{form_widget(form.fixedposition) }} &nbsp;&nbsp; Fixed Position</td>
+                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px;"> {{form_widget(form.fixedposition) }} &nbsp;&nbsp; {{'Fixed Position'|trans}}</td>
             </tr>
 
 
 
             <tr>
-                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px; ">Link&nbsp;<b  class="rouge">*</b> &nbsp;</td>
+                <td class="stylegras" style="padding-bottom: 10px;padding-top: 10px; ">{{'Link'|trans}}&nbsp;<b  class="rouge">*</b> &nbsp;</td>
             </tr>
             <tr>
                 <td> {{form_widget(form.lien, { 'attr': {     'placeholder': '  link ','class':'inp-form', 'onmouseover':'tooltip.pop(this, "<h6>&nbsp;&nbsp; This Field is requiered  &nbsp;&nbsp;</h6>") '  } }) }}</td>
@@ -114,9 +114,9 @@
                 <td> </br> </br> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit"  value="Save" class="btn btn-warning btn-lg"/>
+                    <input type="submit"  value="{{'Save'|trans}}" class="btn btn-warning btn-lg"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
-                    <input type="reset" value="Preview" class="btn btn-warning btn-lg"/>    </td>  
+                    <input type="reset" value="{{'Preview'|trans}}" class="btn btn-warning btn-lg"/>    </td>  
             </tr>
 
         </table>

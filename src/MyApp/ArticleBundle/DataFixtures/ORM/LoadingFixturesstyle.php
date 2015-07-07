@@ -11,12 +11,13 @@ class LoadingFixturesstyle implements FixtureInterface {
 
     public function load(ObjectManager $manager) {
 
+        /*
         $sql = 'TRUNCATE TABLE style;';
         $connection = $manager->getConnection();
         $stmt = $connection->prepare($sql);
         $stmt->execute();
         $stmt->closeCursor();
-
+*/
 
         $style1 = new Style();
         $style1->setName("Style1");
@@ -69,13 +70,13 @@ class LoadingFixturesstyle implements FixtureInterface {
         $manager->persist($style7);
 
         /***** les articles  **/
-       
+/*       
         $sql1 = 'TRUNCATE TABLE article;';
         $connection1 = $manager->getConnection();
         $stmt1 = $connection1->prepare($sql1);
         $stmt1->execute();
         $stmt1->closeCursor();
-
+*/
 
 
         $article1 = new Article();

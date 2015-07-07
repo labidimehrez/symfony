@@ -12,13 +12,13 @@ use MyApp\ForumBundle\Entity\sujet;
 class LoadingFixturesUser implements FixtureInterface {
 
     public function load(ObjectManager $manager) {
-
+/*
         $sql = 'TRUNCATE TABLE user;';
         $connection = $manager->getConnection();
         $stmt = $connection->prepare($sql);
         $stmt->execute();
         $stmt->closeCursor();
-
+*/
 
         $user = new User();
         $user->setUsername("root");
@@ -131,13 +131,13 @@ class LoadingFixturesUser implements FixtureInterface {
 
 
 
-
+/*
         $sql1 = 'TRUNCATE TABLE sujet;';
         $connection1 = $manager->getConnection();
         $stmt1 = $connection1->prepare($sql1);
         $stmt1->execute();
         $stmt1->closeCursor();
-
+*/
 
         $sujet1 = new sujet();
         $sujet1->setSujet('La loi et la foi débat éternel');

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace MyApp\EspritBundle\DataFixtures\ORM;
 
@@ -45,13 +45,13 @@ class LoadingFixturesmenu implements FixtureInterface {
         $menu4 = new Menu();
         $menu4->setPosition(4);
         $menu4->setName('ARTICLE');
-        $menu4->setLien('my_app_forum_sujet_sujetrecent');
+        $menu4->setLien('my_app_article_article_add');
         $manager->persist($menu4);
         
         $menu5 = new Menu();
         $menu5->setPosition(5);
         $menu5->setName('ACTUALITÉ');
-        $menu5->setLien('my_app_forum_sujet_sujetrecent');
+        $menu5->setLien('my_app_esprit_homepage');
         $manager->persist($menu5);
         
         $menu6 = new Menu();
@@ -99,8 +99,4 @@ class LoadingFixturesmenu implements FixtureInterface {
 
 }
 
-//       
-//                                                            
-//                                                             
-//                                                            
-//                                                            
+                                                        

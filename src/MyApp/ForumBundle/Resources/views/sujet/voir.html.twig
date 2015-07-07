@@ -35,12 +35,12 @@
         <b class="blacktexte" >{{sujet.user.username|capitalize}}</b>
         <b class="timestyle">{{ time_diff(sujet.datecreation) }}{#{sujet.datecreation|date('') |ago}#} </b>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+{#
         <img src="{{ asset('bundles/myappesprit/images/commentCount.png') }}" height="20px;" width="20px;" alt=""/> &nbsp;
 
 
         <b>{{commentCount}}</b>
-
+#}
         </br> 
 
       {% else%}

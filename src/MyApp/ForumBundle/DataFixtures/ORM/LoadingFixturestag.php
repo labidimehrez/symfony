@@ -11,13 +11,13 @@ class LoadingFixturetag implements FixtureInterface {
     public function load(ObjectManager $manager) {
 
         
-        
+     /*   
         $sql = 'TRUNCATE TABLE tag;';
         $connection = $manager->getConnection();
         $stmt = $connection->prepare($sql);
         $stmt->execute();
         $stmt->closeCursor();  
-        
+      */  
         
         
         
