@@ -19,14 +19,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ArticleBundle/DataFixtures/ORM/LoadingFixturesstyle.php</file>
-            <file>file:/C:/wamp/www/SolDK/app/config/parameters.yml</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/UserBundle/DataFixtures/ORM/LoadingFixturesUser.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/DataFixtures/ORM/LoadingFixturessujets.php</file>
-            <file>file:/C:/wamp/www/SolDK/app/config/parameters.yml.dist</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/ForumBundle/DataFixtures/ORM/LoadingFixturestag.php</file>
-            <file>file:/C:/wamp/www/SolDK/src/MyApp/EspritBundle/DataFixtures/ORM/LoadingFixturesmenu.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

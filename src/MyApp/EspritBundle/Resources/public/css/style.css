@@ -3272,22 +3272,22 @@ input:focus {
     color: #000
 }
 .divedittag {
-    padding: 10px 10px 10px 50px;
-    width: 400px;
-    display: none;
-    -moz-box-shadow: 10px 10px 5px 0 #656565;
-    -webkit-box-shadow: 10px 10px 5px 0 #656565;
-    -o-box-shadow: 10px 10px 5px 0 #656565;
-    box-shadow: 10px 10px 5px 0 #656565;
-    filter: progid: DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-    border: 1px #000;
-    border-style: solid;
-    z-index: 10;
-    position: absolute;
-    margin-top: 15px;
-    overflow: hidden;
-    margin-left: -200px;
-    background-color: #fff
+  padding: 10px 10px 10px 50px;
+  width: 400px;
+  display: none;
+  -moz-box-shadow: 10px 10px 5px 0 #656565;
+  -webkit-box-shadow: 10px 10px 5px 0 #656565;
+  -o-box-shadow: 10px 10px 5px 0 #656565;
+  box-shadow: 10px 10px 5px 0 #656565;
+  filter: progid: DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+  border: 1px #000;
+  border-style: solid;
+  z-index: 10;
+  position: absolute;
+  margin-top: 15px;
+  overflow: hidden;
+  margin-left: -110px;
+  background-color: #fff;
 }
 .inputajoutcommentaire {
     background-color: #E6E6E6;

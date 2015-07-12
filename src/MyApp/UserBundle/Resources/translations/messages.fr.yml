@@ -2,7 +2,7 @@ Log pa: s'authentifier
 log: Login
 pass: Mot de passe
 password: mot de passe
-creerdebat: CREER DEBAT
+creerdebat: CRÉER DÉBAT
 log-in: S'identifier
 creercompte: Créer Utilisateur
 newuser: si tu es nouveau ...
@@ -11,19 +11,19 @@ debatrecent: Débat Récent
 DebatRecent: Débat Récent
 Start a New Topic: Commencer un débat
 Log au sol : Connexion SOL.DK
-welcomesol: Bienvenue au SOL.DK ......
+welcomesol: Bienvenue au SOL.DK ...
 MONPROLFILE: Mon profil
 changprofil: Change profil
-creeprofile: CREER PROFIL
-cree_profile: Creer Profil
+creeprofile: CRÉER PROFIL
+cree_profile: Créer Profil
 voirprofile : MON PROFIL
 seconnecter: CONNECTER
-logout: DECONNECTER
+logout: DÉCONNECTER
 Jacceptelestermes: J'accepte les termes
 Ajoutdestyle: Ajout de Style
 
 changpass: Changer mot de passe
-confpass: Confirm mot de passe
+confpass: Confirmer mot de passe
 home: Accueil
 
 talifoun: Numero de Portable
@@ -32,7 +32,7 @@ nometprenom: Nom & Prenom
 Datenaissance: Date de naissance
 nomuser: Nom Utilisateur
 captcha: Ecrire les lettres
-debatmesleast: DEBAT COMENTEE
+debatmesleast: DÉBATS COMMENTÉS
 SENESTENYHEDER: DERNIÈRES NOUVELLES
 Opretdebat: Créer un débat 
 Læsdebat: Lire Débat
@@ -41,7 +41,7 @@ notifpourcomment: Vous devez être connecté pour commenter
 
 etabli: Etablit
 Sidstonline: dernière log
-Gem: Enregistre
+Gem: Enregistrer
 
 mdpactuel: Mot de passe actuel
 nouveaumdp: Nouveau mot de passe
@@ -68,7 +68,7 @@ Copy right: Droit de copie
 Style properties: Les propriétés de style
 Fixed Position: Position fixé
 Link: lien
-Save: Enregistre
+Save: Enregistrer
 Preview: Retour
 
 texte1: Lars Løkke Rasmussen a surpris les sociaux-démocrates campagne de diffamation contre lui, mais il affirme qu'il serait plutôt se concentrer sur leur politique.

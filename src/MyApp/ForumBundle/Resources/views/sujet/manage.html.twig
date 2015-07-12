@@ -12,16 +12,16 @@
     </header>  
     
     
-     <script type="text/javascript">
-        document.querySelector('#idsubmitdebat').onclick = function(){
-                swal({
-                        title: "Alert automatique!",
-                        text: "Veuillez patientez un peu",
-                        timer: 6000,
-                        showConfirmButton: false
-                });
-        };
-</script>
+                     <script type="text/javascript">
+                        document.querySelector('#idsubmitdebat').onclick = function(){
+                                swal({
+                                        title: "Alert automatique!",
+                                        text: "Veuillez patienter un peu",
+                                        timer: 6000,
+                                        showConfirmButton: false
+                                });
+                        };
+                    </script>
 
   <div> 
       <table style="float: left;margin-left: 7px;"> 
@@ -48,7 +48,7 @@
                     <td>{{sujet.id}}</td> 
                     <td>{{sujet.sujet|truncate(32, true, '...')}}</td> 
                     <td>{{sujet.datecreation|date('Y-M-d')}}  </td> 
-                    <td>{{sujet.thread}}  </td>
+                   {#  <td>{{sujet.thread}}  </td> #}
 
 
                     <td>
@@ -67,15 +67,15 @@
                         </a> 
                         
                         <script type="text/javascript">
-    document.querySelector('#deletedebat').onclick = function() {
-        swal({
-            title: "Alert automatique!",
-            text: "Veuillez patientez un peu",
-            timer: 6000,
-            showConfirmButton: false
-        });
-    };
-</script>
+                            document.querySelector('#deletedebat').onclick = function() {
+                                swal({
+                                    title: "Alert automatique!",
+                                    text: "Veuillez patienter un peu",
+                                    timer: 6000,
+                                    showConfirmButton: false
+                                });
+                            };
+                        </script>
 
 
 

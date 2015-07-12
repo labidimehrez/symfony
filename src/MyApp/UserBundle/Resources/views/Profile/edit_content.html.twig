@@ -112,7 +112,10 @@
         {% for mesdebats in mesdebats %}
     
             <div style="border-bottom: silver;  /* margin-top: 20px; */  border-style: ridge;  padding: 20px;">
-                &nbsp; Votre débat :<b> {{mesdebats.sujet|truncate(25, true, '...')}} </b>  crée depuis  <b> {{ time_diff(sujet.datecreation) }} </b> et lus  <b>{{mesdebats.nblect}}</b> fois
+                &nbsp; Votre débat :<b> {{mesdebats.sujet|truncate(25, true, '...')}} </b>  crée depuis  <b> {{ time_diff(sujet.datecreation) }} </b>
+                 {% if mesdebats.nblect is not null  %}    
+                     et lus  <b>{{mesdebats.nblect}}</b> fois
+                {%endif%}
            </div>
            </br> </br>
        
